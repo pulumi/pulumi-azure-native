@@ -18,6 +18,8 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"os"
+	"strings"
 
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/resource/plugin"
@@ -28,7 +30,6 @@ import (
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/Azure/go-autorest/autorest/azure/auth"
 	"github.com/go-openapi/spec"
-	"github.com/go-openapi/swag"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 )
@@ -36,19 +37,15 @@ import (
 const (
 	// DefaultBaseURI is the default URI used for the service
 	DefaultBaseURI = "https://management.azure.com"
-
-	// DefaultSubscriptionID fixes a subscriptionID for testing
-	DefaultSubscriptionID = "0282681f-7a9e-424b-80b2-96babd57a8a1"
-	// DefaultResourceGroupName fixes a resoruce group for testing
-	DefaultResourceGroupName = "azuretest"
 )
 
 type azurermProvider struct {
-	host                     *provider.HostClient
-	name                     string
-	version                  string
-	client                   autorest.Client
-	containerInstanceSwagger *spec.Swagger
+	host        *provider.HostClient
+	name        string
+	version     string
+	client      autorest.Client
+	resourceMap map[string]Resource
+	config      map[string]string
 }
 
 func makeProvider(host *provider.HostClient, name, version string) (rpc.ResourceProviderServer, error) {
@@ -60,30 +57,22 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 	}
 	client.Authorizer = authorizer
 
-	// Get and store the swagger specs
-	byts, err := swag.LoadFromFileOrHTTP("https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json")
-	if err != nil {
-		return nil, err
-	}
-	swagger := spec.Swagger{}
-	err = swagger.UnmarshalJSON(byts)
-	if err != nil {
-		return nil, err
-	}
-
 	// Return the new provider
 	return &azurermProvider{
-		host:                     host,
-		name:                     name,
-		version:                  version,
-		client:                   client,
-		containerInstanceSwagger: &swagger,
+		host:        host,
+		name:        name,
+		version:     version,
+		client:      client,
+		resourceMap: ResourceMap(),
+		config:      map[string]string{},
 	}, nil
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
 func (k *azurermProvider) Configure(_ context.Context, req *rpc.ConfigureRequest) (*pbempty.Empty, error) {
-	// TODO: Store configuration and initialize clients
+	for key, val := range req.GetVariables() {
+		k.config[strings.TrimPrefix(key, "azurerm:config:")] = val
+	}
 	return &pbempty.Empty{}, nil
 }
 
@@ -130,17 +119,70 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		return nil, err
 	}
 
-	bodyProps := inputs.Mappable()
-	queryParameters := map[string]interface{}{
-		"api-version": "2018-10-01",
+	// Schema-drivenn mapping of inputs into Autorest id/body/query
+	locations := map[string]map[string]interface{}{
+		"client": map[string]interface{}{
+			// TODO: Get this from schema or from user?
+			"subscriptionId": k.config["subscriptionId"],
+			// TODO: Get this from schema or from user?
+			"api-version": "2018-10-01",
+		},
+		"method": inputs.Mappable(),
 	}
-	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.ContainerInstance/containerGroups/%s",
-		autorest.Encode("path", DefaultSubscriptionID),
-		autorest.Encode("path", DefaultResourceGroupName),
-		autorest.Encode("path", "abcd"),
-	)
+	params := map[string]map[string]interface{}{
+		"body":  map[string]interface{}{},
+		"query": map[string]interface{}{},
+		"path":  map[string]interface{}{},
+	}
+	resMapping := k.resourceMap[string(urn.Type())]
+	resSpec, err := resMapping.LoadSpec()
+	if err != nil {
+		return nil, err
+	}
+	path := resSpec.Paths.Paths[resMapping.path]
+	if path.Put == nil {
+		return nil, fmt.Errorf("No 'put' method on resource")
+	}
+	for _, param := range path.Put.Parameters {
+		// TODO: Can we resolve "$refs" globally instead of doing this here?
+		if ptr := param.Ref.Ref.GetPointer(); ptr != nil && !ptr.IsEmpty() {
+			p2, _, err := ptr.Get(resSpec)
+			if err != nil {
+				return nil, err
+			}
+			param = p2.(spec.Parameter)
+		}
+		var val interface{}
+		var has bool
+		loc, hasLoc := param.Extensions.GetString("x-ms-parameter-location")
+		if !hasLoc {
+			fmt.Fprintf(os.Stderr, "missing a 'x-ms-parameter-location' annotation")
+			loc = "method"
+		}
+		val, has = locations[loc][param.Name]
+		if has {
+			if param.In == "body" {
+				// TODO: It seems Autorest inlines "body" parameters, seemingly assuming there will only be one?  Or
+				// that if there are multple they are all merged?
+				for k, v := range val.(map[string]interface{}) {
+					params["body"][k] = v
+				}
+			} else {
+				params[param.In][param.Name] = val
+			}
+		} else {
+			if param.Required {
+				return nil, fmt.Errorf("missing required property '%s'", param.Name)
+			}
+		}
+	}
+	id := resMapping.path
+	for key, value := range params["path"] {
+		encodedVal := autorest.Encode("path", value.(string))
+		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
+	}
 
-	outputs, err := k.azureGetOrCreate(ctx, id, bodyProps, queryParameters)
+	outputs, err := k.azureGetOrCreate(ctx, id, params["body"], params["query"])
 	if err != nil {
 		return nil, err
 	}
