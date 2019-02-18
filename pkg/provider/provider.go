@@ -131,51 +131,16 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	}
 
 	bodyProps := inputs.Mappable()
-	pathParameters := map[string]interface{}{
-		"containerGroupName": autorest.Encode("path", "abcd"),
-		"resourceGroupName":  autorest.Encode("path", DefaultResourceGroupName),
-		"subscriptionId":     autorest.Encode("path", DefaultSubscriptionID),
-	}
 	queryParameters := map[string]interface{}{
 		"api-version": "2018-10-01",
 	}
-	preparer := autorest.CreatePreparer(
-		autorest.AsContentType("application/json; charset=utf-8"),
-		autorest.AsPut(),
-		autorest.WithBaseURL(DefaultBaseURI),
-		autorest.WithPathParameters("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}", pathParameters),
-		autorest.WithJSON(bodyProps),
-		autorest.WithQueryParameters(queryParameters))
-	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
-	if err != nil {
-		return nil, err
-	}
-
-	var resp *http.Response
-	resp, err = autorest.SendWithSender(
-		k.client,
-		prepReq,
-		azure.DoRetryWithRegistration(k.client),
+	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s/providers/Microsoft.ContainerInstance/containerGroups/%s",
+		autorest.Encode("path", DefaultSubscriptionID),
+		autorest.Encode("path", DefaultResourceGroupName),
+		autorest.Encode("path", "abcd"),
 	)
-	if err != nil {
-		return nil, err
-	}
-	future, err := azure.NewFutureFromResponse(resp)
-	if err != nil {
-		return nil, err
-	}
-	err = future.WaitForCompletionRef(ctx, k.client)
-	if err != nil {
-		return nil, err
-	}
-	var outputs map[string]interface{}
-	fmt.Printf("Responding...\n")
-	err = autorest.Respond(
-		future.Response(),
-		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
-		autorest.ByUnmarshallingJSON(&outputs),
-		autorest.ByClosing())
+
+	outputs, err := k.azureGetOrCreate(ctx, id, bodyProps, queryParameters)
 	if err != nil {
 		return nil, err
 	}
@@ -186,10 +151,6 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	)
 	if err != nil {
 		return nil, err
-	}
-	id, ok := outputs["id"].(string)
-	if !ok {
-		return nil, fmt.Errorf("failed to receiver 'id' from newly created resource")
 	}
 	return &rpc.CreateResponse{
 		Id:         id,
@@ -212,7 +173,11 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed
 // to still exist.
 func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
-	// TODO: Actually delete!
+	id := req.GetId()
+	err := k.azureDelete(ctx, id)
+	if err != nil {
+		return nil, err
+	}
 	return &pbempty.Empty{}, nil
 }
 
@@ -231,4 +196,92 @@ func (k *azurermProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.P
 func (k *azurermProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
 	// TODO
 	return &pbempty.Empty{}, nil
+}
+
+func (k *azurermProvider) azureGetOrCreate(
+	ctx context.Context,
+	id string,
+	bodyProps map[string]interface{},
+	queryParameters map[string]interface{}) (map[string]interface{}, error) {
+
+	preparer := autorest.CreatePreparer(
+		autorest.AsContentType("application/json; charset=utf-8"),
+		autorest.AsPut(),
+		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithPath(id),
+		autorest.WithJSON(bodyProps),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return nil, err
+	}
+	var resp *http.Response
+	resp, err = autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return nil, err
+	}
+	future, err := azure.NewFutureFromResponse(resp)
+	if err != nil {
+		return nil, err
+	}
+	err = future.WaitForCompletionRef(ctx, k.client)
+	if err != nil {
+		return nil, err
+	}
+	res, err := future.GetResult(k.client)
+	if err != nil {
+		return nil, err
+	}
+	var outputs map[string]interface{}
+	err = autorest.Respond(
+		res,
+		k.client.ByInspecting(),
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
+		autorest.ByUnmarshallingJSON(&outputs),
+		autorest.ByClosing())
+	if err != nil {
+		return nil, err
+	}
+	return outputs, nil
+}
+
+func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
+	const APIVersion = "2018-10-01"
+	queryParameters := map[string]interface{}{
+		"api-version": APIVersion,
+	}
+	preparer := autorest.CreatePreparer(
+		autorest.AsDelete(),
+		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithPath(id),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return err
+	}
+	resp, err := autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return err
+	}
+	var result map[string]interface{}
+	err = autorest.Respond(
+		resp,
+		k.client.ByInspecting(),
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
+		autorest.ByUnmarshallingJSON(&result),
+		autorest.ByClosing(),
+	)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
