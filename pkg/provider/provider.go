@@ -16,30 +16,75 @@ package provider
 
 import (
 	"context"
+	"fmt"
+	"net/http"
 
-	pbempty "github.com/golang/protobuf/ptypes/empty"
+	"github.com/pulumi/pulumi/pkg/resource"
+	"github.com/pulumi/pulumi/pkg/resource/plugin"
 	"github.com/pulumi/pulumi/pkg/resource/provider"
 	rpc "github.com/pulumi/pulumi/sdk/proto/go"
+
+	"github.com/Azure/go-autorest/autorest"
+	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/Azure/go-autorest/autorest/azure/auth"
+	"github.com/go-openapi/spec"
+	"github.com/go-openapi/swag"
+	"github.com/golang/glog"
+	pbempty "github.com/golang/protobuf/ptypes/empty"
+)
+
+const (
+	// DefaultBaseURI is the default URI used for the service
+	DefaultBaseURI = "https://management.azure.com"
+
+	// DefaultSubscriptionID fixes a subscriptionID for testing
+	DefaultSubscriptionID = "0282681f-7a9e-424b-80b2-96babd57a8a1"
+	// DefaultResourceGroupName fixes a resoruce group for testing
+	DefaultResourceGroupName = "azuretest"
 )
 
 type azurermProvider struct {
-	host    *provider.HostClient
-	name    string
-	version string
+	host                     *provider.HostClient
+	name                     string
+	version                  string
+	client                   autorest.Client
+	containerInstanceSwagger *spec.Swagger
 }
 
 func makeProvider(host *provider.HostClient, name, version string) (rpc.ResourceProviderServer, error) {
+	// Creating a REST client
+	client := autorest.NewClientWithUserAgent("pulumi")
+	authorizer, err := auth.NewAuthorizerFromCLI()
+	if err != nil {
+		return nil, err
+	}
+	client.Authorizer = authorizer
+
+	// Get and store the swagger specs
+	byts, err := swag.LoadFromFileOrHTTP("https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json")
+	if err != nil {
+		return nil, err
+	}
+	swagger := spec.Swagger{}
+	err = swagger.UnmarshalJSON(byts)
+	if err != nil {
+		return nil, err
+	}
+
+	// Return the new provider
 	return &azurermProvider{
-		host:    host,
-		name:    name,
-		version: version,
+		host:                     host,
+		name:                     name,
+		version:                  version,
+		client:                   client,
+		containerInstanceSwagger: &swagger,
 	}, nil
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
 func (k *azurermProvider) Configure(_ context.Context, req *rpc.ConfigureRequest) (*pbempty.Empty, error) {
-	panic("Configure not implemented")
-	// return &pbempty.Empty{}, nil
+	// TODO: Store configuration and initialize clients
+	return &pbempty.Empty{}, nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -54,8 +99,12 @@ func (k *azurermProvider) Invoke(context.Context, *rpc.InvokeRequest) (*rpc.Invo
 // required for correctness, violations thereof can negatively impact the end-user experience, as
 // the provider inputs are using for detecting and rendering diffs.
 func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
-	panic("Check not implemented")
-	// return &rpc.CheckResponse{Inputs: autonamedInputs, Failures: failures}, nil
+	urn := resource.URN(req.GetUrn())
+	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
+	glog.V(9).Infof("%s executing", label)
+
+	newResInputs := req.GetNews()
+	return &rpc.CheckResponse{Inputs: newResInputs, Failures: nil}, nil
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
@@ -71,10 +120,80 @@ func (k *azurermProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
 func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
-	panic("Create not implemented")
-	// return &rpc.CreateResponse{
-	// 	Id: client.FqObjName(initialized), Properties: inputsAndComputed,
-	// }, nil
+	urn := resource.URN(req.GetUrn())
+	label := fmt.Sprintf("%s.Create(%s)", k.name, urn)
+	glog.V(9).Infof("%s executing", label)
+	newResInputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	glog.V(9).Infof("Create Inputs: %v\n", newResInputs)
+
+	bodyProps := map[string]interface{}{
+		"location": "westus2",
+		"properties": map[string]interface{}{
+			"osType": "Linux",
+			"containers": []map[string]interface{}{
+				map[string]interface{}{
+					"name": "foo",
+					"properties": map[string]interface{}{
+						"image": "nginx",
+						"resources": map[string]interface{}{
+							"requests": map[string]interface{}{
+								"memoryInGB": "1",
+								"cpu":        "1",
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+	pathParameters := map[string]interface{}{
+		"containerGroupName": autorest.Encode("path", "abc"),
+		"resourceGroupName":  autorest.Encode("path", DefaultResourceGroupName),
+		"subscriptionId":     autorest.Encode("path", DefaultSubscriptionID),
+	}
+	const APIVersion = "2018-10-01"
+	queryParameters := map[string]interface{}{
+		"api-version": APIVersion,
+	}
+	preparer := autorest.CreatePreparer(
+		autorest.AsContentType("application/json; charset=utf-8"),
+		autorest.AsPut(),
+		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithPathParameters("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}", pathParameters),
+		autorest.WithJSON(bodyProps),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return nil, err
+	}
+
+	var resp *http.Response
+	resp, err = autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return nil, err
+	}
+	future, err := azure.NewFutureFromResponse(resp)
+	if err != nil {
+		return nil, err
+	}
+	err = future.WaitForCompletionRef(ctx, k.client)
+	if err != nil {
+		return nil, err
+	}
+	return &rpc.CreateResponse{
+		Id:         "foo",
+		Properties: nil,
+	}, nil
 }
 
 // Read the current live state associated with a resource.
@@ -92,8 +211,8 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed
 // to still exist.
 func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
-	panic("Delete not implemented")
-	// return &pbempty.Empty{}, nil
+	// TODO: Actually delete!
+	return &pbempty.Empty{}, nil
 }
 
 // GetPluginInfo returns generic information about this plugin, like its version.
