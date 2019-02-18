@@ -123,43 +123,21 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Create(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
-	newResInputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+	inputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	glog.V(9).Infof("Create Inputs: %v\n", newResInputs)
-
-	bodyProps := map[string]interface{}{
-		"location": "westus2",
-		"properties": map[string]interface{}{
-			"osType": "Linux",
-			"containers": []map[string]interface{}{
-				map[string]interface{}{
-					"name": "foo",
-					"properties": map[string]interface{}{
-						"image": "nginx",
-						"resources": map[string]interface{}{
-							"requests": map[string]interface{}{
-								"memoryInGB": "1",
-								"cpu":        "1",
-							},
-						},
-					},
-				},
-			},
-		},
-	}
+	bodyProps := inputs.Mappable()
 	pathParameters := map[string]interface{}{
-		"containerGroupName": autorest.Encode("path", "abc"),
+		"containerGroupName": autorest.Encode("path", "abcd"),
 		"resourceGroupName":  autorest.Encode("path", DefaultResourceGroupName),
 		"subscriptionId":     autorest.Encode("path", DefaultSubscriptionID),
 	}
-	const APIVersion = "2018-10-01"
 	queryParameters := map[string]interface{}{
-		"api-version": APIVersion,
+		"api-version": "2018-10-01",
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
@@ -190,9 +168,32 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	if err != nil {
 		return nil, err
 	}
+	var outputs map[string]interface{}
+	fmt.Printf("Responding...\n")
+	err = autorest.Respond(
+		future.Response(),
+		k.client.ByInspecting(),
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
+		autorest.ByUnmarshallingJSON(&outputs),
+		autorest.ByClosing())
+	if err != nil {
+		return nil, err
+	}
+
+	outputProperties, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(outputs),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.autonamedInputs", label), KeepUnknowns: true, SkipNulls: true},
+	)
+	if err != nil {
+		return nil, err
+	}
+	id, ok := outputs["id"].(string)
+	if !ok {
+		return nil, fmt.Errorf("failed to receiver 'id' from newly created resource")
+	}
 	return &rpc.CreateResponse{
-		Id:         "foo",
-		Properties: nil,
+		Id:         id,
+		Properties: outputProperties,
 	}, nil
 }
 
