@@ -332,9 +332,21 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 	if err != nil {
 		return errors.Wrapf(err, "failed to send delete")
 	}
+	future, err := azure.NewFutureFromResponse(resp)
+	if err != nil {
+		return err
+	}
+	err = future.WaitForCompletionRef(ctx, k.client)
+	if err != nil {
+		return err
+	}
+	res, err := future.GetResult(k.client)
+	if err != nil {
+		return err
+	}
 	var result map[string]interface{}
 	err = autorest.Respond(
-		resp,
+		res,
 		k.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent),
 		autorest.ByUnmarshallingJSON(&result),
