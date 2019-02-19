@@ -18,7 +18,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	"os"
+	"net/url"
 	"strings"
 
 	"github.com/pulumi/pulumi/pkg/resource"
@@ -32,6 +32,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
+	"github.com/pkg/errors"
 )
 
 const (
@@ -137,7 +138,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	resMapping := k.resourceMap[string(urn.Type())]
 	resSpec, err := resMapping.LoadSpec()
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "failed to load spec")
 	}
 	path := resSpec.Paths.Paths[resMapping.path]
 	if path.Put == nil {
@@ -146,7 +147,21 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	for _, param := range path.Put.Parameters {
 		// TODO: Can we resolve "$refs" globally instead of doing this here?
 		if ptr := param.Ref.Ref.GetPointer(); ptr != nil && !ptr.IsEmpty() {
-			p2, _, err := ptr.Get(resSpec)
+			base, err := url.Parse(resMapping.swagggerSpecLocation)
+			if err != nil {
+				return nil, err
+			}
+			relative, err := url.Parse(param.Ref.RemoteURI())
+			if err != nil {
+				return nil, err
+			}
+			finalURL := base.ResolveReference(relative)
+			newSpec, err := loadSwaggerSpec(finalURL.String())
+			if err != nil {
+				return nil, err
+			}
+
+			p2, _, err := ptr.Get(newSpec)
 			if err != nil {
 				return nil, err
 			}
@@ -155,11 +170,15 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		var val interface{}
 		var has bool
 		loc, hasLoc := param.Extensions.GetString("x-ms-parameter-location")
-		if !hasLoc {
-			fmt.Fprintf(os.Stderr, "missing a 'x-ms-parameter-location' annotation")
-			loc = "method"
+		if hasLoc {
+			val, has = locations[loc][param.Name]
+		} else {
+			// If not specified where to find it, look in both with `method` first
+			val, has = locations["method"][param.Name]
+			if !has {
+				val, has = locations["client"][param.Name]
+			}
 		}
-		val, has = locations[loc][param.Name]
 		if has {
 			if param.In == "body" {
 				// TODO: It seems Autorest inlines "body" parameters, seemingly assuming there will only be one?  Or
@@ -182,7 +201,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
 	}
 
-	outputs, err := k.azureGetOrCreate(ctx, id, params["body"], params["query"])
+	outputs, err := k.azureCreateOrUpdate(ctx, id, params["body"], params["query"])
 	if err != nil {
 		return nil, err
 	}
@@ -240,7 +259,7 @@ func (k *azurermProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empt
 	return &pbempty.Empty{}, nil
 }
 
-func (k *azurermProvider) azureGetOrCreate(
+func (k *azurermProvider) azureCreateOrUpdate(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
@@ -303,7 +322,7 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
 	if err != nil {
-		return err
+		return errors.Wrapf(err, "failed to prepare delete")
 	}
 	resp, err := autorest.SendWithSender(
 		k.client,
@@ -311,18 +330,18 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
-		return err
+		return errors.Wrapf(err, "failed to send delete")
 	}
 	var result map[string]interface{}
 	err = autorest.Respond(
 		resp,
 		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent),
 		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing(),
 	)
 	if err != nil {
-		return err
+		return errors.Wrapf(err, "failed to respond to delete")
 	}
 
 	return nil
