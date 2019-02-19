@@ -99,13 +99,14 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
 func (k *azurermProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
-	panic("Diff not implemented")
-	// return &rpc.DiffResponse{
-	// 	Changes:             hasChanges,
-	// 	Replaces:            replaces,
-	// 	Stables:             []string{},
-	// 	DeleteBeforeReplace: deleteBeforeReplace,
-	// }, nil
+	// TODO: Actually figure out whether any properties require replacement
+	// * Anything that goes in `path` requies replacement
+	return &rpc.DiffResponse{
+		Changes:             0,
+		Replaces:            []string{},
+		Stables:             []string{},
+		DeleteBeforeReplace: false,
+	}, nil
 }
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
@@ -120,88 +121,19 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		return nil, err
 	}
 
-	// Schema-drivenn mapping of inputs into Autorest id/body/query
-	locations := map[string]map[string]interface{}{
-		"client": map[string]interface{}{
-			// TODO: Get this from schema or from user?
-			"subscriptionId": k.config["subscriptionId"],
-			// TODO: Get this from schema or from user?
-			"api-version": "2018-10-01",
+	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
+		k.resourceMap[string(urn.Type())],
+		inputs.Mappable(),
+		map[string]interface{}{
+			"subscriptionId": k.config["subscriptionId"], // TODO: Get this from schema or from user?
+			"api-version":    "2018-10-01",               // TODO: Get this from schema or from user?
 		},
-		"method": inputs.Mappable(),
-	}
-	params := map[string]map[string]interface{}{
-		"body":  map[string]interface{}{},
-		"query": map[string]interface{}{},
-		"path":  map[string]interface{}{},
-	}
-	resMapping := k.resourceMap[string(urn.Type())]
-	resSpec, err := resMapping.LoadSpec()
+	)
 	if err != nil {
-		return nil, errors.Wrapf(err, "failed to load spec")
-	}
-	path := resSpec.Paths.Paths[resMapping.path]
-	if path.Put == nil {
-		return nil, fmt.Errorf("No 'put' method on resource")
-	}
-	for _, param := range path.Put.Parameters {
-		// TODO: Can we resolve "$refs" globally instead of doing this here?
-		if ptr := param.Ref.Ref.GetPointer(); ptr != nil && !ptr.IsEmpty() {
-			base, err := url.Parse(resMapping.swagggerSpecLocation)
-			if err != nil {
-				return nil, err
-			}
-			relative, err := url.Parse(param.Ref.RemoteURI())
-			if err != nil {
-				return nil, err
-			}
-			finalURL := base.ResolveReference(relative)
-			newSpec, err := loadSwaggerSpec(finalURL.String())
-			if err != nil {
-				return nil, err
-			}
-
-			p2, _, err := ptr.Get(newSpec)
-			if err != nil {
-				return nil, err
-			}
-			param = p2.(spec.Parameter)
-		}
-		var val interface{}
-		var has bool
-		loc, hasLoc := param.Extensions.GetString("x-ms-parameter-location")
-		if hasLoc {
-			val, has = locations[loc][param.Name]
-		} else {
-			// If not specified where to find it, look in both with `method` first
-			val, has = locations["method"][param.Name]
-			if !has {
-				val, has = locations["client"][param.Name]
-			}
-		}
-		if has {
-			if param.In == "body" {
-				// TODO: It seems Autorest inlines "body" parameters, seemingly assuming there will only be one?  Or
-				// that if there are multple they are all merged?
-				for k, v := range val.(map[string]interface{}) {
-					params["body"][k] = v
-				}
-			} else {
-				params[param.In][param.Name] = val
-			}
-		} else {
-			if param.Required {
-				return nil, fmt.Errorf("missing required property '%s'", param.Name)
-			}
-		}
-	}
-	id := resMapping.path
-	for key, value := range params["path"] {
-		encodedVal := autorest.Encode("path", value.(string))
-		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
+		return nil, err
 	}
 
-	outputs, err := k.azureCreateOrUpdate(ctx, id, params["body"], params["query"])
+	outputs, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		return nil, err
 	}
@@ -227,13 +159,51 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 
 // Update updates an existing resource with new values.
 func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
-	panic("Update not implemented")
-	// return &rpc.UpdateResponse{Properties: inputsAndComputed}, nil
+	urn := resource.URN(req.GetUrn())
+	label := fmt.Sprintf("%s.Update(%s)", k.name, urn)
+	glog.V(9).Infof("%s executing", label)
+	inputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
+		k.resourceMap[string(urn.Type())],
+		inputs.Mappable(),
+		map[string]interface{}{
+			"subscriptionId": k.config["subscriptionId"], // TODO: Get this from schema or from user?
+			"api-version":    "2018-10-01",               // TODO: Get this from schema or from user?
+		},
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	outputs, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams)
+	if err != nil {
+		return nil, err
+	}
+
+	outputProperties, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(outputs),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.autonamedInputs", label), KeepUnknowns: true, SkipNulls: true},
+	)
+	if err != nil {
+		return nil, err
+	}
+	return &rpc.UpdateResponse{
+		Properties: outputProperties,
+	}, nil
 }
 
 // Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed
 // to still exist.
 func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
+	urn := resource.URN(req.GetUrn())
+	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
+	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
 	err := k.azureDelete(ctx, id)
 	if err != nil {
@@ -357,4 +327,83 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 	}
 
 	return nil
+}
+
+func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs, clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
+	// Schema-drivenn mapping of inputs into Autorest id/body/query
+	locations := map[string]map[string]interface{}{
+		"client": clientInputs,
+		"method": methodInputs,
+	}
+	params := map[string]map[string]interface{}{
+		"body":  map[string]interface{}{},
+		"query": map[string]interface{}{},
+		"path":  map[string]interface{}{},
+	}
+	resSpec, err := resource.LoadSpec()
+	if err != nil {
+		return "", nil, nil, errors.Wrapf(err, "failed to load spec")
+	}
+	path := resSpec.Paths.Paths[resource.path]
+	if path.Put == nil {
+		return "", nil, nil, fmt.Errorf("No 'put' method on resource")
+	}
+	for _, param := range path.Put.Parameters {
+		// TODO: Can we resolve "$refs" globally instead of doing this here?
+		if ptr := param.Ref.Ref.GetPointer(); ptr != nil && !ptr.IsEmpty() {
+			base, err := url.Parse(resource.swagggerSpecLocation)
+			if err != nil {
+				return "", nil, nil, err
+			}
+			relative, err := url.Parse(param.Ref.RemoteURI())
+			if err != nil {
+				return "", nil, nil, err
+			}
+			finalURL := base.ResolveReference(relative)
+			newSpec, err := loadSwaggerSpec(finalURL.String())
+			if err != nil {
+				return "", nil, nil, err
+			}
+
+			p2, _, err := ptr.Get(newSpec)
+			if err != nil {
+				return "", nil, nil, err
+			}
+			param = p2.(spec.Parameter)
+		}
+		var val interface{}
+		var has bool
+		loc, hasLoc := param.Extensions.GetString("x-ms-parameter-location")
+		if hasLoc {
+			val, has = locations[loc][param.Name]
+		} else {
+			// If not specified where to find it, look in both with `method` first
+			val, has = locations["method"][param.Name]
+			if !has {
+				val, has = locations["client"][param.Name]
+			}
+		}
+		if has {
+			if param.In == "body" {
+				// TODO: It seems Autorest inlines "body" parameters, seemingly assuming there will only be one?  Or
+				// that if there are multple they are all merged?
+				for k, v := range val.(map[string]interface{}) {
+					params["body"][k] = v
+				}
+			} else {
+				params[param.In][param.Name] = val
+			}
+		} else {
+			if param.Required {
+				return "", nil, nil, fmt.Errorf("missing required property '%s'", param.Name)
+			}
+		}
+	}
+	id := resource.path
+	for key, value := range params["path"] {
+		encodedVal := autorest.Encode("path", value.(string))
+		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
+	}
+	return id, params["body"], params["query"], nil
+
 }
