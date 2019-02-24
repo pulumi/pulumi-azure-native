@@ -31,6 +31,30 @@ func loadSwaggerSpec(path string) (*spec.Swagger, error) {
 
 // ResourceMap gets the full map of ARM resource supported by this provider
 func ResourceMap() map[string]Resource {
+	// TODO:  Resources here are currently manually mapped to REST APIs.  Ideally we would automatically pick these up.
+	// There are two sources:
+	//
+	// * The REST API specs in https://github.om/Azure/azure-rest-api-specs used below
+	//
+	// * The provider and resource type list returned from
+	// https://management.azure.com/subscriptions/{subscriptionId}/providers which provides the nouns that ARM maps to
+	// resource types in ARM templates.  (the same results as `az provider list`)
+	//
+	// The latter more closely describes what's available from ARM templates, but there doesn't apepar to be any clear
+	// way to get from those resource types to the underlying REST API endpoints.  Since we use the REST API endponits
+	// directly to do CRUD, we need to somehow construct this mapping.
+	//
+	// It may be that we want to use both sources, slurp up all of the REST API specs, and then look up resources from
+	// the provider/resorucetype list in the ersulting API specs.
+	//
+	// Or it could be tht just finding all of resources in the  REST API specs that support `put`+`get`+`delete` is
+	// sufficient, and that we don't need to use the provider list at all.  We would need to figure out how to construct
+	// the name - roughly it's the following two transformations - which seem close to being automatable:
+	//
+	// * `Microsoft.ContainerInstance` => `containerinstance` (from resource namespace)
+	//
+	// * `containerGroups` => `ContainerGroup`(from the second to last part of the resource path, also known as
+	// "resource type" in the `/providers` API)
 	return map[string]Resource{
 		"azurerm:containerinstance:ContainerGroup": Resource{
 			swagggerSpecLocation: "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json",

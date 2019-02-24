@@ -114,6 +114,8 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Create(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
+
+	// Deserialize RPC inputs
 	inputs, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
 	})
@@ -121,23 +123,33 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		return nil, err
 	}
 
+	// Construct ARM REST API body and query from intputs
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		k.resourceMap[string(urn.Type())],
 		inputs.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": k.config["subscriptionId"], // TODO: Get this from schema or from user?
-			"api-version":    "2018-10-01",               // TODO: Get this from schema or from user?
+			"subscriptionId": k.config["subscriptionId"],
+			"api-version":    "2018-10-01", // TODO: Get this from schema or from user?
 		},
 	)
 	if err != nil {
 		return nil, err
 	}
 
+	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
+	// (though it's technically impossible since the only operation supported is an upsert).
+	_, err = k.azureGet(ctx, id)
+	if resErr, ok := err.(azure.RequestError); ok && resErr.StatusCode == 404 {
+		return nil, fmt.Errorf("cannot create already existing resource %v", id)
+	}
+
+	//  Submit the `PUT` against the ARM endpoint
 	outputs, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		return nil, err
 	}
 
+	// Serialize and return RPC outputs
 	outputProperties, err := plugin.MarshalProperties(
 		resource.NewPropertyMapFromMap(outputs),
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.autonamedInputs", label), KeepUnknowns: true, SkipNulls: true},
@@ -153,8 +165,22 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 
 // Read the current live state associated with a resource.
 func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
-	panic("Read not implemented")
-	// return &rpc.ReadResponse{Id: id, Properties: inputsAndComputed}, nil
+	urn := resource.URN(req.GetUrn())
+	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
+	glog.V(9).Infof("%s executing", label)
+	id := req.GetId()
+	outputs, err := k.azureGet(ctx, id)
+	if err != nil {
+		return nil, err
+	}
+	outputProperties, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(outputs),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.autonamedInputs", label), KeepUnknowns: true, SkipNulls: true},
+	)
+	if err != nil {
+		return nil, err
+	}
+	return &rpc.ReadResponse{Id: id, Properties: outputProperties}, nil
 }
 
 // Update updates an existing resource with new values.
@@ -255,6 +281,9 @@ func (k *azurermProvider) azureCreateOrUpdate(
 	if err != nil {
 		return nil, err
 	}
+	// TODO: Some APIs are explicitly marked `x-ms-long-running-operation` and possibly we should only do the
+	// Future+WaitForCompletion+GetResult steps in that case.  Though in general it appears to be safe to do these
+	// always.
 	future, err := azure.NewFutureFromResponse(resp)
 	if err != nil {
 		return nil, err
@@ -292,7 +321,7 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 		autorest.WithQueryParameters(queryParameters))
 	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
 	if err != nil {
-		return errors.Wrapf(err, "failed to prepare delete")
+		return err
 	}
 	resp, err := autorest.SendWithSender(
 		k.client,
@@ -300,7 +329,7 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
-		return errors.Wrapf(err, "failed to send delete")
+		return err
 	}
 	future, err := azure.NewFutureFromResponse(resp)
 	if err != nil {
@@ -323,10 +352,44 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 		autorest.ByClosing(),
 	)
 	if err != nil {
-		return errors.Wrapf(err, "failed to respond to delete")
+		return err
 	}
-
 	return nil
+}
+
+func (k *azurermProvider) azureGet(ctx context.Context, id string) (map[string]interface{}, error) {
+	const APIVersion = "2018-10-01"
+	queryParameters := map[string]interface{}{
+		"api-version": APIVersion,
+	}
+	preparer := autorest.CreatePreparer(
+		autorest.AsGet(),
+		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithPath(id),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return nil, err
+	}
+	resp, err := autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return nil, err
+	}
+	var outputs map[string]interface{}
+	err = autorest.Respond(
+		resp,
+		k.client.ByInspecting(),
+		azure.WithErrorUnlessStatusCode(http.StatusOK),
+		autorest.ByUnmarshallingJSON(&outputs),
+		autorest.ByClosing())
+	if err != nil {
+		return nil, err
+	}
+	return outputs, nil
 }
 
 func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs, clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
