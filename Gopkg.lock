@@ -661,6 +661,7 @@
     "github.com/go-openapi/swag",
     "github.com/golang/glog",
     "github.com/golang/protobuf/ptypes/empty",
+    "github.com/pkg/errors",
     "github.com/pulumi/pulumi/pkg/resource",
     "github.com/pulumi/pulumi/pkg/resource/plugin",
     "github.com/pulumi/pulumi/pkg/resource/provider",
