@@ -52,11 +52,20 @@ type azurermProvider struct {
 func makeProvider(host *provider.HostClient, name, version string) (rpc.ResourceProviderServer, error) {
 	// Creating a REST client
 	client := autorest.NewClientWithUserAgent("pulumi")
-	authorizer, err := auth.NewAuthorizerFromCLI()
-	if err != nil {
-		return nil, err
+
+	// First try using a managed service principal - fall back to using the CLI
+	// TODO(jen20): Extract this into a method that is less messy and supports all the options,
+	// and integrate it with provider config
+	envAuthorizer, err := auth.NewAuthorizerFromEnvironment()
+	if err == nil {
+		client.Authorizer = envAuthorizer
+	} else {
+		cliAuthorizer, err := auth.NewAuthorizerFromCLI()
+		if err != nil {
+			return nil, err
+		}
+		client.Authorizer = cliAuthorizer
 	}
-	client.Authorizer = authorizer
 
 	// Return the new provider
 	return &azurermProvider{
