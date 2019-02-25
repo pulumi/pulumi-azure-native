@@ -2,3 +2,5 @@
 **/node_modules/
 Pulumi.*.yaml
 yarn.lock
+package-lock.json
+.idea/
