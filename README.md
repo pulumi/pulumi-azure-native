@@ -6,7 +6,9 @@ APIs and Swagger specs.
 ### Building and Testing
 
 ```
-$ go install ./cmd/pulumi-resource-azurerm/
+$ make ensure
+$ make build
 $ cd ./exampes/simple
+$ pulumi config set azurerm:subscriptionId <sub-id>
 $ pulumi up
 ```
