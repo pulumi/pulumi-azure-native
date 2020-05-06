@@ -15,9 +15,9 @@
 package provider
 
 import (
-	"github.com/pulumi/pulumi/pkg/resource/provider"
-	"github.com/pulumi/pulumi/pkg/util/cmdutil"
-	rpc "github.com/pulumi/pulumi/sdk/proto/go"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/cmdutil"
+	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
+	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
 )
 
 // Serve launches the gRPC server for the resource provider.

@@ -9,6 +9,7 @@ import (
 type Resource struct {
 	swagggerSpecLocation string
 	path                 string
+	apiVersion           string // TODO: Get this from spec
 }
 
 // LoadSpec loads the Swagger spec for the resource
@@ -56,21 +57,29 @@ func ResourceMap() map[string]Resource {
 	// * `containerGroups` => `ContainerGroup`(from the second to last part of the resource path, also known as
 	// "resource type" in the `/providers` API)
 	return map[string]Resource{
-		"azurerm:containerinstance:ContainerGroup": Resource{
+		"azurerm:core:ResourceGroup": Resource{
+			swagggerSpecLocation: "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/resources/resource-manager/Microsoft.Resources/stable/2018-05-01/resources.json",
+			path:                 "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}",
+			apiVersion:           "2018-05-01",
+		},"azurerm:containerinstance:ContainerGroup": Resource{
 			swagggerSpecLocation: "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json",
 			path:                 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}",
+			apiVersion:           "2018-10-01",
 		},
 		"azurerm:compute:VirtualMachine": Resource{
 			swagggerSpecLocation: "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/compute/resource-manager/Microsoft.Compute/stable/2018-10-01/compute.json",
 			path:                 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
+			apiVersion:           "2018-10-01",
 		},
 		"azurerm:network:NetworkInterface": Resource{
 			swagggerSpecLocation: "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-12-01/networkInterface.json",
 			path:                 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}",
+			apiVersion:           "2018-12-01",
 		},
 		"azurerm:network:VirtualNetwork": Resource{
 			swagggerSpecLocation: "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/network/resource-manager/Microsoft.Network/stable/2018-12-01/virtualNetwork.json",
 			path:                 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
+			apiVersion:           "2018-12-01",
 		},
 	}
 }

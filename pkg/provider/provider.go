@@ -17,14 +17,16 @@ package provider
 import (
 	"context"
 	"fmt"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/util/rpcutil/rpcerror"
+	"google.golang.org/grpc/codes"
 	"net/http"
 	"net/url"
 	"strings"
 
-	"github.com/pulumi/pulumi/pkg/resource"
-	"github.com/pulumi/pulumi/pkg/resource/plugin"
-	"github.com/pulumi/pulumi/pkg/resource/provider"
-	rpc "github.com/pulumi/pulumi/sdk/proto/go"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
+	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
+	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
@@ -56,15 +58,15 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 	// First try using a managed service principal - fall back to using the CLI
 	// TODO(jen20): Extract this into a method that is less messy and supports all the options,
 	// and integrate it with provider config
-	envAuthorizer, err := auth.NewAuthorizerFromEnvironment()
+	cliAuthorizer, err := auth.NewAuthorizerFromCLI()
 	if err == nil {
-		client.Authorizer = envAuthorizer
+		client.Authorizer = cliAuthorizer
 	} else {
-		cliAuthorizer, err := auth.NewAuthorizerFromCLI()
+		envAuthorizer, err := auth.NewAuthorizerFromEnvironment()
 		if err != nil {
 			return nil, err
 		}
-		client.Authorizer = cliAuthorizer
+		client.Authorizer = envAuthorizer
 	}
 
 	// Return the new provider
@@ -79,16 +81,22 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
-func (k *azurermProvider) Configure(_ context.Context, req *rpc.ConfigureRequest) (*pbempty.Empty, error) {
+func (k *azurermProvider) Configure(_ context.Context, req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azurerm:config:")] = val
 	}
-	return &pbempty.Empty{}, nil
+	return &rpc.ConfigureResponse{}, nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
 func (k *azurermProvider) Invoke(context.Context, *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
 	panic("Invoke not implemented")
+}
+
+// StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
+// back as a series of messages.
+func (k *azurermProvider) StreamInvoke(req *rpc.InvokeRequest, server rpc.ResourceProvider_StreamInvokeServer) error {
+	panic("StreamInvoke not implemented")
 }
 
 // Check validates that the given property bag is valid for a resource of the given type and returns
@@ -104,6 +112,25 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 
 	newResInputs := req.GetNews()
 	return &rpc.CheckResponse{Inputs: newResInputs, Failures: nil}, nil
+}
+
+func (k *azurermProvider) GetSchema(ctx context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
+	return nil, rpcerror.New(codes.Unimplemented, "GetSchema is unimplemented")
+}
+
+// CheckConfig validates the configuration for this provider.
+func (k *azurermProvider) CheckConfig(ctx context.Context, req *rpc.CheckRequest) (*rpc.CheckResponse, error) {
+	return &rpc.CheckResponse{Inputs: req.GetNews()}, nil
+}
+
+// DiffConfig diffs the configuration for this provider.
+func (k *azurermProvider) DiffConfig(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+	return &rpc.DiffResponse{
+		Changes:             0,
+		Replaces:            []string{},
+		Stables:             []string{},
+		DeleteBeforeReplace: false,
+	}, nil
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
@@ -132,13 +159,20 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		return nil, err
 	}
 
+	subscriptionId := k.config["subscriptionId"]
+	if subscriptionId == "" {
+		return nil, errors.New("Subscription ID is not found. Please configure azurerm:subscriptionId.")
+	}
+
+	res := k.resourceMap[string(urn.Type())]
+
 	// Construct ARM REST API body and query from intputs
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
-		k.resourceMap[string(urn.Type())],
+		res,
 		inputs.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": k.config["subscriptionId"],
-			"api-version":    "2018-10-01", // TODO: Get this from schema or from user?
+			"subscriptionId": subscriptionId,
+			"api-version":    res.apiVersion,
 		},
 	)
 	if err != nil {
@@ -147,9 +181,13 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	_, err = k.azureGet(ctx, id)
-	if resErr, ok := err.(azure.RequestError); ok && resErr.StatusCode == 404 {
+	_, err = k.azureGet(ctx, id, res.apiVersion)
+	if err == nil {
 		return nil, fmt.Errorf("cannot create already existing resource %v", id)
+	}
+
+	if resErr, ok := err.(*azure.RequestError); !ok || resErr.StatusCode != 404 {
+		return nil, errors.Wrapf(err, "cannot check existence of resource %v: %s", id, err.Error())
 	}
 
 	//  Submit the `PUT` against the ARM endpoint
@@ -178,7 +216,8 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
-	outputs, err := k.azureGet(ctx, id)
+	res := k.resourceMap[string(urn.Type())]
+	outputs, err := k.azureGet(ctx, id, res.apiVersion)
 	if err != nil {
 		return nil, err
 	}
@@ -204,12 +243,14 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 		return nil, err
 	}
 
+	res := k.resourceMap[string(urn.Type())]
+
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
-		k.resourceMap[string(urn.Type())],
+		res,
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.config["subscriptionId"], // TODO: Get this from schema or from user?
-			"api-version":    "2018-10-01",               // TODO: Get this from schema or from user?
+			"api-version":    res.apiVersion,
 		},
 	)
 	if err != nil {
@@ -240,7 +281,8 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
-	err := k.azureDelete(ctx, id)
+	resource := k.resourceMap[string(urn.Type())]
+	err := k.azureDelete(ctx, id, resource.apiVersion)
 	if err != nil {
 		return nil, err
 	}
@@ -318,10 +360,9 @@ func (k *azurermProvider) azureCreateOrUpdate(
 	return outputs, nil
 }
 
-func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
-	const APIVersion = "2018-10-01"
+func (k *azurermProvider) azureDelete(ctx context.Context, id string, apiVersion string) error {
 	queryParameters := map[string]interface{}{
-		"api-version": APIVersion,
+		"api-version": apiVersion,
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsDelete(),
@@ -366,10 +407,9 @@ func (k *azurermProvider) azureDelete(ctx context.Context, id string) error {
 	return nil
 }
 
-func (k *azurermProvider) azureGet(ctx context.Context, id string) (map[string]interface{}, error) {
-	const APIVersion = "2018-10-01"
+func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error) {
 	queryParameters := map[string]interface{}{
-		"api-version": APIVersion,
+		"api-version": apiVersion,
 	}
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
