@@ -81,5 +81,10 @@ func ResourceMap() map[string]Resource {
 			path:                 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
 			apiVersion:           "2018-12-01",
 		},
+		"azurerm:web:StaticSite": Resource{
+			swagggerSpecLocation: "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/619f12bbb9d1092c9c126f4bec54f1f0c718ca58/specification/web/resource-manager/Microsoft.Web/stable/2019-08-01/StaticSites.json",
+			path:                 "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}",
+			apiVersion:           "2019-08-01",
+		},
 	}
 }
