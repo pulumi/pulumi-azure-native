@@ -24,8 +24,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
 
 	"github.com/Azure/go-autorest/autorest"
@@ -164,7 +164,11 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		return nil, errors.New("Subscription ID is not found. Please configure azurerm:subscriptionId.")
 	}
 
-	res := k.resourceMap[string(urn.Type())]
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+	}
 
 	// Construct ARM REST API body and query from intputs
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
@@ -442,72 +446,75 @@ func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion st
 }
 
 func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs, clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
-	// Schema-drivenn mapping of inputs into Autorest id/body/query
+	// Schema-driven mapping of inputs into Autorest id/body/query
 	locations := map[string]map[string]interface{}{
 		"client": clientInputs,
 		"method": methodInputs,
 	}
 	params := map[string]map[string]interface{}{
-		"body":  map[string]interface{}{},
-		"query": map[string]interface{}{},
-		"path":  map[string]interface{}{},
+		"body":  {},
+		"query": {},
+		"path":  {},
 	}
 	resSpec, err := resource.LoadSpec()
 	if err != nil {
-		return "", nil, nil, errors.Wrapf(err, "failed to load spec")
+		return "", nil, nil, errors.Wrapf(err, "failed to load spec %s", resource.swagggerSpecLocation)
 	}
 	path := resSpec.Paths.Paths[resource.path]
 	if path.Put == nil {
-		return "", nil, nil, fmt.Errorf("No 'put' method on resource")
+		return "", nil, nil, errors.New("No 'put' method on resource")
 	}
+	base, err := url.Parse(resource.swagggerSpecLocation)
+	if err != nil {
+		return "", nil, nil, err
+	}
+
+	resolver := referenceResolver{baseURL: base}
 	for _, param := range path.Put.Parameters {
-		// TODO: Can we resolve "$refs" globally instead of doing this here?
-		if ptr := param.Ref.Ref.GetPointer(); ptr != nil && !ptr.IsEmpty() {
-			base, err := url.Parse(resource.swagggerSpecLocation)
-			if err != nil {
-				return "", nil, nil, err
-			}
-			relative, err := url.Parse(param.Ref.RemoteURI())
-			if err != nil {
-				return "", nil, nil, err
-			}
-			finalURL := base.ResolveReference(relative)
-			newSpec, err := loadSwaggerSpec(finalURL.String())
-			if err != nil {
-				return "", nil, nil, err
+		param, paramSpec, err := resolver.resolveParameter(param, resSpec)
+		if err != nil {
+			return "", nil, nil, err
+		}
+
+		if param.In == "body" {
+			if param.Schema == nil {
+				return "", nil, nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
 			}
 
-			p2, _, err := ptr.Get(newSpec)
+			properties, required, err := resolver.resolveProperties(*param.Schema, paramSpec)
 			if err != nil {
-				return "", nil, nil, err
+				return "", nil, nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
 			}
-			param = p2.(spec.Parameter)
-		}
-		var val interface{}
-		var has bool
-		loc, hasLoc := param.Extensions.GetString("x-ms-parameter-location")
-		if hasLoc {
-			val, has = locations[loc][param.Name]
-		} else {
-			// If not specified where to find it, look in both with `method` first
-			val, has = locations["method"][param.Name]
-			if !has {
-				val, has = locations["client"][param.Name]
-			}
-		}
-		if has {
-			if param.In == "body" {
-				// TODO: It seems Autorest inlines "body" parameters, seemingly assuming there will only be one?  Or
-				// that if there are multple they are all merged?
-				for k, v := range val.(map[string]interface{}) {
-					params["body"][k] = v
+
+			for _, name := range required {
+				if _, has := methodInputs[name]; !has {
+					return "", nil, nil, fmt.Errorf("missing required property '%s' in '%s'", name, param.Name)
 				}
-			} else {
-				params[param.In][param.Name] = val
+			}
+			for _, name := range properties {
+				if value, has := methodInputs[name]; has {
+					params["body"][name] = value
+				}
 			}
 		} else {
-			if param.Required {
-				return "", nil, nil, fmt.Errorf("missing required property '%s'", param.Name)
+			var val interface{}
+			var has bool
+			loc, hasLoc := param.Extensions.GetString("x-ms-parameter-location")
+			if hasLoc {
+				val, has = locations[loc][param.Name]
+			} else {
+				// If not specified where to find it, look in both with `method` first
+				val, has = methodInputs[param.Name]
+				if !has {
+					val, has = clientInputs[param.Name]
+				}
+			}
+			if has {
+				params[param.In][param.Name] = val
+			} else {
+				if param.Required {
+					return "", nil, nil, fmt.Errorf("missing required property '%s' %v", param.Name, param)
+				}
 			}
 		}
 	}
@@ -517,5 +524,81 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
 	}
 	return id, params["body"], params["query"], nil
+}
 
+// referenceResolver navigates references in schema definitions.
+type referenceResolver struct {
+	baseURL *url.URL
+}
+
+// resolveParameter navigates to the source of parameter reference needed and returns the referenced parameter and its
+// schema. In case of no reference, it returns input parameters back.
+func (r *referenceResolver) resolveParameter(param spec.Parameter, swagger *spec.Swagger) (*spec.Parameter,
+	*spec.Swagger, error) {
+	ptr, otherSwagger, ok, err := r.resolveReference(param.Ref, swagger)
+	if err != nil {
+		return nil, nil, err
+	}
+	if !ok {
+		return &param, swagger, nil
+	}
+
+	parameter := ptr.(spec.Parameter)
+	return &parameter, otherSwagger, nil
+}
+
+// resolveProperties returns the slice of schema's property names and the slice of schema's required properties. It
+// does so even if the given schema is a reference.
+func (r *referenceResolver) resolveProperties(schema spec.Schema, swagger *spec.Swagger) ([]string, []string, error) {
+	ptr, swagger, ok, err := r.resolveReference(schema.Ref, swagger)
+	if err != nil {
+		return nil, nil, err
+	}
+	if ok {
+		schema = ptr.(spec.Schema)
+	}
+
+	var properties []string
+	var required []string
+
+	for k, _ := range schema.Properties {
+		properties = append(properties, k)
+	}
+	for _, k := range schema.Required {
+		required = append(required, k)
+	}
+
+	for _, s := range schema.AllOf {
+		ps, rs, err := r.resolveProperties(s, swagger)
+		if err != nil {
+			return nil, nil, err
+		}
+
+		properties = append(properties, ps...)
+		required = append(required, rs...)
+	}
+
+	return properties, required, nil
+}
+
+func (r *referenceResolver) resolveReference(ref spec.Ref, swagger *spec.Swagger) (interface{}, *spec.Swagger, bool, error) {
+	ptr := ref.GetPointer()
+	if ptr == nil || ptr.IsEmpty() {
+		return nil, swagger, false, nil
+	}
+
+	relative, err := url.Parse(ref.RemoteURI())
+	if err == nil && ref.RemoteURI() != "" {
+		finalURL := r.baseURL.ResolveReference(relative)
+		swagger, err = loadSwaggerSpec(finalURL.String())
+		if err != nil {
+			return nil, nil, false, errors.Wrapf(err, "load Swagger spec")
+		}
+	}
+
+	pointer, _, err := ptr.Get(swagger)
+	if err != nil {
+		return nil, nil, false, errors.Wrapf(err, "get pointer")
+	}
+	return pointer, swagger, true, nil
 }
