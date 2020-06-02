@@ -1,193 +1,192 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "dskfklf32h",
-        "apiVersion": "2017-10-01",
-        "location": "westus2",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "dskfklf32h",
+      "apiVersion": "2017-10-01",
+      "location": "westus2",
+      "sku": {
+        "name": "Standard_LRS"
       },
-      {
-        "name": "createshare-containerinstance2",
-        "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-02-01-preview",
-        "location": "westus2",
-        "properties": {
-          "containers": [
-            {
-              "name": "wordpress-share",
-              "properties": {
-                "image": "microsoft/azure-cli",
-                "command": [
-                  "az",
-                  "storage",
-                  "share",
-                  "create",
-                  "--name",
-                  "wordpress-share"
-                ],
-                "environmentVariables": [
-                  {
-                    "name": "AZURE_STORAGE_KEY",
-                    "value": "O3H1oTyqQ69AGJqUWSINSVGOmLXfaMlNnMPbB1JmZWo/X546qG1XAgzTQBpT7GtM3QE5kgOD4RHV/GlmfMNVtw=="
-                  },
-                  {
-                    "name": "AZURE_STORAGE_ACCOUNT",
-                    "value": "dskfklf32h"
-                  }
-                ],
-                "resources": {
-                  "requests": {
-                    "cpu": "0.5",
-                    "memoryInGb": "0.7"
-                  }
+      "kind": "Storage",
+      "properties": {}
+    },
+    {
+      "name": "createshare-containerinstance2",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2018-02-01-preview",
+      "location": "westus2",
+      "properties": {
+        "containers": [
+          {
+            "name": "wordpress-share",
+            "properties": {
+              "image": "microsoft/azure-cli",
+              "command": [
+                "az",
+                "storage",
+                "share",
+                "create",
+                "--name",
+                "wordpress-share"
+              ],
+              "environmentVariables": [
+                {
+                  "name": "AZURE_STORAGE_KEY",
+                  "value": "<insert key>"
+                },
+                {
+                  "name": "AZURE_STORAGE_ACCOUNT",
+                  "value": "dskfklf32h"
                 }
-              }
-            },
-            {
-              "name": "mysql-share",
-              "properties": {
-                "image": "microsoft/azure-cli",
-                "command": [
-                  "az",
-                  "storage",
-                  "share",
-                  "create",
-                  "--name",
-                  "mysql-share"
-                ],
-                "environmentVariables": [
-                  {
-                    "name": "AZURE_STORAGE_KEY",
-                    "value": "O3H1oTyqQ69AGJqUWSINSVGOmLXfaMlNnMPbB1JmZWo/X546qG1XAgzTQBpT7GtM3QE5kgOD4RHV/GlmfMNVtw=="
-                  },
-                  {
-                    "name": "AZURE_STORAGE_ACCOUNT",
-                    "value": "dskfklf32h"
-                  }
-                ],
-                "resources": {
-                  "requests": {
-                    "cpu": "0.5",
-                    "memoryInGb": "0.7"
-                  }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "0.5",
+                  "memoryInGb": "0.7"
                 }
               }
             }
-          ],
-          "restartPolicy": "OnFailure",
-          "osType": "Linux"
-        }
-      },
-      {
-        "name": "wordpress-containerinstance",
-        "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-02-01-preview",
-        "location": "westus2",
-        "properties": {
-          "containers": [
-            {
-              "name": "wordpress",
-              "properties": {
-                "image": "wordpress:4.9-apache",
-                "ports": [
-                  {
-                    "protocol": "Tcp",
-                    "port": 80
-                  }
-                ],
-                "environmentVariables": [
-                  {
-                    "name": "WORDPRESS_DB_HOST",
-                    "value": "127.0.0.1:3306"
-                  },
-                  {
-                    "name": "WORDPRESS_DB_PASSWORD",
-                    "value": "Not2Secure!324"
-                  }
-                ],
-                "volumeMounts": [
-                  {
-                    "mountPath": "/var/www/html",
-                    "name": "wordpressfile"
-                  }
-                ],
-                "resources": {
-                  "requests": {
-                    "cpu": "0.5",
-                    "memoryInGb": "0.7"
-                  }
-                }
-              }
-            },
-            {
-              "name": "mysql",
-              "properties": {
-                "image": "mysql:5.6",
-                "ports": [
-                  {
-                    "protocol": "Tcp",
-                    "port": 3306
-                  }
-                ],
-                "environmentVariables": [
-                  {
-                    "name": "MYSQL_ROOT_PASSWORD",
-                    "value": "Not2Secure!324"
-                  }
-                ],
-                "volumeMounts": [
-                  {
-                    "mountPath": "/var/lib/mysql",
-                    "name": "mysqlfile"
-                  }
-                ],
-                "resources": {
-                  "requests": {
-                    "cpu": "0.5",
-                    "memoryInGb": "0.7"
-                  }
-                }
-              }
-            }
-          ],
-          "volumes": [
-            {
-              "azureFile": {
-                "shareName": "wordpress-share",
-                "storageAccountKey": "O3H1oTyqQ69AGJqUWSINSVGOmLXfaMlNnMPbB1JmZWo/X546qG1XAgzTQBpT7GtM3QE5kgOD4RHV/GlmfMNVtw==",
-                "storageAccountName": "dskfklf32h"
-              },
-              "name": "wordpressfile"
-            },
-            {
-              "azureFile": {
-                "shareName": "mysql-share",
-                "storageAccountKey": "O3H1oTyqQ69AGJqUWSINSVGOmLXfaMlNnMPbB1JmZWo/X546qG1XAgzTQBpT7GtM3QE5kgOD4RHV/GlmfMNVtw==",
-                "storageAccountName": "dskfklf32h"
-              },
-              "name": "mysqlfile"
-            }
-          ],
-          "ipAddress": {
-            "ports": [
-              {
-                "protocol": "Tcp",
-                "port": 80
-              }
-            ],
-            "type": "Public",
-            "dnsNameLabel": "fsewge23s"
           },
-          "osType": "Linux"
-        }
+          {
+            "name": "mysql-share",
+            "properties": {
+              "image": "microsoft/azure-cli",
+              "command": [
+                "az",
+                "storage",
+                "share",
+                "create",
+                "--name",
+                "mysql-share"
+              ],
+              "environmentVariables": [
+                {
+                  "name": "AZURE_STORAGE_KEY",
+                  "value": "<insert key>"
+                },
+                {
+                  "name": "AZURE_STORAGE_ACCOUNT",
+                  "value": "dskfklf32h"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "0.5",
+                  "memoryInGb": "0.7"
+                }
+              }
+            }
+          }
+        ],
+        "restartPolicy": "OnFailure",
+        "osType": "Linux"
       }
-    ]
-  }
-  
+    },
+    {
+      "name": "wordpress-containerinstance",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2018-02-01-preview",
+      "location": "westus2",
+      "properties": {
+        "containers": [
+          {
+            "name": "wordpress",
+            "properties": {
+              "image": "wordpress:4.9-apache",
+              "ports": [
+                {
+                  "protocol": "Tcp",
+                  "port": 80
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "WORDPRESS_DB_HOST",
+                  "value": "127.0.0.1:3306"
+                },
+                {
+                  "name": "WORDPRESS_DB_PASSWORD",
+                  "value": "Not2Secure!324"
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/www/html",
+                  "name": "wordpressfile"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "0.5",
+                  "memoryInGb": "0.7"
+                }
+              }
+            }
+          },
+          {
+            "name": "mysql",
+            "properties": {
+              "image": "mysql:5.6",
+              "ports": [
+                {
+                  "protocol": "Tcp",
+                  "port": 3306
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "MYSQL_ROOT_PASSWORD",
+                  "value": "Not2Secure!324"
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/lib/mysql",
+                  "name": "mysqlfile"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "0.5",
+                  "memoryInGb": "0.7"
+                }
+              }
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "azureFile": {
+              "shareName": "wordpress-share",
+              "storageAccountKey": "<insert key>",
+              "storageAccountName": "dskfklf32h"
+            },
+            "name": "wordpressfile"
+          },
+          {
+            "azureFile": {
+              "shareName": "mysql-share",
+              "storageAccountKey": "<insert key>",
+              "storageAccountName": "dskfklf32h"
+            },
+            "name": "mysqlfile"
+          }
+        ],
+        "ipAddress": {
+          "ports": [
+            {
+              "protocol": "Tcp",
+              "port": 80
+            }
+          ],
+          "type": "Public",
+          "dnsNameLabel": "fsewge23s"
+        },
+        "osType": "Linux"
+      }
+    }
+  ]
+}
