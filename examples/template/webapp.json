@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "name": "hostingPlansdaf23",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "westus2",
+      "tags": {
+        "displayName": "HostingPlan"
+      },
+      "sku": {
+        "name": "F1",
+        "capacity": 1
+      },
+      "properties": {
+        "name": "hostingPlansdaf23"
+      }
+    },
+    {
+      "apiVersion": "2015-08-01",
+      "name": "websitedsflkh12",
+      "type": "Microsoft.Web/sites",
+      "location": "westus2",
+      "tags": {
+        "displayName": "Website"
+      },
+      "properties": {
+        "name": "websitedsflkh12",
+        "serverFarmId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/azurermtemplates/providers/Microsoft.Web/serverfarms/hostingPlansdaf23"
+      }
+    },
+    {
+      "name": "cacheadwae12",
+      "type": "Microsoft.Cache/Redis",
+      "location": "westus2",
+      "apiVersion": "2015-08-01",
+      "tags": {
+        "displayName": "cache"
+      },
+      "properties": {
+        "sku": {
+          "name": "Basic",
+          "family": "C",
+          "capacity": 0
+        }
+      }
+    }
+  ]
+}

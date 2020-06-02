@@ -5,7 +5,7 @@ PROJECT         := github.com/pulumi/pulumi-azurerm
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         := 0.1
 
-VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-kubernetes/provider/v2/pkg/version.Version=${VERSION}"
+VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/v2/pkg/version.Version=${VERSION}"
 
 GO              ?= go
 CURL            ?= curl
