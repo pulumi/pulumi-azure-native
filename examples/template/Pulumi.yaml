@@ -1,0 +1,3 @@
+name: template
+runtime: nodejs
+description: Deploy from ARM templates
