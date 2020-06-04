@@ -95,7 +95,7 @@ func (r *referenceResolver) resolvePropertyMap(schema spec.Schema, swagger *spec
 
 	if rec > 0 {
 		for _, s := range schema.AllOf {
-			ps, err := r.resolvePropertyMap(s, swagger, rec)
+			ps, err := r.resolvePropertyMap(s, swagger, rec-1)
 			if err != nil {
 				return nil, err
 			}
