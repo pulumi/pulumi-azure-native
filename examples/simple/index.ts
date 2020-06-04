@@ -40,6 +40,25 @@ class StaticSite extends pulumi.CustomResource {
     }
 }
 
+class AppServicePlan extends pulumi.CustomResource {
+    id: pulumi.Output<string>;
+    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
+        super("azurerm:web:AppServicePlan", name, args, opts);
+    }
+}
+
+class AppService extends pulumi.CustomResource {
+    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
+        super("azurerm:web:AppService", name, args, opts);
+    }
+}
+
+class StorageAccount extends pulumi.CustomResource {
+    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
+        super("azurerm:storage:Account", name, args, opts);
+    }
+}
+
 const resourceGroupName = "azurerm";
 
 const resourceGroup = new ResourceGroup("azurerm", {
@@ -157,4 +176,38 @@ const virtualmachine  = new VirtualMachine("vm", {
             adminPassword: "someFancyp@wd2!",
         },
     },
+});
+
+const appServicePlan  = new AppServicePlan("app-plan", {
+    resourceGroupName: resourceGroupName,
+    name: "app-plan",
+    location: "westus2",
+    kind: "Linux",
+    sku: {
+        name: "F1",
+        capacity: 1
+    },
+});
+
+const appService = new AppService("app", {
+    resourceGroupName: resourceGroupName,
+    name: "pulumiapp2418a",
+    location: "westus2",
+    properties: {
+        serverFarmId: appServicePlan.id,
+    },
+});
+
+const storageAccount = new StorageAccount("sa", {
+    resourceGroupName: resourceGroupName,
+    accountName: "pulumi14345sa",
+    location: "westus2",
+    sku: {
+        name: "Standard_LRS",
+        tier: "Standard",
+    },
+    kind: "StorageV2",
+    properties: {
+        supportsHttpsTrafficOnly: true,
+    }
 });

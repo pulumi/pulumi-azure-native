@@ -12,6 +12,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v2 v2.0.1-0.20200424001829-090f390d7b1a
 	github.com/pulumi/pulumi/sdk/v2 v2.0.1-0.20200424001829-090f390d7b1a
+	github.com/stretchr/testify v1.5.1
 	google.golang.org/grpc v1.28.0
 )
 
