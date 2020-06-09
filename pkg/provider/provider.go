@@ -17,11 +17,11 @@ package provider
 import (
 	"context"
 	"fmt"
+	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/rpcutil/rpcerror"
 	"google.golang.org/grpc/codes"
 	"net/http"
-	"net/url"
 	"strings"
 
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
@@ -31,7 +31,6 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/Azure/go-autorest/autorest/azure/auth"
-	"github.com/go-openapi/spec"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
@@ -69,13 +68,18 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 		client.Authorizer = envAuthorizer
 	}
 
+	resourceMap, err := ResourceMap()
+	if err != nil {
+		return nil, errors.Wrap(err, "building resource map")
+	}
+
 	// Return the new provider
 	return &azurermProvider{
 		host:        host,
 		name:        name,
 		version:     version,
 		client:      client,
-		resourceMap: ResourceMap(),
+		resourceMap: resourceMap,
 		config:      map[string]string{},
 	}, nil
 }
@@ -456,22 +460,19 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 		"query": {},
 		"path":  {},
 	}
-	resSpec, err := resource.LoadSpec()
+
+	spec, err := openapi.NewSpec(resource.swagggerSpecLocation)
 	if err != nil {
 		return "", nil, nil, errors.Wrapf(err, "failed to load spec %s", resource.swagggerSpecLocation)
 	}
-	path := resSpec.Paths.Paths[resource.path]
+	path := spec.Swagger.Paths.Paths[resource.path]
 	if path.Put == nil {
 		return "", nil, nil, errors.New("No 'put' method on resource")
 	}
-	base, err := url.Parse(resource.swagggerSpecLocation)
-	if err != nil {
-		return "", nil, nil, err
-	}
 
-	resolver := referenceResolver{baseURL: base}
+
 	for _, param := range path.Put.Parameters {
-		param, paramSpec, err := resolver.resolveParameter(param, resSpec)
+		param, err := spec.ResolveParameter(param)
 		if err != nil {
 			return "", nil, nil, err
 		}
@@ -481,7 +482,12 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 				return "", nil, nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
 			}
 
-			properties, required, err := resolver.resolveProperties(*param.Schema, paramSpec)
+			schema, err := param.ResolveSchema(*param.Schema)
+			if err != nil {
+				return "", nil, nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
+			}
+
+			properties, required, err := k.resolveProperties(*schema)
 			if err != nil {
 				return "", nil, nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
 			}
@@ -526,38 +532,8 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 	return id, params["body"], params["query"], nil
 }
 
-// referenceResolver navigates references in schema definitions.
-type referenceResolver struct {
-	baseURL *url.URL
-}
-
-// resolveParameter navigates to the source of parameter reference needed and returns the referenced parameter and its
-// schema. In case of no reference, it returns input parameters back.
-func (r *referenceResolver) resolveParameter(param spec.Parameter, swagger *spec.Swagger) (*spec.Parameter,
-	*spec.Swagger, error) {
-	ptr, otherSwagger, ok, err := r.resolveReference(param.Ref, swagger)
-	if err != nil {
-		return nil, nil, err
-	}
-	if !ok {
-		return &param, swagger, nil
-	}
-
-	parameter := ptr.(spec.Parameter)
-	return &parameter, otherSwagger, nil
-}
-
-// resolveProperties returns the slice of schema's property names and the slice of schema's required properties. It
-// does so even if the given schema is a reference.
-func (r *referenceResolver) resolveProperties(schema spec.Schema, swagger *spec.Swagger) ([]string, []string, error) {
-	ptr, swagger, ok, err := r.resolveReference(schema.Ref, swagger)
-	if err != nil {
-		return nil, nil, err
-	}
-	if ok {
-		schema = ptr.(spec.Schema)
-	}
-
+// resolveProperties returns the slice of schema's property names and the slice of schema's required properties.
+func (k *azurermProvider) resolveProperties(schema openapi.Schema) ([]string, []string, error) {
 	var properties []string
 	var required []string
 
@@ -569,7 +545,12 @@ func (r *referenceResolver) resolveProperties(schema spec.Schema, swagger *spec.
 	}
 
 	for _, s := range schema.AllOf {
-		ps, rs, err := r.resolveProperties(s, swagger)
+		allOfSchema, err := schema.ResolveSchema(s)
+		if err != nil {
+			return nil, nil, err
+		}
+
+		ps, rs, err := k.resolveProperties(*allOfSchema)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -579,26 +560,4 @@ func (r *referenceResolver) resolveProperties(schema spec.Schema, swagger *spec.
 	}
 
 	return properties, required, nil
-}
-
-func (r *referenceResolver) resolveReference(ref spec.Ref, swagger *spec.Swagger) (interface{}, *spec.Swagger, bool, error) {
-	ptr := ref.GetPointer()
-	if ptr == nil || ptr.IsEmpty() {
-		return nil, swagger, false, nil
-	}
-
-	relative, err := url.Parse(ref.RemoteURI())
-	if err == nil && ref.RemoteURI() != "" {
-		finalURL := r.baseURL.ResolveReference(relative)
-		swagger, err = loadSwaggerSpec(finalURL.String())
-		if err != nil {
-			return nil, nil, false, errors.Wrapf(err, "load Swagger spec")
-		}
-	}
-
-	pointer, _, err := ptr.Get(swagger)
-	if err != nil {
-		return nil, nil, false, errors.Wrapf(err, "get pointer")
-	}
-	return pointer, swagger, true, nil
 }

@@ -3,8 +3,8 @@ package provider
 import (
 	"fmt"
 	"github.com/go-openapi/spec"
+	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
 	"github.com/stretchr/testify/assert"
-	"net/url"
 	"sort"
 	"strings"
 	"testing"
@@ -23,34 +23,30 @@ func TestPatchVsPut(t *testing.T) {
 
 	for _, name := range keys {
 		r := resourceMap[name]
-		spec, err := loadSwaggerSpec(r.swagggerSpecLocation)
+		spec, err := openapi.NewSpec(r.swagggerSpecLocation)
 		assert.NoError(t, err)
 
-		path := spec.Paths.Paths[r.path]
+		path := spec.Swagger.Paths.Paths[r.path]
 
-		base, err := url.Parse(r.swagggerSpecLocation)
-		assert.NoError(t, err)
-
-		resolver := referenceResolver{baseURL: base}
-		putParams := resolver.listProperties(t, path.Put, spec)
+		putParams := listProperties(t, spec, path.Put)
 		fmt.Println(name)
 		fmt.Printf("  PUT  : %s\n", strings.Join(putParams, ", "))
-		patchParams := resolver.listProperties(t, path.Patch, spec)
+		patchParams := listProperties(t, spec, path.Patch)
 		fmt.Printf("  PATCH: %s\n", strings.Join(patchParams, ", "))
 		fmt.Println("======")
 	}
 }
 
-func (r *referenceResolver) listProperties(t *testing.T, operation *spec.Operation, spec *spec.Swagger) []string {
+func listProperties(t *testing.T, spec *openapi.Spec, operation *spec.Operation) []string {
 	parameters := make([]string, 0)
 	for _, param := range operation.Parameters {
-		param, paramSpec, err := r.resolveParameter(param, spec)
+		param, err := spec.ResolveParameter(param)
 		assert.NoError(t, err)
 
 		if param.In == "body" {
 			assert.NotNil(t, param.Schema)
 
-			properties, err := r.resolvePropertyMap(*param.Schema, paramSpec, 3)
+			properties, err := resolvePropertyMap(spec.ReferenceContext, *param.Schema, 3)
 			assert.NoError(t, err)
 
 			for k, v := range properties {
@@ -68,13 +64,10 @@ func (r *referenceResolver) listProperties(t *testing.T, operation *spec.Operati
 	return parameters
 }
 
-func (r *referenceResolver) resolvePropertyMap(schema spec.Schema, swagger *spec.Swagger, rec int) (map[string][]string, error) {
-	ptr, swagger, ok, err := r.resolveReference(schema.Ref, swagger)
+func resolvePropertyMap(spec *openapi.ReferenceContext, s spec.Schema, rec int) (map[string][]string, error) {
+	schema, err := spec.ResolveSchema(s)
 	if err != nil {
 		return nil, err
-	}
-	if ok {
-		schema = ptr.(spec.Schema)
 	}
 
 	properties := map[string][]string{}
@@ -85,7 +78,7 @@ func (r *referenceResolver) resolvePropertyMap(schema spec.Schema, swagger *spec
 		}
 		subs := make([]string, 0)
 		if rec > 0 {
-			subProperties, _ := r.resolvePropertyMap(v, swagger, rec-1)
+			subProperties, _ := resolvePropertyMap(schema.ReferenceContext, v, rec-1)
 			for sk, _ := range subProperties {
 				subs = append(subs, sk)
 			}
@@ -95,7 +88,7 @@ func (r *referenceResolver) resolvePropertyMap(schema spec.Schema, swagger *spec
 
 	if rec > 0 {
 		for _, s := range schema.AllOf {
-			ps, err := r.resolvePropertyMap(s, swagger, rec-1)
+			ps, err := resolvePropertyMap(schema.ReferenceContext, s, rec-1)
 			if err != nil {
 				return nil, err
 			}
