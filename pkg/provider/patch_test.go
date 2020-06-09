@@ -13,7 +13,8 @@ import (
 // TestPatchVsPut is not really a test - it prints the differences between the shapes of PATCH and PUT operation for
 // different known resources.
 func TestPatchVsPut(t *testing.T) {
-	resourceMap := ResourceMap()
+	resourceMap, err := ResourceMap()
+	assert.NoError(t, err)
 
 	keys := make([]string, 0, len(resourceMap))
 	for k := range resourceMap {
