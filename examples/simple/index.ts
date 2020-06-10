@@ -34,6 +34,12 @@ class VirtualNetwork extends pulumi.CustomResource {
     }
 }
 
+class Subnet extends pulumi.CustomResource {
+    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
+        super("azurerm:network:VirtualNetworkSubnet", name, args, opts);
+    }
+}
+
 class StaticSite extends pulumi.CustomResource {
     constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
         super("azurerm:web:StaticSite", name, args, opts);
@@ -55,7 +61,7 @@ class AppService extends pulumi.CustomResource {
 
 class StorageAccount extends pulumi.CustomResource {
     constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:storage:Account", name, args, opts);
+        super("azurerm:storage:StorageAccount", name, args, opts);
     }
 }
 
@@ -121,7 +127,7 @@ const vnet = new VirtualNetwork("vnet", {
     location: "westus2",
     properties: {
         addressSpace: {
-            addressPrefixes: ["10.1.0.0/24"],
+            addressPrefixes: ["10.1.0.0/16"],
         },
         subnets: [{
             name: "default",
@@ -131,6 +137,15 @@ const vnet = new VirtualNetwork("vnet", {
         }],
     },
 }, { dependsOn: [resourceGroup]});
+
+const subnet = new Subnet("subnet2", {
+    resourceGroupName: resourceGroupName,
+    subnetName: "subnet2",
+    virtualNetworkName: "vnet-1234",
+    properties: {
+        addressPrefix: "10.1.1.0/24"
+    },
+}, { dependsOn: [vnet]});
 
 const networkInterface = new NetworkInterface("nic", {
     resourceGroupName: "aks-rg70afafca",
@@ -187,7 +202,7 @@ const appServicePlan  = new AppServicePlan("app-plan", {
         name: "F1",
         capacity: 1
     },
-});
+}, { dependsOn: [resourceGroup]});
 
 const appService = new AppService("app", {
     resourceGroupName: resourceGroupName,
@@ -210,4 +225,4 @@ const storageAccount = new StorageAccount("sa", {
     properties: {
         supportsHttpsTrafficOnly: true,
     }
-});
+}, { dependsOn: [resourceGroup]});

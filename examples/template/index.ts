@@ -56,16 +56,13 @@ class Template extends pulumi.ComponentResource {
                 typeName = "azurerm:network:VirtualNetwork";
                 resourceArgs.virtualNetworkName = resource.name;
             } else if (resource.type === "Microsoft.Storage/storageAccounts") {
-                typeName = "azurerm:storage:Account";
+                typeName = "azurerm:storage:StorageAccount";
                 resourceArgs.accountName = resource.name;
             } else if (resource.type === "Microsoft.Web/serverfarms") {
                 typeName = "azurerm:web:AppServicePlan";
                 resourceArgs.name = resource.name;
             } else if (resource.type === "Microsoft.Web/sites") {
                 typeName = "azurerm:web:AppService";
-                resourceArgs.name = resource.name;
-            } else if (resource.type === "Microsoft.Web/sites/config") {
-                typeName = "azurerm:web:AppServiceSetting";
                 resourceArgs.name = resource.name;
             } else if (resource.type === "Microsoft.Cache/Redis") {
                 typeName = "azurerm:cache:Redis";
