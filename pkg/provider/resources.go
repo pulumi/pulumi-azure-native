@@ -25,7 +25,6 @@ func ResourceMap() (map[string]Resource, error) {
 		"network/resource-manager/Microsoft.Network/stable/2020-04-01/networkSecurityGroup.json",
 		"network/resource-manager/Microsoft.Network/stable/2020-04-01/publicIpAddress.json",
 		"network/resource-manager/Microsoft.Network/stable/2018-12-01/virtualNetwork.json",
-		"network/resource-manager/Microsoft.Network/stable/2018-12-01/virtualNetwork.json",
 		"storage/resource-manager/Microsoft.Storage/stable/2019-06-01/storage.json",
 		"web/resource-manager/Microsoft.Web/stable/2019-08-01/WebApps.json",
 		"web/resource-manager/Microsoft.Web/stable/2019-08-01/AppServicePlans.json",
