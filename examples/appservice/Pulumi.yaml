@@ -1,0 +1,3 @@
+name: appservice
+runtime: nodejs
+description: Azure App Service with SQL Database and Application Insights
