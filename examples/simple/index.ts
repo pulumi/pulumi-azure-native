@@ -1,74 +1,8 @@
 import * as pulumi from "@pulumi/pulumi";
-import { networkInterfaces } from "os";
+import * as azurerm from "../../sdk/nodejs";
 
-class ResourceGroup extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:core:ResourceGroup", name, args, opts);
-    }
-}
-
-class ContainerGroup extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:containerinstance:ContainerGroup", name, args, opts);
-    }
-}
-
-class VirtualMachine extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:compute:VirtualMachine", name, args, opts);
-    }
-}
-
-class NetworkInterface extends pulumi.CustomResource {
-    id: pulumi.Output<string>;
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:network:NetworkInterface", name, args, opts);
-    }
-}
-
-
-class VirtualNetwork extends pulumi.CustomResource {
-    id: pulumi.Output<string>;
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:network:VirtualNetwork", name, args, opts);
-    }
-}
-
-class Subnet extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:network:VirtualNetworkSubnet", name, args, opts);
-    }
-}
-
-class StaticSite extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:web:StaticSite", name, args, opts);
-    }
-}
-
-class AppServicePlan extends pulumi.CustomResource {
-    id: pulumi.Output<string>;
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:web:AppServicePlan", name, args, opts);
-    }
-}
-
-class AppService extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:web:AppService", name, args, opts);
-    }
-}
-
-class StorageAccount extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:storage:StorageAccount", name, args, opts);
-    }
-}
-
-const resourceGroupName = "azurerm";
-
-const resourceGroup = new ResourceGroup("azurerm", {
-    resourceGroupName: resourceGroupName,
+const resourceGroup = new azurerm.core.ResourceGroup("rg", {
+    resourceGroupName: "azurerm",
     location: "westus2",
     tags: {
         Owner: "mikhailshilkov",
@@ -76,7 +10,9 @@ const resourceGroup = new ResourceGroup("azurerm", {
     },
 });
 
-const staticSite = new StaticSite("mywebsite24234", {
+const resourceGroupName = resourceGroup.resourceGroupName;
+
+const staticSite = new azurerm.web.StaticSite("staticsite", {
     resourceGroupName: resourceGroupName,
     location: "westus2",
     properties: {
@@ -95,9 +31,12 @@ const staticSite = new StaticSite("mywebsite24234", {
         Name:"Free",
     },
     name: "mywebsite24234",
-}, { dependsOn: [resourceGroup] });
+});
 
-const containerinstance = new ContainerGroup("abc", {
+export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.properties.defaultHostname}`;
+
+
+const containerinstance = new azurerm.containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroupName,
     // should be autonamed?
     containerGroupName: "abc-1234",
@@ -119,9 +58,9 @@ const containerinstance = new ContainerGroup("abc", {
             },
         }],
     },
-}, { dependsOn: [resourceGroup]});
+});
 
-const vnet = new VirtualNetwork("vnet", {
+const vnet = new azurerm.network.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroupName,
     virtualNetworkName: "vnet-1234",
     location: "westus2",
@@ -136,19 +75,19 @@ const vnet = new VirtualNetwork("vnet", {
             },
         }],
     },
-}, { dependsOn: [resourceGroup]});
+});
 
-const subnet = new Subnet("subnet2", {
+const subnet = new azurerm.network.Subnet("subnet2", {
     resourceGroupName: resourceGroupName,
     subnetName: "subnet2",
-    virtualNetworkName: "vnet-1234",
+    virtualNetworkName: vnet.virtualNetworkName,
     properties: {
         addressPrefix: "10.1.1.0/24"
     },
-}, { dependsOn: [vnet]});
+});
 
-const networkInterface = new NetworkInterface("nic", {
-    resourceGroupName: "aks-rg70afafca",
+const networkInterface = new azurerm.network.NetworkInterface("nic", {
+    resourceGroupName: resourceGroupName,
     networkInterfaceName: "nic-1234",
     location: "westus2",
     properties: {
@@ -164,7 +103,7 @@ const networkInterface = new NetworkInterface("nic", {
     },
 });
 
-const virtualmachine  = new VirtualMachine("vm", {
+const virtualmachine  = new azurerm.compute.VirtualMachine("vm", {
     resourceGroupName: resourceGroupName,
     vmName: "abc-1234",
     location: "westus2",
@@ -193,7 +132,7 @@ const virtualmachine  = new VirtualMachine("vm", {
     },
 });
 
-const appServicePlan  = new AppServicePlan("app-plan", {
+const appServicePlan  = new azurerm.web.AppServicePlan("app-plan", {
     resourceGroupName: resourceGroupName,
     name: "app-plan",
     location: "westus2",
@@ -202,9 +141,9 @@ const appServicePlan  = new AppServicePlan("app-plan", {
         name: "F1",
         capacity: 1
     },
-}, { dependsOn: [resourceGroup]});
+});
 
-const appService = new AppService("app", {
+const appService = new azurerm.web.AppService("app", {
     resourceGroupName: resourceGroupName,
     name: "pulumiapp2418a",
     location: "westus2",
@@ -213,7 +152,7 @@ const appService = new AppService("app", {
     },
 });
 
-const storageAccount = new StorageAccount("sa", {
+const storageAccount = new azurerm.storage.StorageAccount("sa", {
     resourceGroupName: resourceGroupName,
     accountName: "pulumi14345sa",
     location: "westus2",
@@ -225,4 +164,4 @@ const storageAccount = new StorageAccount("sa", {
     properties: {
         supportsHttpsTrafficOnly: true,
     }
-}, { dependsOn: [resourceGroup]});
+});

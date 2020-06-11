@@ -1,0 +1,13 @@
+{
+    "name": "azurerm-static-website",
+    "version": "0.1.0",
+    "devDependencies": {
+        "@types/node": "latest"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "latest"
+    },
+    "peerDependencies": {
+        "@pulumi/azurerm": "latest"
+    }
+}

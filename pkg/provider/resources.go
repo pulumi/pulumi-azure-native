@@ -17,18 +17,23 @@ type Resource struct {
 func ResourceMap() (map[string]Resource, error) {
 	root := "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/"
 	locations := []string {
-		"redis/resource-manager/Microsoft.Cache/stable/2018-03-01/redis.json",
+		"applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/components_API.json",
+		"cdn/resource-manager/Microsoft.Cdn/stable/2019-12-31/cdn.json",
 		"compute/resource-manager/Microsoft.Compute/stable/2018-10-01/compute.json",
 		"containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json",
-		"resources/resource-manager/Microsoft.Resources/stable/2018-05-01/resources.json",
 		"network/resource-manager/Microsoft.Network/stable/2018-12-01/networkInterface.json",
 		"network/resource-manager/Microsoft.Network/stable/2020-04-01/networkSecurityGroup.json",
 		"network/resource-manager/Microsoft.Network/stable/2020-04-01/publicIpAddress.json",
 		"network/resource-manager/Microsoft.Network/stable/2018-12-01/virtualNetwork.json",
+		"redis/resource-manager/Microsoft.Cache/stable/2018-03-01/redis.json",
+		"resources/resource-manager/Microsoft.Resources/stable/2018-05-01/resources.json",
+		"sql/resource-manager/Microsoft.Sql/stable/2014-04-01/databases.json",
+		"sql/resource-manager/Microsoft.Sql/stable/2014-04-01/servers.json",
+		"storage/resource-manager/Microsoft.Storage/stable/2019-06-01/blob.json",
 		"storage/resource-manager/Microsoft.Storage/stable/2019-06-01/storage.json",
-		"web/resource-manager/Microsoft.Web/stable/2019-08-01/WebApps.json",
 		"web/resource-manager/Microsoft.Web/stable/2019-08-01/AppServicePlans.json",
 		"web/resource-manager/Microsoft.Web/stable/2019-08-01/StaticSites.json",
+		"web/resource-manager/Microsoft.Web/stable/2019-08-01/WebApps.json",
 	}
 	result := make(map[string]Resource)
 
