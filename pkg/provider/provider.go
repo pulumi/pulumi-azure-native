@@ -482,7 +482,7 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 				return "", nil, nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
 			}
 
-			schema, err := param.ResolveSchema(*param.Schema)
+			schema, err := param.ResolveSchema(param.Schema)
 			if err != nil {
 				return "", nil, nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
 			}
@@ -545,7 +545,7 @@ func (k *azurermProvider) resolveProperties(schema openapi.Schema) ([]string, []
 	}
 
 	for _, s := range schema.AllOf {
-		allOfSchema, err := schema.ResolveSchema(s)
+		allOfSchema, err := schema.ResolveSchema(&s)
 		if err != nil {
 			return nil, nil, err
 		}

@@ -10,15 +10,12 @@ const resourceGroup = new azurerm.core.ResourceGroup("rg", {
     },
 });
 
-const resourceGroupName = resourceGroup.resourceGroupName;
-
 const staticSite = new azurerm.web.StaticSite("staticsite", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     location: "westus2",
     properties: {
         repositoryUrl: "",
         branch: "master",
-        createOrUpdateWorkflow: "",
         repositoryToken: "",
         buildProperties: {
             appLocation: "/",
@@ -27,8 +24,8 @@ const staticSite = new azurerm.web.StaticSite("staticsite", {
         }
     },
     sku: {
-        Tier:"Free",
-        Name:"Free",
+        tier: "Free",
+        name: "Free",
     },
     name: "mywebsite24234",
 });
@@ -37,7 +34,7 @@ export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.properti
 
 
 const containerinstance = new azurerm.containerinstance.ContainerGroup("containergroup", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     // should be autonamed?
     containerGroupName: "abc-1234",
     location: "westus2",
@@ -51,8 +48,8 @@ const containerinstance = new azurerm.containerinstance.ContainerGroup("containe
                 image: "nginx",
                 resources: {
                     requests: {
-                        memoryInGB: "1",
-                        cpu: "1",
+                        memoryInGB: 1,
+                        cpu: 1,
                     },
                 },
             },
@@ -61,7 +58,7 @@ const containerinstance = new azurerm.containerinstance.ContainerGroup("containe
 });
 
 const vnet = new azurerm.network.VirtualNetwork("vnet", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     virtualNetworkName: "vnet-1234",
     location: "westus2",
     properties: {
@@ -77,17 +74,17 @@ const vnet = new azurerm.network.VirtualNetwork("vnet", {
     },
 });
 
-const subnet = new azurerm.network.Subnet("subnet2", {
-    resourceGroupName: resourceGroupName,
+const subnet = new azurerm.network.VirtualNetworkSubnet("subnet2", {
+    resourceGroupName: resourceGroup.name,
     subnetName: "subnet2",
-    virtualNetworkName: vnet.virtualNetworkName,
+    virtualNetworkName: vnet.name,
     properties: {
         addressPrefix: "10.1.1.0/24"
     },
 });
 
 const networkInterface = new azurerm.network.NetworkInterface("nic", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     networkInterfaceName: "nic-1234",
     location: "westus2",
     properties: {
@@ -104,7 +101,7 @@ const networkInterface = new azurerm.network.NetworkInterface("nic", {
 });
 
 const virtualmachine  = new azurerm.compute.VirtualMachine("vm", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     vmName: "abc-1234",
     location: "westus2",
     properties: {
@@ -133,7 +130,7 @@ const virtualmachine  = new azurerm.compute.VirtualMachine("vm", {
 });
 
 const appServicePlan  = new azurerm.web.AppServicePlan("app-plan", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     name: "app-plan",
     location: "westus2",
     kind: "Linux",
@@ -144,7 +141,7 @@ const appServicePlan  = new azurerm.web.AppServicePlan("app-plan", {
 });
 
 const appService = new azurerm.web.AppService("app", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     name: "pulumiapp2418a",
     location: "westus2",
     properties: {
@@ -153,7 +150,7 @@ const appService = new azurerm.web.AppService("app", {
 });
 
 const storageAccount = new azurerm.storage.StorageAccount("sa", {
-    resourceGroupName: resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     accountName: "pulumi14345sa",
     location: "westus2",
     sku: {

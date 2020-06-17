@@ -14,7 +14,8 @@ type Resource struct {
 	apiVersion           string // TODO: Get this from spec
 }
 
-func ResourceMap() (map[string]Resource, error) {
+// SwaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
+func SwaggerLocations() []string {
 	root := "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/"
 	locations := []string {
 		"applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/components_API.json",
@@ -35,10 +36,19 @@ func ResourceMap() (map[string]Resource, error) {
 		"web/resource-manager/Microsoft.Web/stable/2019-08-01/StaticSites.json",
 		"web/resource-manager/Microsoft.Web/stable/2019-08-01/WebApps.json",
 	}
+
+	result := []string{}
+	for _, location := range locations {
+		result = append(result, root + location)
+	}
+	return result
+}
+
+// ResourceMap builds a map of resource definitions for the provider.
+func ResourceMap() (map[string]Resource, error) {
 	result := make(map[string]Resource)
 
-	for _, location := range locations {
-		swagggerSpecLocation := root + location
+	for _, swagggerSpecLocation := range SwaggerLocations() {
 		spec, err := openapi.NewSpec(swagggerSpecLocation)
 		if err != nil {
 			return nil, err
@@ -49,7 +59,7 @@ func ResourceMap() (map[string]Resource, error) {
 				continue
 			}
 
-			typeName := resourceTypeName(key)
+			typeName := ResourceTypeName(key)
 			if typeName == "" {
 				continue
 			}
@@ -68,16 +78,17 @@ func ResourceMap() (map[string]Resource, error) {
 	return result, nil
 }
 
-func resourceTypeName(path string) string {
+// ResourceQualifiedName returns a tuple of (module, resource name) for a given PUT path.
+func ResourceQualifiedName(path string) (string, string) {
 	if path == "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}" {
-		return "core:ResourceGroup"
+		return "core", "ResourceGroup"
 	}
 
 	parts := strings.Split(path, "/")
 
 	// The path is /subscriptions/id/resoursegroups/id/providers/Microsoft.SomeProvider/foos/id/bars/id/...
 	if len(parts) < 8 || len(parts) % 2 != 1 {
-		return ""
+		return "", ""
 	}
 
 	// We build a name like someprovider:FooBar.
@@ -98,5 +109,11 @@ func resourceTypeName(path string) string {
 			resource += strings.Title(inflector.Singularize(parts[i]))
 		}
 	}
+	return provider, resource
+}
+
+// ResourceTypeName returns a name of the shape `provider:ResourceName`.
+func ResourceTypeName(path string) string {
+	provider, resource := ResourceQualifiedName(path)
 	return fmt.Sprintf("%s:%s", provider, resource)
 }

@@ -11,7 +11,7 @@ const resourceGroup = new azurerm.core.ResourceGroup("rg", {
 });
 
 const storageAccount = new azurerm.storage.StorageAccount("sa", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     accountName: "pulumiassa",
     location: "westus2",
     sku: {
@@ -22,7 +22,7 @@ const storageAccount = new azurerm.storage.StorageAccount("sa", {
 });
 
 const appServicePlan  = new azurerm.web.AppServicePlan("asp", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     name: "appservice-plan",
     location: "westus2",
     kind: "App",
@@ -33,10 +33,10 @@ const appServicePlan  = new azurerm.web.AppServicePlan("asp", {
 });
 
 const storageContainer = new azurerm.storage.StorageAccountBlobServiceContainer("c", {
-    resourceGroupName: resourceGroup.resourceGroupName,
-    accountName: storageAccount.accountName,
+    resourceGroupName: resourceGroup.name,
+    accountName: storageAccount.name,
     containerName: "files",
-    properies: {
+    properties: {
         publicAccess: "none",
     },
 });
@@ -54,7 +54,7 @@ const storageContainer = new azurerm.storage.StorageAccountBlobServiceContainer(
 // const codeBlobUrl = azure.storage.signedBlobReadUrl(blob, storageAccount);
 
 const appInsights = new azurerm.insights.Component("ai", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     location: "westus2",
     resourceName: "pulumi-as-ai",
     kind: "web",
@@ -67,7 +67,7 @@ const username = "pulumi";
 const pwd = "Not2S3cure!?";
 
 const sqlServer = new azurerm.sql.Server("sql", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     location: "westus2",
     serverName: "pulumi-as-sql",
     properties: {
@@ -78,9 +78,9 @@ const sqlServer = new azurerm.sql.Server("sql", {
 });
 
 const database = new azurerm.sql.ServerDatabase("db", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     location: "westus2",
-    serverName: sqlServer.serverName,
+    serverName: sqlServer.name,
     databaseName: "db",
     properties: {
         requestedServiceObjectiveName: "S0",
@@ -88,21 +88,24 @@ const database = new azurerm.sql.ServerDatabase("db", {
 });
 
 const app = new azurerm.web.AppService("as", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     location: "westus2",
     name: "pulumi-rm-as",
 
     properties: {
-        appServicePlanId: appServicePlan.id,
+        serverFarmId: appServicePlan.id,
         siteConfig: {
-            appSettings: {
+            appSettings: [
                 // TODO: "WEBSITE_RUN_FROM_ZIP": codeBlobUrl,
-                "ApplicationInsights:InstrumentationKey": appInsights.properties.InstrumentationKey,
-            },
+                {
+                    name: "ApplicationInsights:InstrumentationKey",
+                    value: appInsights.properties.InstrumentationKey?.apply(v => v!),
+                },
+            ],
             connectionStrings: [{
                 name: "db",
-                value:
-                    pulumi.all([sqlServer.serverName, database.databaseName]).apply(([server, db]) =>
+                connectionString:
+                    pulumi.all([sqlServer.name, database.name]).apply(([server, db]) =>
                         `Server=tcp:${server}.database.windows.net;initial catalog=${db};user ID=${username};password=${pwd};Min Pool Size=0;Max Pool Size=30;Persist Security Info=true;`),
                 type: "SQLAzure",
             }],    
