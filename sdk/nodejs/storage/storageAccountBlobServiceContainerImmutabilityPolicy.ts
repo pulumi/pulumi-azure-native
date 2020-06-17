@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates an unlocked immutability policy. ETag in If-Match is honored if given but not required for this operation.
+ * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  */
 export class StorageAccountBlobServiceContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class StorageAccountBlobServiceContainerImmutabilityPolicy extends pulumi
 }
 
 /**
- * Creates or updates an unlocked immutability policy. ETag in If-Match is honored if given but not required for this operation.
+ * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  */
 export interface StorageAccountBlobServiceContainerImmutabilityPolicyState {
     /**

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
+ * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  */
 export class ProfileEndpoint extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class ProfileEndpoint extends pulumi.CustomResource {
 }
 
 /**
- * Creates a new CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
+ * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  */
 export interface ProfileEndpointState {
     /**

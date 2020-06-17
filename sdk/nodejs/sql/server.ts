@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a new server.
+ * Represents a server.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class Server extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a new server.
+ * Represents a server.
  */
 export interface ServerState {
     /**

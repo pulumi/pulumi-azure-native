@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Create or replace (overwrite/recreate, with potential downtime) an existing Redis cache.
+ * A single Redis item in List or Get Operation.
  */
 export class Redis extends pulumi.CustomResource {
     /**
@@ -114,7 +114,7 @@ export class Redis extends pulumi.CustomResource {
 }
 
 /**
- * Create or replace (overwrite/recreate, with potential downtime) an existing Redis cache.
+ * A single Redis item in List or Get Operation.
  */
 export interface RedisState {
     /**

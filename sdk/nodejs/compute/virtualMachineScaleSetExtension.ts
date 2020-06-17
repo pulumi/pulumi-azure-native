@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * The operation to create or update an extension.
+ * Describes a Virtual Machine Scale Set Extension.
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
 }
 
 /**
- * The operation to create or update an extension.
+ * Describes a Virtual Machine Scale Set Extension.
  */
 export interface VirtualMachineScaleSetExtensionState {
     /**

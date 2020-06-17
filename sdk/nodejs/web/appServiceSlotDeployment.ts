@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Create a deployment for an app, or a deployment slot.
+ * User credentials used for publishing activity.
  */
 export class AppServiceSlotDeployment extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
 }
 
 /**
- * Description for Create a deployment for an app, or a deployment slot.
+ * User credentials used for publishing activity.
  */
 export interface AppServiceSlotDeploymentState {
     /**

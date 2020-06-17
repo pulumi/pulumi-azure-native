@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates a new Hybrid Connection using a Service Bus relay.
+ * Hybrid Connection contract. This is used to configure a Hybrid Connection.
  */
 export class AppServiceHybridConnectionNamespaceRelay extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class AppServiceHybridConnectionNamespaceRelay extends pulumi.CustomResou
 }
 
 /**
- * Description for Creates a new Hybrid Connection using a Service Bus relay.
+ * Hybrid Connection contract. This is used to configure a Hybrid Connection.
  */
 export interface AppServiceHybridConnectionNamespaceRelayState {
     /**

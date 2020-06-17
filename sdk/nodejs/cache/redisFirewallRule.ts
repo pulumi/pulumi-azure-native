@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Create or update a redis cache firewall rule
+ * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  */
 export class RedisFirewallRule extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
 }
 
 /**
- * Create or update a redis cache firewall rule
+ * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  */
 export interface RedisFirewallRuleState {
     /**

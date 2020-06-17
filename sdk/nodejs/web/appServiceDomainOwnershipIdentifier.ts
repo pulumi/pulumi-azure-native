@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.
+ * A domain specific resource identifier.
  */
 export class AppServiceDomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class AppServiceDomainOwnershipIdentifier extends pulumi.CustomResource {
 }
 
 /**
- * Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.
+ * A domain specific resource identifier.
  */
 export interface AppServiceDomainOwnershipIdentifierState {
     /**

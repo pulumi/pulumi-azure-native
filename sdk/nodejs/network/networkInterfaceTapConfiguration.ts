@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a Tap configuration in the specified NetworkInterface.
+ * Tap configuration in a Network Interface
  */
 export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a Tap configuration in the specified NetworkInterface.
+ * Tap configuration in a Network Interface
  */
 export interface NetworkInterfaceTapConfigurationState {
     /**

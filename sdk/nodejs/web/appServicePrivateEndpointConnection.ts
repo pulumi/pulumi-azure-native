@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Approves or rejects a private endpoint connection
+ * Private Endpoint Connection ARM resource.
  */
 export class AppServicePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class AppServicePrivateEndpointConnection extends pulumi.CustomResource {
 }
 
 /**
- * Description for Approves or rejects a private endpoint connection
+ * Private Endpoint Connection ARM resource.
  */
 export interface AppServicePrivateEndpointConnectionState {
     /**

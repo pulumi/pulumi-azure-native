@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates a hostname binding for an app.
+ * A hostname binding object.
  */
 export class AppServiceSlotHostNameBinding extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class AppServiceSlotHostNameBinding extends pulumi.CustomResource {
 }
 
 /**
- * Description for Creates a hostname binding for an app.
+ * A hostname binding object.
  */
 export interface AppServiceSlotHostNameBindingState {
     /**

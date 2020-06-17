@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a subnet in the specified virtual network.
+ * Subnet in a virtual network resource.
  */
 export class VirtualNetworkSubnet extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class VirtualNetworkSubnet extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a subnet in the specified virtual network.
+ * Subnet in a virtual network resource.
  */
 export interface VirtualNetworkSubnetState {
     /**

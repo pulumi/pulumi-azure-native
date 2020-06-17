@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new container under the specified account as described by request body. The container resource includes metadata and properties for that container. It does not include a list of the blobs contained by the container. 
+ * Properties of the blob container, including Id, resource name, resource type, Etag.
  */
 export class StorageAccountBlobServiceContainer extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class StorageAccountBlobServiceContainer extends pulumi.CustomResource {
 }
 
 /**
- * Creates a new container under the specified account as described by request body. The container resource includes metadata and properties for that container. It does not include a list of the blobs contained by the container. 
+ * Properties of the blob container, including Id, resource name, resource type, Etag.
  */
 export interface StorageAccountBlobServiceContainerState {
     /**

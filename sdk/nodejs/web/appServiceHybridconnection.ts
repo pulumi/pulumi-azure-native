@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).
+ * Hybrid Connection for an App Service app.
  */
 export class AppServiceHybridconnection extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class AppServiceHybridconnection extends pulumi.CustomResource {
 }
 
 /**
- * Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).
+ * Hybrid Connection for an App Service app.
  */
 export interface AppServiceHybridconnectionState {
     /**

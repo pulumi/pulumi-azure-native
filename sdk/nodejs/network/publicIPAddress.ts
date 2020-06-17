@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a static or dynamic public IP address.
+ * Public IP address resource.
  */
 export class PublicIPAddress extends pulumi.CustomResource {
     /**
@@ -122,7 +122,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a static or dynamic public IP address.
+ * Public IP address resource.
  */
 export interface PublicIPAddressState {
     /**

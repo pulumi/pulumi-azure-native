@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * The operation to create or update a virtual machine.
+ * Describes a Virtual Machine.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -130,7 +130,7 @@ export class VirtualMachine extends pulumi.CustomResource {
 }
 
 /**
- * The operation to create or update a virtual machine.
+ * Describes a Virtual Machine.
  */
 export interface VirtualMachineState {
     /**

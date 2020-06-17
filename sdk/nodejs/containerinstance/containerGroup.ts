@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Create or update container groups with specified configurations.
+ * A container group.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class ContainerGroup extends pulumi.CustomResource {
 }
 
 /**
- * Create or update container groups with specified configurations.
+ * A container group.
  */
 export interface ContainerGroupState {
     /**

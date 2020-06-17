@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+ * A web app, a mobile app backend, or an API app.
  */
 export class AppServiceSlot extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class AppServiceSlot extends pulumi.CustomResource {
 }
 
 /**
- * Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.
+ * A web app, a mobile app backend, or an API app.
  */
 export interface AppServiceSlotState {
     /**

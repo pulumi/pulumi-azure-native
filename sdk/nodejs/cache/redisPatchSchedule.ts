@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Create or replace the patching schedule for Redis cache (requires Premium SKU).
+ * Response to put/get patch schedules for Redis cache.
  */
 export class RedisPatchSchedule extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class RedisPatchSchedule extends pulumi.CustomResource {
 }
 
 /**
- * Create or replace the patching schedule for Redis cache (requires Premium SKU).
+ * Response to put/get patch schedules for Redis cache.
  */
 export interface RedisPatchScheduleState {
     /**

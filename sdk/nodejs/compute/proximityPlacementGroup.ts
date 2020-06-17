@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Create or update a proximity placement group.
+ * Specifies information about the proximity placement group.
  */
 export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
 }
 
 /**
- * Create or update a proximity placement group.
+ * Specifies information about the proximity placement group.
  */
 export interface ProximityPlacementGroupState {
     /**

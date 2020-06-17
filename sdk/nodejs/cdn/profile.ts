@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new CDN profile with a profile name under the specified subscription and resource group.
+ * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class Profile extends pulumi.CustomResource {
 }
 
 /**
- * Creates a new CDN profile with a profile name under the specified subscription and resource group.
+ * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  */
 export interface ProfileState {
     /**

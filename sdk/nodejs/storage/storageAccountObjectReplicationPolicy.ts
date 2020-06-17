@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Create or update the object replication policy of the storage account.
+ * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  */
 export class StorageAccountObjectReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class StorageAccountObjectReplicationPolicy extends pulumi.CustomResource
 }
 
 /**
- * Create or update the object replication policy of the storage account.
+ * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  */
 export interface StorageAccountObjectReplicationPolicyState {
     /**

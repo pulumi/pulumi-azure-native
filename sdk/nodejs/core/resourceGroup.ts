@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a resource group.
+ * Resource group information.
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class ResourceGroup extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a resource group.
+ * Resource group information.
  */
 export interface ResourceGroupState {
     /**

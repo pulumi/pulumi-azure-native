@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a peering in the specified virtual network.
+ * Peerings in a virtual network resource.
  */
 export class VirtualNetworkVirtualNetworkPeering extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class VirtualNetworkVirtualNetworkPeering extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a peering in the specified virtual network.
+ * Peerings in a virtual network resource.
  */
 export interface VirtualNetworkVirtualNetworkPeeringState {
     /**

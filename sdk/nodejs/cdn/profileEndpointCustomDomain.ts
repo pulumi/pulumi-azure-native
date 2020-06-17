@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new custom domain within an endpoint.
+ * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  */
 export class ProfileEndpointCustomDomain extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class ProfileEndpointCustomDomain extends pulumi.CustomResource {
 }
 
 /**
- * Creates a new custom domain within an endpoint.
+ * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  */
 export interface ProfileEndpointCustomDomainState {
     /**

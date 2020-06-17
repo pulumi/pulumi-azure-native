@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Updates a virtual machine of a VM scale set.
+ * Describes a virtual machine scale set virtual machine.
  */
 export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource {
     /**
@@ -139,7 +139,7 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
 }
 
 /**
- * Updates a virtual machine of a VM scale set.
+ * Describes a virtual machine scale set virtual machine.
  */
 export interface VirtualMachineScaleSetVirtualmachineState {
     /**

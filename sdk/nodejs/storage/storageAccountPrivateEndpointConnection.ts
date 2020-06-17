@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Update the state of specified private endpoint connection associated with the storage account.
+ * The Private Endpoint Connection resource.
  */
 export class StorageAccountPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class StorageAccountPrivateEndpointConnection extends pulumi.CustomResour
 }
 
 /**
- * Update the state of specified private endpoint connection associated with the storage account.
+ * The Private Endpoint Connection resource.
  */
 export interface StorageAccountPrivateEndpointConnectionState {
     /**

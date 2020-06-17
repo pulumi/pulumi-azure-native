@@ -7,8 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not
- * in use by another App Service Plan other than the one this App is in.
+ * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
  */
 export class AppServiceSlotNetworkConfig extends pulumi.CustomResource {
     /**
@@ -101,8 +100,7 @@ export class AppServiceSlotNetworkConfig extends pulumi.CustomResource {
 }
 
 /**
- * Description for Integrates this Web App with a Virtual Network. This requires that 1) "swiftSupported" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not
- * in use by another App Service Plan other than the one this App is in.
+ * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
  */
 export interface AppServiceSlotNetworkConfigState {
     /**

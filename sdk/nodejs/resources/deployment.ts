@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * You can provide the template and parameters directly in the request or link to JSON files.
+ * Deployment information.
  */
 export class Deployment extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class Deployment extends pulumi.CustomResource {
 }
 
 /**
- * You can provide the template and parameters directly in the request or link to JSON files.
+ * Deployment information.
  */
 export interface DeploymentState {
     /**

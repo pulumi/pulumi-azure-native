@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new database or updates an existing database.
+ * Represents a database.
  */
 export class ServerDatabase extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class ServerDatabase extends pulumi.CustomResource {
 }
 
 /**
- * Creates a new database or updates an existing database.
+ * Represents a database.
  */
 export interface ServerDatabaseState {
     /**

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Updates a named add-on of an app.
+ * Premier add-on.
  */
 export class AppServicePremieraddon extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class AppServicePremieraddon extends pulumi.CustomResource {
 }
 
 /**
- * Description for Updates a named add-on of an app.
+ * Premier add-on.
  */
 export interface AppServicePremieraddonState {
     /**

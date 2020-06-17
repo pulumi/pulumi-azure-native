@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates (or updates) an Application Insights component. Note: You cannot specify a different value for InstrumentationKey nor AppId in the Put operation.
+ * An Application Insights component definition.
  */
 export class Component extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class Component extends pulumi.CustomResource {
 }
 
 /**
- * Creates (or updates) an Application Insights component. Note: You cannot specify a different value for InstrumentationKey nor AppId in the Put operation.
+ * An Application Insights component definition.
  */
 export interface ComponentState {
     /**

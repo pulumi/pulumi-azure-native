@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates a new static site in an existing resource group, or updates an existing static site.
+ * Static Site ARM resource.
  */
 export class StaticSite extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class StaticSite extends pulumi.CustomResource {
 }
 
 /**
- * Description for Creates a new static site in an existing resource group, or updates an existing static site.
+ * Static Site ARM resource.
  */
 export interface StaticSiteState {
     /**

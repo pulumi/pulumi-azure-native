@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Create or update an image.
+ * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
  */
 export class Image extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class Image extends pulumi.CustomResource {
 }
 
 /**
- * Create or update an image.
+ * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
  */
 export interface ImageState {
     /**

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates a hostname binding for an app.
+ * Public certificate object
  */
 export class AppServicePublicCertificate extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class AppServicePublicCertificate extends pulumi.CustomResource {
 }
 
 /**
- * Description for Creates a hostname binding for an app.
+ * Public certificate object
  */
 export interface AppServicePublicCertificateState {
     /**

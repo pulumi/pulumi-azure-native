@@ -12,7 +12,7 @@
     "config": {},
     "types": {
         "azurerm:cache:Redis": {
-            "description": "Create or replace (overwrite/recreate, with potential downtime) an existing Redis cache.",
+            "description": "A single Redis item in List or Get Operation.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -110,7 +110,7 @@
             ]
         },
         "azurerm:cache:RedisFirewallRule": {
-            "description": "Create or update a redis cache firewall rule",
+            "description": "A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect",
             "properties": {
                 "name": {
                     "type": "string",
@@ -169,7 +169,7 @@
             ]
         },
         "azurerm:cache:RedisLinkedServer": {
-            "description": "Adds a linked server to the Redis cache (requires Premium SKU).",
+            "description": "Response to put/get linked server (with properties) for Redis cache.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -256,7 +256,7 @@
             ]
         },
         "azurerm:cache:RedisPatchSchedule": {
-            "description": "Create or replace the patching schedule for Redis cache (requires Premium SKU).",
+            "description": "Response to put/get patch schedules for Redis cache.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -1327,7 +1327,7 @@
             ]
         },
         "azurerm:cdn:Profile": {
-            "description": "Creates a new CDN profile with a profile name under the specified subscription and resource group.",
+            "description": "CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -1364,7 +1364,7 @@
             ]
         },
         "azurerm:cdn:ProfileEndpoint": {
-            "description": "Creates a new CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.",
+            "description": "CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format \u003cendpointname\u003e.azureedge.net.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -1396,7 +1396,7 @@
             ]
         },
         "azurerm:cdn:ProfileEndpointCustomDomain": {
-            "description": "Creates a new custom domain within an endpoint.",
+            "description": "Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -1419,7 +1419,7 @@
             ]
         },
         "azurerm:cdn:ProfileEndpointOrigin": {
-            "description": "Creates a new origin within the specified endpoint.",
+            "description": "CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -1451,7 +1451,7 @@
             ]
         },
         "azurerm:cdn:ProfileEndpointOriginGroup": {
-            "description": "Creates a new origin group within the specified endpoint.",
+            "description": "Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -1718,7 +1718,7 @@
             "type": "object"
         },
         "azurerm:compute:AvailabilitySet": {
-            "description": "Create or update an availability set.",
+            "description": "Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). \u003cbr\u003e\u003cbr\u003e For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) \u003cbr\u003e\u003cbr\u003e Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -2105,7 +2105,7 @@
             "type": "object"
         },
         "azurerm:compute:Image": {
-            "description": "Create or update an image.",
+            "description": "The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -2986,7 +2986,7 @@
             "type": "object"
         },
         "azurerm:compute:ProximityPlacementGroup": {
-            "description": "Create or update a proximity placement group.",
+            "description": "Specifies information about the proximity placement group.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -3376,7 +3376,7 @@
             "type": "object"
         },
         "azurerm:compute:VirtualMachine": {
-            "description": "The operation to create or update a virtual machine.",
+            "description": "Describes a Virtual Machine.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:compute:VirtualMachineIdentityResponse",
@@ -4003,7 +4003,7 @@
             ]
         },
         "azurerm:compute:VirtualMachineScaleSet": {
-            "description": "Create or update a VM scale set.",
+            "description": "Describes a Virtual Machine Scale Set.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:compute:VirtualMachineScaleSetIdentityResponse",
@@ -5409,7 +5409,7 @@
             ]
         },
         "azurerm:compute:VirtualMachineScaleSetVirtualmachine": {
-            "description": "Updates a virtual machine of a VM scale set.",
+            "description": "Describes a virtual machine scale set virtual machine.",
             "properties": {
                 "instanceId": {
                     "type": "string",
@@ -5679,7 +5679,7 @@
             "type": "object"
         },
         "azurerm:containerinstance:ContainerGroup": {
-            "description": "Create or update container groups with specified configurations.",
+            "description": "A container group.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:containerinstance:ContainerGroupIdentityResponse",
@@ -6932,7 +6932,7 @@
             ]
         },
         "azurerm:core:ResourceGroup": {
-            "description": "Creates or updates a resource group.",
+            "description": "Resource group information.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -7123,7 +7123,7 @@
             ]
         },
         "azurerm:insights:Component": {
-            "description": "Creates (or updates) an Application Insights component. Note: You cannot specify a different value for InstrumentationKey nor AppId in the Put operation.",
+            "description": "An Application Insights component definition.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -9253,7 +9253,7 @@
             ]
         },
         "azurerm:network:NetworkSecurityGroupSecurityRule": {
-            "description": "Creates or updates a security rule in the specified network security group.",
+            "description": "Network security rule.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -11039,7 +11039,7 @@
             "type": "object"
         },
         "azurerm:network:VirtualNetwork": {
-            "description": "Creates or updates a virtual network in the specified resource group.",
+            "description": "Virtual Network resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -11290,7 +11290,7 @@
             "type": "object"
         },
         "azurerm:network:VirtualNetworkSubnet": {
-            "description": "Creates or updates a subnet in the specified virtual network.",
+            "description": "Subnet in a virtual network resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -11431,7 +11431,7 @@
             ]
         },
         "azurerm:network:VirtualNetworkVirtualNetworkPeering": {
-            "description": "Creates or updates a peering in the specified virtual network.",
+            "description": "Peerings in a virtual network resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -11547,7 +11547,7 @@
             "type": "object"
         },
         "azurerm:resources:Deployment": {
-            "description": "You can provide the template and parameters directly in the request or link to JSON files.",
+            "description": "Deployment information.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -12191,7 +12191,7 @@
             ]
         },
         "azurerm:sql:Server": {
-            "description": "Creates or updates a new server.",
+            "description": "Represents a server.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -12228,7 +12228,7 @@
             ]
         },
         "azurerm:sql:ServerDatabase": {
-            "description": "Creates a new database or updates an existing database.",
+            "description": "Represents a database.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14037,7 +14037,7 @@
             ]
         },
         "azurerm:storage:StorageAccount": {
-            "description": "Asynchronously creates a new storage account with the specified parameters. If an account is already created and a subsequent create request is issued with different properties, the account properties will be updated. If an account is already created and a subsequent create or update request is issued with the exact same set of properties, the request will succeed.",
+            "description": "The storage account.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:storage:IdentityResponse",
@@ -14083,7 +14083,7 @@
             ]
         },
         "azurerm:storage:StorageAccountBlobServiceContainer": {
-            "description": "Creates a new container under the specified account as described by request body. The container resource includes metadata and properties for that container. It does not include a list of the blobs contained by the container. ",
+            "description": "Properties of the blob container, including Id, resource name, resource type, Etag.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -14111,7 +14111,7 @@
             ]
         },
         "azurerm:storage:StorageAccountBlobServiceContainerImmutabilityPolicy": {
-            "description": "Creates or updates an unlocked immutability policy. ETag in If-Match is honored if given but not required for this operation.",
+            "description": "The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -14167,7 +14167,7 @@
             ]
         },
         "azurerm:storage:StorageAccountManagementPolicy": {
-            "description": "Sets the managementpolicy to the specified storage account.",
+            "description": "The Get Storage Account ManagementPolicies operation response.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -14228,7 +14228,7 @@
             ]
         },
         "azurerm:storage:StorageAccountObjectReplicationPolicy": {
-            "description": "Create or update the object replication policy of the storage account.",
+            "description": "The replication policy between two storage accounts. Multiple rules can be defined in one policy.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -14251,7 +14251,7 @@
             ]
         },
         "azurerm:storage:StorageAccountPrivateEndpointConnection": {
-            "description": "Update the state of specified private endpoint connection associated with the storage account.",
+            "description": "The Private Endpoint Connection resource.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -14639,7 +14639,7 @@
             "type": "object"
         },
         "azurerm:web:AppService": {
-            "description": "Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.",
+            "description": "A web app, a mobile app backend, or an API app.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:web:ManagedServiceIdentityResponse",
@@ -14679,7 +14679,7 @@
             ]
         },
         "azurerm:web:AppServiceDeployment": {
-            "description": "Description for Create a deployment for an app, or a deployment slot.",
+            "description": "User credentials used for publishing activity.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14706,7 +14706,7 @@
             ]
         },
         "azurerm:web:AppServiceDomainOwnershipIdentifier": {
-            "description": "Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.",
+            "description": "A domain specific resource identifier.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14733,7 +14733,7 @@
             ]
         },
         "azurerm:web:AppServiceFunction": {
-            "description": "Description for Create function for web site, or a deployment slot.",
+            "description": "Function information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14760,7 +14760,7 @@
             ]
         },
         "azurerm:web:AppServiceHostNameBinding": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "A hostname binding object.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14787,7 +14787,7 @@
             ]
         },
         "azurerm:web:AppServiceHybridConnectionNamespaceRelay": {
-            "description": "Description for Creates a new Hybrid Connection using a Service Bus relay.",
+            "description": "Hybrid Connection contract. This is used to configure a Hybrid Connection.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14814,7 +14814,7 @@
             ]
         },
         "azurerm:web:AppServiceHybridconnection": {
-            "description": "Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).",
+            "description": "Hybrid Connection for an App Service app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14841,7 +14841,7 @@
             ]
         },
         "azurerm:web:AppServiceNetworkConfig": {
-            "description": "Description for Integrates this Web App with a Virtual Network. This requires that 1) \"swiftSupported\" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not\nin use by another App Service Plan other than the one this App is in.",
+            "description": "Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -14868,7 +14868,7 @@
             ]
         },
         "azurerm:web:AppServicePlan": {
-            "description": "Description for Creates or updates an App Service Plan.",
+            "description": "App Service plan.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15053,7 +15053,7 @@
             ]
         },
         "azurerm:web:AppServicePlanVirtualNetworkConnectionRoute": {
-            "description": "Description for Create or update a Virtual Network route in an App Service plan.",
+            "description": "Virtual Network route contract used to pass routing information for a Virtual Network.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15080,7 +15080,7 @@
             ]
         },
         "azurerm:web:AppServicePremieraddon": {
-            "description": "Description for Updates a named add-on of an app.",
+            "description": "Premier add-on.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15116,7 +15116,7 @@
             ]
         },
         "azurerm:web:AppServicePrivateEndpointConnection": {
-            "description": "Description for Approves or rejects a private endpoint connection",
+            "description": "Private Endpoint Connection ARM resource.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15143,7 +15143,7 @@
             ]
         },
         "azurerm:web:AppServicePublicCertificate": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "Public certificate object",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15170,7 +15170,7 @@
             ]
         },
         "azurerm:web:AppServiceSiteextension": {
-            "description": "Description for Install site extension on a web site, or a deployment slot.",
+            "description": "Site Extension Information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15197,7 +15197,7 @@
             ]
         },
         "azurerm:web:AppServiceSlot": {
-            "description": "Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.",
+            "description": "A web app, a mobile app backend, or an API app.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:web:ManagedServiceIdentityResponse",
@@ -15237,7 +15237,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotDeployment": {
-            "description": "Description for Create a deployment for an app, or a deployment slot.",
+            "description": "User credentials used for publishing activity.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15264,7 +15264,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotDomainOwnershipIdentifier": {
-            "description": "Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.",
+            "description": "A domain specific resource identifier.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15291,7 +15291,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotFunction": {
-            "description": "Description for Create function for web site, or a deployment slot.",
+            "description": "Function information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15318,7 +15318,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotHostNameBinding": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "A hostname binding object.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15345,7 +15345,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotHybridConnectionNamespaceRelay": {
-            "description": "Description for Creates a new Hybrid Connection using a Service Bus relay.",
+            "description": "Hybrid Connection contract. This is used to configure a Hybrid Connection.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15372,7 +15372,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotHybridconnection": {
-            "description": "Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).",
+            "description": "Hybrid Connection for an App Service app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15399,7 +15399,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotNetworkConfig": {
-            "description": "Description for Integrates this Web App with a Virtual Network. This requires that 1) \"swiftSupported\" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not\nin use by another App Service Plan other than the one this App is in.",
+            "description": "Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15426,7 +15426,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotPremieraddon": {
-            "description": "Description for Updates a named add-on of an app.",
+            "description": "Premier add-on.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15462,7 +15462,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotPublicCertificate": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "Public certificate object",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15489,7 +15489,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotSiteextension": {
-            "description": "Description for Install site extension on a web site, or a deployment slot.",
+            "description": "Site Extension Information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15516,7 +15516,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotSourcecontrol": {
-            "description": "Description for Updates the source control configuration of an app.",
+            "description": "Source control configuration for an app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15543,7 +15543,7 @@
             ]
         },
         "azurerm:web:AppServiceSlotVirtualNetworkConnection": {
-            "description": "Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).",
+            "description": "Virtual Network information contract.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15570,7 +15570,7 @@
             ]
         },
         "azurerm:web:AppServiceSourcecontrol": {
-            "description": "Description for Updates the source control configuration of an app.",
+            "description": "Source control configuration for an app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -15597,7 +15597,7 @@
             ]
         },
         "azurerm:web:AppServiceVirtualNetworkConnection": {
-            "description": "Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).",
+            "description": "Virtual Network information contract.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -18260,7 +18260,7 @@
             "type": "object"
         },
         "azurerm:web:StaticSite": {
-            "description": "Description for Creates a new static site in an existing resource group, or updates an existing static site.",
+            "description": "Static Site ARM resource.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -18701,7 +18701,7 @@
     "provider": {},
     "resources": {
         "azurerm:cache:Redis": {
-            "description": "Create or replace (overwrite/recreate, with potential downtime) an existing Redis cache.",
+            "description": "A single Redis item in List or Get Operation.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -18774,7 +18774,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Create or replace (overwrite/recreate, with potential downtime) an existing Redis cache.",
+                "description": "A single Redis item in List or Get Operation.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -18814,7 +18814,7 @@
             }
         },
         "azurerm:cache:RedisFirewallRule": {
-            "description": "Create or update a redis cache firewall rule",
+            "description": "A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect",
             "properties": {
                 "name": {
                     "type": "string",
@@ -18860,7 +18860,7 @@
                 "ruleName"
             ],
             "stateInputs": {
-                "description": "Create or update a redis cache firewall rule",
+                "description": "A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -18884,7 +18884,7 @@
             }
         },
         "azurerm:cache:RedisLinkedServer": {
-            "description": "Adds a linked server to the Redis cache (requires Premium SKU).",
+            "description": "Response to put/get linked server (with properties) for Redis cache.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -18930,7 +18930,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Adds a linked server to the Redis cache (requires Premium SKU).",
+                "description": "Response to put/get linked server (with properties) for Redis cache.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -18954,7 +18954,7 @@
             }
         },
         "azurerm:cache:RedisPatchSchedule": {
-            "description": "Create or replace the patching schedule for Redis cache (requires Premium SKU).",
+            "description": "Response to put/get patch schedules for Redis cache.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -19000,7 +19000,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Create or replace the patching schedule for Redis cache (requires Premium SKU).",
+                "description": "Response to put/get patch schedules for Redis cache.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -19024,7 +19024,7 @@
             }
         },
         "azurerm:cdn:Profile": {
-            "description": "Creates a new CDN profile with a profile name under the specified subscription and resource group.",
+            "description": "CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -19092,7 +19092,7 @@
                 "sku"
             ],
             "stateInputs": {
-                "description": "Creates a new CDN profile with a profile name under the specified subscription and resource group.",
+                "description": "CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -19130,7 +19130,7 @@
             }
         },
         "azurerm:cdn:ProfileEndpoint": {
-            "description": "Creates a new CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.",
+            "description": "CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format \u003cendpointname\u003e.azureedge.net.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -19193,7 +19193,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates a new CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.",
+                "description": "CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format \u003cendpointname\u003e.azureedge.net.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -19226,7 +19226,7 @@
             }
         },
         "azurerm:cdn:ProfileEndpointCustomDomain": {
-            "description": "Creates a new custom domain within an endpoint.",
+            "description": "Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -19276,7 +19276,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates a new custom domain within an endpoint.",
+                "description": "Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -19300,7 +19300,7 @@
             }
         },
         "azurerm:cdn:ProfileEndpointOrigin": {
-            "description": "Creates a new origin within the specified endpoint.",
+            "description": "CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -19368,7 +19368,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates a new origin within the specified endpoint.",
+                "description": "CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -19401,7 +19401,7 @@
             }
         },
         "azurerm:cdn:ProfileEndpointOriginGroup": {
-            "description": "Creates a new origin group within the specified endpoint.",
+            "description": "Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -19451,7 +19451,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates a new origin group within the specified endpoint.",
+                "description": "Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -19475,7 +19475,7 @@
             }
         },
         "azurerm:compute:AvailabilitySet": {
-            "description": "Create or update an availability set.",
+            "description": "Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). \u003cbr\u003e\u003cbr\u003e For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) \u003cbr\u003e\u003cbr\u003e Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -19541,7 +19541,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Create or update an availability set.",
+                "description": "Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). \u003cbr\u003e\u003cbr\u003e For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) \u003cbr\u003e\u003cbr\u003e Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -19578,7 +19578,7 @@
             }
         },
         "azurerm:compute:Image": {
-            "description": "Create or update an image.",
+            "description": "The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -19636,7 +19636,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Create or update an image.",
+                "description": "The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -19669,7 +19669,7 @@
             }
         },
         "azurerm:compute:ProximityPlacementGroup": {
-            "description": "Create or update a proximity placement group.",
+            "description": "Specifies information about the proximity placement group.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -19727,7 +19727,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Create or update a proximity placement group.",
+                "description": "Specifies information about the proximity placement group.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -19760,7 +19760,7 @@
             }
         },
         "azurerm:compute:VirtualMachine": {
-            "description": "The operation to create or update a virtual machine.",
+            "description": "Describes a Virtual Machine.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:compute:VirtualMachineIdentityResponse",
@@ -19856,7 +19856,7 @@
                 "vmName"
             ],
             "stateInputs": {
-                "description": "The operation to create or update a virtual machine.",
+                "description": "Describes a Virtual Machine.",
                 "properties": {
                     "identity": {
                         "$ref": "#/types/azurerm:compute:VirtualMachineIdentityResponse",
@@ -19912,7 +19912,7 @@
             }
         },
         "azurerm:compute:VirtualMachineExtension": {
-            "description": "The operation to create or update the extension.",
+            "description": "Describes a Virtual Machine Extension.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -19975,7 +19975,7 @@
                 "vmName"
             ],
             "stateInputs": {
-                "description": "The operation to create or update the extension.",
+                "description": "Describes a Virtual Machine Extension.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -20008,7 +20008,7 @@
             }
         },
         "azurerm:compute:VirtualMachineScaleSet": {
-            "description": "Create or update a VM scale set.",
+            "description": "Describes a Virtual Machine Scale Set.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:compute:VirtualMachineScaleSetIdentityResponse",
@@ -20104,7 +20104,7 @@
                 "vmScaleSetName"
             ],
             "stateInputs": {
-                "description": "Create or update a VM scale set.",
+                "description": "Describes a Virtual Machine Scale Set.",
                 "properties": {
                     "identity": {
                         "$ref": "#/types/azurerm:compute:VirtualMachineScaleSetIdentityResponse",
@@ -20156,7 +20156,7 @@
             }
         },
         "azurerm:compute:VirtualMachineScaleSetExtension": {
-            "description": "The operation to create or update an extension.",
+            "description": "Describes a Virtual Machine Scale Set Extension.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -20199,7 +20199,7 @@
                 "vmssExtensionName"
             ],
             "stateInputs": {
-                "description": "The operation to create or update an extension.",
+                "description": "Describes a Virtual Machine Scale Set Extension.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -20217,7 +20217,7 @@
             }
         },
         "azurerm:compute:VirtualMachineScaleSetVirtualmachine": {
-            "description": "Updates a virtual machine of a VM scale set.",
+            "description": "Describes a virtual machine scale set virtual machine.",
             "properties": {
                 "instanceId": {
                     "type": "string",
@@ -20314,7 +20314,7 @@
                 "vmScaleSetName"
             ],
             "stateInputs": {
-                "description": "Updates a virtual machine of a VM scale set.",
+                "description": "Describes a virtual machine scale set virtual machine.",
                 "properties": {
                     "instanceId": {
                         "type": "string",
@@ -20377,7 +20377,7 @@
             }
         },
         "azurerm:containerinstance:ContainerGroup": {
-            "description": "Create or update container groups with specified configurations.",
+            "description": "A container group.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:containerinstance:ContainerGroupIdentityResponse",
@@ -20440,7 +20440,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Create or update container groups with specified configurations.",
+                "description": "A container group.",
                 "properties": {
                     "identity": {
                         "$ref": "#/types/azurerm:containerinstance:ContainerGroupIdentityResponse",
@@ -20475,7 +20475,7 @@
             }
         },
         "azurerm:core:ResourceGroup": {
-            "description": "Creates or updates a resource group.",
+            "description": "Resource group information.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -20536,7 +20536,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a resource group.",
+                "description": "Resource group information.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -20573,7 +20573,7 @@
             }
         },
         "azurerm:insights:Component": {
-            "description": "Creates (or updates) an Application Insights component. Note: You cannot specify a different value for InstrumentationKey nor AppId in the Put operation.",
+            "description": "An Application Insights component definition.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -20641,7 +20641,7 @@
                 "resourceName"
             ],
             "stateInputs": {
-                "description": "Creates (or updates) an Application Insights component. Note: You cannot specify a different value for InstrumentationKey nor AppId in the Put operation.",
+                "description": "An Application Insights component definition.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -20679,7 +20679,7 @@
             }
         },
         "azurerm:network:NetworkInterface": {
-            "description": "Creates or updates a network interface.",
+            "description": "A network interface in a resource group.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -20747,7 +20747,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a network interface.",
+                "description": "A network interface in a resource group.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -20783,7 +20783,7 @@
             }
         },
         "azurerm:network:NetworkInterfaceTapConfiguration": {
-            "description": "Creates or updates a Tap configuration in the specified NetworkInterface.",
+            "description": "Tap configuration in a Network Interface",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -20843,7 +20843,7 @@
                 "tapConfigurationName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a Tap configuration in the specified NetworkInterface.",
+                "description": "Tap configuration in a Network Interface",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -20870,7 +20870,7 @@
             }
         },
         "azurerm:network:NetworkSecurityGroup": {
-            "description": "Creates or updates a network security group in the specified resource group.",
+            "description": "NetworkSecurityGroup resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -20935,7 +20935,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a network security group in the specified resource group.",
+                "description": "NetworkSecurityGroup resource.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -20972,7 +20972,7 @@
             }
         },
         "azurerm:network:NetworkSecurityGroupSecurityRule": {
-            "description": "Creates or updates a security rule in the specified network security group.",
+            "description": "Network security rule.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -21024,7 +21024,7 @@
                 "securityRuleName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a security rule in the specified network security group.",
+                "description": "Network security rule.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -21047,7 +21047,7 @@
             }
         },
         "azurerm:network:PublicIPAddress": {
-            "description": "Creates or updates a static or dynamic public IP address.",
+            "description": "Public IP address resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -21134,7 +21134,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a static or dynamic public IP address.",
+                "description": "Public IP address resource.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -21182,7 +21182,7 @@
             }
         },
         "azurerm:network:VirtualNetwork": {
-            "description": "Creates or updates a virtual network in the specified resource group.",
+            "description": "Virtual Network resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -21250,7 +21250,7 @@
                 "virtualNetworkName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a virtual network in the specified resource group.",
+                "description": "Virtual Network resource.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -21286,7 +21286,7 @@
             }
         },
         "azurerm:network:VirtualNetworkSubnet": {
-            "description": "Creates or updates a subnet in the specified virtual network.",
+            "description": "Subnet in a virtual network resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -21341,7 +21341,7 @@
                 "virtualNetworkName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a subnet in the specified virtual network.",
+                "description": "Subnet in a virtual network resource.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -21363,7 +21363,7 @@
             }
         },
         "azurerm:network:VirtualNetworkVirtualNetworkPeering": {
-            "description": "Creates or updates a peering in the specified virtual network.",
+            "description": "Peerings in a virtual network resource.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -21418,7 +21418,7 @@
                 "virtualNetworkPeeringName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a peering in the specified virtual network.",
+                "description": "Peerings in a virtual network resource.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -21440,7 +21440,7 @@
             }
         },
         "azurerm:resources:Deployment": {
-            "description": "You can provide the template and parameters directly in the request or link to JSON files.",
+            "description": "Deployment information.",
             "properties": {
                 "location": {
                     "type": "string",
@@ -21489,7 +21489,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "You can provide the template and parameters directly in the request or link to JSON files.",
+                "description": "Deployment information.",
                 "properties": {
                     "location": {
                         "type": "string",
@@ -21517,7 +21517,7 @@
             }
         },
         "azurerm:sql:Server": {
-            "description": "Creates or updates a new server.",
+            "description": "Represents a server.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -21580,7 +21580,7 @@
                 "serverName"
             ],
             "stateInputs": {
-                "description": "Creates or updates a new server.",
+                "description": "Represents a server.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -21618,7 +21618,7 @@
             }
         },
         "azurerm:sql:ServerDatabase": {
-            "description": "Creates a new database or updates an existing database.",
+            "description": "Represents a database.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -21686,7 +21686,7 @@
                 "serverName"
             ],
             "stateInputs": {
-                "description": "Creates a new database or updates an existing database.",
+                "description": "Represents a database.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -21724,7 +21724,7 @@
             }
         },
         "azurerm:storage:StorageAccount": {
-            "description": "Asynchronously creates a new storage account with the specified parameters. If an account is already created and a subsequent create request is issued with different properties, the account properties will be updated. If an account is already created and a subsequent create or update request is issued with the exact same set of properties, the request will succeed.",
+            "description": "The storage account.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:storage:IdentityResponse",
@@ -21810,7 +21810,7 @@
                 "sku"
             ],
             "stateInputs": {
-                "description": "Asynchronously creates a new storage account with the specified parameters. If an account is already created and a subsequent create request is issued with different properties, the account properties will be updated. If an account is already created and a subsequent create or update request is issued with the exact same set of properties, the request will succeed.",
+                "description": "The storage account.",
                 "properties": {
                     "identity": {
                         "$ref": "#/types/azurerm:storage:IdentityResponse",
@@ -21857,7 +21857,7 @@
             }
         },
         "azurerm:storage:StorageAccountBlobServiceContainer": {
-            "description": "Creates a new container under the specified account as described by request body. The container resource includes metadata and properties for that container. It does not include a list of the blobs contained by the container. ",
+            "description": "Properties of the blob container, including Id, resource name, resource type, Etag.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -21907,7 +21907,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates a new container under the specified account as described by request body. The container resource includes metadata and properties for that container. It does not include a list of the blobs contained by the container. ",
+                "description": "Properties of the blob container, including Id, resource name, resource type, Etag.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -21936,7 +21936,7 @@
             }
         },
         "azurerm:storage:StorageAccountBlobServiceContainerImmutabilityPolicy": {
-            "description": "Creates or updates an unlocked immutability policy. ETag in If-Match is honored if given but not required for this operation.",
+            "description": "The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.",
             "properties": {
                 "etag": {
                     "type": "string",
@@ -21992,7 +21992,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Creates or updates an unlocked immutability policy. ETag in If-Match is honored if given but not required for this operation.",
+                "description": "The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.",
                 "properties": {
                     "etag": {
                         "type": "string",
@@ -22021,7 +22021,7 @@
             }
         },
         "azurerm:storage:StorageAccountManagementPolicy": {
-            "description": "Sets the managementpolicy to the specified storage account.",
+            "description": "The Get Storage Account ManagementPolicies operation response.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -22066,7 +22066,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Sets the managementpolicy to the specified storage account.",
+                "description": "The Get Storage Account ManagementPolicies operation response.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -22090,7 +22090,7 @@
             }
         },
         "azurerm:storage:StorageAccountObjectReplicationPolicy": {
-            "description": "Create or update the object replication policy of the storage account.",
+            "description": "The replication policy between two storage accounts. Multiple rules can be defined in one policy.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -22135,7 +22135,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Create or update the object replication policy of the storage account.",
+                "description": "The replication policy between two storage accounts. Multiple rules can be defined in one policy.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -22159,7 +22159,7 @@
             }
         },
         "azurerm:storage:StorageAccountPrivateEndpointConnection": {
-            "description": "Update the state of specified private endpoint connection associated with the storage account.",
+            "description": "The Private Endpoint Connection resource.",
             "properties": {
                 "name": {
                     "type": "string",
@@ -22204,7 +22204,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Update the state of specified private endpoint connection associated with the storage account.",
+                "description": "The Private Endpoint Connection resource.",
                 "properties": {
                     "name": {
                         "type": "string",
@@ -22228,7 +22228,7 @@
             }
         },
         "azurerm:web:AppService": {
-            "description": "Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.",
+            "description": "A web app, a mobile app backend, or an API app.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:web:ManagedServiceIdentityResponse",
@@ -22302,7 +22302,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.",
+                "description": "A web app, a mobile app backend, or an API app.",
                 "properties": {
                     "identity": {
                         "$ref": "#/types/azurerm:web:ManagedServiceIdentityResponse",
@@ -22343,7 +22343,7 @@
             }
         },
         "azurerm:web:AppServiceDeployment": {
-            "description": "Description for Create a deployment for an app, or a deployment slot.",
+            "description": "User credentials used for publishing activity.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22396,7 +22396,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Create a deployment for an app, or a deployment slot.",
+                "description": "User credentials used for publishing activity.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -22424,7 +22424,7 @@
             }
         },
         "azurerm:web:AppServiceDomainOwnershipIdentifier": {
-            "description": "Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.",
+            "description": "A domain specific resource identifier.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22477,7 +22477,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.",
+                "description": "A domain specific resource identifier.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -22505,7 +22505,7 @@
             }
         },
         "azurerm:web:AppServiceFunction": {
-            "description": "Description for Create function for web site, or a deployment slot.",
+            "description": "Function information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22558,7 +22558,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Create function for web site, or a deployment slot.",
+                "description": "Function information.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -22586,7 +22586,7 @@
             }
         },
         "azurerm:web:AppServiceHostNameBinding": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "A hostname binding object.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22639,7 +22639,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates a hostname binding for an app.",
+                "description": "A hostname binding object.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -22667,7 +22667,7 @@
             }
         },
         "azurerm:web:AppServiceHybridConnectionNamespaceRelay": {
-            "description": "Description for Creates a new Hybrid Connection using a Service Bus relay.",
+            "description": "Hybrid Connection contract. This is used to configure a Hybrid Connection.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22725,7 +22725,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates a new Hybrid Connection using a Service Bus relay.",
+                "description": "Hybrid Connection contract. This is used to configure a Hybrid Connection.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -22753,7 +22753,7 @@
             }
         },
         "azurerm:web:AppServiceHybridconnection": {
-            "description": "Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).",
+            "description": "Hybrid Connection for an App Service app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22806,7 +22806,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).",
+                "description": "Hybrid Connection for an App Service app.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -22834,7 +22834,7 @@
             }
         },
         "azurerm:web:AppServiceNetworkConfig": {
-            "description": "Description for Integrates this Web App with a Virtual Network. This requires that 1) \"swiftSupported\" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not\nin use by another App Service Plan other than the one this App is in.",
+            "description": "Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22882,7 +22882,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Integrates this Web App with a Virtual Network. This requires that 1) \"swiftSupported\" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not\nin use by another App Service Plan other than the one this App is in.",
+                "description": "Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -22910,7 +22910,7 @@
             }
         },
         "azurerm:web:AppServicePlan": {
-            "description": "Description for Creates or updates an App Service Plan.",
+            "description": "App Service plan.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -22984,7 +22984,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates or updates an App Service Plan.",
+                "description": "App Service plan.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23025,7 +23025,7 @@
             }
         },
         "azurerm:web:AppServicePlanVirtualNetworkConnectionRoute": {
-            "description": "Description for Create or update a Virtual Network route in an App Service plan.",
+            "description": "Virtual Network route contract used to pass routing information for a Virtual Network.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23083,7 +23083,7 @@
                 "vnetName"
             ],
             "stateInputs": {
-                "description": "Description for Create or update a Virtual Network route in an App Service plan.",
+                "description": "Virtual Network route contract used to pass routing information for a Virtual Network.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23111,7 +23111,7 @@
             }
         },
         "azurerm:web:AppServicePremieraddon": {
-            "description": "Description for Updates a named add-on of an app.",
+            "description": "Premier add-on.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23182,7 +23182,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Updates a named add-on of an app.",
+                "description": "Premier add-on.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23219,7 +23219,7 @@
             }
         },
         "azurerm:web:AppServicePrivateEndpointConnection": {
-            "description": "Description for Approves or rejects a private endpoint connection",
+            "description": "Private Endpoint Connection ARM resource.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23271,7 +23271,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Approves or rejects a private endpoint connection",
+                "description": "Private Endpoint Connection ARM resource.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23299,7 +23299,7 @@
             }
         },
         "azurerm:web:AppServicePublicCertificate": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "Public certificate object",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23352,7 +23352,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates a hostname binding for an app.",
+                "description": "Public certificate object",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23380,7 +23380,7 @@
             }
         },
         "azurerm:web:AppServiceSiteextension": {
-            "description": "Description for Install site extension on a web site, or a deployment slot.",
+            "description": "Site Extension Information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23425,7 +23425,7 @@
                 "siteExtensionId"
             ],
             "stateInputs": {
-                "description": "Description for Install site extension on a web site, or a deployment slot.",
+                "description": "Site Extension Information.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23453,7 +23453,7 @@
             }
         },
         "azurerm:web:AppServiceSlot": {
-            "description": "Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.",
+            "description": "A web app, a mobile app backend, or an API app.",
             "properties": {
                 "identity": {
                     "$ref": "#/types/azurerm:web:ManagedServiceIdentityResponse",
@@ -23532,7 +23532,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app.",
+                "description": "A web app, a mobile app backend, or an API app.",
                 "properties": {
                     "identity": {
                         "$ref": "#/types/azurerm:web:ManagedServiceIdentityResponse",
@@ -23573,7 +23573,7 @@
             }
         },
         "azurerm:web:AppServiceSlotDeployment": {
-            "description": "Description for Create a deployment for an app, or a deployment slot.",
+            "description": "User credentials used for publishing activity.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23631,7 +23631,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Create a deployment for an app, or a deployment slot.",
+                "description": "User credentials used for publishing activity.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23659,7 +23659,7 @@
             }
         },
         "azurerm:web:AppServiceSlotDomainOwnershipIdentifier": {
-            "description": "Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.",
+            "description": "A domain specific resource identifier.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23717,7 +23717,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Creates a domain ownership identifier for web app, or updates an existing ownership identifier.",
+                "description": "A domain specific resource identifier.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23745,7 +23745,7 @@
             }
         },
         "azurerm:web:AppServiceSlotFunction": {
-            "description": "Description for Create function for web site, or a deployment slot.",
+            "description": "Function information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23803,7 +23803,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Create function for web site, or a deployment slot.",
+                "description": "Function information.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23831,7 +23831,7 @@
             }
         },
         "azurerm:web:AppServiceSlotHostNameBinding": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "A hostname binding object.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23889,7 +23889,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Creates a hostname binding for an app.",
+                "description": "A hostname binding object.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -23917,7 +23917,7 @@
             }
         },
         "azurerm:web:AppServiceSlotHybridConnectionNamespaceRelay": {
-            "description": "Description for Creates a new Hybrid Connection using a Service Bus relay.",
+            "description": "Hybrid Connection contract. This is used to configure a Hybrid Connection.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -23980,7 +23980,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Creates a new Hybrid Connection using a Service Bus relay.",
+                "description": "Hybrid Connection contract. This is used to configure a Hybrid Connection.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24008,7 +24008,7 @@
             }
         },
         "azurerm:web:AppServiceSlotHybridconnection": {
-            "description": "Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).",
+            "description": "Hybrid Connection for an App Service app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24066,7 +24066,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Creates a new hybrid connection configuration (PUT), or updates an existing one (PATCH).",
+                "description": "Hybrid Connection for an App Service app.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24094,7 +24094,7 @@
             }
         },
         "azurerm:web:AppServiceSlotNetworkConfig": {
-            "description": "Description for Integrates this Web App with a Virtual Network. This requires that 1) \"swiftSupported\" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not\nin use by another App Service Plan other than the one this App is in.",
+            "description": "Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24147,7 +24147,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Integrates this Web App with a Virtual Network. This requires that 1) \"swiftSupported\" is true when doing a GET against this resource, and 2) that the target Subnet has already been delegated, and is not\nin use by another App Service Plan other than the one this App is in.",
+                "description": "Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24175,7 +24175,7 @@
             }
         },
         "azurerm:web:AppServiceSlotPremieraddon": {
-            "description": "Description for Updates a named add-on of an app.",
+            "description": "Premier add-on.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24251,7 +24251,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Updates a named add-on of an app.",
+                "description": "Premier add-on.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24288,7 +24288,7 @@
             }
         },
         "azurerm:web:AppServiceSlotPublicCertificate": {
-            "description": "Description for Creates a hostname binding for an app.",
+            "description": "Public certificate object",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24346,7 +24346,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Creates a hostname binding for an app.",
+                "description": "Public certificate object",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24374,7 +24374,7 @@
             }
         },
         "azurerm:web:AppServiceSlotSiteextension": {
-            "description": "Description for Install site extension on a web site, or a deployment slot.",
+            "description": "Site Extension Information.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24424,7 +24424,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Install site extension on a web site, or a deployment slot.",
+                "description": "Site Extension Information.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24452,7 +24452,7 @@
             }
         },
         "azurerm:web:AppServiceSlotSourcecontrol": {
-            "description": "Description for Updates the source control configuration of an app.",
+            "description": "Source control configuration for an app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24505,7 +24505,7 @@
                 "slot"
             ],
             "stateInputs": {
-                "description": "Description for Updates the source control configuration of an app.",
+                "description": "Source control configuration for an app.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24533,7 +24533,7 @@
             }
         },
         "azurerm:web:AppServiceSlotVirtualNetworkConnection": {
-            "description": "Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).",
+            "description": "Virtual Network information contract.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24591,7 +24591,7 @@
                 "vnetName"
             ],
             "stateInputs": {
-                "description": "Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).",
+                "description": "Virtual Network information contract.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24619,7 +24619,7 @@
             }
         },
         "azurerm:web:AppServiceSourcecontrol": {
-            "description": "Description for Updates the source control configuration of an app.",
+            "description": "Source control configuration for an app.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24667,7 +24667,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Updates the source control configuration of an app.",
+                "description": "Source control configuration for an app.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24695,7 +24695,7 @@
             }
         },
         "azurerm:web:AppServiceVirtualNetworkConnection": {
-            "description": "Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).",
+            "description": "Virtual Network information contract.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24748,7 +24748,7 @@
                 "vnetName"
             ],
             "stateInputs": {
-                "description": "Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).",
+                "description": "Virtual Network information contract.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24776,7 +24776,7 @@
             }
         },
         "azurerm:web:StaticSite": {
-            "description": "Description for Creates a new static site in an existing resource group, or updates an existing static site.",
+            "description": "Static Site ARM resource.",
             "properties": {
                 "kind": {
                     "type": "string",
@@ -24850,7 +24850,7 @@
                 "resourceGroupName"
             ],
             "stateInputs": {
-                "description": "Description for Creates a new static site in an existing resource group, or updates an existing static site.",
+                "description": "Static Site ARM resource.",
                 "properties": {
                     "kind": {
                         "type": "string",
@@ -24896,7 +24896,7 @@
             "dependencies": {
                 "@pulumi/pulumi": "^2.0.0"
             },
-            "readme": "TODO"
+            "readme": "A Pulumi package for creating and managing Azure resources."
         }
     }
 }

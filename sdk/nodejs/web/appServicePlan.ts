@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Creates or updates an App Service Plan.
+ * App Service plan.
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class AppServicePlan extends pulumi.CustomResource {
 }
 
 /**
- * Description for Creates or updates an App Service Plan.
+ * App Service plan.
  */
 export interface AppServicePlanState {
     /**

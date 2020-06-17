@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Create function for web site, or a deployment slot.
+ * Function information.
  */
 export class AppServiceFunction extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class AppServiceFunction extends pulumi.CustomResource {
 }
 
 /**
- * Description for Create function for web site, or a deployment slot.
+ * Function information.
  */
 export interface AppServiceFunctionState {
     /**

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Adds a linked server to the Redis cache (requires Premium SKU).
+ * Response to put/get linked server (with properties) for Redis cache.
  */
 export class RedisLinkedServer extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class RedisLinkedServer extends pulumi.CustomResource {
 }
 
 /**
- * Adds a linked server to the Redis cache (requires Premium SKU).
+ * Response to put/get linked server (with properties) for Redis cache.
  */
 export interface RedisLinkedServerState {
     /**

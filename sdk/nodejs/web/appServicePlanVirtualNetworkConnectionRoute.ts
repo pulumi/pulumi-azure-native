@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Create or update a Virtual Network route in an App Service plan.
+ * Virtual Network route contract used to pass routing information for a Virtual Network.
  */
 export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomRe
 }
 
 /**
- * Description for Create or update a Virtual Network route in an App Service plan.
+ * Virtual Network route contract used to pass routing information for a Virtual Network.
  */
 export interface AppServicePlanVirtualNetworkConnectionRouteState {
     /**

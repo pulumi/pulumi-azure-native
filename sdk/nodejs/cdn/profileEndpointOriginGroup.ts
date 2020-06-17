@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new origin group within the specified endpoint.
+ * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  */
 export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
 }
 
 /**
- * Creates a new origin group within the specified endpoint.
+ * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  */
 export interface ProfileEndpointOriginGroupState {
     /**

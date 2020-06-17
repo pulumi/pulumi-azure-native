@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a network interface.
+ * A network interface in a resource group.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class NetworkInterface extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a network interface.
+ * A network interface in a resource group.
  */
 export interface NetworkInterfaceState {
     /**

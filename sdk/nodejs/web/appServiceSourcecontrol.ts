@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Updates the source control configuration of an app.
+ * Source control configuration for an app.
  */
 export class AppServiceSourcecontrol extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class AppServiceSourcecontrol extends pulumi.CustomResource {
 }
 
 /**
- * Description for Updates the source control configuration of an app.
+ * Source control configuration for an app.
  */
 export interface AppServiceSourcecontrolState {
     /**

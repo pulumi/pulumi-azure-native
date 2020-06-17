@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a virtual network in the specified resource group.
+ * Virtual Network resource.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a virtual network in the specified resource group.
+ * Virtual Network resource.
  */
 export interface VirtualNetworkState {
     /**

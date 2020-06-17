@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates or updates a security rule in the specified network security group.
+ * Network security rule.
  */
 export class NetworkSecurityGroupSecurityRule extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class NetworkSecurityGroupSecurityRule extends pulumi.CustomResource {
 }
 
 /**
- * Creates or updates a security rule in the specified network security group.
+ * Network security rule.
  */
 export interface NetworkSecurityGroupSecurityRuleState {
     /**

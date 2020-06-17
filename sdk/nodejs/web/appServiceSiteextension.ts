@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Install site extension on a web site, or a deployment slot.
+ * Site Extension Information.
  */
 export class AppServiceSiteextension extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class AppServiceSiteextension extends pulumi.CustomResource {
 }
 
 /**
- * Description for Install site extension on a web site, or a deployment slot.
+ * Site Extension Information.
  */
 export interface AppServiceSiteextensionState {
     /**

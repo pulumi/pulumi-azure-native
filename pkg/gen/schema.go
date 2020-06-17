@@ -50,7 +50,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 				visitedTypes:  make(map[string]bool),
 			}
 
-			requrestProperties, err := gen.genMethodParameters(path.Put.Parameters, swagger.ReferenceContext)
+			requestProperties, err := gen.genMethodParameters(path.Put.Parameters, swagger.ReferenceContext)
 			if err != nil {
 				return nil, err
 			}
@@ -61,7 +61,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 			}
 
 			objectSpec := pschema.ObjectTypeSpec{
-				Description: path.Put.Description,
+				Description: responseProperties.description,
 				Type:        "object",
 				Properties:  responseProperties.all,
 				Required:    responseProperties.required.SortedValues(),
@@ -70,8 +70,8 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 
 			resourceSpec := pschema.ResourceSpec{
 				ObjectTypeSpec:  objectSpec,
-				InputProperties: requrestProperties.all,
-				RequiredInputs:  requrestProperties.required.SortedValues(),
+				InputProperties: requestProperties.all,
+				RequiredInputs:  requestProperties.required.SortedValues(),
 				// TODO: this is probably wrong, state inputs are set here because codegen fails without them.
 				StateInputs: &objectSpec,
 			}
@@ -83,7 +83,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 		"dependencies": map[string]string{
 			"@pulumi/pulumi": "^2.0.0",
 		},
-		"readme": `TODO`,
+		"readme": pkg.Description, // TODO: add a proper readme.
 	})
 
 	return &pkg, nil
@@ -182,12 +182,12 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 			result.required.Add("properties")
 		}
 
+		result.description = responseSchema.Description
 		return result, nil
 	}
 
 	return nil, errors.New("no 2xx response found")
 }
-
 
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput bool) (*propertyBag, error) {
 	result := newPropertyBag()
@@ -198,7 +198,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
-		if isOutput  {
+		if isOutput {
 			result.all[name] = *propertySpec
 			if property.ReadOnly {
 				result.required.Add(name)
@@ -267,12 +267,13 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 			primitiveTypeName = "string"
 		} else {
 			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
-			// Avoid collision of resource name vs. property type name (example: StaticSite).
+			// Avoid collision of resource name vs. property type name (example: azurerm:web:StaticSite).
 			if tok == m.resourceToken {
 				tok = tok + "Definition"
 			}
 		}
 	} else if len(schema.Properties) > 0 {
+		// Inline properties have no type in the Open API schema but we need a type in the Pulumi schema.
 		tok = m.typeName(context, isOutput) + "Properties"
 	} else if len(schema.Type) > 0 {
 		primitiveTypeName = schema.Type[0]
@@ -328,8 +329,9 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 }
 
 type propertyBag struct {
-	all      map[string]pschema.PropertySpec
-	required codegen.StringSet
+	description string
+	all         map[string]pschema.PropertySpec
+	required    codegen.StringSet
 }
 
 func newPropertyBag() *propertyBag {

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Sets the managementpolicy to the specified storage account.
+ * The Get Storage Account ManagementPolicies operation response.
  */
 export class StorageAccountManagementPolicy extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class StorageAccountManagementPolicy extends pulumi.CustomResource {
 }
 
 /**
- * Sets the managementpolicy to the specified storage account.
+ * The Get Storage Account ManagementPolicies operation response.
  */
 export interface StorageAccountManagementPolicyState {
     /**

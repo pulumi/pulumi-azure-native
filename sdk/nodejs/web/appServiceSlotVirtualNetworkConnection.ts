@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).
+ * Virtual Network information contract.
  */
 export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResourc
 }
 
 /**
- * Description for Adds a Virtual Network connection to an app or slot (PUT) or updates the connection properties (PATCH).
+ * Virtual Network information contract.
  */
 export interface AppServiceSlotVirtualNetworkConnectionState {
     /**
