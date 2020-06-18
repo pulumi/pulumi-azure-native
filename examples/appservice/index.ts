@@ -3,7 +3,7 @@ import * as azurerm from "../../sdk/nodejs";
 
 const resourceGroup = new azurerm.core.ResourceGroup("rg", {
     name: "azurerm-appservice",
-    location: "westeurope",
+    location: "westus2",
     tags: {
         Owner: "mikhailshilkov",
         Env: "prod2",
