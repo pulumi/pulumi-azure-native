@@ -40,7 +40,7 @@ export class ProfileEndpointCustomDomain extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The JSON object that contains the properties of the custom domain to create.
      */
@@ -67,11 +67,11 @@ export class ProfileEndpointCustomDomain extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProfileEndpointCustomDomainArgs | undefined;
-            if (!args || args.customDomainName === undefined) {
-                throw new Error("Missing required property 'customDomainName'");
-            }
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -79,12 +79,11 @@ export class ProfileEndpointCustomDomain extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customDomainName"] = args ? args.customDomainName : undefined;
             inputs["endpointName"] = args ? args.endpointName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,13 +120,13 @@ export interface ProfileEndpointCustomDomainState {
  */
 export interface ProfileEndpointCustomDomainArgs {
     /**
-     * Name of the custom domain within an endpoint.
-     */
-    readonly customDomainName: pulumi.Input<string>;
-    /**
      * Name of the endpoint under the profile which is unique globally.
      */
     readonly endpointName: pulumi.Input<string>;
+    /**
+     * Name of the custom domain within an endpoint.
+     */
+    readonly name: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

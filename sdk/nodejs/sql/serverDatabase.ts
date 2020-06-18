@@ -48,7 +48,7 @@ export class ServerDatabase extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The properties representing the resource.
      */
@@ -82,11 +82,11 @@ export class ServerDatabase extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerDatabaseArgs | undefined;
-            if (!args || args.databaseName === undefined) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -94,14 +94,13 @@ export class ServerDatabase extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -150,13 +149,13 @@ export interface ServerDatabaseState {
  */
 export interface ServerDatabaseArgs {
     /**
-     * The name of the database to be operated on (updated or created).
-     */
-    readonly databaseName: pulumi.Input<string>;
-    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The name of the database to be operated on (updated or created).
+     */
+    readonly name: pulumi.Input<string>;
     /**
      * The properties representing the resource.
      */

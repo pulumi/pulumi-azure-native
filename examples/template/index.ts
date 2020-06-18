@@ -42,34 +42,24 @@ class Template extends pulumi.ComponentResource {
             let typeName;
             if (resource.type === "Microsoft.Compute/virtualMachines") {
                 typeName = "azurerm:compute:VirtualMachine";
-                resourceArgs.vmName = resource.name;
             } else if (resource.type === "Microsoft.Network/networkInterfaces") {
                 typeName = "azurerm:network:NetworkInterface";
-                resourceArgs.networkInterfaceName = resource.name;
             } else if (resource.type === "Microsoft.Network/networkSecurityGroups") {
                 typeName = "azurerm:network:NetworkSecurityGroup";
-                resourceArgs.networkSecurityGroupName = resource.name;
             } else if (resource.type === "Microsoft.Network/publicIPAddresses") {
                 typeName = "azurerm:network:PublicIPAddress";
-                resourceArgs.publicIpAddressName = resource.name;
             } else if (resource.type === "Microsoft.Network/virtualNetworks") {
                 typeName = "azurerm:network:VirtualNetwork";
-                resourceArgs.virtualNetworkName = resource.name;
             } else if (resource.type === "Microsoft.Storage/storageAccounts") {
                 typeName = "azurerm:storage:StorageAccount";
-                resourceArgs.accountName = resource.name;
             } else if (resource.type === "Microsoft.Web/serverfarms") {
                 typeName = "azurerm:web:AppServicePlan";
-                resourceArgs.name = resource.name;
             } else if (resource.type === "Microsoft.Web/sites") {
                 typeName = "azurerm:web:AppService";
-                resourceArgs.name = resource.name;
             } else if (resource.type === "Microsoft.Cache/Redis") {
                 typeName = "azurerm:cache:Redis";
-                resourceArgs.name = resource.name;                
             } else if (resource.type === "Microsoft.ContainerInstance/containerGroups") {
                 typeName = "azurerm:containerinstance:ContainerGroup";
-                resourceArgs.containerGroupName = resource.name;                
             } else {
                 throw new Error(`Unknown type ${resource.type}`);
             }
@@ -82,7 +72,7 @@ class Template extends pulumi.ComponentResource {
 const resourceGroupName = "azurermtemplates";
 
 const resourceGroup = new ResourceGroup("azurerm", {
-    resourceGroupName,
+    name: resourceGroupName,
     location: "westus2",
     tags: {
         Owner: "mikhailshilkov",

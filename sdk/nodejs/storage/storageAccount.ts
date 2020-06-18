@@ -52,7 +52,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Properties of the storage account.
      */
@@ -92,14 +92,14 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as StorageAccountArgs | undefined;
-            if (!args || args.accountName === undefined) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -107,15 +107,14 @@ export class StorageAccount extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -172,10 +171,6 @@ export interface StorageAccountState {
  */
 export interface StorageAccountArgs {
     /**
-     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-     */
-    readonly accountName: pulumi.Input<string>;
-    /**
      * The identity of the resource.
      */
     readonly identity?: pulumi.Input<inputs.storage.Identity>;
@@ -187,6 +182,10 @@ export interface StorageAccountArgs {
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+     */
+    readonly name: pulumi.Input<string>;
     /**
      * The parameters used to create the storage account.
      */

@@ -44,7 +44,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Describes the properties of an Image.
      */
@@ -77,21 +77,20 @@ export class Image extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
-            if (!args || args.imageName === undefined) {
-                throw new Error("Missing required property 'imageName'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["imageName"] = args ? args.imageName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -136,13 +135,13 @@ export interface ImageState {
  */
 export interface ImageArgs {
     /**
-     * The name of the image.
-     */
-    readonly imageName: pulumi.Input<string>;
-    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The name of the image.
+     */
+    readonly name: pulumi.Input<string>;
     /**
      * Describes the properties of an Image.
      */

@@ -44,7 +44,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The instance view of a resource.
      */
@@ -82,22 +82,21 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AvailabilitySetArgs | undefined;
-            if (!args || args.availabilitySetName === undefined) {
-                throw new Error("Missing required property 'availabilitySetName'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -146,13 +145,13 @@ export interface AvailabilitySetState {
  */
 export interface AvailabilitySetArgs {
     /**
-     * The name of the availability set.
-     */
-    readonly availabilitySetName: pulumi.Input<string>;
-    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The name of the availability set.
+     */
+    readonly name: pulumi.Input<string>;
     /**
      * The instance view of a resource.
      */

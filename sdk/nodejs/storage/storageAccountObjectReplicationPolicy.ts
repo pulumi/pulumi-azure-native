@@ -40,7 +40,7 @@ export class StorageAccountObjectReplicationPolicy extends pulumi.CustomResource
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Returns the Storage Account Object Replication Policy.
      */
@@ -70,17 +70,16 @@ export class StorageAccountObjectReplicationPolicy extends pulumi.CustomResource
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.objectReplicationPolicyId === undefined) {
-                throw new Error("Missing required property 'objectReplicationPolicyId'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["objectReplicationPolicyId"] = args ? args.objectReplicationPolicyId : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -123,7 +122,7 @@ export interface StorageAccountObjectReplicationPolicyArgs {
     /**
      * The ID of object replication policy or 'default' if the policy ID is unknown.
      */
-    readonly objectReplicationPolicyId: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Returns the Storage Account Object Replication Policy.
      */

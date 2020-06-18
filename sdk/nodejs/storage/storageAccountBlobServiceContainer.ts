@@ -44,7 +44,7 @@ export class StorageAccountBlobServiceContainer extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Properties of the blob container.
      */
@@ -75,18 +75,17 @@ export class StorageAccountBlobServiceContainer extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.containerName === undefined) {
-                throw new Error("Missing required property 'containerName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -133,7 +132,7 @@ export interface StorageAccountBlobServiceContainerArgs {
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    readonly containerName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the blob container.
      */

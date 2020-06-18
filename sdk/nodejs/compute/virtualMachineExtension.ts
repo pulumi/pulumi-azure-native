@@ -44,7 +44,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Describes the properties of a Virtual Machine Extension.
      */
@@ -80,22 +80,21 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.vmExtensionName === undefined) {
-                throw new Error("Missing required property 'vmExtensionName'");
             }
             if (!args || args.vmName === undefined) {
                 throw new Error("Missing required property 'vmName'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmExtensionName"] = args ? args.vmExtensionName : undefined;
             inputs["vmName"] = args ? args.vmName : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -144,6 +143,10 @@ export interface VirtualMachineExtensionArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The name of the virtual machine extension.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * Describes the properties of a Virtual Machine Extension.
      */
     readonly properties?: pulumi.Input<inputs.compute.VirtualMachineExtensionProperties>;
@@ -155,10 +158,6 @@ export interface VirtualMachineExtensionArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the virtual machine extension.
-     */
-    readonly vmExtensionName: pulumi.Input<string>;
     /**
      * The name of the virtual machine where the extension should be created or updated.
      */

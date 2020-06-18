@@ -44,7 +44,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Describes the properties of a Proximity Placement Group.
      */
@@ -80,18 +80,17 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.proximityPlacementGroupName === undefined) {
-                throw new Error("Missing required property 'proximityPlacementGroupName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
-            inputs["proximityPlacementGroupName"] = args ? args.proximityPlacementGroupName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -140,13 +139,13 @@ export interface ProximityPlacementGroupArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The name of the proximity placement group.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * Describes the properties of a Proximity Placement Group.
      */
     readonly properties?: pulumi.Input<inputs.compute.ProximityPlacementGroupProperties>;
-    /**
-     * The name of the proximity placement group.
-     */
-    readonly proximityPlacementGroupName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
