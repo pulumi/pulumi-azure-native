@@ -40,7 +40,7 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The JSON object that contains the properties of the origin group.
      */
@@ -70,8 +70,8 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (!args || args.originGroupName === undefined) {
-                throw new Error("Missing required property 'originGroupName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -80,11 +80,10 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["originGroupName"] = args ? args.originGroupName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -127,7 +126,7 @@ export interface ProfileEndpointOriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    readonly originGroupName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

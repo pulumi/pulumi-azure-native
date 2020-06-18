@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"strings"
 )
 
 // PulumiSchema will generate a Pulumi schema for the given swagger specs.
@@ -60,6 +61,8 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 				return nil, errors.Wrapf(err, "failed to generate response type for '%s'", tok)
 			}
 
+			gen.normalizeName(key, requestProperties, responseProperties)
+
 			objectSpec := pschema.ObjectTypeSpec{
 				Description: responseProperties.description,
 				Type:        "object",
@@ -94,6 +97,38 @@ type moduleGenerator struct {
 	module        string
 	resourceToken string
 	visitedTypes  map[string]bool
+}
+
+// normalizeName replaces a custom name input property like `accountName` or `resourceGroupName` with the standard
+// `name` property.
+func (m *moduleGenerator) normalizeName(path string, requestProperties *propertyBag, responseProperties *propertyBag) {
+	// Do nothing if there's no `name` in response properties - we always expect it for any resource.
+	if _, ok := responseProperties.all["name"]; !ok {
+		return
+	}
+
+	// Do nothing if there's already a `name` property.
+	if _, ok := requestProperties.all["name"]; ok {
+		return
+	}
+
+	parts := strings.Split(path, "/")
+	for i := len(parts)-1; i >= 0; i-- {
+		part := parts[i]
+		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
+			name := part[1:len(part)-1]
+			nameProp := requestProperties.all[name]
+
+			// We expect names to be always a required string.
+			if nameProp.Type == "string" && requestProperties.required.Has(name) {
+				delete(requestProperties.all, name)
+				requestProperties.all["name"] = nameProp
+				requestProperties.required.Delete(name)
+				requestProperties.required.Add("name")
+				break
+			}
+		}
+	}
 }
 
 func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext) (*propertyBag, error) {

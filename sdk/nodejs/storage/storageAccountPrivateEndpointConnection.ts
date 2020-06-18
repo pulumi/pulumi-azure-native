@@ -40,7 +40,7 @@ export class StorageAccountPrivateEndpointConnection extends pulumi.CustomResour
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Resource properties.
      */
@@ -70,17 +70,16 @@ export class StorageAccountPrivateEndpointConnection extends pulumi.CustomResour
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.privateEndpointConnectionName === undefined) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -123,7 +122,7 @@ export interface StorageAccountPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Resource properties.
      */

@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
 const resourceGroup = new azurerm.core.ResourceGroup("rg", {
-    resourceGroupName: "azurerm",
+    name: "azurerm",
     location: "westus2",
     tags: {
         Owner: "mikhailshilkov",
@@ -36,7 +36,7 @@ export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.properti
 const containerinstance = new azurerm.containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
     // should be autonamed?
-    containerGroupName: "abc-1234",
+    name: "abc-1234",
     location: "westus2",
     // should be inlined via 'x-ms-client-flatten'
     properties: {
@@ -59,7 +59,7 @@ const containerinstance = new azurerm.containerinstance.ContainerGroup("containe
 
 const vnet = new azurerm.network.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
-    virtualNetworkName: "vnet-1234",
+    name: "vnet-1234",
     location: "westus2",
     properties: {
         addressSpace: {
@@ -85,7 +85,7 @@ const subnet = new azurerm.network.VirtualNetworkSubnet("subnet2", {
 
 const networkInterface = new azurerm.network.NetworkInterface("nic", {
     resourceGroupName: resourceGroup.name,
-    networkInterfaceName: "nic-1234",
+    name: "nic-1234",
     location: "westus2",
     properties: {
         ipConfigurations: [{
@@ -102,7 +102,7 @@ const networkInterface = new azurerm.network.NetworkInterface("nic", {
 
 const virtualmachine  = new azurerm.compute.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
-    vmName: "abc-1234",
+    name: "abc-1234",
     location: "westus2",
     properties: {
         hardwareProfile: {
@@ -151,7 +151,7 @@ const appService = new azurerm.web.AppService("app", {
 
 const storageAccount = new azurerm.storage.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
-    accountName: "pulumi14345sa",
+    name: "pulumi14345sa",
     location: "westus2",
     sku: {
         name: "Standard_LRS",

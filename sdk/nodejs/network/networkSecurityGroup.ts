@@ -48,7 +48,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Properties of the network security group.
      */
@@ -82,20 +82,19 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as NetworkSecurityGroupArgs | undefined;
-            if (!args || args.networkSecurityGroupName === undefined) {
-                throw new Error("Missing required property 'networkSecurityGroupName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -154,7 +153,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * The name of the network security group.
      */
-    readonly networkSecurityGroupName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the network security group.
      */

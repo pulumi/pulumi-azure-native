@@ -48,7 +48,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Properties of the virtual network.
      */
@@ -82,20 +82,19 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.virtualNetworkName === undefined) {
-                throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -156,6 +155,10 @@ export interface VirtualNetworkArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The name of the virtual network.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * Properties of the virtual network.
      */
     readonly properties?: pulumi.Input<inputs.network.VirtualNetworkPropertiesFormat>;
@@ -167,8 +170,4 @@ export interface VirtualNetworkArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the virtual network.
-     */
-    readonly virtualNetworkName: pulumi.Input<string>;
 }

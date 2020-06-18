@@ -18840,6 +18840,10 @@
                     "type": "string",
                     "description": "The name of the Redis cache."
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the firewall rule."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:cache:RedisFirewallRuleProperties",
                     "description": "Properties required to create a firewall rule ."
@@ -18847,17 +18851,13 @@
                 "resourceGroupName": {
                     "type": "string",
                     "description": "The name of the resource group."
-                },
-                "ruleName": {
-                    "type": "string",
-                    "description": "The name of the firewall rule."
                 }
             },
             "requiredInputs": [
                 "cacheName",
+                "name",
                 "properties",
-                "resourceGroupName",
-                "ruleName"
+                "resourceGroupName"
             ],
             "stateInputs": {
                 "description": "A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect",
@@ -19064,7 +19064,7 @@
                     "type": "string",
                     "description": "Resource location."
                 },
-                "profileName": {
+                "name": {
                     "type": "string",
                     "description": "Name of the CDN profile which is unique within the resource group."
                 },
@@ -19087,7 +19087,7 @@
             },
             "requiredInputs": [
                 "location",
-                "profileName",
+                "name",
                 "resourceGroupName",
                 "sku"
             ],
@@ -19161,13 +19161,13 @@
                 "type"
             ],
             "inputProperties": {
-                "endpointName": {
-                    "type": "string",
-                    "description": "Name of the endpoint under the profile which is unique globally."
-                },
                 "location": {
                     "type": "string",
                     "description": "Resource location."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the endpoint under the profile which is unique globally."
                 },
                 "profileName": {
                     "type": "string",
@@ -19187,8 +19187,8 @@
                 }
             },
             "requiredInputs": [
-                "endpointName",
                 "location",
+                "name",
                 "profileName",
                 "resourceGroupName"
             ],
@@ -19248,13 +19248,13 @@
                 "type"
             ],
             "inputProperties": {
-                "customDomainName": {
-                    "type": "string",
-                    "description": "Name of the custom domain within an endpoint."
-                },
                 "endpointName": {
                     "type": "string",
                     "description": "Name of the endpoint under the profile which is unique globally."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the custom domain within an endpoint."
                 },
                 "profileName": {
                     "type": "string",
@@ -19270,8 +19270,8 @@
                 }
             },
             "requiredInputs": [
-                "customDomainName",
                 "endpointName",
+                "name",
                 "profileName",
                 "resourceGroupName"
             ],
@@ -19339,7 +19339,7 @@
                     "type": "string",
                     "description": "Resource location."
                 },
-                "originName": {
+                "name": {
                     "type": "string",
                     "description": "Name of the origin that is unique within the endpoint."
                 },
@@ -19363,7 +19363,7 @@
             "requiredInputs": [
                 "endpointName",
                 "location",
-                "originName",
+                "name",
                 "profileName",
                 "resourceGroupName"
             ],
@@ -19427,7 +19427,7 @@
                     "type": "string",
                     "description": "Name of the endpoint under the profile which is unique globally."
                 },
-                "originGroupName": {
+                "name": {
                     "type": "string",
                     "description": "Name of the origin group which is unique within the endpoint."
                 },
@@ -19446,7 +19446,7 @@
             },
             "requiredInputs": [
                 "endpointName",
-                "originGroupName",
+                "name",
                 "profileName",
                 "resourceGroupName"
             ],
@@ -19510,13 +19510,13 @@
                 "type"
             ],
             "inputProperties": {
-                "availabilitySetName": {
-                    "type": "string",
-                    "description": "The name of the availability set."
-                },
                 "location": {
                     "type": "string",
                     "description": "Resource location"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the availability set."
                 },
                 "properties": {
                     "$ref": "#/types/azurerm:compute:AvailabilitySetProperties",
@@ -19536,8 +19536,8 @@
                 }
             },
             "requiredInputs": [
-                "availabilitySetName",
                 "location",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -19609,13 +19609,13 @@
                 "type"
             ],
             "inputProperties": {
-                "imageName": {
-                    "type": "string",
-                    "description": "The name of the image."
-                },
                 "location": {
                     "type": "string",
                     "description": "Resource location"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the image."
                 },
                 "properties": {
                     "$ref": "#/types/azurerm:compute:ImageProperties",
@@ -19631,8 +19631,8 @@
                 }
             },
             "requiredInputs": [
-                "imageName",
                 "location",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -19704,13 +19704,13 @@
                     "type": "string",
                     "description": "Resource location"
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the proximity placement group."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:compute:ProximityPlacementGroupProperties",
                     "description": "Describes the properties of a Proximity Placement Group."
-                },
-                "proximityPlacementGroupName": {
-                    "type": "string",
-                    "description": "The name of the proximity placement group."
                 },
                 "resourceGroupName": {
                     "type": "string",
@@ -19723,7 +19723,7 @@
             },
             "requiredInputs": [
                 "location",
-                "proximityPlacementGroupName",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -19822,6 +19822,10 @@
                     "type": "string",
                     "description": "Resource location"
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the virtual machine."
+                },
                 "plan": {
                     "$ref": "#/types/azurerm:compute:Plan",
                     "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -\u003e**. Enter any required information and then click **Save**."
@@ -19838,10 +19842,6 @@
                     "type": "object",
                     "description": "Resource tags"
                 },
-                "vmName": {
-                    "type": "string",
-                    "description": "The name of the virtual machine."
-                },
                 "zones": {
                     "type": "array",
                     "items": {
@@ -19852,8 +19852,8 @@
             },
             "requiredInputs": [
                 "location",
-                "resourceGroupName",
-                "vmName"
+                "name",
+                "resourceGroupName"
             ],
             "stateInputs": {
                 "description": "Describes a Virtual Machine.",
@@ -19947,6 +19947,10 @@
                     "type": "string",
                     "description": "Resource location"
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the virtual machine extension."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:compute:VirtualMachineExtensionProperties",
                     "description": "Describes the properties of a Virtual Machine Extension."
@@ -19959,10 +19963,6 @@
                     "type": "object",
                     "description": "Resource tags"
                 },
-                "vmExtensionName": {
-                    "type": "string",
-                    "description": "The name of the virtual machine extension."
-                },
                 "vmName": {
                     "type": "string",
                     "description": "The name of the virtual machine where the extension should be created or updated."
@@ -19970,8 +19970,8 @@
             },
             "requiredInputs": [
                 "location",
+                "name",
                 "resourceGroupName",
-                "vmExtensionName",
                 "vmName"
             ],
             "stateInputs": {
@@ -20066,6 +20066,10 @@
                     "type": "string",
                     "description": "Resource location"
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the VM scale set to create or update."
+                },
                 "plan": {
                     "$ref": "#/types/azurerm:compute:Plan",
                     "description": "Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -\u003e**. Enter any required information and then click **Save**."
@@ -20086,10 +20090,6 @@
                     "type": "object",
                     "description": "Resource tags"
                 },
-                "vmScaleSetName": {
-                    "type": "string",
-                    "description": "The name of the VM scale set to create or update."
-                },
                 "zones": {
                     "type": "array",
                     "items": {
@@ -20100,8 +20100,8 @@
             },
             "requiredInputs": [
                 "location",
-                "resourceGroupName",
-                "vmScaleSetName"
+                "name",
+                "resourceGroupName"
             ],
             "stateInputs": {
                 "description": "Describes a Virtual Machine Scale Set.",
@@ -20278,13 +20278,13 @@
                 "zones"
             ],
             "inputProperties": {
-                "instanceId": {
-                    "type": "string",
-                    "description": "The instance ID of the virtual machine."
-                },
                 "location": {
                     "type": "string",
                     "description": "Resource location"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The instance ID of the virtual machine."
                 },
                 "plan": {
                     "$ref": "#/types/azurerm:compute:Plan",
@@ -20308,8 +20308,8 @@
                 }
             },
             "requiredInputs": [
-                "instanceId",
                 "location",
+                "name",
                 "resourceGroupName",
                 "vmScaleSetName"
             ],
@@ -20410,10 +20410,6 @@
                 "type"
             ],
             "inputProperties": {
-                "containerGroupName": {
-                    "type": "string",
-                    "description": "The name of the container group."
-                },
                 "identity": {
                     "$ref": "#/types/azurerm:containerinstance:ContainerGroupIdentity",
                     "description": "The identity of the container group, if configured."
@@ -20421,6 +20417,10 @@
                 "location": {
                     "type": "string",
                     "description": "The resource location."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the container group."
                 },
                 "properties": {
                     "$ref": "#/types/azurerm:containerinstance:ContainerGroupProperties"
@@ -20435,7 +20435,7 @@
                 }
             },
             "requiredInputs": [
-                "containerGroupName",
+                "name",
                 "properties",
                 "resourceGroupName"
             ],
@@ -20518,13 +20518,13 @@
                     "type": "string",
                     "description": "The ID of the resource that manages this resource group."
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:core:ResourceGroupProperties",
                     "description": "The resource group properties."
-                },
-                "resourceGroupName": {
-                    "type": "string",
-                    "description": "The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters."
                 },
                 "tags": {
                     "type": "object",
@@ -20533,7 +20533,7 @@
             },
             "requiredInputs": [
                 "location",
-                "resourceGroupName"
+                "name"
             ],
             "stateInputs": {
                 "description": "Resource group information.",
@@ -20617,6 +20617,10 @@
                     "type": "string",
                     "description": "Resource location"
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Application Insights component resource."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:insights:ApplicationInsightsComponentProperties",
                     "description": "Properties that define an Application Insights component resource."
@@ -20624,10 +20628,6 @@
                 "resourceGroupName": {
                     "type": "string",
                     "description": "The name of the resource group. The name is case insensitive."
-                },
-                "resourceName": {
-                    "type": "string",
-                    "description": "The name of the Application Insights component resource."
                 },
                 "tags": {
                     "type": "object",
@@ -20637,8 +20637,8 @@
             "requiredInputs": [
                 "kind",
                 "location",
-                "resourceGroupName",
-                "resourceName"
+                "name",
+                "resourceGroupName"
             ],
             "stateInputs": {
                 "description": "An Application Insights component definition.",
@@ -20725,7 +20725,7 @@
                     "type": "string",
                     "description": "Resource location."
                 },
-                "networkInterfaceName": {
+                "name": {
                     "type": "string",
                     "description": "The name of the network interface."
                 },
@@ -20743,7 +20743,7 @@
                 }
             },
             "requiredInputs": [
-                "networkInterfaceName",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -20913,7 +20913,7 @@
                     "type": "string",
                     "description": "Resource location."
                 },
-                "networkSecurityGroupName": {
+                "name": {
                     "type": "string",
                     "description": "The name of the network security group."
                 },
@@ -20931,7 +20931,7 @@
                 }
             },
             "requiredInputs": [
-                "networkSecurityGroupName",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -21101,13 +21101,13 @@
                     "type": "string",
                     "description": "Resource location."
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the public IP address."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:network:PublicIPAddressPropertiesFormat",
                     "description": "Public IP address properties."
-                },
-                "publicIpAddressName": {
-                    "type": "string",
-                    "description": "The name of the public IP address."
                 },
                 "resourceGroupName": {
                     "type": "string",
@@ -21130,7 +21130,7 @@
                 }
             },
             "requiredInputs": [
-                "publicIpAddressName",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -21228,6 +21228,10 @@
                     "type": "string",
                     "description": "Resource location."
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the virtual network."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:network:VirtualNetworkPropertiesFormat",
                     "description": "Properties of the virtual network."
@@ -21239,15 +21243,11 @@
                 "tags": {
                     "type": "object",
                     "description": "Resource tags."
-                },
-                "virtualNetworkName": {
-                    "type": "string",
-                    "description": "The name of the virtual network."
                 }
             },
             "requiredInputs": [
-                "resourceGroupName",
-                "virtualNetworkName"
+                "name",
+                "resourceGroupName"
             ],
             "stateInputs": {
                 "description": "Virtual Network resource.",
@@ -21466,13 +21466,13 @@
                 "type"
             ],
             "inputProperties": {
-                "deploymentName": {
-                    "type": "string",
-                    "description": "The name of the deployment."
-                },
                 "location": {
                     "type": "string",
                     "description": "The location to store the deployment data."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the deployment."
                 },
                 "properties": {
                     "$ref": "#/types/azurerm:resources:DeploymentProperties",
@@ -21484,7 +21484,7 @@
                 }
             },
             "requiredInputs": [
-                "deploymentName",
+                "name",
                 "properties",
                 "resourceGroupName"
             ],
@@ -21557,6 +21557,10 @@
                     "type": "string",
                     "description": "Resource location."
                 },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the server."
+                },
                 "properties": {
                     "$ref": "#/types/azurerm:sql:ServerProperties",
                     "description": "Represents the properties of the resource."
@@ -21565,10 +21569,6 @@
                     "type": "string",
                     "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal."
                 },
-                "serverName": {
-                    "type": "string",
-                    "description": "The name of the server."
-                },
                 "tags": {
                     "type": "object",
                     "description": "Resource tags."
@@ -21576,8 +21576,8 @@
             },
             "requiredInputs": [
                 "location",
-                "resourceGroupName",
-                "serverName"
+                "name",
+                "resourceGroupName"
             ],
             "stateInputs": {
                 "description": "Represents a server.",
@@ -21654,13 +21654,13 @@
                 "type"
             ],
             "inputProperties": {
-                "databaseName": {
-                    "type": "string",
-                    "description": "The name of the database to be operated on (updated or created)."
-                },
                 "location": {
                     "type": "string",
                     "description": "Resource location."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the database to be operated on (updated or created)."
                 },
                 "properties": {
                     "$ref": "#/types/azurerm:sql:DatabaseProperties",
@@ -21680,8 +21680,8 @@
                 }
             },
             "requiredInputs": [
-                "databaseName",
                 "location",
+                "name",
                 "resourceGroupName",
                 "serverName"
             ],
@@ -21769,10 +21769,6 @@
                 "type"
             ],
             "inputProperties": {
-                "accountName": {
-                    "type": "string",
-                    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
-                },
                 "identity": {
                     "$ref": "#/types/azurerm:storage:Identity",
                     "description": "The identity of the resource."
@@ -21784,6 +21780,10 @@
                 "location": {
                     "type": "string",
                     "description": "Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
                 },
                 "properties": {
                     "$ref": "#/types/azurerm:storage:StorageAccountPropertiesCreateParameters",
@@ -21803,9 +21803,9 @@
                 }
             },
             "requiredInputs": [
-                "accountName",
                 "kind",
                 "location",
+                "name",
                 "resourceGroupName",
                 "sku"
             ],
@@ -21888,7 +21888,7 @@
                     "type": "string",
                     "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
                 },
-                "containerName": {
+                "name": {
                     "type": "string",
                     "description": "The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number."
                 },
@@ -21903,7 +21903,7 @@
             },
             "requiredInputs": [
                 "accountName",
-                "containerName",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -21971,7 +21971,7 @@
                     "type": "string",
                     "description": "The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number."
                 },
-                "immutabilityPolicyName": {
+                "name": {
                     "type": "string",
                     "description": "The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'"
                 },
@@ -21987,7 +21987,7 @@
             "requiredInputs": [
                 "accountName",
                 "containerName",
-                "immutabilityPolicyName",
+                "name",
                 "properties",
                 "resourceGroupName"
             ],
@@ -22047,7 +22047,7 @@
                     "type": "string",
                     "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
                 },
-                "managementPolicyName": {
+                "name": {
                     "type": "string",
                     "description": "The name of the Storage Account Management Policy. It should always be 'default'"
                 },
@@ -22062,7 +22062,7 @@
             },
             "requiredInputs": [
                 "accountName",
-                "managementPolicyName",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -22116,7 +22116,7 @@
                     "type": "string",
                     "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
                 },
-                "objectReplicationPolicyId": {
+                "name": {
                     "type": "string",
                     "description": "The ID of object replication policy or 'default' if the policy ID is unknown."
                 },
@@ -22131,7 +22131,7 @@
             },
             "requiredInputs": [
                 "accountName",
-                "objectReplicationPolicyId",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
@@ -22185,7 +22185,7 @@
                     "type": "string",
                     "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
                 },
-                "privateEndpointConnectionName": {
+                "name": {
                     "type": "string",
                     "description": "The name of the private endpoint connection associated with the Azure resource"
                 },
@@ -22200,7 +22200,7 @@
             },
             "requiredInputs": [
                 "accountName",
-                "privateEndpointConnectionName",
+                "name",
                 "resourceGroupName"
             ],
             "stateInputs": {
