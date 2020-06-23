@@ -40,7 +40,7 @@ export class VirtualNetworkSubnet extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -76,13 +76,13 @@ export class VirtualNetworkSubnet extends pulumi.CustomResource {
             if (!args || args.virtualNetworkName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetName"] = args ? args.subnetName : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            inputs["etag"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,7 +102,7 @@ export interface VirtualNetworkSubnetState {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    readonly etag: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -117,10 +117,6 @@ export interface VirtualNetworkSubnetState {
  * The set of arguments for constructing a VirtualNetworkSubnet resource.
  */
 export interface VirtualNetworkSubnetArgs {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

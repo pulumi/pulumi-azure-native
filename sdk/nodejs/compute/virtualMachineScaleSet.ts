@@ -70,7 +70,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
+     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -165,7 +165,7 @@ export interface VirtualMachineScaleSetState {
      */
     readonly type: pulumi.Input<string>;
     /**
-     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
+     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
      */
     readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -207,7 +207,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
+     * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
      */
     readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

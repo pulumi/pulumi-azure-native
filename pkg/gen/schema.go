@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"log"
 	"strings"
 )
 
@@ -53,17 +54,20 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 
 			requestProperties, err := gen.genMethodParameters(path.Put.Parameters, swagger.ReferenceContext)
 			if err != nil {
-				return nil, err
+				log.Printf("failed to generate '%s': request type: %s", tok, err.Error())
+				continue
 			}
 
 			responseProperties, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
 			if err != nil {
-				return nil, errors.Wrapf(err, "failed to generate response type for '%s'", tok)
+				log.Printf("failed to generate '%s': response type: %s", tok, err.Error())
+				continue
 			}
 
 			err = gen.normalizeName(key, requestProperties, responseProperties)
 			if err != nil {
-				return nil, errors.Wrapf(err, "failed to normalize name for '%s'", tok)
+				log.Printf("failed to assign name for '%s'", tok, err.Error())
+				continue
 			}
 
 			objectSpec := pschema.ObjectTypeSpec{
@@ -123,7 +127,7 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 			if nameProp, ok := requestProperties.all[name]; ok {
 				// We expect names to be always a required string.
 				if nameProp.Type != "string" {
-					return errors.Errorf("name property '%s' is not a string", name)
+					return errors.Errorf("name property '%s' is not a string but %v", name, nameProp.Type)
 				}
 				if !requestProperties.required.Has(name) {
 					return errors.Errorf("name property '%s' is not required", name)
@@ -155,7 +159,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 		switch {
 		case param.Name == "api-version":
 		case param.Name == "subscriptionId":
-		case param.Name == "If-Match":
+		case strings.Contains(param.Name, "-"): // If-Match, Accept-Header, x-ms-foobar, ...
 			// TODO: Find a more principled criteria to skip those.
 
 		// The body parameter is flattened, so that all its properties become the properties of the type.
@@ -240,6 +244,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	result := newPropertyBag()
 
 	for name, property := range resolvedSchema.Properties {
+		if !isLegalIdentifier(name) {
+			// TODO: Support mapping to a legal name, or make the schema codegen do so?
+			continue
+		}
+
 		propertySpec, err := m.genProperty(&property, resolvedSchema.ReferenceContext, isOutput)
 		if err != nil {
 			return nil, err
@@ -270,7 +279,9 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	}
 
 	for _, name := range resolvedSchema.Required {
-		result.required.Add(name)
+		if _, ok := result.all[name]; ok {
+			result.required.Add(name)
+		}
 	}
 	return result, nil
 }
@@ -372,7 +383,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	if isOutput {
 		suffix = "Response"
 	}
-	return fmt.Sprintf("azurerm:%s:%s%s", m.module, ctx.ReferenceName, suffix)
+	return fmt.Sprintf("azurerm:%s:%s%s", m.module, makeLegalIdentifier(ctx.ReferenceName), suffix)
 }
 
 type propertyBag struct {

@@ -19,8 +19,13 @@ import (
 func main() {
 	languages := os.Args[1]
 
+	swaggetSpecLocations, err := provider.SwaggerLocations()
+	if err != nil {
+		panic(err)
+	}
+
 	var specs []*openapi.Spec
-	for _, location := range provider.SwaggerLocations() {
+	for _, location := range swaggetSpecLocations {
 		spec, err := openapi.NewSpec(location)
 		if err != nil {
 			panic(err)

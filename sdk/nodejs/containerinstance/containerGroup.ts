@@ -49,6 +49,9 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The resource name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The container group properties
+     */
     public readonly properties!: pulumi.Output<outputs.containerinstance.ContainerGroupResponseProperties>;
     /**
      * The resource tags.
@@ -123,6 +126,9 @@ export interface ContainerGroupState {
      * The resource name.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * The container group properties
+     */
     readonly properties: pulumi.Input<inputs.containerinstance.ContainerGroupResponseProperties>;
     /**
      * The resource tags.
@@ -150,6 +156,9 @@ export interface ContainerGroupArgs {
      * The name of the container group.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * The container group properties
+     */
     readonly properties: pulumi.Input<inputs.containerinstance.ContainerGroupProperties>;
     /**
      * The name of the resource group.

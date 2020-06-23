@@ -3,4 +3,9 @@
 
 // Export members:
 export * from "./server";
+export * from "./serverAdministrator";
+export * from "./serverCommunicationLink";
 export * from "./serverDatabase";
+export * from "./serverDisasterRecoveryConfiguration";
+export * from "./serverElasticPool";
+export * from "./serverFirewallRule";
