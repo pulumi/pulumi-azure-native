@@ -35,5 +35,5 @@ generate::
 	$(CODEGEN) schema,nodejs
 	echo "Finished generating Schema & SDK."
 	cd ${PACKDIR}/nodejs/ && \
-		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json
+		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json && \
 		yarn link @pulumi/pulumi
