@@ -51,6 +51,7 @@ func isLegalIdentifier(s string) bool {
 	}
 }
 
+// makeLegalIdentifier removes characters that are not allowed in identifiers.
 func makeLegalIdentifier(s string) string {
 	replacer := strings.NewReplacer("-", "", "[", "", "]", "")
 	return replacer.Replace(s)

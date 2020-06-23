@@ -133,14 +133,14 @@ func (ctx *ReferenceContext) resolveReference(ref spec.Ref) (*reference, bool, e
 	return &reference{newCtx, value}, true, nil
 }
 
-var cache map[string]*spec.Swagger
-
+// Cache of parsed Swagger specifications for a location.
+var specCache map[string]*spec.Swagger
 func init() {
-	cache = map[string]*spec.Swagger{}
+	specCache = map[string]*spec.Swagger{}
 }
 
 func loadSwaggerSpec(path string) (*spec.Swagger, error) {
-	if cached, ok := cache[path]; ok {
+	if cached, ok := specCache[path]; ok {
 		return cached, nil
 	}
 
@@ -154,6 +154,6 @@ func loadSwaggerSpec(path string) (*spec.Swagger, error) {
 		return nil, err
 	}
 
-	cache[path] = &swagger
+	specCache[path] = &swagger
 	return &swagger, nil
 }

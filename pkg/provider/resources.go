@@ -17,6 +17,8 @@ type Resource struct {
 	apiVersion           string // TODO: Get this from spec
 }
 
+// blessedVersions contains the preferred versions per resource provider. If a resource provider is not specified,
+// the latest stable version is used.
 var blessedVersions map[string]string
 func init() {
 	blessedVersions = map[string]string{
@@ -30,6 +32,8 @@ func SwaggerLocations() ([]string, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	// TODO: get rid of this brittle search for a specs folder in parent folders as soon as the provider does not depend on discovering specifications at runtime.
 	for true {
 		if _, err := os.Stat(dir + "/azure-rest-api-specs"); err == nil {
 			break

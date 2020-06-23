@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"flag"
 	"fmt"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azurerm/pkg/gen"
@@ -12,25 +11,12 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
-	"log"
 	"os"
 	"path"
-	"runtime/pprof"
 	"strings"
 )
 
 func main() {
-	flag.Parse()
-	f, err := os.Create("cpu.prof")
-	if err != nil {
-		log.Fatal("could not create CPU profile: ", err)
-	}
-	defer f.Close() // error handling omitted for example
-	if err := pprof.StartCPUProfile(f); err != nil {
-		log.Fatal("could not start CPU profile: ", err)
-	}
-	defer pprof.StopCPUProfile()
-
 	languages := os.Args[1]
 
 	swaggetSpecLocations, err := provider.SwaggerLocations()

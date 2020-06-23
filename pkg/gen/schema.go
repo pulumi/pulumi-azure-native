@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
-	"github.com/prometheus/common/log"
 	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
 	"github.com/pulumi/pulumi-azurerm/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"log"
 	"strings"
 )
 
@@ -54,13 +54,13 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 
 			requestProperties, err := gen.genMethodParameters(path.Put.Parameters, swagger.ReferenceContext)
 			if err != nil {
-				log.Warnf("failed to generate '%s': request type: %s", tok, err.Error())
+				log.Printf("failed to generate '%s': request type: %s", tok, err.Error())
 				continue
 			}
 
 			responseProperties, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
 			if err != nil {
-				log.Warnf("failed to generate '%s': response type: %s", tok, err.Error())
+				log.Printf("failed to generate '%s': response type: %s", tok, err.Error())
 				continue
 			}
 
@@ -232,7 +232,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 
 	for name, property := range resolvedSchema.Properties {
 		if !isLegalIdentifier(name) {
-			//return nil, errors.Errorf("'%s' is not a valid property name", name)
+			// TODO: Support mapping to a legal name, or make the schema codegen do so?
 			continue
 		}
 
