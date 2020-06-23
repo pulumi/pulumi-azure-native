@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"github.com/gedex/inflector"
 	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
+	"os"
+	"path/filepath"
+	"sort"
 	"strings"
 )
 
@@ -14,41 +17,71 @@ type Resource struct {
 	apiVersion           string // TODO: Get this from spec
 }
 
+var blessedVersions map[string]string
+func init() {
+	blessedVersions = map[string]string{
+		"Microsoft.Cdn": "2020-03-31",
+	}
+}
+
 // SwaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
-func SwaggerLocations() []string {
-	root := "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/"
-	locations := []string {
-		"applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/components_API.json",
-		"cdn/resource-manager/Microsoft.Cdn/stable/2019-12-31/cdn.json",
-		"compute/resource-manager/Microsoft.Compute/stable/2018-10-01/compute.json",
-		"containerinstance/resource-manager/Microsoft.ContainerInstance/stable/2018-10-01/containerInstance.json",
-		"network/resource-manager/Microsoft.Network/stable/2018-12-01/networkInterface.json",
-		"network/resource-manager/Microsoft.Network/stable/2020-04-01/networkSecurityGroup.json",
-		"network/resource-manager/Microsoft.Network/stable/2020-04-01/publicIpAddress.json",
-		"network/resource-manager/Microsoft.Network/stable/2018-12-01/virtualNetwork.json",
-		"redis/resource-manager/Microsoft.Cache/stable/2018-03-01/redis.json",
-		"resources/resource-manager/Microsoft.Resources/stable/2018-05-01/resources.json",
-		"sql/resource-manager/Microsoft.Sql/stable/2014-04-01/databases.json",
-		"sql/resource-manager/Microsoft.Sql/stable/2014-04-01/servers.json",
-		"storage/resource-manager/Microsoft.Storage/stable/2019-06-01/blob.json",
-		"storage/resource-manager/Microsoft.Storage/stable/2019-06-01/storage.json",
-		"web/resource-manager/Microsoft.Web/stable/2019-08-01/AppServicePlans.json",
-		"web/resource-manager/Microsoft.Web/stable/2019-08-01/StaticSites.json",
-		"web/resource-manager/Microsoft.Web/stable/2019-08-01/WebApps.json",
+func SwaggerLocations() ([]string, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+	for true {
+		if _, err := os.Stat(dir + "/azure-rest-api-specs"); err == nil {
+			break
+		} else if !os.IsNotExist(err) {
+			return nil, err
+		}
+
+		dir = filepath.Dir(dir)
 	}
 
-	result := []string{}
-	for _, location := range locations {
-		result = append(result, root + location)
+	files, err := filepath.Glob(dir + "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/stable/*/*.json")
+	if err != nil {
+		return nil, err
 	}
-	return result
+
+	// Sorting alphabetically means the schemas with the latest API version are the last.
+	sort.Strings(files)
+
+	// Deduplicate files of the same provider having the same name.
+	latest := map[string]string{}
+	for _, file := range files {
+		parts := strings.Split(file, "/")
+		length := len(parts)
+		provider := parts[length - 4]
+		apiVersion := parts[length - 2]
+		filename := parts[length - 1]
+
+		if v, ok := blessedVersions[provider]; ok && v != apiVersion {
+			continue
+		}
+
+		key := provider + "/" + filename
+		latest[key] = file
+	}
+
+	var locations []string
+	for _, file := range latest {
+		locations = append(locations, file)
+	}
+
+	return locations, nil
 }
 
 // ResourceMap builds a map of resource definitions for the provider.
 func ResourceMap() (map[string]Resource, error) {
 	result := make(map[string]Resource)
+	swaggetSpecLocations, err := SwaggerLocations()
+	if err != nil {
+		return nil, err
+	}
 
-	for _, swagggerSpecLocation := range SwaggerLocations() {
+	for _, swagggerSpecLocation := range swaggetSpecLocations {
 		spec, err := openapi.NewSpec(swagggerSpecLocation)
 		if err != nil {
 			return nil, err
@@ -91,11 +124,21 @@ func ResourceQualifiedName(path string) (string, string) {
 		return "", ""
 	}
 
-	// We build a name like someprovider:FooBar.
+	armProvider := parts[6]
 	// TODO: handle non-Microsoft providers.
-	provider := strings.ToLower(parts[6][10:])
+	if !strings.HasPrefix(armProvider, "Microsoft.") {
+		return "", ""
+	}
+
+	// We build a name like someprovider:FooBar.
+	provider := strings.ToLower(armProvider[10:])
 	resource := ""
 	for i := 7; i < len(parts); i += 2 {
+		if strings.Contains(parts[i], "{") {
+			// We don't support this shape of URLs yet. Example: dnszones/{zoneName}/{recordType}/{relativeRecordSetName}.
+			return "", ""
+		}
+
 		// TODO: generalize this case to a map of well-known aliases.
 		switch strings.ToLower(parts[i]) {
 		case "redis":
@@ -106,7 +149,7 @@ func ResourceQualifiedName(path string) (string, string) {
 			resource += "AppServicePlan"
 		default:
 			// TODO: we may get better singular names from some metadata.
-			resource += strings.Title(inflector.Singularize(parts[i]))
+			resource += strings.ReplaceAll(strings.Title(inflector.Singularize(parts[i])), "-", "")
 		}
 	}
 	return provider, resource

@@ -3,3 +3,7 @@
 
 // Export members:
 export * from "./component";
+export * from "./componentExportconfiguration";
+export * from "./componentFavorite";
+export * from "./metricAlert";
+export * from "./webtest";

@@ -15,6 +15,8 @@ CURL            ?= curl
 ensure::
 	@echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; GO111MODULE=on go mod download
+	if [ ! -d "azure-rest-api-specs" ]; then git clone https://github.com/Azure/azure-rest-api-specs; fi
+	cd azure-rest-api-specs && git pull
 
 build::
 	$(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
@@ -35,5 +37,5 @@ generate::
 	$(CODEGEN) schema,nodejs
 	echo "Finished generating Schema & SDK."
 	cd ${PACKDIR}/nodejs/ && \
-		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json
+		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json && \
 		yarn install

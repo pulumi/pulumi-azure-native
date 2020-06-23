@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * A hostname binding object.
+ * A host name binding object
  */
 export class AppServiceHostNameBinding extends pulumi.CustomResource {
     /**
@@ -38,21 +38,26 @@ export class AppServiceHostNameBinding extends pulumi.CustomResource {
     }
 
     /**
-     * Kind of resource.
+     * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource Name.
+     * Resource Location
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * HostNameBinding resource specific properties
+     * Resource Name
      */
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.web.HostNameBindingResponseProperties>;
     /**
-     * Resource type.
+     * Resource tags
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Resource type
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppServiceHostNameBinding resource with the given unique name, arguments, and options.
@@ -67,13 +72,18 @@ export class AppServiceHostNameBinding extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AppServiceHostNameBindingState | undefined;
             inputs["kind"] = state ? state.kind : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AppServiceHostNameBindingArgs | undefined;
             if (!args || args.hostName === undefined) {
                 throw new Error("Missing required property 'hostName'");
+            }
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
@@ -82,11 +92,14 @@ export class AppServiceHostNameBinding extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hostName"] = args ? args.hostName : undefined;
+            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
         }
         if (!opts) {
             opts = {}
@@ -100,25 +113,30 @@ export class AppServiceHostNameBinding extends pulumi.CustomResource {
 }
 
 /**
- * A hostname binding object.
+ * A host name binding object
  */
 export interface AppServiceHostNameBindingState {
     /**
-     * Kind of resource.
+     * Kind of resource
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Name.
+     * Resource Location
      */
-    readonly name: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
-     * HostNameBinding resource specific properties
+     * Resource Name
      */
+    readonly name?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.web.HostNameBindingResponseProperties>;
     /**
-     * Resource type.
+     * Resource tags
      */
-    readonly type: pulumi.Input<string>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource type
+     */
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -126,23 +144,36 @@ export interface AppServiceHostNameBindingState {
  */
 export interface AppServiceHostNameBindingArgs {
     /**
-     * Hostname in the hostname binding.
+     * Name of host
      */
     readonly hostName: pulumi.Input<string>;
     /**
-     * Kind of resource.
+     * Resource Id
+     */
+    readonly id?: pulumi.Input<string>;
+    /**
+     * Kind of resource
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Resource Location
+     */
+    readonly location: pulumi.Input<string>;
+    /**
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * HostNameBinding resource specific properties
-     */
     readonly properties?: pulumi.Input<inputs.web.HostNameBindingProperties>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * Name of resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource type
+     */
+    readonly type?: pulumi.Input<string>;
 }

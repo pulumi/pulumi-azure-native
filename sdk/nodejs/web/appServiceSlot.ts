@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * A web app, a mobile app backend, or an API app.
+ * Represents a web app
  */
 export class AppServiceSlot extends pulumi.CustomResource {
     /**
@@ -38,33 +38,26 @@ export class AppServiceSlot extends pulumi.CustomResource {
     }
 
     /**
-     * Managed service identity.
-     */
-    public readonly identity!: pulumi.Output<outputs.web.ManagedServiceIdentityResponse | undefined>;
-    /**
-     * Kind of resource.
+     * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource Location.
+     * Resource Location
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource Name.
+     * Resource Name
      */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * Site resource specific properties
-     */
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.web.SiteResponseProperties>;
     /**
-     * Resource tags.
+     * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppServiceSlot resource with the given unique name, arguments, and options.
@@ -78,7 +71,6 @@ export class AppServiceSlot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AppServiceSlotState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -99,15 +91,19 @@ export class AppServiceSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
+            inputs["forceDnsRegistration"] = args ? args.forceDnsRegistration : undefined;
+            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["skipCustomDomainVerification"] = args ? args.skipCustomDomainVerification : undefined;
+            inputs["skipDnsRegistration"] = args ? args.skipDnsRegistration : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["ttlInSeconds"] = args ? args.ttlInSeconds : undefined;
+            inputs["type"] = args ? args.type : undefined;
         }
         if (!opts) {
             opts = {}
@@ -121,37 +117,30 @@ export class AppServiceSlot extends pulumi.CustomResource {
 }
 
 /**
- * A web app, a mobile app backend, or an API app.
+ * Represents a web app
  */
 export interface AppServiceSlotState {
     /**
-     * Managed service identity.
-     */
-    readonly identity?: pulumi.Input<inputs.web.ManagedServiceIdentityResponse>;
-    /**
-     * Kind of resource.
+     * Kind of resource
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location.
+     * Resource Location
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Resource Name.
+     * Resource Name
      */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Site resource specific properties
-     */
+    readonly name?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.web.SiteResponseProperties>;
     /**
-     * Resource tags.
+     * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Resource type.
+     * Resource type
      */
-    readonly type: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -159,35 +148,53 @@ export interface AppServiceSlotState {
  */
 export interface AppServiceSlotArgs {
     /**
-     * Managed service identity.
+     * If true, web app hostname is force registered with DNS
      */
-    readonly identity?: pulumi.Input<inputs.web.ManagedServiceIdentity>;
+    readonly forceDnsRegistration?: pulumi.Input<string>;
     /**
-     * Kind of resource.
+     * Resource Id
+     */
+    readonly id?: pulumi.Input<string>;
+    /**
+     * Kind of resource
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location.
+     * Resource Location
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Site resource specific properties
-     */
     readonly properties?: pulumi.Input<inputs.web.SiteProperties>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * Name of the resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
+     * If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
+     */
+    readonly skipCustomDomainVerification?: pulumi.Input<string>;
+    /**
+     * If true web app hostname is not registered with DNS on creation. This parameter is
+     *             only used for app creation
+     */
+    readonly skipDnsRegistration?: pulumi.Input<string>;
+    /**
+     * Name of web app slot. If not specified then will default to production slot.
      */
     readonly slot: pulumi.Input<string>;
     /**
-     * Resource tags.
+     * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Time to live in seconds for web app's default domain name
+     */
+    readonly ttlInSeconds?: pulumi.Input<string>;
+    /**
+     * Resource type
+     */
+    readonly type?: pulumi.Input<string>;
 }

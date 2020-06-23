@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * Premier add-on.
- */
 export class AppServiceSlotPremieraddon extends pulumi.CustomResource {
     /**
      * Get an existing AppServiceSlotPremieraddon resource's state with the given name, ID, and optional extra
@@ -37,30 +34,6 @@ export class AppServiceSlotPremieraddon extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppServiceSlotPremieraddon.__pulumiType;
     }
 
-    /**
-     * Kind of resource.
-     */
-    public readonly kind!: pulumi.Output<string | undefined>;
-    /**
-     * Resource Location.
-     */
-    public readonly location!: pulumi.Output<string>;
-    /**
-     * Resource Name.
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * PremierAddOn resource specific properties
-     */
-    public readonly properties!: pulumi.Output<outputs.web.PremierAddOnResponseProperties>;
-    /**
-     * Resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Resource type.
-     */
-    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a AppServiceSlotPremieraddon resource with the given unique name, arguments, and options.
@@ -74,17 +47,8 @@ export class AppServiceSlotPremieraddon extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AppServiceSlotPremieraddonState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AppServiceSlotPremieraddonArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -97,15 +61,15 @@ export class AppServiceSlotPremieraddon extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["plan"] = args ? args.plan : undefined;
             inputs["premierAddOnName"] = args ? args.premierAddOnName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -118,34 +82,7 @@ export class AppServiceSlotPremieraddon extends pulumi.CustomResource {
     }
 }
 
-/**
- * Premier add-on.
- */
 export interface AppServiceSlotPremieraddonState {
-    /**
-     * Kind of resource.
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * Resource Location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource Name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * PremierAddOn resource specific properties
-     */
-    readonly properties: pulumi.Input<inputs.web.PremierAddOnResponseProperties>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**
@@ -153,35 +90,27 @@ export interface AppServiceSlotPremieraddonState {
  */
 export interface AppServiceSlotPremieraddonArgs {
     /**
-     * Kind of resource.
+     * Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
      */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * Resource Location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Name of the app.
-     */
+    readonly location?: pulumi.Input<string>;
     readonly name: pulumi.Input<string>;
     /**
-     * Add-on name.
+     * Azure resource manager plan
      */
+    readonly plan?: pulumi.Input<inputs.web.ArmPlan>;
     readonly premierAddOnName: pulumi.Input<string>;
     /**
-     * PremierAddOn resource specific properties
+     * Resource specific properties
      */
-    readonly properties?: pulumi.Input<inputs.web.PremierAddOnProperties>;
-    /**
-     * Name of the resource group to which the resource belongs.
-     */
+    readonly properties?: pulumi.Input<inputs.web.Object>;
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
+     * Sku description of the resource
      */
+    readonly sku?: pulumi.Input<inputs.web.SkuDescription>;
     readonly slot: pulumi.Input<string>;
     /**
-     * Resource tags.
+     * Tags associated with resource
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

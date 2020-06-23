@@ -3,10 +3,24 @@
 
 // Export members:
 export * from "./availabilitySet";
+export * from "./disk";
+export * from "./diskAccess";
+export * from "./diskEncryptionSet";
+export * from "./gallery";
+export * from "./galleryApplication";
+export * from "./galleryApplicationVersion";
+export * from "./galleryImage";
+export * from "./galleryImageVersion";
+export * from "./hostGroup";
+export * from "./hostGroupHost";
 export * from "./image";
 export * from "./proximityPlacementGroup";
+export * from "./snapshot";
+export * from "./sshPublicKey";
 export * from "./virtualMachine";
 export * from "./virtualMachineExtension";
+export * from "./virtualMachineProviderGuestConfigurationAssignment";
 export * from "./virtualMachineScaleSet";
 export * from "./virtualMachineScaleSetExtension";
+export * from "./virtualMachineScaleSetVirtualMachineExtension";
 export * from "./virtualMachineScaleSetVirtualmachine";

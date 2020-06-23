@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * User credentials used for publishing activity.
+ * Represents user credentials used for publishing activity
  */
 export class AppServiceSlotDeployment extends pulumi.CustomResource {
     /**
@@ -38,21 +38,26 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
     }
 
     /**
-     * Kind of resource.
+     * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource Name.
+     * Resource Location
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Deployment resource specific properties
+     * Resource Name
      */
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.web.DeploymentResponseProperties>;
     /**
-     * Resource type.
+     * Resource tags
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Resource type
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppServiceSlotDeployment resource with the given unique name, arguments, and options.
@@ -67,13 +72,18 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AppServiceSlotDeploymentState | undefined;
             inputs["kind"] = state ? state.kind : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AppServiceSlotDeploymentArgs | undefined;
             if (!args || args.id === undefined) {
                 throw new Error("Missing required property 'id'");
+            }
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
@@ -86,11 +96,13 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
         }
         if (!opts) {
             opts = {}
@@ -104,25 +116,30 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
 }
 
 /**
- * User credentials used for publishing activity.
+ * Represents user credentials used for publishing activity
  */
 export interface AppServiceSlotDeploymentState {
     /**
-     * Kind of resource.
+     * Kind of resource
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Name.
+     * Resource Location
      */
-    readonly name: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
-     * Deployment resource specific properties
+     * Resource Name
      */
+    readonly name?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.web.DeploymentResponseProperties>;
     /**
-     * Resource type.
+     * Resource tags
      */
-    readonly type: pulumi.Input<string>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource type
+     */
+    readonly type?: pulumi.Input<string>;
 }
 
 /**
@@ -130,27 +147,36 @@ export interface AppServiceSlotDeploymentState {
  */
 export interface AppServiceSlotDeploymentArgs {
     /**
-     * ID of an existing deployment.
+     * Resource Id
      */
     readonly id: pulumi.Input<string>;
     /**
-     * Kind of resource.
+     * Kind of resource
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Resource Location
+     */
+    readonly location: pulumi.Input<string>;
+    /**
+     * Resource Name
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Deployment resource specific properties
-     */
     readonly properties?: pulumi.Input<inputs.web.DeploymentProperties>;
     /**
-     * Name of the resource group to which the resource belongs.
+     * Name of resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the deployment slot. If a slot is not specified, the API creates a deployment for the production slot.
+     * Name of web app slot. If not specified then will default to production slot.
      */
     readonly slot: pulumi.Input<string>;
+    /**
+     * Resource tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource type
+     */
+    readonly type?: pulumi.Input<string>;
 }
