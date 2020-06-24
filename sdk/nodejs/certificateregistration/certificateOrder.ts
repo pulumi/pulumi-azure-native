@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Certificate purchase order
+ * SSL certificate purchase order.
  */
 export class CertificateOrder extends pulumi.CustomResource {
     /**
@@ -38,26 +38,29 @@ export class CertificateOrder extends pulumi.CustomResource {
     }
 
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource Location
+     * Resource Location.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource Name
+     * Resource Name.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.certificateregistration.CertificateOrderResponseProperties>;
+    public readonly name!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * AppServiceCertificateOrder resource specific properties
+     */
+    public readonly properties!: pulumi.Output<outputs.certificateregistration.AppServiceCertificateOrderResponseProperties>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * Resource type.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a CertificateOrder resource with the given unique name, arguments, and options.
@@ -88,14 +91,13 @@ export class CertificateOrder extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,30 +111,33 @@ export class CertificateOrder extends pulumi.CustomResource {
 }
 
 /**
- * Certificate purchase order
+ * SSL certificate purchase order.
  */
 export interface CertificateOrderState {
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
+     * Resource Location.
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Resource Name
+     * Resource Name.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly properties: pulumi.Input<inputs.certificateregistration.CertificateOrderResponseProperties>;
+    readonly name: pulumi.Input<string>;
     /**
-     * Resource tags
+     * AppServiceCertificateOrder resource specific properties
+     */
+    readonly properties: pulumi.Input<inputs.certificateregistration.AppServiceCertificateOrderResponseProperties>;
+    /**
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Resource type
+     * Resource type.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }
 
 /**
@@ -140,32 +145,27 @@ export interface CertificateOrderState {
  */
 export interface CertificateOrderArgs {
     /**
-     * Resource Id
-     */
-    readonly id?: pulumi.Input<string>;
-    /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
+     * Resource Location.
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Resource Name
+     * Name of the certificate order.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.certificateregistration.CertificateOrderProperties>;
     /**
-     * Azure resource group name
+     * AppServiceCertificateOrder resource specific properties
+     */
+    readonly properties?: pulumi.Input<inputs.certificateregistration.AppServiceCertificateOrderProperties>;
+    /**
+     * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type?: pulumi.Input<string>;
 }

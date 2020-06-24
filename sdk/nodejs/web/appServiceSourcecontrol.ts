@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Describes the source control configuration for web app
+ * Source control configuration for an app.
  */
 export class AppServiceSourcecontrol extends pulumi.CustomResource {
     /**
@@ -38,26 +38,21 @@ export class AppServiceSourcecontrol extends pulumi.CustomResource {
     }
 
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource Location
+     * Resource Name.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
-     * Resource Name
+     * SiteSourceControl resource specific properties
      */
-    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.web.SiteSourceControlResponseProperties>;
     /**
-     * Resource tags
+     * Resource type.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Resource type
-     */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a AppServiceSourcecontrol resource with the given unique name, arguments, and options.
@@ -72,30 +67,22 @@ export class AppServiceSourcecontrol extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AppServiceSourcecontrolState | undefined;
             inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AppServiceSourcecontrolArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,30 +96,25 @@ export class AppServiceSourcecontrol extends pulumi.CustomResource {
 }
 
 /**
- * Describes the source control configuration for web app
+ * Source control configuration for an app.
  */
 export interface AppServiceSourcecontrolState {
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
+     * Resource Name.
      */
-    readonly location: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
-     * Resource Name
+     * SiteSourceControl resource specific properties
      */
-    readonly name?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.web.SiteSourceControlResponseProperties>;
     /**
-     * Resource tags
+     * Resource type.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type?: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }
 
 /**
@@ -140,32 +122,19 @@ export interface AppServiceSourcecontrolState {
  */
 export interface AppServiceSourcecontrolArgs {
     /**
-     * Resource Id
-     */
-    readonly id?: pulumi.Input<string>;
-    /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource Name
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * SiteSourceControl resource specific properties
+     */
     readonly properties?: pulumi.Input<inputs.web.SiteSourceControlProperties>;
     /**
-     * Name of resource group
+     * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type?: pulumi.Input<string>;
 }

@@ -8110,13 +8110,25 @@ export namespace batchai {
     }
 
     /**
-     * Constraints associated with the Job.
+     * Information about the execution of a job.
      */
     export interface JobPropertiesResponseProperties {
         /**
-         * Max time the job can run. Default value: 1 week.
+         * The time at which the job completed. This property is only returned if the job is in completed state.
          */
-        maxWallClockTime?: pulumi.Input<string>;
+        endTime: pulumi.Input<string>;
+        /**
+         * A collection of errors encountered by the service during job execution.
+         */
+        errors: pulumi.Input<pulumi.Input<inputs.batchai.BatchAIErrorResponse>[]>;
+        /**
+         * The exit code of the job. This property is only returned if the job is in completed state.
+         */
+        exitCode: pulumi.Input<number>;
+        /**
+         * The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+         */
+        startTime: pulumi.Input<string>;
     }
 
     /**
@@ -9629,9 +9641,31 @@ export namespace cdn {
     }
 
     /**
+     * A rule that specifies a set of actions and conditions
+     */
+    export interface DeliveryRule {
+        /**
+         * A list of actions that are executed when all the conditions of a rule are satisfied.
+         */
+        actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleAction>[]>;
+        /**
+         * A list of conditions that must be matched for the actions to be executed
+         */
+        conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCondition>[]>;
+        /**
+         * Name of the rule
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+         */
+        order: pulumi.Input<number>;
+    }
+
+    /**
      * An action for the delivery rule.
      */
-    export interface DeliveryRuleActionResponse {
+    export interface DeliveryRuleAction {
         /**
          * The name of the action for the delivery rule.
          */
@@ -9641,33 +9675,11 @@ export namespace cdn {
     /**
      * A condition for the delivery rule.
      */
-    export interface DeliveryRuleConditionResponse {
+    export interface DeliveryRuleCondition {
         /**
          * The name of the condition for the delivery rule.
          */
         name: pulumi.Input<string>;
-    }
-
-    /**
-     * A rule that specifies a set of actions and conditions
-     */
-    export interface DeliveryRuleResponse {
-        /**
-         * A list of actions that are executed when all the conditions of a rule are satisfied.
-         */
-        actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleActionResponse>[]>;
-        /**
-         * A list of conditions that must be matched for the actions to be executed
-         */
-        conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleConditionResponse>[]>;
-        /**
-         * Name of the rule
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-         */
-        order: pulumi.Input<number>;
     }
 
     /**
@@ -9823,19 +9835,9 @@ export namespace cdn {
     }
 
     /**
-     * Defines the Web Application Firewall policy for the endpoint (if applicable)
-     */
-    export interface EndpointPropertiesUpdateParametersProperties {
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string>;
-    }
-
-    /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
-    export interface EndpointPropertiesUpdateParametersResponseProperties {
+    export interface EndpointPropertiesUpdateParametersProperties {
         /**
          * User-friendly description of the policy.
          */
@@ -9843,7 +9845,17 @@ export namespace cdn {
         /**
          * A list of the delivery rules.
          */
-        rules: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleResponse>[]>;
+        rules: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRule>[]>;
+    }
+
+    /**
+     * Defines the Web Application Firewall policy for the endpoint (if applicable)
+     */
+    export interface EndpointPropertiesUpdateParametersResponseProperties {
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
     }
 
     /**
@@ -10589,308 +10601,195 @@ export namespace cdn {
 
 export namespace certificateregistration {
     /**
-     * Certificate Details
+     * Key Vault container for a certificate that is purchased through Azure.
      */
-    export interface CertificateDetails {
+    export interface AppServiceCertificate {
         /**
-         * Resource Id
+         * Key Vault resource Id.
          */
-        id?: pulumi.Input<string>;
+        keyVaultId?: pulumi.Input<string>;
         /**
-         * Kind of resource
+         * Key Vault secret name.
          */
-        kind?: pulumi.Input<string>;
-        /**
-         * Resource Location
-         */
-        location: pulumi.Input<string>;
-        /**
-         * Resource Name
-         */
-        name?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.certificateregistration.CertificateDetailsProperties>;
-        /**
-         * Resource tags
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource type
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    export interface CertificateDetailsProperties {
-        /**
-         * Issuer
-         */
-        issuer?: pulumi.Input<string>;
-        /**
-         * Valid to
-         */
-        notAfter?: pulumi.Input<string>;
-        /**
-         * Valid from
-         */
-        notBefore?: pulumi.Input<string>;
-        /**
-         * Raw certificate data
-         */
-        rawData?: pulumi.Input<string>;
-        /**
-         * Serial Number
-         */
-        serialNumber?: pulumi.Input<string>;
-        /**
-         * Signature Algorithm
-         */
-        signatureAlgorithm?: pulumi.Input<string>;
-        /**
-         * Subject
-         */
-        subject?: pulumi.Input<string>;
-        /**
-         * Thumbprint
-         */
-        thumbprint?: pulumi.Input<string>;
-        /**
-         * Version
-         */
-        version?: pulumi.Input<number>;
+        keyVaultSecretName?: pulumi.Input<string>;
     }
 
     /**
-     * Certificate Details
+     * AppServiceCertificateOrder resource specific properties
+     */
+    export interface AppServiceCertificateOrderProperties {
+        /**
+         * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * State of the Key Vault secret.
+         */
+        certificates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Last CSR that was created for this order.
+         */
+        csr?: pulumi.Input<string>;
+        /**
+         * Certificate distinguished name.
+         */
+        distinguishedName?: pulumi.Input<string>;
+        /**
+         * Certificate key size.
+         */
+        keySize?: pulumi.Input<number>;
+        /**
+         * Certificate product type.
+         */
+        productType: pulumi.Input<string>;
+        /**
+         * Duration in years (must be between 1 and 3).
+         */
+        validityInYears?: pulumi.Input<number>;
+    }
+
+    /**
+     * AppServiceCertificateOrder resource specific properties
+     */
+    export interface AppServiceCertificateOrderResponseProperties {
+        /**
+         * Reasons why App Service Certificate is not renewable at the current moment.
+         */
+        appServiceCertificateNotRenewableReasons: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+         */
+        autoRenew?: pulumi.Input<boolean>;
+        /**
+         * State of the Key Vault secret.
+         */
+        certificates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Last CSR that was created for this order.
+         */
+        csr?: pulumi.Input<string>;
+        /**
+         * Certificate distinguished name.
+         */
+        distinguishedName?: pulumi.Input<string>;
+        /**
+         * Domain verification token.
+         */
+        domainVerificationToken: pulumi.Input<string>;
+        /**
+         * Certificate expiration time.
+         */
+        expirationTime: pulumi.Input<string>;
+        /**
+         * Intermediate certificate.
+         */
+        intermediate: pulumi.Input<inputs.certificateregistration.CertificateDetailsResponse>;
+        /**
+         * <code>true</code> if private key is external; otherwise, <code>false</code>.
+         */
+        isPrivateKeyExternal: pulumi.Input<boolean>;
+        /**
+         * Certificate key size.
+         */
+        keySize?: pulumi.Input<number>;
+        /**
+         * Certificate last issuance time.
+         */
+        lastCertificateIssuanceTime: pulumi.Input<string>;
+        /**
+         * Time stamp when the certificate would be auto renewed next
+         */
+        nextAutoRenewalTimeStamp: pulumi.Input<string>;
+        /**
+         * Certificate product type.
+         */
+        productType: pulumi.Input<string>;
+        /**
+         * Status of certificate order.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Root certificate.
+         */
+        root: pulumi.Input<inputs.certificateregistration.CertificateDetailsResponse>;
+        /**
+         * Current serial number of the certificate.
+         */
+        serialNumber: pulumi.Input<string>;
+        /**
+         * Signed certificate.
+         */
+        signedCertificate: pulumi.Input<inputs.certificateregistration.CertificateDetailsResponse>;
+        /**
+         * Current order status.
+         */
+        status: pulumi.Input<string>;
+        /**
+         * Duration in years (must be between 1 and 3).
+         */
+        validityInYears?: pulumi.Input<number>;
+    }
+
+    /**
+     * Key Vault container for a certificate that is purchased through Azure.
+     */
+    export interface AppServiceCertificateResponse {
+        /**
+         * Key Vault resource Id.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Key Vault secret name.
+         */
+        keyVaultSecretName?: pulumi.Input<string>;
+        /**
+         * Status of the Key Vault secret.
+         */
+        provisioningState: pulumi.Input<string>;
+    }
+
+    /**
+     * SSL certificate details.
      */
     export interface CertificateDetailsResponse {
         /**
-         * Resource Id
+         * Certificate Issuer.
          */
-        id?: pulumi.Input<string>;
+        issuer: pulumi.Input<string>;
         /**
-         * Kind of resource
+         * Date Certificate is valid to.
          */
-        kind?: pulumi.Input<string>;
+        notAfter: pulumi.Input<string>;
         /**
-         * Resource Location
+         * Date Certificate is valid from.
          */
-        location: pulumi.Input<string>;
+        notBefore: pulumi.Input<string>;
         /**
-         * Resource Name
+         * Raw certificate data.
          */
-        name?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.certificateregistration.CertificateDetailsResponseProperties>;
+        rawData: pulumi.Input<string>;
         /**
-         * Resource tags
+         * Certificate Serial Number.
          */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        serialNumber: pulumi.Input<string>;
         /**
-         * Resource type
+         * Certificate Signature algorithm.
          */
-        type?: pulumi.Input<string>;
+        signatureAlgorithm: pulumi.Input<string>;
+        /**
+         * Certificate Subject.
+         */
+        subject: pulumi.Input<string>;
+        /**
+         * Certificate Thumbprint.
+         */
+        thumbprint: pulumi.Input<string>;
+        /**
+         * Certificate Version.
+         */
+        version: pulumi.Input<number>;
     }
 
-    export interface CertificateDetailsResponseProperties {
-        /**
-         * Issuer
-         */
-        issuer?: pulumi.Input<string>;
-        /**
-         * Valid to
-         */
-        notAfter?: pulumi.Input<string>;
-        /**
-         * Valid from
-         */
-        notBefore?: pulumi.Input<string>;
-        /**
-         * Raw certificate data
-         */
-        rawData?: pulumi.Input<string>;
-        /**
-         * Serial Number
-         */
-        serialNumber?: pulumi.Input<string>;
-        /**
-         * Signature Algorithm
-         */
-        signatureAlgorithm?: pulumi.Input<string>;
-        /**
-         * Subject
-         */
-        subject?: pulumi.Input<string>;
-        /**
-         * Thumbprint
-         */
-        thumbprint?: pulumi.Input<string>;
-        /**
-         * Version
-         */
-        version?: pulumi.Input<number>;
-    }
-
-    export interface CertificateOrderCertificateProperties {
-        /**
-         * Key Vault Csm resource Id
-         */
-        keyVaultId?: pulumi.Input<string>;
-        /**
-         * Key Vault secret name
-         */
-        keyVaultSecretName?: pulumi.Input<string>;
-        /**
-         * Status of the Key Vault secret
-         */
-        provisioningState?: pulumi.Input<string>;
-    }
-
-    export interface CertificateOrderCertificateResponseProperties {
-        /**
-         * Key Vault Csm resource Id
-         */
-        keyVaultId?: pulumi.Input<string>;
-        /**
-         * Key Vault secret name
-         */
-        keyVaultSecretName?: pulumi.Input<string>;
-        /**
-         * Status of the Key Vault secret
-         */
-        provisioningState?: pulumi.Input<string>;
-    }
-
-    export interface CertificateOrderProperties {
-        /**
-         * Auto renew
-         */
-        autoRenew?: pulumi.Input<boolean>;
-        /**
-         * State of the Key Vault secret
-         */
-        certificates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Last CSR that was created for this order
-         */
-        csr?: pulumi.Input<string>;
-        /**
-         * Certificate distinguished name
-         */
-        distinguishedName?: pulumi.Input<string>;
-        /**
-         * Domain Verification Token
-         */
-        domainVerificationToken?: pulumi.Input<string>;
-        /**
-         * Certificate expiration time
-         */
-        expirationTime?: pulumi.Input<string>;
-        /**
-         * Intermediate certificate
-         */
-        intermediate?: pulumi.Input<inputs.certificateregistration.CertificateDetails>;
-        /**
-         * Certificate Key Size
-         */
-        keySize?: pulumi.Input<number>;
-        /**
-         * Certificate last issuance time
-         */
-        lastCertificateIssuanceTime?: pulumi.Input<string>;
-        /**
-         * Certificate product type
-         */
-        productType?: pulumi.Input<string>;
-        /**
-         * Status of certificate order
-         */
-        provisioningState?: pulumi.Input<string>;
-        /**
-         * Root certificate
-         */
-        root?: pulumi.Input<inputs.certificateregistration.CertificateDetails>;
-        /**
-         * Current serial number of the certificate
-         */
-        serialNumber?: pulumi.Input<string>;
-        /**
-         * Signed certificate
-         */
-        signedCertificate?: pulumi.Input<inputs.certificateregistration.CertificateDetails>;
-        /**
-         * Current order status
-         */
-        status?: pulumi.Input<string>;
-        /**
-         * Duration in years (must be between 1 and 3)
-         */
-        validityInYears?: pulumi.Input<number>;
-    }
-
-    export interface CertificateOrderResponseProperties {
-        /**
-         * Auto renew
-         */
-        autoRenew?: pulumi.Input<boolean>;
-        /**
-         * State of the Key Vault secret
-         */
-        certificates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Last CSR that was created for this order
-         */
-        csr?: pulumi.Input<string>;
-        /**
-         * Certificate distinguished name
-         */
-        distinguishedName?: pulumi.Input<string>;
-        /**
-         * Domain Verification Token
-         */
-        domainVerificationToken?: pulumi.Input<string>;
-        /**
-         * Certificate expiration time
-         */
-        expirationTime?: pulumi.Input<string>;
-        /**
-         * Intermediate certificate
-         */
-        intermediate?: pulumi.Input<inputs.certificateregistration.CertificateDetailsResponse>;
-        /**
-         * Certificate Key Size
-         */
-        keySize?: pulumi.Input<number>;
-        /**
-         * Certificate last issuance time
-         */
-        lastCertificateIssuanceTime?: pulumi.Input<string>;
-        /**
-         * Certificate product type
-         */
-        productType?: pulumi.Input<string>;
-        /**
-         * Status of certificate order
-         */
-        provisioningState?: pulumi.Input<string>;
-        /**
-         * Root certificate
-         */
-        root?: pulumi.Input<inputs.certificateregistration.CertificateDetailsResponse>;
-        /**
-         * Current serial number of the certificate
-         */
-        serialNumber?: pulumi.Input<string>;
-        /**
-         * Signed certificate
-         */
-        signedCertificate?: pulumi.Input<inputs.certificateregistration.CertificateDetailsResponse>;
-        /**
-         * Current order status
-         */
-        status?: pulumi.Input<string>;
-        /**
-         * Duration in years (must be between 1 and 3)
-         */
-        validityInYears?: pulumi.Input<number>;
-    }
 }
 
 export namespace cognitiveservices {
@@ -15657,11 +15556,7 @@ export namespace compute {
         /**
          * Describes the properties of a Virtual Machine Scale Set Extension.
          */
-        properties: pulumi.Input<inputs.compute.VirtualMachineScaleSetExtensionPropertiesResponse>;
-        /**
-         * Resource type
-         */
-        type: pulumi.Input<string>;
+        properties?: pulumi.Input<inputs.compute.VirtualMachineScaleSetExtensionProperties>;
     }
 
     /**
@@ -20351,13 +20246,13 @@ export namespace containerservice {
     }
 
     /**
-     * Desired outbound IP Prefix resources for the cluster load balancer.
+     * Desired managed outbound IPs for the cluster load balancer.
      */
     export interface ManagedClusterLoadBalancerProfileProperties {
         /**
-         * A list of public IP prefix resources.
+         * Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
          */
-        publicIPPrefixes?: pulumi.Input<pulumi.Input<inputs.containerservice.ResourceReference>[]>;
+        count?: pulumi.Input<number>;
     }
 
     /**
@@ -20391,13 +20286,13 @@ export namespace containerservice {
     }
 
     /**
-     * Desired managed outbound IPs for the cluster load balancer.
+     * Desired outbound IP Prefix resources for the cluster load balancer.
      */
     export interface ManagedClusterLoadBalancerProfileResponseProperties {
         /**
-         * Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+         * A list of public IP prefix resources.
          */
-        count?: pulumi.Input<number>;
+        publicIPPrefixes?: pulumi.Input<pulumi.Input<inputs.containerservice.ResourceReferenceResponse>[]>;
     }
 
     /**
@@ -22313,21 +22208,21 @@ export namespace customerinsights {
     }
 
     /**
-     * System generated entities.
+     * The definition of a prediction grade.
      */
     export interface PredictionResponseProperties {
         /**
-         * Generated interaction types.
+         * Name of the grade.
          */
-        generatedInteractionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        gradeName?: pulumi.Input<string>;
         /**
-         * Generated KPIs.
+         * Maximum score threshold.
          */
-        generatedKpis?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        maxScoreThreshold?: pulumi.Input<number>;
         /**
-         * Generated links.
+         * Minimum score threshold.
          */
-        generatedLinks?: pulumi.Input<pulumi.Input<string>[]>;
+        minScoreThreshold?: pulumi.Input<number>;
     }
 
     /**
@@ -34836,33 +34731,29 @@ export namespace eventhub {
     }
 
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
     export interface ConsumerGroupProperties {
         /**
-         * The user metadata.
+         * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
          */
         userMetadata?: pulumi.Input<string>;
     }
 
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
-    export interface ConsumerGroupPropertiesResponse {
+    export interface ConsumerGroupResponseProperties {
         /**
          * Exact time the message was created.
          */
         createdAt: pulumi.Input<string>;
         /**
-         * The path of the Event Hub.
-         */
-        eventHubPath: pulumi.Input<string>;
-        /**
          * The exact time the message was updated.
          */
         updatedAt: pulumi.Input<string>;
         /**
-         * The user metadata.
+         * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
          */
         userMetadata?: pulumi.Input<string>;
     }
@@ -45398,20 +45289,6 @@ export namespace media {
     }
 
     /**
-     * The properties for a Media Services REST API endpoint.
-     */
-    export interface ApiEndpointResponse {
-        /**
-         * The Media Services REST endpoint.
-         */
-        endpoint?: pulumi.Input<string>;
-        /**
-         * The version of Media Services REST API.
-         */
-        majorVersion?: pulumi.Input<string>;
-    }
-
-    /**
      * The Asset properties.
      */
     export interface AssetProperties {
@@ -46584,7 +46461,7 @@ export namespace media {
     }
 
     /**
-     * The additional properties of a Media Service resource.
+     * Properties of the Media Services account.
      */
     export interface MediaServiceProperties {
         /**
@@ -46594,13 +46471,13 @@ export namespace media {
     }
 
     /**
-     * The additional properties of a Media Service resource.
+     * Properties of the Media Services account.
      */
     export interface MediaServicePropertiesResponse {
         /**
-         * Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+         * The Media Services account ID.
          */
-        apiEndpoints: pulumi.Input<pulumi.Input<inputs.media.ApiEndpointResponse>[]>;
+        mediaServiceId: pulumi.Input<string>;
         /**
          * The storage accounts for this resource.
          */
@@ -46700,31 +46577,31 @@ export namespace media {
     }
 
     /**
-     * The properties of a storage account associated with this resource.
+     * The storage account details.
      */
     export interface StorageAccount {
         /**
-         * The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
+         * The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
          */
-        id: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
-         * Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+         * The type of the storage account.
          */
-        isPrimary: pulumi.Input<boolean>;
+        type: pulumi.Input<string>;
     }
 
     /**
-     * The properties of a storage account associated with this resource.
+     * The storage account details.
      */
     export interface StorageAccountResponse {
         /**
-         * The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
+         * The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
          */
-        id: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
-         * Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+         * The type of the storage account.
          */
-        isPrimary: pulumi.Input<boolean>;
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -47878,40 +47755,6 @@ export namespace netapp {
     }
 
     /**
-     * Volume Export Policy Rule
-     */
-    export interface ExportPolicyRule {
-        /**
-         * Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-         */
-        allowedClients?: pulumi.Input<string>;
-        /**
-         * Allows CIFS protocol
-         */
-        cifs?: pulumi.Input<boolean>;
-        /**
-         * Allows NFSv3 protocol
-         */
-        nfsv3?: pulumi.Input<boolean>;
-        /**
-         * Allows NFSv4.1 protocol
-         */
-        nfsv41?: pulumi.Input<boolean>;
-        /**
-         * Order index
-         */
-        ruleIndex?: pulumi.Input<number>;
-        /**
-         * Read only access
-         */
-        unixReadOnly?: pulumi.Input<boolean>;
-        /**
-         * Read and write access
-         */
-        unixReadWrite?: pulumi.Input<boolean>;
-    }
-
-    /**
      * Mount target properties
      */
     export interface MountTargetProperties {
@@ -48021,6 +47864,32 @@ export namespace netapp {
          * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
          */
         size: pulumi.Input<number>;
+    }
+
+    /**
+     * Replication properties
+     */
+    export interface ReplicationObject {
+        /**
+         * Indicates whether the local volume is the source or destination for the Volume Replication
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * The remote region for the other end of the Volume Replication.
+         */
+        remoteVolumeRegion?: pulumi.Input<string>;
+        /**
+         * The resource ID of the remote volume.
+         */
+        remoteVolumeResourceId: pulumi.Input<string>;
+        /**
+         * Id
+         */
+        replicationId?: pulumi.Input<string>;
+        /**
+         * Schedule
+         */
+        replicationSchedule: pulumi.Input<string>;
     }
 
     /**
@@ -48144,13 +48013,13 @@ export namespace netapp {
     }
 
     /**
-     * Set of export policy rules
+     * DataProtection type volumes include an object containing details of the replication
      */
     export interface VolumePropertiesProperties {
         /**
-         * Export policy rule
+         * Replication properties
          */
-        rules?: pulumi.Input<pulumi.Input<inputs.netapp.ExportPolicyRule>[]>;
+        replication?: pulumi.Input<inputs.netapp.ReplicationObject>;
     }
 
     /**
@@ -52304,6 +52173,214 @@ export namespace network {
     }
 
     /**
+     * Describes the connection monitor endpoint.
+     */
+    export interface ConnectionMonitorEndpoint {
+        /**
+         * Address of the connection monitor endpoint (IP or domain name).
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * Filter for sub-items within the endpoint.
+         */
+        filter?: pulumi.Input<inputs.network.ConnectionMonitorEndpointFilter>;
+        /**
+         * The name of the connection monitor endpoint.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Resource ID of the connection monitor endpoint.
+         */
+        resourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the connection monitor endpoint filter.
+     */
+    export interface ConnectionMonitorEndpointFilter {
+        /**
+         * List of items in the filter.
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpointFilterItem>[]>;
+        /**
+         * The behavior of the endpoint filter. Currently only 'Include' is supported.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the connection monitor endpoint filter item.
+     */
+    export interface ConnectionMonitorEndpointFilterItem {
+        /**
+         * The address of the filter item.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The type of item included in the filter. Currently only 'AgentAddress' is supported.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the connection monitor endpoint filter item.
+     */
+    export interface ConnectionMonitorEndpointFilterItemResponse {
+        /**
+         * The address of the filter item.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The type of item included in the filter. Currently only 'AgentAddress' is supported.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the connection monitor endpoint filter.
+     */
+    export interface ConnectionMonitorEndpointFilterResponse {
+        /**
+         * List of items in the filter.
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpointFilterItemResponse>[]>;
+        /**
+         * The behavior of the endpoint filter. Currently only 'Include' is supported.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the connection monitor endpoint.
+     */
+    export interface ConnectionMonitorEndpointResponse {
+        /**
+         * Address of the connection monitor endpoint (IP or domain name).
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * Filter for sub-items within the endpoint.
+         */
+        filter?: pulumi.Input<inputs.network.ConnectionMonitorEndpointFilterResponse>;
+        /**
+         * The name of the connection monitor endpoint.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Resource ID of the connection monitor endpoint.
+         */
+        resourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the HTTP configuration.
+     */
+    export interface ConnectionMonitorHttpConfiguration {
+        /**
+         * The HTTP method to use.
+         */
+        method?: pulumi.Input<string>;
+        /**
+         * The path component of the URI. For instance, "/dir1/dir2".
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port to connect to.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
+         */
+        preferHTTPS?: pulumi.Input<boolean>;
+        /**
+         * The HTTP headers to transmit with the request.
+         */
+        requestHeaders?: pulumi.Input<pulumi.Input<inputs.network.HTTPHeader>[]>;
+        /**
+         * HTTP status codes to consider successful. For instance, "2xx,301-304,418".
+         */
+        validStatusCodeRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Describes the HTTP configuration.
+     */
+    export interface ConnectionMonitorHttpConfigurationResponse {
+        /**
+         * The HTTP method to use.
+         */
+        method?: pulumi.Input<string>;
+        /**
+         * The path component of the URI. For instance, "/dir1/dir2".
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port to connect to.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
+         */
+        preferHTTPS?: pulumi.Input<boolean>;
+        /**
+         * The HTTP headers to transmit with the request.
+         */
+        requestHeaders?: pulumi.Input<pulumi.Input<inputs.network.HTTPHeaderResponse>[]>;
+        /**
+         * HTTP status codes to consider successful. For instance, "2xx,301-304,418".
+         */
+        validStatusCodeRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Describes the ICMP configuration.
+     */
+    export interface ConnectionMonitorIcmpConfiguration {
+        /**
+         * Value indicating whether path evaluation with trace route should be disabled.
+         */
+        disableTraceRoute?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Describes the ICMP configuration.
+     */
+    export interface ConnectionMonitorIcmpConfigurationResponse {
+        /**
+         * Value indicating whether path evaluation with trace route should be disabled.
+         */
+        disableTraceRoute?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Describes a connection monitor output destination.
+     */
+    export interface ConnectionMonitorOutput {
+        /**
+         * Connection monitor output destination type. Currently, only "Workspace" is supported.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Describes the settings for producing output into a log analytics workspace.
+         */
+        workspaceSettings?: pulumi.Input<inputs.network.ConnectionMonitorWorkspaceSettings>;
+    }
+
+    /**
+     * Describes a connection monitor output destination.
+     */
+    export interface ConnectionMonitorOutputResponse {
+        /**
+         * Connection monitor output destination type. Currently, only "Workspace" is supported.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Describes the settings for producing output into a log analytics workspace.
+         */
+        workspaceSettings?: pulumi.Input<inputs.network.ConnectionMonitorWorkspaceSettingsResponse>;
+    }
+
+    /**
      * Parameters that define the operation to create a connection monitor.
      */
     export interface ConnectionMonitorParameters {
@@ -52314,15 +52391,35 @@ export namespace network {
         /**
          * Describes the destination of connection monitor.
          */
-        destination: pulumi.Input<inputs.network.ConnectionMonitorDestination>;
+        destination?: pulumi.Input<inputs.network.ConnectionMonitorDestination>;
+        /**
+         * List of connection monitor endpoints.
+         */
+        endpoints?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpoint>[]>;
         /**
          * Monitoring interval in seconds.
          */
         monitoringIntervalInSeconds?: pulumi.Input<number>;
         /**
+         * Optional notes to be associated with the connection monitor.
+         */
+        notes?: pulumi.Input<string>;
+        /**
+         * List of connection monitor outputs.
+         */
+        outputs?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorOutput>[]>;
+        /**
          * Describes the source of connection monitor.
          */
-        source: pulumi.Input<inputs.network.ConnectionMonitorSource>;
+        source?: pulumi.Input<inputs.network.ConnectionMonitorSource>;
+        /**
+         * List of connection monitor test configurations.
+         */
+        testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestConfiguration>[]>;
+        /**
+         * List of connection monitor test groups.
+         */
+        testGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestGroup>[]>;
     }
 
     /**
@@ -52334,9 +52431,17 @@ export namespace network {
          */
         autoStart?: pulumi.Input<boolean>;
         /**
+         * Type of connection monitor.
+         */
+        connectionMonitorType: pulumi.Input<string>;
+        /**
          * Describes the destination of connection monitor.
          */
-        destination: pulumi.Input<inputs.network.ConnectionMonitorDestinationResponse>;
+        destination?: pulumi.Input<inputs.network.ConnectionMonitorDestinationResponse>;
+        /**
+         * List of connection monitor endpoints.
+         */
+        endpoints?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorEndpointResponse>[]>;
         /**
          * Monitoring interval in seconds.
          */
@@ -52344,19 +52449,35 @@ export namespace network {
         /**
          * The monitoring status of the connection monitor.
          */
-        monitoringStatus?: pulumi.Input<string>;
+        monitoringStatus: pulumi.Input<string>;
+        /**
+         * Optional notes to be associated with the connection monitor.
+         */
+        notes?: pulumi.Input<string>;
+        /**
+         * List of connection monitor outputs.
+         */
+        outputs?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorOutputResponse>[]>;
         /**
          * The provisioning state of the connection monitor.
          */
-        provisioningState?: pulumi.Input<string>;
+        provisioningState: pulumi.Input<string>;
         /**
          * Describes the source of connection monitor.
          */
-        source: pulumi.Input<inputs.network.ConnectionMonitorSourceResponse>;
+        source?: pulumi.Input<inputs.network.ConnectionMonitorSourceResponse>;
         /**
          * The date and time when the connection monitor was started.
          */
-        startTime?: pulumi.Input<string>;
+        startTime: pulumi.Input<string>;
+        /**
+         * List of connection monitor test configurations.
+         */
+        testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestConfigurationResponse>[]>;
+        /**
+         * List of connection monitor test groups.
+         */
+        testGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectionMonitorTestGroupResponse>[]>;
     }
 
     /**
@@ -52385,6 +52506,210 @@ export namespace network {
          * The ID of the resource used as the source by connection monitor.
          */
         resourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the threshold for declaring a test successful.
+     */
+    export interface ConnectionMonitorSuccessThreshold {
+        /**
+         * The maximum percentage of failed checks permitted for a test to evaluate as successful.
+         */
+        checksFailedPercent?: pulumi.Input<number>;
+        /**
+         * The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
+         */
+        roundTripTimeMs?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes the threshold for declaring a test successful.
+     */
+    export interface ConnectionMonitorSuccessThresholdResponse {
+        /**
+         * The maximum percentage of failed checks permitted for a test to evaluate as successful.
+         */
+        checksFailedPercent?: pulumi.Input<number>;
+        /**
+         * The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
+         */
+        roundTripTimeMs?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes the TCP configuration.
+     */
+    export interface ConnectionMonitorTcpConfiguration {
+        /**
+         * Value indicating whether path evaluation with trace route should be disabled.
+         */
+        disableTraceRoute?: pulumi.Input<boolean>;
+        /**
+         * The port to connect to.
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes the TCP configuration.
+     */
+    export interface ConnectionMonitorTcpConfigurationResponse {
+        /**
+         * Value indicating whether path evaluation with trace route should be disabled.
+         */
+        disableTraceRoute?: pulumi.Input<boolean>;
+        /**
+         * The port to connect to.
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes a connection monitor test configuration.
+     */
+    export interface ConnectionMonitorTestConfiguration {
+        /**
+         * The parameters used to perform test evaluation over HTTP.
+         */
+        httpConfiguration?: pulumi.Input<inputs.network.ConnectionMonitorHttpConfiguration>;
+        /**
+         * The parameters used to perform test evaluation over ICMP.
+         */
+        icmpConfiguration?: pulumi.Input<inputs.network.ConnectionMonitorIcmpConfiguration>;
+        /**
+         * The name of the connection monitor test configuration.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
+         */
+        preferredIPVersion?: pulumi.Input<string>;
+        /**
+         * The protocol to use in test evaluation.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * The threshold for declaring a test successful.
+         */
+        successThreshold?: pulumi.Input<inputs.network.ConnectionMonitorSuccessThreshold>;
+        /**
+         * The parameters used to perform test evaluation over TCP.
+         */
+        tcpConfiguration?: pulumi.Input<inputs.network.ConnectionMonitorTcpConfiguration>;
+        /**
+         * The frequency of test evaluation, in seconds.
+         */
+        testFrequencySec?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes a connection monitor test configuration.
+     */
+    export interface ConnectionMonitorTestConfigurationResponse {
+        /**
+         * The parameters used to perform test evaluation over HTTP.
+         */
+        httpConfiguration?: pulumi.Input<inputs.network.ConnectionMonitorHttpConfigurationResponse>;
+        /**
+         * The parameters used to perform test evaluation over ICMP.
+         */
+        icmpConfiguration?: pulumi.Input<inputs.network.ConnectionMonitorIcmpConfigurationResponse>;
+        /**
+         * The name of the connection monitor test configuration.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
+         */
+        preferredIPVersion?: pulumi.Input<string>;
+        /**
+         * The protocol to use in test evaluation.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * The threshold for declaring a test successful.
+         */
+        successThreshold?: pulumi.Input<inputs.network.ConnectionMonitorSuccessThresholdResponse>;
+        /**
+         * The parameters used to perform test evaluation over TCP.
+         */
+        tcpConfiguration?: pulumi.Input<inputs.network.ConnectionMonitorTcpConfigurationResponse>;
+        /**
+         * The frequency of test evaluation, in seconds.
+         */
+        testFrequencySec?: pulumi.Input<number>;
+    }
+
+    /**
+     * Describes the connection monitor test group.
+     */
+    export interface ConnectionMonitorTestGroup {
+        /**
+         * List of destination endpoint names.
+         */
+        destinations: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Value indicating whether test group is disabled.
+         */
+        disable?: pulumi.Input<boolean>;
+        /**
+         * The name of the connection monitor test group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of source endpoint names.
+         */
+        sources: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of test configuration names.
+         */
+        testConfigurations: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Describes the connection monitor test group.
+     */
+    export interface ConnectionMonitorTestGroupResponse {
+        /**
+         * List of destination endpoint names.
+         */
+        destinations: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Value indicating whether test group is disabled.
+         */
+        disable?: pulumi.Input<boolean>;
+        /**
+         * The name of the connection monitor test group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of source endpoint names.
+         */
+        sources: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of test configuration names.
+         */
+        testConfigurations: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Describes the settings for producing output into a log analytics workspace.
+     */
+    export interface ConnectionMonitorWorkspaceSettings {
+        /**
+         * Log analytics workspace resource ID.
+         */
+        workspaceResourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the settings for producing output into a log analytics workspace.
+     */
+    export interface ConnectionMonitorWorkspaceSettingsResponse {
+        /**
+         * Log analytics workspace resource ID.
+         */
+        workspaceResourceId?: pulumi.Input<string>;
     }
 
     /**
@@ -52944,9 +53269,9 @@ export namespace network {
      */
     export interface ExpressRouteCircuitAuthorization {
         /**
-         * A unique read-only string that changes whenever the resource is updated.
+         * Resource ID.
          */
-        etag: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
          * The name of the resource that is unique within a resource group. This name can be used to access the resource.
          */
@@ -52954,11 +53279,7 @@ export namespace network {
         /**
          * Properties of the express route circuit authorization.
          */
-        properties: pulumi.Input<inputs.network.AuthorizationPropertiesFormatResponse>;
-        /**
-         * Type of the resource.
-         */
-        type: pulumi.Input<string>;
+        properties?: pulumi.Input<inputs.network.AuthorizationPropertiesFormat>;
     }
 
     /**
@@ -53640,6 +53961,10 @@ export namespace network {
          */
         expressRouteCircuitPeering: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringId>;
         /**
+         * The Routing Configuration indicating the associated and propagated route tables on this connection.
+         */
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfiguration>;
+        /**
          * The routing weight associated to the connection.
          */
         routingWeight?: pulumi.Input<number>;
@@ -53665,6 +53990,10 @@ export namespace network {
          * The provisioning state of the express route connection resource.
          */
         provisioningState: pulumi.Input<string>;
+        /**
+         * The Routing Configuration indicating the associated and propagated route tables on this connection.
+         */
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationResponse>;
         /**
          * The routing weight associated to the connection.
          */
@@ -54855,6 +55184,34 @@ export namespace network {
          * A list of availability zones denoting the IP allocated for the resource needs to come from.
          */
         zones?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The HTTP header.
+     */
+    export interface HTTPHeader {
+        /**
+         * The name in HTTP header.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value in HTTP header.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * The HTTP header.
+     */
+    export interface HTTPHeaderResponse {
+        /**
+         * The name in HTTP header.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value in HTTP header.
+         */
+        value?: pulumi.Input<string>;
     }
 
     /**
@@ -56392,21 +56749,29 @@ export namespace network {
      */
     export interface LocalNetworkGateway {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * Resource location.
          */
         location?: pulumi.Input<string>;
         /**
+         * Resource name.
+         */
+        name: pulumi.Input<string>;
+        /**
          * Properties of the local network gateway.
          */
-        properties: pulumi.Input<inputs.network.LocalNetworkGatewayPropertiesFormat>;
+        properties: pulumi.Input<inputs.network.LocalNetworkGatewayPropertiesFormatResponse>;
         /**
          * Resource tags.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -60956,6 +61321,20 @@ export namespace network {
     /**
      * VirtualHub route.
      */
+    export interface VirtualHubRoute {
+        /**
+         * List of all addressPrefixes.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * NextHop ip address.
+         */
+        nextHopIpAddress?: pulumi.Input<string>;
+    }
+
+    /**
+     * VirtualHub route.
+     */
     export interface VirtualHubRouteResponse {
         /**
          * List of all addressPrefixes.
@@ -60968,21 +61347,13 @@ export namespace network {
     }
 
     /**
-     * VirtualHubRouteTableV2 Resource.
+     * VirtualHub route table.
      */
     export interface VirtualHubRouteTable {
         /**
-         * A unique read-only string that changes whenever the resource is updated.
+         * List of all routes.
          */
-        etag: pulumi.Input<string>;
-        /**
-         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Properties of the virtual hub route table v2.
-         */
-        properties: pulumi.Input<inputs.network.VirtualHubRouteTableV2PropertiesResponse>;
+        routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
     }
 
     /**
@@ -61140,21 +61511,29 @@ export namespace network {
      */
     export interface VirtualNetworkGateway {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * Resource location.
          */
         location?: pulumi.Input<string>;
         /**
+         * Resource name.
+         */
+        name: pulumi.Input<string>;
+        /**
          * Properties of the virtual network gateway.
          */
-        properties: pulumi.Input<inputs.network.VirtualNetworkGatewayPropertiesFormat>;
+        properties: pulumi.Input<inputs.network.VirtualNetworkGatewayPropertiesFormatResponse>;
         /**
          * Resource tags.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -65823,49 +66202,41 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
      */
     export interface PrivateEndpoint {
-        /**
-         * Gets or sets id
-         */
-        id?: pulumi.Input<string>;
     }
 
     /**
-     * Private Endpoint Connection Response Properties
+     * Private Endpoint Connection Response Properties.
      */
     export interface PrivateEndpointConnection {
         /**
-         * Gets or sets private endpoint associated with the private endpoint connection
+         * The Private Endpoint network resource that is linked to the Private Endpoint connection.
          */
         privateEndpoint?: pulumi.Input<inputs.recoveryservices.PrivateEndpoint>;
         /**
-         * Gets or sets private link service connection state
+         * Gets or sets private link service connection state.
          */
         privateLinkServiceConnectionState?: pulumi.Input<inputs.recoveryservices.PrivateLinkServiceConnectionState>;
-        /**
-         * Gets or sets provisioning state of the private endpoint connection
-         */
-        provisioningState?: pulumi.Input<string>;
     }
 
     /**
-     * Private Endpoint Connection Response Properties
+     * Private Endpoint Connection Response Properties.
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * Gets or sets private endpoint associated with the private endpoint connection
+         * The Private Endpoint network resource that is linked to the Private Endpoint connection.
          */
         privateEndpoint?: pulumi.Input<inputs.recoveryservices.PrivateEndpointResponse>;
         /**
-         * Gets or sets private link service connection state
+         * Gets or sets private link service connection state.
          */
         privateLinkServiceConnectionState?: pulumi.Input<inputs.recoveryservices.PrivateLinkServiceConnectionStateResponse>;
         /**
-         * Gets or sets provisioning state of the private endpoint connection
+         * Gets or sets provisioning state of the private endpoint connection.
          */
-        provisioningState?: pulumi.Input<string>;
+        provisioningState: pulumi.Input<string>;
     }
 
     /**
@@ -65883,49 +66254,37 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
      */
     export interface PrivateEndpointResponse {
         /**
-         * Gets or sets id
+         * Gets or sets id.
          */
-        id?: pulumi.Input<string>;
+        id: pulumi.Input<string>;
     }
 
     /**
-     * Private Link Service Connection State
+     * Gets or sets private link service connection state.
      */
     export interface PrivateLinkServiceConnectionState {
-        /**
-         * Gets or sets actions required
-         */
-        actionRequired?: pulumi.Input<string>;
-        /**
-         * Gets or sets description
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Gets or sets the status
-         */
-        status?: pulumi.Input<string>;
     }
 
     /**
-     * Private Link Service Connection State
+     * Gets or sets private link service connection state.
      */
     export interface PrivateLinkServiceConnectionStateResponse {
         /**
-         * Gets or sets actions required
+         * Gets or sets actions required.
          */
-        actionRequired?: pulumi.Input<string>;
+        actionsRequired: pulumi.Input<string>;
         /**
-         * Gets or sets description
+         * Gets or sets description.
          */
-        description?: pulumi.Input<string>;
+        description: pulumi.Input<string>;
         /**
-         * Gets or sets the status
+         * Gets or sets the status.
          */
-        status?: pulumi.Input<string>;
+        status: pulumi.Input<string>;
     }
 
     /**
@@ -78851,108 +79210,8 @@ export namespace vmwarecloudsimple {
 }
 
 export namespace web {
-    export interface ApiConnectionDefinitionProperties {
-        api?: pulumi.Input<inputs.web.ApiReference>;
-        /**
-         * Timestamp of last connection change
-         */
-        changedTime?: pulumi.Input<string>;
-        /**
-         * Timestamp of the connection creation
-         */
-        createdTime?: pulumi.Input<string>;
-        /**
-         * Dictionary of custom parameter values
-         */
-        customParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * Dictionary of nonsecret parameter values
-         */
-        nonSecretParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Dictionary of parameter values
-         */
-        parameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Status of the connection
-         */
-        statuses?: pulumi.Input<pulumi.Input<inputs.web.ConnectionStatusDefinition>[]>;
-        /**
-         * Links to test the API connection
-         */
-        testLinks?: pulumi.Input<pulumi.Input<inputs.web.ApiConnectionTestLink>[]>;
-    }
-
-    export interface ApiConnectionDefinitionResponseProperties {
-        api?: pulumi.Input<inputs.web.ApiReferenceResponse>;
-        /**
-         * Timestamp of last connection change
-         */
-        changedTime?: pulumi.Input<string>;
-        /**
-         * Timestamp of the connection creation
-         */
-        createdTime?: pulumi.Input<string>;
-        /**
-         * Dictionary of custom parameter values
-         */
-        customParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * Dictionary of nonsecret parameter values
-         */
-        nonSecretParameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Dictionary of parameter values
-         */
-        parameterValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Status of the connection
-         */
-        statuses?: pulumi.Input<pulumi.Input<inputs.web.ConnectionStatusDefinitionResponse>[]>;
-        /**
-         * Links to test the API connection
-         */
-        testLinks?: pulumi.Input<pulumi.Input<inputs.web.ApiConnectionTestLinkResponse>[]>;
-    }
-
     /**
-     * API connection properties
-     */
-    export interface ApiConnectionTestLink {
-        /**
-         * HTTP Method
-         */
-        method?: pulumi.Input<string>;
-        /**
-         * Test link request URI
-         */
-        requestUri?: pulumi.Input<string>;
-    }
-
-    /**
-     * API connection properties
-     */
-    export interface ApiConnectionTestLinkResponse {
-        /**
-         * HTTP Method
-         */
-        method?: pulumi.Input<string>;
-        /**
-         * Test link request URI
-         */
-        requestUri?: pulumi.Input<string>;
-    }
-
-    /**
-     * Information about the formal API definition for the web app.
+     * Information about the formal API definition for the app.
      */
     export interface ApiDefinitionInfo {
         /**
@@ -78962,7 +79221,7 @@ export namespace web {
     }
 
     /**
-     * Information about the formal API definition for the web app.
+     * Information about the formal API definition for the app.
      */
     export interface ApiDefinitionInfoResponse {
         /**
@@ -78971,122 +79230,284 @@ export namespace web {
         url?: pulumi.Input<string>;
     }
 
-    export interface ApiReference {
+    /**
+     * Azure API management (APIM) configuration linked to the app.
+     */
+    export interface ApiManagementConfig {
         /**
-         * Brand color
-         */
-        brandColor?: pulumi.Input<string>;
-        /**
-         * The custom API description
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * The icon URI
-         */
-        iconUri?: pulumi.Input<string>;
-        /**
-         * Resource reference id
+         * APIM-Api Identifier.
          */
         id?: pulumi.Input<string>;
-        /**
-         * The name of the API
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The JSON representation of the swagger
-         */
-        swagger?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource reference type
-         */
-        type?: pulumi.Input<string>;
     }
 
-    export interface ApiReferenceResponse {
+    /**
+     * Azure API management (APIM) configuration linked to the app.
+     */
+    export interface ApiManagementConfigResponse {
         /**
-         * Brand color
-         */
-        brandColor?: pulumi.Input<string>;
-        /**
-         * The custom API description
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * The icon URI
-         */
-        iconUri?: pulumi.Input<string>;
-        /**
-         * Resource reference id
+         * APIM-Api Identifier.
          */
         id?: pulumi.Input<string>;
-        /**
-         * The name of the API
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The JSON representation of the swagger
-         */
-        swagger?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource reference type
-         */
-        type?: pulumi.Input<string>;
     }
 
     /**
-     * The API backend service
+     * Description of an App Service Environment.
      */
-    export interface ApiResourceBackendService {
+    export interface AppServiceEnvironment {
         /**
-         * The service URL
+         * API Management Account associated with the App Service Environment.
          */
-        serviceUrl?: pulumi.Input<string>;
+        apiManagementAccountId?: pulumi.Input<string>;
+        /**
+         * Custom settings for changing the behavior of the App Service Environment.
+         */
+        clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePair>[]>;
+        /**
+         * DNS suffix of the App Service Environment.
+         */
+        dnsSuffix?: pulumi.Input<string>;
+        /**
+         * True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+         * (most likely because NSG blocked the incoming traffic).
+         */
+        dynamicCacheEnabled?: pulumi.Input<boolean>;
+        /**
+         * Scale factor for front-ends.
+         */
+        frontEndScaleFactor?: pulumi.Input<number>;
+        /**
+         * Flag that displays whether an ASE has linux workers or not
+         */
+        hasLinuxWorkers?: pulumi.Input<boolean>;
+        /**
+         * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+         */
+        internalLoadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Number of IP SSL addresses reserved for the App Service Environment.
+         */
+        ipsslAddressCount?: pulumi.Input<number>;
+        /**
+         * Location of the App Service Environment, e.g. "West US".
+         */
+        location: pulumi.Input<string>;
+        /**
+         * Number of front-end instances.
+         */
+        multiRoleCount?: pulumi.Input<number>;
+        /**
+         * Front-end VM size, e.g. "Medium", "Large".
+         */
+        multiSize?: pulumi.Input<string>;
+        /**
+         * Name of the App Service Environment.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Access control list for controlling traffic to the App Service Environment.
+         */
+        networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.NetworkAccessControlEntry>[]>;
+        /**
+         * Key Vault ID for ILB App Service Environment default SSL certificate
+         */
+        sslCertKeyVaultId?: pulumi.Input<string>;
+        /**
+         * Key Vault Secret Name for ILB App Service Environment default SSL certificate
+         */
+        sslCertKeyVaultSecretName?: pulumi.Input<string>;
+        /**
+         * <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+         *  (most likely because NSG blocked the incoming traffic).
+         */
+        suspended?: pulumi.Input<boolean>;
+        /**
+         * User added ip ranges to whitelist on ASE db
+         */
+        userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Description of the Virtual Network.
+         */
+        virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfile>;
+        /**
+         * Name of the Virtual Network for the App Service Environment.
+         */
+        vnetName?: pulumi.Input<string>;
+        /**
+         * Resource group of the Virtual Network.
+         */
+        vnetResourceGroupName?: pulumi.Input<string>;
+        /**
+         * Subnet of the Virtual Network.
+         */
+        vnetSubnetName?: pulumi.Input<string>;
+        /**
+         * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+         */
+        workerPools: pulumi.Input<pulumi.Input<inputs.web.WorkerPool>[]>;
     }
 
     /**
-     * The API backend service
+     * Description of an App Service Environment.
      */
-    export interface ApiResourceBackendServiceResponse {
+    export interface AppServiceEnvironmentResponse {
         /**
-         * The service URL
+         * List of comma separated strings describing which VM sizes are allowed for front-ends.
          */
-        serviceUrl?: pulumi.Input<string>;
-    }
-
-    /**
-     * API Definitions
-     */
-    export interface ApiResourceDefinitions {
+        allowedMultiSizes: pulumi.Input<string>;
         /**
-         * The modified swagger URL
+         * List of comma separated strings describing which VM sizes are allowed for workers.
          */
-        modifiedSwaggerUrl?: pulumi.Input<string>;
+        allowedWorkerSizes: pulumi.Input<string>;
         /**
-         * The original swagger URL
+         * API Management Account associated with the App Service Environment.
          */
-        originalSwaggerUrl?: pulumi.Input<string>;
-    }
-
-    /**
-     * API Definitions
-     */
-    export interface ApiResourceDefinitionsResponse {
+        apiManagementAccountId?: pulumi.Input<string>;
         /**
-         * The modified swagger URL
+         * Custom settings for changing the behavior of the App Service Environment.
          */
-        modifiedSwaggerUrl?: pulumi.Input<string>;
+        clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairResponse>[]>;
         /**
-         * The original swagger URL
+         * Edition of the metadata database for the App Service Environment, e.g. "Standard".
          */
-        originalSwaggerUrl?: pulumi.Input<string>;
+        databaseEdition: pulumi.Input<string>;
+        /**
+         * Service objective of the metadata database for the App Service Environment, e.g. "S0".
+         */
+        databaseServiceObjective: pulumi.Input<string>;
+        /**
+         * Default Scale Factor for FrontEnds.
+         */
+        defaultFrontEndScaleFactor: pulumi.Input<number>;
+        /**
+         * DNS suffix of the App Service Environment.
+         */
+        dnsSuffix?: pulumi.Input<string>;
+        /**
+         * True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+         * (most likely because NSG blocked the incoming traffic).
+         */
+        dynamicCacheEnabled?: pulumi.Input<boolean>;
+        /**
+         * Current total, used, and available worker capacities.
+         */
+        environmentCapacities: pulumi.Input<pulumi.Input<inputs.web.StampCapacityResponse>[]>;
+        /**
+         * True/false indicating whether the App Service Environment is healthy.
+         */
+        environmentIsHealthy: pulumi.Input<boolean>;
+        /**
+         * Detailed message about with results of the last check of the App Service Environment.
+         */
+        environmentStatus: pulumi.Input<string>;
+        /**
+         * Scale factor for front-ends.
+         */
+        frontEndScaleFactor?: pulumi.Input<number>;
+        /**
+         * Flag that displays whether an ASE has linux workers or not
+         */
+        hasLinuxWorkers?: pulumi.Input<boolean>;
+        /**
+         * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+         */
+        internalLoadBalancingMode?: pulumi.Input<string>;
+        /**
+         * Number of IP SSL addresses reserved for the App Service Environment.
+         */
+        ipsslAddressCount?: pulumi.Input<number>;
+        /**
+         * Last deployment action on the App Service Environment.
+         */
+        lastAction: pulumi.Input<string>;
+        /**
+         * Result of the last deployment action on the App Service Environment.
+         */
+        lastActionResult: pulumi.Input<string>;
+        /**
+         * Location of the App Service Environment, e.g. "West US".
+         */
+        location: pulumi.Input<string>;
+        /**
+         * Maximum number of VMs in the App Service Environment.
+         */
+        maximumNumberOfMachines: pulumi.Input<number>;
+        /**
+         * Number of front-end instances.
+         */
+        multiRoleCount?: pulumi.Input<number>;
+        /**
+         * Front-end VM size, e.g. "Medium", "Large".
+         */
+        multiSize?: pulumi.Input<string>;
+        /**
+         * Name of the App Service Environment.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Access control list for controlling traffic to the App Service Environment.
+         */
+        networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.NetworkAccessControlEntryResponse>[]>;
+        /**
+         * Provisioning state of the App Service Environment.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Resource group of the App Service Environment.
+         */
+        resourceGroup: pulumi.Input<string>;
+        /**
+         * Key Vault ID for ILB App Service Environment default SSL certificate
+         */
+        sslCertKeyVaultId?: pulumi.Input<string>;
+        /**
+         * Key Vault Secret Name for ILB App Service Environment default SSL certificate
+         */
+        sslCertKeyVaultSecretName?: pulumi.Input<string>;
+        /**
+         * Current status of the App Service Environment.
+         */
+        status: pulumi.Input<string>;
+        /**
+         * Subscription of the App Service Environment.
+         */
+        subscriptionId: pulumi.Input<string>;
+        /**
+         * <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+         *  (most likely because NSG blocked the incoming traffic).
+         */
+        suspended?: pulumi.Input<boolean>;
+        /**
+         * Number of upgrade domains of the App Service Environment.
+         */
+        upgradeDomains: pulumi.Input<number>;
+        /**
+         * User added ip ranges to whitelist on ASE db
+         */
+        userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Description of IP SSL mapping for the App Service Environment.
+         */
+        vipMappings: pulumi.Input<pulumi.Input<inputs.web.VirtualIPMappingResponse>[]>;
+        /**
+         * Description of the Virtual Network.
+         */
+        virtualNetwork: pulumi.Input<inputs.web.VirtualNetworkProfileResponse>;
+        /**
+         * Name of the Virtual Network for the App Service Environment.
+         */
+        vnetName?: pulumi.Input<string>;
+        /**
+         * Resource group of the Virtual Network.
+         */
+        vnetResourceGroupName?: pulumi.Input<string>;
+        /**
+         * Subnet of the Virtual Network.
+         */
+        vnetSubnetName?: pulumi.Input<string>;
+        /**
+         * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+         */
+        workerPools: pulumi.Input<pulumi.Input<inputs.web.WorkerPoolResponse>[]>;
     }
 
     /**
@@ -79235,169 +79656,141 @@ export namespace web {
     }
 
     /**
-     * The plan object in an ARM, represents a marketplace plan
-     */
-    export interface ArmPlan {
-        /**
-         * The name
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The product
-         */
-        product?: pulumi.Input<string>;
-        /**
-         * The promotion code
-         */
-        promotionCode?: pulumi.Input<string>;
-        /**
-         * The publisher
-         */
-        publisher?: pulumi.Input<string>;
-        /**
-         * Version of product
-         */
-        version?: pulumi.Input<string>;
-    }
-
-    /**
-     * AutoHealActions - Describes the actions which can be
-     *             taken by the auto-heal module when a rule is triggered.
+     * Actions which to take by the auto-heal module when a rule is triggered.
      */
     export interface AutoHealActions {
         /**
-         * ActionType - predefined action to be taken
+         * Predefined action to be taken.
          */
-        actionType: pulumi.Input<string>;
+        actionType?: pulumi.Input<string>;
         /**
-         * CustomAction - custom action to be taken
+         * Custom action to be taken.
          */
         customAction?: pulumi.Input<inputs.web.AutoHealCustomAction>;
         /**
-         * MinProcessExecutionTime - minimum time the process must execute
-         *             before taking the action
+         * Minimum time the process must execute
+         * before taking the action
          */
         minProcessExecutionTime?: pulumi.Input<string>;
     }
 
     /**
-     * AutoHealActions - Describes the actions which can be
-     *             taken by the auto-heal module when a rule is triggered.
+     * Actions which to take by the auto-heal module when a rule is triggered.
      */
     export interface AutoHealActionsResponse {
         /**
-         * ActionType - predefined action to be taken
+         * Predefined action to be taken.
          */
-        actionType: pulumi.Input<string>;
+        actionType?: pulumi.Input<string>;
         /**
-         * CustomAction - custom action to be taken
+         * Custom action to be taken.
          */
         customAction?: pulumi.Input<inputs.web.AutoHealCustomActionResponse>;
         /**
-         * MinProcessExecutionTime - minimum time the process must execute
-         *             before taking the action
+         * Minimum time the process must execute
+         * before taking the action
          */
         minProcessExecutionTime?: pulumi.Input<string>;
     }
 
     /**
-     * AutoHealCustomAction - Describes the custom action to be executed
-     *             when an auto heal rule is triggered.
+     * Custom action to be executed
+     * when an auto heal rule is triggered.
      */
     export interface AutoHealCustomAction {
         /**
-         * Executable to be run
+         * Executable to be run.
          */
         exe?: pulumi.Input<string>;
         /**
-         * Parameters for the executable
+         * Parameters for the executable.
          */
         parameters?: pulumi.Input<string>;
     }
 
     /**
-     * AutoHealCustomAction - Describes the custom action to be executed
-     *             when an auto heal rule is triggered.
+     * Custom action to be executed
+     * when an auto heal rule is triggered.
      */
     export interface AutoHealCustomActionResponse {
         /**
-         * Executable to be run
+         * Executable to be run.
          */
         exe?: pulumi.Input<string>;
         /**
-         * Parameters for the executable
+         * Parameters for the executable.
          */
         parameters?: pulumi.Input<string>;
     }
 
     /**
-     * AutoHealRules - describes the rules which can be defined for auto-heal
+     * Rules that can be defined for auto-heal.
      */
     export interface AutoHealRules {
         /**
-         * Actions - Actions to be executed when a rule is triggered
+         * Actions to be executed when a rule is triggered.
          */
         actions?: pulumi.Input<inputs.web.AutoHealActions>;
         /**
-         * Triggers - Conditions that describe when to execute the auto-heal actions
+         * Conditions that describe when to execute the auto-heal actions.
          */
         triggers?: pulumi.Input<inputs.web.AutoHealTriggers>;
     }
 
     /**
-     * AutoHealRules - describes the rules which can be defined for auto-heal
+     * Rules that can be defined for auto-heal.
      */
     export interface AutoHealRulesResponse {
         /**
-         * Actions - Actions to be executed when a rule is triggered
+         * Actions to be executed when a rule is triggered.
          */
         actions?: pulumi.Input<inputs.web.AutoHealActionsResponse>;
         /**
-         * Triggers - Conditions that describe when to execute the auto-heal actions
+         * Conditions that describe when to execute the auto-heal actions.
          */
         triggers?: pulumi.Input<inputs.web.AutoHealTriggersResponse>;
     }
 
     /**
-     * AutoHealTriggers - describes the triggers for auto-heal.
+     * Triggers for auto-heal.
      */
     export interface AutoHealTriggers {
         /**
-         * PrivateBytesInKB - Defines a rule based on private bytes
+         * A rule based on private bytes.
          */
         privateBytesInKB?: pulumi.Input<number>;
         /**
-         * Requests - Defines a rule based on total requests
+         * A rule based on total requests.
          */
         requests?: pulumi.Input<inputs.web.RequestsBasedTrigger>;
         /**
-         * SlowRequests - Defines a rule based on request execution time
+         * A rule based on request execution time.
          */
         slowRequests?: pulumi.Input<inputs.web.SlowRequestsBasedTrigger>;
         /**
-         * StatusCodes - Defines a rule based on status codes
+         * A rule based on status codes.
          */
         statusCodes?: pulumi.Input<pulumi.Input<inputs.web.StatusCodesBasedTrigger>[]>;
     }
 
     /**
-     * AutoHealTriggers - describes the triggers for auto-heal.
+     * Triggers for auto-heal.
      */
     export interface AutoHealTriggersResponse {
         /**
-         * PrivateBytesInKB - Defines a rule based on private bytes
+         * A rule based on private bytes.
          */
         privateBytesInKB?: pulumi.Input<number>;
         /**
-         * Requests - Defines a rule based on total requests
+         * A rule based on total requests.
          */
         requests?: pulumi.Input<inputs.web.RequestsBasedTriggerResponse>;
         /**
-         * SlowRequests - Defines a rule based on request execution time
+         * A rule based on request execution time.
          */
         slowRequests?: pulumi.Input<inputs.web.SlowRequestsBasedTriggerResponse>;
         /**
-         * StatusCodes - Defines a rule based on status codes
+         * A rule based on status codes.
          */
         statusCodes?: pulumi.Input<pulumi.Input<inputs.web.StatusCodesBasedTriggerResponse>[]>;
     }
@@ -79559,651 +79952,285 @@ export namespace web {
     }
 
     /**
-     * Represents information needed for cloning operation
+     * Information needed for cloning operation.
      */
     export interface CloningInfo {
         /**
-         * Application settings overrides for cloned web app. If specified these settings will override the settings cloned 
-         *             from source web app. If not specified, application settings from source web app are retained.
+         * Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+         * from source app. Otherwise, application settings from source app are retained.
          */
         appSettingsOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * If true, clone custom hostnames from source web app
+         * <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
          */
         cloneCustomHostNames?: pulumi.Input<boolean>;
         /**
-         * Clone source control from source web app
+         * <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
          */
         cloneSourceControl?: pulumi.Input<boolean>;
         /**
-         * If specified configure load balancing for source and clone site
+         * <code>true</code> to configure load balancing for source and destination app.
          */
         configureLoadBalancing?: pulumi.Input<boolean>;
         /**
-         * Correlation Id of cloning operation. This id ties multiple cloning operations
-         *             together to use the same snapshot
+         * Correlation ID of cloning operation. This ID ties multiple cloning operations
+         * together to use the same snapshot.
          */
         correlationId?: pulumi.Input<string>;
         /**
-         * Hosting environment
+         * App Service Environment.
          */
         hostingEnvironment?: pulumi.Input<string>;
         /**
-         * Overwrite destination web app
+         * <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
          */
         overwrite?: pulumi.Input<boolean>;
         /**
-         * ARM resource id of the source web app. Web app resource id is of the form 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+         * ARM resource ID of the source app. App resource ID is of the form 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
          */
-        sourceWebAppId?: pulumi.Input<string>;
+        sourceWebAppId: pulumi.Input<string>;
         /**
-         * ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+         * Location of source app ex: West US or North Europe
+         */
+        sourceWebAppLocation?: pulumi.Input<string>;
+        /**
+         * ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
          */
         trafficManagerProfileId?: pulumi.Input<string>;
         /**
-         * Name of traffic manager profile to create. This is only needed if traffic manager profile does not already exist
+         * Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
          */
         trafficManagerProfileName?: pulumi.Input<string>;
     }
 
     /**
-     * Represents information needed for cloning operation
+     * Information needed for cloning operation.
      */
     export interface CloningInfoResponse {
         /**
-         * Application settings overrides for cloned web app. If specified these settings will override the settings cloned 
-         *             from source web app. If not specified, application settings from source web app are retained.
+         * Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+         * from source app. Otherwise, application settings from source app are retained.
          */
         appSettingsOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * If true, clone custom hostnames from source web app
+         * <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
          */
         cloneCustomHostNames?: pulumi.Input<boolean>;
         /**
-         * Clone source control from source web app
+         * <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
          */
         cloneSourceControl?: pulumi.Input<boolean>;
         /**
-         * If specified configure load balancing for source and clone site
+         * <code>true</code> to configure load balancing for source and destination app.
          */
         configureLoadBalancing?: pulumi.Input<boolean>;
         /**
-         * Correlation Id of cloning operation. This id ties multiple cloning operations
-         *             together to use the same snapshot
+         * Correlation ID of cloning operation. This ID ties multiple cloning operations
+         * together to use the same snapshot.
          */
         correlationId?: pulumi.Input<string>;
         /**
-         * Hosting environment
+         * App Service Environment.
          */
         hostingEnvironment?: pulumi.Input<string>;
         /**
-         * Overwrite destination web app
+         * <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
          */
         overwrite?: pulumi.Input<boolean>;
         /**
-         * ARM resource id of the source web app. Web app resource id is of the form 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+         * ARM resource ID of the source app. App resource ID is of the form 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
          */
-        sourceWebAppId?: pulumi.Input<string>;
+        sourceWebAppId: pulumi.Input<string>;
         /**
-         * ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+         * Location of source app ex: West US or North Europe
+         */
+        sourceWebAppLocation?: pulumi.Input<string>;
+        /**
+         * ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
          */
         trafficManagerProfileId?: pulumi.Input<string>;
         /**
-         * Name of traffic manager profile to create. This is only needed if traffic manager profile does not already exist
+         * Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
          */
         trafficManagerProfileName?: pulumi.Input<string>;
     }
 
     /**
-     * Represents database connection string information
+     * Database connection string information.
      */
     export interface ConnStringInfo {
         /**
-         * Connection string value
+         * Connection string value.
          */
         connectionString?: pulumi.Input<string>;
         /**
-         * Name of connection string
+         * Name of connection string.
          */
         name?: pulumi.Input<string>;
         /**
-         * Type of database
+         * Type of database.
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     /**
-     * Represents database connection string information
+     * Database connection string information.
      */
     export interface ConnStringInfoResponse {
         /**
-         * Connection string value
+         * Connection string value.
          */
         connectionString?: pulumi.Input<string>;
         /**
-         * Name of connection string
+         * Name of connection string.
          */
         name?: pulumi.Input<string>;
         /**
-         * Type of database
-         */
-        type: pulumi.Input<string>;
-    }
-
-    /**
-     * Connection error
-     */
-    export interface ConnectionError {
-        /**
-         * Resource ETag
-         */
-        etag?: pulumi.Input<string>;
-        /**
-         * Resource location
-         */
-        location?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.web.ConnectionErrorProperties>;
-        /**
-         * Resource tags
-         */
-        tags?: pulumi.Input<inputs.web.TagsDictionary>;
-    }
-
-    export interface ConnectionErrorProperties {
-        /**
-         * Code of the status
-         */
-        code?: pulumi.Input<string>;
-        /**
-         * Description of the status
-         */
-        message?: pulumi.Input<string>;
-    }
-
-    /**
-     * Connection error
-     */
-    export interface ConnectionErrorResponse {
-        /**
-         * Resource ETag
-         */
-        etag?: pulumi.Input<string>;
-        /**
-         * Resource id
-         */
-        id: pulumi.Input<string>;
-        /**
-         * Resource location
-         */
-        location?: pulumi.Input<string>;
-        /**
-         * Resource name
-         */
-        name: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.web.ConnectionErrorResponseProperties>;
-        /**
-         * Resource tags
-         */
-        tags?: pulumi.Input<inputs.web.TagsDictionaryResponse>;
-        /**
-         * Resource type
-         */
-        type: pulumi.Input<string>;
-    }
-
-    export interface ConnectionErrorResponseProperties {
-        /**
-         * Code of the status
-         */
-        code?: pulumi.Input<string>;
-        /**
-         * Description of the status
-         */
-        message?: pulumi.Input<string>;
-    }
-
-    export interface ConnectionGatewayDefinitionProperties {
-        /**
-         * The URI of the backend
-         */
-        backendUri?: pulumi.Input<string>;
-        /**
-         * The gateway installation reference
-         */
-        connectionGatewayInstallation?: pulumi.Input<inputs.web.ConnectionGatewayReference>;
-        /**
-         * The gateway admin
-         */
-        contactInformation?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The gateway description
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The gateway display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * The machine name of the gateway
-         */
-        machineName?: pulumi.Input<string>;
-        /**
-         * The gateway status
-         */
-        status?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    }
-
-    export interface ConnectionGatewayDefinitionResponseProperties {
-        /**
-         * The URI of the backend
-         */
-        backendUri?: pulumi.Input<string>;
-        /**
-         * The gateway installation reference
-         */
-        connectionGatewayInstallation?: pulumi.Input<inputs.web.ConnectionGatewayReferenceResponse>;
-        /**
-         * The gateway admin
-         */
-        contactInformation?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The gateway description
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The gateway display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * The machine name of the gateway
-         */
-        machineName?: pulumi.Input<string>;
-        /**
-         * The gateway status
-         */
-        status?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    }
-
-    /**
-     * The gateway installation reference
-     */
-    export interface ConnectionGatewayReference {
-        /**
-         * Resource reference id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Resource reference location
-         */
-        location?: pulumi.Input<string>;
-        /**
-         * Resource reference name
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Resource reference type
+         * Type of database.
          */
         type?: pulumi.Input<string>;
     }
 
     /**
-     * The gateway installation reference
-     */
-    export interface ConnectionGatewayReferenceResponse {
-        /**
-         * Resource reference id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Resource reference location
-         */
-        location?: pulumi.Input<string>;
-        /**
-         * Resource reference name
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Resource reference type
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    /**
-     * Connection status
-     */
-    export interface ConnectionStatusDefinition {
-        /**
-         * Connection error
-         */
-        error?: pulumi.Input<inputs.web.ConnectionError>;
-        /**
-         * The gateway status
-         */
-        status?: pulumi.Input<string>;
-        /**
-         * Target of the error
-         */
-        target?: pulumi.Input<string>;
-    }
-
-    /**
-     * Connection status
-     */
-    export interface ConnectionStatusDefinitionResponse {
-        /**
-         * Connection error
-         */
-        error?: pulumi.Input<inputs.web.ConnectionErrorResponse>;
-        /**
-         * The gateway status
-         */
-        status?: pulumi.Input<string>;
-        /**
-         * Target of the error
-         */
-        target?: pulumi.Input<string>;
-    }
-
-    /**
-     * Cross-Origin Resource Sharing (CORS) settings for the web app.
+     * Cross-Origin Resource Sharing (CORS) settings for the app.
      */
     export interface CorsSettings {
         /**
          * Gets or sets the list of origins that should be allowed to make cross-origin
-         *             calls (for example: http://example.com:12345). Use "*" to allow all.
+         * calls (for example: http://example.com:12345). Use "*" to allow all.
          */
         allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Gets or sets whether CORS requests with credentials are allowed. See 
+         * https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+         * for more details.
+         */
+        supportCredentials?: pulumi.Input<boolean>;
     }
 
     /**
-     * Cross-Origin Resource Sharing (CORS) settings for the web app.
+     * Cross-Origin Resource Sharing (CORS) settings for the app.
      */
     export interface CorsSettingsResponse {
         /**
          * Gets or sets the list of origins that should be allowed to make cross-origin
-         *             calls (for example: http://example.com:12345). Use "*" to allow all.
+         * calls (for example: http://example.com:12345). Use "*" to allow all.
          */
         allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface CsrProperties {
         /**
-         * Actual CSR string created
+         * Gets or sets whether CORS requests with credentials are allowed. See 
+         * https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+         * for more details.
          */
-        csrString?: pulumi.Input<string>;
-        /**
-         * Distinguished name of certificate to be created
-         */
-        distinguishedName?: pulumi.Input<string>;
-        /**
-         * Hosting environment
-         */
-        hostingEnvironment?: pulumi.Input<string>;
-        /**
-         * Name used to locate CSR object
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * PFX password
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * PFX certificate of created certificate
-         */
-        pfxBlob?: pulumi.Input<string>;
-        /**
-         * Hash of the certificates public key
-         */
-        publicKeyHash?: pulumi.Input<string>;
-    }
-
-    export interface CsrResponseProperties {
-        /**
-         * Actual CSR string created
-         */
-        csrString?: pulumi.Input<string>;
-        /**
-         * Distinguished name of certificate to be created
-         */
-        distinguishedName?: pulumi.Input<string>;
-        /**
-         * Hosting environment
-         */
-        hostingEnvironment?: pulumi.Input<string>;
-        /**
-         * Name used to locate CSR object
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * PFX password
-         */
-        password?: pulumi.Input<string>;
-        /**
-         * PFX certificate of created certificate
-         */
-        pfxBlob?: pulumi.Input<string>;
-        /**
-         * Hash of the certificates public key
-         */
-        publicKeyHash?: pulumi.Input<string>;
+        supportCredentials?: pulumi.Input<boolean>;
     }
 
     /**
-     * Custom API properties
+     * Deployment resource specific properties
      */
-    export interface CustomApiPropertiesDefinition {
-        /**
-         * API Definitions
-         */
-        apiDefinitions?: pulumi.Input<inputs.web.ApiResourceDefinitions>;
-        /**
-         * The API type
-         */
-        apiType?: pulumi.Input<string>;
-        /**
-         * The API backend service
-         */
-        backendService?: pulumi.Input<inputs.web.ApiResourceBackendService>;
-        /**
-         * Brand color
-         */
-        brandColor?: pulumi.Input<string>;
-        /**
-         * The custom API capabilities
-         */
-        capabilities?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Connection parameters
-         */
-        connectionParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * The custom API description
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * The icon URI
-         */
-        iconUri?: pulumi.Input<string>;
-        /**
-         * Runtime URLs
-         */
-        runtimeUrls?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The JSON representation of the swagger
-         */
-        swagger?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * The WSDL definition
-         */
-        wsdlDefinition?: pulumi.Input<inputs.web.WsdlDefinition>;
-    }
-
-    /**
-     * Custom API properties
-     */
-    export interface CustomApiPropertiesDefinitionResponse {
-        /**
-         * API Definitions
-         */
-        apiDefinitions?: pulumi.Input<inputs.web.ApiResourceDefinitionsResponse>;
-        /**
-         * The API type
-         */
-        apiType?: pulumi.Input<string>;
-        /**
-         * The API backend service
-         */
-        backendService?: pulumi.Input<inputs.web.ApiResourceBackendServiceResponse>;
-        /**
-         * Brand color
-         */
-        brandColor?: pulumi.Input<string>;
-        /**
-         * The custom API capabilities
-         */
-        capabilities?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Connection parameters
-         */
-        connectionParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * The custom API description
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * The display name
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * The icon URI
-         */
-        iconUri?: pulumi.Input<string>;
-        /**
-         * Runtime URLs
-         */
-        runtimeUrls?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The JSON representation of the swagger
-         */
-        swagger?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * The WSDL definition
-         */
-        wsdlDefinition?: pulumi.Input<inputs.web.WsdlDefinitionResponse>;
-    }
-
     export interface DeploymentProperties {
         /**
-         * Active
+         * True if deployment is currently active, false if completed and null if not started.
          */
         active?: pulumi.Input<boolean>;
         /**
-         * Author
+         * Who authored the deployment.
          */
         author?: pulumi.Input<string>;
         /**
-         * AuthorEmail
+         * Author email.
          */
         author_email?: pulumi.Input<string>;
         /**
-         * Deployer
+         * Who performed the deployment.
          */
         deployer?: pulumi.Input<string>;
         /**
-         * Detail
+         * Details on deployment.
          */
         details?: pulumi.Input<string>;
         /**
-         * EndTime
+         * End time.
          */
         end_time?: pulumi.Input<string>;
         /**
-         * Id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Message
+         * Details about deployment status.
          */
         message?: pulumi.Input<string>;
         /**
-         * StartTime
+         * Start time.
          */
         start_time?: pulumi.Input<string>;
         /**
-         * Status
-         */
-        status?: pulumi.Input<number>;
-    }
-
-    export interface DeploymentResponseProperties {
-        /**
-         * Active
-         */
-        active?: pulumi.Input<boolean>;
-        /**
-         * Author
-         */
-        author?: pulumi.Input<string>;
-        /**
-         * AuthorEmail
-         */
-        author_email?: pulumi.Input<string>;
-        /**
-         * Deployer
-         */
-        deployer?: pulumi.Input<string>;
-        /**
-         * Detail
-         */
-        details?: pulumi.Input<string>;
-        /**
-         * EndTime
-         */
-        end_time?: pulumi.Input<string>;
-        /**
-         * Id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Message
-         */
-        message?: pulumi.Input<string>;
-        /**
-         * StartTime
-         */
-        start_time?: pulumi.Input<string>;
-        /**
-         * Status
+         * Deployment status.
          */
         status?: pulumi.Input<number>;
     }
 
     /**
-     * Class containing Routing in production experiments
+     * Deployment resource specific properties
+     */
+    export interface DeploymentResponseProperties {
+        /**
+         * True if deployment is currently active, false if completed and null if not started.
+         */
+        active?: pulumi.Input<boolean>;
+        /**
+         * Who authored the deployment.
+         */
+        author?: pulumi.Input<string>;
+        /**
+         * Author email.
+         */
+        author_email?: pulumi.Input<string>;
+        /**
+         * Who performed the deployment.
+         */
+        deployer?: pulumi.Input<string>;
+        /**
+         * Details on deployment.
+         */
+        details?: pulumi.Input<string>;
+        /**
+         * End time.
+         */
+        end_time?: pulumi.Input<string>;
+        /**
+         * Details about deployment status.
+         */
+        message?: pulumi.Input<string>;
+        /**
+         * Start time.
+         */
+        start_time?: pulumi.Input<string>;
+        /**
+         * Deployment status.
+         */
+        status?: pulumi.Input<number>;
+    }
+
+    /**
+     * Routing rules in production experiments.
      */
     export interface Experiments {
         /**
-         * List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
+         * List of ramp-up rules.
          */
         rampUpRules?: pulumi.Input<pulumi.Input<inputs.web.RampUpRule>[]>;
     }
 
     /**
-     * Class containing Routing in production experiments
+     * Routing rules in production experiments.
      */
     export interface ExperimentsResponse {
         /**
-         * List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
+         * List of ramp-up rules.
          */
         rampUpRules?: pulumi.Input<pulumi.Input<inputs.web.RampUpRuleResponse>[]>;
     }
@@ -80326,7 +80353,7 @@ export namespace web {
 
     /**
      * The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
-     *             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+     * For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
      */
     export interface HandlerMapping {
         /**
@@ -80345,7 +80372,7 @@ export namespace web {
 
     /**
      * The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
-     *             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+     * For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
      */
     export interface HandlerMappingResponse {
         /**
@@ -80362,116 +80389,142 @@ export namespace web {
         scriptProcessor?: pulumi.Input<string>;
     }
 
+    /**
+     * HostNameBinding resource specific properties
+     */
     export interface HostNameBindingProperties {
         /**
-         * Azure resource name
+         * Azure resource name.
          */
         azureResourceName?: pulumi.Input<string>;
         /**
-         * Azure resource type
+         * Azure resource type.
          */
         azureResourceType?: pulumi.Input<string>;
         /**
-         * Custom DNS record type
+         * Custom DNS record type.
          */
         customHostNameDnsRecordType?: pulumi.Input<string>;
         /**
-         * Fully qualified ARM domain resource URI
+         * Fully qualified ARM domain resource URI.
          */
         domainId?: pulumi.Input<string>;
         /**
-         * Host name type
+         * Hostname type.
          */
         hostNameType?: pulumi.Input<string>;
         /**
-         * Hostname
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Web app name
+         * App Service app name.
          */
         siteName?: pulumi.Input<string>;
-    }
-
-    export interface HostNameBindingResponseProperties {
-        /**
-         * Azure resource name
-         */
-        azureResourceName?: pulumi.Input<string>;
-        /**
-         * Azure resource type
-         */
-        azureResourceType?: pulumi.Input<string>;
-        /**
-         * Custom DNS record type
-         */
-        customHostNameDnsRecordType?: pulumi.Input<string>;
-        /**
-         * Fully qualified ARM domain resource URI
-         */
-        domainId?: pulumi.Input<string>;
-        /**
-         * Host name type
-         */
-        hostNameType?: pulumi.Input<string>;
-        /**
-         * Hostname
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Web app name
-         */
-        siteName?: pulumi.Input<string>;
-    }
-
-    /**
-     * Object that represents a SSL-enabled host name.
-     */
-    export interface HostNameSslState {
-        /**
-         * Host name
-         */
-        name?: pulumi.Input<string>;
         /**
          * SSL type
          */
-        sslState: pulumi.Input<string>;
+        sslState?: pulumi.Input<string>;
         /**
-         * SSL cert thumbprint
+         * SSL certificate thumbprint
+         */
+        thumbprint?: pulumi.Input<string>;
+    }
+
+    /**
+     * HostNameBinding resource specific properties
+     */
+    export interface HostNameBindingResponseProperties {
+        /**
+         * Azure resource name.
+         */
+        azureResourceName?: pulumi.Input<string>;
+        /**
+         * Azure resource type.
+         */
+        azureResourceType?: pulumi.Input<string>;
+        /**
+         * Custom DNS record type.
+         */
+        customHostNameDnsRecordType?: pulumi.Input<string>;
+        /**
+         * Fully qualified ARM domain resource URI.
+         */
+        domainId?: pulumi.Input<string>;
+        /**
+         * Hostname type.
+         */
+        hostNameType?: pulumi.Input<string>;
+        /**
+         * App Service app name.
+         */
+        siteName?: pulumi.Input<string>;
+        /**
+         * SSL type
+         */
+        sslState?: pulumi.Input<string>;
+        /**
+         * SSL certificate thumbprint
          */
         thumbprint?: pulumi.Input<string>;
         /**
-         * Set this flag to update existing host name
+         * Virtual IP address assigned to the hostname if IP based SSL is enabled.
+         */
+        virtualIP: pulumi.Input<string>;
+    }
+
+    /**
+     * SSL-enabled hostname.
+     */
+    export interface HostNameSslState {
+        /**
+         * Indicates whether the hostname is a standard or repository hostname.
+         */
+        hostType?: pulumi.Input<string>;
+        /**
+         * Hostname.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * SSL type.
+         */
+        sslState?: pulumi.Input<string>;
+        /**
+         * SSL certificate thumbprint.
+         */
+        thumbprint?: pulumi.Input<string>;
+        /**
+         * Set to <code>true</code> to update existing hostname.
          */
         toUpdate?: pulumi.Input<boolean>;
         /**
-         * Virtual IP address assigned to the host name if IP based SSL is enabled
+         * Virtual IP address assigned to the hostname if IP based SSL is enabled.
          */
         virtualIP?: pulumi.Input<string>;
     }
 
     /**
-     * Object that represents a SSL-enabled host name.
+     * SSL-enabled hostname.
      */
     export interface HostNameSslStateResponse {
         /**
-         * Host name
+         * Indicates whether the hostname is a standard or repository hostname.
+         */
+        hostType?: pulumi.Input<string>;
+        /**
+         * Hostname.
          */
         name?: pulumi.Input<string>;
         /**
-         * SSL type
+         * SSL type.
          */
-        sslState: pulumi.Input<string>;
+        sslState?: pulumi.Input<string>;
         /**
-         * SSL cert thumbprint
+         * SSL certificate thumbprint.
          */
         thumbprint?: pulumi.Input<string>;
         /**
-         * Set this flag to update existing host name
+         * Set to <code>true</code> to update existing hostname.
          */
         toUpdate?: pulumi.Input<boolean>;
         /**
-         * Virtual IP address assigned to the host name if IP based SSL is enabled
+         * Virtual IP address assigned to the hostname if IP based SSL is enabled.
          */
         virtualIP?: pulumi.Input<string>;
     }
@@ -80502,270 +80555,6 @@ export namespace web {
          * Resource type of the App Service Environment.
          */
         type: pulumi.Input<string>;
-    }
-
-    export interface HostingEnvironmentProperties {
-        /**
-         * List of comma separated strings describing which VM sizes are allowed for front-ends
-         */
-        allowedMultiSizes?: pulumi.Input<string>;
-        /**
-         * List of comma separated strings describing which VM sizes are allowed for workers
-         */
-        allowedWorkerSizes?: pulumi.Input<string>;
-        /**
-         * Api Management Account associated with this Hosting Environment
-         */
-        apiManagementAccountId?: pulumi.Input<string>;
-        /**
-         * Custom settings for changing the behavior of the hosting environment
-         */
-        clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePair>[]>;
-        /**
-         * Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-         */
-        databaseEdition?: pulumi.Input<string>;
-        /**
-         * Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-         */
-        databaseServiceObjective?: pulumi.Input<string>;
-        /**
-         * DNS suffix of the hostingEnvironment (App Service Environment)
-         */
-        dnsSuffix?: pulumi.Input<string>;
-        /**
-         * Current total, used, and available worker capacities
-         */
-        environmentCapacities?: pulumi.Input<pulumi.Input<inputs.web.StampCapacity>[]>;
-        /**
-         * True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-         */
-        environmentIsHealthy?: pulumi.Input<boolean>;
-        /**
-         * Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-         */
-        environmentStatus?: pulumi.Input<string>;
-        /**
-         * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-         */
-        internalLoadBalancingMode?: pulumi.Input<string>;
-        /**
-         * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-         */
-        ipsslAddressCount?: pulumi.Input<number>;
-        /**
-         * Last deployment action on this hostingEnvironment (App Service Environment)
-         */
-        lastAction?: pulumi.Input<string>;
-        /**
-         * Result of the last deployment action on this hostingEnvironment (App Service Environment)
-         */
-        lastActionResult?: pulumi.Input<string>;
-        /**
-         * Location of the hostingEnvironment (App Service Environment), e.g. "West US"
-         */
-        location?: pulumi.Input<string>;
-        /**
-         * Maximum number of VMs in this hostingEnvironment (App Service Environment)
-         */
-        maximumNumberOfMachines?: pulumi.Input<number>;
-        /**
-         * Number of front-end instances
-         */
-        multiRoleCount?: pulumi.Input<number>;
-        /**
-         * Front-end VM size, e.g. "Medium", "Large"
-         */
-        multiSize?: pulumi.Input<string>;
-        /**
-         * Name of the hostingEnvironment (App Service Environment)
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-         */
-        networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.NetworkAccessControlEntry>[]>;
-        /**
-         * Provisioning state of the hostingEnvironment (App Service Environment)
-         */
-        provisioningState?: pulumi.Input<string>;
-        /**
-         * Resource group of the hostingEnvironment (App Service Environment)
-         */
-        resourceGroup?: pulumi.Input<string>;
-        /**
-         * Current status of the hostingEnvironment (App Service Environment)
-         */
-        status: pulumi.Input<string>;
-        /**
-         * Subscription of the hostingEnvironment (App Service Environment)
-         */
-        subscriptionId?: pulumi.Input<string>;
-        /**
-         * True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-         *             (most likely because NSG blocked the incoming traffic)
-         */
-        suspended?: pulumi.Input<boolean>;
-        /**
-         * Number of upgrade domains of this hostingEnvironment (App Service Environment)
-         */
-        upgradeDomains?: pulumi.Input<number>;
-        /**
-         * Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-         */
-        vipMappings?: pulumi.Input<pulumi.Input<inputs.web.VirtualIPMapping>[]>;
-        /**
-         * Description of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        virtualNetwork?: pulumi.Input<inputs.web.VirtualNetworkProfile>;
-        /**
-         * Name of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetName?: pulumi.Input<string>;
-        /**
-         * Resource group of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetResourceGroupName?: pulumi.Input<string>;
-        /**
-         * Subnet of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetSubnetName?: pulumi.Input<string>;
-        /**
-         * Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-         */
-        workerPools?: pulumi.Input<pulumi.Input<inputs.web.WorkerPool>[]>;
-    }
-
-    export interface HostingEnvironmentResponseProperties {
-        /**
-         * List of comma separated strings describing which VM sizes are allowed for front-ends
-         */
-        allowedMultiSizes?: pulumi.Input<string>;
-        /**
-         * List of comma separated strings describing which VM sizes are allowed for workers
-         */
-        allowedWorkerSizes?: pulumi.Input<string>;
-        /**
-         * Api Management Account associated with this Hosting Environment
-         */
-        apiManagementAccountId?: pulumi.Input<string>;
-        /**
-         * Custom settings for changing the behavior of the hosting environment
-         */
-        clusterSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairResponse>[]>;
-        /**
-         * Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-         */
-        databaseEdition?: pulumi.Input<string>;
-        /**
-         * Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-         */
-        databaseServiceObjective?: pulumi.Input<string>;
-        /**
-         * DNS suffix of the hostingEnvironment (App Service Environment)
-         */
-        dnsSuffix?: pulumi.Input<string>;
-        /**
-         * Current total, used, and available worker capacities
-         */
-        environmentCapacities?: pulumi.Input<pulumi.Input<inputs.web.StampCapacityResponse>[]>;
-        /**
-         * True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-         */
-        environmentIsHealthy?: pulumi.Input<boolean>;
-        /**
-         * Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-         */
-        environmentStatus?: pulumi.Input<string>;
-        /**
-         * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-         */
-        internalLoadBalancingMode?: pulumi.Input<string>;
-        /**
-         * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-         */
-        ipsslAddressCount?: pulumi.Input<number>;
-        /**
-         * Last deployment action on this hostingEnvironment (App Service Environment)
-         */
-        lastAction?: pulumi.Input<string>;
-        /**
-         * Result of the last deployment action on this hostingEnvironment (App Service Environment)
-         */
-        lastActionResult?: pulumi.Input<string>;
-        /**
-         * Location of the hostingEnvironment (App Service Environment), e.g. "West US"
-         */
-        location?: pulumi.Input<string>;
-        /**
-         * Maximum number of VMs in this hostingEnvironment (App Service Environment)
-         */
-        maximumNumberOfMachines?: pulumi.Input<number>;
-        /**
-         * Number of front-end instances
-         */
-        multiRoleCount?: pulumi.Input<number>;
-        /**
-         * Front-end VM size, e.g. "Medium", "Large"
-         */
-        multiSize?: pulumi.Input<string>;
-        /**
-         * Name of the hostingEnvironment (App Service Environment)
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-         */
-        networkAccessControlList?: pulumi.Input<pulumi.Input<inputs.web.NetworkAccessControlEntryResponse>[]>;
-        /**
-         * Provisioning state of the hostingEnvironment (App Service Environment)
-         */
-        provisioningState?: pulumi.Input<string>;
-        /**
-         * Resource group of the hostingEnvironment (App Service Environment)
-         */
-        resourceGroup?: pulumi.Input<string>;
-        /**
-         * Current status of the hostingEnvironment (App Service Environment)
-         */
-        status: pulumi.Input<string>;
-        /**
-         * Subscription of the hostingEnvironment (App Service Environment)
-         */
-        subscriptionId?: pulumi.Input<string>;
-        /**
-         * True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-         *             (most likely because NSG blocked the incoming traffic)
-         */
-        suspended?: pulumi.Input<boolean>;
-        /**
-         * Number of upgrade domains of this hostingEnvironment (App Service Environment)
-         */
-        upgradeDomains?: pulumi.Input<number>;
-        /**
-         * Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-         */
-        vipMappings?: pulumi.Input<pulumi.Input<inputs.web.VirtualIPMappingResponse>[]>;
-        /**
-         * Description of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        virtualNetwork?: pulumi.Input<inputs.web.VirtualNetworkProfileResponse>;
-        /**
-         * Name of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetName?: pulumi.Input<string>;
-        /**
-         * Resource group of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetResourceGroupName?: pulumi.Input<string>;
-        /**
-         * Subnet of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetSubnetName?: pulumi.Input<string>;
-        /**
-         * Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-         */
-        workerPools?: pulumi.Input<pulumi.Input<inputs.web.WorkerPoolResponse>[]>;
     }
 
     /**
@@ -80867,76 +80656,261 @@ export namespace web {
     }
 
     /**
-     * Represents an ip security restriction on a web app.
+     * IP security restriction on an app.
      */
     export interface IpSecurityRestriction {
         /**
-         * IP address the security restriction is valid for
+         * Allow or Deny access for this IP range.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * IP restriction rule description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * IP address the security restriction is valid for.
+         * It can be in form of pure ipv4 address (required SubnetMask property) or
+         * CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+         * SubnetMask property must not be specified.
          */
         ipAddress?: pulumi.Input<string>;
         /**
-         * Subnet mask for the range of IP addresses the restriction is valid for
+         * IP restriction rule name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Priority of IP restriction rule.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * Subnet mask for the range of IP addresses the restriction is valid for.
          */
         subnetMask?: pulumi.Input<string>;
+        /**
+         * (internal) Subnet traffic tag
+         */
+        subnetTrafficTag?: pulumi.Input<number>;
+        /**
+         * Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+         */
+        tag?: pulumi.Input<string>;
+        /**
+         * Virtual network resource id
+         */
+        vnetSubnetResourceId?: pulumi.Input<string>;
+        /**
+         * (internal) Vnet traffic tag
+         */
+        vnetTrafficTag?: pulumi.Input<number>;
     }
 
     /**
-     * Represents an ip security restriction on a web app.
+     * IP security restriction on an app.
      */
     export interface IpSecurityRestrictionResponse {
         /**
-         * IP address the security restriction is valid for
+         * Allow or Deny access for this IP range.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * IP restriction rule description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * IP address the security restriction is valid for.
+         * It can be in form of pure ipv4 address (required SubnetMask property) or
+         * CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+         * SubnetMask property must not be specified.
          */
         ipAddress?: pulumi.Input<string>;
         /**
-         * Subnet mask for the range of IP addresses the restriction is valid for
+         * IP restriction rule name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Priority of IP restriction rule.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * Subnet mask for the range of IP addresses the restriction is valid for.
          */
         subnetMask?: pulumi.Input<string>;
+        /**
+         * (internal) Subnet traffic tag
+         */
+        subnetTrafficTag?: pulumi.Input<number>;
+        /**
+         * Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+         */
+        tag?: pulumi.Input<string>;
+        /**
+         * Virtual network resource id
+         */
+        vnetSubnetResourceId?: pulumi.Input<string>;
+        /**
+         * (internal) Vnet traffic tag
+         */
+        vnetTrafficTag?: pulumi.Input<number>;
     }
 
     /**
-     * Name value pair
+     * Managed service identity.
+     */
+    export interface ManagedServiceIdentity {
+        /**
+         * Type of managed service identity.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+         */
+        userAssignedIdentities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * Managed service identity.
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * Principal Id of managed service identity.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * Tenant of managed service identity.
+         */
+        tenantId: pulumi.Input<string>;
+        /**
+         * Type of managed service identity.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+         */
+        userAssignedIdentities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * Name value pair.
      */
     export interface NameValuePair {
         /**
-         * Pair name
+         * Pair name.
          */
         name?: pulumi.Input<string>;
         /**
-         * Pair value
+         * Pair value.
          */
         value?: pulumi.Input<string>;
     }
 
     /**
-     * Name value pair
+     * Name value pair.
      */
     export interface NameValuePairResponse {
         /**
-         * Pair name
+         * Pair name.
          */
         name?: pulumi.Input<string>;
         /**
-         * Pair value
+         * Pair value.
          */
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * Network access control entry.
+     */
     export interface NetworkAccessControlEntry {
+        /**
+         * Action object.
+         */
         action?: pulumi.Input<string>;
+        /**
+         * Description of network access control entry.
+         */
         description?: pulumi.Input<string>;
+        /**
+         * Order of precedence.
+         */
         order?: pulumi.Input<number>;
+        /**
+         * Remote subnet.
+         */
         remoteSubnet?: pulumi.Input<string>;
     }
 
+    /**
+     * Network access control entry.
+     */
     export interface NetworkAccessControlEntryResponse {
+        /**
+         * Action object.
+         */
         action?: pulumi.Input<string>;
+        /**
+         * Description of network access control entry.
+         */
         description?: pulumi.Input<string>;
+        /**
+         * Order of precedence.
+         */
         order?: pulumi.Input<number>;
+        /**
+         * Remote subnet.
+         */
         remoteSubnet?: pulumi.Input<string>;
     }
 
-    export interface Object {
+    /**
+     * PremierAddOn resource specific properties
+     */
+    export interface PremierAddOnProperties {
+        /**
+         * Premier add on Marketplace offer.
+         */
+        marketplaceOffer?: pulumi.Input<string>;
+        /**
+         * Premier add on Marketplace publisher.
+         */
+        marketplacePublisher?: pulumi.Input<string>;
+        /**
+         * Premier add on Product.
+         */
+        product?: pulumi.Input<string>;
+        /**
+         * Premier add on SKU.
+         */
+        sku?: pulumi.Input<string>;
+        /**
+         * Premier add on Vendor.
+         */
+        vendor?: pulumi.Input<string>;
+    }
+
+    /**
+     * PremierAddOn resource specific properties
+     */
+    export interface PremierAddOnResponseProperties {
+        /**
+         * Premier add on Marketplace offer.
+         */
+        marketplaceOffer?: pulumi.Input<string>;
+        /**
+         * Premier add on Marketplace publisher.
+         */
+        marketplacePublisher?: pulumi.Input<string>;
+        /**
+         * Premier add on Product.
+         */
+        product?: pulumi.Input<string>;
+        /**
+         * Premier add on SKU.
+         */
+        sku?: pulumi.Input<string>;
+        /**
+         * Premier add on Vendor.
+         */
+        vendor?: pulumi.Input<string>;
     }
 
     /**
@@ -81018,34 +80992,124 @@ export namespace web {
     }
 
     /**
-     * Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance
+     * Push settings for the App.
+     */
+    export interface PushSettings {
+        /**
+         * Kind of resource.
+         */
+        kind?: pulumi.Input<string>;
+        /**
+         * PushSettings resource specific properties
+         */
+        properties?: pulumi.Input<inputs.web.PushSettingsProperties>;
+    }
+
+    /**
+     * PushSettings resource specific properties
+     */
+    export interface PushSettingsProperties {
+        /**
+         * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+         */
+        dynamicTagsJson?: pulumi.Input<string>;
+        /**
+         * Gets or sets a flag indicating whether the Push endpoint is enabled.
+         */
+        isPushEnabled: pulumi.Input<boolean>;
+        /**
+         * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+         */
+        tagWhitelistJson?: pulumi.Input<string>;
+        /**
+         * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+         * Tags can consist of alphanumeric characters and the following:
+         * '_', '@', '#', '.', ':', '-'. 
+         * Validation should be performed at the PushRequestHandler.
+         */
+        tagsRequiringAuth?: pulumi.Input<string>;
+    }
+
+    /**
+     * Push settings for the App.
+     */
+    export interface PushSettingsResponse {
+        /**
+         * Resource Id.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Kind of resource.
+         */
+        kind?: pulumi.Input<string>;
+        /**
+         * Resource Name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * PushSettings resource specific properties
+         */
+        properties?: pulumi.Input<inputs.web.PushSettingsResponseProperties>;
+        /**
+         * Resource type.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * PushSettings resource specific properties
+     */
+    export interface PushSettingsResponseProperties {
+        /**
+         * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+         */
+        dynamicTagsJson?: pulumi.Input<string>;
+        /**
+         * Gets or sets a flag indicating whether the Push endpoint is enabled.
+         */
+        isPushEnabled: pulumi.Input<boolean>;
+        /**
+         * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+         */
+        tagWhitelistJson?: pulumi.Input<string>;
+        /**
+         * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+         * Tags can consist of alphanumeric characters and the following:
+         * '_', '@', '#', '.', ':', '-'. 
+         * Validation should be performed at the PushRequestHandler.
+         */
+        tagsRequiringAuth?: pulumi.Input<string>;
+    }
+
+    /**
+     * Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
      */
     export interface RampUpRule {
         /**
-         * Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
+         * Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
          */
         actionHostName?: pulumi.Input<string>;
         /**
-         * Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
-         *             https://www.siteextensions.net/packages/TiPCallback/
+         * Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+         * https://www.siteextensions.net/packages/TiPCallback/
          */
         changeDecisionCallbackUrl?: pulumi.Input<string>;
         /**
-         * [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
+         * Specifies interval in minutes to reevaluate ReroutePercentage.
          */
         changeIntervalInMinutes?: pulumi.Input<number>;
         /**
-         * [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
-         *             {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
-         *             Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
+         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or 
+         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm 
+         * can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
          */
         changeStep?: pulumi.Input<number>;
         /**
-         * [Optional] Specifies upper boundary below which ReroutePercentage will stay.
+         * Specifies upper boundary below which ReroutePercentage will stay.
          */
         maxReroutePercentage?: pulumi.Input<number>;
         /**
-         * [Optional] Specifies lower boundary above which ReroutePercentage will stay.
+         * Specifies lower boundary above which ReroutePercentage will stay.
          */
         minReroutePercentage?: pulumi.Input<number>;
         /**
@@ -81053,40 +81117,40 @@ export namespace web {
          */
         name?: pulumi.Input<string>;
         /**
-         * Percentage of the traffic which will be redirected to {Microsoft.Web.Hosting.Administration.RampUpRule.ActionHostName}
+         * Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
          */
         reroutePercentage?: pulumi.Input<number>;
     }
 
     /**
-     * Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance
+     * Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
      */
     export interface RampUpRuleResponse {
         /**
-         * Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
+         * Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
          */
         actionHostName?: pulumi.Input<string>;
         /**
-         * Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
-         *             https://www.siteextensions.net/packages/TiPCallback/
+         * Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+         * https://www.siteextensions.net/packages/TiPCallback/
          */
         changeDecisionCallbackUrl?: pulumi.Input<string>;
         /**
-         * [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
+         * Specifies interval in minutes to reevaluate ReroutePercentage.
          */
         changeIntervalInMinutes?: pulumi.Input<number>;
         /**
-         * [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
-         *             {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
-         *             Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
+         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or 
+         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm 
+         * can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
          */
         changeStep?: pulumi.Input<number>;
         /**
-         * [Optional] Specifies upper boundary below which ReroutePercentage will stay.
+         * Specifies upper boundary below which ReroutePercentage will stay.
          */
         maxReroutePercentage?: pulumi.Input<number>;
         /**
-         * [Optional] Specifies lower boundary above which ReroutePercentage will stay.
+         * Specifies lower boundary above which ReroutePercentage will stay.
          */
         minReroutePercentage?: pulumi.Input<number>;
         /**
@@ -81094,11 +81158,14 @@ export namespace web {
          */
         name?: pulumi.Input<string>;
         /**
-         * Percentage of the traffic which will be redirected to {Microsoft.Web.Hosting.Administration.RampUpRule.ActionHostName}
+         * Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
          */
         reroutePercentage?: pulumi.Input<number>;
     }
 
+    /**
+     * RelayServiceConnectionEntity resource specific properties
+     */
     export interface RelayServiceConnectionEntityProperties {
         biztalkUri?: pulumi.Input<string>;
         entityConnectionString?: pulumi.Input<string>;
@@ -81109,6 +81176,9 @@ export namespace web {
         resourceType?: pulumi.Input<string>;
     }
 
+    /**
+     * RelayServiceConnectionEntity resource specific properties
+     */
     export interface RelayServiceConnectionEntityResponseProperties {
         biztalkUri?: pulumi.Input<string>;
         entityConnectionString?: pulumi.Input<string>;
@@ -81135,95 +81205,71 @@ export namespace web {
     }
 
     /**
-     * RequestsBasedTrigger
+     * Trigger based on total requests.
      */
     export interface RequestsBasedTrigger {
         /**
-         * Count
+         * Request Count.
          */
         count?: pulumi.Input<number>;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: pulumi.Input<string>;
     }
 
     /**
-     * RequestsBasedTrigger
+     * Trigger based on total requests.
      */
     export interface RequestsBasedTriggerResponse {
         /**
-         * Count
+         * Request Count.
          */
         count?: pulumi.Input<number>;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: pulumi.Input<string>;
     }
 
     /**
-     * Configuration of Azure web site
+     * Configuration of an App Service app.
      */
     export interface SiteConfig {
         /**
-         * Resource Id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Kind of resource
-         */
-        kind?: pulumi.Input<string>;
-        /**
-         * Resource Location
-         */
-        location: pulumi.Input<string>;
-        /**
-         * Resource Name
-         */
-        name?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.web.SiteConfigProperties>;
-        /**
-         * Resource tags
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource type
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    export interface SiteConfigProperties {
-        /**
-         * Always On
+         * <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
          */
         alwaysOn?: pulumi.Input<boolean>;
         /**
-         * Information about the formal API definition for the web app.
+         * Information about the formal API definition for the app.
          */
         apiDefinition?: pulumi.Input<inputs.web.ApiDefinitionInfo>;
         /**
-         * App Command Line to launch
+         * Azure API management settings linked to the app.
+         */
+        apiManagementConfig?: pulumi.Input<inputs.web.ApiManagementConfig>;
+        /**
+         * App command line to launch.
          */
         appCommandLine?: pulumi.Input<string>;
         /**
-         * Application Settings
+         * Application settings.
          */
         appSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePair>[]>;
         /**
-         * Auto heal enabled
+         * <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
          */
         autoHealEnabled?: pulumi.Input<boolean>;
         /**
-         * Auto heal rules
+         * Auto Heal rules.
          */
         autoHealRules?: pulumi.Input<inputs.web.AutoHealRules>;
         /**
-         * Auto swap slot name
+         * Auto-swap slot name.
          */
         autoSwapSlotName?: pulumi.Input<string>;
         /**
-         * Connection strings
+         * Connection strings.
          */
         connectionStrings?: pulumi.Input<pulumi.Input<inputs.web.ConnStringInfo>[]>;
         /**
@@ -81231,201 +81277,222 @@ export namespace web {
          */
         cors?: pulumi.Input<inputs.web.CorsSettings>;
         /**
-         * Default documents
+         * Default documents.
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Detailed error logging enabled
+         * <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
          */
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Document root
+         * Document root.
          */
         documentRoot?: pulumi.Input<string>;
         /**
-         * This is work around for polymorphic types
+         * This is work around for polymorphic types.
          */
         experiments?: pulumi.Input<inputs.web.Experiments>;
         /**
-         * Handler mappings
+         * State of FTP / FTPS service
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * Handler mappings.
          */
         handlerMappings?: pulumi.Input<pulumi.Input<inputs.web.HandlerMapping>[]>;
         /**
-         * HTTP logging Enabled
+         * Health check path
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Http20Enabled: configures a web site to allow clients to connect over http2.0
+         */
+        http20Enabled?: pulumi.Input<boolean>;
+        /**
+         * <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
          */
         httpLoggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Ip Security restrictions
+         * IP security restrictions for main.
          */
         ipSecurityRestrictions?: pulumi.Input<pulumi.Input<inputs.web.IpSecurityRestriction>[]>;
         /**
-         * Java container
+         * Java container.
          */
         javaContainer?: pulumi.Input<string>;
         /**
-         * Java container version
+         * Java container version.
          */
         javaContainerVersion?: pulumi.Input<string>;
         /**
-         * Java version
+         * Java version.
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * Site limits
+         * Site limits.
          */
         limits?: pulumi.Input<inputs.web.SiteLimits>;
         /**
-         * Site load balancing
+         * Linux App Framework and version
+         */
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * Site load balancing.
          */
         loadBalancing?: pulumi.Input<string>;
         /**
-         * Local mysql enabled
+         * <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
          */
         localMySqlEnabled?: pulumi.Input<boolean>;
         /**
-         * HTTP Logs Directory size limit
+         * HTTP logs directory size limit.
          */
         logsDirectorySizeLimit?: pulumi.Input<number>;
         /**
-         * Managed pipeline mode
+         * Managed pipeline mode.
          */
         managedPipelineMode?: pulumi.Input<string>;
         /**
-         * Site Metadata
+         * Managed Service Identity Id
          */
-        metadata?: pulumi.Input<pulumi.Input<inputs.web.NameValuePair>[]>;
+        managedServiceIdentityId?: pulumi.Input<number>;
         /**
-         * Net Framework Version
+         * MinTlsVersion: configures the minimum version of TLS required for SSL requests
+         */
+        minTlsVersion?: pulumi.Input<string>;
+        /**
+         * .NET Framework version.
          */
         netFrameworkVersion?: pulumi.Input<string>;
         /**
-         * Version of Node
+         * Version of Node.js.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
-         * Number of workers
+         * Number of workers.
          */
         numberOfWorkers?: pulumi.Input<number>;
         /**
-         * Version of PHP
+         * Version of PHP.
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * Publishing password
+         * Version of PowerShell.
          */
-        publishingPassword?: pulumi.Input<string>;
+        powerShellVersion?: pulumi.Input<string>;
         /**
-         * Publishing user name
+         * Number of preWarmed instances.
+         * This setting only applies to the Consumption and Elastic Plans
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Publishing user name.
          */
         publishingUsername?: pulumi.Input<string>;
         /**
-         * Version of Python
+         * Push endpoint settings.
+         */
+        push?: pulumi.Input<inputs.web.PushSettings>;
+        /**
+         * Version of Python.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
-         * Remote Debugging Enabled
+         * <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Remote Debugging Version
+         * Remote debugging version.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
-         * Enable request tracing
+         * <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
          */
         requestTracingEnabled?: pulumi.Input<boolean>;
         /**
-         * Request tracing expiration time
+         * Request tracing expiration time.
          */
         requestTracingExpirationTime?: pulumi.Input<string>;
         /**
-         * SCM type
+         * IP security restrictions for scm.
+         */
+        scmIpSecurityRestrictions?: pulumi.Input<pulumi.Input<inputs.web.IpSecurityRestriction>[]>;
+        /**
+         * IP security restrictions for scm to use main.
+         */
+        scmIpSecurityRestrictionsUseMain?: pulumi.Input<boolean>;
+        /**
+         * SCM type.
          */
         scmType?: pulumi.Input<string>;
         /**
-         * Tracing options
+         * Tracing options.
          */
         tracingOptions?: pulumi.Input<string>;
         /**
-         * Use 32 bit worker process
+         * <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
         /**
-         * Virtual applications
+         * Virtual applications.
          */
         virtualApplications?: pulumi.Input<pulumi.Input<inputs.web.VirtualApplication>[]>;
         /**
-         * Vnet name
+         * Virtual Network name.
          */
         vnetName?: pulumi.Input<string>;
         /**
-         * Web socket enabled.
+         * <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
          */
         webSocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Xenon App Framework and version
+         */
+        windowsFxVersion?: pulumi.Input<string>;
+        /**
+         * Explicit Managed Service Identity Id
+         */
+        xManagedServiceIdentityId?: pulumi.Input<number>;
     }
 
     /**
-     * Configuration of Azure web site
+     * Configuration of an App Service app.
      */
     export interface SiteConfigResponse {
         /**
-         * Resource Id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Kind of resource
-         */
-        kind?: pulumi.Input<string>;
-        /**
-         * Resource Location
-         */
-        location: pulumi.Input<string>;
-        /**
-         * Resource Name
-         */
-        name?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.web.SiteConfigResponseProperties>;
-        /**
-         * Resource tags
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource type
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    export interface SiteConfigResponseProperties {
-        /**
-         * Always On
+         * <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
          */
         alwaysOn?: pulumi.Input<boolean>;
         /**
-         * Information about the formal API definition for the web app.
+         * Information about the formal API definition for the app.
          */
         apiDefinition?: pulumi.Input<inputs.web.ApiDefinitionInfoResponse>;
         /**
-         * App Command Line to launch
+         * Azure API management settings linked to the app.
+         */
+        apiManagementConfig?: pulumi.Input<inputs.web.ApiManagementConfigResponse>;
+        /**
+         * App command line to launch.
          */
         appCommandLine?: pulumi.Input<string>;
         /**
-         * Application Settings
+         * Application settings.
          */
         appSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairResponse>[]>;
         /**
-         * Auto heal enabled
+         * <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
          */
         autoHealEnabled?: pulumi.Input<boolean>;
         /**
-         * Auto heal rules
+         * Auto Heal rules.
          */
         autoHealRules?: pulumi.Input<inputs.web.AutoHealRulesResponse>;
         /**
-         * Auto swap slot name
+         * Auto-swap slot name.
          */
         autoSwapSlotName?: pulumi.Input<string>;
         /**
-         * Connection strings
+         * Connection strings.
          */
         connectionStrings?: pulumi.Input<pulumi.Input<inputs.web.ConnStringInfoResponse>[]>;
         /**
@@ -81433,137 +81500,186 @@ export namespace web {
          */
         cors?: pulumi.Input<inputs.web.CorsSettingsResponse>;
         /**
-         * Default documents
+         * Default documents.
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Detailed error logging enabled
+         * <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
          */
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Document root
+         * Document root.
          */
         documentRoot?: pulumi.Input<string>;
         /**
-         * This is work around for polymorphic types
+         * This is work around for polymorphic types.
          */
         experiments?: pulumi.Input<inputs.web.ExperimentsResponse>;
         /**
-         * Handler mappings
+         * State of FTP / FTPS service
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * Handler mappings.
          */
         handlerMappings?: pulumi.Input<pulumi.Input<inputs.web.HandlerMappingResponse>[]>;
         /**
-         * HTTP logging Enabled
+         * Health check path
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
+         * Http20Enabled: configures a web site to allow clients to connect over http2.0
+         */
+        http20Enabled?: pulumi.Input<boolean>;
+        /**
+         * <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
          */
         httpLoggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Ip Security restrictions
+         * IP security restrictions for main.
          */
         ipSecurityRestrictions?: pulumi.Input<pulumi.Input<inputs.web.IpSecurityRestrictionResponse>[]>;
         /**
-         * Java container
+         * Java container.
          */
         javaContainer?: pulumi.Input<string>;
         /**
-         * Java container version
+         * Java container version.
          */
         javaContainerVersion?: pulumi.Input<string>;
         /**
-         * Java version
+         * Java version.
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * Site limits
+         * Site limits.
          */
         limits?: pulumi.Input<inputs.web.SiteLimitsResponse>;
         /**
-         * Site load balancing
+         * Linux App Framework and version
+         */
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * Site load balancing.
          */
         loadBalancing?: pulumi.Input<string>;
         /**
-         * Local mysql enabled
+         * <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
          */
         localMySqlEnabled?: pulumi.Input<boolean>;
         /**
-         * HTTP Logs Directory size limit
+         * HTTP logs directory size limit.
          */
         logsDirectorySizeLimit?: pulumi.Input<number>;
         /**
-         * Managed pipeline mode
+         * Site MachineKey.
+         */
+        machineKey: pulumi.Input<inputs.web.SiteMachineKeyResponse>;
+        /**
+         * Managed pipeline mode.
          */
         managedPipelineMode?: pulumi.Input<string>;
         /**
-         * Site Metadata
+         * Managed Service Identity Id
          */
-        metadata?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairResponse>[]>;
+        managedServiceIdentityId?: pulumi.Input<number>;
         /**
-         * Net Framework Version
+         * MinTlsVersion: configures the minimum version of TLS required for SSL requests
+         */
+        minTlsVersion?: pulumi.Input<string>;
+        /**
+         * .NET Framework version.
          */
         netFrameworkVersion?: pulumi.Input<string>;
         /**
-         * Version of Node
+         * Version of Node.js.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
-         * Number of workers
+         * Number of workers.
          */
         numberOfWorkers?: pulumi.Input<number>;
         /**
-         * Version of PHP
+         * Version of PHP.
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * Publishing password
+         * Version of PowerShell.
          */
-        publishingPassword?: pulumi.Input<string>;
+        powerShellVersion?: pulumi.Input<string>;
         /**
-         * Publishing user name
+         * Number of preWarmed instances.
+         * This setting only applies to the Consumption and Elastic Plans
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Publishing user name.
          */
         publishingUsername?: pulumi.Input<string>;
         /**
-         * Version of Python
+         * Push endpoint settings.
+         */
+        push?: pulumi.Input<inputs.web.PushSettingsResponse>;
+        /**
+         * Version of Python.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
-         * Remote Debugging Enabled
+         * <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Remote Debugging Version
+         * Remote debugging version.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
-         * Enable request tracing
+         * <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
          */
         requestTracingEnabled?: pulumi.Input<boolean>;
         /**
-         * Request tracing expiration time
+         * Request tracing expiration time.
          */
         requestTracingExpirationTime?: pulumi.Input<string>;
         /**
-         * SCM type
+         * IP security restrictions for scm.
+         */
+        scmIpSecurityRestrictions?: pulumi.Input<pulumi.Input<inputs.web.IpSecurityRestrictionResponse>[]>;
+        /**
+         * IP security restrictions for scm to use main.
+         */
+        scmIpSecurityRestrictionsUseMain?: pulumi.Input<boolean>;
+        /**
+         * SCM type.
          */
         scmType?: pulumi.Input<string>;
         /**
-         * Tracing options
+         * Tracing options.
          */
         tracingOptions?: pulumi.Input<string>;
         /**
-         * Use 32 bit worker process
+         * <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
         /**
-         * Virtual applications
+         * Virtual applications.
          */
         virtualApplications?: pulumi.Input<pulumi.Input<inputs.web.VirtualApplicationResponse>[]>;
         /**
-         * Vnet name
+         * Virtual Network name.
          */
         vnetName?: pulumi.Input<string>;
         /**
-         * Web socket enabled.
+         * <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
          */
         webSocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Xenon App Framework and version
+         */
+        windowsFxVersion?: pulumi.Input<string>;
+        /**
+         * Explicit Managed Service Identity Id
+         */
+        xManagedServiceIdentityId?: pulumi.Input<number>;
     }
 
     /**
@@ -81650,262 +81766,345 @@ export namespace web {
     }
 
     /**
-     * Represents metric limits set on a web app.
+     * Metric limits set on an app.
      */
     export interface SiteLimits {
         /**
-         * Maximum allowed disk size usage in MB
+         * Maximum allowed disk size usage in MB.
          */
         maxDiskSizeInMb?: pulumi.Input<number>;
         /**
-         * Maximum allowed memory usage in MB
+         * Maximum allowed memory usage in MB.
          */
         maxMemoryInMb?: pulumi.Input<number>;
         /**
-         * Maximum allowed CPU usage percentage
+         * Maximum allowed CPU usage percentage.
          */
         maxPercentageCpu?: pulumi.Input<number>;
     }
 
     /**
-     * Represents metric limits set on a web app.
+     * Metric limits set on an app.
      */
     export interface SiteLimitsResponse {
         /**
-         * Maximum allowed disk size usage in MB
+         * Maximum allowed disk size usage in MB.
          */
         maxDiskSizeInMb?: pulumi.Input<number>;
         /**
-         * Maximum allowed memory usage in MB
+         * Maximum allowed memory usage in MB.
          */
         maxMemoryInMb?: pulumi.Input<number>;
         /**
-         * Maximum allowed CPU usage percentage
+         * Maximum allowed CPU usage percentage.
          */
         maxPercentageCpu?: pulumi.Input<number>;
     }
 
+    /**
+     * MachineKey of an app.
+     */
+    export interface SiteMachineKeyResponse {
+        /**
+         * Algorithm used for decryption.
+         */
+        decryption?: pulumi.Input<string>;
+        /**
+         * Decryption key.
+         */
+        decryptionKey?: pulumi.Input<string>;
+        /**
+         * MachineKey validation.
+         */
+        validation?: pulumi.Input<string>;
+        /**
+         * Validation key.
+         */
+        validationKey?: pulumi.Input<string>;
+    }
+
+    /**
+     * Site resource specific properties
+     */
     export interface SiteProperties {
         /**
-         * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+         * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
          */
         clientAffinityEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies if the client certificate is enabled for the web app
+         * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
          */
         clientCertEnabled?: pulumi.Input<boolean>;
         /**
-         * This is only valid for web app creation. If specified, web app is cloned from 
-         *             a source web app
+         * client certificate authentication comma-separated exclusion paths
+         */
+        clientCertExclusionPaths?: pulumi.Input<string>;
+        /**
+         * If specified during app creation, the app is cloned from a source app.
          */
         cloningInfo?: pulumi.Input<inputs.web.CloningInfo>;
         /**
-         * Size of a function container
+         * Size of the function container.
          */
         containerSize?: pulumi.Input<number>;
         /**
-         * True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+         * Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+         */
+        dailyMemoryTimeQuota?: pulumi.Input<number>;
+        /**
+         * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Name of gateway app associated with web app
-         */
-        gatewaySiteName?: pulumi.Input<string>;
-        /**
-         * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+         * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
          */
         hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.HostNameSslState>[]>;
         /**
-         * Specifies if the public hostnames are disabled the web app.
-         *             If set to true the app is only accessible via API Management process
+         * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+         *  If <code>true</code>, the app is only accessible via API management process.
          */
         hostNamesDisabled?: pulumi.Input<boolean>;
         /**
-         * Specification for the hosting environment (App Service Environment) to use for the web app
+         * App Service Environment to use for the app.
          */
         hostingEnvironmentProfile?: pulumi.Input<inputs.web.HostingEnvironmentProfile>;
         /**
-         * Maximum number of workers
-         *             This only applies to function container
+         * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+         * http requests
          */
-        maxNumberOfWorkers?: pulumi.Input<number>;
-        microService?: pulumi.Input<string>;
+        httpsOnly?: pulumi.Input<boolean>;
         /**
-         * Name of web app
+         * Hyper-V sandbox.
          */
-        name?: pulumi.Input<string>;
+        hyperV?: pulumi.Input<boolean>;
         /**
-         * If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+         * Obsolete: Hyper-V sandbox.
+         */
+        isXenon?: pulumi.Input<boolean>;
+        /**
+         * Site redundancy mode
+         */
+        redundancyMode?: pulumi.Input<string>;
+        /**
+         * <code>true</code> if reserved; otherwise, <code>false</code>.
+         */
+        reserved?: pulumi.Input<boolean>;
+        /**
+         * <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
          */
         scmSiteAlsoStopped?: pulumi.Input<boolean>;
+        /**
+         * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+         */
         serverFarmId?: pulumi.Input<string>;
         /**
-         * Configuration of web app
+         * Configuration of the app.
          */
         siteConfig?: pulumi.Input<inputs.web.SiteConfig>;
     }
 
+    /**
+     * Site resource specific properties
+     */
     export interface SiteResponseProperties {
         /**
-         * Management information availability state for the web app. Possible values are Normal or Limited. 
-         *             Normal means that the site is running correctly and that management information for the site is available. 
-         *             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+         * Management information availability state for the app.
          */
         availabilityState: pulumi.Input<string>;
         /**
-         * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+         * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
          */
         clientAffinityEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies if the client certificate is enabled for the web app
+         * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
          */
         clientCertEnabled?: pulumi.Input<boolean>;
         /**
-         * This is only valid for web app creation. If specified, web app is cloned from 
-         *             a source web app
+         * client certificate authentication comma-separated exclusion paths
+         */
+        clientCertExclusionPaths?: pulumi.Input<string>;
+        /**
+         * If specified during app creation, the app is cloned from a source app.
          */
         cloningInfo?: pulumi.Input<inputs.web.CloningInfoResponse>;
         /**
-         * Size of a function container
+         * Size of the function container.
          */
         containerSize?: pulumi.Input<number>;
         /**
-         * Default hostname of the web app
+         * Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+         */
+        dailyMemoryTimeQuota?: pulumi.Input<number>;
+        /**
+         * Default hostname of the app. Read-only.
          */
         defaultHostName: pulumi.Input<string>;
         /**
-         * True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+         * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
-         *             the app is not served on those hostnames
+         * Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
+         * the app is not served on those hostnames.
          */
         enabledHostNames: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Name of gateway app associated with web app
-         */
-        gatewaySiteName?: pulumi.Input<string>;
-        /**
-         * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+         * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
          */
         hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.HostNameSslStateResponse>[]>;
         /**
-         * Hostnames associated with web app
+         * Hostnames associated with the app.
          */
         hostNames: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies if the public hostnames are disabled the web app.
-         *             If set to true the app is only accessible via API Management process
+         * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+         *  If <code>true</code>, the app is only accessible via API management process.
          */
         hostNamesDisabled?: pulumi.Input<boolean>;
         /**
-         * Specification for the hosting environment (App Service Environment) to use for the web app
+         * App Service Environment to use for the app.
          */
         hostingEnvironmentProfile?: pulumi.Input<inputs.web.HostingEnvironmentProfileResponse>;
         /**
-         * Site is a default container
+         * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+         * http requests
+         */
+        httpsOnly?: pulumi.Input<boolean>;
+        /**
+         * Hyper-V sandbox.
+         */
+        hyperV?: pulumi.Input<boolean>;
+        /**
+         * Specifies an operation id if this site has a pending operation.
+         */
+        inProgressOperationId: pulumi.Input<string>;
+        /**
+         * <code>true</code> if the app is a default container; otherwise, <code>false</code>.
          */
         isDefaultContainer: pulumi.Input<boolean>;
         /**
-         * Last time web app was modified in UTC
+         * Obsolete: Hyper-V sandbox.
+         */
+        isXenon?: pulumi.Input<boolean>;
+        /**
+         * Last time the app was modified, in UTC. Read-only.
          */
         lastModifiedTimeUtc: pulumi.Input<string>;
         /**
-         * Maximum number of workers
-         *             This only applies to function container
+         * Maximum number of workers.
+         * This only applies to Functions container.
          */
-        maxNumberOfWorkers?: pulumi.Input<number>;
-        microService?: pulumi.Input<string>;
+        maxNumberOfWorkers: pulumi.Input<number>;
         /**
-         * Name of web app
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+         * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
          */
         outboundIpAddresses: pulumi.Input<string>;
         /**
-         * If set indicates whether web app is deployed as a premium app
+         * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
          */
-        premiumAppDeployed: pulumi.Input<boolean>;
+        possibleOutboundIpAddresses: pulumi.Input<string>;
         /**
-         * Name of repository site
+         * Site redundancy mode
+         */
+        redundancyMode?: pulumi.Input<string>;
+        /**
+         * Name of the repository site.
          */
         repositorySiteName: pulumi.Input<string>;
         /**
-         * Resource group web app belongs to
+         * <code>true</code> if reserved; otherwise, <code>false</code>.
+         */
+        reserved?: pulumi.Input<boolean>;
+        /**
+         * Name of the resource group the app belongs to. Read-only.
          */
         resourceGroup: pulumi.Input<string>;
         /**
-         * If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+         * <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
          */
         scmSiteAlsoStopped?: pulumi.Input<boolean>;
+        /**
+         * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+         */
         serverFarmId?: pulumi.Input<string>;
         /**
-         * Configuration of web app
+         * Configuration of the app.
          */
         siteConfig?: pulumi.Input<inputs.web.SiteConfigResponse>;
         /**
-         * State of the web app
+         * Status of the last deployment slot swap operation.
+         */
+        slotSwapStatus: pulumi.Input<inputs.web.SlotSwapStatusResponse>;
+        /**
+         * Current state of the app.
          */
         state: pulumi.Input<string>;
         /**
-         * Read-only property that specifies which slot this app will swap into
+         * App suspended till in case memory-time quota is exceeded.
+         */
+        suspendedTill: pulumi.Input<string>;
+        /**
+         * Specifies which deployment slot this app will swap into. Read-only.
          */
         targetSwapSlot: pulumi.Input<string>;
         /**
-         * Read-only list of Azure Traffic manager hostnames associated with web app
+         * Azure Traffic Manager hostnames associated with the app. Read-only.
          */
         trafficManagerHostNames: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * State indicating whether web app has exceeded its quota usage
+         * State indicating whether the app has exceeded its quota usage. Read-only.
          */
         usageState: pulumi.Input<string>;
     }
 
+    /**
+     * SiteSourceControl resource specific properties
+     */
     export interface SiteSourceControlProperties {
         /**
-         * Name of branch to use for deployment
+         * Name of branch to use for deployment.
          */
         branch?: pulumi.Input<string>;
         /**
-         * Whether to manual or continuous integration
+         * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
          */
         deploymentRollbackEnabled?: pulumi.Input<boolean>;
         /**
-         * Whether to manual or continuous integration
+         * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
          */
         isManualIntegration?: pulumi.Input<boolean>;
         /**
-         * Mercurial or Git repository type
+         * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
          */
         isMercurial?: pulumi.Input<boolean>;
         /**
-         * Repository or source control url
+         * Repository or source control URL.
          */
         repoUrl?: pulumi.Input<string>;
     }
 
+    /**
+     * SiteSourceControl resource specific properties
+     */
     export interface SiteSourceControlResponseProperties {
         /**
-         * Name of branch to use for deployment
+         * Name of branch to use for deployment.
          */
         branch?: pulumi.Input<string>;
         /**
-         * Whether to manual or continuous integration
+         * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
          */
         deploymentRollbackEnabled?: pulumi.Input<boolean>;
         /**
-         * Whether to manual or continuous integration
+         * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
          */
         isManualIntegration?: pulumi.Input<boolean>;
         /**
-         * Mercurial or Git repository type
+         * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
          */
         isMercurial?: pulumi.Input<boolean>;
         /**
-         * Repository or source control url
+         * Repository or source control URL.
          */
         repoUrl?: pulumi.Input<string>;
     }
@@ -82031,137 +82230,109 @@ export namespace web {
     }
 
     /**
-     * SlowRequestsBasedTrigger
+     * The status of the last successful slot swap operation.
+     */
+    export interface SlotSwapStatusResponse {
+        /**
+         * The destination slot of the last swap operation.
+         */
+        destinationSlotName: pulumi.Input<string>;
+        /**
+         * The source slot of the last swap operation.
+         */
+        sourceSlotName: pulumi.Input<string>;
+        /**
+         * The time the last successful slot swap completed.
+         */
+        timestampUtc: pulumi.Input<string>;
+    }
+
+    /**
+     * Trigger based on request execution time.
      */
     export interface SlowRequestsBasedTrigger {
         /**
-         * Count
+         * Request Count.
          */
         count?: pulumi.Input<number>;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: pulumi.Input<string>;
         /**
-         * TimeTaken
+         * Time taken.
          */
         timeTaken?: pulumi.Input<string>;
     }
 
     /**
-     * SlowRequestsBasedTrigger
+     * Trigger based on request execution time.
      */
     export interface SlowRequestsBasedTriggerResponse {
         /**
-         * Count
+         * Request Count.
          */
         count?: pulumi.Input<number>;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: pulumi.Input<string>;
         /**
-         * TimeTaken
+         * Time taken.
          */
         timeTaken?: pulumi.Input<string>;
     }
 
     /**
-     * Class containing stamp capacity information
-     */
-    export interface StampCapacity {
-        /**
-         * Available capacity (# of machines, bytes of storage etc...)
-         */
-        availableCapacity?: pulumi.Input<number>;
-        /**
-         * Shared/Dedicated workers
-         */
-        computeMode?: pulumi.Input<string>;
-        /**
-         * If true it includes basic sites
-         *             Basic sites are not used for capacity allocation.
-         */
-        excludeFromCapacityAllocation?: pulumi.Input<boolean>;
-        /**
-         * Is capacity applicable for all sites?
-         */
-        isApplicableForAllComputeModes?: pulumi.Input<boolean>;
-        /**
-         * Name of the stamp
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Shared or Dedicated
-         */
-        siteMode?: pulumi.Input<string>;
-        /**
-         * Total capacity (# of machines, bytes of storage etc...)
-         */
-        totalCapacity?: pulumi.Input<number>;
-        /**
-         * Name of the unit
-         */
-        unit?: pulumi.Input<string>;
-        /**
-         * Size of the machines
-         */
-        workerSize?: pulumi.Input<string>;
-        /**
-         * Size Id of machines: 
-         *             0 - Small
-         *             1 - Medium
-         *             2 - Large
-         */
-        workerSizeId?: pulumi.Input<number>;
-    }
-
-    /**
-     * Class containing stamp capacity information
+     * Stamp capacity information.
      */
     export interface StampCapacityResponse {
         /**
-         * Available capacity (# of machines, bytes of storage etc...)
+         * Available capacity (# of machines, bytes of storage etc...).
          */
         availableCapacity?: pulumi.Input<number>;
         /**
-         * Shared/Dedicated workers
+         * Shared/dedicated workers.
          */
         computeMode?: pulumi.Input<string>;
         /**
-         * If true it includes basic sites
-         *             Basic sites are not used for capacity allocation.
+         * If <code>true</code>, it includes basic apps.
+         * Basic apps are not used for capacity allocation.
          */
         excludeFromCapacityAllocation?: pulumi.Input<boolean>;
         /**
-         * Is capacity applicable for all sites?
+         * <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
          */
         isApplicableForAllComputeModes?: pulumi.Input<boolean>;
         /**
-         * Name of the stamp
+         * Is this a linux stamp capacity
+         */
+        isLinux?: pulumi.Input<boolean>;
+        /**
+         * Name of the stamp.
          */
         name?: pulumi.Input<string>;
         /**
-         * Shared or Dedicated
+         * Shared or Dedicated.
          */
         siteMode?: pulumi.Input<string>;
         /**
-         * Total capacity (# of machines, bytes of storage etc...)
+         * Total capacity (# of machines, bytes of storage etc...).
          */
         totalCapacity?: pulumi.Input<number>;
         /**
-         * Name of the unit
+         * Name of the unit.
          */
         unit?: pulumi.Input<string>;
         /**
-         * Size of the machines
+         * Size of the machines.
          */
         workerSize?: pulumi.Input<string>;
         /**
-         * Size Id of machines: 
-         *             0 - Small
-         *             1 - Medium
-         *             2 - Large
+         * Size ID of machines: 
+         * 0 - Small
+         * 1 - Medium
+         * 2 - Large
          */
         workerSizeId?: pulumi.Input<number>;
     }
@@ -82255,53 +82426,53 @@ export namespace web {
     }
 
     /**
-     * StatusCodeBasedTrigger
+     * Trigger based on status code.
      */
     export interface StatusCodesBasedTrigger {
         /**
-         * Count
+         * Request Count.
          */
         count?: pulumi.Input<number>;
         /**
-         * HTTP status code
+         * HTTP status code.
          */
         status?: pulumi.Input<number>;
         /**
-         * SubStatus
+         * Request Sub Status.
          */
         subStatus?: pulumi.Input<number>;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: pulumi.Input<string>;
         /**
-         * Win32 error code
+         * Win32 error code.
          */
         win32Status?: pulumi.Input<number>;
     }
 
     /**
-     * StatusCodeBasedTrigger
+     * Trigger based on status code.
      */
     export interface StatusCodesBasedTriggerResponse {
         /**
-         * Count
+         * Request Count.
          */
         count?: pulumi.Input<number>;
         /**
-         * HTTP status code
+         * HTTP status code.
          */
         status?: pulumi.Input<number>;
         /**
-         * SubStatus
+         * Request Sub Status.
          */
         subStatus?: pulumi.Input<number>;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: pulumi.Input<string>;
         /**
-         * Win32 error code
+         * Win32 error code.
          */
         win32Status?: pulumi.Input<number>;
     }
@@ -82335,214 +82506,195 @@ export namespace web {
     }
 
     /**
-     * Resource tags
+     * Virtual application in an app.
      */
-    export interface TagsDictionary {
-    }
-
-    /**
-     * Resource tags
-     */
-    export interface TagsDictionaryResponse {
-    }
-
     export interface VirtualApplication {
+        /**
+         * Physical path.
+         */
         physicalPath?: pulumi.Input<string>;
+        /**
+         * <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+         */
         preloadEnabled?: pulumi.Input<boolean>;
+        /**
+         * Virtual directories for virtual application.
+         */
         virtualDirectories?: pulumi.Input<pulumi.Input<inputs.web.VirtualDirectory>[]>;
-        virtualPath?: pulumi.Input<string>;
-    }
-
-    export interface VirtualApplicationResponse {
-        physicalPath?: pulumi.Input<string>;
-        preloadEnabled?: pulumi.Input<boolean>;
-        virtualDirectories?: pulumi.Input<pulumi.Input<inputs.web.VirtualDirectoryResponse>[]>;
-        virtualPath?: pulumi.Input<string>;
-    }
-
-    export interface VirtualDirectory {
-        physicalPath?: pulumi.Input<string>;
-        virtualPath?: pulumi.Input<string>;
-    }
-
-    export interface VirtualDirectoryResponse {
-        physicalPath?: pulumi.Input<string>;
+        /**
+         * Virtual path.
+         */
         virtualPath?: pulumi.Input<string>;
     }
 
     /**
-     * Class that represents a VIP mapping
+     * Virtual application in an app.
      */
-    export interface VirtualIPMapping {
+    export interface VirtualApplicationResponse {
         /**
-         * Is VIP mapping in use
+         * Physical path.
          */
-        inUse?: pulumi.Input<boolean>;
+        physicalPath?: pulumi.Input<string>;
         /**
-         * Internal HTTP port
+         * <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
          */
-        internalHttpPort?: pulumi.Input<number>;
+        preloadEnabled?: pulumi.Input<boolean>;
         /**
-         * Internal HTTPS port
+         * Virtual directories for virtual application.
          */
-        internalHttpsPort?: pulumi.Input<number>;
+        virtualDirectories?: pulumi.Input<pulumi.Input<inputs.web.VirtualDirectoryResponse>[]>;
         /**
-         * Virtual IP address
+         * Virtual path.
          */
-        virtualIP?: pulumi.Input<string>;
+        virtualPath?: pulumi.Input<string>;
     }
 
     /**
-     * Class that represents a VIP mapping
+     * Directory for virtual application.
+     */
+    export interface VirtualDirectory {
+        /**
+         * Physical path.
+         */
+        physicalPath?: pulumi.Input<string>;
+        /**
+         * Path to virtual application.
+         */
+        virtualPath?: pulumi.Input<string>;
+    }
+
+    /**
+     * Directory for virtual application.
+     */
+    export interface VirtualDirectoryResponse {
+        /**
+         * Physical path.
+         */
+        physicalPath?: pulumi.Input<string>;
+        /**
+         * Path to virtual application.
+         */
+        virtualPath?: pulumi.Input<string>;
+    }
+
+    /**
+     * Virtual IP mapping.
      */
     export interface VirtualIPMappingResponse {
         /**
-         * Is VIP mapping in use
+         * Is virtual IP mapping in use.
          */
         inUse?: pulumi.Input<boolean>;
         /**
-         * Internal HTTP port
+         * Internal HTTP port.
          */
         internalHttpPort?: pulumi.Input<number>;
         /**
-         * Internal HTTPS port
+         * Internal HTTPS port.
          */
         internalHttpsPort?: pulumi.Input<number>;
         /**
-         * Virtual IP address
+         * name of the service that virtual IP is assigned to
+         */
+        serviceName?: pulumi.Input<string>;
+        /**
+         * Virtual IP address.
          */
         virtualIP?: pulumi.Input<string>;
     }
 
     /**
-     * Specification for using a virtual network
+     * Specification for using a Virtual Network.
      */
     export interface VirtualNetworkProfile {
         /**
-         * Resource id of the virtual network
+         * Resource id of the Virtual Network.
          */
         id?: pulumi.Input<string>;
         /**
-         * Name of the virtual network (read-only)
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Subnet within the virtual network
+         * Subnet within the Virtual Network.
          */
         subnet?: pulumi.Input<string>;
-        /**
-         * Resource type of the virtual network (read-only)
-         */
-        type?: pulumi.Input<string>;
     }
 
     /**
-     * Specification for using a virtual network
+     * Specification for using a Virtual Network.
      */
     export interface VirtualNetworkProfileResponse {
         /**
-         * Resource id of the virtual network
+         * Resource id of the Virtual Network.
          */
         id?: pulumi.Input<string>;
         /**
-         * Name of the virtual network (read-only)
+         * Name of the Virtual Network (read-only).
          */
-        name?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         /**
-         * Subnet within the virtual network
+         * Subnet within the Virtual Network.
          */
         subnet?: pulumi.Input<string>;
         /**
-         * Resource type of the virtual network (read-only)
+         * Resource type of the Virtual Network (read-only).
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
+    /**
+     * VnetInfo resource specific properties
+     */
     export interface VnetInfoProperties {
         /**
          * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-         *             Point-To-Site VPN connection.
+         * Point-To-Site VPN connection.
          */
         certBlob?: pulumi.Input<string>;
         /**
-         * The client certificate thumbprint
-         */
-        certThumbprint?: pulumi.Input<string>;
-        /**
-         * Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+         * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
          */
         dnsServers?: pulumi.Input<string>;
         /**
-         * Flag to determine if a resync is required
+         * Flag that is used to denote if this is VNET injection
          */
-        resyncRequired?: pulumi.Input<boolean>;
+        isSwift?: pulumi.Input<boolean>;
         /**
-         * The routes that this virtual network connection uses.
-         */
-        routes?: pulumi.Input<pulumi.Input<inputs.web.VnetRoute>[]>;
-        /**
-         * The vnet resource id
-         */
-        vnetResourceId?: pulumi.Input<string>;
-    }
-
-    export interface VnetInfoResponseProperties {
-        /**
-         * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-         *             Point-To-Site VPN connection.
-         */
-        certBlob?: pulumi.Input<string>;
-        /**
-         * The client certificate thumbprint
-         */
-        certThumbprint?: pulumi.Input<string>;
-        /**
-         * Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-         */
-        dnsServers?: pulumi.Input<string>;
-        /**
-         * Flag to determine if a resync is required
-         */
-        resyncRequired?: pulumi.Input<boolean>;
-        /**
-         * The routes that this virtual network connection uses.
-         */
-        routes?: pulumi.Input<pulumi.Input<inputs.web.VnetRouteResponse>[]>;
-        /**
-         * The vnet resource id
+         * The Virtual Network's resource ID.
          */
         vnetResourceId?: pulumi.Input<string>;
     }
 
     /**
-     * VnetRoute contract used to pass routing information for a vnet.
+     * VnetInfo resource specific properties
      */
-    export interface VnetRoute {
+    export interface VnetInfoResponseProperties {
         /**
-         * Resource Id
+         * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+         * Point-To-Site VPN connection.
          */
-        id?: pulumi.Input<string>;
+        certBlob?: pulumi.Input<string>;
         /**
-         * Kind of resource
+         * The client certificate thumbprint.
          */
-        kind?: pulumi.Input<string>;
+        certThumbprint: pulumi.Input<string>;
         /**
-         * Resource Location
+         * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
          */
-        location: pulumi.Input<string>;
+        dnsServers?: pulumi.Input<string>;
         /**
-         * Resource Name
+         * Flag that is used to denote if this is VNET injection
          */
-        name?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.web.VnetRouteProperties>;
+        isSwift?: pulumi.Input<boolean>;
         /**
-         * Resource tags
+         * <code>true</code> if a resync is required; otherwise, <code>false</code>.
          */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        resyncRequired: pulumi.Input<boolean>;
         /**
-         * Resource type
+         * The routes that this Virtual Network connection uses.
          */
-        type?: pulumi.Input<string>;
+        routes: pulumi.Input<pulumi.Input<inputs.web.VnetRouteResponse>[]>;
+        /**
+         * The Virtual Network's resource ID.
+         */
+        vnetResourceId?: pulumi.Input<string>;
     }
 
     /**
@@ -82569,34 +82721,29 @@ export namespace web {
     }
 
     /**
-     * VnetRoute contract used to pass routing information for a vnet.
+     * Virtual Network route contract used to pass routing information for a Virtual Network.
      */
     export interface VnetRouteResponse {
         /**
-         * Resource Id
+         * Resource Id.
          */
-        id?: pulumi.Input<string>;
+        id: pulumi.Input<string>;
         /**
-         * Kind of resource
+         * Kind of resource.
          */
         kind?: pulumi.Input<string>;
         /**
-         * Resource Location
+         * Resource Name.
          */
-        location: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         /**
-         * Resource Name
+         * VnetRoute resource specific properties
          */
-        name?: pulumi.Input<string>;
         properties?: pulumi.Input<inputs.web.VnetRouteResponseProperties>;
         /**
-         * Resource tags
+         * Resource type.
          */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource type
-         */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -82623,191 +82770,51 @@ export namespace web {
     }
 
     /**
-     * Worker pool of a hostingEnvironment (App Service Environment)
+     * Worker pool of an App Service Environment.
      */
     export interface WorkerPool {
         /**
-         * Resource Id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Kind of resource
-         */
-        kind?: pulumi.Input<string>;
-        /**
-         * Resource Location
-         */
-        location: pulumi.Input<string>;
-        /**
-         * Resource Name
-         */
-        name?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.web.WorkerPoolProperties>;
-        /**
-         * Describes a sku for a scalable resource
-         */
-        sku?: pulumi.Input<inputs.web.SkuDescription>;
-        /**
-         * Resource tags
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource type
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    export interface WorkerPoolProperties {
-        /**
-         * Shared or dedicated web app hosting
+         * Shared or dedicated app hosting.
          */
         computeMode?: pulumi.Input<string>;
         /**
-         * Names of all instances in the worker pool (read only)
-         */
-        instanceNames?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Number of instances in the worker pool
+         * Number of instances in the worker pool.
          */
         workerCount?: pulumi.Input<number>;
         /**
-         * VM size of the worker pool instances
+         * VM size of the worker pool instances.
          */
         workerSize?: pulumi.Input<string>;
         /**
-         * Worker size id for referencing this worker pool
+         * Worker size ID for referencing this worker pool.
          */
         workerSizeId?: pulumi.Input<number>;
     }
 
     /**
-     * Worker pool of a hostingEnvironment (App Service Environment)
+     * Worker pool of an App Service Environment.
      */
     export interface WorkerPoolResponse {
         /**
-         * Resource Id
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * Kind of resource
-         */
-        kind?: pulumi.Input<string>;
-        /**
-         * Resource Location
-         */
-        location: pulumi.Input<string>;
-        /**
-         * Resource Name
-         */
-        name?: pulumi.Input<string>;
-        properties?: pulumi.Input<inputs.web.WorkerPoolResponseProperties>;
-        /**
-         * Describes a sku for a scalable resource
-         */
-        sku?: pulumi.Input<inputs.web.SkuDescriptionResponse>;
-        /**
-         * Resource tags
-         */
-        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * Resource type
-         */
-        type?: pulumi.Input<string>;
-    }
-
-    export interface WorkerPoolResponseProperties {
-        /**
-         * Shared or dedicated web app hosting
+         * Shared or dedicated app hosting.
          */
         computeMode?: pulumi.Input<string>;
         /**
-         * Names of all instances in the worker pool (read only)
+         * Names of all instances in the worker pool (read only).
          */
-        instanceNames?: pulumi.Input<pulumi.Input<string>[]>;
+        instanceNames: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Number of instances in the worker pool
+         * Number of instances in the worker pool.
          */
         workerCount?: pulumi.Input<number>;
         /**
-         * VM size of the worker pool instances
+         * VM size of the worker pool instances.
          */
         workerSize?: pulumi.Input<string>;
         /**
-         * Worker size id for referencing this worker pool
+         * Worker size ID for referencing this worker pool.
          */
         workerSizeId?: pulumi.Input<number>;
-    }
-
-    /**
-     * The WSDL definition
-     */
-    export interface WsdlDefinition {
-        /**
-         * The WSDL content
-         */
-        content?: pulumi.Input<string>;
-        /**
-         * The WSDL import method
-         */
-        importMethod?: pulumi.Input<string>;
-        /**
-         * The service with name and endpoint names
-         */
-        service?: pulumi.Input<inputs.web.WsdlService>;
-        /**
-         * The WSDL URL
-         */
-        url?: pulumi.Input<string>;
-    }
-
-    /**
-     * The WSDL definition
-     */
-    export interface WsdlDefinitionResponse {
-        /**
-         * The WSDL content
-         */
-        content?: pulumi.Input<string>;
-        /**
-         * The WSDL import method
-         */
-        importMethod?: pulumi.Input<string>;
-        /**
-         * The service with name and endpoint names
-         */
-        service?: pulumi.Input<inputs.web.WsdlServiceResponse>;
-        /**
-         * The WSDL URL
-         */
-        url?: pulumi.Input<string>;
-    }
-
-    /**
-     * The service with name and endpoint names
-     */
-    export interface WsdlService {
-        /**
-         * List of the endpoints' qualified names
-         */
-        endpointQualifiedNames?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The service's qualified name
-         */
-        qualifiedName: pulumi.Input<string>;
-    }
-
-    /**
-     * The service with name and endpoint names
-     */
-    export interface WsdlServiceResponse {
-        /**
-         * List of the endpoints' qualified names
-         */
-        endpointQualifiedNames?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The service's qualified name
-         */
-        qualifiedName: pulumi.Input<string>;
     }
 }
 

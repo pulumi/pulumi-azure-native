@@ -38,21 +38,17 @@ export class NamespaceEventhubConsumergroup extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
-     * Resource name
+     * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.ConsumerGroupPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.eventhub.ConsumerGroupResponseProperties>;
     /**
-     * Resource type
+     * Resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a NamespaceEventhubConsumergroup resource with the given unique name, arguments, and options.
@@ -66,20 +62,16 @@ export class NamespaceEventhubConsumergroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NamespaceEventhubConsumergroupState | undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as NamespaceEventhubConsumergroupArgs | undefined;
-            if (!args || args.consumerGroupName === undefined) {
-                throw new Error("Missing required property 'consumerGroupName'");
-            }
             if (!args || args.eventHubName === undefined) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
@@ -87,14 +79,12 @@ export class NamespaceEventhubConsumergroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -112,19 +102,15 @@ export class NamespaceEventhubConsumergroup extends pulumi.CustomResource {
  */
 export interface NamespaceEventhubConsumergroupState {
     /**
-     * Resource location
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Resource name
+     * Resource name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
-    readonly properties: pulumi.Input<inputs.eventhub.ConsumerGroupPropertiesResponse>;
+    readonly properties: pulumi.Input<inputs.eventhub.ConsumerGroupResponseProperties>;
     /**
-     * Resource type
+     * Resource type.
      */
     readonly type: pulumi.Input<string>;
 }
@@ -134,35 +120,23 @@ export interface NamespaceEventhubConsumergroupState {
  */
 export interface NamespaceEventhubConsumergroupArgs {
     /**
-     * The consumer group name
-     */
-    readonly consumerGroupName: pulumi.Input<string>;
-    /**
      * The Event Hub name
      */
     readonly eventHubName: pulumi.Input<string>;
     /**
-     * Location of the resource.
+     * The consumer group name
      */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Name of the consumer group.
-     */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The Namespace name
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
     readonly properties?: pulumi.Input<inputs.eventhub.ConsumerGroupProperties>;
     /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * ARM type of the Namespace.
-     */
-    readonly type?: pulumi.Input<string>;
 }

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * The properties of a Media Service resource.
+ * A Media Services account.
  */
 export class Mediaservice extends pulumi.CustomResource {
     /**
@@ -38,7 +38,7 @@ export class Mediaservice extends pulumi.CustomResource {
     }
 
     /**
-     * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
+     * The Azure Region of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
@@ -46,15 +46,15 @@ export class Mediaservice extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The additional properties of a Media Service resource.
+     * The resource properties.
      */
     public readonly properties!: pulumi.Output<outputs.media.MediaServicePropertiesResponse>;
     /**
-     * Tags to help categorize the resource in the Azure portal.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource
+     * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -102,11 +102,11 @@ export class Mediaservice extends pulumi.CustomResource {
 }
 
 /**
- * The properties of a Media Service resource.
+ * A Media Services account.
  */
 export interface MediaserviceState {
     /**
-     * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
+     * The Azure Region of the resource.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -114,15 +114,15 @@ export interface MediaserviceState {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The additional properties of a Media Service resource.
+     * The resource properties.
      */
     readonly properties: pulumi.Input<inputs.media.MediaServicePropertiesResponse>;
     /**
-     * Tags to help categorize the resource in the Azure portal.
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the resource
+     * The type of the resource.
      */
     readonly type: pulumi.Input<string>;
 }
@@ -132,23 +132,23 @@ export interface MediaserviceState {
  */
 export interface MediaserviceArgs {
     /**
-     * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
+     * The Azure Region of the resource.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Name of the Media Service.
+     * The Media Services account name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The additional properties of a Media Service resource.
+     * The resource properties.
      */
     readonly properties?: pulumi.Input<inputs.media.MediaServiceProperties>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Tags to help categorize the resource in the Azure portal.
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

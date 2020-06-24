@@ -22,7 +22,8 @@ type Resource struct {
 var blessedVersions map[string]string
 func init() {
 	blessedVersions = map[string]string{
-		"Microsoft.Cdn": "2020-03-31",
+		"Microsoft.Cdn": "2020-03-31", // the later version throws runtime errors
+		"Microsoft.Web": "2019-08-01", // an earlier version contains extra files that spoil generation
 	}
 }
 

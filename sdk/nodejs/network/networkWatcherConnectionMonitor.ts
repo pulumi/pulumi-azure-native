@@ -40,7 +40,7 @@ export class NetworkWatcherConnectionMonitor extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Connection monitor location.
      */
@@ -121,7 +121,7 @@ export interface NetworkWatcherConnectionMonitorState {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    readonly etag: pulumi.Input<string>;
     /**
      * Connection monitor location.
      */

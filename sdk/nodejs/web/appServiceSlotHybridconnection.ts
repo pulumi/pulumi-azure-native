@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Class that represents a BizTalk Hybrid Connection
+ * Hybrid Connection for an App Service app.
  */
 export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
     /**
@@ -38,26 +38,21 @@ export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
     }
 
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource Location
+     * Resource Name.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
-     * Resource Name
+     * RelayServiceConnectionEntity resource specific properties
      */
-    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.web.RelayServiceConnectionEntityResponseProperties>;
     /**
-     * Resource tags
+     * Resource type.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Resource type
-     */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a AppServiceSlotHybridconnection resource with the given unique name, arguments, and options.
@@ -72,18 +67,13 @@ export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AppServiceSlotHybridconnectionState | undefined;
             inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AppServiceSlotHybridconnectionArgs | undefined;
             if (!args || args.entityName === undefined) {
                 throw new Error("Missing required property 'entityName'");
-            }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
@@ -95,15 +85,12 @@ export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["entityName"] = args ? args.entityName : undefined;
-            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,30 +104,25 @@ export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
 }
 
 /**
- * Class that represents a BizTalk Hybrid Connection
+ * Hybrid Connection for an App Service app.
  */
 export interface AppServiceSlotHybridconnectionState {
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
+     * Resource Name.
      */
-    readonly location: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
-     * Resource Name
+     * RelayServiceConnectionEntity resource specific properties
      */
-    readonly name?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.web.RelayServiceConnectionEntityResponseProperties>;
     /**
-     * Resource tags
+     * Resource type.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type?: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }
 
 /**
@@ -148,40 +130,27 @@ export interface AppServiceSlotHybridconnectionState {
  */
 export interface AppServiceSlotHybridconnectionArgs {
     /**
-     * The name by which the Hybrid Connection is identified
+     * Name of the hybrid connection configuration.
      */
     readonly entityName: pulumi.Input<string>;
     /**
-     * Resource Id
-     */
-    readonly id?: pulumi.Input<string>;
-    /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource Name
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * RelayServiceConnectionEntity resource specific properties
+     */
     readonly properties?: pulumi.Input<inputs.web.RelayServiceConnectionEntityProperties>;
     /**
-     * The resource group name
+     * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the slot for the web app.
+     * Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
      */
     readonly slot: pulumi.Input<string>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type?: pulumi.Input<string>;
 }

@@ -4483,13 +4483,25 @@ export namespace batchai {
     }
 
     /**
-     * Constraints associated with the Job.
+     * Information about the execution of a job.
      */
     export interface JobPropertiesResponseProperties {
         /**
-         * Max time the job can run. Default value: 1 week.
+         * The time at which the job completed. This property is only returned if the job is in completed state.
          */
-        maxWallClockTime?: string;
+        endTime: string;
+        /**
+         * A collection of errors encountered by the service during job execution.
+         */
+        errors: outputs.batchai.BatchAIErrorResponse[];
+        /**
+         * The exit code of the job. This property is only returned if the job is in completed state.
+         */
+        exitCode: number;
+        /**
+         * The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+         */
+        startTime: string;
     }
 
     /**
@@ -5348,48 +5360,6 @@ export namespace cdn {
     }
 
     /**
-     * An action for the delivery rule.
-     */
-    export interface DeliveryRuleActionResponse {
-        /**
-         * The name of the action for the delivery rule.
-         */
-        name: string;
-    }
-
-    /**
-     * A condition for the delivery rule.
-     */
-    export interface DeliveryRuleConditionResponse {
-        /**
-         * The name of the condition for the delivery rule.
-         */
-        name: string;
-    }
-
-    /**
-     * A rule that specifies a set of actions and conditions
-     */
-    export interface DeliveryRuleResponse {
-        /**
-         * A list of actions that are executed when all the conditions of a rule are satisfied.
-         */
-        actions: outputs.cdn.DeliveryRuleActionResponse[];
-        /**
-         * A list of conditions that must be matched for the actions to be executed
-         */
-        conditions?: outputs.cdn.DeliveryRuleConditionResponse[];
-        /**
-         * Name of the rule
-         */
-        name?: string;
-        /**
-         * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-         */
-        order: number;
-    }
-
-    /**
      * The JSON object that contains the properties required to create an endpoint.
      */
     export interface EndpointPropertiesResponse {
@@ -5472,17 +5442,13 @@ export namespace cdn {
     }
 
     /**
-     * A policy that specifies the delivery rules to be used for an endpoint.
+     * Defines the Web Application Firewall policy for the endpoint (if applicable)
      */
     export interface EndpointPropertiesUpdateParametersResponseProperties {
         /**
-         * User-friendly description of the policy.
+         * Resource ID.
          */
-        description?: string;
-        /**
-         * A list of the delivery rules.
-         */
-        rules: outputs.cdn.DeliveryRuleResponse[];
+        id?: string;
     }
 
     /**
@@ -5870,156 +5836,147 @@ export namespace cdn {
 
 export namespace certificateregistration {
     /**
-     * Certificate Details
+     * AppServiceCertificateOrder resource specific properties
      */
-    export interface CertificateDetailsResponse {
+    export interface AppServiceCertificateOrderResponseProperties {
         /**
-         * Resource Id
+         * Reasons why App Service Certificate is not renewable at the current moment.
          */
-        id?: string;
+        appServiceCertificateNotRenewableReasons: string[];
         /**
-         * Kind of resource
-         */
-        kind?: string;
-        /**
-         * Resource Location
-         */
-        location: string;
-        /**
-         * Resource Name
-         */
-        name?: string;
-        properties?: outputs.certificateregistration.CertificateDetailsResponseProperties;
-        /**
-         * Resource tags
-         */
-        tags?: {[key: string]: string};
-        /**
-         * Resource type
-         */
-        type?: string;
-    }
-
-    export interface CertificateDetailsResponseProperties {
-        /**
-         * Issuer
-         */
-        issuer?: string;
-        /**
-         * Valid to
-         */
-        notAfter?: string;
-        /**
-         * Valid from
-         */
-        notBefore?: string;
-        /**
-         * Raw certificate data
-         */
-        rawData?: string;
-        /**
-         * Serial Number
-         */
-        serialNumber?: string;
-        /**
-         * Signature Algorithm
-         */
-        signatureAlgorithm?: string;
-        /**
-         * Subject
-         */
-        subject?: string;
-        /**
-         * Thumbprint
-         */
-        thumbprint?: string;
-        /**
-         * Version
-         */
-        version?: number;
-    }
-
-    export interface CertificateOrderCertificateResponseProperties {
-        /**
-         * Key Vault Csm resource Id
-         */
-        keyVaultId?: string;
-        /**
-         * Key Vault secret name
-         */
-        keyVaultSecretName?: string;
-        /**
-         * Status of the Key Vault secret
-         */
-        provisioningState?: string;
-    }
-
-    export interface CertificateOrderResponseProperties {
-        /**
-         * Auto renew
+         * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
          */
         autoRenew?: boolean;
         /**
-         * State of the Key Vault secret
+         * State of the Key Vault secret.
          */
         certificates?: {[key: string]: string};
         /**
-         * Last CSR that was created for this order
+         * Last CSR that was created for this order.
          */
         csr?: string;
         /**
-         * Certificate distinguished name
+         * Certificate distinguished name.
          */
         distinguishedName?: string;
         /**
-         * Domain Verification Token
+         * Domain verification token.
          */
-        domainVerificationToken?: string;
+        domainVerificationToken: string;
         /**
-         * Certificate expiration time
+         * Certificate expiration time.
          */
-        expirationTime?: string;
+        expirationTime: string;
         /**
-         * Intermediate certificate
+         * Intermediate certificate.
          */
-        intermediate?: outputs.certificateregistration.CertificateDetailsResponse;
+        intermediate: outputs.certificateregistration.CertificateDetailsResponse;
         /**
-         * Certificate Key Size
+         * <code>true</code> if private key is external; otherwise, <code>false</code>.
+         */
+        isPrivateKeyExternal: boolean;
+        /**
+         * Certificate key size.
          */
         keySize?: number;
         /**
-         * Certificate last issuance time
+         * Certificate last issuance time.
          */
-        lastCertificateIssuanceTime?: string;
+        lastCertificateIssuanceTime: string;
         /**
-         * Certificate product type
+         * Time stamp when the certificate would be auto renewed next
          */
-        productType?: string;
+        nextAutoRenewalTimeStamp: string;
         /**
-         * Status of certificate order
+         * Certificate product type.
          */
-        provisioningState?: string;
+        productType: string;
         /**
-         * Root certificate
+         * Status of certificate order.
          */
-        root?: outputs.certificateregistration.CertificateDetailsResponse;
+        provisioningState: string;
         /**
-         * Current serial number of the certificate
+         * Root certificate.
          */
-        serialNumber?: string;
+        root: outputs.certificateregistration.CertificateDetailsResponse;
         /**
-         * Signed certificate
+         * Current serial number of the certificate.
          */
-        signedCertificate?: outputs.certificateregistration.CertificateDetailsResponse;
+        serialNumber: string;
         /**
-         * Current order status
+         * Signed certificate.
          */
-        status?: string;
+        signedCertificate: outputs.certificateregistration.CertificateDetailsResponse;
         /**
-         * Duration in years (must be between 1 and 3)
+         * Current order status.
+         */
+        status: string;
+        /**
+         * Duration in years (must be between 1 and 3).
          */
         validityInYears?: number;
     }
+
+    /**
+     * Key Vault container for a certificate that is purchased through Azure.
+     */
+    export interface AppServiceCertificateResponse {
+        /**
+         * Key Vault resource Id.
+         */
+        keyVaultId?: string;
+        /**
+         * Key Vault secret name.
+         */
+        keyVaultSecretName?: string;
+        /**
+         * Status of the Key Vault secret.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * SSL certificate details.
+     */
+    export interface CertificateDetailsResponse {
+        /**
+         * Certificate Issuer.
+         */
+        issuer: string;
+        /**
+         * Date Certificate is valid to.
+         */
+        notAfter: string;
+        /**
+         * Date Certificate is valid from.
+         */
+        notBefore: string;
+        /**
+         * Raw certificate data.
+         */
+        rawData: string;
+        /**
+         * Certificate Serial Number.
+         */
+        serialNumber: string;
+        /**
+         * Certificate Signature algorithm.
+         */
+        signatureAlgorithm: string;
+        /**
+         * Certificate Subject.
+         */
+        subject: string;
+        /**
+         * Certificate Thumbprint.
+         */
+        thumbprint: string;
+        /**
+         * Certificate Version.
+         */
+        version: number;
+    }
+
 }
 
 export namespace cognitiveservices {
@@ -11295,13 +11252,13 @@ export namespace containerservice {
     }
 
     /**
-     * Desired managed outbound IPs for the cluster load balancer.
+     * Desired outbound IP Prefix resources for the cluster load balancer.
      */
     export interface ManagedClusterLoadBalancerProfileResponseProperties {
         /**
-         * Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+         * A list of public IP prefix resources.
          */
-        count?: number;
+        publicIPPrefixes?: outputs.containerservice.ResourceReferenceResponse[];
     }
 
     /**
@@ -12368,21 +12325,21 @@ export namespace customerinsights {
     }
 
     /**
-     * System generated entities.
+     * The definition of a prediction grade.
      */
     export interface PredictionResponseProperties {
         /**
-         * Generated interaction types.
+         * Name of the grade.
          */
-        generatedInteractionTypes?: string[];
+        gradeName?: string;
         /**
-         * Generated KPIs.
+         * Maximum score threshold.
          */
-        generatedKpis?: {[key: string]: string};
+        maxScoreThreshold?: number;
         /**
-         * Generated links.
+         * Minimum score threshold.
          */
-        generatedLinks?: string[];
+        minScoreThreshold?: number;
     }
 
     /**
@@ -19285,23 +19242,19 @@ export namespace eventhub {
     }
 
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
-    export interface ConsumerGroupPropertiesResponse {
+    export interface ConsumerGroupResponseProperties {
         /**
          * Exact time the message was created.
          */
         createdAt: string;
         /**
-         * The path of the Event Hub.
-         */
-        eventHubPath: string;
-        /**
          * The exact time the message was updated.
          */
         updatedAt: string;
         /**
-         * The user metadata.
+         * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
          */
         userMetadata?: string;
     }
@@ -25156,20 +25109,6 @@ export namespace media {
     }
 
     /**
-     * The properties for a Media Services REST API endpoint.
-     */
-    export interface ApiEndpointResponse {
-        /**
-         * The Media Services REST endpoint.
-         */
-        endpoint?: string;
-        /**
-         * The version of Media Services REST API.
-         */
-        majorVersion?: string;
-    }
-
-    /**
      * The Asset properties.
      */
     export interface AssetPropertiesResponse {
@@ -25828,13 +25767,13 @@ export namespace media {
     }
 
     /**
-     * The additional properties of a Media Service resource.
+     * Properties of the Media Services account.
      */
     export interface MediaServicePropertiesResponse {
         /**
-         * Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+         * The Media Services account ID.
          */
-        apiEndpoints: outputs.media.ApiEndpointResponse[];
+        mediaServiceId: string;
         /**
          * The storage accounts for this resource.
          */
@@ -25888,17 +25827,17 @@ export namespace media {
     }
 
     /**
-     * The properties of a storage account associated with this resource.
+     * The storage account details.
      */
     export interface StorageAccountResponse {
         /**
-         * The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
+         * The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
          */
-        id: string;
+        id?: string;
         /**
-         * Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
+         * The type of the storage account.
          */
-        isPrimary: boolean;
+        type: string;
     }
 
     /**
@@ -29020,6 +28959,110 @@ export namespace network {
     }
 
     /**
+     * Describes the connection monitor endpoint filter item.
+     */
+    export interface ConnectionMonitorEndpointFilterItemResponse {
+        /**
+         * The address of the filter item.
+         */
+        address?: string;
+        /**
+         * The type of item included in the filter. Currently only 'AgentAddress' is supported.
+         */
+        type?: string;
+    }
+
+    /**
+     * Describes the connection monitor endpoint filter.
+     */
+    export interface ConnectionMonitorEndpointFilterResponse {
+        /**
+         * List of items in the filter.
+         */
+        items?: outputs.network.ConnectionMonitorEndpointFilterItemResponse[];
+        /**
+         * The behavior of the endpoint filter. Currently only 'Include' is supported.
+         */
+        type?: string;
+    }
+
+    /**
+     * Describes the connection monitor endpoint.
+     */
+    export interface ConnectionMonitorEndpointResponse {
+        /**
+         * Address of the connection monitor endpoint (IP or domain name).
+         */
+        address?: string;
+        /**
+         * Filter for sub-items within the endpoint.
+         */
+        filter?: outputs.network.ConnectionMonitorEndpointFilterResponse;
+        /**
+         * The name of the connection monitor endpoint.
+         */
+        name: string;
+        /**
+         * Resource ID of the connection monitor endpoint.
+         */
+        resourceId?: string;
+    }
+
+    /**
+     * Describes the HTTP configuration.
+     */
+    export interface ConnectionMonitorHttpConfigurationResponse {
+        /**
+         * The HTTP method to use.
+         */
+        method?: string;
+        /**
+         * The path component of the URI. For instance, "/dir1/dir2".
+         */
+        path?: string;
+        /**
+         * The port to connect to.
+         */
+        port?: number;
+        /**
+         * Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit.
+         */
+        preferHTTPS?: boolean;
+        /**
+         * The HTTP headers to transmit with the request.
+         */
+        requestHeaders?: outputs.network.HTTPHeaderResponse[];
+        /**
+         * HTTP status codes to consider successful. For instance, "2xx,301-304,418".
+         */
+        validStatusCodeRanges?: string[];
+    }
+
+    /**
+     * Describes the ICMP configuration.
+     */
+    export interface ConnectionMonitorIcmpConfigurationResponse {
+        /**
+         * Value indicating whether path evaluation with trace route should be disabled.
+         */
+        disableTraceRoute?: boolean;
+    }
+
+    /**
+     * Describes a connection monitor output destination.
+     */
+    export interface ConnectionMonitorOutputResponse {
+        /**
+         * Connection monitor output destination type. Currently, only "Workspace" is supported.
+         */
+        type?: string;
+        /**
+         * Describes the settings for producing output into a log analytics workspace.
+         */
+        workspaceSettings?: outputs.network.ConnectionMonitorWorkspaceSettingsResponse;
+    }
+
+    /**
      * Describes the properties of a connection monitor.
      */
     export interface ConnectionMonitorResultPropertiesResponse {
@@ -29028,9 +29071,17 @@ export namespace network {
          */
         autoStart?: boolean;
         /**
+         * Type of connection monitor.
+         */
+        connectionMonitorType: string;
+        /**
          * Describes the destination of connection monitor.
          */
-        destination: outputs.network.ConnectionMonitorDestinationResponse;
+        destination?: outputs.network.ConnectionMonitorDestinationResponse;
+        /**
+         * List of connection monitor endpoints.
+         */
+        endpoints?: outputs.network.ConnectionMonitorEndpointResponse[];
         /**
          * Monitoring interval in seconds.
          */
@@ -29038,19 +29089,35 @@ export namespace network {
         /**
          * The monitoring status of the connection monitor.
          */
-        monitoringStatus?: string;
+        monitoringStatus: string;
+        /**
+         * Optional notes to be associated with the connection monitor.
+         */
+        notes?: string;
+        /**
+         * List of connection monitor outputs.
+         */
+        outputs?: outputs.network.ConnectionMonitorOutputResponse[];
         /**
          * The provisioning state of the connection monitor.
          */
-        provisioningState?: string;
+        provisioningState: string;
         /**
          * Describes the source of connection monitor.
          */
-        source: outputs.network.ConnectionMonitorSourceResponse;
+        source?: outputs.network.ConnectionMonitorSourceResponse;
         /**
          * The date and time when the connection monitor was started.
          */
-        startTime?: string;
+        startTime: string;
+        /**
+         * List of connection monitor test configurations.
+         */
+        testConfigurations?: outputs.network.ConnectionMonitorTestConfigurationResponse[];
+        /**
+         * List of connection monitor test groups.
+         */
+        testGroups?: outputs.network.ConnectionMonitorTestGroupResponse[];
     }
 
     /**
@@ -29065,6 +29132,108 @@ export namespace network {
          * The ID of the resource used as the source by connection monitor.
          */
         resourceId: string;
+    }
+
+    /**
+     * Describes the threshold for declaring a test successful.
+     */
+    export interface ConnectionMonitorSuccessThresholdResponse {
+        /**
+         * The maximum percentage of failed checks permitted for a test to evaluate as successful.
+         */
+        checksFailedPercent?: number;
+        /**
+         * The maximum round-trip time in milliseconds permitted for a test to evaluate as successful.
+         */
+        roundTripTimeMs?: number;
+    }
+
+    /**
+     * Describes the TCP configuration.
+     */
+    export interface ConnectionMonitorTcpConfigurationResponse {
+        /**
+         * Value indicating whether path evaluation with trace route should be disabled.
+         */
+        disableTraceRoute?: boolean;
+        /**
+         * The port to connect to.
+         */
+        port?: number;
+    }
+
+    /**
+     * Describes a connection monitor test configuration.
+     */
+    export interface ConnectionMonitorTestConfigurationResponse {
+        /**
+         * The parameters used to perform test evaluation over HTTP.
+         */
+        httpConfiguration?: outputs.network.ConnectionMonitorHttpConfigurationResponse;
+        /**
+         * The parameters used to perform test evaluation over ICMP.
+         */
+        icmpConfiguration?: outputs.network.ConnectionMonitorIcmpConfigurationResponse;
+        /**
+         * The name of the connection monitor test configuration.
+         */
+        name: string;
+        /**
+         * The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
+         */
+        preferredIPVersion?: string;
+        /**
+         * The protocol to use in test evaluation.
+         */
+        protocol: string;
+        /**
+         * The threshold for declaring a test successful.
+         */
+        successThreshold?: outputs.network.ConnectionMonitorSuccessThresholdResponse;
+        /**
+         * The parameters used to perform test evaluation over TCP.
+         */
+        tcpConfiguration?: outputs.network.ConnectionMonitorTcpConfigurationResponse;
+        /**
+         * The frequency of test evaluation, in seconds.
+         */
+        testFrequencySec?: number;
+    }
+
+    /**
+     * Describes the connection monitor test group.
+     */
+    export interface ConnectionMonitorTestGroupResponse {
+        /**
+         * List of destination endpoint names.
+         */
+        destinations: string[];
+        /**
+         * Value indicating whether test group is disabled.
+         */
+        disable?: boolean;
+        /**
+         * The name of the connection monitor test group.
+         */
+        name: string;
+        /**
+         * List of source endpoint names.
+         */
+        sources: string[];
+        /**
+         * List of test configuration names.
+         */
+        testConfigurations: string[];
+    }
+
+    /**
+     * Describes the settings for producing output into a log analytics workspace.
+     */
+    export interface ConnectionMonitorWorkspaceSettingsResponse {
+        /**
+         * Log analytics workspace resource ID.
+         */
+        workspaceResourceId?: string;
     }
 
     /**
@@ -29814,6 +29983,10 @@ export namespace network {
          */
         provisioningState: string;
         /**
+         * The Routing Configuration indicating the associated and propagated route tables on this connection.
+         */
+        routingConfiguration?: outputs.network.RoutingConfigurationResponse;
+        /**
          * The routing weight associated to the connection.
          */
         routingWeight?: number;
@@ -30527,6 +30700,20 @@ export namespace network {
          * A list of availability zones denoting the IP allocated for the resource needs to come from.
          */
         zones?: string[];
+    }
+
+    /**
+     * The HTTP header.
+     */
+    export interface HTTPHeaderResponse {
+        /**
+         * The name in HTTP header.
+         */
+        name?: string;
+        /**
+         * The value in HTTP header.
+         */
+        value?: string;
     }
 
     /**
@@ -36944,21 +37131,21 @@ export namespace recoveryservices {
     }
 
     /**
-     * Private Endpoint Connection Response Properties
+     * Private Endpoint Connection Response Properties.
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * Gets or sets private endpoint associated with the private endpoint connection
+         * The Private Endpoint network resource that is linked to the Private Endpoint connection.
          */
         privateEndpoint?: outputs.recoveryservices.PrivateEndpointResponse;
         /**
-         * Gets or sets private link service connection state
+         * Gets or sets private link service connection state.
          */
         privateLinkServiceConnectionState?: outputs.recoveryservices.PrivateLinkServiceConnectionStateResponse;
         /**
-         * Gets or sets provisioning state of the private endpoint connection
+         * Gets or sets provisioning state of the private endpoint connection.
          */
-        provisioningState?: string;
+        provisioningState: string;
     }
 
     /**
@@ -36976,31 +37163,31 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
      */
     export interface PrivateEndpointResponse {
         /**
-         * Gets or sets id
+         * Gets or sets id.
          */
-        id?: string;
+        id: string;
     }
 
     /**
-     * Private Link Service Connection State
+     * Gets or sets private link service connection state.
      */
     export interface PrivateLinkServiceConnectionStateResponse {
         /**
-         * Gets or sets actions required
+         * Gets or sets actions required.
          */
-        actionRequired?: string;
+        actionsRequired: string;
         /**
-         * Gets or sets description
+         * Gets or sets description.
          */
-        description?: string;
+        description: string;
         /**
-         * Gets or sets the status
+         * Gets or sets the status.
          */
-        status?: string;
+        status: string;
     }
 
     /**
@@ -45024,58 +45211,8 @@ export namespace vmwarecloudsimple {
 }
 
 export namespace web {
-    export interface ApiConnectionDefinitionResponseProperties {
-        api?: outputs.web.ApiReferenceResponse;
-        /**
-         * Timestamp of last connection change
-         */
-        changedTime?: string;
-        /**
-         * Timestamp of the connection creation
-         */
-        createdTime?: string;
-        /**
-         * Dictionary of custom parameter values
-         */
-        customParameterValues?: {[key: string]: string};
-        /**
-         * Display name
-         */
-        displayName?: string;
-        /**
-         * Dictionary of nonsecret parameter values
-         */
-        nonSecretParameterValues?: {[key: string]: string};
-        /**
-         * Dictionary of parameter values
-         */
-        parameterValues?: {[key: string]: string};
-        /**
-         * Status of the connection
-         */
-        statuses?: outputs.web.ConnectionStatusDefinitionResponse[];
-        /**
-         * Links to test the API connection
-         */
-        testLinks?: outputs.web.ApiConnectionTestLinkResponse[];
-    }
-
     /**
-     * API connection properties
-     */
-    export interface ApiConnectionTestLinkResponse {
-        /**
-         * HTTP Method
-         */
-        method?: string;
-        /**
-         * Test link request URI
-         */
-        requestUri?: string;
-    }
-
-    /**
-     * Information about the formal API definition for the web app.
+     * Information about the formal API definition for the app.
      */
     export interface ApiDefinitionInfoResponse {
         /**
@@ -45084,63 +45221,178 @@ export namespace web {
         url?: string;
     }
 
-    export interface ApiReferenceResponse {
+    /**
+     * Azure API management (APIM) configuration linked to the app.
+     */
+    export interface ApiManagementConfigResponse {
         /**
-         * Brand color
-         */
-        brandColor?: string;
-        /**
-         * The custom API description
-         */
-        description?: string;
-        /**
-         * The display name
-         */
-        displayName?: string;
-        /**
-         * The icon URI
-         */
-        iconUri?: string;
-        /**
-         * Resource reference id
+         * APIM-Api Identifier.
          */
         id?: string;
-        /**
-         * The name of the API
-         */
-        name?: string;
-        /**
-         * The JSON representation of the swagger
-         */
-        swagger?: {[key: string]: string};
-        /**
-         * Resource reference type
-         */
-        type?: string;
     }
 
     /**
-     * The API backend service
+     * Description of an App Service Environment.
      */
-    export interface ApiResourceBackendServiceResponse {
+    export interface AppServiceEnvironmentResponse {
         /**
-         * The service URL
+         * List of comma separated strings describing which VM sizes are allowed for front-ends.
          */
-        serviceUrl?: string;
-    }
-
-    /**
-     * API Definitions
-     */
-    export interface ApiResourceDefinitionsResponse {
+        allowedMultiSizes: string;
         /**
-         * The modified swagger URL
+         * List of comma separated strings describing which VM sizes are allowed for workers.
          */
-        modifiedSwaggerUrl?: string;
+        allowedWorkerSizes: string;
         /**
-         * The original swagger URL
+         * API Management Account associated with the App Service Environment.
          */
-        originalSwaggerUrl?: string;
+        apiManagementAccountId?: string;
+        /**
+         * Custom settings for changing the behavior of the App Service Environment.
+         */
+        clusterSettings?: outputs.web.NameValuePairResponse[];
+        /**
+         * Edition of the metadata database for the App Service Environment, e.g. "Standard".
+         */
+        databaseEdition: string;
+        /**
+         * Service objective of the metadata database for the App Service Environment, e.g. "S0".
+         */
+        databaseServiceObjective: string;
+        /**
+         * Default Scale Factor for FrontEnds.
+         */
+        defaultFrontEndScaleFactor: number;
+        /**
+         * DNS suffix of the App Service Environment.
+         */
+        dnsSuffix?: string;
+        /**
+         * True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+         * (most likely because NSG blocked the incoming traffic).
+         */
+        dynamicCacheEnabled?: boolean;
+        /**
+         * Current total, used, and available worker capacities.
+         */
+        environmentCapacities: outputs.web.StampCapacityResponse[];
+        /**
+         * True/false indicating whether the App Service Environment is healthy.
+         */
+        environmentIsHealthy: boolean;
+        /**
+         * Detailed message about with results of the last check of the App Service Environment.
+         */
+        environmentStatus: string;
+        /**
+         * Scale factor for front-ends.
+         */
+        frontEndScaleFactor?: number;
+        /**
+         * Flag that displays whether an ASE has linux workers or not
+         */
+        hasLinuxWorkers?: boolean;
+        /**
+         * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+         */
+        internalLoadBalancingMode?: string;
+        /**
+         * Number of IP SSL addresses reserved for the App Service Environment.
+         */
+        ipsslAddressCount?: number;
+        /**
+         * Last deployment action on the App Service Environment.
+         */
+        lastAction: string;
+        /**
+         * Result of the last deployment action on the App Service Environment.
+         */
+        lastActionResult: string;
+        /**
+         * Location of the App Service Environment, e.g. "West US".
+         */
+        location: string;
+        /**
+         * Maximum number of VMs in the App Service Environment.
+         */
+        maximumNumberOfMachines: number;
+        /**
+         * Number of front-end instances.
+         */
+        multiRoleCount?: number;
+        /**
+         * Front-end VM size, e.g. "Medium", "Large".
+         */
+        multiSize?: string;
+        /**
+         * Name of the App Service Environment.
+         */
+        name: string;
+        /**
+         * Access control list for controlling traffic to the App Service Environment.
+         */
+        networkAccessControlList?: outputs.web.NetworkAccessControlEntryResponse[];
+        /**
+         * Provisioning state of the App Service Environment.
+         */
+        provisioningState: string;
+        /**
+         * Resource group of the App Service Environment.
+         */
+        resourceGroup: string;
+        /**
+         * Key Vault ID for ILB App Service Environment default SSL certificate
+         */
+        sslCertKeyVaultId?: string;
+        /**
+         * Key Vault Secret Name for ILB App Service Environment default SSL certificate
+         */
+        sslCertKeyVaultSecretName?: string;
+        /**
+         * Current status of the App Service Environment.
+         */
+        status: string;
+        /**
+         * Subscription of the App Service Environment.
+         */
+        subscriptionId: string;
+        /**
+         * <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+         *  (most likely because NSG blocked the incoming traffic).
+         */
+        suspended?: boolean;
+        /**
+         * Number of upgrade domains of the App Service Environment.
+         */
+        upgradeDomains: number;
+        /**
+         * User added ip ranges to whitelist on ASE db
+         */
+        userWhitelistedIpRanges?: string[];
+        /**
+         * Description of IP SSL mapping for the App Service Environment.
+         */
+        vipMappings: outputs.web.VirtualIPMappingResponse[];
+        /**
+         * Description of the Virtual Network.
+         */
+        virtualNetwork: outputs.web.VirtualNetworkProfileResponse;
+        /**
+         * Name of the Virtual Network for the App Service Environment.
+         */
+        vnetName?: string;
+        /**
+         * Resource group of the Virtual Network.
+         */
+        vnetResourceGroupName?: string;
+        /**
+         * Subnet of the Virtual Network.
+         */
+        vnetSubnetName?: string;
+        /**
+         * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+         */
+        workerPools: outputs.web.WorkerPoolResponse[];
     }
 
     /**
@@ -45234,72 +45486,71 @@ export namespace web {
     }
 
     /**
-     * AutoHealActions - Describes the actions which can be
-     *             taken by the auto-heal module when a rule is triggered.
+     * Actions which to take by the auto-heal module when a rule is triggered.
      */
     export interface AutoHealActionsResponse {
         /**
-         * ActionType - predefined action to be taken
+         * Predefined action to be taken.
          */
-        actionType: string;
+        actionType?: string;
         /**
-         * CustomAction - custom action to be taken
+         * Custom action to be taken.
          */
         customAction?: outputs.web.AutoHealCustomActionResponse;
         /**
-         * MinProcessExecutionTime - minimum time the process must execute
-         *             before taking the action
+         * Minimum time the process must execute
+         * before taking the action
          */
         minProcessExecutionTime?: string;
     }
 
     /**
-     * AutoHealCustomAction - Describes the custom action to be executed
-     *             when an auto heal rule is triggered.
+     * Custom action to be executed
+     * when an auto heal rule is triggered.
      */
     export interface AutoHealCustomActionResponse {
         /**
-         * Executable to be run
+         * Executable to be run.
          */
         exe?: string;
         /**
-         * Parameters for the executable
+         * Parameters for the executable.
          */
         parameters?: string;
     }
 
     /**
-     * AutoHealRules - describes the rules which can be defined for auto-heal
+     * Rules that can be defined for auto-heal.
      */
     export interface AutoHealRulesResponse {
         /**
-         * Actions - Actions to be executed when a rule is triggered
+         * Actions to be executed when a rule is triggered.
          */
         actions?: outputs.web.AutoHealActionsResponse;
         /**
-         * Triggers - Conditions that describe when to execute the auto-heal actions
+         * Conditions that describe when to execute the auto-heal actions.
          */
         triggers?: outputs.web.AutoHealTriggersResponse;
     }
 
     /**
-     * AutoHealTriggers - describes the triggers for auto-heal.
+     * Triggers for auto-heal.
      */
     export interface AutoHealTriggersResponse {
         /**
-         * PrivateBytesInKB - Defines a rule based on private bytes
+         * A rule based on private bytes.
          */
         privateBytesInKB?: number;
         /**
-         * Requests - Defines a rule based on total requests
+         * A rule based on total requests.
          */
         requests?: outputs.web.RequestsBasedTriggerResponse;
         /**
-         * SlowRequests - Defines a rule based on request execution time
+         * A rule based on request execution time.
          */
         slowRequests?: outputs.web.SlowRequestsBasedTriggerResponse;
         /**
-         * StatusCodes - Defines a rule based on status codes
+         * A rule based on status codes.
          */
         statusCodes?: outputs.web.StatusCodesBasedTriggerResponse[];
     }
@@ -45409,332 +45660,143 @@ export namespace web {
     }
 
     /**
-     * Represents information needed for cloning operation
+     * Information needed for cloning operation.
      */
     export interface CloningInfoResponse {
         /**
-         * Application settings overrides for cloned web app. If specified these settings will override the settings cloned 
-         *             from source web app. If not specified, application settings from source web app are retained.
+         * Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+         * from source app. Otherwise, application settings from source app are retained.
          */
         appSettingsOverrides?: {[key: string]: string};
         /**
-         * If true, clone custom hostnames from source web app
+         * <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
          */
         cloneCustomHostNames?: boolean;
         /**
-         * Clone source control from source web app
+         * <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
          */
         cloneSourceControl?: boolean;
         /**
-         * If specified configure load balancing for source and clone site
+         * <code>true</code> to configure load balancing for source and destination app.
          */
         configureLoadBalancing?: boolean;
         /**
-         * Correlation Id of cloning operation. This id ties multiple cloning operations
-         *             together to use the same snapshot
+         * Correlation ID of cloning operation. This ID ties multiple cloning operations
+         * together to use the same snapshot.
          */
         correlationId?: string;
         /**
-         * Hosting environment
+         * App Service Environment.
          */
         hostingEnvironment?: string;
         /**
-         * Overwrite destination web app
+         * <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
          */
         overwrite?: boolean;
         /**
-         * ARM resource id of the source web app. Web app resource id is of the form 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots
+         * ARM resource ID of the source app. App resource ID is of the form 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
          */
-        sourceWebAppId?: string;
+        sourceWebAppId: string;
         /**
-         * ARM resource id of the traffic manager profile to use if it exists. Traffic manager resource id is of the form 
-         *             /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}
+         * Location of source app ex: West US or North Europe
+         */
+        sourceWebAppLocation?: string;
+        /**
+         * ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+         * /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
          */
         trafficManagerProfileId?: string;
         /**
-         * Name of traffic manager profile to create. This is only needed if traffic manager profile does not already exist
+         * Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
          */
         trafficManagerProfileName?: string;
     }
 
     /**
-     * Represents database connection string information
+     * Database connection string information.
      */
     export interface ConnStringInfoResponse {
         /**
-         * Connection string value
+         * Connection string value.
          */
         connectionString?: string;
         /**
-         * Name of connection string
+         * Name of connection string.
          */
         name?: string;
         /**
-         * Type of database
-         */
-        type: string;
-    }
-
-    /**
-     * Connection error
-     */
-    export interface ConnectionErrorResponse {
-        /**
-         * Resource ETag
-         */
-        etag?: string;
-        /**
-         * Resource id
-         */
-        id: string;
-        /**
-         * Resource location
-         */
-        location?: string;
-        /**
-         * Resource name
-         */
-        name: string;
-        properties?: outputs.web.ConnectionErrorResponseProperties;
-        /**
-         * Resource tags
-         */
-        tags?: outputs.web.TagsDictionaryResponse;
-        /**
-         * Resource type
-         */
-        type: string;
-    }
-
-    export interface ConnectionErrorResponseProperties {
-        /**
-         * Code of the status
-         */
-        code?: string;
-        /**
-         * Description of the status
-         */
-        message?: string;
-    }
-
-    export interface ConnectionGatewayDefinitionResponseProperties {
-        /**
-         * The URI of the backend
-         */
-        backendUri?: string;
-        /**
-         * The gateway installation reference
-         */
-        connectionGatewayInstallation?: outputs.web.ConnectionGatewayReferenceResponse;
-        /**
-         * The gateway admin
-         */
-        contactInformation?: string[];
-        /**
-         * The gateway description
-         */
-        description?: string;
-        /**
-         * The gateway display name
-         */
-        displayName?: string;
-        /**
-         * The machine name of the gateway
-         */
-        machineName?: string;
-        /**
-         * The gateway status
-         */
-        status?: {[key: string]: string};
-    }
-
-    /**
-     * The gateway installation reference
-     */
-    export interface ConnectionGatewayReferenceResponse {
-        /**
-         * Resource reference id
-         */
-        id?: string;
-        /**
-         * Resource reference location
-         */
-        location?: string;
-        /**
-         * Resource reference name
-         */
-        name?: string;
-        /**
-         * Resource reference type
+         * Type of database.
          */
         type?: string;
     }
 
     /**
-     * Connection status
-     */
-    export interface ConnectionStatusDefinitionResponse {
-        /**
-         * Connection error
-         */
-        error?: outputs.web.ConnectionErrorResponse;
-        /**
-         * The gateway status
-         */
-        status?: string;
-        /**
-         * Target of the error
-         */
-        target?: string;
-    }
-
-    /**
-     * Cross-Origin Resource Sharing (CORS) settings for the web app.
+     * Cross-Origin Resource Sharing (CORS) settings for the app.
      */
     export interface CorsSettingsResponse {
         /**
          * Gets or sets the list of origins that should be allowed to make cross-origin
-         *             calls (for example: http://example.com:12345). Use "*" to allow all.
+         * calls (for example: http://example.com:12345). Use "*" to allow all.
          */
         allowedOrigins?: string[];
-    }
-
-    export interface CsrResponseProperties {
         /**
-         * Actual CSR string created
+         * Gets or sets whether CORS requests with credentials are allowed. See 
+         * https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+         * for more details.
          */
-        csrString?: string;
-        /**
-         * Distinguished name of certificate to be created
-         */
-        distinguishedName?: string;
-        /**
-         * Hosting environment
-         */
-        hostingEnvironment?: string;
-        /**
-         * Name used to locate CSR object
-         */
-        name?: string;
-        /**
-         * PFX password
-         */
-        password?: string;
-        /**
-         * PFX certificate of created certificate
-         */
-        pfxBlob?: string;
-        /**
-         * Hash of the certificates public key
-         */
-        publicKeyHash?: string;
+        supportCredentials?: boolean;
     }
 
     /**
-     * Custom API properties
+     * Deployment resource specific properties
      */
-    export interface CustomApiPropertiesDefinitionResponse {
-        /**
-         * API Definitions
-         */
-        apiDefinitions?: outputs.web.ApiResourceDefinitionsResponse;
-        /**
-         * The API type
-         */
-        apiType?: string;
-        /**
-         * The API backend service
-         */
-        backendService?: outputs.web.ApiResourceBackendServiceResponse;
-        /**
-         * Brand color
-         */
-        brandColor?: string;
-        /**
-         * The custom API capabilities
-         */
-        capabilities?: string[];
-        /**
-         * Connection parameters
-         */
-        connectionParameters?: {[key: string]: string};
-        /**
-         * The custom API description
-         */
-        description?: string;
-        /**
-         * The display name
-         */
-        displayName?: string;
-        /**
-         * The icon URI
-         */
-        iconUri?: string;
-        /**
-         * Runtime URLs
-         */
-        runtimeUrls?: string[];
-        /**
-         * The JSON representation of the swagger
-         */
-        swagger?: {[key: string]: string};
-        /**
-         * The WSDL definition
-         */
-        wsdlDefinition?: outputs.web.WsdlDefinitionResponse;
-    }
-
     export interface DeploymentResponseProperties {
         /**
-         * Active
+         * True if deployment is currently active, false if completed and null if not started.
          */
         active?: boolean;
         /**
-         * Author
+         * Who authored the deployment.
          */
         author?: string;
         /**
-         * AuthorEmail
+         * Author email.
          */
         author_email?: string;
         /**
-         * Deployer
+         * Who performed the deployment.
          */
         deployer?: string;
         /**
-         * Detail
+         * Details on deployment.
          */
         details?: string;
         /**
-         * EndTime
+         * End time.
          */
         end_time?: string;
         /**
-         * Id
-         */
-        id?: string;
-        /**
-         * Message
+         * Details about deployment status.
          */
         message?: string;
         /**
-         * StartTime
+         * Start time.
          */
         start_time?: string;
         /**
-         * Status
+         * Deployment status.
          */
         status?: number;
     }
 
     /**
-     * Class containing Routing in production experiments
+     * Routing rules in production experiments.
      */
     export interface ExperimentsResponse {
         /**
-         * List of {Microsoft.Web.Hosting.Administration.RampUpRule} objects.
+         * List of ramp-up rules.
          */
         rampUpRules?: outputs.web.RampUpRuleResponse[];
     }
@@ -45799,7 +45861,7 @@ export namespace web {
 
     /**
      * The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
-     *             For example it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
+     * For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
      */
     export interface HandlerMappingResponse {
         /**
@@ -45816,59 +45878,74 @@ export namespace web {
         scriptProcessor?: string;
     }
 
+    /**
+     * HostNameBinding resource specific properties
+     */
     export interface HostNameBindingResponseProperties {
         /**
-         * Azure resource name
+         * Azure resource name.
          */
         azureResourceName?: string;
         /**
-         * Azure resource type
+         * Azure resource type.
          */
         azureResourceType?: string;
         /**
-         * Custom DNS record type
+         * Custom DNS record type.
          */
         customHostNameDnsRecordType?: string;
         /**
-         * Fully qualified ARM domain resource URI
+         * Fully qualified ARM domain resource URI.
          */
         domainId?: string;
         /**
-         * Host name type
+         * Hostname type.
          */
         hostNameType?: string;
         /**
-         * Hostname
-         */
-        name?: string;
-        /**
-         * Web app name
+         * App Service app name.
          */
         siteName?: string;
-    }
-
-    /**
-     * Object that represents a SSL-enabled host name.
-     */
-    export interface HostNameSslStateResponse {
-        /**
-         * Host name
-         */
-        name?: string;
         /**
          * SSL type
          */
-        sslState: string;
+        sslState?: string;
         /**
-         * SSL cert thumbprint
+         * SSL certificate thumbprint
          */
         thumbprint?: string;
         /**
-         * Set this flag to update existing host name
+         * Virtual IP address assigned to the hostname if IP based SSL is enabled.
+         */
+        virtualIP: string;
+    }
+
+    /**
+     * SSL-enabled hostname.
+     */
+    export interface HostNameSslStateResponse {
+        /**
+         * Indicates whether the hostname is a standard or repository hostname.
+         */
+        hostType?: string;
+        /**
+         * Hostname.
+         */
+        name?: string;
+        /**
+         * SSL type.
+         */
+        sslState?: string;
+        /**
+         * SSL certificate thumbprint.
+         */
+        thumbprint?: string;
+        /**
+         * Set to <code>true</code> to update existing hostname.
          */
         toUpdate?: boolean;
         /**
-         * Virtual IP address assigned to the host name if IP based SSL is enabled
+         * Virtual IP address assigned to the hostname if IP based SSL is enabled.
          */
         virtualIP?: string;
     }
@@ -45889,138 +45966,6 @@ export namespace web {
          * Resource type of the App Service Environment.
          */
         type: string;
-    }
-
-    export interface HostingEnvironmentResponseProperties {
-        /**
-         * List of comma separated strings describing which VM sizes are allowed for front-ends
-         */
-        allowedMultiSizes?: string;
-        /**
-         * List of comma separated strings describing which VM sizes are allowed for workers
-         */
-        allowedWorkerSizes?: string;
-        /**
-         * Api Management Account associated with this Hosting Environment
-         */
-        apiManagementAccountId?: string;
-        /**
-         * Custom settings for changing the behavior of the hosting environment
-         */
-        clusterSettings?: outputs.web.NameValuePairResponse[];
-        /**
-         * Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-         */
-        databaseEdition?: string;
-        /**
-         * Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-         */
-        databaseServiceObjective?: string;
-        /**
-         * DNS suffix of the hostingEnvironment (App Service Environment)
-         */
-        dnsSuffix?: string;
-        /**
-         * Current total, used, and available worker capacities
-         */
-        environmentCapacities?: outputs.web.StampCapacityResponse[];
-        /**
-         * True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-         */
-        environmentIsHealthy?: boolean;
-        /**
-         * Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-         */
-        environmentStatus?: string;
-        /**
-         * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-         */
-        internalLoadBalancingMode?: string;
-        /**
-         * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-         */
-        ipsslAddressCount?: number;
-        /**
-         * Last deployment action on this hostingEnvironment (App Service Environment)
-         */
-        lastAction?: string;
-        /**
-         * Result of the last deployment action on this hostingEnvironment (App Service Environment)
-         */
-        lastActionResult?: string;
-        /**
-         * Location of the hostingEnvironment (App Service Environment), e.g. "West US"
-         */
-        location?: string;
-        /**
-         * Maximum number of VMs in this hostingEnvironment (App Service Environment)
-         */
-        maximumNumberOfMachines?: number;
-        /**
-         * Number of front-end instances
-         */
-        multiRoleCount?: number;
-        /**
-         * Front-end VM size, e.g. "Medium", "Large"
-         */
-        multiSize?: string;
-        /**
-         * Name of the hostingEnvironment (App Service Environment)
-         */
-        name?: string;
-        /**
-         * Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-         */
-        networkAccessControlList?: outputs.web.NetworkAccessControlEntryResponse[];
-        /**
-         * Provisioning state of the hostingEnvironment (App Service Environment)
-         */
-        provisioningState?: string;
-        /**
-         * Resource group of the hostingEnvironment (App Service Environment)
-         */
-        resourceGroup?: string;
-        /**
-         * Current status of the hostingEnvironment (App Service Environment)
-         */
-        status: string;
-        /**
-         * Subscription of the hostingEnvironment (App Service Environment)
-         */
-        subscriptionId?: string;
-        /**
-         * True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-         *             (most likely because NSG blocked the incoming traffic)
-         */
-        suspended?: boolean;
-        /**
-         * Number of upgrade domains of this hostingEnvironment (App Service Environment)
-         */
-        upgradeDomains?: number;
-        /**
-         * Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-         */
-        vipMappings?: outputs.web.VirtualIPMappingResponse[];
-        /**
-         * Description of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        virtualNetwork?: outputs.web.VirtualNetworkProfileResponse;
-        /**
-         * Name of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetName?: string;
-        /**
-         * Resource group of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetResourceGroupName?: string;
-        /**
-         * Subnet of the hostingEnvironment's (App Service Environment) virtual network
-         */
-        vnetSubnetName?: string;
-        /**
-         * Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-         */
-        workerPools?: outputs.web.WorkerPoolResponse[];
     }
 
     /**
@@ -46073,38 +46018,136 @@ export namespace web {
     }
 
     /**
-     * Represents an ip security restriction on a web app.
+     * IP security restriction on an app.
      */
     export interface IpSecurityRestrictionResponse {
         /**
-         * IP address the security restriction is valid for
+         * Allow or Deny access for this IP range.
+         */
+        action?: string;
+        /**
+         * IP restriction rule description.
+         */
+        description?: string;
+        /**
+         * IP address the security restriction is valid for.
+         * It can be in form of pure ipv4 address (required SubnetMask property) or
+         * CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+         * SubnetMask property must not be specified.
          */
         ipAddress?: string;
         /**
-         * Subnet mask for the range of IP addresses the restriction is valid for
-         */
-        subnetMask?: string;
-    }
-
-    /**
-     * Name value pair
-     */
-    export interface NameValuePairResponse {
-        /**
-         * Pair name
+         * IP restriction rule name.
          */
         name?: string;
         /**
-         * Pair value
+         * Priority of IP restriction rule.
+         */
+        priority?: number;
+        /**
+         * Subnet mask for the range of IP addresses the restriction is valid for.
+         */
+        subnetMask?: string;
+        /**
+         * (internal) Subnet traffic tag
+         */
+        subnetTrafficTag?: number;
+        /**
+         * Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+         */
+        tag?: string;
+        /**
+         * Virtual network resource id
+         */
+        vnetSubnetResourceId?: string;
+        /**
+         * (internal) Vnet traffic tag
+         */
+        vnetTrafficTag?: number;
+    }
+
+    /**
+     * Managed service identity.
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * Principal Id of managed service identity.
+         */
+        principalId: string;
+        /**
+         * Tenant of managed service identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity.
+         */
+        type?: string;
+        /**
+         * The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+         */
+        userAssignedIdentities?: {[key: string]: string};
+    }
+
+    /**
+     * Name value pair.
+     */
+    export interface NameValuePairResponse {
+        /**
+         * Pair name.
+         */
+        name?: string;
+        /**
+         * Pair value.
          */
         value?: string;
     }
 
+    /**
+     * Network access control entry.
+     */
     export interface NetworkAccessControlEntryResponse {
+        /**
+         * Action object.
+         */
         action?: string;
+        /**
+         * Description of network access control entry.
+         */
         description?: string;
+        /**
+         * Order of precedence.
+         */
         order?: number;
+        /**
+         * Remote subnet.
+         */
         remoteSubnet?: string;
+    }
+
+    /**
+     * PremierAddOn resource specific properties
+     */
+    export interface PremierAddOnResponseProperties {
+        /**
+         * Premier add on Marketplace offer.
+         */
+        marketplaceOffer?: string;
+        /**
+         * Premier add on Marketplace publisher.
+         */
+        marketplacePublisher?: string;
+        /**
+         * Premier add on Product.
+         */
+        product?: string;
+        /**
+         * Premier add on SKU.
+         */
+        sku?: string;
+        /**
+         * Premier add on Vendor.
+         */
+        vendor?: string;
     }
 
     /**
@@ -46144,34 +46187,85 @@ export namespace web {
     }
 
     /**
-     * Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance
+     * Push settings for the App.
+     */
+    export interface PushSettingsResponse {
+        /**
+         * Resource Id.
+         */
+        id: string;
+        /**
+         * Kind of resource.
+         */
+        kind?: string;
+        /**
+         * Resource Name.
+         */
+        name: string;
+        /**
+         * PushSettings resource specific properties
+         */
+        properties?: outputs.web.PushSettingsResponseProperties;
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * PushSettings resource specific properties
+     */
+    export interface PushSettingsResponseProperties {
+        /**
+         * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+         */
+        dynamicTagsJson?: string;
+        /**
+         * Gets or sets a flag indicating whether the Push endpoint is enabled.
+         */
+        isPushEnabled: boolean;
+        /**
+         * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+         */
+        tagWhitelistJson?: string;
+        /**
+         * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+         * Tags can consist of alphanumeric characters and the following:
+         * '_', '@', '#', '.', ':', '-'. 
+         * Validation should be performed at the PushRequestHandler.
+         */
+        tagsRequiringAuth?: string;
+    }
+
+    /**
+     * Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
      */
     export interface RampUpRuleResponse {
         /**
-         * Hostname of a slot to which the traffic will be redirected if decided to. E.g. mysite-stage.azurewebsites.net
+         * Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
          */
         actionHostName?: string;
         /**
-         * Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified. See TiPCallback site extension for the scaffold and contracts.
-         *             https://www.siteextensions.net/packages/TiPCallback/
+         * Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+         * https://www.siteextensions.net/packages/TiPCallback/
          */
         changeDecisionCallbackUrl?: string;
         /**
-         * [Optional] Specifies interval in minutes to reevaluate ReroutePercentage
+         * Specifies interval in minutes to reevaluate ReroutePercentage.
          */
         changeIntervalInMinutes?: number;
         /**
-         * [Optional] In auto ramp up scenario this is the step to add/remove from {Microsoft.Web.Hosting.Administration.RampUpRule.ReroutePercentage} until it reaches 
-         *             {Microsoft.Web.Hosting.Administration.RampUpRule.MinReroutePercentage} or {Microsoft.Web.Hosting.Administration.RampUpRule.MaxReroutePercentage}. Site metrics are checked every N minutes specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeIntervalInMinutes}.
-         *             Custom decision algorithm can be provided in TiPCallback site extension which Url can be specified in {Microsoft.Web.Hosting.Administration.RampUpRule.ChangeDecisionCallbackUrl}
+         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or 
+         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm 
+         * can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
          */
         changeStep?: number;
         /**
-         * [Optional] Specifies upper boundary below which ReroutePercentage will stay.
+         * Specifies upper boundary below which ReroutePercentage will stay.
          */
         maxReroutePercentage?: number;
         /**
-         * [Optional] Specifies lower boundary above which ReroutePercentage will stay.
+         * Specifies lower boundary above which ReroutePercentage will stay.
          */
         minReroutePercentage?: number;
         /**
@@ -46179,11 +46273,14 @@ export namespace web {
          */
         name?: string;
         /**
-         * Percentage of the traffic which will be redirected to {Microsoft.Web.Hosting.Administration.RampUpRule.ActionHostName}
+         * Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
          */
         reroutePercentage?: number;
     }
 
+    /**
+     * RelayServiceConnectionEntity resource specific properties
+     */
     export interface RelayServiceConnectionEntityResponseProperties {
         biztalkUri?: string;
         entityConnectionString?: string;
@@ -46210,81 +46307,57 @@ export namespace web {
     }
 
     /**
-     * RequestsBasedTrigger
+     * Trigger based on total requests.
      */
     export interface RequestsBasedTriggerResponse {
         /**
-         * Count
+         * Request Count.
          */
         count?: number;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: string;
     }
 
     /**
-     * Configuration of Azure web site
+     * Configuration of an App Service app.
      */
     export interface SiteConfigResponse {
         /**
-         * Resource Id
-         */
-        id?: string;
-        /**
-         * Kind of resource
-         */
-        kind?: string;
-        /**
-         * Resource Location
-         */
-        location: string;
-        /**
-         * Resource Name
-         */
-        name?: string;
-        properties?: outputs.web.SiteConfigResponseProperties;
-        /**
-         * Resource tags
-         */
-        tags?: {[key: string]: string};
-        /**
-         * Resource type
-         */
-        type?: string;
-    }
-
-    export interface SiteConfigResponseProperties {
-        /**
-         * Always On
+         * <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
          */
         alwaysOn?: boolean;
         /**
-         * Information about the formal API definition for the web app.
+         * Information about the formal API definition for the app.
          */
         apiDefinition?: outputs.web.ApiDefinitionInfoResponse;
         /**
-         * App Command Line to launch
+         * Azure API management settings linked to the app.
+         */
+        apiManagementConfig?: outputs.web.ApiManagementConfigResponse;
+        /**
+         * App command line to launch.
          */
         appCommandLine?: string;
         /**
-         * Application Settings
+         * Application settings.
          */
         appSettings?: outputs.web.NameValuePairResponse[];
         /**
-         * Auto heal enabled
+         * <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
          */
         autoHealEnabled?: boolean;
         /**
-         * Auto heal rules
+         * Auto Heal rules.
          */
         autoHealRules?: outputs.web.AutoHealRulesResponse;
         /**
-         * Auto swap slot name
+         * Auto-swap slot name.
          */
         autoSwapSlotName?: string;
         /**
-         * Connection strings
+         * Connection strings.
          */
         connectionStrings?: outputs.web.ConnStringInfoResponse[];
         /**
@@ -46292,137 +46365,186 @@ export namespace web {
          */
         cors?: outputs.web.CorsSettingsResponse;
         /**
-         * Default documents
+         * Default documents.
          */
         defaultDocuments?: string[];
         /**
-         * Detailed error logging enabled
+         * <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
          */
         detailedErrorLoggingEnabled?: boolean;
         /**
-         * Document root
+         * Document root.
          */
         documentRoot?: string;
         /**
-         * This is work around for polymorphic types
+         * This is work around for polymorphic types.
          */
         experiments?: outputs.web.ExperimentsResponse;
         /**
-         * Handler mappings
+         * State of FTP / FTPS service
+         */
+        ftpsState?: string;
+        /**
+         * Handler mappings.
          */
         handlerMappings?: outputs.web.HandlerMappingResponse[];
         /**
-         * HTTP logging Enabled
+         * Health check path
+         */
+        healthCheckPath?: string;
+        /**
+         * Http20Enabled: configures a web site to allow clients to connect over http2.0
+         */
+        http20Enabled?: boolean;
+        /**
+         * <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
          */
         httpLoggingEnabled?: boolean;
         /**
-         * Ip Security restrictions
+         * IP security restrictions for main.
          */
         ipSecurityRestrictions?: outputs.web.IpSecurityRestrictionResponse[];
         /**
-         * Java container
+         * Java container.
          */
         javaContainer?: string;
         /**
-         * Java container version
+         * Java container version.
          */
         javaContainerVersion?: string;
         /**
-         * Java version
+         * Java version.
          */
         javaVersion?: string;
         /**
-         * Site limits
+         * Site limits.
          */
         limits?: outputs.web.SiteLimitsResponse;
         /**
-         * Site load balancing
+         * Linux App Framework and version
+         */
+        linuxFxVersion?: string;
+        /**
+         * Site load balancing.
          */
         loadBalancing?: string;
         /**
-         * Local mysql enabled
+         * <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
          */
         localMySqlEnabled?: boolean;
         /**
-         * HTTP Logs Directory size limit
+         * HTTP logs directory size limit.
          */
         logsDirectorySizeLimit?: number;
         /**
-         * Managed pipeline mode
+         * Site MachineKey.
+         */
+        machineKey: outputs.web.SiteMachineKeyResponse;
+        /**
+         * Managed pipeline mode.
          */
         managedPipelineMode?: string;
         /**
-         * Site Metadata
+         * Managed Service Identity Id
          */
-        metadata?: outputs.web.NameValuePairResponse[];
+        managedServiceIdentityId?: number;
         /**
-         * Net Framework Version
+         * MinTlsVersion: configures the minimum version of TLS required for SSL requests
+         */
+        minTlsVersion?: string;
+        /**
+         * .NET Framework version.
          */
         netFrameworkVersion?: string;
         /**
-         * Version of Node
+         * Version of Node.js.
          */
         nodeVersion?: string;
         /**
-         * Number of workers
+         * Number of workers.
          */
         numberOfWorkers?: number;
         /**
-         * Version of PHP
+         * Version of PHP.
          */
         phpVersion?: string;
         /**
-         * Publishing password
+         * Version of PowerShell.
          */
-        publishingPassword?: string;
+        powerShellVersion?: string;
         /**
-         * Publishing user name
+         * Number of preWarmed instances.
+         * This setting only applies to the Consumption and Elastic Plans
+         */
+        preWarmedInstanceCount?: number;
+        /**
+         * Publishing user name.
          */
         publishingUsername?: string;
         /**
-         * Version of Python
+         * Push endpoint settings.
+         */
+        push?: outputs.web.PushSettingsResponse;
+        /**
+         * Version of Python.
          */
         pythonVersion?: string;
         /**
-         * Remote Debugging Enabled
+         * <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * Remote Debugging Version
+         * Remote debugging version.
          */
         remoteDebuggingVersion?: string;
         /**
-         * Enable request tracing
+         * <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
          */
         requestTracingEnabled?: boolean;
         /**
-         * Request tracing expiration time
+         * Request tracing expiration time.
          */
         requestTracingExpirationTime?: string;
         /**
-         * SCM type
+         * IP security restrictions for scm.
+         */
+        scmIpSecurityRestrictions?: outputs.web.IpSecurityRestrictionResponse[];
+        /**
+         * IP security restrictions for scm to use main.
+         */
+        scmIpSecurityRestrictionsUseMain?: boolean;
+        /**
+         * SCM type.
          */
         scmType?: string;
         /**
-         * Tracing options
+         * Tracing options.
          */
         tracingOptions?: string;
         /**
-         * Use 32 bit worker process
+         * <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
          */
         use32BitWorkerProcess?: boolean;
         /**
-         * Virtual applications
+         * Virtual applications.
          */
         virtualApplications?: outputs.web.VirtualApplicationResponse[];
         /**
-         * Vnet name
+         * Virtual Network name.
          */
         vnetName?: string;
         /**
-         * Web socket enabled.
+         * <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
          */
         webSocketsEnabled?: boolean;
+        /**
+         * Xenon App Framework and version
+         */
+        windowsFxVersion?: string;
+        /**
+         * Explicit Managed Service Identity Id
+         */
+        xManagedServiceIdentityId?: number;
     }
 
     /**
@@ -46509,161 +46631,221 @@ export namespace web {
     }
 
     /**
-     * Represents metric limits set on a web app.
+     * Metric limits set on an app.
      */
     export interface SiteLimitsResponse {
         /**
-         * Maximum allowed disk size usage in MB
+         * Maximum allowed disk size usage in MB.
          */
         maxDiskSizeInMb?: number;
         /**
-         * Maximum allowed memory usage in MB
+         * Maximum allowed memory usage in MB.
          */
         maxMemoryInMb?: number;
         /**
-         * Maximum allowed CPU usage percentage
+         * Maximum allowed CPU usage percentage.
          */
         maxPercentageCpu?: number;
     }
 
+    /**
+     * MachineKey of an app.
+     */
+    export interface SiteMachineKeyResponse {
+        /**
+         * Algorithm used for decryption.
+         */
+        decryption?: string;
+        /**
+         * Decryption key.
+         */
+        decryptionKey?: string;
+        /**
+         * MachineKey validation.
+         */
+        validation?: string;
+        /**
+         * Validation key.
+         */
+        validationKey?: string;
+    }
+
+    /**
+     * Site resource specific properties
+     */
     export interface SiteResponseProperties {
         /**
-         * Management information availability state for the web app. Possible values are Normal or Limited. 
-         *             Normal means that the site is running correctly and that management information for the site is available. 
-         *             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+         * Management information availability state for the app.
          */
         availabilityState: string;
         /**
-         * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+         * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
          */
         clientAffinityEnabled?: boolean;
         /**
-         * Specifies if the client certificate is enabled for the web app
+         * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
          */
         clientCertEnabled?: boolean;
         /**
-         * This is only valid for web app creation. If specified, web app is cloned from 
-         *             a source web app
+         * client certificate authentication comma-separated exclusion paths
+         */
+        clientCertExclusionPaths?: string;
+        /**
+         * If specified during app creation, the app is cloned from a source app.
          */
         cloningInfo?: outputs.web.CloningInfoResponse;
         /**
-         * Size of a function container
+         * Size of the function container.
          */
         containerSize?: number;
         /**
-         * Default hostname of the web app
+         * Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+         */
+        dailyMemoryTimeQuota?: number;
+        /**
+         * Default hostname of the app. Read-only.
          */
         defaultHostName: string;
         /**
-         * True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+         * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
          */
         enabled?: boolean;
         /**
-         * Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
-         *             the app is not served on those hostnames
+         * Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
+         * the app is not served on those hostnames.
          */
         enabledHostNames: string[];
         /**
-         * Name of gateway app associated with web app
-         */
-        gatewaySiteName?: string;
-        /**
-         * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+         * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
          */
         hostNameSslStates?: outputs.web.HostNameSslStateResponse[];
         /**
-         * Hostnames associated with web app
+         * Hostnames associated with the app.
          */
         hostNames: string[];
         /**
-         * Specifies if the public hostnames are disabled the web app.
-         *             If set to true the app is only accessible via API Management process
+         * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+         *  If <code>true</code>, the app is only accessible via API management process.
          */
         hostNamesDisabled?: boolean;
         /**
-         * Specification for the hosting environment (App Service Environment) to use for the web app
+         * App Service Environment to use for the app.
          */
         hostingEnvironmentProfile?: outputs.web.HostingEnvironmentProfileResponse;
         /**
-         * Site is a default container
+         * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+         * http requests
+         */
+        httpsOnly?: boolean;
+        /**
+         * Hyper-V sandbox.
+         */
+        hyperV?: boolean;
+        /**
+         * Specifies an operation id if this site has a pending operation.
+         */
+        inProgressOperationId: string;
+        /**
+         * <code>true</code> if the app is a default container; otherwise, <code>false</code>.
          */
         isDefaultContainer: boolean;
         /**
-         * Last time web app was modified in UTC
+         * Obsolete: Hyper-V sandbox.
+         */
+        isXenon?: boolean;
+        /**
+         * Last time the app was modified, in UTC. Read-only.
          */
         lastModifiedTimeUtc: string;
         /**
-         * Maximum number of workers
-         *             This only applies to function container
+         * Maximum number of workers.
+         * This only applies to Functions container.
          */
-        maxNumberOfWorkers?: number;
-        microService?: string;
+        maxNumberOfWorkers: number;
         /**
-         * Name of web app
-         */
-        name?: string;
-        /**
-         * List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+         * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
          */
         outboundIpAddresses: string;
         /**
-         * If set indicates whether web app is deployed as a premium app
+         * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
          */
-        premiumAppDeployed: boolean;
+        possibleOutboundIpAddresses: string;
         /**
-         * Name of repository site
+         * Site redundancy mode
+         */
+        redundancyMode?: string;
+        /**
+         * Name of the repository site.
          */
         repositorySiteName: string;
         /**
-         * Resource group web app belongs to
+         * <code>true</code> if reserved; otherwise, <code>false</code>.
+         */
+        reserved?: boolean;
+        /**
+         * Name of the resource group the app belongs to. Read-only.
          */
         resourceGroup: string;
         /**
-         * If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+         * <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
          */
         scmSiteAlsoStopped?: boolean;
+        /**
+         * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+         */
         serverFarmId?: string;
         /**
-         * Configuration of web app
+         * Configuration of the app.
          */
         siteConfig?: outputs.web.SiteConfigResponse;
         /**
-         * State of the web app
+         * Status of the last deployment slot swap operation.
+         */
+        slotSwapStatus: outputs.web.SlotSwapStatusResponse;
+        /**
+         * Current state of the app.
          */
         state: string;
         /**
-         * Read-only property that specifies which slot this app will swap into
+         * App suspended till in case memory-time quota is exceeded.
+         */
+        suspendedTill: string;
+        /**
+         * Specifies which deployment slot this app will swap into. Read-only.
          */
         targetSwapSlot: string;
         /**
-         * Read-only list of Azure Traffic manager hostnames associated with web app
+         * Azure Traffic Manager hostnames associated with the app. Read-only.
          */
         trafficManagerHostNames: string[];
         /**
-         * State indicating whether web app has exceeded its quota usage
+         * State indicating whether the app has exceeded its quota usage. Read-only.
          */
         usageState: string;
     }
 
+    /**
+     * SiteSourceControl resource specific properties
+     */
     export interface SiteSourceControlResponseProperties {
         /**
-         * Name of branch to use for deployment
+         * Name of branch to use for deployment.
          */
         branch?: string;
         /**
-         * Whether to manual or continuous integration
+         * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
          */
         deploymentRollbackEnabled?: boolean;
         /**
-         * Whether to manual or continuous integration
+         * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
          */
         isManualIntegration?: boolean;
         /**
-         * Mercurial or Git repository type
+         * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
          */
         isMercurial?: boolean;
         /**
-         * Repository or source control url
+         * Repository or source control URL.
          */
         repoUrl?: string;
     }
@@ -46729,69 +46911,91 @@ export namespace web {
     }
 
     /**
-     * SlowRequestsBasedTrigger
+     * The status of the last successful slot swap operation.
+     */
+    export interface SlotSwapStatusResponse {
+        /**
+         * The destination slot of the last swap operation.
+         */
+        destinationSlotName: string;
+        /**
+         * The source slot of the last swap operation.
+         */
+        sourceSlotName: string;
+        /**
+         * The time the last successful slot swap completed.
+         */
+        timestampUtc: string;
+    }
+
+    /**
+     * Trigger based on request execution time.
      */
     export interface SlowRequestsBasedTriggerResponse {
         /**
-         * Count
+         * Request Count.
          */
         count?: number;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: string;
         /**
-         * TimeTaken
+         * Time taken.
          */
         timeTaken?: string;
     }
 
     /**
-     * Class containing stamp capacity information
+     * Stamp capacity information.
      */
     export interface StampCapacityResponse {
         /**
-         * Available capacity (# of machines, bytes of storage etc...)
+         * Available capacity (# of machines, bytes of storage etc...).
          */
         availableCapacity?: number;
         /**
-         * Shared/Dedicated workers
+         * Shared/dedicated workers.
          */
         computeMode?: string;
         /**
-         * If true it includes basic sites
-         *             Basic sites are not used for capacity allocation.
+         * If <code>true</code>, it includes basic apps.
+         * Basic apps are not used for capacity allocation.
          */
         excludeFromCapacityAllocation?: boolean;
         /**
-         * Is capacity applicable for all sites?
+         * <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
          */
         isApplicableForAllComputeModes?: boolean;
         /**
-         * Name of the stamp
+         * Is this a linux stamp capacity
+         */
+        isLinux?: boolean;
+        /**
+         * Name of the stamp.
          */
         name?: string;
         /**
-         * Shared or Dedicated
+         * Shared or Dedicated.
          */
         siteMode?: string;
         /**
-         * Total capacity (# of machines, bytes of storage etc...)
+         * Total capacity (# of machines, bytes of storage etc...).
          */
         totalCapacity?: number;
         /**
-         * Name of the unit
+         * Name of the unit.
          */
         unit?: string;
         /**
-         * Size of the machines
+         * Size of the machines.
          */
         workerSize?: string;
         /**
-         * Size Id of machines: 
-         *             0 - Small
-         *             1 - Medium
-         *             2 - Large
+         * Size ID of machines: 
+         * 0 - Small
+         * 1 - Medium
+         * 2 - Large
          */
         workerSizeId?: number;
     }
@@ -46845,27 +47049,27 @@ export namespace web {
     }
 
     /**
-     * StatusCodeBasedTrigger
+     * Trigger based on status code.
      */
     export interface StatusCodesBasedTriggerResponse {
         /**
-         * Count
+         * Request Count.
          */
         count?: number;
         /**
-         * HTTP status code
+         * HTTP status code.
          */
         status?: number;
         /**
-         * SubStatus
+         * Request Sub Status.
          */
         subStatus?: number;
         /**
-         * TimeInterval
+         * Time interval.
          */
         timeInterval?: string;
         /**
-         * Win32 error code
+         * Win32 error code.
          */
         win32Status?: number;
     }
@@ -46885,124 +47089,148 @@ export namespace web {
     }
 
     /**
-     * Resource tags
+     * Virtual application in an app.
      */
-    export interface TagsDictionaryResponse {
-    }
-
     export interface VirtualApplicationResponse {
+        /**
+         * Physical path.
+         */
         physicalPath?: string;
+        /**
+         * <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+         */
         preloadEnabled?: boolean;
+        /**
+         * Virtual directories for virtual application.
+         */
         virtualDirectories?: outputs.web.VirtualDirectoryResponse[];
-        virtualPath?: string;
-    }
-
-    export interface VirtualDirectoryResponse {
-        physicalPath?: string;
+        /**
+         * Virtual path.
+         */
         virtualPath?: string;
     }
 
     /**
-     * Class that represents a VIP mapping
+     * Directory for virtual application.
+     */
+    export interface VirtualDirectoryResponse {
+        /**
+         * Physical path.
+         */
+        physicalPath?: string;
+        /**
+         * Path to virtual application.
+         */
+        virtualPath?: string;
+    }
+
+    /**
+     * Virtual IP mapping.
      */
     export interface VirtualIPMappingResponse {
         /**
-         * Is VIP mapping in use
+         * Is virtual IP mapping in use.
          */
         inUse?: boolean;
         /**
-         * Internal HTTP port
+         * Internal HTTP port.
          */
         internalHttpPort?: number;
         /**
-         * Internal HTTPS port
+         * Internal HTTPS port.
          */
         internalHttpsPort?: number;
         /**
-         * Virtual IP address
+         * name of the service that virtual IP is assigned to
+         */
+        serviceName?: string;
+        /**
+         * Virtual IP address.
          */
         virtualIP?: string;
     }
 
     /**
-     * Specification for using a virtual network
+     * Specification for using a Virtual Network.
      */
     export interface VirtualNetworkProfileResponse {
         /**
-         * Resource id of the virtual network
+         * Resource id of the Virtual Network.
          */
         id?: string;
         /**
-         * Name of the virtual network (read-only)
+         * Name of the Virtual Network (read-only).
          */
-        name?: string;
+        name: string;
         /**
-         * Subnet within the virtual network
+         * Subnet within the Virtual Network.
          */
         subnet?: string;
         /**
-         * Resource type of the virtual network (read-only)
+         * Resource type of the Virtual Network (read-only).
          */
-        type?: string;
+        type: string;
     }
 
+    /**
+     * VnetInfo resource specific properties
+     */
     export interface VnetInfoResponseProperties {
         /**
          * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-         *             Point-To-Site VPN connection.
+         * Point-To-Site VPN connection.
          */
         certBlob?: string;
         /**
-         * The client certificate thumbprint
+         * The client certificate thumbprint.
          */
-        certThumbprint?: string;
+        certThumbprint: string;
         /**
-         * Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+         * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
          */
         dnsServers?: string;
         /**
-         * Flag to determine if a resync is required
+         * Flag that is used to denote if this is VNET injection
          */
-        resyncRequired?: boolean;
+        isSwift?: boolean;
         /**
-         * The routes that this virtual network connection uses.
+         * <code>true</code> if a resync is required; otherwise, <code>false</code>.
          */
-        routes?: outputs.web.VnetRouteResponse[];
+        resyncRequired: boolean;
         /**
-         * The vnet resource id
+         * The routes that this Virtual Network connection uses.
+         */
+        routes: outputs.web.VnetRouteResponse[];
+        /**
+         * The Virtual Network's resource ID.
          */
         vnetResourceId?: string;
     }
 
     /**
-     * VnetRoute contract used to pass routing information for a vnet.
+     * Virtual Network route contract used to pass routing information for a Virtual Network.
      */
     export interface VnetRouteResponse {
         /**
-         * Resource Id
+         * Resource Id.
          */
-        id?: string;
+        id: string;
         /**
-         * Kind of resource
+         * Kind of resource.
          */
         kind?: string;
         /**
-         * Resource Location
+         * Resource Name.
          */
-        location: string;
+        name: string;
         /**
-         * Resource Name
+         * VnetRoute resource specific properties
          */
-        name?: string;
         properties?: outputs.web.VnetRouteResponseProperties;
         /**
-         * Resource tags
+         * Resource type.
          */
-        tags?: {[key: string]: string};
-        /**
-         * Resource type
-         */
-        type?: string;
+        type: string;
     }
 
     /**
@@ -47029,97 +47257,29 @@ export namespace web {
     }
 
     /**
-     * Worker pool of a hostingEnvironment (App Service Environment)
+     * Worker pool of an App Service Environment.
      */
     export interface WorkerPoolResponse {
         /**
-         * Resource Id
-         */
-        id?: string;
-        /**
-         * Kind of resource
-         */
-        kind?: string;
-        /**
-         * Resource Location
-         */
-        location: string;
-        /**
-         * Resource Name
-         */
-        name?: string;
-        properties?: outputs.web.WorkerPoolResponseProperties;
-        /**
-         * Describes a sku for a scalable resource
-         */
-        sku?: outputs.web.SkuDescriptionResponse;
-        /**
-         * Resource tags
-         */
-        tags?: {[key: string]: string};
-        /**
-         * Resource type
-         */
-        type?: string;
-    }
-
-    export interface WorkerPoolResponseProperties {
-        /**
-         * Shared or dedicated web app hosting
+         * Shared or dedicated app hosting.
          */
         computeMode?: string;
         /**
-         * Names of all instances in the worker pool (read only)
+         * Names of all instances in the worker pool (read only).
          */
-        instanceNames?: string[];
+        instanceNames: string[];
         /**
-         * Number of instances in the worker pool
+         * Number of instances in the worker pool.
          */
         workerCount?: number;
         /**
-         * VM size of the worker pool instances
+         * VM size of the worker pool instances.
          */
         workerSize?: string;
         /**
-         * Worker size id for referencing this worker pool
+         * Worker size ID for referencing this worker pool.
          */
         workerSizeId?: number;
-    }
-
-    /**
-     * The WSDL definition
-     */
-    export interface WsdlDefinitionResponse {
-        /**
-         * The WSDL content
-         */
-        content?: string;
-        /**
-         * The WSDL import method
-         */
-        importMethod?: string;
-        /**
-         * The service with name and endpoint names
-         */
-        service?: outputs.web.WsdlServiceResponse;
-        /**
-         * The WSDL URL
-         */
-        url?: string;
-    }
-
-    /**
-     * The service with name and endpoint names
-     */
-    export interface WsdlServiceResponse {
-        /**
-         * List of the endpoints' qualified names
-         */
-        endpointQualifiedNames?: string[];
-        /**
-         * The service's qualified name
-         */
-        qualifiedName: string;
     }
 }
 

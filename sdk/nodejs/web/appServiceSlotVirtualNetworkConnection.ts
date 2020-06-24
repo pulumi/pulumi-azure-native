@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+ * Virtual Network information contract.
  */
 export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResource {
     /**
@@ -38,26 +38,21 @@ export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResourc
     }
 
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource Location
+     * Resource Name.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
-     * Resource Name
+     * VnetInfo resource specific properties
      */
-    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.web.VnetInfoResponseProperties>;
     /**
-     * Resource tags
+     * Resource type.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Resource type
-     */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a AppServiceSlotVirtualNetworkConnection resource with the given unique name, arguments, and options.
@@ -72,16 +67,11 @@ export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResourc
         if (opts && opts.id) {
             const state = argsOrState as AppServiceSlotVirtualNetworkConnectionState | undefined;
             inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AppServiceSlotVirtualNetworkConnectionArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -94,16 +84,13 @@ export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResourc
             if (!args || args.vnetName === undefined) {
                 throw new Error("Missing required property 'vnetName'");
             }
-            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,30 +104,25 @@ export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResourc
 }
 
 /**
- * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+ * Virtual Network information contract.
  */
 export interface AppServiceSlotVirtualNetworkConnectionState {
     /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
+     * Resource Name.
      */
-    readonly location: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
-     * Resource Name
+     * VnetInfo resource specific properties
      */
-    readonly name?: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.web.VnetInfoResponseProperties>;
     /**
-     * Resource tags
+     * Resource type.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type?: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }
 
 /**
@@ -148,40 +130,27 @@ export interface AppServiceSlotVirtualNetworkConnectionState {
  */
 export interface AppServiceSlotVirtualNetworkConnectionArgs {
     /**
-     * Resource Id
-     */
-    readonly id?: pulumi.Input<string>;
-    /**
-     * Kind of resource
+     * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Resource Location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource Name
+     * Name of the app.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * VnetInfo resource specific properties
+     */
     readonly properties?: pulumi.Input<inputs.web.VnetInfoProperties>;
     /**
-     * The resource group name
+     * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the slot for this web app.
+     * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
      */
     readonly slot: pulumi.Input<string>;
     /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type?: pulumi.Input<string>;
-    /**
-     * The name of the Virtual Network
+     * Name of an existing Virtual Network.
      */
     readonly vnetName: pulumi.Input<string>;
 }
