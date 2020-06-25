@@ -136,7 +136,7 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 			if nameProp, ok := requestProperties.all[name]; ok {
 				// We expect names to be always a required string.
 				if nameProp.Type != "string" {
-					return errors.Errorf("name property '%s' is not a string but %v", name, nameProp.Type)
+					return errors.Errorf("name property '%s' is not a string", name)
 				}
 				if !requestProperties.required.Has(name) {
 					return errors.Errorf("name property '%s' is not required", name)

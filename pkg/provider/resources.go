@@ -82,12 +82,12 @@ func SwaggerLocations() ([]string, error) {
 // ResourceMap builds a map of resource definitions for the provider.
 func ResourceMap() (map[string]Resource, error) {
 	result := make(map[string]Resource)
-	swaggetSpecLocations, err := SwaggerLocations()
+	swaggerSpecLocations, err := SwaggerLocations()
 	if err != nil {
 		return nil, err
 	}
 
-	for _, swagggerSpecLocation := range swaggetSpecLocations {
+	for _, swagggerSpecLocation := range swaggerSpecLocations {
 		spec, err := openapi.NewSpec(swagggerSpecLocation)
 		if err != nil {
 			return nil, err
@@ -136,7 +136,7 @@ func ResourceQualifiedName(path string) (string, string) {
 		return "", ""
 	}
 
-	// We build a name like someprovider:FooBar.
+	// Build a name like someprovider:FooBar.
 	provider := strings.ToLower(armProvider[10:])
 	resource := ""
 	for i := 7; i < len(parts); i += 2 {
