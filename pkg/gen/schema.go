@@ -11,6 +11,7 @@ import (
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 	"log"
+	"sort"
 	"strings"
 )
 
@@ -34,7 +35,15 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 	}
 
 	for _, swagger := range swaggers {
-		for key, path := range swagger.Paths.Paths {
+		// Sort paths to make codegen deterministic.
+		var paths []string
+		for key, _ := range swagger.Paths.Paths {
+			paths = append(paths, key)
+		}
+		sort.Strings(paths)
+
+		for _, key := range paths {
+			path := swagger.Paths.Paths[key]
 			if path.Put == nil || path.Get == nil || path.Delete == nil {
 				continue
 			}
@@ -199,11 +208,21 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 
 func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext) (*propertyBag, error) {
 	var responseSchema *openapi.Schema
-	for code, resp := range statusCodeResponses {
+
+	// Find all 2xx codes and sort them to make codegen deterministic.
+	var codes []int
+	for code, _ := range statusCodeResponses {
 		if code >= 300 {
 			continue
 		}
 
+		codes = append(codes, code)
+	}
+	sort.Ints(codes)
+
+	// Find the lowest 2xx response with a schema definition and derive response properties from it.
+	for _, code := range codes {
+		resp := statusCodeResponses[code]
 		response, err := ctx.ResolveResponse(resp)
 		if err != nil {
 			return nil, err
@@ -243,7 +262,15 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput bool) (*propertyBag, error) {
 	result := newPropertyBag()
 
-	for name, property := range resolvedSchema.Properties {
+	// Sort properties to make codegen deterministic.
+	var names []string
+	for name, _ := range resolvedSchema.Properties {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+
+	for _, name := range names {
+		property := resolvedSchema.Properties[name]
 		if !isLegalIdentifier(name) {
 			// TODO: Support mapping to a legal name, or make the schema codegen do so?
 			continue

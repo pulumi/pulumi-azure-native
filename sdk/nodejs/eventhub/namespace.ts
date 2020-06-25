@@ -38,27 +38,27 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location
+     * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Resource name
+     * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
+     * Namespace properties supplied for create namespace operation.
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.NamespacePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.eventhub.EHNamespaceResponseProperties>;
     /**
-     * SKU parameters supplied to the create Namespace operation
+     * Properties of sku resource
      */
     public readonly sku!: pulumi.Output<outputs.eventhub.SkuResponse | undefined>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -82,9 +82,6 @@ export class Namespace extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -115,27 +112,27 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceState {
     /**
-     * Resource location
+     * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
-     * Resource name
+     * Resource name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
+     * Namespace properties supplied for create namespace operation.
      */
-    readonly properties: pulumi.Input<inputs.eventhub.NamespacePropertiesResponse>;
+    readonly properties: pulumi.Input<inputs.eventhub.EHNamespaceResponseProperties>;
     /**
-     * SKU parameters supplied to the create Namespace operation
+     * Properties of sku resource
      */
     readonly sku?: pulumi.Input<inputs.eventhub.SkuResponse>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Resource type
+     * Resource type.
      */
     readonly type: pulumi.Input<string>;
 }
@@ -145,27 +142,27 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
-     * Namespace location.
+     * Resource location.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The Namespace name
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
+     * Namespace properties supplied for create namespace operation.
      */
-    readonly properties?: pulumi.Input<inputs.eventhub.NamespaceProperties>;
+    readonly properties?: pulumi.Input<inputs.eventhub.EHNamespaceProperties>;
     /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU parameters supplied to the create Namespace operation
+     * Properties of sku resource
      */
     readonly sku?: pulumi.Input<inputs.eventhub.Sku>;
     /**
-     * Namespace tags.
+     * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -8110,25 +8110,13 @@ export namespace batchai {
     }
 
     /**
-     * Information about the execution of a job.
+     * Constraints associated with the Job.
      */
     export interface JobPropertiesResponseProperties {
         /**
-         * The time at which the job completed. This property is only returned if the job is in completed state.
+         * Max time the job can run. Default value: 1 week.
          */
-        endTime: pulumi.Input<string>;
-        /**
-         * A collection of errors encountered by the service during job execution.
-         */
-        errors: pulumi.Input<pulumi.Input<inputs.batchai.BatchAIErrorResponse>[]>;
-        /**
-         * The exit code of the job. This property is only returned if the job is in completed state.
-         */
-        exitCode: pulumi.Input<number>;
-        /**
-         * The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
-         */
-        startTime: pulumi.Input<string>;
+        maxWallClockTime?: pulumi.Input<string>;
     }
 
     /**
@@ -22166,21 +22154,21 @@ export namespace customerinsights {
     }
 
     /**
-     * System generated entities.
+     * The definition of a prediction grade.
      */
     export interface PredictionProperties {
         /**
-         * Generated interaction types.
+         * Name of the grade.
          */
-        generatedInteractionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        gradeName?: pulumi.Input<string>;
         /**
-         * Generated KPIs.
+         * Maximum score threshold.
          */
-        generatedKpis?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        maxScoreThreshold?: pulumi.Input<number>;
         /**
-         * Generated links.
+         * Minimum score threshold.
          */
-        generatedLinks?: pulumi.Input<pulumi.Input<string>[]>;
+        minScoreThreshold?: pulumi.Input<number>;
     }
 
     /**
@@ -24739,7 +24727,7 @@ export namespace databricks {
      */
     export interface VirtualNetworkPeeringPropertiesFormatProperties {
         /**
-         * The Id of the remote virtual network.
+         * The Id of the databricks virtual network.
          */
         id?: pulumi.Input<string>;
     }
@@ -24795,7 +24783,7 @@ export namespace databricks {
      */
     export interface VirtualNetworkPeeringPropertiesFormatResponseProperties {
         /**
-         * The Id of the remote virtual network.
+         * The Id of the databricks virtual network.
          */
         id?: pulumi.Input<string>;
     }
@@ -34514,33 +34502,29 @@ export namespace eventhub {
     }
 
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
     export interface ConsumerGroupProperties {
         /**
-         * The user metadata.
+         * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
          */
         userMetadata?: pulumi.Input<string>;
     }
 
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
-    export interface ConsumerGroupPropertiesResponse {
+    export interface ConsumerGroupResponseProperties {
         /**
          * Exact time the message was created.
          */
         createdAt: pulumi.Input<string>;
         /**
-         * The path of the Event Hub.
-         */
-        eventHubPath: pulumi.Input<string>;
-        /**
          * The exact time the message was updated.
          */
         updatedAt: pulumi.Input<string>;
         /**
-         * The user metadata.
+         * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
          */
         userMetadata?: pulumi.Input<string>;
     }
@@ -34610,6 +34594,62 @@ export namespace eventhub {
     }
 
     /**
+     * Namespace properties supplied for create namespace operation.
+     */
+    export interface EHNamespaceProperties {
+        /**
+         * Value that indicates whether AutoInflate is enabled for eventhub namespace.
+         */
+        isAutoInflateEnabled?: pulumi.Input<boolean>;
+        /**
+         * Value that indicates whether Kafka is enabled for eventhub namespace.
+         */
+        kafkaEnabled?: pulumi.Input<boolean>;
+        /**
+         * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+         */
+        maximumThroughputUnits?: pulumi.Input<number>;
+    }
+
+    /**
+     * Namespace properties supplied for create namespace operation.
+     */
+    export interface EHNamespaceResponseProperties {
+        /**
+         * The time the Namespace was created.
+         */
+        createdAt: pulumi.Input<string>;
+        /**
+         * Value that indicates whether AutoInflate is enabled for eventhub namespace.
+         */
+        isAutoInflateEnabled?: pulumi.Input<boolean>;
+        /**
+         * Value that indicates whether Kafka is enabled for eventhub namespace.
+         */
+        kafkaEnabled?: pulumi.Input<boolean>;
+        /**
+         * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+         */
+        maximumThroughputUnits?: pulumi.Input<number>;
+        /**
+         * Identifier for Azure Insights metrics.
+         */
+        metricId: pulumi.Input<string>;
+        /**
+         * Provisioning state of the Namespace.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Endpoint you can use to perform Service Bus operations.
+         */
+        serviceBusEndpoint: pulumi.Input<string>;
+        /**
+         * The time the Namespace was updated.
+         */
+        updatedAt: pulumi.Input<string>;
+    }
+
+    /**
      * Properties supplied to the Create Or Update Event Hub operation.
      */
     export interface EventhubProperties {
@@ -34666,103 +34706,39 @@ export namespace eventhub {
     }
 
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
-     */
-    export interface NamespaceProperties {
-        /**
-         * The time the Namespace was created.
-         */
-        createdAt?: pulumi.Input<string>;
-        /**
-         * Specifies whether this instance is enabled.
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * Provisioning state of the Namespace.
-         */
-        provisioningState?: pulumi.Input<string>;
-        /**
-         * Endpoint you can use to perform Service Bus operations.
-         */
-        serviceBusEndpoint?: pulumi.Input<string>;
-        /**
-         * State of the Namespace.
-         */
-        status?: pulumi.Input<string>;
-        /**
-         * The time the Namespace was updated.
-         */
-        updatedAt?: pulumi.Input<string>;
-    }
-
-    /**
-     * Properties of the Namespace supplied for create or update Namespace operation
-     */
-    export interface NamespacePropertiesResponse {
-        /**
-         * The time the Namespace was created.
-         */
-        createdAt?: pulumi.Input<string>;
-        /**
-         * Specifies whether this instance is enabled.
-         */
-        enabled?: pulumi.Input<boolean>;
-        /**
-         * Identifier for Azure Insights metrics
-         */
-        metricId: pulumi.Input<string>;
-        /**
-         * Provisioning state of the Namespace.
-         */
-        provisioningState?: pulumi.Input<string>;
-        /**
-         * Endpoint you can use to perform Service Bus operations.
-         */
-        serviceBusEndpoint?: pulumi.Input<string>;
-        /**
-         * State of the Namespace.
-         */
-        status?: pulumi.Input<string>;
-        /**
-         * The time the Namespace was updated.
-         */
-        updatedAt?: pulumi.Input<string>;
-    }
-
-    /**
-     * SKU parameters supplied to the create Namespace operation
+     * SKU parameters supplied to the create namespace operation
      */
     export interface Sku {
         /**
-         * The Event Hubs throughput units.
+         * The Event Hubs throughput units, value should be 0 to 20 throughput units.
          */
         capacity?: pulumi.Input<number>;
         /**
          * Name of this SKU.
          */
-        name?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         /**
          * The billing tier of this particular SKU.
          */
-        tier: pulumi.Input<string>;
+        tier?: pulumi.Input<string>;
     }
 
     /**
-     * SKU parameters supplied to the create Namespace operation
+     * SKU parameters supplied to the create namespace operation
      */
     export interface SkuResponse {
         /**
-         * The Event Hubs throughput units.
+         * The Event Hubs throughput units, value should be 0 to 20 throughput units.
          */
         capacity?: pulumi.Input<number>;
         /**
          * Name of this SKU.
          */
-        name?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         /**
          * The billing tier of this particular SKU.
          */
-        tier: pulumi.Input<string>;
+        tier?: pulumi.Input<string>;
     }
 }
 
@@ -42135,17 +42111,25 @@ export namespace logic {
          */
         location?: pulumi.Input<string>;
         /**
+         * Gets the resource name.
+         */
+        name: pulumi.Input<string>;
+        /**
          * The integration service environment properties.
          */
-        properties?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentProperties>;
+        properties: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentPropertiesResponse>;
         /**
          * The sku.
          */
-        sku?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentSku>;
+        sku?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentSkuResponse>;
         /**
          * The resource tags.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Gets the resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -47542,74 +47526,6 @@ export namespace netapp {
     }
 
     /**
-     * Volume Export Policy Rule
-     */
-    export interface ExportPolicyRule {
-        /**
-         * Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-         */
-        allowedClients?: pulumi.Input<string>;
-        /**
-         * Allows CIFS protocol
-         */
-        cifs?: pulumi.Input<boolean>;
-        /**
-         * Allows NFSv3 protocol
-         */
-        nfsv3?: pulumi.Input<boolean>;
-        /**
-         * Allows NFSv4.1 protocol
-         */
-        nfsv41?: pulumi.Input<boolean>;
-        /**
-         * Order index
-         */
-        ruleIndex?: pulumi.Input<number>;
-        /**
-         * Read only access
-         */
-        unixReadOnly?: pulumi.Input<boolean>;
-        /**
-         * Read and write access
-         */
-        unixReadWrite?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * Volume Export Policy Rule
-     */
-    export interface ExportPolicyRuleResponse {
-        /**
-         * Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-         */
-        allowedClients?: pulumi.Input<string>;
-        /**
-         * Allows CIFS protocol
-         */
-        cifs?: pulumi.Input<boolean>;
-        /**
-         * Allows NFSv3 protocol
-         */
-        nfsv3?: pulumi.Input<boolean>;
-        /**
-         * Allows NFSv4.1 protocol
-         */
-        nfsv41?: pulumi.Input<boolean>;
-        /**
-         * Order index
-         */
-        ruleIndex?: pulumi.Input<number>;
-        /**
-         * Read only access
-         */
-        unixReadOnly?: pulumi.Input<boolean>;
-        /**
-         * Read and write access
-         */
-        unixReadWrite?: pulumi.Input<boolean>;
-    }
-
-    /**
      * Mount target properties
      */
     export interface MountTargetProperties {
@@ -47722,6 +47638,58 @@ export namespace netapp {
     }
 
     /**
+     * Replication properties
+     */
+    export interface ReplicationObject {
+        /**
+         * Indicates whether the local volume is the source or destination for the Volume Replication
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * The remote region for the other end of the Volume Replication.
+         */
+        remoteVolumeRegion?: pulumi.Input<string>;
+        /**
+         * The resource ID of the remote volume.
+         */
+        remoteVolumeResourceId: pulumi.Input<string>;
+        /**
+         * Id
+         */
+        replicationId?: pulumi.Input<string>;
+        /**
+         * Schedule
+         */
+        replicationSchedule: pulumi.Input<string>;
+    }
+
+    /**
+     * Replication properties
+     */
+    export interface ReplicationObjectResponse {
+        /**
+         * Indicates whether the local volume is the source or destination for the Volume Replication
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * The remote region for the other end of the Volume Replication.
+         */
+        remoteVolumeRegion?: pulumi.Input<string>;
+        /**
+         * The resource ID of the remote volume.
+         */
+        remoteVolumeResourceId: pulumi.Input<string>;
+        /**
+         * Id
+         */
+        replicationId?: pulumi.Input<string>;
+        /**
+         * Schedule
+         */
+        replicationSchedule: pulumi.Input<string>;
+    }
+
+    /**
      * Tags are a list of key-value pairs that describe the resource
      */
     export interface ResourceTags {
@@ -47816,13 +47784,13 @@ export namespace netapp {
     }
 
     /**
-     * Set of export policy rules
+     * DataProtection type volumes include an object containing details of the replication
      */
     export interface VolumePropertiesProperties {
         /**
-         * Export policy rule
+         * Replication properties
          */
-        rules?: pulumi.Input<pulumi.Input<inputs.netapp.ExportPolicyRule>[]>;
+        replication?: pulumi.Input<inputs.netapp.ReplicationObject>;
     }
 
     /**
@@ -47888,13 +47856,13 @@ export namespace netapp {
     }
 
     /**
-     * Set of export policy rules
+     * DataProtection type volumes include an object containing details of the replication
      */
     export interface VolumePropertiesResponseProperties {
         /**
-         * Export policy rule
+         * Replication properties
          */
-        rules?: pulumi.Input<pulumi.Input<inputs.netapp.ExportPolicyRuleResponse>[]>;
+        replication?: pulumi.Input<inputs.netapp.ReplicationObjectResponse>;
     }
 }
 
@@ -52924,6 +52892,38 @@ export namespace network {
     }
 
     /**
+     * Class containing DNS settings in a Traffic Manager profile.
+     */
+    export interface DnsConfig {
+        /**
+         * The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+         */
+        relativeName?: pulumi.Input<string>;
+        /**
+         * The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
+    /**
+     * Class containing DNS settings in a Traffic Manager profile.
+     */
+    export interface DnsConfigResponse {
+        /**
+         * The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+         */
+        fqdn: pulumi.Input<string>;
+        /**
+         * The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+         */
+        relativeName?: pulumi.Input<string>;
+        /**
+         * The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+         */
+        ttl?: pulumi.Input<number>;
+    }
+
+    /**
      * DNS Proxy Settings in Firewall Policy.
      */
     export interface DnsSettings {
@@ -52960,31 +52960,175 @@ export namespace network {
     }
 
     /**
-     * Defines the endpoint properties
+     * Class representing a Traffic Manager endpoint.
      */
     export interface Endpoint {
         /**
-         * The endpoint URL
+         * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
          */
-        endpoint?: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
-         * The name of the endpoint
+         * The name of the resource
          */
         name?: pulumi.Input<string>;
+        /**
+         * The properties of the Traffic Manager endpoint.
+         */
+        properties?: pulumi.Input<inputs.network.EndpointProperties>;
+        /**
+         * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+         */
+        type?: pulumi.Input<string>;
     }
 
     /**
-     * Defines the endpoint properties
+     * Class representing a Traffic Manager endpoint properties.
+     */
+    export interface EndpointProperties {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesProperties>[]>;
+        /**
+         * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+         */
+        endpointLocation?: pulumi.Input<string>;
+        /**
+         * The monitoring status of the endpoint.
+         */
+        endpointMonitorStatus?: pulumi.Input<string>;
+        /**
+         * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+         */
+        endpointStatus?: pulumi.Input<string>;
+        /**
+         * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+         */
+        geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+         */
+        minChildEndpoints?: pulumi.Input<number>;
+        /**
+         * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+         */
+        subnets?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesProperties>[]>;
+        /**
+         * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+         */
+        targetResourceId?: pulumi.Input<string>;
+        /**
+         * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface EndpointPropertiesProperties {
+        /**
+         * Header name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Header value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Class representing a Traffic Manager endpoint properties.
+     */
+    export interface EndpointPropertiesResponse {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesResponseProperties>[]>;
+        /**
+         * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+         */
+        endpointLocation?: pulumi.Input<string>;
+        /**
+         * The monitoring status of the endpoint.
+         */
+        endpointMonitorStatus?: pulumi.Input<string>;
+        /**
+         * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+         */
+        endpointStatus?: pulumi.Input<string>;
+        /**
+         * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+         */
+        geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+         */
+        minChildEndpoints?: pulumi.Input<number>;
+        /**
+         * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+         */
+        subnets?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesResponseProperties>[]>;
+        /**
+         * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+         */
+        targetResourceId?: pulumi.Input<string>;
+        /**
+         * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface EndpointPropertiesResponseProperties {
+        /**
+         * Header name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Header value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Class representing a Traffic Manager endpoint.
      */
     export interface EndpointResponse {
         /**
-         * The endpoint URL
+         * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
          */
-        endpoint?: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
-         * The name of the endpoint
+         * The name of the resource
          */
         name?: pulumi.Input<string>;
+        /**
+         * The properties of the Traffic Manager endpoint.
+         */
+        properties?: pulumi.Input<inputs.network.EndpointPropertiesResponse>;
+        /**
+         * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+         */
+        type?: pulumi.Input<string>;
     }
 
     /**
@@ -56556,21 +56700,29 @@ export namespace network {
      */
     export interface LocalNetworkGateway {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * Resource location.
          */
         location?: pulumi.Input<string>;
         /**
+         * Resource name.
+         */
+        name: pulumi.Input<string>;
+        /**
          * Properties of the local network gateway.
          */
-        properties: pulumi.Input<inputs.network.LocalNetworkGatewayPropertiesFormat>;
+        properties: pulumi.Input<inputs.network.LocalNetworkGatewayPropertiesFormatResponse>;
         /**
          * Resource tags.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -56893,6 +57045,118 @@ export namespace network {
          * Match Variable.
          */
         variableName: pulumi.Input<string>;
+    }
+
+    /**
+     * Class containing endpoint monitoring settings in a Traffic Manager profile.
+     */
+    export interface MonitorConfig {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.network.MonitorConfigProperties>[]>;
+        /**
+         * List of expected status code ranges.
+         */
+        expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<inputs.network.MonitorConfigProperties>[]>;
+        /**
+         * The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+         */
+        intervalInSeconds?: pulumi.Input<number>;
+        /**
+         * The path relative to the endpoint domain name used to probe for endpoint health.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The TCP port used to probe for endpoint health.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The profile-level monitoring status of the Traffic Manager profile.
+         */
+        profileMonitorStatus?: pulumi.Input<string>;
+        /**
+         * The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+         */
+        toleratedNumberOfFailures?: pulumi.Input<number>;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface MonitorConfigProperties {
+        /**
+         * Header name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Header value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Class containing endpoint monitoring settings in a Traffic Manager profile.
+     */
+    export interface MonitorConfigResponse {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.network.MonitorConfigResponseProperties>[]>;
+        /**
+         * List of expected status code ranges.
+         */
+        expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<inputs.network.MonitorConfigResponseProperties>[]>;
+        /**
+         * The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+         */
+        intervalInSeconds?: pulumi.Input<number>;
+        /**
+         * The path relative to the endpoint domain name used to probe for endpoint health.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The TCP port used to probe for endpoint health.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The profile-level monitoring status of the Traffic Manager profile.
+         */
+        profileMonitorStatus?: pulumi.Input<string>;
+        /**
+         * The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+         */
+        timeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+         */
+        toleratedNumberOfFailures?: pulumi.Input<number>;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface MonitorConfigResponseProperties {
+        /**
+         * Header name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Header value.
+         */
+        value?: pulumi.Input<string>;
     }
 
     /**
@@ -58820,31 +59084,71 @@ export namespace network {
     }
 
     /**
-     * Defines the properties of an experiment
+     * Class representing the Traffic Manager profile properties.
      */
     export interface ProfileProperties {
         /**
-         * The state of the Experiment
+         * The DNS settings of the Traffic Manager profile.
          */
-        enabledState?: pulumi.Input<string>;
+        dnsConfig?: pulumi.Input<inputs.network.DnsConfig>;
         /**
-         * Resource status.
+         * The list of endpoints in the Traffic Manager profile.
          */
-        resourceState?: pulumi.Input<string>;
+        endpoints?: pulumi.Input<pulumi.Input<inputs.network.Endpoint>[]>;
+        /**
+         * Maximum number of endpoints to be returned for MultiValue routing type.
+         */
+        maxReturn?: pulumi.Input<number>;
+        /**
+         * The endpoint monitoring settings of the Traffic Manager profile.
+         */
+        monitorConfig?: pulumi.Input<inputs.network.MonitorConfig>;
+        /**
+         * The status of the Traffic Manager profile.
+         */
+        profileStatus?: pulumi.Input<string>;
+        /**
+         * The traffic routing method of the Traffic Manager profile.
+         */
+        trafficRoutingMethod?: pulumi.Input<string>;
+        /**
+         * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+         */
+        trafficViewEnrollmentStatus?: pulumi.Input<string>;
     }
 
     /**
-     * Defines the properties of an experiment
+     * Class representing the Traffic Manager profile properties.
      */
     export interface ProfilePropertiesResponse {
         /**
-         * The state of the Experiment
+         * The DNS settings of the Traffic Manager profile.
          */
-        enabledState?: pulumi.Input<string>;
+        dnsConfig?: pulumi.Input<inputs.network.DnsConfigResponse>;
         /**
-         * Resource status.
+         * The list of endpoints in the Traffic Manager profile.
          */
-        resourceState?: pulumi.Input<string>;
+        endpoints?: pulumi.Input<pulumi.Input<inputs.network.EndpointResponse>[]>;
+        /**
+         * Maximum number of endpoints to be returned for MultiValue routing type.
+         */
+        maxReturn?: pulumi.Input<number>;
+        /**
+         * The endpoint monitoring settings of the Traffic Manager profile.
+         */
+        monitorConfig?: pulumi.Input<inputs.network.MonitorConfigResponse>;
+        /**
+         * The status of the Traffic Manager profile.
+         */
+        profileStatus?: pulumi.Input<string>;
+        /**
+         * The traffic routing method of the Traffic Manager profile.
+         */
+        trafficRoutingMethod?: pulumi.Input<string>;
+        /**
+         * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+         */
+        trafficViewEnrollmentStatus?: pulumi.Input<string>;
     }
 
     /**
@@ -65995,41 +66299,49 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection
      */
     export interface PrivateEndpoint {
+        /**
+         * Gets or sets id
+         */
+        id?: pulumi.Input<string>;
     }
 
     /**
-     * Private Endpoint Connection Response Properties.
+     * Private Endpoint Connection Response Properties
      */
     export interface PrivateEndpointConnection {
         /**
-         * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+         * Gets or sets private endpoint associated with the private endpoint connection
          */
         privateEndpoint?: pulumi.Input<inputs.recoveryservices.PrivateEndpoint>;
         /**
-         * Gets or sets private link service connection state.
+         * Gets or sets private link service connection state
          */
         privateLinkServiceConnectionState?: pulumi.Input<inputs.recoveryservices.PrivateLinkServiceConnectionState>;
+        /**
+         * Gets or sets provisioning state of the private endpoint connection
+         */
+        provisioningState?: pulumi.Input<string>;
     }
 
     /**
-     * Private Endpoint Connection Response Properties.
+     * Private Endpoint Connection Response Properties
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+         * Gets or sets private endpoint associated with the private endpoint connection
          */
         privateEndpoint?: pulumi.Input<inputs.recoveryservices.PrivateEndpointResponse>;
         /**
-         * Gets or sets private link service connection state.
+         * Gets or sets private link service connection state
          */
         privateLinkServiceConnectionState?: pulumi.Input<inputs.recoveryservices.PrivateLinkServiceConnectionStateResponse>;
         /**
-         * Gets or sets provisioning state of the private endpoint connection.
+         * Gets or sets provisioning state of the private endpoint connection
          */
-        provisioningState: pulumi.Input<string>;
+        provisioningState?: pulumi.Input<string>;
     }
 
     /**
@@ -66047,37 +66359,49 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection
      */
     export interface PrivateEndpointResponse {
         /**
-         * Gets or sets id.
+         * Gets or sets id
          */
-        id: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
     }
 
     /**
-     * Gets or sets private link service connection state.
+     * Private Link Service Connection State
      */
     export interface PrivateLinkServiceConnectionState {
+        /**
+         * Gets or sets actions required
+         */
+        actionRequired?: pulumi.Input<string>;
+        /**
+         * Gets or sets description
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Gets or sets the status
+         */
+        status?: pulumi.Input<string>;
     }
 
     /**
-     * Gets or sets private link service connection state.
+     * Private Link Service Connection State
      */
     export interface PrivateLinkServiceConnectionStateResponse {
         /**
-         * Gets or sets actions required.
+         * Gets or sets actions required
          */
-        actionsRequired: pulumi.Input<string>;
+        actionRequired?: pulumi.Input<string>;
         /**
-         * Gets or sets description.
+         * Gets or sets description
          */
-        description: pulumi.Input<string>;
+        description?: pulumi.Input<string>;
         /**
-         * Gets or sets the status.
+         * Gets or sets the status
          */
-        status: pulumi.Input<string>;
+        status?: pulumi.Input<string>;
     }
 
     /**
@@ -68653,21 +68977,13 @@ export namespace search {
     }
 
     /**
-     * Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+     * The private endpoint resource from Microsoft.Network provider.
      */
     export interface PrivateEndpointConnectionPropertiesResponseProperties {
         /**
-         * A description of any extra actions that may be required.
+         * The resource id of the private endpoint resource from Microsoft.Network provider.
          */
-        actionsRequired?: pulumi.Input<string>;
-        /**
-         * The description for the private link service connection state.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-         */
-        status?: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
     }
 
     /**
@@ -69987,6 +70303,42 @@ export namespace servicebus {
 
 export namespace servicefabric {
     /**
+     * Defines a map that contains specific application delta health policies for different applications.
+     * Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
+     * The application name should include the 'fabric:' URI scheme.
+     * The map is empty by default.
+     */
+    export interface ApplicationDeltaHealthPolicyMap {
+    }
+
+    /**
+     * Defines a map that contains specific application delta health policies for different applications.
+     * Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
+     * The application name should include the 'fabric:' URI scheme.
+     * The map is empty by default.
+     */
+    export interface ApplicationDeltaHealthPolicyMapResponse {
+    }
+
+    /**
+     * Defines a map that contains specific application health policies for different applications.
+     * Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
+     * The application name should include the 'fabric:' URI scheme.
+     * The map is empty by default.
+     */
+    export interface ApplicationHealthPolicyMap {
+    }
+
+    /**
+     * Defines a map that contains specific application health policies for different applications.
+     * Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
+     * The application name should include the 'fabric:' URI scheme.
+     * The map is empty by default.
+     */
+    export interface ApplicationHealthPolicyMapResponse {
+    }
+
+    /**
      * List of application capacity metric description.
      */
     export interface ApplicationMetricDescriptionList {
@@ -70146,6 +70498,20 @@ export namespace servicefabric {
          * The current deployment or provisioning state, which only appears in the response
          */
         provisioningState: pulumi.Input<string>;
+    }
+
+    export interface ApplicationTypeVersionsCleanupPolicy {
+        /**
+         * Number of unused versions per application type to keep.
+         */
+        maxUnusedVersionsToKeep: pulumi.Input<number>;
+    }
+
+    export interface ApplicationTypeVersionsCleanupPolicyResponse {
+        /**
+         * Number of unused versions per application type to keep.
+         */
+        maxUnusedVersionsToKeep: pulumi.Input<number>;
     }
 
     /**
@@ -70393,137 +70759,137 @@ export namespace servicefabric {
     }
 
     /**
-     * The settings to enable AAD authentication on the cluster
+     * The settings to enable AAD authentication on the cluster.
      */
     export interface AzureActiveDirectory {
         /**
-         * Azure active directory client application id
+         * Azure active directory client application id.
          */
         clientApplication?: pulumi.Input<string>;
         /**
-         * Azure active directory cluster application id
+         * Azure active directory cluster application id.
          */
         clusterApplication?: pulumi.Input<string>;
         /**
-         * Azure active directory tenant id
+         * Azure active directory tenant id.
          */
         tenantId?: pulumi.Input<string>;
     }
 
     /**
-     * The settings to enable AAD authentication on the cluster
+     * The settings to enable AAD authentication on the cluster.
      */
     export interface AzureActiveDirectoryResponse {
         /**
-         * Azure active directory client application id
+         * Azure active directory client application id.
          */
         clientApplication?: pulumi.Input<string>;
         /**
-         * Azure active directory cluster application id
+         * Azure active directory cluster application id.
          */
         clusterApplication?: pulumi.Input<string>;
         /**
-         * Azure active directory tenant id
+         * Azure active directory tenant id.
          */
         tenantId?: pulumi.Input<string>;
     }
 
     /**
-     * Certificate details
+     * Describes the certificate details.
      */
     export interface CertificateDescription {
         /**
-         * Thumbprint of the primary certificate
+         * Thumbprint of the primary certificate.
          */
         thumbprint: pulumi.Input<string>;
         /**
-         * Thumbprint of the secondary certificate
+         * Thumbprint of the secondary certificate.
          */
         thumbprintSecondary?: pulumi.Input<string>;
         /**
-         * The local certificate store location
+         * The local certificate store location.
          */
         x509StoreName?: pulumi.Input<string>;
     }
 
     /**
-     * Certificate details
+     * Describes the certificate details.
      */
     export interface CertificateDescriptionResponse {
         /**
-         * Thumbprint of the primary certificate
+         * Thumbprint of the primary certificate.
          */
         thumbprint: pulumi.Input<string>;
         /**
-         * Thumbprint of the secondary certificate
+         * Thumbprint of the secondary certificate.
          */
         thumbprintSecondary?: pulumi.Input<string>;
         /**
-         * The local certificate store location
+         * The local certificate store location.
          */
         x509StoreName?: pulumi.Input<string>;
     }
 
     /**
-     * Client certificate details using common name
+     * Describes the client certificate details using common name.
      */
     export interface ClientCertificateCommonName {
         /**
-         * Certificate common name to be granted access; be careful using wild card common names
+         * The common name of the client certificate.
          */
         certificateCommonName: pulumi.Input<string>;
         /**
-         * Certificate issuer thumbprint
+         * The issuer thumbprint of the client certificate.
          */
         certificateIssuerThumbprint: pulumi.Input<string>;
         /**
-         * Is this certificate used for admin access from the client, if false , it is used or query only access
+         * Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
          */
         isAdmin: pulumi.Input<boolean>;
     }
 
     /**
-     * Client certificate details using common name
+     * Describes the client certificate details using common name.
      */
     export interface ClientCertificateCommonNameResponse {
         /**
-         * Certificate common name to be granted access; be careful using wild card common names
+         * The common name of the client certificate.
          */
         certificateCommonName: pulumi.Input<string>;
         /**
-         * Certificate issuer thumbprint
+         * The issuer thumbprint of the client certificate.
          */
         certificateIssuerThumbprint: pulumi.Input<string>;
         /**
-         * Is this certificate used for admin access from the client, if false , it is used or query only access
+         * Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
          */
         isAdmin: pulumi.Input<boolean>;
     }
 
     /**
-     * Client certificate details using thumbprint
+     * Describes the client certificate details using thumbprint.
      */
     export interface ClientCertificateThumbprint {
         /**
-         * Certificate thumbprint
+         * The thumbprint of the client certificate.
          */
         certificateThumbprint: pulumi.Input<string>;
         /**
-         * Is this certificate used for admin access from the client, if false, it is used or query only access
+         * Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
          */
         isAdmin: pulumi.Input<boolean>;
     }
 
     /**
-     * Client certificate details using thumbprint
+     * Describes the client certificate details using thumbprint.
      */
     export interface ClientCertificateThumbprintResponse {
         /**
-         * Certificate thumbprint
+         * The thumbprint of the client certificate.
          */
         certificateThumbprint: pulumi.Input<string>;
         /**
-         * Is this certificate used for admin access from the client, if false, it is used or query only access
+         * Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
          */
         isAdmin: pulumi.Input<boolean>;
     }
@@ -70533,11 +70899,27 @@ export namespace servicefabric {
      */
     export interface ClusterHealthPolicy {
         /**
-         * The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
+         * Defines the application health policy map used to evaluate the health of an application or one of its children entities.
+         */
+        applicationHealthPolicies?: pulumi.Input<inputs.servicefabric.ApplicationHealthPolicyMap>;
+        /**
+         * The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+         *
+         * The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+         * If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+         * This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+         * The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
          */
         maxPercentUnhealthyApplications?: pulumi.Input<number>;
         /**
-         * The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
+         * The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+         *
+         * The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+         * If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+         * The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+         * The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+         *
+         * In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
          */
         maxPercentUnhealthyNodes?: pulumi.Input<number>;
     }
@@ -70547,301 +70929,398 @@ export namespace servicefabric {
      */
     export interface ClusterHealthPolicyResponse {
         /**
-         * The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
+         * Defines the application health policy map used to evaluate the health of an application or one of its children entities.
+         */
+        applicationHealthPolicies?: pulumi.Input<inputs.servicefabric.ApplicationHealthPolicyMapResponse>;
+        /**
+         * The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+         *
+         * The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+         * If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+         * This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+         * The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
          */
         maxPercentUnhealthyApplications?: pulumi.Input<number>;
         /**
-         * The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
+         * The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+         *
+         * The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+         * If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+         * The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+         * The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+         *
+         * In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
          */
         maxPercentUnhealthyNodes?: pulumi.Input<number>;
     }
 
     /**
-     * The cluster resource properties
+     * Describes the cluster resource properties.
      */
     export interface ClusterProperties {
         /**
-         * The settings to enable AAD authentication on the cluster
+         * The list of add-on features to enable in the cluster.
+         */
+        addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The policy used to clean up unused versions.
+         */
+        applicationTypeVersionsCleanupPolicy?: pulumi.Input<inputs.servicefabric.ApplicationTypeVersionsCleanupPolicy>;
+        /**
+         * The AAD authentication settings of the cluster.
          */
         azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectory>;
         /**
-         * This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+         * The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
          */
         certificate?: pulumi.Input<inputs.servicefabric.CertificateDescription>;
         /**
-         *  List of client certificates to whitelist based on common names
+         * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        certificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNames>;
+        /**
+         * The list of client certificates referenced by common name that are allowed to manage the cluster.
          */
         clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateCommonName>[]>;
         /**
-         * The client thumbprint details ,it is used for client access for cluster operation
+         * The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
          */
         clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateThumbprint>[]>;
         /**
-         * The ServiceFabric code version running in your cluster
+         * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
          */
         clusterCodeVersion?: pulumi.Input<string>;
         /**
-         * The storage diagnostics account configuration details
+         * The storage account information for storing Service Fabric diagnostic logs.
          */
         diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.DiagnosticsStorageAccountConfig>;
         /**
-         * List of custom fabric settings to configure the cluster.
+         * Indicates if the event store service is enabled.
+         */
+        eventStoreServiceEnabled?: pulumi.Input<boolean>;
+        /**
+         * The list of custom fabric settings to configure the cluster.
          */
         fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescription>[]>;
         /**
-         * The http management endpoint of the cluster
+         * The http management endpoint of the cluster.
          */
         managementEndpoint: pulumi.Input<string>;
         /**
-         * The list of node types that make up the cluster
+         * The list of node types in the cluster.
          */
         nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeDescription>[]>;
         /**
-         * Cluster reliability level indicates replica set size of system service
+         * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+         *
+         *   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+         *   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+         *   - Silver - Run the System services with a target replica set count of 5.
+         *   - Gold - Run the System services with a target replica set count of 7.
+         *   - Platinum - Run the System services with a target replica set count of 9.
          */
         reliabilityLevel?: pulumi.Input<string>;
         /**
-         * The server certificate used by reverse proxy
+         * The server certificate used by reverse proxy.
          */
         reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.CertificateDescription>;
+        /**
+         * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNames>;
         /**
          * The policy to use when upgrading the cluster.
          */
         upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
         /**
-         * Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+         * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+         *
+         *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+         *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
          */
         upgradeMode?: pulumi.Input<string>;
         /**
-         * The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+         * The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
          */
         vmImage?: pulumi.Input<string>;
     }
 
     /**
-     * The cluster resource properties
+     * Describes the cluster resource properties.
      */
     export interface ClusterPropertiesResponse {
         /**
-         * The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
+         * The list of add-on features to enable in the cluster.
+         */
+        addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The policy used to clean up unused versions.
+         */
+        applicationTypeVersionsCleanupPolicy?: pulumi.Input<inputs.servicefabric.ApplicationTypeVersionsCleanupPolicyResponse>;
+        /**
+         * The Service Fabric runtime versions available for this cluster.
          */
         availableClusterVersions: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterVersionDetailsResponse>[]>;
         /**
-         * The settings to enable AAD authentication on the cluster
+         * The AAD authentication settings of the cluster.
          */
         azureActiveDirectory?: pulumi.Input<inputs.servicefabric.AzureActiveDirectoryResponse>;
         /**
-         * This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+         * The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
          */
         certificate?: pulumi.Input<inputs.servicefabric.CertificateDescriptionResponse>;
         /**
-         *  List of client certificates to whitelist based on common names
+         * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        certificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNamesResponse>;
+        /**
+         * The list of client certificates referenced by common name that are allowed to manage the cluster.
          */
         clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateCommonNameResponse>[]>;
         /**
-         * The client thumbprint details ,it is used for client access for cluster operation
+         * The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
          */
         clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClientCertificateThumbprintResponse>[]>;
         /**
-         * The ServiceFabric code version running in your cluster
+         * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
          */
         clusterCodeVersion?: pulumi.Input<string>;
         /**
-         * The endpoint for the cluster connecting to servicefabric resource provider
+         * The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
          */
         clusterEndpoint: pulumi.Input<string>;
         /**
-         * The unique identifier for the cluster resource
+         * A service generated unique identifier for the cluster resource.
          */
         clusterId: pulumi.Input<string>;
         /**
-         * The state for the cluster
+         * The current state of the cluster.
+         *
+         *   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
+         *   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
+         *   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
+         *   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
+         *   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
+         *   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
+         *   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
+         *   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
+         *   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
+         *   - Ready - Indicates that the cluster is in a stable state.
          */
         clusterState: pulumi.Input<string>;
         /**
-         * The storage diagnostics account configuration details
+         * The storage account information for storing Service Fabric diagnostic logs.
          */
         diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.DiagnosticsStorageAccountConfigResponse>;
         /**
-         * List of custom fabric settings to configure the cluster.
+         * Indicates if the event store service is enabled.
+         */
+        eventStoreServiceEnabled?: pulumi.Input<boolean>;
+        /**
+         * The list of custom fabric settings to configure the cluster.
          */
         fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescriptionResponse>[]>;
         /**
-         * The http management endpoint of the cluster
+         * The http management endpoint of the cluster.
          */
         managementEndpoint: pulumi.Input<string>;
         /**
-         * The list of node types that make up the cluster
+         * The list of node types in the cluster.
          */
         nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeDescriptionResponse>[]>;
         /**
-         * The provisioning state of the cluster resource
+         * The provisioning state of the cluster resource.
          */
         provisioningState: pulumi.Input<string>;
         /**
-         * Cluster reliability level indicates replica set size of system service
+         * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+         *
+         *   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+         *   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+         *   - Silver - Run the System services with a target replica set count of 5.
+         *   - Gold - Run the System services with a target replica set count of 7.
+         *   - Platinum - Run the System services with a target replica set count of 9.
          */
         reliabilityLevel?: pulumi.Input<string>;
         /**
-         * The server certificate used by reverse proxy
+         * The server certificate used by reverse proxy.
          */
         reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.CertificateDescriptionResponse>;
+        /**
+         * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNamesResponse>;
         /**
          * The policy to use when upgrading the cluster.
          */
         upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicyResponse>;
         /**
-         * Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+         * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+         *
+         *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+         *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
          */
         upgradeMode?: pulumi.Input<string>;
         /**
-         * The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+         * The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
          */
         vmImage?: pulumi.Input<string>;
     }
 
     /**
-     * Delta health policy for the cluster
+     * Describes the delta health policies for the cluster upgrade.
      */
     export interface ClusterUpgradeDeltaHealthPolicy {
         /**
-         * Additional unhealthy applications percentage
+         * Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+         */
+        applicationDeltaHealthPolicies?: pulumi.Input<inputs.servicefabric.ApplicationDeltaHealthPolicyMap>;
+        /**
+         * The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
          */
         maxPercentDeltaUnhealthyApplications: pulumi.Input<number>;
         /**
-         * Additional unhealthy nodes percentage
+         * The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
          */
         maxPercentDeltaUnhealthyNodes: pulumi.Input<number>;
         /**
-         * Additional unhealthy nodes percentage per upgrade domain 
+         * The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
          */
         maxPercentUpgradeDomainDeltaUnhealthyNodes: pulumi.Input<number>;
     }
 
     /**
-     * Delta health policy for the cluster
+     * Describes the delta health policies for the cluster upgrade.
      */
     export interface ClusterUpgradeDeltaHealthPolicyResponse {
         /**
-         * Additional unhealthy applications percentage
+         * Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+         */
+        applicationDeltaHealthPolicies?: pulumi.Input<inputs.servicefabric.ApplicationDeltaHealthPolicyMapResponse>;
+        /**
+         * The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
          */
         maxPercentDeltaUnhealthyApplications: pulumi.Input<number>;
         /**
-         * Additional unhealthy nodes percentage
+         * The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
          */
         maxPercentDeltaUnhealthyNodes: pulumi.Input<number>;
         /**
-         * Additional unhealthy nodes percentage per upgrade domain 
+         * The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
          */
         maxPercentUpgradeDomainDeltaUnhealthyNodes: pulumi.Input<number>;
     }
 
     /**
-     * Cluster upgrade policy
+     * Describes the policy used when upgrading the cluster.
      */
     export interface ClusterUpgradePolicy {
         /**
-         * Delta health policy
+         * The cluster delta health policy used when upgrading the cluster.
          */
         deltaHealthPolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradeDeltaHealthPolicy>;
         /**
-         * Force node to restart or not
+         * If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
          */
         forceRestart?: pulumi.Input<boolean>;
         /**
-         * The length of time that health checks can fail continuously,it represents .Net TimeSpan
+         * The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckRetryTimeout: pulumi.Input<string>;
         /**
-         * The length of time that health checks must pass continuously,it represents .Net TimeSpan
+         * The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckStableDuration: pulumi.Input<string>;
         /**
-         * The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+         * The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckWaitDuration: pulumi.Input<string>;
         /**
-         * Cluster health Policy
+         * The cluster health policy used when upgrading the cluster.
          */
         healthPolicy: pulumi.Input<inputs.servicefabric.ClusterHealthPolicy>;
         /**
-         * Use the user defined upgrade policy or not
-         */
-        overrideUserUpgradePolicy?: pulumi.Input<boolean>;
-        /**
-         * The timeout for any upgrade domain,it represents .Net TimeSpan
+         * The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeDomainTimeout: pulumi.Input<string>;
         /**
-         * Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+         * The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeReplicaSetCheckTimeout: pulumi.Input<string>;
         /**
-         * The upgrade timeout,it represents .Net TimeSpan
+         * The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeTimeout: pulumi.Input<string>;
     }
 
     /**
-     * Cluster upgrade policy
+     * Describes the policy used when upgrading the cluster.
      */
     export interface ClusterUpgradePolicyResponse {
         /**
-         * Delta health policy
+         * The cluster delta health policy used when upgrading the cluster.
          */
         deltaHealthPolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradeDeltaHealthPolicyResponse>;
         /**
-         * Force node to restart or not
+         * If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
          */
         forceRestart?: pulumi.Input<boolean>;
         /**
-         * The length of time that health checks can fail continuously,it represents .Net TimeSpan
+         * The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckRetryTimeout: pulumi.Input<string>;
         /**
-         * The length of time that health checks must pass continuously,it represents .Net TimeSpan
+         * The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckStableDuration: pulumi.Input<string>;
         /**
-         * The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+         * The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckWaitDuration: pulumi.Input<string>;
         /**
-         * Cluster health Policy
+         * The cluster health policy used when upgrading the cluster.
          */
         healthPolicy: pulumi.Input<inputs.servicefabric.ClusterHealthPolicyResponse>;
         /**
-         * Use the user defined upgrade policy or not
-         */
-        overrideUserUpgradePolicy?: pulumi.Input<boolean>;
-        /**
-         * The timeout for any upgrade domain,it represents .Net TimeSpan
+         * The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeDomainTimeout: pulumi.Input<string>;
         /**
-         * Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+         * The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeReplicaSetCheckTimeout: pulumi.Input<string>;
         /**
-         * The upgrade timeout,it represents .Net TimeSpan
+         * The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeTimeout: pulumi.Input<string>;
     }
 
     /**
-     * The detail of the ServiceFabric runtime version result
+     * The detail of the Service Fabric runtime version result
      */
     export interface ClusterVersionDetailsResponse {
         /**
-         * The ServiceFabric runtime version of the cluster
+         * The Service Fabric runtime version of the cluster.
          */
         codeVersion?: pulumi.Input<string>;
         /**
-         * Cluster operating system
+         * Indicates if this version is for Windows or Linux operating system.
          */
         environment?: pulumi.Input<string>;
         /**
-         * The date of expiry of support of the version
+         * The date of expiry of support of the version.
          */
         supportExpiryUtc?: pulumi.Input<string>;
     }
@@ -70859,53 +71338,61 @@ export namespace servicefabric {
     }
 
     /**
-     * Diagnostics storage account config
+     * The storage account information for storing Service Fabric diagnostic logs.
      */
     export interface DiagnosticsStorageAccountConfig {
         /**
-         * Diagnostics storage account blob endpoint
+         * The blob endpoint of the azure storage account.
          */
         blobEndpoint: pulumi.Input<string>;
         /**
-         * Protected Diagnostics storage key name
+         * The protected diagnostics storage key name.
          */
         protectedAccountKeyName: pulumi.Input<string>;
         /**
-         * Diagnostics storage account queue endpoint
+         * The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
+         */
+        protectedAccountKeyName2?: pulumi.Input<string>;
+        /**
+         * The queue endpoint of the azure storage account.
          */
         queueEndpoint: pulumi.Input<string>;
         /**
-         * Diagnostics storage account name
+         * The Azure storage account name.
          */
         storageAccountName: pulumi.Input<string>;
         /**
-         * Diagnostics storage account table endpoint
+         * The table endpoint of the azure storage account.
          */
         tableEndpoint: pulumi.Input<string>;
     }
 
     /**
-     * Diagnostics storage account config
+     * The storage account information for storing Service Fabric diagnostic logs.
      */
     export interface DiagnosticsStorageAccountConfigResponse {
         /**
-         * Diagnostics storage account blob endpoint
+         * The blob endpoint of the azure storage account.
          */
         blobEndpoint: pulumi.Input<string>;
         /**
-         * Protected Diagnostics storage key name
+         * The protected diagnostics storage key name.
          */
         protectedAccountKeyName: pulumi.Input<string>;
         /**
-         * Diagnostics storage account queue endpoint
+         * The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
+         */
+        protectedAccountKeyName2?: pulumi.Input<string>;
+        /**
+         * The queue endpoint of the azure storage account.
          */
         queueEndpoint: pulumi.Input<string>;
         /**
-         * Diagnostics storage account name
+         * The Azure storage account name.
          */
         storageAccountName: pulumi.Input<string>;
         /**
-         * Diagnostics storage account table endpoint
+         * The table endpoint of the azure storage account.
          */
         tableEndpoint: pulumi.Input<string>;
     }
@@ -70989,101 +71476,109 @@ export namespace servicefabric {
     }
 
     /**
-     * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
+     * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
      */
     export interface NodeTypeDescription {
         /**
-         * Ports used by applications
+         * The range of ports from which cluster assigned port to Service Fabric applications.
          */
         applicationPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescription>;
         /**
-         * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
+         * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
          */
         capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The TCP cluster management endpoint port
+         * The TCP cluster management endpoint port.
          */
         clientConnectionEndpointPort: pulumi.Input<number>;
         /**
-         * Node type durability Level
+         * The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+         *
+         *   - Bronze - No privileges. This is the default.
+         *   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
+         *   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
          */
         durabilityLevel?: pulumi.Input<string>;
         /**
-         * System assigned application ports
+         * The range of ephemeral ports that nodes in this node type should be configured with.
          */
         ephemeralPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescription>;
         /**
-         * The HTTP cluster management endpoint port
+         * The HTTP cluster management endpoint port.
          */
         httpGatewayEndpointPort: pulumi.Input<number>;
         /**
-         * Mark this as the primary node type
+         * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
          */
         isPrimary: pulumi.Input<boolean>;
         /**
-         * Name of the node type
+         * The name of the node type.
          */
         name: pulumi.Input<string>;
         /**
-         * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
+         * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
          */
         placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Endpoint used by reverse proxy
+         * The endpoint used by reverse proxy.
          */
         reverseProxyEndpointPort?: pulumi.Input<number>;
         /**
-         * The number of node instances in the node type
+         * The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
          */
         vmInstanceCount: pulumi.Input<number>;
     }
 
     /**
-     * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
+     * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
      */
     export interface NodeTypeDescriptionResponse {
         /**
-         * Ports used by applications
+         * The range of ports from which cluster assigned port to Service Fabric applications.
          */
         applicationPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionResponse>;
         /**
-         * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
+         * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
          */
         capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The TCP cluster management endpoint port
+         * The TCP cluster management endpoint port.
          */
         clientConnectionEndpointPort: pulumi.Input<number>;
         /**
-         * Node type durability Level
+         * The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+         *
+         *   - Bronze - No privileges. This is the default.
+         *   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
+         *   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
          */
         durabilityLevel?: pulumi.Input<string>;
         /**
-         * System assigned application ports
+         * The range of ephemeral ports that nodes in this node type should be configured with.
          */
         ephemeralPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionResponse>;
         /**
-         * The HTTP cluster management endpoint port
+         * The HTTP cluster management endpoint port.
          */
         httpGatewayEndpointPort: pulumi.Input<number>;
         /**
-         * Mark this as the primary node type
+         * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
          */
         isPrimary: pulumi.Input<boolean>;
         /**
-         * Name of the node type
+         * The name of the node type.
          */
         name: pulumi.Input<string>;
         /**
-         * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
+         * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
          */
         placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Endpoint used by reverse proxy
+         * The endpoint used by reverse proxy.
          */
         reverseProxyEndpointPort?: pulumi.Input<number>;
         /**
-         * The number of node instances in the node type
+         * The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
          */
         vmInstanceCount: pulumi.Input<number>;
     }
@@ -71106,6 +71601,62 @@ export namespace servicefabric {
          * Specifies how the service is partitioned.
          */
         partitionScheme: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the server certificate details using common name.
+     */
+    export interface ServerCertificateCommonName {
+        /**
+         * The common name of the server certificate.
+         */
+        certificateCommonName: pulumi.Input<string>;
+        /**
+         * The issuer thumbprint of the server certificate.
+         */
+        certificateIssuerThumbprint: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the server certificate details using common name.
+     */
+    export interface ServerCertificateCommonNameResponse {
+        /**
+         * The common name of the server certificate.
+         */
+        certificateCommonName: pulumi.Input<string>;
+        /**
+         * The issuer thumbprint of the server certificate.
+         */
+        certificateIssuerThumbprint: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+     */
+    export interface ServerCertificateCommonNames {
+        /**
+         * The list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        commonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServerCertificateCommonName>[]>;
+        /**
+         * The local certificate store location.
+         */
+        x509StoreName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+     */
+    export interface ServerCertificateCommonNamesResponse {
+        /**
+         * The list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        commonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ServerCertificateCommonNameResponse>[]>;
+        /**
+         * The local certificate store location.
+         */
+        x509StoreName?: pulumi.Input<string>;
     }
 
     /**
@@ -71229,57 +71780,57 @@ export namespace servicefabric {
     }
 
     /**
-     * ServiceFabric settings under sections
+     * Describes a parameter in fabric settings of the cluster.
      */
     export interface SettingsParameterDescription {
         /**
-         * The name of settings property
+         * The parameter name of fabric setting.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the property
+         * The parameter value of fabric setting.
          */
         value: pulumi.Input<string>;
     }
 
     /**
-     * ServiceFabric settings under sections
+     * Describes a parameter in fabric settings of the cluster.
      */
     export interface SettingsParameterDescriptionResponse {
         /**
-         * The name of settings property
+         * The parameter name of fabric setting.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the property
+         * The parameter value of fabric setting.
          */
         value: pulumi.Input<string>;
     }
 
     /**
-     * ServiceFabric section settings
+     * Describes a section in the fabric settings of the cluster.
      */
     export interface SettingsSectionDescription {
         /**
-         * The name of settings section
+         * The section name of the fabric settings.
          */
         name: pulumi.Input<string>;
         /**
-         * Collection of settings in the section, each setting is a tuple consisting of setting name and value
+         * The collection of parameters in the section.
          */
         parameters: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsParameterDescription>[]>;
     }
 
     /**
-     * ServiceFabric section settings
+     * Describes a section in the fabric settings of the cluster.
      */
     export interface SettingsSectionDescriptionResponse {
         /**
-         * The name of settings section
+         * The section name of the fabric settings.
          */
         name: pulumi.Input<string>;
         /**
-         * Collection of settings in the section, each setting is a tuple consisting of setting name and value
+         * The collection of parameters in the section.
          */
         parameters: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsParameterDescriptionResponse>[]>;
     }

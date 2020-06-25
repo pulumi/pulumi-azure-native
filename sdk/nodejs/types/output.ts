@@ -4483,25 +4483,13 @@ export namespace batchai {
     }
 
     /**
-     * Information about the execution of a job.
+     * Constraints associated with the Job.
      */
     export interface JobPropertiesResponseProperties {
         /**
-         * The time at which the job completed. This property is only returned if the job is in completed state.
+         * Max time the job can run. Default value: 1 week.
          */
-        endTime: string;
-        /**
-         * A collection of errors encountered by the service during job execution.
-         */
-        errors: outputs.batchai.BatchAIErrorResponse[];
-        /**
-         * The exit code of the job. This property is only returned if the job is in completed state.
-         */
-        exitCode: number;
-        /**
-         * The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
-         */
-        startTime: string;
+        maxWallClockTime?: string;
     }
 
     /**
@@ -13840,7 +13828,7 @@ export namespace databricks {
      */
     export interface VirtualNetworkPeeringPropertiesFormatResponseProperties {
         /**
-         * The Id of the remote virtual network.
+         * The Id of the databricks virtual network.
          */
         id?: string;
     }
@@ -19125,23 +19113,19 @@ export namespace eventhub {
     }
 
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
+     * Single item in List or Get Consumer group operation
      */
-    export interface ConsumerGroupPropertiesResponse {
+    export interface ConsumerGroupResponseProperties {
         /**
          * Exact time the message was created.
          */
         createdAt: string;
         /**
-         * The path of the Event Hub.
-         */
-        eventHubPath: string;
-        /**
          * The exact time the message was updated.
          */
         updatedAt: string;
         /**
-         * The user metadata.
+         * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
          */
         userMetadata?: string;
     }
@@ -19179,6 +19163,44 @@ export namespace eventhub {
     }
 
     /**
+     * Namespace properties supplied for create namespace operation.
+     */
+    export interface EHNamespaceResponseProperties {
+        /**
+         * The time the Namespace was created.
+         */
+        createdAt: string;
+        /**
+         * Value that indicates whether AutoInflate is enabled for eventhub namespace.
+         */
+        isAutoInflateEnabled?: boolean;
+        /**
+         * Value that indicates whether Kafka is enabled for eventhub namespace.
+         */
+        kafkaEnabled?: boolean;
+        /**
+         * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+         */
+        maximumThroughputUnits?: number;
+        /**
+         * Identifier for Azure Insights metrics.
+         */
+        metricId: string;
+        /**
+         * Provisioning state of the Namespace.
+         */
+        provisioningState: string;
+        /**
+         * Endpoint you can use to perform Service Bus operations.
+         */
+        serviceBusEndpoint: string;
+        /**
+         * The time the Namespace was updated.
+         */
+        updatedAt: string;
+    }
+
+    /**
      * Properties supplied to the Create Or Update Event Hub operation.
      */
     export interface EventhubResponseProperties {
@@ -19213,55 +19235,21 @@ export namespace eventhub {
     }
 
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
-     */
-    export interface NamespacePropertiesResponse {
-        /**
-         * The time the Namespace was created.
-         */
-        createdAt?: string;
-        /**
-         * Specifies whether this instance is enabled.
-         */
-        enabled?: boolean;
-        /**
-         * Identifier for Azure Insights metrics
-         */
-        metricId: string;
-        /**
-         * Provisioning state of the Namespace.
-         */
-        provisioningState?: string;
-        /**
-         * Endpoint you can use to perform Service Bus operations.
-         */
-        serviceBusEndpoint?: string;
-        /**
-         * State of the Namespace.
-         */
-        status?: string;
-        /**
-         * The time the Namespace was updated.
-         */
-        updatedAt?: string;
-    }
-
-    /**
-     * SKU parameters supplied to the create Namespace operation
+     * SKU parameters supplied to the create namespace operation
      */
     export interface SkuResponse {
         /**
-         * The Event Hubs throughput units.
+         * The Event Hubs throughput units, value should be 0 to 20 throughput units.
          */
         capacity?: number;
         /**
          * Name of this SKU.
          */
-        name?: string;
+        name: string;
         /**
          * The billing tier of this particular SKU.
          */
-        tier: string;
+        tier?: string;
     }
 }
 
@@ -26396,40 +26384,6 @@ export namespace netapp {
     }
 
     /**
-     * Volume Export Policy Rule
-     */
-    export interface ExportPolicyRuleResponse {
-        /**
-         * Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-         */
-        allowedClients?: string;
-        /**
-         * Allows CIFS protocol
-         */
-        cifs?: boolean;
-        /**
-         * Allows NFSv3 protocol
-         */
-        nfsv3?: boolean;
-        /**
-         * Allows NFSv4.1 protocol
-         */
-        nfsv41?: boolean;
-        /**
-         * Order index
-         */
-        ruleIndex?: number;
-        /**
-         * Read only access
-         */
-        unixReadOnly?: boolean;
-        /**
-         * Read and write access
-         */
-        unixReadWrite?: boolean;
-    }
-
-    /**
      * Mount target properties
      */
     export interface MountTargetPropertiesResponse {
@@ -26491,6 +26445,32 @@ export namespace netapp {
          * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
          */
         size: number;
+    }
+
+    /**
+     * Replication properties
+     */
+    export interface ReplicationObjectResponse {
+        /**
+         * Indicates whether the local volume is the source or destination for the Volume Replication
+         */
+        endpointType?: string;
+        /**
+         * The remote region for the other end of the Volume Replication.
+         */
+        remoteVolumeRegion?: string;
+        /**
+         * The resource ID of the remote volume.
+         */
+        remoteVolumeResourceId: string;
+        /**
+         * Id
+         */
+        replicationId?: string;
+        /**
+         * Schedule
+         */
+        replicationSchedule: string;
     }
 
     /**
@@ -26584,13 +26564,13 @@ export namespace netapp {
     }
 
     /**
-     * Set of export policy rules
+     * DataProtection type volumes include an object containing details of the replication
      */
     export interface VolumePropertiesResponseProperties {
         /**
-         * Export policy rule
+         * Replication properties
          */
-        rules?: outputs.netapp.ExportPolicyRuleResponse[];
+        replication?: outputs.netapp.ReplicationObjectResponse;
     }
 }
 
@@ -29410,6 +29390,24 @@ export namespace network {
     }
 
     /**
+     * Class containing DNS settings in a Traffic Manager profile.
+     */
+    export interface DnsConfigResponse {
+        /**
+         * The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+         */
+        fqdn: string;
+        /**
+         * The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+         */
+        relativeName?: string;
+        /**
+         * The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+         */
+        ttl?: number;
+    }
+
+    /**
      * DNS Proxy Settings in Firewall Policy.
      */
     export interface DnsSettingsResponse {
@@ -29428,17 +29426,89 @@ export namespace network {
     }
 
     /**
-     * Defines the endpoint properties
+     * Class representing a Traffic Manager endpoint properties.
+     */
+    export interface EndpointPropertiesResponse {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: outputs.network.EndpointPropertiesResponseProperties[];
+        /**
+         * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+         */
+        endpointLocation?: string;
+        /**
+         * The monitoring status of the endpoint.
+         */
+        endpointMonitorStatus?: string;
+        /**
+         * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+         */
+        endpointStatus?: string;
+        /**
+         * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+         */
+        geoMapping?: string[];
+        /**
+         * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+         */
+        minChildEndpoints?: number;
+        /**
+         * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+         */
+        priority?: number;
+        /**
+         * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+         */
+        subnets?: outputs.network.EndpointPropertiesResponseProperties[];
+        /**
+         * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+         */
+        target?: string;
+        /**
+         * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+         */
+        targetResourceId?: string;
+        /**
+         * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+         */
+        weight?: number;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface EndpointPropertiesResponseProperties {
+        /**
+         * Header name.
+         */
+        name?: string;
+        /**
+         * Header value.
+         */
+        value?: string;
+    }
+
+    /**
+     * Class representing a Traffic Manager endpoint.
      */
     export interface EndpointResponse {
         /**
-         * The endpoint URL
+         * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
          */
-        endpoint?: string;
+        id?: string;
         /**
-         * The name of the endpoint
+         * The name of the resource
          */
         name?: string;
+        /**
+         * The properties of the Traffic Manager endpoint.
+         */
+        properties?: outputs.network.EndpointPropertiesResponse;
+        /**
+         * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+         */
+        type?: string;
     }
 
     /**
@@ -31666,6 +31736,62 @@ export namespace network {
     }
 
     /**
+     * Class containing endpoint monitoring settings in a Traffic Manager profile.
+     */
+    export interface MonitorConfigResponse {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: outputs.network.MonitorConfigResponseProperties[];
+        /**
+         * List of expected status code ranges.
+         */
+        expectedStatusCodeRanges?: outputs.network.MonitorConfigResponseProperties[];
+        /**
+         * The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+         */
+        intervalInSeconds?: number;
+        /**
+         * The path relative to the endpoint domain name used to probe for endpoint health.
+         */
+        path?: string;
+        /**
+         * The TCP port used to probe for endpoint health.
+         */
+        port?: number;
+        /**
+         * The profile-level monitoring status of the Traffic Manager profile.
+         */
+        profileMonitorStatus?: string;
+        /**
+         * The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+         */
+        protocol?: string;
+        /**
+         * The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+         */
+        timeoutInSeconds?: number;
+        /**
+         * The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+         */
+        toleratedNumberOfFailures?: number;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface MonitorConfigResponseProperties {
+        /**
+         * Header name.
+         */
+        name?: string;
+        /**
+         * Header value.
+         */
+        value?: string;
+    }
+
+    /**
      * Nat Gateway properties.
      */
     export interface NatGatewayPropertiesFormatResponse {
@@ -32884,17 +33010,37 @@ export namespace network {
     }
 
     /**
-     * Defines the properties of an experiment
+     * Class representing the Traffic Manager profile properties.
      */
     export interface ProfilePropertiesResponse {
         /**
-         * The state of the Experiment
+         * The DNS settings of the Traffic Manager profile.
          */
-        enabledState?: string;
+        dnsConfig?: outputs.network.DnsConfigResponse;
         /**
-         * Resource status.
+         * The list of endpoints in the Traffic Manager profile.
          */
-        resourceState?: string;
+        endpoints?: outputs.network.EndpointResponse[];
+        /**
+         * Maximum number of endpoints to be returned for MultiValue routing type.
+         */
+        maxReturn?: number;
+        /**
+         * The endpoint monitoring settings of the Traffic Manager profile.
+         */
+        monitorConfig?: outputs.network.MonitorConfigResponse;
+        /**
+         * The status of the Traffic Manager profile.
+         */
+        profileStatus?: string;
+        /**
+         * The traffic routing method of the Traffic Manager profile.
+         */
+        trafficRoutingMethod?: string;
+        /**
+         * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+         */
+        trafficViewEnrollmentStatus?: string;
     }
 
     /**
@@ -37022,21 +37168,21 @@ export namespace recoveryservices {
     }
 
     /**
-     * Private Endpoint Connection Response Properties.
+     * Private Endpoint Connection Response Properties
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+         * Gets or sets private endpoint associated with the private endpoint connection
          */
         privateEndpoint?: outputs.recoveryservices.PrivateEndpointResponse;
         /**
-         * Gets or sets private link service connection state.
+         * Gets or sets private link service connection state
          */
         privateLinkServiceConnectionState?: outputs.recoveryservices.PrivateLinkServiceConnectionStateResponse;
         /**
-         * Gets or sets provisioning state of the private endpoint connection.
+         * Gets or sets provisioning state of the private endpoint connection
          */
-        provisioningState: string;
+        provisioningState?: string;
     }
 
     /**
@@ -37054,31 +37200,31 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection
      */
     export interface PrivateEndpointResponse {
         /**
-         * Gets or sets id.
+         * Gets or sets id
          */
-        id: string;
+        id?: string;
     }
 
     /**
-     * Gets or sets private link service connection state.
+     * Private Link Service Connection State
      */
     export interface PrivateLinkServiceConnectionStateResponse {
         /**
-         * Gets or sets actions required.
+         * Gets or sets actions required
          */
-        actionsRequired: string;
+        actionRequired?: string;
         /**
-         * Gets or sets description.
+         * Gets or sets description
          */
-        description: string;
+        description?: string;
         /**
-         * Gets or sets the status.
+         * Gets or sets the status
          */
-        status: string;
+        status?: string;
     }
 
     /**
@@ -38753,21 +38899,13 @@ export namespace search {
     }
 
     /**
-     * Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+     * The private endpoint resource from Microsoft.Network provider.
      */
     export interface PrivateEndpointConnectionPropertiesResponseProperties {
         /**
-         * A description of any extra actions that may be required.
+         * The resource id of the private endpoint resource from Microsoft.Network provider.
          */
-        actionsRequired?: string;
-        /**
-         * The description for the private link service connection state.
-         */
-        description?: string;
-        /**
-         * Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-         */
-        status?: string;
+        id?: string;
     }
 
     /**
@@ -39537,6 +39675,24 @@ export namespace servicebus {
 
 export namespace servicefabric {
     /**
+     * Defines a map that contains specific application delta health policies for different applications.
+     * Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
+     * The application name should include the 'fabric:' URI scheme.
+     * The map is empty by default.
+     */
+    export interface ApplicationDeltaHealthPolicyMapResponse {
+    }
+
+    /**
+     * Defines a map that contains specific application health policies for different applications.
+     * Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
+     * The application name should include the 'fabric:' URI scheme.
+     * The map is empty by default.
+     */
+    export interface ApplicationHealthPolicyMapResponse {
+    }
+
+    /**
      * List of application capacity metric description.
      */
     export interface ApplicationMetricDescriptionListResponse {
@@ -39626,6 +39782,13 @@ export namespace servicefabric {
          * The current deployment or provisioning state, which only appears in the response
          */
         provisioningState: string;
+    }
+
+    export interface ApplicationTypeVersionsCleanupPolicyResponse {
+        /**
+         * Number of unused versions per application type to keep.
+         */
+        maxUnusedVersionsToKeep: number;
     }
 
     /**
@@ -39751,69 +39914,69 @@ export namespace servicefabric {
     }
 
     /**
-     * The settings to enable AAD authentication on the cluster
+     * The settings to enable AAD authentication on the cluster.
      */
     export interface AzureActiveDirectoryResponse {
         /**
-         * Azure active directory client application id
+         * Azure active directory client application id.
          */
         clientApplication?: string;
         /**
-         * Azure active directory cluster application id
+         * Azure active directory cluster application id.
          */
         clusterApplication?: string;
         /**
-         * Azure active directory tenant id
+         * Azure active directory tenant id.
          */
         tenantId?: string;
     }
 
     /**
-     * Certificate details
+     * Describes the certificate details.
      */
     export interface CertificateDescriptionResponse {
         /**
-         * Thumbprint of the primary certificate
+         * Thumbprint of the primary certificate.
          */
         thumbprint: string;
         /**
-         * Thumbprint of the secondary certificate
+         * Thumbprint of the secondary certificate.
          */
         thumbprintSecondary?: string;
         /**
-         * The local certificate store location
+         * The local certificate store location.
          */
         x509StoreName?: string;
     }
 
     /**
-     * Client certificate details using common name
+     * Describes the client certificate details using common name.
      */
     export interface ClientCertificateCommonNameResponse {
         /**
-         * Certificate common name to be granted access; be careful using wild card common names
+         * The common name of the client certificate.
          */
         certificateCommonName: string;
         /**
-         * Certificate issuer thumbprint
+         * The issuer thumbprint of the client certificate.
          */
         certificateIssuerThumbprint: string;
         /**
-         * Is this certificate used for admin access from the client, if false , it is used or query only access
+         * Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
          */
         isAdmin: boolean;
     }
 
     /**
-     * Client certificate details using thumbprint
+     * Describes the client certificate details using thumbprint.
      */
     export interface ClientCertificateThumbprintResponse {
         /**
-         * Certificate thumbprint
+         * The thumbprint of the client certificate.
          */
         certificateThumbprint: string;
         /**
-         * Is this certificate used for admin access from the client, if false, it is used or query only access
+         * Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
          */
         isAdmin: boolean;
     }
@@ -39823,175 +39986,237 @@ export namespace servicefabric {
      */
     export interface ClusterHealthPolicyResponse {
         /**
-         * The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
+         * Defines the application health policy map used to evaluate the health of an application or one of its children entities.
+         */
+        applicationHealthPolicies?: outputs.servicefabric.ApplicationHealthPolicyMapResponse;
+        /**
+         * The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+         *
+         * The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+         * If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+         * This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+         * The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
          */
         maxPercentUnhealthyApplications?: number;
         /**
-         * The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
+         * The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+         *
+         * The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+         * If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+         * The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+         * The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+         *
+         * In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
          */
         maxPercentUnhealthyNodes?: number;
     }
 
     /**
-     * The cluster resource properties
+     * Describes the cluster resource properties.
      */
     export interface ClusterPropertiesResponse {
         /**
-         * The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
+         * The list of add-on features to enable in the cluster.
+         */
+        addOnFeatures?: string[];
+        /**
+         * The policy used to clean up unused versions.
+         */
+        applicationTypeVersionsCleanupPolicy?: outputs.servicefabric.ApplicationTypeVersionsCleanupPolicyResponse;
+        /**
+         * The Service Fabric runtime versions available for this cluster.
          */
         availableClusterVersions: outputs.servicefabric.ClusterVersionDetailsResponse[];
         /**
-         * The settings to enable AAD authentication on the cluster
+         * The AAD authentication settings of the cluster.
          */
         azureActiveDirectory?: outputs.servicefabric.AzureActiveDirectoryResponse;
         /**
-         * This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+         * The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
          */
         certificate?: outputs.servicefabric.CertificateDescriptionResponse;
         /**
-         *  List of client certificates to whitelist based on common names
+         * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        certificateCommonNames?: outputs.servicefabric.ServerCertificateCommonNamesResponse;
+        /**
+         * The list of client certificates referenced by common name that are allowed to manage the cluster.
          */
         clientCertificateCommonNames?: outputs.servicefabric.ClientCertificateCommonNameResponse[];
         /**
-         * The client thumbprint details ,it is used for client access for cluster operation
+         * The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
          */
         clientCertificateThumbprints?: outputs.servicefabric.ClientCertificateThumbprintResponse[];
         /**
-         * The ServiceFabric code version running in your cluster
+         * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
          */
         clusterCodeVersion?: string;
         /**
-         * The endpoint for the cluster connecting to servicefabric resource provider
+         * The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
          */
         clusterEndpoint: string;
         /**
-         * The unique identifier for the cluster resource
+         * A service generated unique identifier for the cluster resource.
          */
         clusterId: string;
         /**
-         * The state for the cluster
+         * The current state of the cluster.
+         *
+         *   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
+         *   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
+         *   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
+         *   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
+         *   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
+         *   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
+         *   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
+         *   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
+         *   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
+         *   - Ready - Indicates that the cluster is in a stable state.
          */
         clusterState: string;
         /**
-         * The storage diagnostics account configuration details
+         * The storage account information for storing Service Fabric diagnostic logs.
          */
         diagnosticsStorageAccountConfig?: outputs.servicefabric.DiagnosticsStorageAccountConfigResponse;
         /**
-         * List of custom fabric settings to configure the cluster.
+         * Indicates if the event store service is enabled.
+         */
+        eventStoreServiceEnabled?: boolean;
+        /**
+         * The list of custom fabric settings to configure the cluster.
          */
         fabricSettings?: outputs.servicefabric.SettingsSectionDescriptionResponse[];
         /**
-         * The http management endpoint of the cluster
+         * The http management endpoint of the cluster.
          */
         managementEndpoint: string;
         /**
-         * The list of node types that make up the cluster
+         * The list of node types in the cluster.
          */
         nodeTypes: outputs.servicefabric.NodeTypeDescriptionResponse[];
         /**
-         * The provisioning state of the cluster resource
+         * The provisioning state of the cluster resource.
          */
         provisioningState: string;
         /**
-         * Cluster reliability level indicates replica set size of system service
+         * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+         *
+         *   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+         *   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+         *   - Silver - Run the System services with a target replica set count of 5.
+         *   - Gold - Run the System services with a target replica set count of 7.
+         *   - Platinum - Run the System services with a target replica set count of 9.
          */
         reliabilityLevel?: string;
         /**
-         * The server certificate used by reverse proxy
+         * The server certificate used by reverse proxy.
          */
         reverseProxyCertificate?: outputs.servicefabric.CertificateDescriptionResponse;
+        /**
+         * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        reverseProxyCertificateCommonNames?: outputs.servicefabric.ServerCertificateCommonNamesResponse;
         /**
          * The policy to use when upgrading the cluster.
          */
         upgradeDescription?: outputs.servicefabric.ClusterUpgradePolicyResponse;
         /**
-         * Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+         * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+         *
+         *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+         *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
          */
         upgradeMode?: string;
         /**
-         * The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+         * The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
          */
         vmImage?: string;
     }
 
     /**
-     * Delta health policy for the cluster
+     * Describes the delta health policies for the cluster upgrade.
      */
     export interface ClusterUpgradeDeltaHealthPolicyResponse {
         /**
-         * Additional unhealthy applications percentage
+         * Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+         */
+        applicationDeltaHealthPolicies?: outputs.servicefabric.ApplicationDeltaHealthPolicyMapResponse;
+        /**
+         * The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
          */
         maxPercentDeltaUnhealthyApplications: number;
         /**
-         * Additional unhealthy nodes percentage
+         * The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
          */
         maxPercentDeltaUnhealthyNodes: number;
         /**
-         * Additional unhealthy nodes percentage per upgrade domain 
+         * The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+         * The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+         * The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
          */
         maxPercentUpgradeDomainDeltaUnhealthyNodes: number;
     }
 
     /**
-     * Cluster upgrade policy
+     * Describes the policy used when upgrading the cluster.
      */
     export interface ClusterUpgradePolicyResponse {
         /**
-         * Delta health policy
+         * The cluster delta health policy used when upgrading the cluster.
          */
         deltaHealthPolicy?: outputs.servicefabric.ClusterUpgradeDeltaHealthPolicyResponse;
         /**
-         * Force node to restart or not
+         * If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
          */
         forceRestart?: boolean;
         /**
-         * The length of time that health checks can fail continuously,it represents .Net TimeSpan
+         * The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckRetryTimeout: string;
         /**
-         * The length of time that health checks must pass continuously,it represents .Net TimeSpan
+         * The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckStableDuration: string;
         /**
-         * The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+         * The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         healthCheckWaitDuration: string;
         /**
-         * Cluster health Policy
+         * The cluster health policy used when upgrading the cluster.
          */
         healthPolicy: outputs.servicefabric.ClusterHealthPolicyResponse;
         /**
-         * Use the user defined upgrade policy or not
-         */
-        overrideUserUpgradePolicy?: boolean;
-        /**
-         * The timeout for any upgrade domain,it represents .Net TimeSpan
+         * The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeDomainTimeout: string;
         /**
-         * Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+         * The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeReplicaSetCheckTimeout: string;
         /**
-         * The upgrade timeout,it represents .Net TimeSpan
+         * The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
          */
         upgradeTimeout: string;
     }
 
     /**
-     * The detail of the ServiceFabric runtime version result
+     * The detail of the Service Fabric runtime version result
      */
     export interface ClusterVersionDetailsResponse {
         /**
-         * The ServiceFabric runtime version of the cluster
+         * The Service Fabric runtime version of the cluster.
          */
         codeVersion?: string;
         /**
-         * Cluster operating system
+         * Indicates if this version is for Windows or Linux operating system.
          */
         environment?: string;
         /**
-         * The date of expiry of support of the version
+         * The date of expiry of support of the version.
          */
         supportExpiryUtc?: string;
     }
@@ -40003,27 +40228,31 @@ export namespace servicefabric {
     }
 
     /**
-     * Diagnostics storage account config
+     * The storage account information for storing Service Fabric diagnostic logs.
      */
     export interface DiagnosticsStorageAccountConfigResponse {
         /**
-         * Diagnostics storage account blob endpoint
+         * The blob endpoint of the azure storage account.
          */
         blobEndpoint: string;
         /**
-         * Protected Diagnostics storage key name
+         * The protected diagnostics storage key name.
          */
         protectedAccountKeyName: string;
         /**
-         * Diagnostics storage account queue endpoint
+         * The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
+         */
+        protectedAccountKeyName2?: string;
+        /**
+         * The queue endpoint of the azure storage account.
          */
         queueEndpoint: string;
         /**
-         * Diagnostics storage account name
+         * The Azure storage account name.
          */
         storageAccountName: string;
         /**
-         * Diagnostics storage account table endpoint
+         * The table endpoint of the azure storage account.
          */
         tableEndpoint: string;
     }
@@ -40072,51 +40301,55 @@ export namespace servicefabric {
     }
 
     /**
-     * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
+     * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
      */
     export interface NodeTypeDescriptionResponse {
         /**
-         * Ports used by applications
+         * The range of ports from which cluster assigned port to Service Fabric applications.
          */
         applicationPorts?: outputs.servicefabric.EndpointRangeDescriptionResponse;
         /**
-         * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
+         * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
          */
         capacities?: {[key: string]: string};
         /**
-         * The TCP cluster management endpoint port
+         * The TCP cluster management endpoint port.
          */
         clientConnectionEndpointPort: number;
         /**
-         * Node type durability Level
+         * The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+         *
+         *   - Bronze - No privileges. This is the default.
+         *   - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
+         *   - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
          */
         durabilityLevel?: string;
         /**
-         * System assigned application ports
+         * The range of ephemeral ports that nodes in this node type should be configured with.
          */
         ephemeralPorts?: outputs.servicefabric.EndpointRangeDescriptionResponse;
         /**
-         * The HTTP cluster management endpoint port
+         * The HTTP cluster management endpoint port.
          */
         httpGatewayEndpointPort: number;
         /**
-         * Mark this as the primary node type
+         * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
          */
         isPrimary: boolean;
         /**
-         * Name of the node type
+         * The name of the node type.
          */
         name: string;
         /**
-         * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
+         * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
          */
         placementProperties?: {[key: string]: string};
         /**
-         * Endpoint used by reverse proxy
+         * The endpoint used by reverse proxy.
          */
         reverseProxyEndpointPort?: number;
         /**
-         * The number of node instances in the node type
+         * The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
          */
         vmInstanceCount: number;
     }
@@ -40129,6 +40362,34 @@ export namespace servicefabric {
          * Specifies how the service is partitioned.
          */
         partitionScheme: string;
+    }
+
+    /**
+     * Describes the server certificate details using common name.
+     */
+    export interface ServerCertificateCommonNameResponse {
+        /**
+         * The common name of the server certificate.
+         */
+        certificateCommonName: string;
+        /**
+         * The issuer thumbprint of the server certificate.
+         */
+        certificateIssuerThumbprint: string;
+    }
+
+    /**
+     * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+     */
+    export interface ServerCertificateCommonNamesResponse {
+        /**
+         * The list of server certificates referenced by common name that are used to secure the cluster.
+         */
+        commonNames?: outputs.servicefabric.ServerCertificateCommonNameResponse[];
+        /**
+         * The local certificate store location.
+         */
+        x509StoreName?: string;
     }
 
     /**
@@ -40194,29 +40455,29 @@ export namespace servicefabric {
     }
 
     /**
-     * ServiceFabric settings under sections
+     * Describes a parameter in fabric settings of the cluster.
      */
     export interface SettingsParameterDescriptionResponse {
         /**
-         * The name of settings property
+         * The parameter name of fabric setting.
          */
         name: string;
         /**
-         * The value of the property
+         * The parameter value of fabric setting.
          */
         value: string;
     }
 
     /**
-     * ServiceFabric section settings
+     * Describes a section in the fabric settings of the cluster.
      */
     export interface SettingsSectionDescriptionResponse {
         /**
-         * The name of settings section
+         * The section name of the fabric settings.
          */
         name: string;
         /**
-         * Collection of settings in the section, each setting is a tuple consisting of setting name and value
+         * The collection of parameters in the section.
          */
         parameters: outputs.servicefabric.SettingsParameterDescriptionResponse[];
     }

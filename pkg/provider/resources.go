@@ -74,6 +74,7 @@ func SwaggerLocations() ([]string, error) {
 	for _, file := range latest {
 		locations = append(locations, file)
 	}
+	sort.Strings(locations)
 
 	return locations, nil
 }

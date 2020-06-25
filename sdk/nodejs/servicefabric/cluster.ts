@@ -38,11 +38,15 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location.
+     * Azure resource etag.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Azure resource location.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * Azure resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -50,11 +54,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.servicefabric.ClusterPropertiesResponse>;
     /**
-     * Resource tags.
+     * Azure resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * Azure resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -70,6 +74,7 @@ export class Cluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            inputs["etag"] = state ? state.etag : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
@@ -91,6 +96,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,11 +115,15 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * Resource location.
+     * Azure resource etag.
+     */
+    readonly etag: pulumi.Input<string>;
+    /**
+     * Azure resource location.
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Resource name.
+     * Azure resource name.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -121,11 +131,11 @@ export interface ClusterState {
      */
     readonly properties: pulumi.Input<inputs.servicefabric.ClusterPropertiesResponse>;
     /**
-     * Resource tags.
+     * Azure resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Resource type.
+     * Azure resource type.
      */
     readonly type: pulumi.Input<string>;
 }
@@ -135,11 +145,11 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * Resource location.
+     * Azure resource location.
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the cluster resource
+     * The name of the cluster resource.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -147,11 +157,11 @@ export interface ClusterArgs {
      */
     readonly properties?: pulumi.Input<inputs.servicefabric.ClusterProperties>;
     /**
-     * The name of the resource group to which the resource belongs or get created
+     * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags.
+     * Azure resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

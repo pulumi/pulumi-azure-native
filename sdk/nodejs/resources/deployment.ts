@@ -77,22 +77,19 @@ export class Deployment extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if (!args || args.groupId === undefined) {
-                throw new Error("Missing required property 'groupId'");
-            }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
-            inputs["groupId"] = args ? args.groupId : undefined;
+            if (!args || args.resourceGroupName === undefined) {
+                throw new Error("Missing required property 'resourceGroupName'");
+            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = undefined /*out*/;
         }
@@ -138,13 +135,9 @@ export interface DeploymentState {
  */
 export interface DeploymentArgs {
     /**
-     * The management group ID.
-     */
-    readonly groupId: pulumi.Input<string>;
-    /**
      * The location to store the deployment data.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the deployment.
      */
@@ -153,6 +146,10 @@ export interface DeploymentArgs {
      * The deployment properties.
      */
     readonly properties: pulumi.Input<inputs.resources.DeploymentProperties>;
+    /**
+     * The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
+     */
+    readonly resourceGroupName: pulumi.Input<string>;
     /**
      * Deployment tags
      */
