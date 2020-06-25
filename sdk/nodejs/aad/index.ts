@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./domainService";
+export * from "./getDomainService";

@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getLabaccount";
+export * from "./getLabaccountGalleryimage";
+export * from "./getLabaccountLab";
+export * from "./getLabaccountLabEnvironmentsetting";
+export * from "./getLabaccountLabEnvironmentsettingEnvironment";
+export * from "./getLabaccountLabUser";
 export * from "./labaccount";
 export * from "./labaccountGalleryimage";
 export * from "./labaccountLab";

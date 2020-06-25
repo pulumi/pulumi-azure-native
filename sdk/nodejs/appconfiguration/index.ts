@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./configurationStore";
+export * from "./getConfigurationStore";

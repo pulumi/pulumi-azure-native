@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getMachine";
+export * from "./getMachineExtension";
+export * from "./getMachineProviderGuestConfigurationAssignment";
 export * from "./machine";
 export * from "./machineExtension";
 export * from "./machineProviderGuestConfigurationAssignment";

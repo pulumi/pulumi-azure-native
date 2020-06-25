@@ -53,48 +53,81 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 				continue
 			}
 
-			tok := fmt.Sprintf(`%s:%s:%s`, pkg.Name, module, typeName)
+			// Generate the resource.
+			resourceTok := fmt.Sprintf(`%s:%s:%s`, pkg.Name, module, typeName)
 			gen := moduleGenerator{
 				pkg:           &pkg,
 				module:        module,
-				resourceToken: tok,
+				resourceToken: resourceTok,
 				visitedTypes:  make(map[string]bool),
 			}
 
-			requestProperties, err := gen.genMethodParameters(path.Put.Parameters, swagger.ReferenceContext)
+			resourceRequest, err := gen.genMethodParameters(path.Put.Parameters, swagger.ReferenceContext)
 			if err != nil {
-				log.Printf("failed to generate '%s': request type: %s", tok, err.Error())
+				log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
 				continue
 			}
 
-			responseProperties, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
+			resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
 			if err != nil {
-				log.Printf("failed to generate '%s': response type: %s", tok, err.Error())
+				log.Printf("failed to generate '%s': response type: %s", resourceTok, err.Error())
 				continue
 			}
 
-			err = gen.normalizeName(key, requestProperties, responseProperties)
+			err = gen.normalizeName(key, resourceRequest, resourceResponse)
 			if err != nil {
-				log.Printf("failed to assign name for '%s'", tok, err.Error())
+				log.Printf("failed to assign name for '%s'", resourceTok, err.Error())
 				continue
 			}
 
 			objectSpec := pschema.ObjectTypeSpec{
-				Description: responseProperties.description,
+				Description: resourceResponse.description,
 				Type:        "object",
-				Properties:  responseProperties.all,
-				Required:    responseProperties.required.SortedValues(),
+				Properties:  resourceResponse.all,
+				Required:    resourceResponse.required.SortedValues(),
 			}
-			pkg.Types[tok] = objectSpec
+			pkg.Types[resourceTok] = objectSpec
 
 			resourceSpec := pschema.ResourceSpec{
 				ObjectTypeSpec:  objectSpec,
-				InputProperties: requestProperties.all,
-				RequiredInputs:  requestProperties.required.SortedValues(),
+				InputProperties: resourceRequest.all,
+				RequiredInputs:  resourceRequest.required.SortedValues(),
 				// TODO: this is probably wrong, state inputs are set here because codegen fails without them.
 				StateInputs: &objectSpec,
 			}
-			pkg.Resources[tok] = resourceSpec
+			pkg.Resources[resourceTok] = resourceSpec
+
+			// Generate the function to get this resource.
+			functionTok := fmt.Sprintf(`%s:%s:get%s`, pkg.Name, module, typeName)
+
+			requestFunction, err := gen.genMethodParameters(path.Get.Parameters, swagger.ReferenceContext)
+			if err != nil {
+				log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
+				continue
+			}
+			responseFunction, err := gen.genResponse(path.Get.Responses.StatusCodeResponses, swagger.ReferenceContext)
+			if err != nil {
+				log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
+				continue
+			}
+
+			gen.normalizeName(key, requestFunction, responseFunction)
+
+			functionSpec := pschema.FunctionSpec{
+				Inputs: &pschema.ObjectTypeSpec{
+					Description: requestFunction.description,
+					Type:        "object",
+					Properties:  requestFunction.all,
+					Required:    requestFunction.required.SortedValues(),
+				},
+				Outputs: &pschema.ObjectTypeSpec{
+					Description: responseFunction.description,
+					Type:        "object",
+					Properties:  responseFunction.all,
+					Required:    responseFunction.required.SortedValues(),
+				},
+			}
+			pkg.Functions[functionTok] = functionSpec
 		}
 	}
 

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getWorkspace";
+export * from "./getWorkspaceCompute";
+export * from "./getWorkspacePrivateEndpointConnection";
 export * from "./workspace";
 export * from "./workspaceCompute";
 export * from "./workspacePrivateEndpointConnection";

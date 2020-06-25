@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getServer";
+export * from "./getServerAdministrator";
+export * from "./getServerDatabase";
+export * from "./getServerFirewallRule";
+export * from "./getServerKey";
+export * from "./getServerPrivateEndpointConnection";
+export * from "./getServerVirtualNetworkRule";
 export * from "./server";
 export * from "./serverAdministrator";
 export * from "./serverDatabase";

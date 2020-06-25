@@ -7,3 +7,8 @@ export * from "./assessmentProjectGroup";
 export * from "./assessmentProjectGroupAssessment";
 export * from "./assessmentProjectHypervcollector";
 export * from "./assessmentProjectVmwarecollector";
+export * from "./getAssessmentProject";
+export * from "./getAssessmentProjectGroup";
+export * from "./getAssessmentProjectGroupAssessment";
+export * from "./getAssessmentProjectHypervcollector";
+export * from "./getAssessmentProjectVmwarecollector";

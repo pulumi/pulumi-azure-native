@@ -3,6 +3,11 @@
 
 // Export members:
 export * from "./containerService";
+export * from "./getContainerService";
+export * from "./getManagedCluster";
+export * from "./getManagedClusterAgentPool";
+export * from "./getManagedClusterPrivateEndpointConnection";
+export * from "./getOpenShiftManagedCluster";
 export * from "./managedCluster";
 export * from "./managedClusterAgentPool";
 export * from "./managedClusterPrivateEndpointConnection";

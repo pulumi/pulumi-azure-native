@@ -38,11 +38,11 @@ export class MediaserviceLiveEvent extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure Region of the resource.
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -54,7 +54,7 @@ export class MediaserviceLiveEvent extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -79,6 +79,9 @@ export class MediaserviceLiveEvent extends pulumi.CustomResource {
             const args = argsOrState as MediaserviceLiveEventArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
+            }
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
@@ -111,11 +114,11 @@ export class MediaserviceLiveEvent extends pulumi.CustomResource {
  */
 export interface MediaserviceLiveEventState {
     /**
-     * The Azure Region of the resource.
+     * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -127,7 +130,7 @@ export interface MediaserviceLiveEventState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: pulumi.Input<string>;
 }
@@ -145,9 +148,9 @@ export interface MediaserviceLiveEventArgs {
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
-     * The Azure Region of the resource.
+     * The geo-location where the resource lives
      */
-    readonly location?: pulumi.Input<string>;
+    readonly location: pulumi.Input<string>;
     /**
      * The name of the Live Event.
      */

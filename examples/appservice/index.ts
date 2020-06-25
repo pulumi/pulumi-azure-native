@@ -114,3 +114,6 @@ const app = new azurerm.web.AppService("as", {
 });
 
 export const endpoint = pulumi.interpolate `https://${app.properties.defaultHostName}`;
+
+
+export const exrg = azurerm.core.getResourceGroup({ name: "azurerm-appservice" });

@@ -13764,6 +13764,46 @@ export namespace databricks {
     }
 
     /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface EncryptionResponse {
+        /**
+         * The name of KeyVault key.
+         */
+        KeyName?: string;
+        /**
+         * The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+         */
+        keySource?: string;
+        /**
+         * The Uri of KeyVault.
+         */
+        keyvaulturi?: string;
+        /**
+         * The version of KeyVault key.
+         */
+        keyversion?: string;
+    }
+
+    /**
+     * The Managed Identity details for storage account.
+     */
+    export interface ManagedIdentityConfigurationResponse {
+        /**
+         * The objectId of the Managed Identity that is linked to the Managed Storage account.
+         */
+        principalId: string;
+        /**
+         * The tenant Id where the Managed Identity is created.
+         */
+        tenantId: string;
+        /**
+         * The type of Identity created. It can be either SystemAssigned or UserAssigned.
+         */
+        type: string;
+    }
+
+    /**
      * SKU for the resource.
      */
     export interface SkuResponse {
@@ -13867,6 +13907,14 @@ export namespace databricks {
          * Should the Public IP be Disabled?
          */
         enableNoPublicIp?: outputs.databricks.WorkspaceCustomBooleanParameterResponse;
+        /**
+         * Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+         */
+        encryption?: outputs.databricks.WorkspaceEncryptionParameterResponse;
+        /**
+         * Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+         */
+        prepareEncryption?: outputs.databricks.WorkspaceCustomBooleanParameterResponse;
     }
 
     /**
@@ -13881,6 +13929,20 @@ export namespace databricks {
          * The value which should be used for this field.
          */
         value: string;
+    }
+
+    /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface WorkspaceEncryptionParameterResponse {
+        /**
+         * The type of variable that this is
+         */
+        type?: string;
+        /**
+         * The value which should be used for this field.
+         */
+        value?: outputs.databricks.EncryptionResponse;
     }
 
     /**
@@ -13911,6 +13973,10 @@ export namespace databricks {
          * The workspace provisioning state.
          */
         provisioningState: string;
+        /**
+         * The details of Managed Identity of Storage Account
+         */
+        storageAccountIdentity?: outputs.databricks.ManagedIdentityConfigurationResponse;
         /**
          * The blob URI where the UI definition file is located.
          */
@@ -24951,6 +25017,17 @@ export namespace maps {
 }
 
 export namespace media {
+    export interface AccountEncryptionResponse {
+        /**
+         * The properties of the key used to encrypt the account.
+         */
+        keyVaultProperties?: outputs.media.KeyVaultPropertiesResponse;
+        /**
+         * The type of key used to encrypt the Account Key.
+         */
+        type: string;
+    }
+
     /**
      * Akamai access control
      */
@@ -25423,16 +25500,27 @@ export namespace media {
         state: string;
     }
 
+    export interface KeyVaultPropertiesResponse {
+        /**
+         * The current key used to encrypt the Media Services account, including the key version.
+         */
+        currentKeyIdentifier: string;
+        /**
+         * The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+         */
+        keyIdentifier?: string;
+    }
+
     /**
      * The Live Event encoding.
      */
     export interface LiveEventEncodingResponse {
         /**
-         * The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+         * The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
          */
         encodingType?: string;
         /**
-         * The encoding preset name.  This value is specified at creation time and cannot be updated.
+         * The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
          */
         presetName?: string;
     }
@@ -25470,7 +25558,7 @@ export namespace media {
          */
         accessControl?: outputs.media.LiveEventInputAccessControlResponse;
         /**
-         * A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+         * A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
          */
         accessToken?: string;
         /**
@@ -25564,13 +25652,13 @@ export namespace media {
          */
         resourceState: string;
         /**
-         * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+         * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
          */
         streamOptions?: string[];
         /**
          * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
          */
-        vanityUrl?: boolean;
+        useStaticHostname?: boolean;
     }
 
     /**
@@ -25637,10 +25725,29 @@ export namespace media {
         tracks?: outputs.media.FilterTrackSelectionResponse[];
     }
 
+    export interface MediaServiceIdentityResponse {
+        /**
+         * The Principal ID of the identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the identity.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type: string;
+    }
+
     /**
      * Properties of the Media Services account.
      */
     export interface MediaServicePropertiesResponse {
+        /**
+         * The account encryption properties.
+         */
+        encryption?: outputs.media.AccountEncryptionResponse;
         /**
          * The Media Services account ID.
          */
@@ -25649,6 +25756,7 @@ export namespace media {
          * The storage accounts for this resource.
          */
         storageAccounts?: outputs.media.StorageAccountResponse[];
+        storageAuthentication?: string;
     }
 
     /**
@@ -25695,6 +25803,52 @@ export namespace media {
      * Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
      */
     export interface PresetResponse {
+    }
+
+    /**
+     * Properties of the PrivateEndpointConnectProperties.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: outputs.media.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.media.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState?: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
     }
 
     /**

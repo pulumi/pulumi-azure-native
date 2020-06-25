@@ -5,3 +5,6 @@
 export * from "./botService";
 export * from "./botServiceChannel";
 export * from "./botServiceConnection";
+export * from "./getBotService";
+export * from "./getBotServiceChannel";
+export * from "./getBotServiceConnection";

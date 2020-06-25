@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getIntegrationAccount";
+export * from "./getIntegrationAccountAgreement";
+export * from "./getIntegrationAccountAssembly";
+export * from "./getIntegrationAccountBatchConfiguration";
+export * from "./getIntegrationAccountCertificate";
+export * from "./getIntegrationAccountMap";
+export * from "./getIntegrationAccountPartner";
+export * from "./getIntegrationAccountSchema";
+export * from "./getIntegrationAccountSession";
+export * from "./getIntegrationServiceEnvironment";
+export * from "./getIntegrationServiceEnvironmentManagedApi";
+export * from "./getWorkflow";
 export * from "./integrationAccount";
 export * from "./integrationAccountAgreement";
 export * from "./integrationAccountAssembly";

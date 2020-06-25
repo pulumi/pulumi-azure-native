@@ -2,6 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getWorkspace";
+export * from "./getWorkspaceCluster";
+export * from "./getWorkspaceExperiment";
+export * from "./getWorkspaceExperimentJob";
+export * from "./getWorkspaceFileServer";
 export * from "./workspace";
 export * from "./workspaceCluster";
 export * from "./workspaceExperiment";

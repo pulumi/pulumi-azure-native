@@ -17,6 +17,7 @@ package provider
 import (
 	"context"
 	"fmt"
+	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/rpcutil/rpcerror"
@@ -93,8 +94,52 @@ func (k *azurermProvider) Configure(_ context.Context, req *rpc.ConfigureRequest
 }
 
 // Invoke dynamically executes a built-in function in the provider.
-func (k *azurermProvider) Invoke(context.Context, *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
-	panic("Invoke not implemented")
+func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
+	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
+	glog.V(9).Infof("%s executing", label)
+
+	args, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.args", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	subscriptionId := k.config["subscriptionId"]
+	if subscriptionId == "" {
+		return nil, errors.New("Subscription ID is not found. Please configure azurerm:subscriptionId.")
+	}
+
+	res := k.resourceMap[req.Tok]
+
+	// Construct ARM REST API path from args.
+	id, _, _, err := k.prepareAzureRESTInputs(
+		res,
+		"get",
+		args.Mappable(),
+		map[string]interface{}{
+			"subscriptionId": subscriptionId,
+			"api-version":    res.apiVersion,
+		},
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := k.azureGet(ctx, id, res.apiVersion)
+	if err != nil {
+		return nil, fmt.Errorf("request failed %v", id)
+	}
+
+	// Serialize and return RPC outputs.
+	result, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(response),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.response", label), KeepUnknowns: true, SkipNulls: true},
+	)
+	if err != nil {
+		return nil, err
+	}
+	return &rpc.InvokeResponse{Return: result}, nil
 }
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
@@ -177,6 +222,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	// Construct ARM REST API body and query from intputs
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res,
+		"put",
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": subscriptionId,
@@ -255,6 +301,7 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res,
+		"put",
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.config["subscriptionId"], // TODO: Get this from schema or from user?
@@ -449,7 +496,8 @@ func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion st
 	return outputs, nil
 }
 
-func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs, clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
+func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, method string, methodInputs,
+	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	locations := map[string]map[string]interface{}{
 		"client": clientInputs,
@@ -461,19 +509,31 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 		"path":  {},
 	}
 
-	spec, err := openapi.NewSpec(resource.swagggerSpecLocation)
+	apiSpec, err := openapi.NewSpec(resource.swagggerSpecLocation)
 	if err != nil {
 		return "", nil, nil, errors.Wrapf(err, "failed to load spec %s", resource.swagggerSpecLocation)
 	}
-	path := spec.Swagger.Paths.Paths[resource.path]
-	if path.Put == nil {
-		return "", nil, nil, errors.New("No 'put' method on resource")
+
+	path := apiSpec.Swagger.Paths.Paths[resource.path]
+
+	var operation *spec.Operation
+	switch method {
+	case "put":
+		operation = path.Put
+	case "get":
+		operation = path.Get
+	default:
+		return "", nil, nil, errors.Errorf("Unsupported operation '%s'", method)
+	}
+
+	if operation == nil {
+		return "", nil, nil, errors.Errorf("No '%s' method on resource", method)
 	}
 
 	nameParam := nameParameter(resource.path)
 
-	for _, param := range path.Put.Parameters {
-		param, err := spec.ResolveParameter(param)
+	for _, param := range operation.Parameters {
+		param, err := apiSpec.ResolveParameter(param)
 		if err != nil {
 			return "", nil, nil, err
 		}

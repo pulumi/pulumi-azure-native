@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getStorageAccount";
+export * from "./getStorageAccountBlobServiceContainer";
+export * from "./getStorageAccountBlobServiceContainerImmutabilityPolicy";
+export * from "./getStorageAccountFileServiceShare";
+export * from "./getStorageAccountManagementPolicy";
+export * from "./getStorageAccountObjectReplicationPolicy";
+export * from "./getStorageAccountPrivateEndpointConnection";
+export * from "./getStorageAccountQueueServiceQueue";
+export * from "./getStorageAccountTableServiceTable";
 export * from "./storageAccount";
 export * from "./storageAccountBlobServiceContainer";
 export * from "./storageAccountBlobServiceContainerImmutabilityPolicy";

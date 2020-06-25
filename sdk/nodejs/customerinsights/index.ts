@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getHub";
+export * from "./getHubConnector";
+export * from "./getHubConnectorMapping";
+export * from "./getHubKpi";
+export * from "./getHubLink";
+export * from "./getHubPrediction";
+export * from "./getHubProfile";
+export * from "./getHubRelationship";
+export * from "./getHubRelationshipLink";
+export * from "./getHubRoleAssignment";
+export * from "./getHubView";
 export * from "./hub";
 export * from "./hubConnector";
 export * from "./hubConnectorMapping";

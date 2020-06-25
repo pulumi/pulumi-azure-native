@@ -2,6 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getManager";
+export * from "./getManagerAccessControlRecord";
+export * from "./getManagerBandwidthSetting";
+export * from "./getManagerDeviceBackupPolicy";
+export * from "./getManagerDeviceBackupPolicySchedule";
+export * from "./getManagerDeviceBackupScheduleGroup";
+export * from "./getManagerDeviceChapSetting";
+export * from "./getManagerDeviceFileserver";
+export * from "./getManagerDeviceFileserverShare";
+export * from "./getManagerDeviceIscsiserver";
+export * from "./getManagerDeviceIscsiserverDisk";
+export * from "./getManagerDeviceVolumeContainer";
+export * from "./getManagerDeviceVolumeContainerVolume";
+export * from "./getManagerExtendedInformation";
+export * from "./getManagerStorageAccountCredential";
+export * from "./getManagerStorageDomain";
 export * from "./manager";
 export * from "./managerAccessControlRecord";
 export * from "./managerBandwidthSetting";

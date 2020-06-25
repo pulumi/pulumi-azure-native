@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getMediaServiceAccountFilter";
+export * from "./getMediaServiceAsset";
+export * from "./getMediaServiceAssetAssetFilter";
+export * from "./getMediaServiceContentKeyPolicy";
+export * from "./getMediaServiceStreamingLocator";
+export * from "./getMediaServiceStreamingPolicy";
+export * from "./getMediaServiceTransform";
+export * from "./getMediaServiceTransformJob";
+export * from "./getMediaservice";
+export * from "./getMediaserviceLiveEvent";
+export * from "./getMediaserviceLiveEventLiveOutput";
+export * from "./getMediaservicePrivateEndpointConnection";
+export * from "./getMediaserviceStreamingEndpoint";
 export * from "./mediaServiceAccountFilter";
 export * from "./mediaServiceAsset";
 export * from "./mediaServiceAssetAssetFilter";
@@ -13,4 +26,5 @@ export * from "./mediaServiceTransformJob";
 export * from "./mediaservice";
 export * from "./mediaserviceLiveEvent";
 export * from "./mediaserviceLiveEventLiveOutput";
+export * from "./mediaservicePrivateEndpointConnection";
 export * from "./mediaserviceStreamingEndpoint";

@@ -2,6 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getRegistry";
+export * from "./getRegistryReplication";
+export * from "./getRegistryTask";
+export * from "./getRegistryWebhook";
 export * from "./registry";
 export * from "./registryReplication";
 export * from "./registryTask";

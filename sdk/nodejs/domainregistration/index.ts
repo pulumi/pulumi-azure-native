@@ -4,3 +4,5 @@
 // Export members:
 export * from "./domain";
 export * from "./domainDomainOwnershipIdentifier";
+export * from "./getDomain";
+export * from "./getDomainDomainOwnershipIdentifier";

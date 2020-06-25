@@ -98,15 +98,20 @@ func ResourceMap() (map[string]Resource, error) {
 				continue
 			}
 
-			typeName := ResourceTypeName(key)
-			if typeName == "" {
+			provider, resourceName := ResourceQualifiedName(key)
+			if resourceName == "" {
 				continue
 			}
 
-			providerTypeName := fmt.Sprintf("azurerm:%s", typeName)
+			resourceTok := fmt.Sprintf("azurerm:%s:%s", provider, resourceName)
+			result[resourceTok] = Resource{
+				swagggerSpecLocation: swagggerSpecLocation,
+				path:                 key,
+				apiVersion:           spec.Info.Version,
+			}
 
-			// TODO: store the spec in the resource instead of the location to avoid double-loading.
-			result[providerTypeName] = Resource{
+			invokeTok := fmt.Sprintf("azurerm:%s:get%s", provider, resourceName)
+			result[invokeTok] = Resource {
 				swagggerSpecLocation: swagggerSpecLocation,
 				path:                 key,
 				apiVersion:           spec.Info.Version,
@@ -159,10 +164,4 @@ func ResourceQualifiedName(path string) (string, string) {
 		}
 	}
 	return provider, resource
-}
-
-// ResourceTypeName returns a name of the shape `provider:ResourceName`.
-func ResourceTypeName(path string) string {
-	provider, resource := ResourceQualifiedName(path)
-	return fmt.Sprintf("%s:%s", provider, resource)
 }

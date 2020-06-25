@@ -4,3 +4,5 @@
 // Export members:
 export * from "./certificateOrder";
 export * from "./certificateOrderCertificate";
+export * from "./getCertificateOrder";
+export * from "./getCertificateOrderCertificate";
