@@ -3,6 +3,17 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_hub import *
+from .get_hub_connector import *
+from .get_hub_connector_mapping import *
+from .get_hub_kpi import *
+from .get_hub_link import *
+from .get_hub_prediction import *
+from .get_hub_profile import *
+from .get_hub_relationship import *
+from .get_hub_relationship_link import *
+from .get_hub_role_assignment import *
+from .get_hub_view import *
 from .hub import *
 from .hub_connector import *
 from .hub_connector_mapping import *

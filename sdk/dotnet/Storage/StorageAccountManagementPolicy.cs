@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Storage
         /// Returns the Storage Account Data Policies Rules.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagementPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagementPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

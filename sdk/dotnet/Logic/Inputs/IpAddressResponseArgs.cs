@@ -13,13 +13,13 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The ip address.
     /// </summary>
-    public sealed class IpAddressResponseArgs : Pulumi.ResourceArgs
+    public sealed class IpAddressResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The address.
         /// </summary>
         [Input("address")]
-        public Input<string>? Address { get; set; }
+        public string? Address { get; set; }
 
         public IpAddressResponseArgs()
         {

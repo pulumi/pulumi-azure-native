@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .capacity import *
+from .get_capacity import *

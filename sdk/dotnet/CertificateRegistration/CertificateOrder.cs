@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.CertificateRegistration
         /// AppServiceCertificateOrder resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AppServiceCertificateOrderResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.AppServiceCertificateOrderResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

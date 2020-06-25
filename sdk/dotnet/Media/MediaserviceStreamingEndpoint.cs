@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Media
         /// The StreamingEndpoint properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StreamingEndpointPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StreamingEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

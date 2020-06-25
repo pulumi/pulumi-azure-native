@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.DevSpaces
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.ControllerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ControllerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Model representing SKU for Azure Dev Spaces Controller.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags for the Azure resource.

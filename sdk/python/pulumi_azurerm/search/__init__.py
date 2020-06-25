@@ -3,6 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_search_service import *
+from .get_search_service_private_endpoint_connection import *
+from .get_search_service_shared_private_link_resource import *
 from .search_service import *
 from .search_service_private_endpoint_connection import *
 from .search_service_shared_private_link_resource import *

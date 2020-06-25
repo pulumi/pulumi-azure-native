@@ -13,37 +13,37 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The integration service environment properties.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmentPropertiesResponseArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentPropertiesResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The endpoints configuration.
         /// </summary>
         [Input("endpointsConfiguration")]
-        public Input<Inputs.FlowEndpointsConfigurationResponseArgs>? EndpointsConfiguration { get; set; }
+        public Inputs.FlowEndpointsConfigurationResponseArgs? EndpointsConfiguration { get; set; }
 
         /// <summary>
         /// Gets the tracking id.
         /// </summary>
         [Input("integrationServiceEnvironmentId")]
-        public Input<string>? IntegrationServiceEnvironmentId { get; set; }
+        public string? IntegrationServiceEnvironmentId { get; set; }
 
         /// <summary>
         /// The network configuration.
         /// </summary>
         [Input("networkConfiguration")]
-        public Input<Inputs.NetworkConfigurationResponseArgs>? NetworkConfiguration { get; set; }
+        public Inputs.NetworkConfigurationResponseArgs? NetworkConfiguration { get; set; }
 
         /// <summary>
         /// The provisioning state.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public string? ProvisioningState { get; set; }
 
         /// <summary>
         /// The integration service environment state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public string? State { get; set; }
 
         public IntegrationServiceEnvironmentPropertiesResponseArgs()
         {

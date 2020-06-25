@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Insights
         /// The alert rule properties of the resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MetricAlertPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.MetricAlertPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

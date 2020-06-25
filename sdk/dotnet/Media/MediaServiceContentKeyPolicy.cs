@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Media
         /// The properties of the Content Key Policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ContentKeyPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ContentKeyPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

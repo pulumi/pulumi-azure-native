@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .container_group import *
+from .get_container_group import *

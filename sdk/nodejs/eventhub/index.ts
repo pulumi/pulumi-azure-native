@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getNamespace";
+export * from "./getNamespaceAuthorizationRule";
+export * from "./getNamespaceDisasterRecoveryConfig";
+export * from "./getNamespaceEventhub";
+export * from "./getNamespaceEventhubAuthorizationRule";
+export * from "./getNamespaceEventhubConsumergroup";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./namespaceDisasterRecoveryConfig";

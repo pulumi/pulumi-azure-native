@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the packet capture result.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PacketCaptureResultPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PacketCaptureResultPropertiesResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

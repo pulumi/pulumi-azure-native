@@ -3,6 +3,12 @@
 
 // Export members:
 export * from "./cdnWebApplicationFirewallPolicy";
+export * from "./getCdnWebApplicationFirewallPolicy";
+export * from "./getProfile";
+export * from "./getProfileEndpoint";
+export * from "./getProfileEndpointCustomDomain";
+export * from "./getProfileEndpointOrigin";
+export * from "./getProfileEndpointOriginGroup";
 export * from "./profile";
 export * from "./profileEndpoint";
 export * from "./profileEndpointCustomDomain";

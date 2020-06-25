@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the properties of the variable.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VariablePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VariablePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

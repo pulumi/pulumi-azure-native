@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the application security group.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationSecurityGroupPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationSecurityGroupPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

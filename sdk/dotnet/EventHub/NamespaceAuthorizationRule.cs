@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.EventHub
         /// Properties supplied to create or update AuthorizationRule
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AuthorizationRuleResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.AuthorizationRuleResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

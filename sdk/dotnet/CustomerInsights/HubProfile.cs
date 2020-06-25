@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// The profile type definition.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProfileTypeDefinitionResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ProfileTypeDefinitionResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

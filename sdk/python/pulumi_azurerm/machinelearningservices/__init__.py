@@ -3,6 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_workspace import *
+from .get_workspace_compute import *
+from .get_workspace_connection import *
+from .get_workspace_private_endpoint_connection import *
 from .workspace import *
 from .workspace_compute import *
 from .workspace_connection import *

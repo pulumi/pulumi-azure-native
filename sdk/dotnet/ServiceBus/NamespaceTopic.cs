@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus
         /// Properties of topic resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SBTopicPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SBTopicPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

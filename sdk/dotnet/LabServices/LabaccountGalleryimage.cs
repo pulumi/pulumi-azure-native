@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.LabServices
         /// The gallery image properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GalleryImagePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GalleryImagePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

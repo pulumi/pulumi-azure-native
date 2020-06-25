@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DBforMySQL
         /// The properties of a firewall rule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FirewallRulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FirewallRulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

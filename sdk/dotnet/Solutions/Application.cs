@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Solutions
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -48,19 +48,19 @@ namespace Pulumi.AzureRM.Solutions
         /// The plan information.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The managed application properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

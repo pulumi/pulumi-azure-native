@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.PowerBIDedicated
         /// Properties of the provision operation request.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DedicatedCapacityPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DedicatedCapacityPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the PowerBI Dedicated resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceSkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.

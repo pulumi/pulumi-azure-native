@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the virtual network peering.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

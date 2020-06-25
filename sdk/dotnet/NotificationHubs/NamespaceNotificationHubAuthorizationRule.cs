@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.NotificationHubs
         /// Properties of the Namespace AuthorizationRule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SharedAccessAuthorizationRulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

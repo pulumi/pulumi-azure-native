@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.NetApp
         /// NetApp Account properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.ResourceTagsResponse?> Tags { get; private set; } = null!;
+        public Output<Outputs.ResourceTagsResponseResult?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

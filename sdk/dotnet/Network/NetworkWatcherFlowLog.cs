@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the flow log.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FlowLogPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FlowLogPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.LabServices
         /// The properties of the Environment Setting resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EnvironmentSettingPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.EnvironmentSettingPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

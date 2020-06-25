@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Cdn
         /// The JSON object that contains the properties of the custom domain to create.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CustomDomainPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.CustomDomainPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

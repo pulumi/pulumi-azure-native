@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the connection monitor result.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConnectionMonitorResultPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ConnectionMonitorResultPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Connection monitor tags.

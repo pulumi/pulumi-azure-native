@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute
         /// Describes the properties of a Virtual Machine Extension.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualMachineExtensionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineExtensionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

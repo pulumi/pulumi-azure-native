@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Batch
         /// The properties associated with the pool.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PoolPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PoolPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

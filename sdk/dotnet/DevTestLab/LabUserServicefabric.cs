@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DevTestLab
         /// The properties of the resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServiceFabricPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ServiceFabricPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

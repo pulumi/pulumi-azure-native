@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Network
         /// Properties of load balancer.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LoadBalancerPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.LoadBalancerPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The load balancer SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.LoadBalancerSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.LoadBalancerSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

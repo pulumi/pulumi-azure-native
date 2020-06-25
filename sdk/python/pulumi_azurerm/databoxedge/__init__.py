@@ -13,3 +13,13 @@ from .data_box_edge_device_storage_account_container import *
 from .data_box_edge_device_storage_account_credential import *
 from .data_box_edge_device_trigger import *
 from .data_box_edge_device_user import *
+from .get_data_box_edge_device import *
+from .get_data_box_edge_device_bandwidth_schedule import *
+from .get_data_box_edge_device_order import *
+from .get_data_box_edge_device_role import *
+from .get_data_box_edge_device_share import *
+from .get_data_box_edge_device_storage_account import *
+from .get_data_box_edge_device_storage_account_container import *
+from .get_data_box_edge_device_storage_account_credential import *
+from .get_data_box_edge_device_trigger import *
+from .get_data_box_edge_device_user import *

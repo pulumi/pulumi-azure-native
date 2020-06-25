@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the virtual network link to the Private DNS zone.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualNetworkLinkPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkLinkPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

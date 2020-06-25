@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.ContainerRegistry
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureRM.ContainerRegistry
         /// The properties of a task.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.TaskPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.TaskPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

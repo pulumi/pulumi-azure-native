@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Relay
         /// Properties of the WCF relay.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WcfRelayResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.WcfRelayResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         /// Bookmark properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BookmarkPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BookmarkPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type

@@ -4,6 +4,12 @@
 
 # Export this package's modules as members:
 from .cdn_web_application_firewall_policy import *
+from .get_cdn_web_application_firewall_policy import *
+from .get_profile import *
+from .get_profile_endpoint import *
+from .get_profile_endpoint_custom_domain import *
+from .get_profile_endpoint_origin import *
+from .get_profile_endpoint_origin_group import *
 from .profile import *
 from .profile_endpoint import *
 from .profile_endpoint_custom_domain import *

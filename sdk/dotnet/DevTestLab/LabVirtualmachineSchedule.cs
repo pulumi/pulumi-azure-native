@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DevTestLab
         /// The properties of the resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SchedulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SchedulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

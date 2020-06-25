@@ -13,19 +13,19 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The integration service environment sku.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmentSkuResponseArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentSkuResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The sku capacity.
         /// </summary>
         [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
+        public int? Capacity { get; set; }
 
         /// <summary>
         /// The sku name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public string? Name { get; set; }
 
         public IntegrationServiceEnvironmentSkuResponseArgs()
         {

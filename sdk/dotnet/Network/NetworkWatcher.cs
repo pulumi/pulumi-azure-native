@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the network watcher.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NetworkWatcherPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.NetworkWatcherPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

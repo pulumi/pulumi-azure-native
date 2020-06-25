@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus
         /// Queue Properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SBQueuePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SBQueuePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

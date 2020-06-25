@@ -6,3 +6,7 @@ export * from "./environment";
 export * from "./environmentAccessPolicy";
 export * from "./environmentEventSource";
 export * from "./environmentReferenceDataSet";
+export * from "./getEnvironment";
+export * from "./getEnvironmentAccessPolicy";
+export * from "./getEnvironmentEventSource";
+export * from "./getEnvironmentReferenceDataSet";

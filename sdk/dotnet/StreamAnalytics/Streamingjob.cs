@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StreamAnalytics
         /// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StreamingJobPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StreamingJobPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

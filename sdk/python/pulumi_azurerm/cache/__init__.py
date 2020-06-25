@@ -3,6 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_redis import *
+from .get_redis_firewall_rule import *
+from .get_redis_linked_server import *
+from .get_redis_patch_schedule import *
 from .redis import *
 from .redis_firewall_rule import *
 from .redis_linked_server import *

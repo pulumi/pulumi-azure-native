@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties of the backup schedule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BackupSchedulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BackupSchedulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

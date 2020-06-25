@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// HostNameBinding resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.HostNameBindingResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.HostNameBindingResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

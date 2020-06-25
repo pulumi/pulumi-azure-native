@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         /// Properties of the environment.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EnvironmentResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.EnvironmentResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

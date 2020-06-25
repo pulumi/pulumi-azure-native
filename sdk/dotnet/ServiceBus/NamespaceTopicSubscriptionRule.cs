@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus
         /// Properties of Rule resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RulepropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RulepropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

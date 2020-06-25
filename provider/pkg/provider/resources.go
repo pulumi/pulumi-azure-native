@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gedex/inflector"
+	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
 	"io/ioutil"
@@ -48,6 +49,7 @@ type AzureApiParameter struct {
 type AzureApiResource struct {
 	ApiVersion    string
 	Path          string
+	GetParameters []AzureApiParameter
 	PutParameters []AzureApiParameter
 }
 
@@ -81,12 +83,12 @@ func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error
 				continue
 			}
 
-			typeName := ResourceTypeName(key)
-			if typeName == "" {
+			mod, resourceName := ResourceQualifiedName(key)
+			if resourceName == "" {
 				continue
 			}
 
-			providerTypeName := fmt.Sprintf("azurerm:%s", typeName)
+			providerTypeName := fmt.Sprintf("azurerm:%s:%s", mod, resourceName)
 
 			path := spec.Swagger.Paths.Paths[key]
 			if path.Put == nil {
@@ -95,46 +97,20 @@ func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error
 
 			nameParam := nameParameter(key)
 
-			var puts []AzureApiParameter
-			for _, param := range path.Put.Parameters {
-				param, err := spec.ResolveParameter(param)
-				if err != nil {
-					return nil, err
-				}
+			gets, err := buildParameters(spec, path.Get.Parameters, nameParam)
+			if err != nil {
+				return nil, err
+			}
 
-				var properties, required []string
-				if param.In == "body" {
-					if param.Schema == nil {
-						return nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
-					}
-
-					schema, err := param.ResolveSchema(param.Schema)
-					if err != nil {
-						return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
-					}
-
-					properties, required, err = resolveProperties(*schema)
-					if err != nil {
-						return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
-					}
-				}
-
-				location, _ := param.Extensions.GetString("x-ms-parameter-location")
-				p := AzureApiParameter{
-					Name:               param.Name,
-					Location:           param.In,
-					Source:             location,
-					IsRequired:         param.Required,
-					IsResourceName:     nameParam == param.Name,
-					Properties:         properties,
-					RequiredProperties: required,
-				}
-				puts = append(puts, p)
+			puts, err := buildParameters(spec, path.Put.Parameters, nameParam)
+			if err != nil {
+				return nil, err
 			}
 
 			r := AzureApiResource{
 				ApiVersion:    spec.Info.Version,
 				Path:          key,
+				GetParameters: gets,
 				PutParameters: puts,
 			}
 			result[providerTypeName] = r
@@ -142,6 +118,46 @@ func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error
 	}
 
 	return result, nil
+}
+
+func buildParameters(spec *openapi.Spec, parameters []spec.Parameter, nameParam string) ([]AzureApiParameter, error) {
+	var puts []AzureApiParameter
+	for _, param := range parameters {
+		param, err := spec.ResolveParameter(param)
+		if err != nil {
+			return nil, err
+		}
+
+		var properties, required []string
+		if param.In == "body" {
+			if param.Schema == nil {
+				return nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
+			}
+
+			schema, err := param.ResolveSchema(param.Schema)
+			if err != nil {
+				return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
+			}
+
+			properties, required, err = resolveProperties(*schema)
+			if err != nil {
+				return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
+			}
+		}
+
+		location, _ := param.Extensions.GetString("x-ms-parameter-location")
+		p := AzureApiParameter{
+			Name:               param.Name,
+			Location:           param.In,
+			Source:             location,
+			IsRequired:         param.Required,
+			IsResourceName:     nameParam == param.Name,
+			Properties:         properties,
+			RequiredProperties: required,
+		}
+		puts = append(puts, p)
+	}
+	return puts, nil
 }
 
 // resolveProperties returns the slice of schema's property names and the slice of schema's required properties.
@@ -279,10 +295,4 @@ func ResourceQualifiedName(path string) (string, string) {
 		}
 	}
 	return provider, resource
-}
-
-// ResourceTypeName returns a name of the shape `provider:ResourceName`.
-func ResourceTypeName(path string) string {
-	provider, resource := ResourceQualifiedName(path)
-	return fmt.Sprintf("%s:%s", strings.ToLower(provider), resource)
 }

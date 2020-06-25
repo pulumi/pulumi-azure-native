@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// Properties of connector.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConnectorResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ConnectorResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

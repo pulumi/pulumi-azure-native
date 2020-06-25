@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ServiceFabric
         /// The properties of the application type version resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationTypeVersionResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationTypeVersionResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

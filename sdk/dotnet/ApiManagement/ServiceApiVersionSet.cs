@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Api VersionSet contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApiVersionSetContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApiVersionSetContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

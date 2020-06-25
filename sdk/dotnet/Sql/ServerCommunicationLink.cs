@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Sql
         /// The properties of resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServerCommunicationLinkPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ServerCommunicationLinkPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

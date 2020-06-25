@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.HDInsight
         /// The properties of the application.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags for the application.

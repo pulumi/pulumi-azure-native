@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Properties of the External OAuth authorization server Contract.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AuthorizationServerContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AuthorizationServerContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

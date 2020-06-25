@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ContainerService
         /// Properties of an agent pool.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagedClusterAgentPoolProfilePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagedClusterAgentPoolProfilePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

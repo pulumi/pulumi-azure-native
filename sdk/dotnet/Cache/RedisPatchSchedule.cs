@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Cache
         /// List of patch schedules for a Redis cache.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ScheduleEntriesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ScheduleEntriesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

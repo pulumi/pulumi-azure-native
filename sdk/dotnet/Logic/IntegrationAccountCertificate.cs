@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic
         /// The integration account certificate properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IntegrationAccountCertificatePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IntegrationAccountCertificatePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

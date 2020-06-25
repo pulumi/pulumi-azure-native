@@ -10,3 +10,10 @@ from .factory_integration_runtime import *
 from .factory_linkedservice import *
 from .factory_pipeline import *
 from .factory_trigger import *
+from .get_factory import *
+from .get_factory_dataflow import *
+from .get_factory_dataset import *
+from .get_factory_integration_runtime import *
+from .get_factory_linkedservice import *
+from .get_factory_pipeline import *
+from .get_factory_trigger import *

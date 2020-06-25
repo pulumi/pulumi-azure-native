@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ServiceFabric
         /// The service resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServiceResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ServiceResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the express route circuit connection.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitConnectionPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitConnectionPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

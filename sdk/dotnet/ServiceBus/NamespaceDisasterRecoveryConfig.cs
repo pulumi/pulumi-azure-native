@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus
         /// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ArmDisasterRecoveryResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.ArmDisasterRecoveryResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

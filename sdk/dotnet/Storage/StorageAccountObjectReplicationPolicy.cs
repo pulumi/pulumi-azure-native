@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Storage
         /// Returns the Storage Account Object Replication Policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ObjectReplicationPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ObjectReplicationPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

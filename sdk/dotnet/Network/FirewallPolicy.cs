@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the firewall policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FirewallPolicyPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FirewallPolicyPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

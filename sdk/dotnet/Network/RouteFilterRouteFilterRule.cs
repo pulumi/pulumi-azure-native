@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the route filter rule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RouteFilterRulePropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RouteFilterRulePropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

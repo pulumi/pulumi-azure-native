@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.NetApp
         /// Snapshot Properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SnapshotPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SnapshotPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

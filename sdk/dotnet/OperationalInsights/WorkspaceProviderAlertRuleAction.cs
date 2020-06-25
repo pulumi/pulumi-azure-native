@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         /// Action properties for get request
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ActionResponsePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ActionResponsePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type

@@ -13,71 +13,71 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// VirtualNetworkGateway properties.
     /// </summary>
-    public sealed class VirtualNetworkGatewayPropertiesFormatResponseArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayPropertiesFormatResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// ActiveActive flag.
         /// </summary>
         [Input("activeActive")]
-        public Input<bool>? ActiveActive { get; set; }
+        public bool? ActiveActive { get; set; }
 
         /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
-        public Input<Inputs.BgpSettingsResponseArgs>? BgpSettings { get; set; }
+        public Inputs.BgpSettingsResponseArgs? BgpSettings { get; set; }
 
         /// <summary>
         /// The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         /// </summary>
         [Input("customRoutes")]
-        public Input<Inputs.AddressSpaceResponseArgs>? CustomRoutes { get; set; }
+        public Inputs.AddressSpaceResponseArgs? CustomRoutes { get; set; }
 
         /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
+        public bool? EnableBgp { get; set; }
 
         /// <summary>
         /// Whether dns forwarding is enabled or not.
         /// </summary>
         [Input("enableDnsForwarding")]
-        public Input<bool>? EnableDnsForwarding { get; set; }
+        public bool? EnableDnsForwarding { get; set; }
 
         /// <summary>
         /// Whether private IP needs to be enabled on this gateway for connections or not.
         /// </summary>
         [Input("enablePrivateIpAddress")]
-        public Input<bool>? EnablePrivateIpAddress { get; set; }
+        public bool? EnablePrivateIpAddress { get; set; }
 
         /// <summary>
         /// The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         [Input("gatewayDefaultSite")]
-        public Input<Inputs.SubResourceResponseArgs>? GatewayDefaultSite { get; set; }
+        public Inputs.SubResourceResponseArgs? GatewayDefaultSite { get; set; }
 
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("gatewayType")]
-        public Input<string>? GatewayType { get; set; }
+        public string? GatewayType { get; set; }
 
         /// <summary>
         /// The IP address allocated by the gateway to which dns requests can be sent.
         /// </summary>
         [Input("inboundDnsForwardingEndpoint", required: true)]
-        public Input<string> InboundDnsForwardingEndpoint { get; set; } = null!;
+        public string InboundDnsForwardingEndpoint { get; set; } = null!;
 
         [Input("ipConfigurations")]
-        private InputList<Inputs.VirtualNetworkGatewayIPConfigurationResponseArgs>? _ipConfigurations;
+        private List<Inputs.VirtualNetworkGatewayIPConfigurationResponseArgs>? _ipConfigurations;
 
         /// <summary>
         /// IP configurations for virtual network gateway.
         /// </summary>
-        public InputList<Inputs.VirtualNetworkGatewayIPConfigurationResponseArgs> IpConfigurations
+        public List<Inputs.VirtualNetworkGatewayIPConfigurationResponseArgs> IpConfigurations
         {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.VirtualNetworkGatewayIPConfigurationResponseArgs>());
+            get => _ipConfigurations ?? (_ipConfigurations = new List<Inputs.VirtualNetworkGatewayIPConfigurationResponseArgs>());
             set => _ipConfigurations = value;
         }
 
@@ -85,37 +85,37 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
         [Input("provisioningState", required: true)]
-        public Input<string> ProvisioningState { get; set; } = null!;
+        public string ProvisioningState { get; set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the virtual network gateway resource.
         /// </summary>
         [Input("resourceGuid", required: true)]
-        public Input<string> ResourceGuid { get; set; } = null!;
+        public string ResourceGuid { get; set; } = null!;
 
         /// <summary>
         /// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.VirtualNetworkGatewaySkuResponseArgs>? Sku { get; set; }
+        public Inputs.VirtualNetworkGatewaySkuResponseArgs? Sku { get; set; }
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
         [Input("vpnClientConfiguration")]
-        public Input<Inputs.VpnClientConfigurationResponseArgs>? VpnClientConfiguration { get; set; }
+        public Inputs.VpnClientConfigurationResponseArgs? VpnClientConfiguration { get; set; }
 
         /// <summary>
         /// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         /// </summary>
         [Input("vpnGatewayGeneration")]
-        public Input<string>? VpnGatewayGeneration { get; set; }
+        public string? VpnGatewayGeneration { get; set; }
 
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("vpnType")]
-        public Input<string>? VpnType { get; set; }
+        public string? VpnType { get; set; }
 
         public VirtualNetworkGatewayPropertiesFormatResponseArgs()
         {

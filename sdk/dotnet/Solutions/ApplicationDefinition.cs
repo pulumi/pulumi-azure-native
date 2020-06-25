@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Solutions
         /// The managed application definition properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationDefinitionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

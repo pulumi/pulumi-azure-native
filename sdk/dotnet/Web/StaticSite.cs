@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Web
         /// Core resource properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StaticSiteResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StaticSiteResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Description of a SKU for a scalable resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuDescriptionResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuDescriptionResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

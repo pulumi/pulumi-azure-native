@@ -3,6 +3,24 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_lab import *
+from .get_lab_artifactsource import *
+from .get_lab_customimage import *
+from .get_lab_formula import *
+from .get_lab_notificationchannel import *
+from .get_lab_policyset_policy import *
+from .get_lab_schedule import *
+from .get_lab_servicerunner import *
+from .get_lab_user import *
+from .get_lab_user_disk import *
+from .get_lab_user_environment import *
+from .get_lab_user_secret import *
+from .get_lab_user_servicefabric import *
+from .get_lab_user_servicefabric_schedule import *
+from .get_lab_virtualmachine import *
+from .get_lab_virtualmachine_schedule import *
+from .get_lab_virtualnetwork import *
+from .get_schedule import *
 from .lab import *
 from .lab_artifactsource import *
 from .lab_customimage import *

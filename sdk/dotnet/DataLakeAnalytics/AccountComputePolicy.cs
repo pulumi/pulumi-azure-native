@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics
         /// The compute policy properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ComputePolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ComputePolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.EventHub
         /// Properties supplied to the Create Or Update Event Hub operation.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EventhubResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.EventhubResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

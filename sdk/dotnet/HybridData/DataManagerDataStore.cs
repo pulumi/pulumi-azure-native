@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.HybridData
         /// DataStore properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DataStorePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DataStorePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object.

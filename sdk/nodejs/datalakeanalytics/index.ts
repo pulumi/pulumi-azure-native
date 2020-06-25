@@ -5,3 +5,6 @@
 export * from "./account";
 export * from "./accountComputePolicy";
 export * from "./accountFirewallRule";
+export * from "./getAccount";
+export * from "./getAccountComputePolicy";
+export * from "./getAccountFirewallRule";

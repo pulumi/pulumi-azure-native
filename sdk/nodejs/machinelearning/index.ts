@@ -2,5 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getWebService";
+export * from "./getWorkspace";
 export * from "./webService";
 export * from "./workspace";

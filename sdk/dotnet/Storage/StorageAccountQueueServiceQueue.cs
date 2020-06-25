@@ -21,7 +21,7 @@ namespace Pulumi.AzureRM.Storage
         /// Queue resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.QueuePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.QueuePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

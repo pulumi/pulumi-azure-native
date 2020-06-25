@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// RelayServiceConnectionEntity resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RelayServiceConnectionEntityResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.RelayServiceConnectionEntityResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

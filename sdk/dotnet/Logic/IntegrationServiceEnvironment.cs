@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Logic
         /// The integration service environment properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IntegrationServiceEnvironmentPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IntegrationServiceEnvironmentPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.IntegrationServiceEnvironmentSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.IntegrationServiceEnvironmentSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

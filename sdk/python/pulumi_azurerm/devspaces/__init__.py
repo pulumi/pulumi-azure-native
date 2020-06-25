@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .controller import *
+from .get_controller import *

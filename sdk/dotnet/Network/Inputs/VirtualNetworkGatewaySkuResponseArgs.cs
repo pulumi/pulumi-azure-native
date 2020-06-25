@@ -13,25 +13,25 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// VirtualNetworkGatewaySku details.
     /// </summary>
-    public sealed class VirtualNetworkGatewaySkuResponseArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewaySkuResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The capacity.
         /// </summary>
         [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
+        public int Capacity { get; set; }
 
         /// <summary>
         /// Gateway SKU name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gateway SKU tier.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public string? Tier { get; set; }
 
         public VirtualNetworkGatewaySkuResponseArgs()
         {

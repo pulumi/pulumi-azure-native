@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Media
         /// Class to specify properties of Streaming Policy
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StreamingPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StreamingPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         /// The properties of the saved search.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SavedSearchPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SavedSearchPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the saved search.

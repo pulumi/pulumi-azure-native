@@ -13,23 +13,23 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The network configuration.
     /// </summary>
-    public sealed class NetworkConfigurationResponseArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConfigurationResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The access endpoint.
         /// </summary>
         [Input("accessEndpoint")]
-        public Input<Inputs.IntegrationServiceEnvironmentAccessEndpointResponseArgs>? AccessEndpoint { get; set; }
+        public Inputs.IntegrationServiceEnvironmentAccessEndpointResponseArgs? AccessEndpoint { get; set; }
 
         [Input("subnets")]
-        private InputList<Inputs.ResourceReferenceResponseArgs>? _subnets;
+        private List<Inputs.ResourceReferenceResponseArgs>? _subnets;
 
         /// <summary>
         /// The subnets.
         /// </summary>
-        public InputList<Inputs.ResourceReferenceResponseArgs> Subnets
+        public List<Inputs.ResourceReferenceResponseArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.ResourceReferenceResponseArgs>());
+            get => _subnets ?? (_subnets = new List<Inputs.ResourceReferenceResponseArgs>());
             set => _subnets = value;
         }
 
@@ -37,7 +37,7 @@ namespace Pulumi.AzureRM.Logic.Inputs
         /// Gets the virtual network address space.
         /// </summary>
         [Input("virtualNetworkAddressSpace")]
-        public Input<string>? VirtualNetworkAddressSpace { get; set; }
+        public string? VirtualNetworkAddressSpace { get; set; }
 
         public NetworkConfigurationResponseArgs()
         {

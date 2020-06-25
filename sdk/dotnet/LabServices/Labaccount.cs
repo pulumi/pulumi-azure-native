@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.LabServices
         /// The properties of the resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LabAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.LabAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

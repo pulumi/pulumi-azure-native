@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.HybridData
         /// JobDefinition properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.JobDefinitionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.JobDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object.

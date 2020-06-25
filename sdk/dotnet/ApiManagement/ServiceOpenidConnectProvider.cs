@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// OpenId Connect Provider contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OpenidConnectProviderContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OpenidConnectProviderContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

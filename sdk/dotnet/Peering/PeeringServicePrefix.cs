@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Peering
         /// Gets or sets the peering prefix properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PeeringServicePrefixPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PeeringServicePrefixPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         /// Properties of the reference data set.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ReferenceDataSetResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ReferenceDataSetResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

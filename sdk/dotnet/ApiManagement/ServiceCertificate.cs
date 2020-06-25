@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Certificate properties details.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CertificateContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.CertificateContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

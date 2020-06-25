@@ -3,5 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_iot_security_solution import *
+from .get_location_jit_network_access_policy import *
 from .iot_security_solution import *
 from .location_jit_network_access_policy import *

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL
         /// Properties of the ServerKey Resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServerKeyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ServerKeyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network
         /// The identity of ExpressRoutePort, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network
         /// ExpressRoutePort properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExpressRoutePortPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExpressRoutePortPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

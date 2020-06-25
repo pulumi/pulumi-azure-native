@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the VPN gateway.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VpnGatewayPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VpnGatewayPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

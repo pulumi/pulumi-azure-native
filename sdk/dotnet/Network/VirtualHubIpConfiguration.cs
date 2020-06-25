@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// The properties of the Virtual Hub IPConfigurations.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.HubIPConfigurationPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.HubIPConfigurationPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Ipconfiguration type.

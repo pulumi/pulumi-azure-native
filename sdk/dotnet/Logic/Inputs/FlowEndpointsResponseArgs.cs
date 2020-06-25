@@ -13,29 +13,29 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The flow endpoints configuration.
     /// </summary>
-    public sealed class FlowEndpointsResponseArgs : Pulumi.ResourceArgs
+    public sealed class FlowEndpointsResponseArgs : Pulumi.InvokeArgs
     {
         [Input("accessEndpointIpAddresses")]
-        private InputList<Inputs.IpAddressResponseArgs>? _accessEndpointIpAddresses;
+        private List<Inputs.IpAddressResponseArgs>? _accessEndpointIpAddresses;
 
         /// <summary>
         /// The access endpoint ip address.
         /// </summary>
-        public InputList<Inputs.IpAddressResponseArgs> AccessEndpointIpAddresses
+        public List<Inputs.IpAddressResponseArgs> AccessEndpointIpAddresses
         {
-            get => _accessEndpointIpAddresses ?? (_accessEndpointIpAddresses = new InputList<Inputs.IpAddressResponseArgs>());
+            get => _accessEndpointIpAddresses ?? (_accessEndpointIpAddresses = new List<Inputs.IpAddressResponseArgs>());
             set => _accessEndpointIpAddresses = value;
         }
 
         [Input("outgoingIpAddresses")]
-        private InputList<Inputs.IpAddressResponseArgs>? _outgoingIpAddresses;
+        private List<Inputs.IpAddressResponseArgs>? _outgoingIpAddresses;
 
         /// <summary>
         /// The outgoing ip address.
         /// </summary>
-        public InputList<Inputs.IpAddressResponseArgs> OutgoingIpAddresses
+        public List<Inputs.IpAddressResponseArgs> OutgoingIpAddresses
         {
-            get => _outgoingIpAddresses ?? (_outgoingIpAddresses = new InputList<Inputs.IpAddressResponseArgs>());
+            get => _outgoingIpAddresses ?? (_outgoingIpAddresses = new List<Inputs.IpAddressResponseArgs>());
             set => _outgoingIpAddresses = value;
         }
 

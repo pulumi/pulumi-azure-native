@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network
         /// The identity of the application gateway, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the application gateway.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationGatewayPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

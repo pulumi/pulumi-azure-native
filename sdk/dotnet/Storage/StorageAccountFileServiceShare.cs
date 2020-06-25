@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Storage
         /// Properties of the file share.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FileSharePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FileSharePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

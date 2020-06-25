@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics
         /// The firewall rule properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FirewallRulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FirewallRulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

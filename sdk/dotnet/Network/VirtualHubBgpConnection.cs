@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// The properties of the Bgp connections.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BgpConnectionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BgpConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Connection type.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute
         /// Describes the properties of a Proximity Placement Group.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProximityPlacementGroupPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ProximityPlacementGroupPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

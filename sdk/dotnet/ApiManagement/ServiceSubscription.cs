@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Subscription contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SubscriptionContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SubscriptionContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of load balancer inbound nat rule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.InboundNatRulePropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.InboundNatRulePropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

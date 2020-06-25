@@ -2,6 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getStreamingjob";
+export * from "./getStreamingjobFunction";
+export * from "./getStreamingjobInput";
+export * from "./getStreamingjobOutput";
 export * from "./streamingjob";
 export * from "./streamingjobFunction";
 export * from "./streamingjobInput";

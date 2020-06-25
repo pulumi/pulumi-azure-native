@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Batch
         /// The properties associated with the Application Package.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationPackagePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationPackagePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -3,6 +3,22 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_manager import *
+from .get_manager_access_control_record import *
+from .get_manager_bandwidth_setting import *
+from .get_manager_device_backup_policy import *
+from .get_manager_device_backup_policy_schedule import *
+from .get_manager_device_backup_schedule_group import *
+from .get_manager_device_chap_setting import *
+from .get_manager_device_fileserver import *
+from .get_manager_device_fileserver_share import *
+from .get_manager_device_iscsiserver import *
+from .get_manager_device_iscsiserver_disk import *
+from .get_manager_device_volume_container import *
+from .get_manager_device_volume_container_volume import *
+from .get_manager_extended_information import *
+from .get_manager_storage_account_credential import *
+from .get_manager_storage_domain import *
 from .manager import *
 from .manager_access_control_record import *
 from .manager_bandwidth_setting import *

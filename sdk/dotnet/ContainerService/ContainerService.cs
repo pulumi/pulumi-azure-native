@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ContainerService
         /// Properties of the container service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ContainerServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ContainerServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

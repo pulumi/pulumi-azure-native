@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift
         /// The cluster properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OpenShiftClusterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OpenShiftClusterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

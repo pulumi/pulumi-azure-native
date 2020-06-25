@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .catalog import *
+from .get_catalog import *

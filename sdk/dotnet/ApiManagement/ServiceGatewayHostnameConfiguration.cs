@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Gateway hostname configuration details.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GatewayHostnameConfigurationContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GatewayHostnameConfigurationContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

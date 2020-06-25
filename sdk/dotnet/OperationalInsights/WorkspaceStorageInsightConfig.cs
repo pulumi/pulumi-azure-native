@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         /// Storage insight properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StorageInsightPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StorageInsightPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

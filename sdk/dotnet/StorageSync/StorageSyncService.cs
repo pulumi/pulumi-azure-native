@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorageSync
         /// Storage Sync Service properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StorageSyncServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StorageSyncServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

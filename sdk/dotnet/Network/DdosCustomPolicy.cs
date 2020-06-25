@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the DDoS custom policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DdosCustomPolicyPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DdosCustomPolicyPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

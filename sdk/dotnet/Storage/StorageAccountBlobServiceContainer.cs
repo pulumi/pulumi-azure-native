@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Storage
         /// Properties of the blob container.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ContainerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ContainerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

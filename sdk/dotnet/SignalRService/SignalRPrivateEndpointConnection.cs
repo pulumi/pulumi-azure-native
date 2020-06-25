@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.SignalRService
         /// Properties of the private endpoint connection
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"

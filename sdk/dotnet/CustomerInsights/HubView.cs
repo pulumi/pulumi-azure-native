@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// The view in Customer 360 web application.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ViewResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ViewResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

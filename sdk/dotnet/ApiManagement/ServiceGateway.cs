@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Gateway details.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GatewayContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GatewayContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Storage
         /// The properties of an ImmutabilityPolicy of a blob container.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ImmutabilityPolicyPropertyResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ImmutabilityPolicyPropertyResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

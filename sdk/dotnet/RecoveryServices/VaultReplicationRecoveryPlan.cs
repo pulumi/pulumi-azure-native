@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RecoveryServices
         /// The custom details.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RecoveryPlanPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RecoveryPlanPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource Type

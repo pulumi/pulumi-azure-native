@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Cache
         /// Properties of the linked server.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RedisLinkedServerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RedisLinkedServerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

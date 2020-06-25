@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the properties of the connection type.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConnectionTypePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ConnectionTypePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

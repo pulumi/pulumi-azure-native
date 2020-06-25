@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties of the StorSimple Manager.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags attached to the resource.

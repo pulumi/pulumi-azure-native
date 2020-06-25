@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network
         /// The service principal that has read access to cloud-init and config blob.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the Network Virtual Appliance.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NetworkVirtualAppliancePropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.NetworkVirtualAppliancePropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

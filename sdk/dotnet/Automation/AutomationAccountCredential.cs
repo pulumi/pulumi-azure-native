@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the properties of the credential.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CredentialPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.CredentialPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

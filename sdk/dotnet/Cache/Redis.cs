@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Cache
         /// Redis cache properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RedisPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RedisPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

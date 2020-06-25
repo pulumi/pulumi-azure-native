@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Represents the bastion host resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BastionHostPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BastionHostPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

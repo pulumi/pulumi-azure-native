@@ -13,17 +13,17 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     /// </summary>
-    public sealed class AddressSpaceResponseArgs : Pulumi.ResourceArgs
+    public sealed class AddressSpaceResponseArgs : Pulumi.InvokeArgs
     {
         [Input("addressPrefixes")]
-        private InputList<string>? _addressPrefixes;
+        private List<string>? _addressPrefixes;
 
         /// <summary>
         /// A list of address blocks reserved for this virtual network in CIDR notation.
         /// </summary>
-        public InputList<string> AddressPrefixes
+        public List<string> AddressPrefixes
         {
-            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
+            get => _addressPrefixes ?? (_addressPrefixes = new List<string>());
             set => _addressPrefixes = value;
         }
 

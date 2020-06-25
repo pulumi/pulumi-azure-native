@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// The Role Assignment definition.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RoleAssignmentResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RoleAssignmentResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -30,19 +30,19 @@ namespace Pulumi.AzureRM.VMwareCloudSimple
         /// Dedicated Cloud Nodes properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DedicatedCloudNodePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DedicatedCloudNodePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Dedicated Cloud Nodes SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Dedicated Cloud Nodes tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.TagsResponse?> Tags { get; private set; } = null!;
+        public Output<Outputs.TagsResponseResult?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// {resourceProviderNamespace}/{resourceType}

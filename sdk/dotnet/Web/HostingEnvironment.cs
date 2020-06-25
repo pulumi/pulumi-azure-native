@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Web
         /// Core resource properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AppServiceEnvironmentResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AppServiceEnvironmentResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

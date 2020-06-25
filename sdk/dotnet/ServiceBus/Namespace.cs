@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.ServiceBus
         /// Properties of the namespace.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SBNamespacePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SBNamespacePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Properties of Sku
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SBSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SBSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

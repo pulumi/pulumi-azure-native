@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.VMwareCloudSimple
         /// The properties of Dedicated Node Service
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DedicatedCloudServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DedicatedCloudServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.TagsResponse?> Tags { get; private set; } = null!;
+        public Output<Outputs.TagsResponseResult?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// {resourceProviderNamespace}/{resourceType}

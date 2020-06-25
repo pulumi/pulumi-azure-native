@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Virtual Network Tap Properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualNetworkTapPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkTapPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

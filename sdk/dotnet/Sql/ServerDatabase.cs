@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Sql
         /// The properties representing the resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DatabasePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DatabasePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

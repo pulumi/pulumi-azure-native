@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         /// Incident properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IncidentPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IncidentPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type

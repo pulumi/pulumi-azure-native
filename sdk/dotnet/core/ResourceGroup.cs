@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.core
         /// The resource group properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ResourceGroupPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ResourceGroupPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags attached to the resource group.

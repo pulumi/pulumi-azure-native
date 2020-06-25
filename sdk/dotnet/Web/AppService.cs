@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Web
         /// Managed service identity.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Kind of resource.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Web
         /// Site resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SiteResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.SiteResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

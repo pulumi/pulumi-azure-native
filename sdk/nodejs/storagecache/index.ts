@@ -4,3 +4,5 @@
 // Export members:
 export * from "./cach";
 export * from "./cachStorageTarget";
+export * from "./getCach";
+export * from "./getCachStorageTarget";

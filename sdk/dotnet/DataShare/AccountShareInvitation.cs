@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataShare
         /// Properties on the Invitation
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.InvitationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.InvitationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the Virtual Router.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualRouterPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualRouterPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

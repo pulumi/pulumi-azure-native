@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ISCSIServerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ISCSIServerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.

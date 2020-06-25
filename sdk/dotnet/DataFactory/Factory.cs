@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataFactory
         /// Managed service identity of the factory.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.FactoryIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.FactoryIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DataFactory
         /// Properties of the factory.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FactoryPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FactoryPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

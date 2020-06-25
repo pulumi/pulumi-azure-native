@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Peering
         /// The properties that define a peering.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PeeringPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PeeringPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU that defines the tier and kind of the peering.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PeeringSkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.PeeringSkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

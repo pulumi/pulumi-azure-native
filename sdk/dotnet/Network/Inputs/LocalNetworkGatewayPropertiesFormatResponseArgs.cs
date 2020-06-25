@@ -13,43 +13,43 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// LocalNetworkGateway properties.
     /// </summary>
-    public sealed class LocalNetworkGatewayPropertiesFormatResponseArgs : Pulumi.ResourceArgs
+    public sealed class LocalNetworkGatewayPropertiesFormatResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Local network gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
-        public Input<Inputs.BgpSettingsResponseArgs>? BgpSettings { get; set; }
+        public Inputs.BgpSettingsResponseArgs? BgpSettings { get; set; }
 
         /// <summary>
         /// FQDN of local network gateway.
         /// </summary>
         [Input("fqdn")]
-        public Input<string>? Fqdn { get; set; }
+        public string? Fqdn { get; set; }
 
         /// <summary>
         /// IP address of local network gateway.
         /// </summary>
         [Input("gatewayIpAddress")]
-        public Input<string>? GatewayIpAddress { get; set; }
+        public string? GatewayIpAddress { get; set; }
 
         /// <summary>
         /// Local network site address space.
         /// </summary>
         [Input("localNetworkAddressSpace")]
-        public Input<Inputs.AddressSpaceResponseArgs>? LocalNetworkAddressSpace { get; set; }
+        public Inputs.AddressSpaceResponseArgs? LocalNetworkAddressSpace { get; set; }
 
         /// <summary>
         /// The provisioning state of the local network gateway resource.
         /// </summary>
         [Input("provisioningState", required: true)]
-        public Input<string> ProvisioningState { get; set; } = null!;
+        public string ProvisioningState { get; set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the local network gateway resource.
         /// </summary>
         [Input("resourceGuid", required: true)]
-        public Input<string> ResourceGuid { get; set; } = null!;
+        public string ResourceGuid { get; set; } = null!;
 
         public LocalNetworkGatewayPropertiesFormatResponseArgs()
         {

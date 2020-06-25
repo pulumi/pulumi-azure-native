@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute
         /// Describes the properties of an Image.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ImagePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ImagePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

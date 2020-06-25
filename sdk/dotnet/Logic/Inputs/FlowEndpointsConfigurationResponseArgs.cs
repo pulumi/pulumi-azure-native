@@ -13,19 +13,19 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The endpoints configuration.
     /// </summary>
-    public sealed class FlowEndpointsConfigurationResponseArgs : Pulumi.ResourceArgs
+    public sealed class FlowEndpointsConfigurationResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The connector endpoints.
         /// </summary>
         [Input("connector")]
-        public Input<Inputs.FlowEndpointsResponseArgs>? Connector { get; set; }
+        public Inputs.FlowEndpointsResponseArgs? Connector { get; set; }
 
         /// <summary>
         /// The workflow endpoints.
         /// </summary>
         [Input("workflow")]
-        public Input<Inputs.FlowEndpointsResponseArgs>? Workflow { get; set; }
+        public Inputs.FlowEndpointsResponseArgs? Workflow { get; set; }
 
         public FlowEndpointsConfigurationResponseArgs()
         {

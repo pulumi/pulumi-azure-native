@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Identity Provider contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IdentityProviderContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IdentityProviderContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

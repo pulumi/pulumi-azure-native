@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.AVS
         /// The properties of a private cloud resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateCloudPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateCloudPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The private cloud SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

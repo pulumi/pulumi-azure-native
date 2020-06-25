@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.BatchAI
         /// The properties associated with the workspace.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WorkspacePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource

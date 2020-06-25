@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties of the bandwidth setting.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BandwidthRateSettingPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BandwidthRateSettingPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

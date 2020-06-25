@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Web
         /// PremierAddOn resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PremierAddOnResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.PremierAddOnResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

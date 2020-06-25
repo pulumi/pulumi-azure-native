@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// Properties of hub.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.HubPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.HubPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

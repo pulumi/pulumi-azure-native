@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Authorization
         /// The policy definition properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PolicySetDefinitionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PolicySetDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource (Microsoft.Authorization/policySetDefinitions).

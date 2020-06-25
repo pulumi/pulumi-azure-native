@@ -3,6 +3,16 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_namespace import *
+from .get_namespace_authorization_rule import *
+from .get_namespace_disaster_recovery_config import *
+from .get_namespace_migration_configuration import *
+from .get_namespace_queue import *
+from .get_namespace_queue_authorization_rule import *
+from .get_namespace_topic import *
+from .get_namespace_topic_authorization_rule import *
+from .get_namespace_topic_subscription import *
+from .get_namespace_topic_subscription_rule import *
 from .namespace import *
 from .namespace_authorization_rule import *
 from .namespace_disaster_recovery_config import *

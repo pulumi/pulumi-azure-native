@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute
         /// Describes the properties of a gallery Image Definition.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GalleryImagePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GalleryImagePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

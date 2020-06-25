@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Media
         /// The Managed Identity for the Media Services account.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.MediaServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.MediaServiceIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Media
         /// The resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MediaServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.MediaServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

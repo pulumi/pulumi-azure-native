@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the IpAllocation.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IpAllocationPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IpAllocationPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

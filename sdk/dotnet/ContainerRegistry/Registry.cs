@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.ContainerRegistry
         /// The properties of the container registry.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RegistryPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RegistryPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

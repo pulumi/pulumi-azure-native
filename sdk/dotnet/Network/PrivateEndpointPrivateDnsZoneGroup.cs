@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the private dns zone group.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateDnsZoneGroupPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateDnsZoneGroupPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

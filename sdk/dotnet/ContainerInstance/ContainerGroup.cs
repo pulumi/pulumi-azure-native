@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ContainerInstance
         /// The identity of the container group, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ContainerGroupIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ContainerGroupIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ContainerInstance
         /// The container group properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ContainerGroupResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.ContainerGroupResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

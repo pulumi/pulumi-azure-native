@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorageSync
         /// Cloud Endpoint properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CloudEndpointPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.CloudEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

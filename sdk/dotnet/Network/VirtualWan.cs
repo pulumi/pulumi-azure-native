@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the virtual WAN.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualWanPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualWanPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

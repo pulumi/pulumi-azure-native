@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// The properties of the firewall policy rule collection group.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FirewallPolicyRuleCollectionGroupPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FirewallPolicyRuleCollectionGroupPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Rule Group type.

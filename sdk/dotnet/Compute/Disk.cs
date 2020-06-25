@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Compute
         /// Disk resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DiskPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DiskPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.DiskSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.DiskSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

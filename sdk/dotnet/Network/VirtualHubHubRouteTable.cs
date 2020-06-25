@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the RouteTable resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.HubRouteTablePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.HubRouteTablePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

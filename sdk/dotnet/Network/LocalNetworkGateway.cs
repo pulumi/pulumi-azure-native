@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the local network gateway.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LocalNetworkGatewayPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.LocalNetworkGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

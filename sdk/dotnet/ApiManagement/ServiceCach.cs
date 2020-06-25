@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Cache properties details.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CacheContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.CacheContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

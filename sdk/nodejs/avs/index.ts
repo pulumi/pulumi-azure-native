@@ -2,6 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getPrivateCloud";
+export * from "./getPrivateCloudAuthorization";
+export * from "./getPrivateCloudCluster";
+export * from "./getPrivateCloudHcxEnterpriseSite";
 export * from "./privateCloud";
 export * from "./privateCloudAuthorization";
 export * from "./privateCloudCluster";

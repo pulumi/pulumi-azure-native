@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Batch
         /// The identity of the Batch account.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.BatchAccountIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.BatchAccountIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Batch
         /// The properties associated with the account.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BatchAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BatchAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

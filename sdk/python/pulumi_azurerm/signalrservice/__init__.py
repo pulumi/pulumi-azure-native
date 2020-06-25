@@ -3,5 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_signal_r import *
+from .get_signal_r_private_endpoint_connection import *
 from .signal_r import *
 from .signal_r_private_endpoint_connection import *

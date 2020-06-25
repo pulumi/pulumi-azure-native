@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// Deployment resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DeploymentResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.DeploymentResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

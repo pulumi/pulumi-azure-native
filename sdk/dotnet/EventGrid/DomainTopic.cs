@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.EventGrid
         /// Properties of the Domain Topic.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DomainTopicPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DomainTopicPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

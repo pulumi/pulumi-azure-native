@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.BatchAI
         /// The properties associated with the Job.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.JobPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.JobPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.AAD
         /// Domain service properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DomainServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DomainServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

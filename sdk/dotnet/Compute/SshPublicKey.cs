@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute
         /// Properties of the SSH public key.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SshPublicKeyResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SshPublicKeyResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

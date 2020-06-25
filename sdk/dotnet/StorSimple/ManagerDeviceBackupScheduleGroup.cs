@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// Properties of BackupScheduleGroup
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BackupScheduleGroupPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BackupScheduleGroupPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.

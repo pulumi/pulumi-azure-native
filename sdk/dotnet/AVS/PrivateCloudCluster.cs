@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.AVS
         /// The properties of a cluster resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The cluster SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

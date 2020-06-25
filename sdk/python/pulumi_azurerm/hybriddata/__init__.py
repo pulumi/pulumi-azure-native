@@ -6,3 +6,6 @@
 from .data_manager import *
 from .data_manager_data_service_job_definition import *
 from .data_manager_data_store import *
+from .get_data_manager import *
+from .get_data_manager_data_service_job_definition import *
+from .get_data_manager_data_store import *

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the runbook properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RunbookPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RunbookPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

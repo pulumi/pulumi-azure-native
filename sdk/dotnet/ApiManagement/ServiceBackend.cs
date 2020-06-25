@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Backend entity contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BackendContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BackendContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

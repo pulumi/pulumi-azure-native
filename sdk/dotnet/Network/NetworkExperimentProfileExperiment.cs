@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// The properties of an Experiment
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExperimentPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExperimentPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

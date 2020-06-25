@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the webhook properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WebhookPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WebhookPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.MachineLearningServices
         /// Properties of workspace connection.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WorkspaceConnectionPropsResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WorkspaceConnectionPropsResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type of workspace connection.
