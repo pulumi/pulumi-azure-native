@@ -48,7 +48,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Represents the properties of the resource.
      */
@@ -85,19 +85,18 @@ export class Server extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
-                throw new Error("Missing required property 'serverName'");
-            }
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -150,6 +149,10 @@ export interface ServerArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The name of the server.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * Represents the properties of the resource.
      */
     readonly properties?: pulumi.Input<inputs.sql.ServerProperties>;
@@ -157,10 +160,6 @@ export interface ServerArgs {
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the server.
-     */
-    readonly serverName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -470,6 +470,7 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 		return "", nil, nil, errors.New("No 'put' method on resource")
 	}
 
+	nameParam := nameParameter(resource.path)
 
 	for _, param := range path.Put.Parameters {
 		param, err := spec.ResolveParameter(param)
@@ -515,11 +516,16 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 					val, has = clientInputs[param.Name]
 				}
 			}
+			if !has && param.Name == nameParam {
+				// Use the universal 'name' parameter in place of a resource-specific name like `accountName`.
+				// We should find a better way to do so when we start using the Pulumi schema in the provider.
+				val, has = methodInputs["name"]
+			}
 			if has {
 				params[param.In][param.Name] = val
 			} else {
 				if param.Required {
-					return "", nil, nil, fmt.Errorf("missing required property '%s' %v", param.Name, param)
+					return "", nil, nil, fmt.Errorf("missing required property '%s'", param.Name)
 				}
 			}
 		}
@@ -560,4 +566,16 @@ func (k *azurermProvider) resolveProperties(schema openapi.Schema) ([]string, []
 	}
 
 	return properties, required, nil
+}
+
+// nameParameter parses the given URL path to find the name of the last template parameter.
+func nameParameter(path string) string {
+	parts := strings.Split(path, "/")
+	for i := len(parts)-1; i >= 0; i-- {
+		part := parts[i]
+		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
+			return part[1 : len(part)-1]
+		}
+	}
+	return ""
 }

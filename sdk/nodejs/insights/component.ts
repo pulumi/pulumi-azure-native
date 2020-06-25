@@ -48,7 +48,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Azure resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Properties that define an Application Insights component resource.
      */
@@ -88,19 +88,18 @@ export class Component extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -157,6 +156,10 @@ export interface ComponentArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The name of the Application Insights component resource.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * Properties that define an Application Insights component resource.
      */
     readonly properties?: pulumi.Input<inputs.insights.ApplicationInsightsComponentProperties>;
@@ -164,10 +167,6 @@ export interface ComponentArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the Application Insights component resource.
-     */
-    readonly resourceName: pulumi.Input<string>;
     /**
      * Resource tags
      */

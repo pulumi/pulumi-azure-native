@@ -48,7 +48,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.containerinstance.ContainerGroupResponseProperties>;
     /**
      * The resource tags.
@@ -79,8 +79,8 @@ export class ContainerGroup extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ContainerGroupArgs | undefined;
-            if (!args || args.containerGroupName === undefined) {
-                throw new Error("Missing required property 'containerGroupName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -88,13 +88,12 @@ export class ContainerGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["containerGroupName"] = args ? args.containerGroupName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -140,10 +139,6 @@ export interface ContainerGroupState {
  */
 export interface ContainerGroupArgs {
     /**
-     * The name of the container group.
-     */
-    readonly containerGroupName: pulumi.Input<string>;
-    /**
      * The identity of the container group, if configured.
      */
     readonly identity?: pulumi.Input<inputs.containerinstance.ContainerGroupIdentity>;
@@ -151,6 +146,10 @@ export interface ContainerGroupArgs {
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The name of the container group.
+     */
+    readonly name: pulumi.Input<string>;
     readonly properties: pulumi.Input<inputs.containerinstance.ContainerGroupProperties>;
     /**
      * The name of the resource group.

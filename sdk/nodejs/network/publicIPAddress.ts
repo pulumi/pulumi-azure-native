@@ -48,7 +48,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Public IP address properties.
      */
@@ -92,22 +92,21 @@ export class PublicIPAddress extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIPAddressArgs | undefined;
-            if (!args || args.publicIpAddressName === undefined) {
-                throw new Error("Missing required property 'publicIpAddressName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
-            inputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -172,13 +171,13 @@ export interface PublicIPAddressArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The name of the public IP address.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * Public IP address properties.
      */
     readonly properties?: pulumi.Input<inputs.network.PublicIPAddressPropertiesFormat>;
-    /**
-     * The name of the public IP address.
-     */
-    readonly publicIpAddressName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -48,7 +48,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The name of the resource group.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The resource group properties.
      */
@@ -85,15 +85,14 @@ export class ResourceGroup extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["managedBy"] = args ? args.managedBy : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -150,13 +149,13 @@ export interface ResourceGroupArgs {
      */
     readonly managedBy?: pulumi.Input<string>;
     /**
+     * The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * The resource group properties.
      */
     readonly properties?: pulumi.Input<inputs.core.ResourceGroupProperties>;
-    /**
-     * The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
-     */
-    readonly resourceGroupName: pulumi.Input<string>;
     /**
      * The tags attached to the resource group.
      */

@@ -40,7 +40,7 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
     /**
      * The virtual machine instance ID.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    public /*out*/ readonly instanceId!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -48,7 +48,7 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
@@ -102,11 +102,11 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as VirtualMachineScaleSetVirtualmachineArgs | undefined;
-            if (!args || args.instanceId === undefined) {
-                throw new Error("Missing required property 'instanceId'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -114,14 +114,14 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
             if (!args || args.vmScaleSetName === undefined) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["name"] = undefined /*out*/;
+            inputs["instanceId"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -189,13 +189,13 @@ export interface VirtualMachineScaleSetVirtualmachineState {
  */
 export interface VirtualMachineScaleSetVirtualmachineArgs {
     /**
-     * The instance ID of the virtual machine.
-     */
-    readonly instanceId: pulumi.Input<string>;
-    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The instance ID of the virtual machine.
+     */
+    readonly name: pulumi.Input<string>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */

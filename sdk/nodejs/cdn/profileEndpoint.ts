@@ -44,7 +44,7 @@ export class ProfileEndpoint extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The JSON object that contains the properties required to create an endpoint.
      */
@@ -77,11 +77,11 @@ export class ProfileEndpoint extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProfileEndpointArgs | undefined;
-            if (!args || args.endpointName === undefined) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -89,13 +89,12 @@ export class ProfileEndpoint extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -140,13 +139,13 @@ export interface ProfileEndpointState {
  */
 export interface ProfileEndpointArgs {
     /**
-     * Name of the endpoint under the profile which is unique globally.
-     */
-    readonly endpointName: pulumi.Input<string>;
-    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Name of the endpoint under the profile which is unique globally.
+     */
+    readonly name: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */

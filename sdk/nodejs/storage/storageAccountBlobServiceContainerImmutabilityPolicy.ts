@@ -44,7 +44,7 @@ export class StorageAccountBlobServiceContainerImmutabilityPolicy extends pulumi
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The properties of an ImmutabilityPolicy of a blob container.
      */
@@ -78,8 +78,8 @@ export class StorageAccountBlobServiceContainerImmutabilityPolicy extends pulumi
             if (!args || args.containerName === undefined) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (!args || args.immutabilityPolicyName === undefined) {
-                throw new Error("Missing required property 'immutabilityPolicyName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -89,11 +89,10 @@ export class StorageAccountBlobServiceContainerImmutabilityPolicy extends pulumi
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["immutabilityPolicyName"] = args ? args.immutabilityPolicyName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -144,7 +143,7 @@ export interface StorageAccountBlobServiceContainerImmutabilityPolicyArgs {
     /**
      * The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
      */
-    readonly immutabilityPolicyName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The properties of an ImmutabilityPolicy of a blob container.
      */

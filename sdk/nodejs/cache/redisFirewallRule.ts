@@ -40,7 +40,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * redis cache firewall rule properties
      */
@@ -70,20 +70,19 @@ export class RedisFirewallRule extends pulumi.CustomResource {
             if (!args || args.cacheName === undefined) {
                 throw new Error("Missing required property 'cacheName'");
             }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ruleName === undefined) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             inputs["cacheName"] = args ? args.cacheName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -124,6 +123,10 @@ export interface RedisFirewallRuleArgs {
      */
     readonly cacheName: pulumi.Input<string>;
     /**
+     * The name of the firewall rule.
+     */
+    readonly name: pulumi.Input<string>;
+    /**
      * Properties required to create a firewall rule .
      */
     readonly properties: pulumi.Input<inputs.cache.RedisFirewallRuleProperties>;
@@ -131,8 +134,4 @@ export interface RedisFirewallRuleArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the firewall rule.
-     */
-    readonly ruleName: pulumi.Input<string>;
 }

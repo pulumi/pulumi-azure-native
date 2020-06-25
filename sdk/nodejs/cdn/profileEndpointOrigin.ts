@@ -44,7 +44,7 @@ export class ProfileEndpointOrigin extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The JSON object that contains the properties of the origin.
      */
@@ -83,8 +83,8 @@ export class ProfileEndpointOrigin extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.originName === undefined) {
-                throw new Error("Missing required property 'originName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
@@ -94,12 +94,11 @@ export class ProfileEndpointOrigin extends pulumi.CustomResource {
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["originName"] = args ? args.originName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -154,7 +153,7 @@ export interface ProfileEndpointOriginArgs {
     /**
      * Name of the origin that is unique within the endpoint.
      */
-    readonly originName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
