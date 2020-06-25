@@ -120,21 +120,23 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 		part := parts[i]
 		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
 			name := part[1:len(part)-1]
-			nameProp := requestProperties.all[name]
+			if nameProp, ok := requestProperties.all[name]; ok {
+				// We expect names to be always a required string.
+				if nameProp.Type != "string" {
+					return errors.Errorf("name property '%s' is not a string", name)
+				}
+				if !requestProperties.required.Has(name) {
+					return errors.Errorf("name property '%s' is not required", name)
+				}
 
-			// We expect names to be always a required string.
-			if nameProp.Type != "string" {
-				return errors.Errorf("name property '%s' is not a string", name)
+				delete(requestProperties.all, name)
+				requestProperties.all["name"] = nameProp
+				requestProperties.required.Delete(name)
+				requestProperties.required.Add("name")
+				break
+			} else {
+				return errors.Errorf("name property '%s' not found", name)
 			}
-			if !requestProperties.required.Has(name) {
-				return errors.Errorf("name property '%s' is not required", name)
-			}
-
-			delete(requestProperties.all, name)
-			requestProperties.all["name"] = nameProp
-			requestProperties.required.Delete(name)
-			requestProperties.required.Add("name")
-			break
 		}
 	}
 
