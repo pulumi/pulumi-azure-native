@@ -13,7 +13,7 @@ const resourceGroup = new azurerm.core.ResourceGroup("rg", {
 
 // Create a Storage Account for our static website
 const storageAccount = new azurerm.storage.StorageAccount("websitesa", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     accountName: "pulumiswsa",
     location: "westus2",
     sku: {
@@ -22,9 +22,10 @@ const storageAccount = new azurerm.storage.StorageAccount("websitesa", {
     },
     kind: "StorageV2",
     properties: {
-        staticWebsite: {
-            indexDocument: "index.html",
-        },
+        // Apparently, this is not supported via ARM.
+        // staticWebsite: {
+        //     indexDocument: "index.html",
+        // },
     }
 });
 
@@ -43,11 +44,12 @@ const storageAccount = new azurerm.storage.StorageAccount("websitesa", {
 
 // Web endpoint to the website
 export const staticEndpoint = storageAccount.properties.primaryEndpoints.web;
-const staticHostname = staticEndpoint.apply(url => new URL(url).hostname);
+// TODO: figure out why this output is resolved to undefined during the preview, which breaks the URL constructor call.
+const staticHostname = staticEndpoint.apply(url => url && new URL(url).hostname);
 
 // We can add a CDN in front of the website
 const cdn =  new azurerm.cdn.Profile("website-cdn", {
-    resourceGroupName: resourceGroup.resourceGroupName,
+    resourceGroupName: resourceGroup.name,
     profileName: "pulumi-static-website",
     location: "global",
     sku: {
@@ -56,8 +58,8 @@ const cdn =  new azurerm.cdn.Profile("website-cdn", {
 });
 
 const endpoint = new azurerm.cdn.ProfileEndpoint("website-cdn-ep", {
-    resourceGroupName: resourceGroup.resourceGroupName,
-    profileName: cdn.profileName,
+    resourceGroupName: resourceGroup.name,
+    profileName: cdn.name,
     endpointName: "pulumi-static-website-ep",
     location: "westus",
     properties: {
