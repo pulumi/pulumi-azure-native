@@ -13,29 +13,40 @@ GO              ?= go
 CURL            ?= curl
 
 ensure::
-	@echo "GO111MODULE=on go mod tidy"; GO111MODULE=on go mod tidy
-	@echo "GO111MODULE=on go mod download"; GO111MODULE=on go mod download
+	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
+	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 	if [ ! -d "azure-rest-api-specs" ]; then git clone https://github.com/Azure/azure-rest-api-specs; fi
 	cd azure-rest-api-specs && git pull
 
 build::
-	$(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
+	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
 
 builddebug:
-	$(GO) install $(VERSION_FLAGS) -gcflags="all=-N -l" $(PROJECT)/cmd/$(PROVIDER)
+	cd provider; $(GO) install $(VERSION_FLAGS) -gcflags="all=-N -l" $(PROJECT)/cmd/$(PROVIDER)
 
 generate_schema::
-	$(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
+	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
 	echo "Generating Pulumi schema..."
 	$(CODEGEN) schema
 	echo "Finished generating schema."
 
 generate::
 	rm -rf sdk/nodejs
-	$(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
+	rm -rf sdk/python
+	rm -rf sdk/dotnet
+	rm -rf sdk/go/azurerm
+	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
 	echo "Generating Pulumi Schema & SDK..."
-	$(CODEGEN) schema,nodejs
+	$(CODEGEN) schema,nodejs,python,go,dotnet
+	$(CODEGEN) schema,go
 	echo "Finished generating Schema & SDK."
 	cd ${PACKDIR}/nodejs/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json && \
 		yarn install
+	cd ${PACKDIR}/python/ && \
+			cp ../../README.md . && \
+			sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./setup.py && \
+			rm ./setup.py.bak
+	cd ${PACKDIR}/dotnet/ && \
+		echo "${VERSION:v%=%}" >version.txt && \
+		dotnet build
