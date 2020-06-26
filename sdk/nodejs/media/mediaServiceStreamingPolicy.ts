@@ -38,7 +38,7 @@ export class MediaServiceStreamingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -46,7 +46,7 @@ export class MediaServiceStreamingPolicy extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.media.StreamingPolicyPropertiesResponse>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -98,7 +98,7 @@ export class MediaServiceStreamingPolicy extends pulumi.CustomResource {
  */
 export interface MediaServiceStreamingPolicyState {
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -106,7 +106,7 @@ export interface MediaServiceStreamingPolicyState {
      */
     readonly properties: pulumi.Input<inputs.media.StreamingPolicyPropertiesResponse>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: pulumi.Input<string>;
 }

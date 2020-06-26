@@ -365,6 +365,7 @@
         "media/mediaservice.ts",
         "media/mediaserviceLiveEvent.ts",
         "media/mediaserviceLiveEventLiveOutput.ts",
+        "media/mediaservicePrivateEndpointConnection.ts",
         "media/mediaserviceStreamingEndpoint.ts",
         "migrate/assessmentProject.ts",
         "migrate/assessmentProjectGroup.ts",

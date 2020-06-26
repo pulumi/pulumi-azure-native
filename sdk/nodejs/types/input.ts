@@ -24657,6 +24657,74 @@ export namespace databricks {
     }
 
     /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface Encryption {
+        /**
+         * The name of KeyVault key.
+         */
+        KeyName?: pulumi.Input<string>;
+        /**
+         * The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+         */
+        keySource?: pulumi.Input<string>;
+        /**
+         * The Uri of KeyVault.
+         */
+        keyvaulturi?: pulumi.Input<string>;
+        /**
+         * The version of KeyVault key.
+         */
+        keyversion?: pulumi.Input<string>;
+    }
+
+    /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface EncryptionResponse {
+        /**
+         * The name of KeyVault key.
+         */
+        KeyName?: pulumi.Input<string>;
+        /**
+         * The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+         */
+        keySource?: pulumi.Input<string>;
+        /**
+         * The Uri of KeyVault.
+         */
+        keyvaulturi?: pulumi.Input<string>;
+        /**
+         * The version of KeyVault key.
+         */
+        keyversion?: pulumi.Input<string>;
+    }
+
+    /**
+     * The Managed Identity details for storage account.
+     */
+    export interface ManagedIdentityConfiguration {
+    }
+
+    /**
+     * The Managed Identity details for storage account.
+     */
+    export interface ManagedIdentityConfigurationResponse {
+        /**
+         * The objectId of the Managed Identity that is linked to the Managed Storage account.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The tenant Id where the Managed Identity is created.
+         */
+        tenantId: pulumi.Input<string>;
+        /**
+         * The type of Identity created. It can be either SystemAssigned or UserAssigned.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
      * SKU for the resource.
      */
     export interface Sku {
@@ -24836,6 +24904,14 @@ export namespace databricks {
          * Should the Public IP be Disabled?
          */
         enableNoPublicIp?: pulumi.Input<inputs.databricks.WorkspaceCustomBooleanParameter>;
+        /**
+         * Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+         */
+        encryption?: pulumi.Input<inputs.databricks.WorkspaceEncryptionParameter>;
+        /**
+         * Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+         */
+        prepareEncryption?: pulumi.Input<inputs.databricks.WorkspaceCustomBooleanParameter>;
     }
 
     /**
@@ -24858,6 +24934,14 @@ export namespace databricks {
          * Should the Public IP be Disabled?
          */
         enableNoPublicIp?: pulumi.Input<inputs.databricks.WorkspaceCustomBooleanParameterResponse>;
+        /**
+         * Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+         */
+        encryption?: pulumi.Input<inputs.databricks.WorkspaceEncryptionParameterResponse>;
+        /**
+         * Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+         */
+        prepareEncryption?: pulumi.Input<inputs.databricks.WorkspaceCustomBooleanParameterResponse>;
     }
 
     /**
@@ -24889,6 +24973,34 @@ export namespace databricks {
     }
 
     /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface WorkspaceEncryptionParameter {
+        /**
+         * The type of variable that this is
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The value which should be used for this field.
+         */
+        value?: pulumi.Input<inputs.databricks.Encryption>;
+    }
+
+    /**
+     * The object that contains details of encryption used on the workspace.
+     */
+    export interface WorkspaceEncryptionParameterResponse {
+        /**
+         * The type of variable that this is
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The value which should be used for this field.
+         */
+        value?: pulumi.Input<inputs.databricks.EncryptionResponse>;
+    }
+
+    /**
      * The workspace properties.
      */
     export interface WorkspaceProperties {
@@ -24912,6 +25024,10 @@ export namespace databricks {
          * The workspace's custom parameters.
          */
         parameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
+        /**
+         * The details of Managed Identity of Storage Account
+         */
+        storageAccountIdentity?: pulumi.Input<inputs.databricks.ManagedIdentityConfiguration>;
         /**
          * The blob URI where the UI definition file is located.
          */
@@ -24950,6 +25066,10 @@ export namespace databricks {
          * The workspace provisioning state.
          */
         provisioningState: pulumi.Input<string>;
+        /**
+         * The details of Managed Identity of Storage Account
+         */
+        storageAccountIdentity?: pulumi.Input<inputs.databricks.ManagedIdentityConfigurationResponse>;
         /**
          * The blob URI where the UI definition file is located.
          */
@@ -45003,6 +45123,28 @@ export namespace maps {
 }
 
 export namespace media {
+    export interface AccountEncryption {
+        /**
+         * The properties of the key used to encrypt the account.
+         */
+        keyVaultProperties?: pulumi.Input<inputs.media.KeyVaultProperties>;
+        /**
+         * The type of key used to encrypt the Account Key.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AccountEncryptionResponse {
+        /**
+         * The properties of the key used to encrypt the account.
+         */
+        keyVaultProperties?: pulumi.Input<inputs.media.KeyVaultPropertiesResponse>;
+        /**
+         * The type of key used to encrypt the Account Key.
+         */
+        type: pulumi.Input<string>;
+    }
+
     /**
      * Akamai access control
      */
@@ -45835,16 +45977,34 @@ export namespace media {
         state: pulumi.Input<string>;
     }
 
+    export interface KeyVaultProperties {
+        /**
+         * The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+         */
+        keyIdentifier?: pulumi.Input<string>;
+    }
+
+    export interface KeyVaultPropertiesResponse {
+        /**
+         * The current key used to encrypt the Media Services account, including the key version.
+         */
+        currentKeyIdentifier: pulumi.Input<string>;
+        /**
+         * The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+         */
+        keyIdentifier?: pulumi.Input<string>;
+    }
+
     /**
      * The Live Event encoding.
      */
     export interface LiveEventEncoding {
         /**
-         * The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+         * The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
          */
         encodingType?: pulumi.Input<string>;
         /**
-         * The encoding preset name.  This value is specified at creation time and cannot be updated.
+         * The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
          */
         presetName?: pulumi.Input<string>;
     }
@@ -45854,11 +46014,11 @@ export namespace media {
      */
     export interface LiveEventEncodingResponse {
         /**
-         * The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+         * The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
          */
         encodingType?: pulumi.Input<string>;
         /**
-         * The encoding preset name.  This value is specified at creation time and cannot be updated.
+         * The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
          */
         presetName?: pulumi.Input<string>;
     }
@@ -45900,7 +46060,7 @@ export namespace media {
          */
         accessControl?: pulumi.Input<inputs.media.LiveEventInputAccessControl>;
         /**
-         * A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+         * A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -45946,7 +46106,7 @@ export namespace media {
          */
         accessControl?: pulumi.Input<inputs.media.LiveEventInputAccessControlResponse>;
         /**
-         * A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+         * A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
          */
         accessToken?: pulumi.Input<string>;
         /**
@@ -46060,13 +46220,13 @@ export namespace media {
          */
         preview?: pulumi.Input<inputs.media.LiveEventPreview>;
         /**
-         * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+         * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
          */
         streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
          */
-        vanityUrl?: pulumi.Input<boolean>;
+        useStaticHostname?: pulumi.Input<boolean>;
     }
 
     /**
@@ -46110,13 +46270,13 @@ export namespace media {
          */
         resourceState: pulumi.Input<string>;
         /**
-         * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+         * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
          */
         streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
          */
-        vanityUrl?: pulumi.Input<boolean>;
+        useStaticHostname?: pulumi.Input<boolean>;
     }
 
     /**
@@ -46231,20 +46391,51 @@ export namespace media {
         tracks?: pulumi.Input<pulumi.Input<inputs.media.FilterTrackSelectionResponse>[]>;
     }
 
+    export interface MediaServiceIdentity {
+        /**
+         * The identity type.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface MediaServiceIdentityResponse {
+        /**
+         * The Principal ID of the identity.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The Tenant ID of the identity.
+         */
+        tenantId: pulumi.Input<string>;
+        /**
+         * The identity type.
+         */
+        type: pulumi.Input<string>;
+    }
+
     /**
      * Properties of the Media Services account.
      */
     export interface MediaServiceProperties {
         /**
+         * The account encryption properties.
+         */
+        encryption?: pulumi.Input<inputs.media.AccountEncryption>;
+        /**
          * The storage accounts for this resource.
          */
         storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.StorageAccount>[]>;
+        storageAuthentication?: pulumi.Input<string>;
     }
 
     /**
      * Properties of the Media Services account.
      */
     export interface MediaServicePropertiesResponse {
+        /**
+         * The account encryption properties.
+         */
+        encryption?: pulumi.Input<inputs.media.AccountEncryptionResponse>;
         /**
          * The Media Services account ID.
          */
@@ -46253,6 +46444,7 @@ export namespace media {
          * The storage accounts for this resource.
          */
         storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.StorageAccountResponse>[]>;
+        storageAuthentication?: pulumi.Input<string>;
     }
 
     /**
@@ -46345,6 +46537,94 @@ export namespace media {
      * Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
      */
     export interface PresetResponse {
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpoint {
+    }
+
+    /**
+     * Properties of the PrivateEndpointConnectProperties.
+     */
+    export interface PrivateEndpointConnectionProperties {
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: pulumi.Input<inputs.media.PrivateEndpoint>;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.media.PrivateLinkServiceConnectionState>;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the PrivateEndpointConnectProperties.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: pulumi.Input<inputs.media.PrivateEndpointResponse>;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.media.PrivateLinkServiceConnectionStateResponse>;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState?: pulumi.Input<string>;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionState {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string>;
     }
 
     /**

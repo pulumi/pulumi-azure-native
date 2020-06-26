@@ -20,20 +20,20 @@ import (
 	"unicode"
 )
 
-// isLegalIdentifierStart returns true if it is legal for c to be the first character of a JavaScript identifier as per
-// ECMA-262.
+// isLegalIdentifierStart returns true if it is legal for c to be the first character of an identifier that we can
+// use for schema properties.
 func isLegalIdentifierStart(c rune) bool {
-	return c == '$' || c == '_' ||
+	return c == '_' ||
 		unicode.In(c, unicode.Lu, unicode.Ll, unicode.Lt, unicode.Lm, unicode.Lo, unicode.Nl)
 }
 
-// isLegalIdentifierPart returns true if it is legal for c to be part of a JavaScript identifier (besides the first
-// character) as per ECMA-262.
+// isLegalIdentifierPart returns true if it is legal for c to be part of an identifier (besides the first
+// character) that we can use for schema properties.
 func isLegalIdentifierPart(c rune) bool {
 	return isLegalIdentifierStart(c) || unicode.In(c, unicode.Mn, unicode.Mc, unicode.Nd, unicode.Pc)
 }
 
-// isLegalIdentifier returns true if s is a legal JavaScript identifier as per ECMA-262.
+// isLegalIdentifier returns true if s is a legal JavaScript identifier that we can use for schema properties.
 func isLegalIdentifier(s string) bool {
 	reader := strings.NewReader(s)
 	c, _, _ := reader.ReadRune()

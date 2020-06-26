@@ -13,4 +13,5 @@ export * from "./mediaServiceTransformJob";
 export * from "./mediaservice";
 export * from "./mediaserviceLiveEvent";
 export * from "./mediaserviceLiveEventLiveOutput";
+export * from "./mediaservicePrivateEndpointConnection";
 export * from "./mediaserviceStreamingEndpoint";

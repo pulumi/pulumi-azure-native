@@ -7,11 +7,11 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * The Live Event.
+ * The Private Endpoint Connection resource.
  */
-export class MediaserviceLiveEvent extends pulumi.CustomResource {
+export class MediaservicePrivateEndpointConnection extends pulumi.CustomResource {
     /**
-     * Get an existing MediaserviceLiveEvent resource's state with the given name, ID, and optional extra
+     * Get an existing MediaservicePrivateEndpointConnection resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -19,69 +19,56 @@ export class MediaserviceLiveEvent extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MediaserviceLiveEventState, opts?: pulumi.CustomResourceOptions): MediaserviceLiveEvent {
-        return new MediaserviceLiveEvent(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MediaservicePrivateEndpointConnectionState, opts?: pulumi.CustomResourceOptions): MediaservicePrivateEndpointConnection {
+        return new MediaservicePrivateEndpointConnection(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:media:MediaserviceLiveEvent';
+    public static readonly __pulumiType = 'azurerm:media:MediaservicePrivateEndpointConnection';
 
     /**
-     * Returns true if the given object is an instance of MediaserviceLiveEvent.  This is designed to work even
+     * Returns true if the given object is an instance of MediaservicePrivateEndpointConnection.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is MediaserviceLiveEvent {
+    public static isInstance(obj: any): obj is MediaservicePrivateEndpointConnection {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === MediaserviceLiveEvent.__pulumiType;
+        return obj['__pulumiType'] === MediaservicePrivateEndpointConnection.__pulumiType;
     }
 
-    /**
-     * The geo-location where the resource lives
-     */
-    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Live Event properties.
+     * Resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.LiveEventPropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly properties!: pulumi.Output<outputs.media.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a MediaserviceLiveEvent resource with the given unique name, arguments, and options.
+     * Create a MediaservicePrivateEndpointConnection resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MediaserviceLiveEventArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MediaserviceLiveEventArgs | MediaserviceLiveEventState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: MediaservicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: MediaservicePrivateEndpointConnectionArgs | MediaservicePrivateEndpointConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MediaserviceLiveEventState | undefined;
-            inputs["location"] = state ? state.location : undefined;
+            const state = argsOrState as MediaservicePrivateEndpointConnectionState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
-            const args = argsOrState as MediaserviceLiveEventArgs | undefined;
+            const args = argsOrState as MediaservicePrivateEndpointConnectionArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
-            }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
@@ -90,12 +77,9 @@ export class MediaserviceLiveEvent extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["autoStart"] = args ? args.autoStart : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,30 +89,22 @@ export class MediaserviceLiveEvent extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(MediaserviceLiveEvent.__pulumiType, name, inputs, opts);
+        super(MediaservicePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * The Live Event.
+ * The Private Endpoint Connection resource.
  */
-export interface MediaserviceLiveEventState {
-    /**
-     * The geo-location where the resource lives
-     */
-    readonly location: pulumi.Input<string>;
+export interface MediaservicePrivateEndpointConnectionState {
     /**
      * The name of the resource
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Live Event properties.
+     * Resource properties.
      */
-    readonly properties: pulumi.Input<inputs.media.LiveEventPropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly properties: pulumi.Input<inputs.media.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -136,35 +112,20 @@ export interface MediaserviceLiveEventState {
 }
 
 /**
- * The set of arguments for constructing a MediaserviceLiveEvent resource.
+ * The set of arguments for constructing a MediaservicePrivateEndpointConnection resource.
  */
-export interface MediaserviceLiveEventArgs {
+export interface MediaservicePrivateEndpointConnectionArgs {
     /**
      * The Media Services account name.
      */
     readonly accountName: pulumi.Input<string>;
-    /**
-     * The flag indicates if the resource should be automatically started on creation.
-     */
-    readonly autoStart?: pulumi.Input<boolean>;
-    /**
-     * The geo-location where the resource lives
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * The name of the Live Event.
-     */
     readonly name: pulumi.Input<string>;
     /**
-     * The Live Event properties.
+     * Resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.media.LiveEventProperties>;
+    readonly properties?: pulumi.Input<inputs.media.PrivateEndpointConnectionProperties>;
     /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

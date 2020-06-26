@@ -38,11 +38,15 @@ export class Mediaservice extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure Region of the resource.
+     * The Managed Identity for the Media Services account.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly identity!: pulumi.Output<outputs.media.MediaServiceIdentityResponse | undefined>;
     /**
-     * The name of the resource.
+     * The geo-location where the resource lives
+     */
+    public readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -54,7 +58,7 @@ export class Mediaservice extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -70,6 +74,7 @@ export class Mediaservice extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as MediaserviceState | undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
@@ -77,12 +82,16 @@ export class Mediaservice extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as MediaserviceArgs | undefined;
+            if (!args || args.location === undefined) {
+                throw new Error("Missing required property 'location'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -106,11 +115,15 @@ export class Mediaservice extends pulumi.CustomResource {
  */
 export interface MediaserviceState {
     /**
-     * The Azure Region of the resource.
+     * The Managed Identity for the Media Services account.
      */
-    readonly location?: pulumi.Input<string>;
+    readonly identity?: pulumi.Input<inputs.media.MediaServiceIdentityResponse>;
     /**
-     * The name of the resource.
+     * The geo-location where the resource lives
+     */
+    readonly location: pulumi.Input<string>;
+    /**
+     * The name of the resource
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -122,7 +135,7 @@ export interface MediaserviceState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the resource.
+     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: pulumi.Input<string>;
 }
@@ -132,9 +145,13 @@ export interface MediaserviceState {
  */
 export interface MediaserviceArgs {
     /**
-     * The Azure Region of the resource.
+     * The Managed Identity for the Media Services account.
      */
-    readonly location?: pulumi.Input<string>;
+    readonly identity?: pulumi.Input<inputs.media.MediaServiceIdentity>;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location: pulumi.Input<string>;
     /**
      * The Media Services account name.
      */
