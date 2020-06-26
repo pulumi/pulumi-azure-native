@@ -31,4 +31,6 @@ export * from "./appServiceSlotSourcecontrol";
 export * from "./appServiceSlotVirtualNetworkConnection";
 export * from "./appServiceSourcecontrol";
 export * from "./appServiceVirtualNetworkConnection";
+export * from "./certificate";
+export * from "./hostingEnvironment";
 export * from "./staticSite";

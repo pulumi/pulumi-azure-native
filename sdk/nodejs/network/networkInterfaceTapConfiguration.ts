@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Tap configuration in a Network Interface
+ * Tap configuration in a Network Interface.
  */
 export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
     /**
@@ -40,13 +40,13 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the Virtual Network Tap configuration
+     * Properties of the Virtual Network Tap configuration.
      */
     public readonly properties!: pulumi.Output<outputs.network.NetworkInterfaceTapConfigurationPropertiesFormatResponse>;
     /**
@@ -81,13 +81,13 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
             if (!args || args.tapConfigurationName === undefined) {
                 throw new Error("Missing required property 'tapConfigurationName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tapConfigurationName"] = args ? args.tapConfigurationName : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,19 +102,19 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
 }
 
 /**
- * Tap configuration in a Network Interface
+ * Tap configuration in a Network Interface.
  */
 export interface NetworkInterfaceTapConfigurationState {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    readonly etag: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Properties of the Virtual Network Tap configuration
+     * Properties of the Virtual Network Tap configuration.
      */
     readonly properties: pulumi.Input<inputs.network.NetworkInterfaceTapConfigurationPropertiesFormatResponse>;
     /**
@@ -128,10 +128,6 @@ export interface NetworkInterfaceTapConfigurationState {
  */
 export interface NetworkInterfaceTapConfigurationArgs {
     /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -144,7 +140,7 @@ export interface NetworkInterfaceTapConfigurationArgs {
      */
     readonly networkInterfaceName: pulumi.Input<string>;
     /**
-     * Properties of the Virtual Network Tap configuration
+     * Properties of the Virtual Network Tap configuration.
      */
     readonly properties?: pulumi.Input<inputs.network.NetworkInterfaceTapConfigurationPropertiesFormat>;
     /**

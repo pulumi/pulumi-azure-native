@@ -40,7 +40,7 @@ export class VirtualNetworkVirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -76,13 +76,13 @@ export class VirtualNetworkVirtualNetworkPeering extends pulumi.CustomResource {
             if (!args || args.virtualNetworkPeeringName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkPeeringName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+            inputs["etag"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,7 +102,7 @@ export interface VirtualNetworkVirtualNetworkPeeringState {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    readonly etag: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -117,10 +117,6 @@ export interface VirtualNetworkVirtualNetworkPeeringState {
  * The set of arguments for constructing a VirtualNetworkVirtualNetworkPeering resource.
  */
 export interface VirtualNetworkVirtualNetworkPeeringArgs {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

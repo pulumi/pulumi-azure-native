@@ -40,7 +40,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -88,13 +88,13 @@ export class NetworkInterface extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,7 +115,7 @@ export interface NetworkInterfaceState {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    readonly etag: pulumi.Input<string>;
     /**
      * Resource location.
      */
@@ -142,10 +142,6 @@ export interface NetworkInterfaceState {
  * The set of arguments for constructing a NetworkInterface resource.
  */
 export interface NetworkInterfaceArgs {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

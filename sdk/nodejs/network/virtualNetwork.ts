@@ -38,9 +38,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
+     * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -88,13 +88,13 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,9 +113,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
  */
 export interface VirtualNetworkState {
     /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
+     * A unique read-only string that changes whenever the resource is updated.
      */
-    readonly etag?: pulumi.Input<string>;
+    readonly etag: pulumi.Input<string>;
     /**
      * Resource location.
      */
@@ -142,10 +142,6 @@ export interface VirtualNetworkState {
  * The set of arguments for constructing a VirtualNetwork resource.
  */
 export interface VirtualNetworkArgs {
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -50,6 +50,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.resources.DeploymentPropertiesExtendedResponse>;
     /**
+     * Deployment tags
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The type of the deployment.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -69,6 +73,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
@@ -85,6 +90,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +121,10 @@ export interface DeploymentState {
      */
     readonly properties: pulumi.Input<inputs.resources.DeploymentPropertiesExtendedResponse>;
     /**
+     * Deployment tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The type of the deployment.
      */
     readonly type: pulumi.Input<string>;
@@ -140,4 +150,8 @@ export interface DeploymentArgs {
      * The name of the resource group to deploy the resources to. The name is case insensitive. The resource group must already exist.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Deployment tags
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -45,6 +45,10 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * Describes the properties of a Virtual Machine Scale Set Extension.
      */
     public readonly properties!: pulumi.Output<outputs.compute.VirtualMachineScaleSetExtensionPropertiesResponse>;
+    /**
+     * Resource type
+     */
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineScaleSetExtension resource with the given unique name, arguments, and options.
@@ -60,6 +64,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             const state = argsOrState as VirtualMachineScaleSetExtensionState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
+            inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as VirtualMachineScaleSetExtensionArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -76,6 +81,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
             inputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
+            inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -100,6 +106,10 @@ export interface VirtualMachineScaleSetExtensionState {
      * Describes the properties of a Virtual Machine Scale Set Extension.
      */
     readonly properties: pulumi.Input<inputs.compute.VirtualMachineScaleSetExtensionPropertiesResponse>;
+    /**
+     * Resource type
+     */
+    readonly type: pulumi.Input<string>;
 }
 
 /**
