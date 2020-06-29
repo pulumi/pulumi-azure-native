@@ -16,6 +16,7 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
@@ -65,9 +66,10 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 	client.PollingDuration = 120 * time.Minute
 
 
-	resourceMap, err := ResourceMap()
+	var resourceMap map[string]AzureApiResource
+	err = json.Unmarshal(azureApiResources, &resourceMap)
 	if err != nil {
-		return nil, errors.Wrap(err, "building resource map")
+		return nil, errors.Wrap(err, "unmarshalling resource map")
 	}
 
 	// Return the new provider
@@ -188,7 +190,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.subscriptionId,
-			"api-version":    res.apiVersion,
+			"api-version":    res.ApiVersion,
 		},
 	)
 	if err != nil {
@@ -197,7 +199,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
-	_, err = k.azureGet(ctx, id, res.apiVersion)
+	_, err = k.azureGet(ctx, id, res.ApiVersion)
 	if err == nil {
 		return nil, fmt.Errorf("cannot create already existing resource %v", id)
 	}
@@ -233,7 +235,7 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
 	res := k.resourceMap[string(urn.Type())]
-	outputs, err := k.azureGet(ctx, id, res.apiVersion)
+	outputs, err := k.azureGet(ctx, id, res.ApiVersion)
 	if err != nil {
 		return nil, err
 	}
@@ -266,7 +268,7 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.subscriptionId,
-			"api-version":    res.apiVersion,
+			"api-version":    res.ApiVersion,
 		},
 	)
 	if err != nil {
@@ -298,7 +300,7 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
 	resource := k.resourceMap[string(urn.Type())]
-	err := k.azureDelete(ctx, id, resource.apiVersion)
+	err := k.azureDelete(ctx, id, resource.ApiVersion)
 	if err != nil {
 		return nil, err
 	}
@@ -457,7 +459,7 @@ func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion st
 	return outputs, nil
 }
 
-func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs, clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
+func (k *azurermProvider) prepareAzureRESTInputs(resource AzureApiResource, methodInputs, clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	locations := map[string]map[string]interface{}{
 		"client": clientInputs,
@@ -469,44 +471,14 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 		"path":  {},
 	}
 
-	spec, err := openapi.NewSpec(resource.swagggerSpecLocation)
-	if err != nil {
-		return "", nil, nil, errors.Wrapf(err, "failed to load spec %s", resource.swagggerSpecLocation)
-	}
-	path := spec.Swagger.Paths.Paths[resource.path]
-	if path.Put == nil {
-		return "", nil, nil, errors.New("No 'put' method on resource")
-	}
-
-	nameParam := nameParameter(resource.path)
-
-	for _, param := range path.Put.Parameters {
-		param, err := spec.ResolveParameter(param)
-		if err != nil {
-			return "", nil, nil, err
-		}
-
-		if param.In == "body" {
-			if param.Schema == nil {
-				return "", nil, nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
-			}
-
-			schema, err := param.ResolveSchema(param.Schema)
-			if err != nil {
-				return "", nil, nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
-			}
-
-			properties, required, err := k.resolveProperties(*schema)
-			if err != nil {
-				return "", nil, nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
-			}
-
-			for _, name := range required {
+	for _, param := range resource.PutParameters {
+		if param.Location == "body" {
+			for _, name := range param.RequiredProperties {
 				if _, has := methodInputs[name]; !has {
 					return "", nil, nil, fmt.Errorf("missing required property '%s' in '%s'", name, param.Name)
 				}
 			}
-			for _, name := range properties {
+			for _, name := range param.Properties {
 				if value, has := methodInputs[name]; has {
 					params["body"][name] = value
 				}
@@ -514,9 +486,8 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 		} else {
 			var val interface{}
 			var has bool
-			loc, hasLoc := param.Extensions.GetString("x-ms-parameter-location")
-			if hasLoc {
-				val, has = locations[loc][param.Name]
+			if param.Source != "" {
+				val, has = locations[param.Source][param.Name]
 			} else {
 				// If not specified where to find it, look in both with `method` first
 				val, has = methodInputs[param.Name]
@@ -524,21 +495,21 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource Resource, methodInputs
 					val, has = clientInputs[param.Name]
 				}
 			}
-			if !has && param.Name == nameParam {
+			if !has && param.IsResourceName {
 				// Use the universal 'name' parameter in place of a resource-specific name like `accountName`.
 				// We should find a better way to do so when we start using the Pulumi schema in the provider.
 				val, has = methodInputs["name"]
 			}
 			if has {
-				params[param.In][param.Name] = val
+				params[param.Location][param.Name] = val
 			} else {
-				if param.Required {
+				if param.IsRequired {
 					return "", nil, nil, fmt.Errorf("missing required property '%s'", param.Name)
 				}
 			}
 		}
 	}
-	id := resource.path
+	id := resource.Path
 	for key, value := range params["path"] {
 		encodedVal := autorest.Encode("path", value.(string))
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)

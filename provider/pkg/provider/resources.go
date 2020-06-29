@@ -15,20 +15,175 @@
 package provider
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/gedex/inflector"
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
 )
 
-// Resource is an ARM resource supporting CRUD
-type Resource struct {
-	swagggerSpecLocation string
-	path                 string
-	apiVersion           string // TODO: Get this from spec
+// AzureApiParameter represents a parameter of a Azure REST API endpoint.
+type AzureApiParameter struct {
+	Name string
+	// Location defines the parameter's place the HTTP request: "path", "query", or "body".
+	Location string
+	// Source defines the value source: "method" (resource arguments) or "client" (provider configuration).
+	Source string
+	// Requires is true for mandatory parameters.
+	IsRequired bool
+	// IsResourceName is true for parameters that contain resource name (e.g. `accountName`).
+	IsResourceName bool
+	// Properties contains the names of properties for a body-placed parameter.
+	Properties []string
+	// RequiredProperties contains the names of required properties for a body-placed parameter.
+	RequiredProperties []string
+}
+
+// AzureApiResource is a resource in Azure REST API.
+type AzureApiResource struct {
+	ApiVersion    string
+	Path          string
+	PutParameters []AzureApiParameter
+}
+
+func GenerateResourceMap(specs []*openapi.Spec) error {
+	resourceMap, err := buildResourceMap(specs)
+	if err != nil {
+		return err
+	}
+
+	contents, err := json.Marshal(resourceMap)
+	if err != nil {
+		return err
+	}
+
+	err = ioutil.WriteFile("./provider/pkg/provider/metadata.go", []byte(fmt.Sprintf(`package provider
+var azureApiResources = %#v
+`, contents)), 0600)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error) {
+	result := map[string]AzureApiResource{}
+
+	for _, spec := range specs {
+		for key, path := range spec.Paths.Paths {
+			if path.Put == nil || path.Get == nil || path.Delete == nil {
+				continue
+			}
+
+			typeName := ResourceTypeName(key)
+			if typeName == "" {
+				continue
+			}
+
+			providerTypeName := fmt.Sprintf("azurerm:%s", typeName)
+
+			path := spec.Swagger.Paths.Paths[key]
+			if path.Put == nil {
+				continue
+			}
+
+			nameParam := nameParameter(key)
+
+			var puts []AzureApiParameter
+			for _, param := range path.Put.Parameters {
+				param, err := spec.ResolveParameter(param)
+				if err != nil {
+					return nil, err
+				}
+
+				var properties, required []string
+				if param.In == "body" {
+					if param.Schema == nil {
+						return nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
+					}
+
+					schema, err := param.ResolveSchema(param.Schema)
+					if err != nil {
+						return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
+					}
+
+					properties, required, err = resolveProperties(*schema)
+					if err != nil {
+						return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
+					}
+				}
+
+				location, _ := param.Extensions.GetString("x-ms-parameter-location")
+				p := AzureApiParameter{
+					Name:               param.Name,
+					Location:           param.In,
+					Source:             location,
+					IsRequired:         param.Required,
+					IsResourceName:     nameParam == param.Name,
+					Properties:         properties,
+					RequiredProperties: required,
+				}
+				puts = append(puts, p)
+			}
+
+			r := AzureApiResource{
+				ApiVersion:    spec.Info.Version,
+				Path:          key,
+				PutParameters: puts,
+			}
+			result[providerTypeName] = r
+		}
+	}
+
+	return result, nil
+}
+
+// resolveProperties returns the slice of schema's property names and the slice of schema's required properties.
+func resolveProperties(schema openapi.Schema) ([]string, []string, error) {
+	var properties []string
+	var required []string
+
+	for k, _ := range schema.Properties {
+		properties = append(properties, k)
+	}
+	for _, k := range schema.Required {
+		required = append(required, k)
+	}
+
+	for _, s := range schema.AllOf {
+		allOfSchema, err := schema.ResolveSchema(&s)
+		if err != nil {
+			return nil, nil, err
+		}
+
+		ps, rs, err := resolveProperties(*allOfSchema)
+		if err != nil {
+			return nil, nil, err
+		}
+
+		properties = append(properties, ps...)
+		required = append(required, rs...)
+	}
+
+	return properties, required, nil
+}
+
+// nameParameter parses the given URL path to find the name of the last template parameter.
+func nameParameter(path string) string {
+	parts := strings.Split(path, "/")
+	for i := len(parts)-1; i >= 0; i-- {
+		part := parts[i]
+		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
+			return part[1 : len(part)-1]
+		}
+	}
+	return ""
 }
 
 // blessedVersions contains the preferred versions per resource provider. If a resource provider is not specified,
@@ -48,17 +203,6 @@ func SwaggerLocations() ([]string, error) {
 		return nil, err
 	}
 
-	// TODO: get rid of this brittle search for a specs folder in parent folders as soon as the provider does not depend on discovering specifications at runtime.
-	for true {
-		if _, err := os.Stat(dir + "/azure-rest-api-specs"); err == nil {
-			break
-		} else if !os.IsNotExist(err) {
-			return nil, err
-		}
-
-		dir = filepath.Dir(dir)
-	}
-
 	files, err := filepath.Glob(dir + "/azure-rest-api-specs/specification/**/resource-manager/Microsoft.*/stable/*/*.json")
 	if err != nil {
 		return nil, err
@@ -72,9 +216,9 @@ func SwaggerLocations() ([]string, error) {
 	for _, file := range files {
 		parts := strings.Split(file, "/")
 		length := len(parts)
-		provider := parts[length - 4]
-		apiVersion := parts[length - 2]
-		filename := parts[length - 1]
+		provider := parts[length-4]
+		apiVersion := parts[length-2]
+		filename := parts[length-1]
 
 		if v, ok := blessedVersions[provider]; ok && v != apiVersion {
 			continue
@@ -93,44 +237,6 @@ func SwaggerLocations() ([]string, error) {
 	return locations, nil
 }
 
-// ResourceMap builds a map of resource definitions for the provider.
-func ResourceMap() (map[string]Resource, error) {
-	result := make(map[string]Resource)
-	swaggerSpecLocations, err := SwaggerLocations()
-	if err != nil {
-		return nil, err
-	}
-
-	for _, swagggerSpecLocation := range swaggerSpecLocations {
-		spec, err := openapi.NewSpec(swagggerSpecLocation)
-		if err != nil {
-			return nil, err
-		}
-
-		for key, path := range spec.Paths.Paths {
-			if path.Put == nil || path.Get == nil || path.Delete == nil {
-				continue
-			}
-
-			typeName := ResourceTypeName(key)
-			if typeName == "" {
-				continue
-			}
-
-			providerTypeName := fmt.Sprintf("azurerm:%s", typeName)
-
-			// TODO: store the spec in the resource instead of the location to avoid double-loading.
-			result[providerTypeName] = Resource{
-				swagggerSpecLocation: swagggerSpecLocation,
-				path:                 key,
-				apiVersion:           spec.Info.Version,
-			}
-		}
-	}
-
-	return result, nil
-}
-
 // ResourceQualifiedName returns a tuple of (module, resource name) for a given PUT path.
 func ResourceQualifiedName(path string) (string, string) {
 	if path == "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}" {
@@ -140,7 +246,7 @@ func ResourceQualifiedName(path string) (string, string) {
 	parts := strings.Split(path, "/")
 
 	// The path is /subscriptions/id/resoursegroups/id/providers/Microsoft.SomeProvider/foos/id/bars/id/...
-	if len(parts) < 8 || len(parts) % 2 != 1 {
+	if len(parts) < 8 || len(parts)%2 != 1 {
 		return "", ""
 	}
 
