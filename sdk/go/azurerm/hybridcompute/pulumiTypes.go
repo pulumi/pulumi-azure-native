@@ -10,6 +10,1433 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Information about the guest configuration assignment.
+type AssignmentInfo struct {
+	// Information about the configuration.
+	Configuration *ConfigurationInfo `pulumi:"configuration"`
+}
+
+// AssignmentInfoInput is an input type that accepts AssignmentInfoArgs and AssignmentInfoOutput values.
+// You can construct a concrete instance of `AssignmentInfoInput` via:
+//
+//          AssignmentInfoArgs{...}
+type AssignmentInfoInput interface {
+	pulumi.Input
+
+	ToAssignmentInfoOutput() AssignmentInfoOutput
+	ToAssignmentInfoOutputWithContext(context.Context) AssignmentInfoOutput
+}
+
+// Information about the guest configuration assignment.
+type AssignmentInfoArgs struct {
+	// Information about the configuration.
+	Configuration ConfigurationInfoPtrInput `pulumi:"configuration"`
+}
+
+func (AssignmentInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentInfo)(nil)).Elem()
+}
+
+func (i AssignmentInfoArgs) ToAssignmentInfoOutput() AssignmentInfoOutput {
+	return i.ToAssignmentInfoOutputWithContext(context.Background())
+}
+
+func (i AssignmentInfoArgs) ToAssignmentInfoOutputWithContext(ctx context.Context) AssignmentInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoOutput)
+}
+
+func (i AssignmentInfoArgs) ToAssignmentInfoPtrOutput() AssignmentInfoPtrOutput {
+	return i.ToAssignmentInfoPtrOutputWithContext(context.Background())
+}
+
+func (i AssignmentInfoArgs) ToAssignmentInfoPtrOutputWithContext(ctx context.Context) AssignmentInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoOutput).ToAssignmentInfoPtrOutputWithContext(ctx)
+}
+
+// AssignmentInfoPtrInput is an input type that accepts AssignmentInfoArgs, AssignmentInfoPtr and AssignmentInfoPtrOutput values.
+// You can construct a concrete instance of `AssignmentInfoPtrInput` via:
+//
+//          AssignmentInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type AssignmentInfoPtrInput interface {
+	pulumi.Input
+
+	ToAssignmentInfoPtrOutput() AssignmentInfoPtrOutput
+	ToAssignmentInfoPtrOutputWithContext(context.Context) AssignmentInfoPtrOutput
+}
+
+type assignmentInfoPtrType AssignmentInfoArgs
+
+func AssignmentInfoPtr(v *AssignmentInfoArgs) AssignmentInfoPtrInput {
+	return (*assignmentInfoPtrType)(v)
+}
+
+func (*assignmentInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentInfo)(nil)).Elem()
+}
+
+func (i *assignmentInfoPtrType) ToAssignmentInfoPtrOutput() AssignmentInfoPtrOutput {
+	return i.ToAssignmentInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentInfoPtrType) ToAssignmentInfoPtrOutputWithContext(ctx context.Context) AssignmentInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoPtrOutput)
+}
+
+// Information about the guest configuration assignment.
+type AssignmentInfoOutput struct{ *pulumi.OutputState }
+
+func (AssignmentInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentInfo)(nil)).Elem()
+}
+
+func (o AssignmentInfoOutput) ToAssignmentInfoOutput() AssignmentInfoOutput {
+	return o
+}
+
+func (o AssignmentInfoOutput) ToAssignmentInfoOutputWithContext(ctx context.Context) AssignmentInfoOutput {
+	return o
+}
+
+func (o AssignmentInfoOutput) ToAssignmentInfoPtrOutput() AssignmentInfoPtrOutput {
+	return o.ToAssignmentInfoPtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentInfoOutput) ToAssignmentInfoPtrOutputWithContext(ctx context.Context) AssignmentInfoPtrOutput {
+	return o.ApplyT(func(v AssignmentInfo) *AssignmentInfo {
+		return &v
+	}).(AssignmentInfoPtrOutput)
+}
+
+// Information about the configuration.
+func (o AssignmentInfoOutput) Configuration() ConfigurationInfoPtrOutput {
+	return o.ApplyT(func(v AssignmentInfo) *ConfigurationInfo { return v.Configuration }).(ConfigurationInfoPtrOutput)
+}
+
+type AssignmentInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (AssignmentInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentInfo)(nil)).Elem()
+}
+
+func (o AssignmentInfoPtrOutput) ToAssignmentInfoPtrOutput() AssignmentInfoPtrOutput {
+	return o
+}
+
+func (o AssignmentInfoPtrOutput) ToAssignmentInfoPtrOutputWithContext(ctx context.Context) AssignmentInfoPtrOutput {
+	return o
+}
+
+func (o AssignmentInfoPtrOutput) Elem() AssignmentInfoOutput {
+	return o.ApplyT(func(v *AssignmentInfo) AssignmentInfo { return *v }).(AssignmentInfoOutput)
+}
+
+// Information about the configuration.
+func (o AssignmentInfoPtrOutput) Configuration() ConfigurationInfoPtrOutput {
+	return o.ApplyT(func(v *AssignmentInfo) *ConfigurationInfo {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ConfigurationInfoPtrOutput)
+}
+
+// Information about the guest configuration assignment.
+type AssignmentInfoResponse struct {
+	// Information about the configuration.
+	Configuration *ConfigurationInfoResponse `pulumi:"configuration"`
+	// Name of the guest configuration assignment.
+	Name string `pulumi:"name"`
+}
+
+// AssignmentInfoResponseInput is an input type that accepts AssignmentInfoResponseArgs and AssignmentInfoResponseOutput values.
+// You can construct a concrete instance of `AssignmentInfoResponseInput` via:
+//
+//          AssignmentInfoResponseArgs{...}
+type AssignmentInfoResponseInput interface {
+	pulumi.Input
+
+	ToAssignmentInfoResponseOutput() AssignmentInfoResponseOutput
+	ToAssignmentInfoResponseOutputWithContext(context.Context) AssignmentInfoResponseOutput
+}
+
+// Information about the guest configuration assignment.
+type AssignmentInfoResponseArgs struct {
+	// Information about the configuration.
+	Configuration ConfigurationInfoResponsePtrInput `pulumi:"configuration"`
+	// Name of the guest configuration assignment.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AssignmentInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentInfoResponse)(nil)).Elem()
+}
+
+func (i AssignmentInfoResponseArgs) ToAssignmentInfoResponseOutput() AssignmentInfoResponseOutput {
+	return i.ToAssignmentInfoResponseOutputWithContext(context.Background())
+}
+
+func (i AssignmentInfoResponseArgs) ToAssignmentInfoResponseOutputWithContext(ctx context.Context) AssignmentInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoResponseOutput)
+}
+
+func (i AssignmentInfoResponseArgs) ToAssignmentInfoResponsePtrOutput() AssignmentInfoResponsePtrOutput {
+	return i.ToAssignmentInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AssignmentInfoResponseArgs) ToAssignmentInfoResponsePtrOutputWithContext(ctx context.Context) AssignmentInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoResponseOutput).ToAssignmentInfoResponsePtrOutputWithContext(ctx)
+}
+
+// AssignmentInfoResponsePtrInput is an input type that accepts AssignmentInfoResponseArgs, AssignmentInfoResponsePtr and AssignmentInfoResponsePtrOutput values.
+// You can construct a concrete instance of `AssignmentInfoResponsePtrInput` via:
+//
+//          AssignmentInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AssignmentInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToAssignmentInfoResponsePtrOutput() AssignmentInfoResponsePtrOutput
+	ToAssignmentInfoResponsePtrOutputWithContext(context.Context) AssignmentInfoResponsePtrOutput
+}
+
+type assignmentInfoResponsePtrType AssignmentInfoResponseArgs
+
+func AssignmentInfoResponsePtr(v *AssignmentInfoResponseArgs) AssignmentInfoResponsePtrInput {
+	return (*assignmentInfoResponsePtrType)(v)
+}
+
+func (*assignmentInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentInfoResponse)(nil)).Elem()
+}
+
+func (i *assignmentInfoResponsePtrType) ToAssignmentInfoResponsePtrOutput() AssignmentInfoResponsePtrOutput {
+	return i.ToAssignmentInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentInfoResponsePtrType) ToAssignmentInfoResponsePtrOutputWithContext(ctx context.Context) AssignmentInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentInfoResponsePtrOutput)
+}
+
+// Information about the guest configuration assignment.
+type AssignmentInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignmentInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentInfoResponse)(nil)).Elem()
+}
+
+func (o AssignmentInfoResponseOutput) ToAssignmentInfoResponseOutput() AssignmentInfoResponseOutput {
+	return o
+}
+
+func (o AssignmentInfoResponseOutput) ToAssignmentInfoResponseOutputWithContext(ctx context.Context) AssignmentInfoResponseOutput {
+	return o
+}
+
+func (o AssignmentInfoResponseOutput) ToAssignmentInfoResponsePtrOutput() AssignmentInfoResponsePtrOutput {
+	return o.ToAssignmentInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentInfoResponseOutput) ToAssignmentInfoResponsePtrOutputWithContext(ctx context.Context) AssignmentInfoResponsePtrOutput {
+	return o.ApplyT(func(v AssignmentInfoResponse) *AssignmentInfoResponse {
+		return &v
+	}).(AssignmentInfoResponsePtrOutput)
+}
+
+// Information about the configuration.
+func (o AssignmentInfoResponseOutput) Configuration() ConfigurationInfoResponsePtrOutput {
+	return o.ApplyT(func(v AssignmentInfoResponse) *ConfigurationInfoResponse { return v.Configuration }).(ConfigurationInfoResponsePtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o AssignmentInfoResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentInfoResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AssignmentInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AssignmentInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentInfoResponse)(nil)).Elem()
+}
+
+func (o AssignmentInfoResponsePtrOutput) ToAssignmentInfoResponsePtrOutput() AssignmentInfoResponsePtrOutput {
+	return o
+}
+
+func (o AssignmentInfoResponsePtrOutput) ToAssignmentInfoResponsePtrOutputWithContext(ctx context.Context) AssignmentInfoResponsePtrOutput {
+	return o
+}
+
+func (o AssignmentInfoResponsePtrOutput) Elem() AssignmentInfoResponseOutput {
+	return o.ApplyT(func(v *AssignmentInfoResponse) AssignmentInfoResponse { return *v }).(AssignmentInfoResponseOutput)
+}
+
+// Information about the configuration.
+func (o AssignmentInfoResponsePtrOutput) Configuration() ConfigurationInfoResponsePtrOutput {
+	return o.ApplyT(func(v *AssignmentInfoResponse) *ConfigurationInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ConfigurationInfoResponsePtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o AssignmentInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssignmentReport struct {
+	// Configuration details of the guest configuration assignment.
+	Assignment *AssignmentInfo `pulumi:"assignment"`
+	// The list of resources for which guest configuration assignment compliance is checked.
+	Resources []AssignmentReportResource `pulumi:"resources"`
+	// Information about the VM.
+	Vm *VMInfo `pulumi:"vm"`
+}
+
+// AssignmentReportInput is an input type that accepts AssignmentReportArgs and AssignmentReportOutput values.
+// You can construct a concrete instance of `AssignmentReportInput` via:
+//
+//          AssignmentReportArgs{...}
+type AssignmentReportInput interface {
+	pulumi.Input
+
+	ToAssignmentReportOutput() AssignmentReportOutput
+	ToAssignmentReportOutputWithContext(context.Context) AssignmentReportOutput
+}
+
+type AssignmentReportArgs struct {
+	// Configuration details of the guest configuration assignment.
+	Assignment AssignmentInfoPtrInput `pulumi:"assignment"`
+	// The list of resources for which guest configuration assignment compliance is checked.
+	Resources AssignmentReportResourceArrayInput `pulumi:"resources"`
+	// Information about the VM.
+	Vm VMInfoPtrInput `pulumi:"vm"`
+}
+
+func (AssignmentReportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReport)(nil)).Elem()
+}
+
+func (i AssignmentReportArgs) ToAssignmentReportOutput() AssignmentReportOutput {
+	return i.ToAssignmentReportOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportArgs) ToAssignmentReportOutputWithContext(ctx context.Context) AssignmentReportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportOutput)
+}
+
+func (i AssignmentReportArgs) ToAssignmentReportPtrOutput() AssignmentReportPtrOutput {
+	return i.ToAssignmentReportPtrOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportArgs) ToAssignmentReportPtrOutputWithContext(ctx context.Context) AssignmentReportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportOutput).ToAssignmentReportPtrOutputWithContext(ctx)
+}
+
+// AssignmentReportPtrInput is an input type that accepts AssignmentReportArgs, AssignmentReportPtr and AssignmentReportPtrOutput values.
+// You can construct a concrete instance of `AssignmentReportPtrInput` via:
+//
+//          AssignmentReportArgs{...}
+//
+//  or:
+//
+//          nil
+type AssignmentReportPtrInput interface {
+	pulumi.Input
+
+	ToAssignmentReportPtrOutput() AssignmentReportPtrOutput
+	ToAssignmentReportPtrOutputWithContext(context.Context) AssignmentReportPtrOutput
+}
+
+type assignmentReportPtrType AssignmentReportArgs
+
+func AssignmentReportPtr(v *AssignmentReportArgs) AssignmentReportPtrInput {
+	return (*assignmentReportPtrType)(v)
+}
+
+func (*assignmentReportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentReport)(nil)).Elem()
+}
+
+func (i *assignmentReportPtrType) ToAssignmentReportPtrOutput() AssignmentReportPtrOutput {
+	return i.ToAssignmentReportPtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentReportPtrType) ToAssignmentReportPtrOutputWithContext(ctx context.Context) AssignmentReportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportPtrOutput)
+}
+
+type AssignmentReportOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReport)(nil)).Elem()
+}
+
+func (o AssignmentReportOutput) ToAssignmentReportOutput() AssignmentReportOutput {
+	return o
+}
+
+func (o AssignmentReportOutput) ToAssignmentReportOutputWithContext(ctx context.Context) AssignmentReportOutput {
+	return o
+}
+
+func (o AssignmentReportOutput) ToAssignmentReportPtrOutput() AssignmentReportPtrOutput {
+	return o.ToAssignmentReportPtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentReportOutput) ToAssignmentReportPtrOutputWithContext(ctx context.Context) AssignmentReportPtrOutput {
+	return o.ApplyT(func(v AssignmentReport) *AssignmentReport {
+		return &v
+	}).(AssignmentReportPtrOutput)
+}
+
+// Configuration details of the guest configuration assignment.
+func (o AssignmentReportOutput) Assignment() AssignmentInfoPtrOutput {
+	return o.ApplyT(func(v AssignmentReport) *AssignmentInfo { return v.Assignment }).(AssignmentInfoPtrOutput)
+}
+
+// The list of resources for which guest configuration assignment compliance is checked.
+func (o AssignmentReportOutput) Resources() AssignmentReportResourceArrayOutput {
+	return o.ApplyT(func(v AssignmentReport) []AssignmentReportResource { return v.Resources }).(AssignmentReportResourceArrayOutput)
+}
+
+// Information about the VM.
+func (o AssignmentReportOutput) Vm() VMInfoPtrOutput {
+	return o.ApplyT(func(v AssignmentReport) *VMInfo { return v.Vm }).(VMInfoPtrOutput)
+}
+
+type AssignmentReportPtrOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentReport)(nil)).Elem()
+}
+
+func (o AssignmentReportPtrOutput) ToAssignmentReportPtrOutput() AssignmentReportPtrOutput {
+	return o
+}
+
+func (o AssignmentReportPtrOutput) ToAssignmentReportPtrOutputWithContext(ctx context.Context) AssignmentReportPtrOutput {
+	return o
+}
+
+func (o AssignmentReportPtrOutput) Elem() AssignmentReportOutput {
+	return o.ApplyT(func(v *AssignmentReport) AssignmentReport { return *v }).(AssignmentReportOutput)
+}
+
+// Configuration details of the guest configuration assignment.
+func (o AssignmentReportPtrOutput) Assignment() AssignmentInfoPtrOutput {
+	return o.ApplyT(func(v *AssignmentReport) *AssignmentInfo {
+		if v == nil {
+			return nil
+		}
+		return v.Assignment
+	}).(AssignmentInfoPtrOutput)
+}
+
+// The list of resources for which guest configuration assignment compliance is checked.
+func (o AssignmentReportPtrOutput) Resources() AssignmentReportResourceArrayOutput {
+	return o.ApplyT(func(v *AssignmentReport) []AssignmentReportResource {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(AssignmentReportResourceArrayOutput)
+}
+
+// Information about the VM.
+func (o AssignmentReportPtrOutput) Vm() VMInfoPtrOutput {
+	return o.ApplyT(func(v *AssignmentReport) *VMInfo {
+		if v == nil {
+			return nil
+		}
+		return v.Vm
+	}).(VMInfoPtrOutput)
+}
+
+// The guest configuration assignment resource.
+type AssignmentReportResource struct {
+	// Compliance reason and reason code for a resource.
+	Reasons []AssignmentReportResourceComplianceReason `pulumi:"reasons"`
+}
+
+// AssignmentReportResourceInput is an input type that accepts AssignmentReportResourceArgs and AssignmentReportResourceOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceInput` via:
+//
+//          AssignmentReportResourceArgs{...}
+type AssignmentReportResourceInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceOutput() AssignmentReportResourceOutput
+	ToAssignmentReportResourceOutputWithContext(context.Context) AssignmentReportResourceOutput
+}
+
+// The guest configuration assignment resource.
+type AssignmentReportResourceArgs struct {
+	// Compliance reason and reason code for a resource.
+	Reasons AssignmentReportResourceComplianceReasonArrayInput `pulumi:"reasons"`
+}
+
+func (AssignmentReportResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResource)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceArgs) ToAssignmentReportResourceOutput() AssignmentReportResourceOutput {
+	return i.ToAssignmentReportResourceOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceArgs) ToAssignmentReportResourceOutputWithContext(ctx context.Context) AssignmentReportResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceOutput)
+}
+
+// AssignmentReportResourceArrayInput is an input type that accepts AssignmentReportResourceArray and AssignmentReportResourceArrayOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceArrayInput` via:
+//
+//          AssignmentReportResourceArray{ AssignmentReportResourceArgs{...} }
+type AssignmentReportResourceArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceArrayOutput() AssignmentReportResourceArrayOutput
+	ToAssignmentReportResourceArrayOutputWithContext(context.Context) AssignmentReportResourceArrayOutput
+}
+
+type AssignmentReportResourceArray []AssignmentReportResourceInput
+
+func (AssignmentReportResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResource)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceArray) ToAssignmentReportResourceArrayOutput() AssignmentReportResourceArrayOutput {
+	return i.ToAssignmentReportResourceArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceArray) ToAssignmentReportResourceArrayOutputWithContext(ctx context.Context) AssignmentReportResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceArrayOutput)
+}
+
+// The guest configuration assignment resource.
+type AssignmentReportResourceOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResource)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceOutput) ToAssignmentReportResourceOutput() AssignmentReportResourceOutput {
+	return o
+}
+
+func (o AssignmentReportResourceOutput) ToAssignmentReportResourceOutputWithContext(ctx context.Context) AssignmentReportResourceOutput {
+	return o
+}
+
+// Compliance reason and reason code for a resource.
+func (o AssignmentReportResourceOutput) Reasons() AssignmentReportResourceComplianceReasonArrayOutput {
+	return o.ApplyT(func(v AssignmentReportResource) []AssignmentReportResourceComplianceReason { return v.Reasons }).(AssignmentReportResourceComplianceReasonArrayOutput)
+}
+
+type AssignmentReportResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResource)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceArrayOutput) ToAssignmentReportResourceArrayOutput() AssignmentReportResourceArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceArrayOutput) ToAssignmentReportResourceArrayOutputWithContext(ctx context.Context) AssignmentReportResourceArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceArrayOutput) Index(i pulumi.IntInput) AssignmentReportResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentReportResource {
+		return vs[0].([]AssignmentReportResource)[vs[1].(int)]
+	}).(AssignmentReportResourceOutput)
+}
+
+// Reason and code for the compliance of the guest configuration assignment resource.
+type AssignmentReportResourceComplianceReason struct {
+}
+
+// AssignmentReportResourceComplianceReasonInput is an input type that accepts AssignmentReportResourceComplianceReasonArgs and AssignmentReportResourceComplianceReasonOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceComplianceReasonInput` via:
+//
+//          AssignmentReportResourceComplianceReasonArgs{...}
+type AssignmentReportResourceComplianceReasonInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceComplianceReasonOutput() AssignmentReportResourceComplianceReasonOutput
+	ToAssignmentReportResourceComplianceReasonOutputWithContext(context.Context) AssignmentReportResourceComplianceReasonOutput
+}
+
+// Reason and code for the compliance of the guest configuration assignment resource.
+type AssignmentReportResourceComplianceReasonArgs struct {
+}
+
+func (AssignmentReportResourceComplianceReasonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResourceComplianceReason)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceComplianceReasonArgs) ToAssignmentReportResourceComplianceReasonOutput() AssignmentReportResourceComplianceReasonOutput {
+	return i.ToAssignmentReportResourceComplianceReasonOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceComplianceReasonArgs) ToAssignmentReportResourceComplianceReasonOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceComplianceReasonOutput)
+}
+
+// AssignmentReportResourceComplianceReasonArrayInput is an input type that accepts AssignmentReportResourceComplianceReasonArray and AssignmentReportResourceComplianceReasonArrayOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceComplianceReasonArrayInput` via:
+//
+//          AssignmentReportResourceComplianceReasonArray{ AssignmentReportResourceComplianceReasonArgs{...} }
+type AssignmentReportResourceComplianceReasonArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceComplianceReasonArrayOutput() AssignmentReportResourceComplianceReasonArrayOutput
+	ToAssignmentReportResourceComplianceReasonArrayOutputWithContext(context.Context) AssignmentReportResourceComplianceReasonArrayOutput
+}
+
+type AssignmentReportResourceComplianceReasonArray []AssignmentReportResourceComplianceReasonInput
+
+func (AssignmentReportResourceComplianceReasonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResourceComplianceReason)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceComplianceReasonArray) ToAssignmentReportResourceComplianceReasonArrayOutput() AssignmentReportResourceComplianceReasonArrayOutput {
+	return i.ToAssignmentReportResourceComplianceReasonArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceComplianceReasonArray) ToAssignmentReportResourceComplianceReasonArrayOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceComplianceReasonArrayOutput)
+}
+
+// Reason and code for the compliance of the guest configuration assignment resource.
+type AssignmentReportResourceComplianceReasonOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceComplianceReasonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResourceComplianceReason)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceComplianceReasonOutput) ToAssignmentReportResourceComplianceReasonOutput() AssignmentReportResourceComplianceReasonOutput {
+	return o
+}
+
+func (o AssignmentReportResourceComplianceReasonOutput) ToAssignmentReportResourceComplianceReasonOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonOutput {
+	return o
+}
+
+type AssignmentReportResourceComplianceReasonArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceComplianceReasonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResourceComplianceReason)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceComplianceReasonArrayOutput) ToAssignmentReportResourceComplianceReasonArrayOutput() AssignmentReportResourceComplianceReasonArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceComplianceReasonArrayOutput) ToAssignmentReportResourceComplianceReasonArrayOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceComplianceReasonArrayOutput) Index(i pulumi.IntInput) AssignmentReportResourceComplianceReasonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentReportResourceComplianceReason {
+		return vs[0].([]AssignmentReportResourceComplianceReason)[vs[1].(int)]
+	}).(AssignmentReportResourceComplianceReasonOutput)
+}
+
+// Reason and code for the compliance of the guest configuration assignment resource.
+type AssignmentReportResourceComplianceReasonResponse struct {
+	// Code for the compliance of the guest configuration assignment resource.
+	Code string `pulumi:"code"`
+	// Reason for the compliance of the guest configuration assignment resource.
+	Phrase string `pulumi:"phrase"`
+}
+
+// AssignmentReportResourceComplianceReasonResponseInput is an input type that accepts AssignmentReportResourceComplianceReasonResponseArgs and AssignmentReportResourceComplianceReasonResponseOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceComplianceReasonResponseInput` via:
+//
+//          AssignmentReportResourceComplianceReasonResponseArgs{...}
+type AssignmentReportResourceComplianceReasonResponseInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceComplianceReasonResponseOutput() AssignmentReportResourceComplianceReasonResponseOutput
+	ToAssignmentReportResourceComplianceReasonResponseOutputWithContext(context.Context) AssignmentReportResourceComplianceReasonResponseOutput
+}
+
+// Reason and code for the compliance of the guest configuration assignment resource.
+type AssignmentReportResourceComplianceReasonResponseArgs struct {
+	// Code for the compliance of the guest configuration assignment resource.
+	Code pulumi.StringInput `pulumi:"code"`
+	// Reason for the compliance of the guest configuration assignment resource.
+	Phrase pulumi.StringInput `pulumi:"phrase"`
+}
+
+func (AssignmentReportResourceComplianceReasonResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResourceComplianceReasonResponse)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceComplianceReasonResponseArgs) ToAssignmentReportResourceComplianceReasonResponseOutput() AssignmentReportResourceComplianceReasonResponseOutput {
+	return i.ToAssignmentReportResourceComplianceReasonResponseOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceComplianceReasonResponseArgs) ToAssignmentReportResourceComplianceReasonResponseOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceComplianceReasonResponseOutput)
+}
+
+// AssignmentReportResourceComplianceReasonResponseArrayInput is an input type that accepts AssignmentReportResourceComplianceReasonResponseArray and AssignmentReportResourceComplianceReasonResponseArrayOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceComplianceReasonResponseArrayInput` via:
+//
+//          AssignmentReportResourceComplianceReasonResponseArray{ AssignmentReportResourceComplianceReasonResponseArgs{...} }
+type AssignmentReportResourceComplianceReasonResponseArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceComplianceReasonResponseArrayOutput() AssignmentReportResourceComplianceReasonResponseArrayOutput
+	ToAssignmentReportResourceComplianceReasonResponseArrayOutputWithContext(context.Context) AssignmentReportResourceComplianceReasonResponseArrayOutput
+}
+
+type AssignmentReportResourceComplianceReasonResponseArray []AssignmentReportResourceComplianceReasonResponseInput
+
+func (AssignmentReportResourceComplianceReasonResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResourceComplianceReasonResponse)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceComplianceReasonResponseArray) ToAssignmentReportResourceComplianceReasonResponseArrayOutput() AssignmentReportResourceComplianceReasonResponseArrayOutput {
+	return i.ToAssignmentReportResourceComplianceReasonResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceComplianceReasonResponseArray) ToAssignmentReportResourceComplianceReasonResponseArrayOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceComplianceReasonResponseArrayOutput)
+}
+
+// Reason and code for the compliance of the guest configuration assignment resource.
+type AssignmentReportResourceComplianceReasonResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceComplianceReasonResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResourceComplianceReasonResponse)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceComplianceReasonResponseOutput) ToAssignmentReportResourceComplianceReasonResponseOutput() AssignmentReportResourceComplianceReasonResponseOutput {
+	return o
+}
+
+func (o AssignmentReportResourceComplianceReasonResponseOutput) ToAssignmentReportResourceComplianceReasonResponseOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonResponseOutput {
+	return o
+}
+
+// Code for the compliance of the guest configuration assignment resource.
+func (o AssignmentReportResourceComplianceReasonResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResourceComplianceReasonResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Reason for the compliance of the guest configuration assignment resource.
+func (o AssignmentReportResourceComplianceReasonResponseOutput) Phrase() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResourceComplianceReasonResponse) string { return v.Phrase }).(pulumi.StringOutput)
+}
+
+type AssignmentReportResourceComplianceReasonResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceComplianceReasonResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResourceComplianceReasonResponse)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceComplianceReasonResponseArrayOutput) ToAssignmentReportResourceComplianceReasonResponseArrayOutput() AssignmentReportResourceComplianceReasonResponseArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceComplianceReasonResponseArrayOutput) ToAssignmentReportResourceComplianceReasonResponseArrayOutputWithContext(ctx context.Context) AssignmentReportResourceComplianceReasonResponseArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceComplianceReasonResponseArrayOutput) Index(i pulumi.IntInput) AssignmentReportResourceComplianceReasonResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentReportResourceComplianceReasonResponse {
+		return vs[0].([]AssignmentReportResourceComplianceReasonResponse)[vs[1].(int)]
+	}).(AssignmentReportResourceComplianceReasonResponseOutput)
+}
+
+// The guest configuration assignment resource.
+type AssignmentReportResourceResponse struct {
+	// A value indicating compliance status of the machine for the assigned guest configuration.
+	ComplianceStatus string `pulumi:"complianceStatus"`
+	// Properties of a guest configuration assignment resource.
+	Properties map[string]string `pulumi:"properties"`
+	// Compliance reason and reason code for a resource.
+	Reasons []AssignmentReportResourceComplianceReasonResponse `pulumi:"reasons"`
+}
+
+// AssignmentReportResourceResponseInput is an input type that accepts AssignmentReportResourceResponseArgs and AssignmentReportResourceResponseOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceResponseInput` via:
+//
+//          AssignmentReportResourceResponseArgs{...}
+type AssignmentReportResourceResponseInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceResponseOutput() AssignmentReportResourceResponseOutput
+	ToAssignmentReportResourceResponseOutputWithContext(context.Context) AssignmentReportResourceResponseOutput
+}
+
+// The guest configuration assignment resource.
+type AssignmentReportResourceResponseArgs struct {
+	// A value indicating compliance status of the machine for the assigned guest configuration.
+	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
+	// Properties of a guest configuration assignment resource.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Compliance reason and reason code for a resource.
+	Reasons AssignmentReportResourceComplianceReasonResponseArrayInput `pulumi:"reasons"`
+}
+
+func (AssignmentReportResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResourceResponse)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceResponseArgs) ToAssignmentReportResourceResponseOutput() AssignmentReportResourceResponseOutput {
+	return i.ToAssignmentReportResourceResponseOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceResponseArgs) ToAssignmentReportResourceResponseOutputWithContext(ctx context.Context) AssignmentReportResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceResponseOutput)
+}
+
+// AssignmentReportResourceResponseArrayInput is an input type that accepts AssignmentReportResourceResponseArray and AssignmentReportResourceResponseArrayOutput values.
+// You can construct a concrete instance of `AssignmentReportResourceResponseArrayInput` via:
+//
+//          AssignmentReportResourceResponseArray{ AssignmentReportResourceResponseArgs{...} }
+type AssignmentReportResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResourceResponseArrayOutput() AssignmentReportResourceResponseArrayOutput
+	ToAssignmentReportResourceResponseArrayOutputWithContext(context.Context) AssignmentReportResourceResponseArrayOutput
+}
+
+type AssignmentReportResourceResponseArray []AssignmentReportResourceResponseInput
+
+func (AssignmentReportResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResourceResponse)(nil)).Elem()
+}
+
+func (i AssignmentReportResourceResponseArray) ToAssignmentReportResourceResponseArrayOutput() AssignmentReportResourceResponseArrayOutput {
+	return i.ToAssignmentReportResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResourceResponseArray) ToAssignmentReportResourceResponseArrayOutputWithContext(ctx context.Context) AssignmentReportResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResourceResponseArrayOutput)
+}
+
+// The guest configuration assignment resource.
+type AssignmentReportResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResourceResponse)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceResponseOutput) ToAssignmentReportResourceResponseOutput() AssignmentReportResourceResponseOutput {
+	return o
+}
+
+func (o AssignmentReportResourceResponseOutput) ToAssignmentReportResourceResponseOutputWithContext(ctx context.Context) AssignmentReportResourceResponseOutput {
+	return o
+}
+
+// A value indicating compliance status of the machine for the assigned guest configuration.
+func (o AssignmentReportResourceResponseOutput) ComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResourceResponse) string { return v.ComplianceStatus }).(pulumi.StringOutput)
+}
+
+// Properties of a guest configuration assignment resource.
+func (o AssignmentReportResourceResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AssignmentReportResourceResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Compliance reason and reason code for a resource.
+func (o AssignmentReportResourceResponseOutput) Reasons() AssignmentReportResourceComplianceReasonResponseArrayOutput {
+	return o.ApplyT(func(v AssignmentReportResourceResponse) []AssignmentReportResourceComplianceReasonResponse {
+		return v.Reasons
+	}).(AssignmentReportResourceComplianceReasonResponseArrayOutput)
+}
+
+type AssignmentReportResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentReportResourceResponse)(nil)).Elem()
+}
+
+func (o AssignmentReportResourceResponseArrayOutput) ToAssignmentReportResourceResponseArrayOutput() AssignmentReportResourceResponseArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceResponseArrayOutput) ToAssignmentReportResourceResponseArrayOutputWithContext(ctx context.Context) AssignmentReportResourceResponseArrayOutput {
+	return o
+}
+
+func (o AssignmentReportResourceResponseArrayOutput) Index(i pulumi.IntInput) AssignmentReportResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentReportResourceResponse {
+		return vs[0].([]AssignmentReportResourceResponse)[vs[1].(int)]
+	}).(AssignmentReportResourceResponseOutput)
+}
+
+type AssignmentReportResponse struct {
+	// Configuration details of the guest configuration assignment.
+	Assignment *AssignmentInfoResponse `pulumi:"assignment"`
+	// A value indicating compliance status of the machine for the assigned guest configuration.
+	ComplianceStatus string `pulumi:"complianceStatus"`
+	// End date and time of the guest configuration assignment compliance status check.
+	EndTime string `pulumi:"endTime"`
+	// ARM resource id of the report for the guest configuration assignment.
+	Id string `pulumi:"id"`
+	// Type of report, Consistency or Initial
+	OperationType string `pulumi:"operationType"`
+	// GUID that identifies the guest configuration assignment report under a subscription, resource group.
+	ReportId string `pulumi:"reportId"`
+	// The list of resources for which guest configuration assignment compliance is checked.
+	Resources []AssignmentReportResourceResponse `pulumi:"resources"`
+	// Start date and time of the guest configuration assignment compliance status check.
+	StartTime string `pulumi:"startTime"`
+	// Information about the VM.
+	Vm *VMInfoResponse `pulumi:"vm"`
+}
+
+// AssignmentReportResponseInput is an input type that accepts AssignmentReportResponseArgs and AssignmentReportResponseOutput values.
+// You can construct a concrete instance of `AssignmentReportResponseInput` via:
+//
+//          AssignmentReportResponseArgs{...}
+type AssignmentReportResponseInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResponseOutput() AssignmentReportResponseOutput
+	ToAssignmentReportResponseOutputWithContext(context.Context) AssignmentReportResponseOutput
+}
+
+type AssignmentReportResponseArgs struct {
+	// Configuration details of the guest configuration assignment.
+	Assignment AssignmentInfoResponsePtrInput `pulumi:"assignment"`
+	// A value indicating compliance status of the machine for the assigned guest configuration.
+	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
+	// End date and time of the guest configuration assignment compliance status check.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// ARM resource id of the report for the guest configuration assignment.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Type of report, Consistency or Initial
+	OperationType pulumi.StringInput `pulumi:"operationType"`
+	// GUID that identifies the guest configuration assignment report under a subscription, resource group.
+	ReportId pulumi.StringInput `pulumi:"reportId"`
+	// The list of resources for which guest configuration assignment compliance is checked.
+	Resources AssignmentReportResourceResponseArrayInput `pulumi:"resources"`
+	// Start date and time of the guest configuration assignment compliance status check.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// Information about the VM.
+	Vm VMInfoResponsePtrInput `pulumi:"vm"`
+}
+
+func (AssignmentReportResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResponse)(nil)).Elem()
+}
+
+func (i AssignmentReportResponseArgs) ToAssignmentReportResponseOutput() AssignmentReportResponseOutput {
+	return i.ToAssignmentReportResponseOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResponseArgs) ToAssignmentReportResponseOutputWithContext(ctx context.Context) AssignmentReportResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResponseOutput)
+}
+
+func (i AssignmentReportResponseArgs) ToAssignmentReportResponsePtrOutput() AssignmentReportResponsePtrOutput {
+	return i.ToAssignmentReportResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AssignmentReportResponseArgs) ToAssignmentReportResponsePtrOutputWithContext(ctx context.Context) AssignmentReportResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResponseOutput).ToAssignmentReportResponsePtrOutputWithContext(ctx)
+}
+
+// AssignmentReportResponsePtrInput is an input type that accepts AssignmentReportResponseArgs, AssignmentReportResponsePtr and AssignmentReportResponsePtrOutput values.
+// You can construct a concrete instance of `AssignmentReportResponsePtrInput` via:
+//
+//          AssignmentReportResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AssignmentReportResponsePtrInput interface {
+	pulumi.Input
+
+	ToAssignmentReportResponsePtrOutput() AssignmentReportResponsePtrOutput
+	ToAssignmentReportResponsePtrOutputWithContext(context.Context) AssignmentReportResponsePtrOutput
+}
+
+type assignmentReportResponsePtrType AssignmentReportResponseArgs
+
+func AssignmentReportResponsePtr(v *AssignmentReportResponseArgs) AssignmentReportResponsePtrInput {
+	return (*assignmentReportResponsePtrType)(v)
+}
+
+func (*assignmentReportResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentReportResponse)(nil)).Elem()
+}
+
+func (i *assignmentReportResponsePtrType) ToAssignmentReportResponsePtrOutput() AssignmentReportResponsePtrOutput {
+	return i.ToAssignmentReportResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *assignmentReportResponsePtrType) ToAssignmentReportResponsePtrOutputWithContext(ctx context.Context) AssignmentReportResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentReportResponsePtrOutput)
+}
+
+type AssignmentReportResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentReportResponse)(nil)).Elem()
+}
+
+func (o AssignmentReportResponseOutput) ToAssignmentReportResponseOutput() AssignmentReportResponseOutput {
+	return o
+}
+
+func (o AssignmentReportResponseOutput) ToAssignmentReportResponseOutputWithContext(ctx context.Context) AssignmentReportResponseOutput {
+	return o
+}
+
+func (o AssignmentReportResponseOutput) ToAssignmentReportResponsePtrOutput() AssignmentReportResponsePtrOutput {
+	return o.ToAssignmentReportResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AssignmentReportResponseOutput) ToAssignmentReportResponsePtrOutputWithContext(ctx context.Context) AssignmentReportResponsePtrOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) *AssignmentReportResponse {
+		return &v
+	}).(AssignmentReportResponsePtrOutput)
+}
+
+// Configuration details of the guest configuration assignment.
+func (o AssignmentReportResponseOutput) Assignment() AssignmentInfoResponsePtrOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) *AssignmentInfoResponse { return v.Assignment }).(AssignmentInfoResponsePtrOutput)
+}
+
+// A value indicating compliance status of the machine for the assigned guest configuration.
+func (o AssignmentReportResponseOutput) ComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) string { return v.ComplianceStatus }).(pulumi.StringOutput)
+}
+
+// End date and time of the guest configuration assignment compliance status check.
+func (o AssignmentReportResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// ARM resource id of the report for the guest configuration assignment.
+func (o AssignmentReportResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Type of report, Consistency or Initial
+func (o AssignmentReportResponseOutput) OperationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) string { return v.OperationType }).(pulumi.StringOutput)
+}
+
+// GUID that identifies the guest configuration assignment report under a subscription, resource group.
+func (o AssignmentReportResponseOutput) ReportId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) string { return v.ReportId }).(pulumi.StringOutput)
+}
+
+// The list of resources for which guest configuration assignment compliance is checked.
+func (o AssignmentReportResponseOutput) Resources() AssignmentReportResourceResponseArrayOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) []AssignmentReportResourceResponse { return v.Resources }).(AssignmentReportResourceResponseArrayOutput)
+}
+
+// Start date and time of the guest configuration assignment compliance status check.
+func (o AssignmentReportResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Information about the VM.
+func (o AssignmentReportResponseOutput) Vm() VMInfoResponsePtrOutput {
+	return o.ApplyT(func(v AssignmentReportResponse) *VMInfoResponse { return v.Vm }).(VMInfoResponsePtrOutput)
+}
+
+type AssignmentReportResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AssignmentReportResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssignmentReportResponse)(nil)).Elem()
+}
+
+func (o AssignmentReportResponsePtrOutput) ToAssignmentReportResponsePtrOutput() AssignmentReportResponsePtrOutput {
+	return o
+}
+
+func (o AssignmentReportResponsePtrOutput) ToAssignmentReportResponsePtrOutputWithContext(ctx context.Context) AssignmentReportResponsePtrOutput {
+	return o
+}
+
+func (o AssignmentReportResponsePtrOutput) Elem() AssignmentReportResponseOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) AssignmentReportResponse { return *v }).(AssignmentReportResponseOutput)
+}
+
+// Configuration details of the guest configuration assignment.
+func (o AssignmentReportResponsePtrOutput) Assignment() AssignmentInfoResponsePtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *AssignmentInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Assignment
+	}).(AssignmentInfoResponsePtrOutput)
+}
+
+// A value indicating compliance status of the machine for the assigned guest configuration.
+func (o AssignmentReportResponsePtrOutput) ComplianceStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComplianceStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// End date and time of the guest configuration assignment compliance status check.
+func (o AssignmentReportResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARM resource id of the report for the guest configuration assignment.
+func (o AssignmentReportResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of report, Consistency or Initial
+func (o AssignmentReportResponsePtrOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// GUID that identifies the guest configuration assignment report under a subscription, resource group.
+func (o AssignmentReportResponsePtrOutput) ReportId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReportId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of resources for which guest configuration assignment compliance is checked.
+func (o AssignmentReportResponsePtrOutput) Resources() AssignmentReportResourceResponseArrayOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) []AssignmentReportResourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(AssignmentReportResourceResponseArrayOutput)
+}
+
+// Start date and time of the guest configuration assignment compliance status check.
+func (o AssignmentReportResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the VM.
+func (o AssignmentReportResponsePtrOutput) Vm() VMInfoResponsePtrOutput {
+	return o.ApplyT(func(v *AssignmentReportResponse) *VMInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Vm
+	}).(VMInfoResponsePtrOutput)
+}
+
+// Information about the configuration.
+type ConfigurationInfo struct {
+}
+
+// ConfigurationInfoInput is an input type that accepts ConfigurationInfoArgs and ConfigurationInfoOutput values.
+// You can construct a concrete instance of `ConfigurationInfoInput` via:
+//
+//          ConfigurationInfoArgs{...}
+type ConfigurationInfoInput interface {
+	pulumi.Input
+
+	ToConfigurationInfoOutput() ConfigurationInfoOutput
+	ToConfigurationInfoOutputWithContext(context.Context) ConfigurationInfoOutput
+}
+
+// Information about the configuration.
+type ConfigurationInfoArgs struct {
+}
+
+func (ConfigurationInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInfo)(nil)).Elem()
+}
+
+func (i ConfigurationInfoArgs) ToConfigurationInfoOutput() ConfigurationInfoOutput {
+	return i.ToConfigurationInfoOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInfoArgs) ToConfigurationInfoOutputWithContext(ctx context.Context) ConfigurationInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoOutput)
+}
+
+func (i ConfigurationInfoArgs) ToConfigurationInfoPtrOutput() ConfigurationInfoPtrOutput {
+	return i.ToConfigurationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInfoArgs) ToConfigurationInfoPtrOutputWithContext(ctx context.Context) ConfigurationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoOutput).ToConfigurationInfoPtrOutputWithContext(ctx)
+}
+
+// ConfigurationInfoPtrInput is an input type that accepts ConfigurationInfoArgs, ConfigurationInfoPtr and ConfigurationInfoPtrOutput values.
+// You can construct a concrete instance of `ConfigurationInfoPtrInput` via:
+//
+//          ConfigurationInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationInfoPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationInfoPtrOutput() ConfigurationInfoPtrOutput
+	ToConfigurationInfoPtrOutputWithContext(context.Context) ConfigurationInfoPtrOutput
+}
+
+type configurationInfoPtrType ConfigurationInfoArgs
+
+func ConfigurationInfoPtr(v *ConfigurationInfoArgs) ConfigurationInfoPtrInput {
+	return (*configurationInfoPtrType)(v)
+}
+
+func (*configurationInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationInfo)(nil)).Elem()
+}
+
+func (i *configurationInfoPtrType) ToConfigurationInfoPtrOutput() ConfigurationInfoPtrOutput {
+	return i.ToConfigurationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationInfoPtrType) ToConfigurationInfoPtrOutputWithContext(ctx context.Context) ConfigurationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoPtrOutput)
+}
+
+// Information about the configuration.
+type ConfigurationInfoOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInfo)(nil)).Elem()
+}
+
+func (o ConfigurationInfoOutput) ToConfigurationInfoOutput() ConfigurationInfoOutput {
+	return o
+}
+
+func (o ConfigurationInfoOutput) ToConfigurationInfoOutputWithContext(ctx context.Context) ConfigurationInfoOutput {
+	return o
+}
+
+func (o ConfigurationInfoOutput) ToConfigurationInfoPtrOutput() ConfigurationInfoPtrOutput {
+	return o.ToConfigurationInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationInfoOutput) ToConfigurationInfoPtrOutputWithContext(ctx context.Context) ConfigurationInfoPtrOutput {
+	return o.ApplyT(func(v ConfigurationInfo) *ConfigurationInfo {
+		return &v
+	}).(ConfigurationInfoPtrOutput)
+}
+
+type ConfigurationInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationInfo)(nil)).Elem()
+}
+
+func (o ConfigurationInfoPtrOutput) ToConfigurationInfoPtrOutput() ConfigurationInfoPtrOutput {
+	return o
+}
+
+func (o ConfigurationInfoPtrOutput) ToConfigurationInfoPtrOutputWithContext(ctx context.Context) ConfigurationInfoPtrOutput {
+	return o
+}
+
+func (o ConfigurationInfoPtrOutput) Elem() ConfigurationInfoOutput {
+	return o.ApplyT(func(v *ConfigurationInfo) ConfigurationInfo { return *v }).(ConfigurationInfoOutput)
+}
+
+// Information about the configuration.
+type ConfigurationInfoResponse struct {
+	// Name of the configuration.
+	Name string `pulumi:"name"`
+	// Version of the configuration.
+	Version string `pulumi:"version"`
+}
+
+// ConfigurationInfoResponseInput is an input type that accepts ConfigurationInfoResponseArgs and ConfigurationInfoResponseOutput values.
+// You can construct a concrete instance of `ConfigurationInfoResponseInput` via:
+//
+//          ConfigurationInfoResponseArgs{...}
+type ConfigurationInfoResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationInfoResponseOutput() ConfigurationInfoResponseOutput
+	ToConfigurationInfoResponseOutputWithContext(context.Context) ConfigurationInfoResponseOutput
+}
+
+// Information about the configuration.
+type ConfigurationInfoResponseArgs struct {
+	// Name of the configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Version of the configuration.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ConfigurationInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (i ConfigurationInfoResponseArgs) ToConfigurationInfoResponseOutput() ConfigurationInfoResponseOutput {
+	return i.ToConfigurationInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInfoResponseArgs) ToConfigurationInfoResponseOutputWithContext(ctx context.Context) ConfigurationInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoResponseOutput)
+}
+
+func (i ConfigurationInfoResponseArgs) ToConfigurationInfoResponsePtrOutput() ConfigurationInfoResponsePtrOutput {
+	return i.ToConfigurationInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInfoResponseArgs) ToConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ConfigurationInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoResponseOutput).ToConfigurationInfoResponsePtrOutputWithContext(ctx)
+}
+
+// ConfigurationInfoResponsePtrInput is an input type that accepts ConfigurationInfoResponseArgs, ConfigurationInfoResponsePtr and ConfigurationInfoResponsePtrOutput values.
+// You can construct a concrete instance of `ConfigurationInfoResponsePtrInput` via:
+//
+//          ConfigurationInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationInfoResponsePtrOutput() ConfigurationInfoResponsePtrOutput
+	ToConfigurationInfoResponsePtrOutputWithContext(context.Context) ConfigurationInfoResponsePtrOutput
+}
+
+type configurationInfoResponsePtrType ConfigurationInfoResponseArgs
+
+func ConfigurationInfoResponsePtr(v *ConfigurationInfoResponseArgs) ConfigurationInfoResponsePtrInput {
+	return (*configurationInfoResponsePtrType)(v)
+}
+
+func (*configurationInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (i *configurationInfoResponsePtrType) ToConfigurationInfoResponsePtrOutput() ConfigurationInfoResponsePtrOutput {
+	return i.ToConfigurationInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationInfoResponsePtrType) ToConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ConfigurationInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInfoResponsePtrOutput)
+}
+
+// Information about the configuration.
+type ConfigurationInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (o ConfigurationInfoResponseOutput) ToConfigurationInfoResponseOutput() ConfigurationInfoResponseOutput {
+	return o
+}
+
+func (o ConfigurationInfoResponseOutput) ToConfigurationInfoResponseOutputWithContext(ctx context.Context) ConfigurationInfoResponseOutput {
+	return o
+}
+
+func (o ConfigurationInfoResponseOutput) ToConfigurationInfoResponsePtrOutput() ConfigurationInfoResponsePtrOutput {
+	return o.ToConfigurationInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationInfoResponseOutput) ToConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ConfigurationInfoResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationInfoResponse) *ConfigurationInfoResponse {
+		return &v
+	}).(ConfigurationInfoResponsePtrOutput)
+}
+
+// Name of the configuration.
+func (o ConfigurationInfoResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationInfoResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Version of the configuration.
+func (o ConfigurationInfoResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationInfoResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ConfigurationInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationInfoResponse)(nil)).Elem()
+}
+
+func (o ConfigurationInfoResponsePtrOutput) ToConfigurationInfoResponsePtrOutput() ConfigurationInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationInfoResponsePtrOutput) ToConfigurationInfoResponsePtrOutputWithContext(ctx context.Context) ConfigurationInfoResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationInfoResponsePtrOutput) Elem() ConfigurationInfoResponseOutput {
+	return o.ApplyT(func(v *ConfigurationInfoResponse) ConfigurationInfoResponse { return *v }).(ConfigurationInfoResponseOutput)
+}
+
+// Name of the configuration.
+func (o ConfigurationInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the configuration.
+func (o ConfigurationInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 // Represents a configuration parameter.
 type ConfigurationParameter struct {
 	// Name of the configuration parameter.
@@ -692,6 +2119,8 @@ type GuestConfigurationAssignmentProperties struct {
 	Context *string `pulumi:"context"`
 	// The guest configuration to assign.
 	GuestConfiguration *GuestConfigurationNavigation `pulumi:"guestConfiguration"`
+	// Last reported guest configuration assignment report.
+	LatestAssignmentReport *AssignmentReport `pulumi:"latestAssignmentReport"`
 }
 
 // GuestConfigurationAssignmentPropertiesInput is an input type that accepts GuestConfigurationAssignmentPropertiesArgs and GuestConfigurationAssignmentPropertiesOutput values.
@@ -711,6 +2140,8 @@ type GuestConfigurationAssignmentPropertiesArgs struct {
 	Context pulumi.StringPtrInput `pulumi:"context"`
 	// The guest configuration to assign.
 	GuestConfiguration GuestConfigurationNavigationPtrInput `pulumi:"guestConfiguration"`
+	// Last reported guest configuration assignment report.
+	LatestAssignmentReport AssignmentReportPtrInput `pulumi:"latestAssignmentReport"`
 }
 
 func (GuestConfigurationAssignmentPropertiesArgs) ElementType() reflect.Type {
@@ -803,6 +2234,11 @@ func (o GuestConfigurationAssignmentPropertiesOutput) GuestConfiguration() Guest
 	}).(GuestConfigurationNavigationPtrOutput)
 }
 
+// Last reported guest configuration assignment report.
+func (o GuestConfigurationAssignmentPropertiesOutput) LatestAssignmentReport() AssignmentReportPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentProperties) *AssignmentReport { return v.LatestAssignmentReport }).(AssignmentReportPtrOutput)
+}
+
 type GuestConfigurationAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationAssignmentPropertiesPtrOutput) ElementType() reflect.Type {
@@ -841,6 +2277,16 @@ func (o GuestConfigurationAssignmentPropertiesPtrOutput) GuestConfiguration() Gu
 	}).(GuestConfigurationNavigationPtrOutput)
 }
 
+// Last reported guest configuration assignment report.
+func (o GuestConfigurationAssignmentPropertiesPtrOutput) LatestAssignmentReport() AssignmentReportPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignmentProperties) *AssignmentReport {
+		if v == nil {
+			return nil
+		}
+		return v.LatestAssignmentReport
+	}).(AssignmentReportPtrOutput)
+}
+
 // Guest configuration assignment properties.
 type GuestConfigurationAssignmentPropertiesResponse struct {
 	// Combined hash of the configuration package and parameters.
@@ -853,10 +2299,14 @@ type GuestConfigurationAssignmentPropertiesResponse struct {
 	GuestConfiguration *GuestConfigurationNavigationResponse `pulumi:"guestConfiguration"`
 	// Date and time when last compliance status was checked.
 	LastComplianceStatusChecked string `pulumi:"lastComplianceStatusChecked"`
+	// Last reported guest configuration assignment report.
+	LatestAssignmentReport *AssignmentReportResponse `pulumi:"latestAssignmentReport"`
 	// Id of the latest report for the guest configuration assignment.
 	LatestReportId string `pulumi:"latestReportId"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// VM resource Id.
+	TargetResourceId string `pulumi:"targetResourceId"`
 }
 
 // GuestConfigurationAssignmentPropertiesResponseInput is an input type that accepts GuestConfigurationAssignmentPropertiesResponseArgs and GuestConfigurationAssignmentPropertiesResponseOutput values.
@@ -882,10 +2332,14 @@ type GuestConfigurationAssignmentPropertiesResponseArgs struct {
 	GuestConfiguration GuestConfigurationNavigationResponsePtrInput `pulumi:"guestConfiguration"`
 	// Date and time when last compliance status was checked.
 	LastComplianceStatusChecked pulumi.StringInput `pulumi:"lastComplianceStatusChecked"`
+	// Last reported guest configuration assignment report.
+	LatestAssignmentReport AssignmentReportResponsePtrInput `pulumi:"latestAssignmentReport"`
 	// Id of the latest report for the guest configuration assignment.
 	LatestReportId pulumi.StringInput `pulumi:"latestReportId"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// VM resource Id.
+	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
 }
 
 func (GuestConfigurationAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -993,6 +2447,13 @@ func (o GuestConfigurationAssignmentPropertiesResponseOutput) LastComplianceStat
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.LastComplianceStatusChecked }).(pulumi.StringOutput)
 }
 
+// Last reported guest configuration assignment report.
+func (o GuestConfigurationAssignmentPropertiesResponseOutput) LatestAssignmentReport() AssignmentReportResponsePtrOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) *AssignmentReportResponse {
+		return v.LatestAssignmentReport
+	}).(AssignmentReportResponsePtrOutput)
+}
+
 // Id of the latest report for the guest configuration assignment.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) LatestReportId() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.LatestReportId }).(pulumi.StringOutput)
@@ -1001,6 +2462,11 @@ func (o GuestConfigurationAssignmentPropertiesResponseOutput) LatestReportId() p
 // The provisioning state, which only appears in the response.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// VM resource Id.
+func (o GuestConfigurationAssignmentPropertiesResponseOutput) TargetResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
 type GuestConfigurationAssignmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1073,6 +2539,16 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LastComplianceS
 	}).(pulumi.StringPtrOutput)
 }
 
+// Last reported guest configuration assignment report.
+func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LatestAssignmentReport() AssignmentReportResponsePtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *AssignmentReportResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LatestAssignmentReport
+	}).(AssignmentReportResponsePtrOutput)
+}
+
 // Id of the latest report for the guest configuration assignment.
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) LatestReportId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
@@ -1090,6 +2566,16 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ProvisioningSta
 			return nil
 		}
 		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// VM resource Id.
+func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1827,7 +3313,295 @@ func (o MachineProviderGuestConfigurationAssignmentTypeOutput) Type() pulumi.Str
 	return o.ApplyT(func(v MachineProviderGuestConfigurationAssignmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Information about the VM.
+type VMInfo struct {
+}
+
+// VMInfoInput is an input type that accepts VMInfoArgs and VMInfoOutput values.
+// You can construct a concrete instance of `VMInfoInput` via:
+//
+//          VMInfoArgs{...}
+type VMInfoInput interface {
+	pulumi.Input
+
+	ToVMInfoOutput() VMInfoOutput
+	ToVMInfoOutputWithContext(context.Context) VMInfoOutput
+}
+
+// Information about the VM.
+type VMInfoArgs struct {
+}
+
+func (VMInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMInfo)(nil)).Elem()
+}
+
+func (i VMInfoArgs) ToVMInfoOutput() VMInfoOutput {
+	return i.ToVMInfoOutputWithContext(context.Background())
+}
+
+func (i VMInfoArgs) ToVMInfoOutputWithContext(ctx context.Context) VMInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMInfoOutput)
+}
+
+func (i VMInfoArgs) ToVMInfoPtrOutput() VMInfoPtrOutput {
+	return i.ToVMInfoPtrOutputWithContext(context.Background())
+}
+
+func (i VMInfoArgs) ToVMInfoPtrOutputWithContext(ctx context.Context) VMInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMInfoOutput).ToVMInfoPtrOutputWithContext(ctx)
+}
+
+// VMInfoPtrInput is an input type that accepts VMInfoArgs, VMInfoPtr and VMInfoPtrOutput values.
+// You can construct a concrete instance of `VMInfoPtrInput` via:
+//
+//          VMInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type VMInfoPtrInput interface {
+	pulumi.Input
+
+	ToVMInfoPtrOutput() VMInfoPtrOutput
+	ToVMInfoPtrOutputWithContext(context.Context) VMInfoPtrOutput
+}
+
+type vminfoPtrType VMInfoArgs
+
+func VMInfoPtr(v *VMInfoArgs) VMInfoPtrInput {
+	return (*vminfoPtrType)(v)
+}
+
+func (*vminfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VMInfo)(nil)).Elem()
+}
+
+func (i *vminfoPtrType) ToVMInfoPtrOutput() VMInfoPtrOutput {
+	return i.ToVMInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *vminfoPtrType) ToVMInfoPtrOutputWithContext(ctx context.Context) VMInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMInfoPtrOutput)
+}
+
+// Information about the VM.
+type VMInfoOutput struct{ *pulumi.OutputState }
+
+func (VMInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMInfo)(nil)).Elem()
+}
+
+func (o VMInfoOutput) ToVMInfoOutput() VMInfoOutput {
+	return o
+}
+
+func (o VMInfoOutput) ToVMInfoOutputWithContext(ctx context.Context) VMInfoOutput {
+	return o
+}
+
+func (o VMInfoOutput) ToVMInfoPtrOutput() VMInfoPtrOutput {
+	return o.ToVMInfoPtrOutputWithContext(context.Background())
+}
+
+func (o VMInfoOutput) ToVMInfoPtrOutputWithContext(ctx context.Context) VMInfoPtrOutput {
+	return o.ApplyT(func(v VMInfo) *VMInfo {
+		return &v
+	}).(VMInfoPtrOutput)
+}
+
+type VMInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (VMInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VMInfo)(nil)).Elem()
+}
+
+func (o VMInfoPtrOutput) ToVMInfoPtrOutput() VMInfoPtrOutput {
+	return o
+}
+
+func (o VMInfoPtrOutput) ToVMInfoPtrOutputWithContext(ctx context.Context) VMInfoPtrOutput {
+	return o
+}
+
+func (o VMInfoPtrOutput) Elem() VMInfoOutput {
+	return o.ApplyT(func(v *VMInfo) VMInfo { return *v }).(VMInfoOutput)
+}
+
+// Information about the VM.
+type VMInfoResponse struct {
+	// Azure resource Id of the VM.
+	Id string `pulumi:"id"`
+	// UUID(Universally Unique Identifier) of the VM.
+	Uuid string `pulumi:"uuid"`
+}
+
+// VMInfoResponseInput is an input type that accepts VMInfoResponseArgs and VMInfoResponseOutput values.
+// You can construct a concrete instance of `VMInfoResponseInput` via:
+//
+//          VMInfoResponseArgs{...}
+type VMInfoResponseInput interface {
+	pulumi.Input
+
+	ToVMInfoResponseOutput() VMInfoResponseOutput
+	ToVMInfoResponseOutputWithContext(context.Context) VMInfoResponseOutput
+}
+
+// Information about the VM.
+type VMInfoResponseArgs struct {
+	// Azure resource Id of the VM.
+	Id pulumi.StringInput `pulumi:"id"`
+	// UUID(Universally Unique Identifier) of the VM.
+	Uuid pulumi.StringInput `pulumi:"uuid"`
+}
+
+func (VMInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMInfoResponse)(nil)).Elem()
+}
+
+func (i VMInfoResponseArgs) ToVMInfoResponseOutput() VMInfoResponseOutput {
+	return i.ToVMInfoResponseOutputWithContext(context.Background())
+}
+
+func (i VMInfoResponseArgs) ToVMInfoResponseOutputWithContext(ctx context.Context) VMInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMInfoResponseOutput)
+}
+
+func (i VMInfoResponseArgs) ToVMInfoResponsePtrOutput() VMInfoResponsePtrOutput {
+	return i.ToVMInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VMInfoResponseArgs) ToVMInfoResponsePtrOutputWithContext(ctx context.Context) VMInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMInfoResponseOutput).ToVMInfoResponsePtrOutputWithContext(ctx)
+}
+
+// VMInfoResponsePtrInput is an input type that accepts VMInfoResponseArgs, VMInfoResponsePtr and VMInfoResponsePtrOutput values.
+// You can construct a concrete instance of `VMInfoResponsePtrInput` via:
+//
+//          VMInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VMInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToVMInfoResponsePtrOutput() VMInfoResponsePtrOutput
+	ToVMInfoResponsePtrOutputWithContext(context.Context) VMInfoResponsePtrOutput
+}
+
+type vminfoResponsePtrType VMInfoResponseArgs
+
+func VMInfoResponsePtr(v *VMInfoResponseArgs) VMInfoResponsePtrInput {
+	return (*vminfoResponsePtrType)(v)
+}
+
+func (*vminfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VMInfoResponse)(nil)).Elem()
+}
+
+func (i *vminfoResponsePtrType) ToVMInfoResponsePtrOutput() VMInfoResponsePtrOutput {
+	return i.ToVMInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *vminfoResponsePtrType) ToVMInfoResponsePtrOutputWithContext(ctx context.Context) VMInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMInfoResponsePtrOutput)
+}
+
+// Information about the VM.
+type VMInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (VMInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMInfoResponse)(nil)).Elem()
+}
+
+func (o VMInfoResponseOutput) ToVMInfoResponseOutput() VMInfoResponseOutput {
+	return o
+}
+
+func (o VMInfoResponseOutput) ToVMInfoResponseOutputWithContext(ctx context.Context) VMInfoResponseOutput {
+	return o
+}
+
+func (o VMInfoResponseOutput) ToVMInfoResponsePtrOutput() VMInfoResponsePtrOutput {
+	return o.ToVMInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VMInfoResponseOutput) ToVMInfoResponsePtrOutputWithContext(ctx context.Context) VMInfoResponsePtrOutput {
+	return o.ApplyT(func(v VMInfoResponse) *VMInfoResponse {
+		return &v
+	}).(VMInfoResponsePtrOutput)
+}
+
+// Azure resource Id of the VM.
+func (o VMInfoResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VMInfoResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// UUID(Universally Unique Identifier) of the VM.
+func (o VMInfoResponseOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v VMInfoResponse) string { return v.Uuid }).(pulumi.StringOutput)
+}
+
+type VMInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VMInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VMInfoResponse)(nil)).Elem()
+}
+
+func (o VMInfoResponsePtrOutput) ToVMInfoResponsePtrOutput() VMInfoResponsePtrOutput {
+	return o
+}
+
+func (o VMInfoResponsePtrOutput) ToVMInfoResponsePtrOutputWithContext(ctx context.Context) VMInfoResponsePtrOutput {
+	return o
+}
+
+func (o VMInfoResponsePtrOutput) Elem() VMInfoResponseOutput {
+	return o.ApplyT(func(v *VMInfoResponse) VMInfoResponse { return *v }).(VMInfoResponseOutput)
+}
+
+// Azure resource Id of the VM.
+func (o VMInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// UUID(Universally Unique Identifier) of the VM.
+func (o VMInfoResponsePtrOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uuid
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AssignmentInfoOutput{})
+	pulumi.RegisterOutputType(AssignmentInfoPtrOutput{})
+	pulumi.RegisterOutputType(AssignmentInfoResponseOutput{})
+	pulumi.RegisterOutputType(AssignmentInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AssignmentReportOutput{})
+	pulumi.RegisterOutputType(AssignmentReportPtrOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceComplianceReasonOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceComplianceReasonArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceComplianceReasonResponseOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceComplianceReasonResponseArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceResponseOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResponseOutput{})
+	pulumi.RegisterOutputType(AssignmentReportResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationInfoOutput{})
+	pulumi.RegisterOutputType(ConfigurationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationInfoResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterResponseOutput{})
@@ -1847,4 +3621,8 @@ func init() {
 	pulumi.RegisterOutputType(MachineTypeOutput{})
 	pulumi.RegisterOutputType(MachineExtensionTypeOutput{})
 	pulumi.RegisterOutputType(MachineProviderGuestConfigurationAssignmentTypeOutput{})
+	pulumi.RegisterOutputType(VMInfoOutput{})
+	pulumi.RegisterOutputType(VMInfoPtrOutput{})
+	pulumi.RegisterOutputType(VMInfoResponseOutput{})
+	pulumi.RegisterOutputType(VMInfoResponsePtrOutput{})
 }

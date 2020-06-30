@@ -46,6 +46,12 @@ namespace Pulumi.AzureRM.Compute.Inputs
         public Input<string> LastComplianceStatusChecked { get; set; } = null!;
 
         /// <summary>
+        /// Last reported guest configuration assignment report.
+        /// </summary>
+        [Input("latestAssignmentReport")]
+        public Input<Inputs.AssignmentReportResponseGetArgs>? LatestAssignmentReport { get; set; }
+
+        /// <summary>
         /// Id of the latest report for the guest configuration assignment. 
         /// </summary>
         [Input("latestReportId", required: true)]
@@ -56,6 +62,12 @@ namespace Pulumi.AzureRM.Compute.Inputs
         /// </summary>
         [Input("provisioningState", required: true)]
         public Input<string> ProvisioningState { get; set; } = null!;
+
+        /// <summary>
+        /// VM resource Id.
+        /// </summary>
+        [Input("targetResourceId", required: true)]
+        public Input<string> TargetResourceId { get; set; } = null!;
 
         public GuestConfigurationAssignmentPropertiesResponseGetArgs()
         {

@@ -111,6 +111,10 @@ class Cluster(pulumi.CustomResource):
           * `group_name` (`str`) - The AAD security group name.
 
       * `min_supported_tls_version` (`str`) - The minimal supported tls version.
+      * `network_settings` (`dict`) - The network settings.
+        * `outbound_only_public_network_access_type` (`str`) - The mechanism through which the cluster will have outbound access to the public network.
+        * `public_network_access` (`str`) - Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+
       * `os_type` (`str`) - The type of operating system.
       * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
       * `quota_info` (`dict`) - The quota information.
@@ -221,6 +225,10 @@ class Cluster(pulumi.CustomResource):
               * `group_name` (`pulumi.Input[str]`) - The AAD security group name.
 
           * `min_supported_tls_version` (`pulumi.Input[str]`) - The minimal supported tls version.
+          * `network_settings` (`pulumi.Input[dict]`) - The network settings.
+            * `outbound_only_public_network_access_type` (`pulumi.Input[str]`) - The mechanism through which the cluster will have outbound access to the public network.
+            * `public_network_access` (`pulumi.Input[str]`) - Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+
           * `os_type` (`pulumi.Input[str]`) - The type of operating system.
           * `security_profile` (`pulumi.Input[dict]`) - The security profile.
             * `aadds_resource_id` (`pulumi.Input[str]`) - The resource ID of the user's Azure Active Directory Domain Service.
@@ -384,6 +392,10 @@ class Cluster(pulumi.CustomResource):
               * `group_name` (`pulumi.Input[str]`) - The AAD security group name.
 
           * `min_supported_tls_version` (`pulumi.Input[str]`) - The minimal supported tls version.
+          * `network_settings` (`pulumi.Input[dict]`) - The network settings.
+            * `outbound_only_public_network_access_type` (`pulumi.Input[str]`) - The mechanism through which the cluster will have outbound access to the public network.
+            * `public_network_access` (`pulumi.Input[str]`) - Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+
           * `os_type` (`pulumi.Input[str]`) - The type of operating system.
           * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
           * `quota_info` (`pulumi.Input[dict]`) - The quota information.

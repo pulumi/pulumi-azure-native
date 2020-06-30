@@ -44,8 +44,34 @@ class VirtualMachineProviderGuestConfigurationAssignment(pulumi.CustomResource):
         * `version` (`str`) - Version of the guest configuration.
 
       * `last_compliance_status_checked` (`str`) - Date and time when last compliance status was checked.
+      * `latest_assignment_report` (`dict`) - Last reported guest configuration assignment report.
+        * `assignment` (`dict`) - Configuration details of the guest configuration assignment.
+          * `configuration` (`dict`) - Information about the configuration.
+            * `name` (`str`) - Name of the configuration.
+            * `version` (`str`) - Version of the configuration.
+
+          * `name` (`str`) - Name of the guest configuration assignment.
+
+        * `compliance_status` (`str`) - A value indicating compliance status of the machine for the assigned guest configuration.
+        * `end_time` (`str`) - End date and time of the guest configuration assignment compliance status check.
+        * `id` (`str`) - ARM resource id of the report for the guest configuration assignment.
+        * `operation_type` (`str`) - Type of report, Consistency or Initial
+        * `report_id` (`str`) - GUID that identifies the guest configuration assignment report under a subscription, resource group.
+        * `resources` (`list`) - The list of resources for which guest configuration assignment compliance is checked.
+          * `compliance_status` (`str`) - A value indicating compliance status of the machine for the assigned guest configuration.
+          * `properties` (`dict`) - Properties of a guest configuration assignment resource.
+          * `reasons` (`list`) - Compliance reason and reason code for a resource.
+            * `code` (`str`) - Code for the compliance of the guest configuration assignment resource.
+            * `phrase` (`str`) - Reason for the compliance of the guest configuration assignment resource.
+
+        * `start_time` (`str`) - Start date and time of the guest configuration assignment compliance status check.
+        * `vm` (`dict`) - Information about the VM.
+          * `id` (`str`) - Azure resource Id of the VM.
+          * `uuid` (`str`) - UUID(Universally Unique Identifier) of the VM.
+
       * `latest_report_id` (`str`) - Id of the latest report for the guest configuration assignment. 
       * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
+      * `target_resource_id` (`str`) - VM resource Id.
     """
     type: pulumi.Output[str]
     """
@@ -83,6 +109,15 @@ class VirtualMachineProviderGuestConfigurationAssignment(pulumi.CustomResource):
             * `kind` (`pulumi.Input[str]`) - Kind of the guest configuration. For example:DSC
             * `name` (`pulumi.Input[str]`) - Name of the guest configuration.
             * `version` (`pulumi.Input[str]`) - Version of the guest configuration.
+
+          * `latest_assignment_report` (`pulumi.Input[dict]`) - Last reported guest configuration assignment report.
+            * `assignment` (`pulumi.Input[dict]`) - Configuration details of the guest configuration assignment.
+              * `configuration` (`pulumi.Input[dict]`) - Information about the configuration.
+
+            * `resources` (`pulumi.Input[list]`) - The list of resources for which guest configuration assignment compliance is checked.
+              * `reasons` (`pulumi.Input[list]`) - Compliance reason and reason code for a resource.
+
+            * `vm` (`pulumi.Input[dict]`) - Information about the VM.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -159,8 +194,34 @@ class VirtualMachineProviderGuestConfigurationAssignment(pulumi.CustomResource):
             * `version` (`pulumi.Input[str]`) - Version of the guest configuration.
 
           * `last_compliance_status_checked` (`pulumi.Input[str]`) - Date and time when last compliance status was checked.
+          * `latest_assignment_report` (`pulumi.Input[dict]`) - Last reported guest configuration assignment report.
+            * `assignment` (`pulumi.Input[dict]`) - Configuration details of the guest configuration assignment.
+              * `configuration` (`pulumi.Input[dict]`) - Information about the configuration.
+                * `name` (`pulumi.Input[str]`) - Name of the configuration.
+                * `version` (`pulumi.Input[str]`) - Version of the configuration.
+
+              * `name` (`pulumi.Input[str]`) - Name of the guest configuration assignment.
+
+            * `compliance_status` (`pulumi.Input[str]`) - A value indicating compliance status of the machine for the assigned guest configuration.
+            * `end_time` (`pulumi.Input[str]`) - End date and time of the guest configuration assignment compliance status check.
+            * `id` (`pulumi.Input[str]`) - ARM resource id of the report for the guest configuration assignment.
+            * `operation_type` (`pulumi.Input[str]`) - Type of report, Consistency or Initial
+            * `report_id` (`pulumi.Input[str]`) - GUID that identifies the guest configuration assignment report under a subscription, resource group.
+            * `resources` (`pulumi.Input[list]`) - The list of resources for which guest configuration assignment compliance is checked.
+              * `compliance_status` (`pulumi.Input[str]`) - A value indicating compliance status of the machine for the assigned guest configuration.
+              * `properties` (`pulumi.Input[dict]`) - Properties of a guest configuration assignment resource.
+              * `reasons` (`pulumi.Input[list]`) - Compliance reason and reason code for a resource.
+                * `code` (`pulumi.Input[str]`) - Code for the compliance of the guest configuration assignment resource.
+                * `phrase` (`pulumi.Input[str]`) - Reason for the compliance of the guest configuration assignment resource.
+
+            * `start_time` (`pulumi.Input[str]`) - Start date and time of the guest configuration assignment compliance status check.
+            * `vm` (`pulumi.Input[dict]`) - Information about the VM.
+              * `id` (`pulumi.Input[str]`) - Azure resource Id of the VM.
+              * `uuid` (`pulumi.Input[str]`) - UUID(Universally Unique Identifier) of the VM.
+
           * `latest_report_id` (`pulumi.Input[str]`) - Id of the latest report for the guest configuration assignment. 
           * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
+          * `target_resource_id` (`pulumi.Input[str]`) - VM resource Id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

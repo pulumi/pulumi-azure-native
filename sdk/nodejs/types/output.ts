@@ -6337,6 +6337,91 @@ export namespace compute {
     }
 
     /**
+     * Information about the guest configuration assignment.
+     */
+    export interface AssignmentInfoResponse {
+        /**
+         * Information about the configuration.
+         */
+        configuration?: outputs.compute.ConfigurationInfoResponse;
+        /**
+         * Name of the guest configuration assignment.
+         */
+        name: string;
+    }
+
+    /**
+     * Reason and code for the compliance of the guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceComplianceReasonResponse {
+        /**
+         * Code for the compliance of the guest configuration assignment resource.
+         */
+        code: string;
+        /**
+         * Reason for the compliance of the guest configuration assignment resource.
+         */
+        phrase: string;
+    }
+
+    /**
+     * The guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceResponse {
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: string;
+        /**
+         * Properties of a guest configuration assignment resource.
+         */
+        properties: {[key: string]: string};
+        /**
+         * Compliance reason and reason code for a resource.
+         */
+        reasons?: outputs.compute.AssignmentReportResourceComplianceReasonResponse[];
+    }
+
+    export interface AssignmentReportResponse {
+        /**
+         * Configuration details of the guest configuration assignment.
+         */
+        assignment?: outputs.compute.AssignmentInfoResponse;
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: string;
+        /**
+         * End date and time of the guest configuration assignment compliance status check.
+         */
+        endTime: string;
+        /**
+         * ARM resource id of the report for the guest configuration assignment.
+         */
+        id: string;
+        /**
+         * Type of report, Consistency or Initial
+         */
+        operationType: string;
+        /**
+         * GUID that identifies the guest configuration assignment report under a subscription, resource group.
+         */
+        reportId: string;
+        /**
+         * The list of resources for which guest configuration assignment compliance is checked.
+         */
+        resources?: outputs.compute.AssignmentReportResourceResponse[];
+        /**
+         * Start date and time of the guest configuration assignment compliance status check.
+         */
+        startTime: string;
+        /**
+         * Information about the VM.
+         */
+        vm?: outputs.compute.VMInfoResponse;
+    }
+
+    /**
      * The configuration parameters used for performing automatic OS upgrade.
      */
     export interface AutomaticOSUpgradePolicyResponse {
@@ -6430,6 +6515,20 @@ export namespace compute {
          * Uri of the storage account to use for placing the console output and screenshot. <br><br>If storageUri is not specified while enabling boot diagnostics, managed storage will be used.
          */
         storageUri?: string;
+    }
+
+    /**
+     * Information about the configuration.
+     */
+    export interface ConfigurationInfoResponse {
+        /**
+         * Name of the configuration.
+         */
+        name: string;
+        /**
+         * Version of the configuration.
+         */
+        version: string;
     }
 
     /**
@@ -7340,6 +7439,10 @@ export namespace compute {
          */
         lastComplianceStatusChecked: string;
         /**
+         * Last reported guest configuration assignment report.
+         */
+        latestAssignmentReport?: outputs.compute.AssignmentReportResponse;
+        /**
          * Id of the latest report for the guest configuration assignment. 
          */
         latestReportId: string;
@@ -7347,6 +7450,10 @@ export namespace compute {
          * The provisioning state, which only appears in the response.
          */
         provisioningState: string;
+        /**
+         * VM resource Id.
+         */
+        targetResourceId: string;
     }
 
     /**
@@ -8346,6 +8453,20 @@ export namespace compute {
          * Required. The mediaLink of the artifact, must be a readable storage blob.
          */
         mediaLink: string;
+    }
+
+    /**
+     * Information about the VM.
+     */
+    export interface VMInfoResponse {
+        /**
+         * Azure resource Id of the VM.
+         */
+        id: string;
+        /**
+         * UUID(Universally Unique Identifier) of the VM.
+         */
+        uuid: string;
     }
 
     /**
@@ -19573,6 +19694,10 @@ export namespace hdinsight {
          */
         minSupportedTlsVersion?: string;
         /**
+         * The network settings.
+         */
+        networkSettings?: outputs.hdinsight.NetworkSettingsResponse;
+        /**
          * The type of operating system.
          */
         osType?: string;
@@ -19742,6 +19867,20 @@ export namespace hdinsight {
          * The username.
          */
         username?: string;
+    }
+
+    /**
+     * The network settings.
+     */
+    export interface NetworkSettingsResponse {
+        /**
+         * The mechanism through which the cluster will have outbound access to the public network.
+         */
+        outboundOnlyPublicNetworkAccessType?: string;
+        /**
+         * Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+         */
+        publicNetworkAccess?: string;
     }
 
     /**
@@ -20049,6 +20188,105 @@ export namespace healthcareapis {
 
 export namespace hybridcompute {
     /**
+     * Information about the guest configuration assignment.
+     */
+    export interface AssignmentInfoResponse {
+        /**
+         * Information about the configuration.
+         */
+        configuration?: outputs.hybridcompute.ConfigurationInfoResponse;
+        /**
+         * Name of the guest configuration assignment.
+         */
+        name: string;
+    }
+
+    /**
+     * Reason and code for the compliance of the guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceComplianceReasonResponse {
+        /**
+         * Code for the compliance of the guest configuration assignment resource.
+         */
+        code: string;
+        /**
+         * Reason for the compliance of the guest configuration assignment resource.
+         */
+        phrase: string;
+    }
+
+    /**
+     * The guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceResponse {
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: string;
+        /**
+         * Properties of a guest configuration assignment resource.
+         */
+        properties: {[key: string]: string};
+        /**
+         * Compliance reason and reason code for a resource.
+         */
+        reasons?: outputs.hybridcompute.AssignmentReportResourceComplianceReasonResponse[];
+    }
+
+    export interface AssignmentReportResponse {
+        /**
+         * Configuration details of the guest configuration assignment.
+         */
+        assignment?: outputs.hybridcompute.AssignmentInfoResponse;
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: string;
+        /**
+         * End date and time of the guest configuration assignment compliance status check.
+         */
+        endTime: string;
+        /**
+         * ARM resource id of the report for the guest configuration assignment.
+         */
+        id: string;
+        /**
+         * Type of report, Consistency or Initial
+         */
+        operationType: string;
+        /**
+         * GUID that identifies the guest configuration assignment report under a subscription, resource group.
+         */
+        reportId: string;
+        /**
+         * The list of resources for which guest configuration assignment compliance is checked.
+         */
+        resources?: outputs.hybridcompute.AssignmentReportResourceResponse[];
+        /**
+         * Start date and time of the guest configuration assignment compliance status check.
+         */
+        startTime: string;
+        /**
+         * Information about the VM.
+         */
+        vm?: outputs.hybridcompute.VMInfoResponse;
+    }
+
+    /**
+     * Information about the configuration.
+     */
+    export interface ConfigurationInfoResponse {
+        /**
+         * Name of the configuration.
+         */
+        name: string;
+        /**
+         * Version of the configuration.
+         */
+        version: string;
+    }
+
+    /**
      * Represents a configuration parameter.
      */
     export interface ConfigurationParameterResponse {
@@ -20117,6 +20355,10 @@ export namespace hybridcompute {
          */
         lastComplianceStatusChecked: string;
         /**
+         * Last reported guest configuration assignment report.
+         */
+        latestAssignmentReport?: outputs.hybridcompute.AssignmentReportResponse;
+        /**
          * Id of the latest report for the guest configuration assignment. 
          */
         latestReportId: string;
@@ -20124,6 +20366,10 @@ export namespace hybridcompute {
          * The provisioning state, which only appears in the response.
          */
         provisioningState: string;
+        /**
+         * VM resource Id.
+         */
+        targetResourceId: string;
     }
 
     /**
@@ -20160,6 +20406,19 @@ export namespace hybridcompute {
         version?: string;
     }
 
+    /**
+     * Information about the VM.
+     */
+    export interface VMInfoResponse {
+        /**
+         * Azure resource Id of the VM.
+         */
+        id: string;
+        /**
+         * UUID(Universally Unique Identifier) of the VM.
+         */
+        uuid: string;
+    }
 }
 
 export namespace hybriddata {

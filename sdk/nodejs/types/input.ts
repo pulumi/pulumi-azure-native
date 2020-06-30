@@ -11412,6 +11412,132 @@ export namespace compute {
     }
 
     /**
+     * Information about the guest configuration assignment.
+     */
+    export interface AssignmentInfo {
+        /**
+         * Information about the configuration.
+         */
+        configuration?: pulumi.Input<inputs.compute.ConfigurationInfo>;
+    }
+
+    /**
+     * Information about the guest configuration assignment.
+     */
+    export interface AssignmentInfoResponse {
+        /**
+         * Information about the configuration.
+         */
+        configuration?: pulumi.Input<inputs.compute.ConfigurationInfoResponse>;
+        /**
+         * Name of the guest configuration assignment.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface AssignmentReport {
+        /**
+         * Configuration details of the guest configuration assignment.
+         */
+        assignment?: pulumi.Input<inputs.compute.AssignmentInfo>;
+        /**
+         * The list of resources for which guest configuration assignment compliance is checked.
+         */
+        resources?: pulumi.Input<pulumi.Input<inputs.compute.AssignmentReportResource>[]>;
+        /**
+         * Information about the VM.
+         */
+        vm?: pulumi.Input<inputs.compute.VMInfo>;
+    }
+
+    /**
+     * The guest configuration assignment resource.
+     */
+    export interface AssignmentReportResource {
+        /**
+         * Compliance reason and reason code for a resource.
+         */
+        reasons?: pulumi.Input<pulumi.Input<inputs.compute.AssignmentReportResourceComplianceReason>[]>;
+    }
+
+    /**
+     * Reason and code for the compliance of the guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceComplianceReason {
+    }
+
+    /**
+     * Reason and code for the compliance of the guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceComplianceReasonResponse {
+        /**
+         * Code for the compliance of the guest configuration assignment resource.
+         */
+        code: pulumi.Input<string>;
+        /**
+         * Reason for the compliance of the guest configuration assignment resource.
+         */
+        phrase: pulumi.Input<string>;
+    }
+
+    /**
+     * The guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceResponse {
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: pulumi.Input<string>;
+        /**
+         * Properties of a guest configuration assignment resource.
+         */
+        properties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Compliance reason and reason code for a resource.
+         */
+        reasons?: pulumi.Input<pulumi.Input<inputs.compute.AssignmentReportResourceComplianceReasonResponse>[]>;
+    }
+
+    export interface AssignmentReportResponse {
+        /**
+         * Configuration details of the guest configuration assignment.
+         */
+        assignment?: pulumi.Input<inputs.compute.AssignmentInfoResponse>;
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: pulumi.Input<string>;
+        /**
+         * End date and time of the guest configuration assignment compliance status check.
+         */
+        endTime: pulumi.Input<string>;
+        /**
+         * ARM resource id of the report for the guest configuration assignment.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Type of report, Consistency or Initial
+         */
+        operationType: pulumi.Input<string>;
+        /**
+         * GUID that identifies the guest configuration assignment report under a subscription, resource group.
+         */
+        reportId: pulumi.Input<string>;
+        /**
+         * The list of resources for which guest configuration assignment compliance is checked.
+         */
+        resources?: pulumi.Input<pulumi.Input<inputs.compute.AssignmentReportResourceResponse>[]>;
+        /**
+         * Start date and time of the guest configuration assignment compliance status check.
+         */
+        startTime: pulumi.Input<string>;
+        /**
+         * Information about the VM.
+         */
+        vm?: pulumi.Input<inputs.compute.VMInfoResponse>;
+    }
+
+    /**
      * The configuration parameters used for performing automatic OS upgrade.
      */
     export interface AutomaticOSUpgradePolicy {
@@ -11579,6 +11705,26 @@ export namespace compute {
          * Uri of the storage account to use for placing the console output and screenshot. <br><br>If storageUri is not specified while enabling boot diagnostics, managed storage will be used.
          */
         storageUri?: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about the configuration.
+     */
+    export interface ConfigurationInfo {
+    }
+
+    /**
+     * Information about the configuration.
+     */
+    export interface ConfigurationInfoResponse {
+        /**
+         * Name of the configuration.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Version of the configuration.
+         */
+        version: pulumi.Input<string>;
     }
 
     /**
@@ -13130,6 +13276,10 @@ export namespace compute {
          * The guest configuration to assign.
          */
         guestConfiguration?: pulumi.Input<inputs.compute.GuestConfigurationNavigation>;
+        /**
+         * Last reported guest configuration assignment report.
+         */
+        latestAssignmentReport?: pulumi.Input<inputs.compute.AssignmentReport>;
     }
 
     /**
@@ -13157,6 +13307,10 @@ export namespace compute {
          */
         lastComplianceStatusChecked: pulumi.Input<string>;
         /**
+         * Last reported guest configuration assignment report.
+         */
+        latestAssignmentReport?: pulumi.Input<inputs.compute.AssignmentReportResponse>;
+        /**
          * Id of the latest report for the guest configuration assignment. 
          */
         latestReportId: pulumi.Input<string>;
@@ -13164,6 +13318,10 @@ export namespace compute {
          * The provisioning state, which only appears in the response.
          */
         provisioningState: pulumi.Input<string>;
+        /**
+         * VM resource Id.
+         */
+        targetResourceId: pulumi.Input<string>;
     }
 
     /**
@@ -14951,6 +15109,26 @@ export namespace compute {
          * Required. The mediaLink of the artifact, must be a readable storage blob.
          */
         mediaLink: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about the VM.
+     */
+    export interface VMInfo {
+    }
+
+    /**
+     * Information about the VM.
+     */
+    export interface VMInfoResponse {
+        /**
+         * Azure resource Id of the VM.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * UUID(Universally Unique Identifier) of the VM.
+         */
+        uuid: pulumi.Input<string>;
     }
 
     /**
@@ -35248,6 +35426,10 @@ export namespace hdinsight {
          */
         minSupportedTlsVersion?: pulumi.Input<string>;
         /**
+         * The network settings.
+         */
+        networkSettings?: pulumi.Input<inputs.hdinsight.NetworkSettings>;
+        /**
          * The type of operating system.
          */
         osType?: pulumi.Input<string>;
@@ -35353,6 +35535,10 @@ export namespace hdinsight {
          * The minimal supported tls version.
          */
         minSupportedTlsVersion?: pulumi.Input<string>;
+        /**
+         * The network settings.
+         */
+        networkSettings?: pulumi.Input<inputs.hdinsight.NetworkSettingsResponse>;
         /**
          * The type of operating system.
          */
@@ -35635,6 +35821,34 @@ export namespace hdinsight {
          * The username.
          */
         username?: pulumi.Input<string>;
+    }
+
+    /**
+     * The network settings.
+     */
+    export interface NetworkSettings {
+        /**
+         * The mechanism through which the cluster will have outbound access to the public network.
+         */
+        outboundOnlyPublicNetworkAccessType?: pulumi.Input<string>;
+        /**
+         * Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+         */
+        publicNetworkAccess?: pulumi.Input<string>;
+    }
+
+    /**
+     * The network settings.
+     */
+    export interface NetworkSettingsResponse {
+        /**
+         * The mechanism through which the cluster will have outbound access to the public network.
+         */
+        outboundOnlyPublicNetworkAccessType?: pulumi.Input<string>;
+        /**
+         * Specifies whether public network access is enabled for inbound and outbound, or outbound only.
+         */
+        publicNetworkAccess?: pulumi.Input<string>;
     }
 
     /**
@@ -36260,6 +36474,152 @@ export namespace healthcareapis {
 
 export namespace hybridcompute {
     /**
+     * Information about the guest configuration assignment.
+     */
+    export interface AssignmentInfo {
+        /**
+         * Information about the configuration.
+         */
+        configuration?: pulumi.Input<inputs.hybridcompute.ConfigurationInfo>;
+    }
+
+    /**
+     * Information about the guest configuration assignment.
+     */
+    export interface AssignmentInfoResponse {
+        /**
+         * Information about the configuration.
+         */
+        configuration?: pulumi.Input<inputs.hybridcompute.ConfigurationInfoResponse>;
+        /**
+         * Name of the guest configuration assignment.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface AssignmentReport {
+        /**
+         * Configuration details of the guest configuration assignment.
+         */
+        assignment?: pulumi.Input<inputs.hybridcompute.AssignmentInfo>;
+        /**
+         * The list of resources for which guest configuration assignment compliance is checked.
+         */
+        resources?: pulumi.Input<pulumi.Input<inputs.hybridcompute.AssignmentReportResource>[]>;
+        /**
+         * Information about the VM.
+         */
+        vm?: pulumi.Input<inputs.hybridcompute.VMInfo>;
+    }
+
+    /**
+     * The guest configuration assignment resource.
+     */
+    export interface AssignmentReportResource {
+        /**
+         * Compliance reason and reason code for a resource.
+         */
+        reasons?: pulumi.Input<pulumi.Input<inputs.hybridcompute.AssignmentReportResourceComplianceReason>[]>;
+    }
+
+    /**
+     * Reason and code for the compliance of the guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceComplianceReason {
+    }
+
+    /**
+     * Reason and code for the compliance of the guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceComplianceReasonResponse {
+        /**
+         * Code for the compliance of the guest configuration assignment resource.
+         */
+        code: pulumi.Input<string>;
+        /**
+         * Reason for the compliance of the guest configuration assignment resource.
+         */
+        phrase: pulumi.Input<string>;
+    }
+
+    /**
+     * The guest configuration assignment resource.
+     */
+    export interface AssignmentReportResourceResponse {
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: pulumi.Input<string>;
+        /**
+         * Properties of a guest configuration assignment resource.
+         */
+        properties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Compliance reason and reason code for a resource.
+         */
+        reasons?: pulumi.Input<pulumi.Input<inputs.hybridcompute.AssignmentReportResourceComplianceReasonResponse>[]>;
+    }
+
+    export interface AssignmentReportResponse {
+        /**
+         * Configuration details of the guest configuration assignment.
+         */
+        assignment?: pulumi.Input<inputs.hybridcompute.AssignmentInfoResponse>;
+        /**
+         * A value indicating compliance status of the machine for the assigned guest configuration.
+         */
+        complianceStatus: pulumi.Input<string>;
+        /**
+         * End date and time of the guest configuration assignment compliance status check.
+         */
+        endTime: pulumi.Input<string>;
+        /**
+         * ARM resource id of the report for the guest configuration assignment.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Type of report, Consistency or Initial
+         */
+        operationType: pulumi.Input<string>;
+        /**
+         * GUID that identifies the guest configuration assignment report under a subscription, resource group.
+         */
+        reportId: pulumi.Input<string>;
+        /**
+         * The list of resources for which guest configuration assignment compliance is checked.
+         */
+        resources?: pulumi.Input<pulumi.Input<inputs.hybridcompute.AssignmentReportResourceResponse>[]>;
+        /**
+         * Start date and time of the guest configuration assignment compliance status check.
+         */
+        startTime: pulumi.Input<string>;
+        /**
+         * Information about the VM.
+         */
+        vm?: pulumi.Input<inputs.hybridcompute.VMInfoResponse>;
+    }
+
+    /**
+     * Information about the configuration.
+     */
+    export interface ConfigurationInfo {
+    }
+
+    /**
+     * Information about the configuration.
+     */
+    export interface ConfigurationInfoResponse {
+        /**
+         * Name of the configuration.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Version of the configuration.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    /**
      * Represents a configuration parameter.
      */
     export interface ConfigurationParameter {
@@ -36359,6 +36719,10 @@ export namespace hybridcompute {
          * The guest configuration to assign.
          */
         guestConfiguration?: pulumi.Input<inputs.hybridcompute.GuestConfigurationNavigation>;
+        /**
+         * Last reported guest configuration assignment report.
+         */
+        latestAssignmentReport?: pulumi.Input<inputs.hybridcompute.AssignmentReport>;
     }
 
     /**
@@ -36386,6 +36750,10 @@ export namespace hybridcompute {
          */
         lastComplianceStatusChecked: pulumi.Input<string>;
         /**
+         * Last reported guest configuration assignment report.
+         */
+        latestAssignmentReport?: pulumi.Input<inputs.hybridcompute.AssignmentReportResponse>;
+        /**
          * Id of the latest report for the guest configuration assignment. 
          */
         latestReportId: pulumi.Input<string>;
@@ -36393,6 +36761,10 @@ export namespace hybridcompute {
          * The provisioning state, which only appears in the response.
          */
         provisioningState: pulumi.Input<string>;
+        /**
+         * VM resource Id.
+         */
+        targetResourceId: pulumi.Input<string>;
     }
 
     /**
@@ -36455,6 +36827,25 @@ export namespace hybridcompute {
         version?: pulumi.Input<string>;
     }
 
+    /**
+     * Information about the VM.
+     */
+    export interface VMInfo {
+    }
+
+    /**
+     * Information about the VM.
+     */
+    export interface VMInfoResponse {
+        /**
+         * Azure resource Id of the VM.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * UUID(Universally Unique Identifier) of the VM.
+         */
+        uuid: pulumi.Input<string>;
+    }
 }
 
 export namespace hybriddata {

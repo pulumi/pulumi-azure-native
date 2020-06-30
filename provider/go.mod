@@ -11,8 +11,8 @@ require (
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.3.5
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.5.0
-	github.com/pulumi/pulumi/sdk/v2 v2.5.0
+	github.com/pulumi/pulumi/pkg/v2 v2.5.1-0.20200630091945-bb358c4d2173
+	github.com/pulumi/pulumi/sdk/v2 v2.5.1-0.20200630091945-bb358c4d2173
 	github.com/stretchr/testify v1.6.1
 	google.golang.org/grpc v1.28.0
 )

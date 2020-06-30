@@ -34,6 +34,10 @@ namespace Pulumi.AzureRM.Compute.Outputs
         /// </summary>
         public readonly string LastComplianceStatusChecked;
         /// <summary>
+        /// Last reported guest configuration assignment report.
+        /// </summary>
+        public readonly Outputs.AssignmentReportResponse? LatestAssignmentReport;
+        /// <summary>
         /// Id of the latest report for the guest configuration assignment. 
         /// </summary>
         public readonly string LatestReportId;
@@ -41,6 +45,10 @@ namespace Pulumi.AzureRM.Compute.Outputs
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// VM resource Id.
+        /// </summary>
+        public readonly string TargetResourceId;
 
         [OutputConstructor]
         private GuestConfigurationAssignmentPropertiesResponse(
@@ -54,17 +62,23 @@ namespace Pulumi.AzureRM.Compute.Outputs
 
             string lastComplianceStatusChecked,
 
+            Outputs.AssignmentReportResponse? latestAssignmentReport,
+
             string latestReportId,
 
-            string provisioningState)
+            string provisioningState,
+
+            string targetResourceId)
         {
             AssignmentHash = assignmentHash;
             ComplianceStatus = complianceStatus;
             Context = context;
             GuestConfiguration = guestConfiguration;
             LastComplianceStatusChecked = lastComplianceStatusChecked;
+            LatestAssignmentReport = latestAssignmentReport;
             LatestReportId = latestReportId;
             ProvisioningState = provisioningState;
+            TargetResourceId = targetResourceId;
         }
     }
 }

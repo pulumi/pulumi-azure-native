@@ -27,6 +27,12 @@ namespace Pulumi.AzureRM.Compute.Inputs
         [Input("guestConfiguration")]
         public Input<Inputs.GuestConfigurationNavigationArgs>? GuestConfiguration { get; set; }
 
+        /// <summary>
+        /// Last reported guest configuration assignment report.
+        /// </summary>
+        [Input("latestAssignmentReport")]
+        public Input<Inputs.AssignmentReportArgs>? LatestAssignmentReport { get; set; }
+
         public GuestConfigurationAssignmentPropertiesArgs()
         {
         }
