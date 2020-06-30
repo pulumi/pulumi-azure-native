@@ -38,7 +38,6 @@ generate::
 	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
 	echo "Generating Pulumi Schema & SDK..."
 	$(CODEGEN) schema,nodejs,python,go,dotnet
-	$(CODEGEN) schema,go
 	echo "Finished generating Schema & SDK."
 	cd ${PACKDIR}/nodejs/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json && \
