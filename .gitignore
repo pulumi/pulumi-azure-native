@@ -5,3 +5,5 @@ yarn.lock
 package-lock.json
 .idea/
 azure-rest-api-specs/
+**/bin/
+**/obj/
