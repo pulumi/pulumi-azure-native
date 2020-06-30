@@ -17,11 +17,16 @@ package provider
 import (
 	"context"
 	"fmt"
+	"github.com/hashicorp/go-azure-helpers/authentication"
+	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/rpcutil/rpcerror"
 	"google.golang.org/grpc/codes"
+	"log"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -31,24 +36,26 @@ import (
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/Azure/go-autorest/autorest/azure/auth"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
 )
 
 const (
+	ActiveDirectoryEndpoint = "https://login.microsoftonline.com/"
+	AuthTokenAudience = "https://management.azure.com/"
 	// DefaultBaseURI is the default URI used for the service
 	DefaultBaseURI = "https://management.azure.com"
 )
 
 type azurermProvider struct {
-	host        *provider.HostClient
-	name        string
-	version     string
-	client      autorest.Client
-	resourceMap map[string]Resource
-	config      map[string]string
+	host           *provider.HostClient
+	name           string
+	version        string
+	subscriptionId string
+	client         autorest.Client
+	resourceMap    map[string]Resource
+	config         map[string]string
 }
 
 func makeProvider(host *provider.HostClient, name, version string) (rpc.ResourceProviderServer, error) {
@@ -57,19 +64,6 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
 
-	// First try using a managed service principal - fall back to using the CLI
-	// TODO(jen20): Extract this into a method that is less messy and supports all the options,
-	// and integrate it with provider config
-	cliAuthorizer, err := auth.NewAuthorizerFromCLI()
-	if err == nil {
-		client.Authorizer = cliAuthorizer
-	} else {
-		envAuthorizer, err := auth.NewAuthorizerFromEnvironment()
-		if err != nil {
-			return nil, err
-		}
-		client.Authorizer = envAuthorizer
-	}
 
 	resourceMap, err := ResourceMap()
 	if err != nil {
@@ -88,10 +82,26 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
-func (k *azurermProvider) Configure(_ context.Context, req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
+func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azurerm:config:")] = val
 	}
+
+	k.setLoggingContext(ctx)
+
+	authConfig, err := k.getAuthConfig()
+	if err != nil {
+		return nil, fmt.Wrap(err, "building auth config",)
+	}
+
+	authorizer, err := k.getAuthorizationToken(authConfig)
+	if err != nil {
+		return nil, errors.Wrap(err, "building authorizer")
+	}
+
+	k.subscriptionId = authConfig.SubscriptionID
+	k.client.Authorizer = authorizer
+
 	return &rpc.ConfigureResponse{}, nil
 }
 
@@ -166,11 +176,6 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		return nil, err
 	}
 
-	subscriptionId := k.config["subscriptionId"]
-	if subscriptionId == "" {
-		return nil, errors.New("Subscription ID is not found. Please configure azurerm:subscriptionId.")
-	}
-
 	resourceKey := string(urn.Type())
 	res, ok := k.resourceMap[resourceKey]
 	if !ok {
@@ -182,7 +187,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		res,
 		inputs.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": subscriptionId,
+			"subscriptionId": k.subscriptionId,
 			"api-version":    res.apiVersion,
 		},
 	)
@@ -260,7 +265,7 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 		res,
 		inputs.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": k.config["subscriptionId"], // TODO: Get this from schema or from user?
+			"subscriptionId": k.subscriptionId,
 			"api-version":    res.apiVersion,
 		},
 	)
@@ -581,4 +586,58 @@ func nameParameter(path string) string {
 		}
 	}
 	return ""
+}
+
+func (k *azurermProvider) setLoggingContext(ctx context.Context) {
+	log.SetOutput(&LogRedirector{
+		writers: map[string]func(string) error{
+			tfTracePrefix: func(msg string) error { return k.host.Log(ctx, diag.Debug, "", msg) },
+			tfDebugPrefix: func(msg string) error { return k.host.Log(ctx, diag.Debug, "", msg) },
+			tfInfoPrefix:  func(msg string) error { return k.host.Log(ctx, diag.Info, "", msg) },
+			tfWarnPrefix:  func(msg string) error { return k.host.Log(ctx, diag.Warning, "", msg) },
+			tfErrorPrefix: func(msg string) error { return k.host.Log(ctx, diag.Error, "", msg) },
+		},
+	})
+}
+
+func (k *azurermProvider) getConfig(configName, envName string) string {
+	if val, ok := k.config[configName]; ok {
+		return val
+	}
+
+	return os.Getenv(envName)
+}
+
+func (k *azurermProvider) getAuthConfig() (*authentication.Config, error) {
+	builder := &authentication.Builder{
+		SubscriptionID: k.getConfig("subscriptionId", "ARM_SUBSCRIPTION_ID"),
+		ClientID:       k.getConfig("clientId", "ARM_CLIENT_ID"),
+		ClientSecret:   k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
+		TenantID:       k.getConfig("tenantId", "ARM_TENANT_ID"),
+		Environment:    k.getConfig("environment", "ARM_ENVIRONMENT"),
+		MsiEndpoint:    k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
+
+		// Feature Toggles
+		SupportsClientCertAuth:         true,
+		SupportsClientSecretAuth:       true,
+		SupportsManagedServiceIdentity: false,
+		SupportsAzureCliToken:          true,
+		SupportsAuxiliaryTenants:       false,
+	}
+
+	return builder.Build()
+}
+
+func (k *azurermProvider) getAuthorizationToken(authConfig *authentication.Config) (autorest.Authorizer, error) {
+	oauthConfig, err := authConfig.BuildOAuthConfig(ActiveDirectoryEndpoint)
+	if err != nil {
+		return nil, err
+	}
+
+	if oauthConfig == nil {
+		return nil, fmt.Errorf("unable to configure OAuthConfig for tenant %s", authConfig.TenantID)
+	}
+
+	sender := sender.BuildSender("AzureRM")
+	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
 }

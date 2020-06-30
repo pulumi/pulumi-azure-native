@@ -9,6 +9,5 @@ APIs and Swagger specs.
 $ make ensure
 $ make build
 $ cd ./exampes/simple
-$ pulumi config set azurerm:subscriptionId <sub-id>
 $ pulumi up
 ```
