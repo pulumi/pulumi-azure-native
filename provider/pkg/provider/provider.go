@@ -23,6 +23,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
@@ -53,6 +54,8 @@ type azurermProvider struct {
 func makeProvider(host *provider.HostClient, name, version string) (rpc.ResourceProviderServer, error) {
 	// Creating a REST client
 	client := autorest.NewClientWithUserAgent("pulumi")
+	// Set a long timeout of 2 hours for now.
+	client.PollingDuration = 120 * time.Minute
 
 	// First try using a managed service principal - fall back to using the CLI
 	// TODO(jen20): Extract this into a method that is less messy and supports all the options,
