@@ -1697,14 +1697,14 @@ func (o ClusterPrincipalPropertiesResponsePtrOutput) TenantName() pulumi.StringP
 type ClusterProperties struct {
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// A boolean value that indicates if double encryption is enabled.
+	EnableDoubleEncryption *bool `pulumi:"enableDoubleEncryption"`
 	// A boolean value that indicates if the purge operations are enabled.
 	EnablePurge *bool `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// KeyVault properties for the cluster encryption.
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-	// List of the cluster's language extensions.
-	LanguageExtensions *LanguageExtensionsList `pulumi:"languageExtensions"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale *OptimizedAutoscale `pulumi:"optimizedAutoscale"`
 	// The cluster's external tenants.
@@ -1728,14 +1728,14 @@ type ClusterPropertiesInput interface {
 type ClusterPropertiesArgs struct {
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput `pulumi:"enableDiskEncryption"`
+	// A boolean value that indicates if double encryption is enabled.
+	EnableDoubleEncryption pulumi.BoolPtrInput `pulumi:"enableDoubleEncryption"`
 	// A boolean value that indicates if the purge operations are enabled.
 	EnablePurge pulumi.BoolPtrInput `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput `pulumi:"enableStreamingIngest"`
 	// KeyVault properties for the cluster encryption.
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
-	// List of the cluster's language extensions.
-	LanguageExtensions LanguageExtensionsListPtrInput `pulumi:"languageExtensions"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale OptimizedAutoscalePtrInput `pulumi:"optimizedAutoscale"`
 	// The cluster's external tenants.
@@ -1827,6 +1827,11 @@ func (o ClusterPropertiesOutput) EnableDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterProperties) *bool { return v.EnableDiskEncryption }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value that indicates if double encryption is enabled.
+func (o ClusterPropertiesOutput) EnableDoubleEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterProperties) *bool { return v.EnableDoubleEncryption }).(pulumi.BoolPtrOutput)
+}
+
 // A boolean value that indicates if the purge operations are enabled.
 func (o ClusterPropertiesOutput) EnablePurge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterProperties) *bool { return v.EnablePurge }).(pulumi.BoolPtrOutput)
@@ -1840,11 +1845,6 @@ func (o ClusterPropertiesOutput) EnableStreamingIngest() pulumi.BoolPtrOutput {
 // KeyVault properties for the cluster encryption.
 func (o ClusterPropertiesOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v ClusterProperties) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
-}
-
-// List of the cluster's language extensions.
-func (o ClusterPropertiesOutput) LanguageExtensions() LanguageExtensionsListPtrOutput {
-	return o.ApplyT(func(v ClusterProperties) *LanguageExtensionsList { return v.LanguageExtensions }).(LanguageExtensionsListPtrOutput)
 }
 
 // Optimized auto scale definition.
@@ -1890,6 +1890,16 @@ func (o ClusterPropertiesPtrOutput) EnableDiskEncryption() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value that indicates if double encryption is enabled.
+func (o ClusterPropertiesPtrOutput) EnableDoubleEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDoubleEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A boolean value that indicates if the purge operations are enabled.
 func (o ClusterPropertiesPtrOutput) EnablePurge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterProperties) *bool {
@@ -1918,16 +1928,6 @@ func (o ClusterPropertiesPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOu
 		}
 		return v.KeyVaultProperties
 	}).(KeyVaultPropertiesPtrOutput)
-}
-
-// List of the cluster's language extensions.
-func (o ClusterPropertiesPtrOutput) LanguageExtensions() LanguageExtensionsListPtrOutput {
-	return o.ApplyT(func(v *ClusterProperties) *LanguageExtensionsList {
-		if v == nil {
-			return nil
-		}
-		return v.LanguageExtensions
-	}).(LanguageExtensionsListPtrOutput)
 }
 
 // Optimized auto scale definition.
@@ -1966,6 +1966,8 @@ type ClusterPropertiesResponse struct {
 	DataIngestionUri string `pulumi:"dataIngestionUri"`
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// A boolean value that indicates if double encryption is enabled.
+	EnableDoubleEncryption *bool `pulumi:"enableDoubleEncryption"`
 	// A boolean value that indicates if the purge operations are enabled.
 	EnablePurge *bool `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
@@ -1973,7 +1975,7 @@ type ClusterPropertiesResponse struct {
 	// KeyVault properties for the cluster encryption.
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	// List of the cluster's language extensions.
-	LanguageExtensions *LanguageExtensionsListResponse `pulumi:"languageExtensions"`
+	LanguageExtensions LanguageExtensionsListResponse `pulumi:"languageExtensions"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale *OptimizedAutoscaleResponse `pulumi:"optimizedAutoscale"`
 	// The provisioned state of the resource.
@@ -2007,6 +2009,8 @@ type ClusterPropertiesResponseArgs struct {
 	DataIngestionUri pulumi.StringInput `pulumi:"dataIngestionUri"`
 	// A boolean value that indicates if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput `pulumi:"enableDiskEncryption"`
+	// A boolean value that indicates if double encryption is enabled.
+	EnableDoubleEncryption pulumi.BoolPtrInput `pulumi:"enableDoubleEncryption"`
 	// A boolean value that indicates if the purge operations are enabled.
 	EnablePurge pulumi.BoolPtrInput `pulumi:"enablePurge"`
 	// A boolean value that indicates if the streaming ingest is enabled.
@@ -2014,7 +2018,7 @@ type ClusterPropertiesResponseArgs struct {
 	// KeyVault properties for the cluster encryption.
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
 	// List of the cluster's language extensions.
-	LanguageExtensions LanguageExtensionsListResponsePtrInput `pulumi:"languageExtensions"`
+	LanguageExtensions LanguageExtensionsListResponseInput `pulumi:"languageExtensions"`
 	// Optimized auto scale definition.
 	OptimizedAutoscale OptimizedAutoscaleResponsePtrInput `pulumi:"optimizedAutoscale"`
 	// The provisioned state of the resource.
@@ -2119,6 +2123,11 @@ func (o ClusterPropertiesResponseOutput) EnableDiskEncryption() pulumi.BoolPtrOu
 	return o.ApplyT(func(v ClusterPropertiesResponse) *bool { return v.EnableDiskEncryption }).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value that indicates if double encryption is enabled.
+func (o ClusterPropertiesResponseOutput) EnableDoubleEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterPropertiesResponse) *bool { return v.EnableDoubleEncryption }).(pulumi.BoolPtrOutput)
+}
+
 // A boolean value that indicates if the purge operations are enabled.
 func (o ClusterPropertiesResponseOutput) EnablePurge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterPropertiesResponse) *bool { return v.EnablePurge }).(pulumi.BoolPtrOutput)
@@ -2135,8 +2144,8 @@ func (o ClusterPropertiesResponseOutput) KeyVaultProperties() KeyVaultProperties
 }
 
 // List of the cluster's language extensions.
-func (o ClusterPropertiesResponseOutput) LanguageExtensions() LanguageExtensionsListResponsePtrOutput {
-	return o.ApplyT(func(v ClusterPropertiesResponse) *LanguageExtensionsListResponse { return v.LanguageExtensions }).(LanguageExtensionsListResponsePtrOutput)
+func (o ClusterPropertiesResponseOutput) LanguageExtensions() LanguageExtensionsListResponseOutput {
+	return o.ApplyT(func(v ClusterPropertiesResponse) LanguageExtensionsListResponse { return v.LanguageExtensions }).(LanguageExtensionsListResponseOutput)
 }
 
 // Optimized auto scale definition.
@@ -2214,6 +2223,16 @@ func (o ClusterPropertiesResponsePtrOutput) EnableDiskEncryption() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A boolean value that indicates if double encryption is enabled.
+func (o ClusterPropertiesResponsePtrOutput) EnableDoubleEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDoubleEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A boolean value that indicates if the purge operations are enabled.
 func (o ClusterPropertiesResponsePtrOutput) EnablePurge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterPropertiesResponse) *bool {
@@ -2250,7 +2269,7 @@ func (o ClusterPropertiesResponsePtrOutput) LanguageExtensions() LanguageExtensi
 		if v == nil {
 			return nil
 		}
-		return v.LanguageExtensions
+		return &v.LanguageExtensions
 	}).(LanguageExtensionsListResponsePtrOutput)
 }
 
@@ -3686,47 +3705,6 @@ func (i LanguageExtensionsListArgs) ToLanguageExtensionsListOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageExtensionsListOutput)
 }
 
-func (i LanguageExtensionsListArgs) ToLanguageExtensionsListPtrOutput() LanguageExtensionsListPtrOutput {
-	return i.ToLanguageExtensionsListPtrOutputWithContext(context.Background())
-}
-
-func (i LanguageExtensionsListArgs) ToLanguageExtensionsListPtrOutputWithContext(ctx context.Context) LanguageExtensionsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LanguageExtensionsListOutput).ToLanguageExtensionsListPtrOutputWithContext(ctx)
-}
-
-// LanguageExtensionsListPtrInput is an input type that accepts LanguageExtensionsListArgs, LanguageExtensionsListPtr and LanguageExtensionsListPtrOutput values.
-// You can construct a concrete instance of `LanguageExtensionsListPtrInput` via:
-//
-//          LanguageExtensionsListArgs{...}
-//
-//  or:
-//
-//          nil
-type LanguageExtensionsListPtrInput interface {
-	pulumi.Input
-
-	ToLanguageExtensionsListPtrOutput() LanguageExtensionsListPtrOutput
-	ToLanguageExtensionsListPtrOutputWithContext(context.Context) LanguageExtensionsListPtrOutput
-}
-
-type languageExtensionsListPtrType LanguageExtensionsListArgs
-
-func LanguageExtensionsListPtr(v *LanguageExtensionsListArgs) LanguageExtensionsListPtrInput {
-	return (*languageExtensionsListPtrType)(v)
-}
-
-func (*languageExtensionsListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LanguageExtensionsList)(nil)).Elem()
-}
-
-func (i *languageExtensionsListPtrType) ToLanguageExtensionsListPtrOutput() LanguageExtensionsListPtrOutput {
-	return i.ToLanguageExtensionsListPtrOutputWithContext(context.Background())
-}
-
-func (i *languageExtensionsListPtrType) ToLanguageExtensionsListPtrOutputWithContext(ctx context.Context) LanguageExtensionsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LanguageExtensionsListPtrOutput)
-}
-
 // The list of language extension objects.
 type LanguageExtensionsListOutput struct{ *pulumi.OutputState }
 
@@ -3742,47 +3720,9 @@ func (o LanguageExtensionsListOutput) ToLanguageExtensionsListOutputWithContext(
 	return o
 }
 
-func (o LanguageExtensionsListOutput) ToLanguageExtensionsListPtrOutput() LanguageExtensionsListPtrOutput {
-	return o.ToLanguageExtensionsListPtrOutputWithContext(context.Background())
-}
-
-func (o LanguageExtensionsListOutput) ToLanguageExtensionsListPtrOutputWithContext(ctx context.Context) LanguageExtensionsListPtrOutput {
-	return o.ApplyT(func(v LanguageExtensionsList) *LanguageExtensionsList {
-		return &v
-	}).(LanguageExtensionsListPtrOutput)
-}
-
 // The list of language extensions.
 func (o LanguageExtensionsListOutput) Value() LanguageExtensionArrayOutput {
 	return o.ApplyT(func(v LanguageExtensionsList) []LanguageExtension { return v.Value }).(LanguageExtensionArrayOutput)
-}
-
-type LanguageExtensionsListPtrOutput struct{ *pulumi.OutputState }
-
-func (LanguageExtensionsListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LanguageExtensionsList)(nil)).Elem()
-}
-
-func (o LanguageExtensionsListPtrOutput) ToLanguageExtensionsListPtrOutput() LanguageExtensionsListPtrOutput {
-	return o
-}
-
-func (o LanguageExtensionsListPtrOutput) ToLanguageExtensionsListPtrOutputWithContext(ctx context.Context) LanguageExtensionsListPtrOutput {
-	return o
-}
-
-func (o LanguageExtensionsListPtrOutput) Elem() LanguageExtensionsListOutput {
-	return o.ApplyT(func(v *LanguageExtensionsList) LanguageExtensionsList { return *v }).(LanguageExtensionsListOutput)
-}
-
-// The list of language extensions.
-func (o LanguageExtensionsListPtrOutput) Value() LanguageExtensionArrayOutput {
-	return o.ApplyT(func(v *LanguageExtensionsList) []LanguageExtension {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(LanguageExtensionArrayOutput)
 }
 
 // The list of language extension objects.
@@ -5115,7 +5055,6 @@ func init() {
 	pulumi.RegisterOutputType(LanguageExtensionResponseOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionsListOutput{})
-	pulumi.RegisterOutputType(LanguageExtensionsListPtrOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionsListResponseOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionsListResponsePtrOutput{})
 	pulumi.RegisterOutputType(OptimizedAutoscaleOutput{})

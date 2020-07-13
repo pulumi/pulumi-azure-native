@@ -5,4 +5,5 @@
 # Export this package's modules as members:
 from .workspace import *
 from .workspace_compute import *
+from .workspace_connection import *
 from .workspace_private_endpoint_connection import *

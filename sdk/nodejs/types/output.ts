@@ -1747,7 +1747,7 @@ export namespace apimanagement {
          */
         state: string;
         /**
-         * Optional subscription comment added by an administrator.
+         * Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
          */
         stateComment?: string;
     }
@@ -1911,15 +1911,122 @@ export namespace appconfiguration {
          */
         creationDate: string;
         /**
+         * The encryption settings of the configuration store.
+         */
+        encryption?: outputs.appconfiguration.EncryptionPropertiesResponse;
+        /**
          * The DNS endpoint where the configuration store API will be available.
          */
         endpoint: string;
         /**
+         * The list of private endpoint connections that are set up for this resource.
+         */
+        privateEndpointConnections: outputs.appconfiguration.PrivateEndpointConnectionReferenceResponse[];
+        /**
          * The provisioning state of the configuration store.
+         */
+        provisioningState: string;
+        /**
+         * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+         */
+        publicNetworkAccess?: string;
+    }
+
+    /**
+     * The encryption settings for a configuration store.
+     */
+    export interface EncryptionPropertiesResponse {
+        /**
+         * Key vault properties.
+         */
+        keyVaultProperties?: outputs.appconfiguration.KeyVaultPropertiesResponse;
+    }
+
+    /**
+     * Settings concerning key vault encryption for a configuration store.
+     */
+    export interface KeyVaultPropertiesResponse {
+        /**
+         * The client id of the identity which will be used to access key vault.
+         */
+        identityClientId?: string;
+        /**
+         * The URI of the key vault key used to encrypt data.
+         */
+        keyIdentifier?: string;
+    }
+
+    /**
+     * Properties of a private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The resource of private endpoint.
+         */
+        privateEndpoint?: outputs.appconfiguration.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.appconfiguration.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning status of the private endpoint connection.
          */
         provisioningState: string;
     }
 
+    /**
+     * A reference to a related private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionReferenceResponse {
+        /**
+         * The resource ID.
+         */
+        id: string;
+        /**
+         * The name of the resource.
+         */
+        name: string;
+        /**
+         * The properties of a private endpoint connection.
+         */
+        properties?: outputs.appconfiguration.PrivateEndpointConnectionPropertiesResponse;
+        /**
+         * The type of the resource.
+         */
+        type: string;
+    }
+
+    /**
+     * Private endpoint which a connection belongs to.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The resource Id for private endpoint
+         */
+        id?: string;
+    }
+
+    /**
+     * The state of a private link service connection.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+         */
+        actionsRequired: string;
+        /**
+         * The private link service connection description.
+         */
+        description?: string;
+        /**
+         * The private link service connection status.
+         */
+        status?: string;
+    }
+
+    /**
+     * An identity that can be associated with a resource.
+     */
     export interface ResourceIdentityResponse {
         /**
          * The principal id of the identity. This property will only be provided for a system-assigned identity.
@@ -2824,6 +2931,238 @@ export namespace automation {
          * Gets or sets the webhook uri.
          */
         uri?: string;
+    }
+}
+
+export namespace avs {
+    /**
+     * An ExpressRoute Circuit
+     */
+    export interface CircuitResponse {
+        /**
+         * Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+         */
+        expressRouteID: string;
+        /**
+         * ExpressRoute Circuit private peering identifier
+         */
+        expressRoutePrivatePeeringID: string;
+        /**
+         * CIDR of primary subnet
+         */
+        primarySubnet: string;
+        /**
+         * CIDR of secondary subnet
+         */
+        secondarySubnet: string;
+    }
+
+    /**
+     * The properties of a cluster
+     */
+    export interface ClusterPropertiesResponse {
+        /**
+         * The identity
+         */
+        clusterId: number;
+        /**
+         * The cluster size
+         */
+        clusterSize: number;
+        /**
+         * The hosts
+         */
+        hosts: string[];
+        /**
+         * The state of the cluster provisioning
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Endpoint addresses
+     */
+    export interface EndpointsResponse {
+        /**
+         * Endpoint for the HCX Cloud Manager
+         */
+        hcxCloudManager: string;
+        /**
+         * Endpoint for the NSX-T Data Center manager
+         */
+        nsxtManager: string;
+        /**
+         * Endpoint for Virtual Center Server Appliance
+         */
+        vcsa: string;
+    }
+
+    /**
+     * The properties of an ExpressRoute Circuit Authorization resource
+     */
+    export interface ExpressRouteAuthorizationPropertiesResponse {
+        /**
+         * The ID of the ExpressRoute Circuit Authorization
+         */
+        expressRouteAuthorizationId: string;
+        /**
+         * The key of the ExpressRoute Circuit Authorization
+         */
+        expressRouteAuthorizationKey: string;
+        /**
+         * The state of the  ExpressRoute Circuit Authorization provisioning
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The properties of an HCX Enterprise Site
+     */
+    export interface HcxEnterpriseSitePropertiesResponse {
+        /**
+         * The activation key
+         */
+        activationKey: string;
+        /**
+         * The status of the HCX Enterprise Site
+         */
+        status: string;
+    }
+
+    /**
+     * vCenter Single Sign On Identity Source
+     */
+    export interface IdentitySourceResponse {
+        /**
+         * The domain's NetBIOS name
+         */
+        alias?: string;
+        /**
+         * The base distinguished name for groups
+         */
+        baseGroupDN?: string;
+        /**
+         * The base distinguished name for users
+         */
+        baseUserDN?: string;
+        /**
+         * The domain's dns name
+         */
+        domain?: string;
+        /**
+         * The name of the identity source
+         */
+        name?: string;
+        /**
+         * The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+         */
+        password?: string;
+        /**
+         * Primary server URL
+         */
+        primaryServer?: string;
+        /**
+         * Secondary server URL
+         */
+        secondaryServer?: string;
+        /**
+         * Protect LDAP communication using SSL certificate (LDAPS)
+         */
+        ssl?: string;
+        /**
+         * The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+         */
+        username?: string;
+    }
+
+    /**
+     * The properties of a default cluster
+     */
+    export interface ManagementClusterResponse {
+        /**
+         * The identity
+         */
+        clusterId: number;
+        /**
+         * The cluster size
+         */
+        clusterSize: number;
+        /**
+         * The hosts
+         */
+        hosts: string[];
+    }
+
+    /**
+     * The properties of a private cloud resource
+     */
+    export interface PrivateCloudPropertiesResponse {
+        /**
+         * An ExpressRoute Circuit
+         */
+        circuit?: outputs.avs.CircuitResponse;
+        /**
+         * The endpoints
+         */
+        endpoints: outputs.avs.EndpointsResponse;
+        /**
+         * vCenter Single Sign On Identity Sources
+         */
+        identitySources?: outputs.avs.IdentitySourceResponse[];
+        /**
+         * Connectivity to internet is enabled or disabled
+         */
+        internet?: string;
+        /**
+         * The default cluster used for management
+         */
+        managementCluster: outputs.avs.ManagementClusterResponse;
+        /**
+         * Network used to access vCenter Server and NSX-T Manager
+         */
+        managementNetwork: string;
+        /**
+         * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+         */
+        networkBlock: string;
+        /**
+         * Thumbprint of the NSX-T Manager SSL certificate
+         */
+        nsxtCertificateThumbprint: string;
+        /**
+         * Optionally, set the NSX-T Manager password when the private cloud is created
+         */
+        nsxtPassword?: string;
+        /**
+         * Used for virtual machine cold migration, cloning, and snapshot migration
+         */
+        provisioningNetwork: string;
+        /**
+         * The provisioning state
+         */
+        provisioningState: string;
+        /**
+         * Thumbprint of the vCenter Server SSL certificate
+         */
+        vcenterCertificateThumbprint: string;
+        /**
+         * Optionally, set the vCenter admin password when the private cloud is created
+         */
+        vcenterPassword?: string;
+        /**
+         * Used for live migration of virtual machines
+         */
+        vmotionNetwork: string;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * The name of the SKU.
+         */
+        name: string;
     }
 }
 
@@ -5464,7 +5803,7 @@ export namespace cdn {
         /**
          * List of keys used to validate the signed URL hashes.
          */
-        urlSigningKeys?: outputs.cdn.UrlSigningKeyResponse;
+        urlSigningKeys?: outputs.cdn.UrlSigningKeyResponse[];
         /**
          * Defines the Web Application Firewall policy for the endpoint (if applicable)
          */
@@ -7957,7 +8296,7 @@ export namespace compute {
          */
         linuxConfiguration?: outputs.compute.LinuxConfigurationResponse;
         /**
-         * Specifies whether the guest provision signal is required to infer provision success of the virtual machine.
+         * Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
          */
         requireGuestProvisionSignal?: boolean;
         /**
@@ -8733,6 +9072,10 @@ export namespace compute {
          * The VM Agent running on the virtual machine.
          */
         vmAgent?: outputs.compute.VirtualMachineAgentInstanceViewResponse;
+        /**
+         * The health status for the VM.
+         */
+        vmHealth: outputs.compute.VirtualMachineHealthStatusResponse;
     }
 
     /**
@@ -19682,6 +20025,10 @@ export namespace hdinsight {
          */
         diskEncryptionProperties?: outputs.hdinsight.DiskEncryptionPropertiesResponse;
         /**
+         * The encryption-in-transit properties.
+         */
+        encryptionInTransitProperties?: outputs.hdinsight.EncryptionInTransitPropertiesResponse;
+        /**
          * The list of errors.
          */
         errors?: outputs.hdinsight.ErrorsResponse[];
@@ -19815,6 +20162,16 @@ export namespace hdinsight {
          * Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
          */
         vaultUri?: string;
+    }
+
+    /**
+     * The encryption-in-transit properties.
+     */
+    export interface EncryptionInTransitPropertiesResponse {
+        /**
+         * Indicates whether or not inter cluster node communication is encrypted in transit.
+         */
+        isEncryptionInTransitEnabled?: boolean;
     }
 
     /**
@@ -21397,6 +21754,10 @@ export namespace kusto {
          */
         enableDiskEncryption?: boolean;
         /**
+         * A boolean value that indicates if double encryption is enabled.
+         */
+        enableDoubleEncryption?: boolean;
+        /**
          * A boolean value that indicates if the purge operations are enabled.
          */
         enablePurge?: boolean;
@@ -21411,7 +21772,7 @@ export namespace kusto {
         /**
          * List of the cluster's language extensions.
          */
-        languageExtensions?: outputs.kusto.LanguageExtensionsListResponse;
+        languageExtensions: outputs.kusto.LanguageExtensionsListResponse;
         /**
          * Optimized auto scale definition.
          */
@@ -25128,6 +25489,28 @@ export namespace machinelearningservices {
          * Tier of the sku like Basic or Enterprise
          */
         tier?: string;
+    }
+
+    /**
+     * Workspace Connection specific properties.
+     */
+    export interface WorkspaceConnectionPropsResponse {
+        /**
+         * Authorization type of the workspace connection.
+         */
+        authType?: string;
+        /**
+         * Category of the workspace connection.
+         */
+        category?: string;
+        /**
+         * Target of the workspace connection.
+         */
+        target?: string;
+        /**
+         * Value details of the workspace connection.
+         */
+        value?: string;
     }
 
     /**
@@ -30611,30 +30994,6 @@ export namespace network {
     }
 
     /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyCertificateAuthorityPropertiesFormatResponse {
-        /**
-         * Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
-         */
-        keyVaultSecretId?: string;
-    }
-
-    /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyCertificateAuthorityResponse {
-        /**
-         * Name of the CA certificate.
-         */
-        name?: string;
-        /**
-         * Properties of the certificate authority.
-         */
-        properties?: outputs.network.FirewallPolicyCertificateAuthorityPropertiesFormatResponse;
-    }
-
-    /**
      * Firewall Policy definition.
      */
     export interface FirewallPolicyPropertiesFormatResponse {
@@ -30655,10 +31014,6 @@ export namespace network {
          */
         firewalls: outputs.network.SubResourceResponse[];
         /**
-         * The operation mode for Intrusion system.
-         */
-        intrusionSystemMode?: string;
-        /**
          * The provisioning state of the firewall policy resource.
          */
         provisioningState: string;
@@ -30674,10 +31029,6 @@ export namespace network {
          * ThreatIntel Whitelist for Firewall Policy.
          */
         threatIntelWhitelist?: outputs.network.FirewallPolicyThreatIntelWhitelistResponse;
-        /**
-         * TLS Configuration definition.
-         */
-        transportSecurity?: outputs.network.FirewallPolicyTransportSecurityResponse;
     }
 
     /**
@@ -30728,48 +31079,6 @@ export namespace network {
          * List of IP addresses for the ThreatIntel Whitelist.
          */
         ipAddresses?: string[];
-    }
-
-    /**
-     * Configuration needed to perform TLS termination & initiation.
-     */
-    export interface FirewallPolicyTransportSecurityResponse {
-        /**
-         * The CA used for intermediate CA generation.
-         */
-        certificateAuthority?: outputs.network.FirewallPolicyCertificateAuthorityResponse;
-        /**
-         * List of domains which are excluded from TLS termination.
-         */
-        excludedDomains?: string[];
-        /**
-         * Certificates which are to be trusted by the firewall.
-         */
-        trustedRootCertificates?: outputs.network.FirewallPolicyTrustedRootCertificateResponse[];
-    }
-
-    /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyTrustedRootCertificatePropertiesFormatResponse {
-        /**
-         * Secret Id of (base-64 encoded unencrypted pfx) the public certificate data stored in KeyVault.
-         */
-        keyVaultSecretId?: string;
-    }
-
-    /**
-     * Trusted Root certificates of a firewall policy.
-     */
-    export interface FirewallPolicyTrustedRootCertificateResponse {
-        /**
-         * Name of the trusted root certificate that is unique within a firewall policy.
-         */
-        name?: string;
-        /**
-         * Properties of the trusted root authorities.
-         */
-        properties?: outputs.network.FirewallPolicyTrustedRootCertificatePropertiesFormatResponse;
     }
 
     /**
@@ -36600,13 +36909,217 @@ export namespace operationalinsights {
      */
     export interface ActionResponsePropertiesResponse {
         /**
-         * Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+         * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
          */
         logicAppResourceId: string;
         /**
          * The name of the logic app's workflow.
          */
         workflowId?: string;
+    }
+
+    /**
+     * Describes bookmark properties
+     */
+    export interface BookmarkPropertiesResponse {
+        /**
+         * The time the bookmark was created
+         */
+        created?: string;
+        /**
+         * Describes a user that created the bookmark
+         */
+        createdBy?: outputs.operationalinsights.UserInfoResponse;
+        /**
+         * The display name of the bookmark
+         */
+        displayName: string;
+        /**
+         * Describes an incident that relates to bookmark
+         */
+        incidentInfo?: outputs.operationalinsights.IncidentInfoResponse;
+        /**
+         * List of labels relevant to this bookmark
+         */
+        labels?: string[];
+        /**
+         * The notes of the bookmark
+         */
+        notes?: string;
+        /**
+         * The query of the bookmark.
+         */
+        query: string;
+        /**
+         * The query result of the bookmark.
+         */
+        queryResult?: string;
+        /**
+         * The last time the bookmark was updated
+         */
+        updated?: string;
+        /**
+         * Describes a user that updated the bookmark
+         */
+        updatedBy?: outputs.operationalinsights.UserInfoResponse;
+    }
+
+    /**
+     * Incident additional data property bag.
+     */
+    export interface IncidentAdditionalDataResponse {
+        /**
+         * List of product names of alerts in the incident
+         */
+        alertProductNames: string[];
+        /**
+         * The number of alerts in the incident
+         */
+        alertsCount: number;
+        /**
+         * The number of bookmarks in the incident
+         */
+        bookmarksCount: number;
+        /**
+         * The number of comments in the incident
+         */
+        commentsCount: number;
+        /**
+         * The tactics associated with incident
+         */
+        tactics: string[];
+    }
+
+    /**
+     * Describes related incident information for the bookmark
+     */
+    export interface IncidentInfoResponse {
+        /**
+         * Incident Id
+         */
+        incidentId: string;
+        /**
+         * Relation Name
+         */
+        relationName: string;
+        /**
+         * The severity of the incident
+         */
+        severity: string;
+        /**
+         * The title of the incident
+         */
+        title: string;
+    }
+
+    /**
+     * Represents an incident label
+     */
+    export interface IncidentLabelResponse {
+        /**
+         * The name of the label
+         */
+        labelName: string;
+        /**
+         * The type of the label
+         */
+        labelType: string;
+    }
+
+    /**
+     * Information on the user an incident is assigned to
+     */
+    export interface IncidentOwnerInfoResponse {
+        /**
+         * The name of the user the incident is assigned to.
+         */
+        assignedTo?: string;
+        /**
+         * The email of the user the incident is assigned to.
+         */
+        email?: string;
+        /**
+         * The object id of the user the incident is assigned to.
+         */
+        objectId?: string;
+        /**
+         * The user principal name of the user the incident is assigned to.
+         */
+        userPrincipalName?: string;
+    }
+
+    /**
+     * Describes incident properties
+     */
+    export interface IncidentPropertiesResponse {
+        /**
+         * Additional data on the incident
+         */
+        additionalData: outputs.operationalinsights.IncidentAdditionalDataResponse;
+        /**
+         * The reason the incident was closed
+         */
+        classification?: string;
+        /**
+         * Describes the reason the incident was closed
+         */
+        classificationComment?: string;
+        /**
+         * The classification reason the incident was closed with
+         */
+        classificationReason?: string;
+        /**
+         * The time the incident was created
+         */
+        createdTimeUtc: string;
+        /**
+         * The description of the incident
+         */
+        description?: string;
+        /**
+         * The time of the first activity in the incident
+         */
+        firstActivityTimeUtc?: string;
+        /**
+         * A sequential number
+         */
+        incidentNumber: number;
+        /**
+         * The deep-link url to the incident in Azure portal
+         */
+        incidentUrl: string;
+        /**
+         * List of labels relevant to this incident
+         */
+        labels?: outputs.operationalinsights.IncidentLabelResponse[];
+        /**
+         * The time of the last activity in the incident
+         */
+        lastActivityTimeUtc?: string;
+        /**
+         * The last time the incident was updated
+         */
+        lastModifiedTimeUtc: string;
+        /**
+         * Describes a user that the incident is assigned to
+         */
+        owner?: outputs.operationalinsights.IncidentOwnerInfoResponse;
+        /**
+         * List of resource ids of Analytic rules related to the incident
+         */
+        relatedAnalyticRuleIds: string[];
+        /**
+         * The severity of the incident
+         */
+        severity: string;
+        /**
+         * The status of the incident
+         */
+        status: string;
+        /**
+         * The title of the incident
+         */
+        title: string;
     }
 
     /**
@@ -36697,6 +37210,24 @@ export namespace operationalinsights {
          * The tag value.
          */
         value: string;
+    }
+
+    /**
+     * User information that made some action
+     */
+    export interface UserInfoResponse {
+        /**
+         * The email of the user.
+         */
+        email: string;
+        /**
+         * The name of the user.
+         */
+        name: string;
+        /**
+         * The object id of the user.
+         */
+        objectId: string;
     }
 
 }

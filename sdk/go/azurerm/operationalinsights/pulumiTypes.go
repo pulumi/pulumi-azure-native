@@ -12,7 +12,7 @@ import (
 
 // Action property bag.
 type ActionRequestProperties struct {
-	// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId string `pulumi:"logicAppResourceId"`
 	// Logic App Callback URL for this specific workflow.
 	TriggerUri *string `pulumi:"triggerUri"`
@@ -31,7 +31,7 @@ type ActionRequestPropertiesInput interface {
 
 // Action property bag.
 type ActionRequestPropertiesArgs struct {
-	// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId pulumi.StringInput `pulumi:"logicAppResourceId"`
 	// Logic App Callback URL for this specific workflow.
 	TriggerUri pulumi.StringPtrInput `pulumi:"triggerUri"`
@@ -115,7 +115,7 @@ func (o ActionRequestPropertiesOutput) ToActionRequestPropertiesPtrOutputWithCon
 	}).(ActionRequestPropertiesPtrOutput)
 }
 
-// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 func (o ActionRequestPropertiesOutput) LogicAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRequestProperties) string { return v.LogicAppResourceId }).(pulumi.StringOutput)
 }
@@ -143,7 +143,7 @@ func (o ActionRequestPropertiesPtrOutput) Elem() ActionRequestPropertiesOutput {
 	return o.ApplyT(func(v *ActionRequestProperties) ActionRequestProperties { return *v }).(ActionRequestPropertiesOutput)
 }
 
-// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 func (o ActionRequestPropertiesPtrOutput) LogicAppResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRequestProperties) *string {
 		if v == nil {
@@ -165,7 +165,7 @@ func (o ActionRequestPropertiesPtrOutput) TriggerUri() pulumi.StringPtrOutput {
 
 // Action property bag.
 type ActionResponsePropertiesResponse struct {
-	// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId string `pulumi:"logicAppResourceId"`
 	// The name of the logic app's workflow.
 	WorkflowId *string `pulumi:"workflowId"`
@@ -184,7 +184,7 @@ type ActionResponsePropertiesResponseInput interface {
 
 // Action property bag.
 type ActionResponsePropertiesResponseArgs struct {
-	// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId pulumi.StringInput `pulumi:"logicAppResourceId"`
 	// The name of the logic app's workflow.
 	WorkflowId pulumi.StringPtrInput `pulumi:"workflowId"`
@@ -268,7 +268,7 @@ func (o ActionResponsePropertiesResponseOutput) ToActionResponsePropertiesRespon
 	}).(ActionResponsePropertiesResponsePtrOutput)
 }
 
-// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 func (o ActionResponsePropertiesResponseOutput) LogicAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionResponsePropertiesResponse) string { return v.LogicAppResourceId }).(pulumi.StringOutput)
 }
@@ -296,7 +296,7 @@ func (o ActionResponsePropertiesResponsePtrOutput) Elem() ActionResponseProperti
 	return o.ApplyT(func(v *ActionResponsePropertiesResponse) ActionResponsePropertiesResponse { return *v }).(ActionResponsePropertiesResponseOutput)
 }
 
-// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 func (o ActionResponsePropertiesResponsePtrOutput) LogicAppResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionResponsePropertiesResponse) *string {
 		if v == nil {
@@ -313,6 +313,2607 @@ func (o ActionResponsePropertiesResponsePtrOutput) WorkflowId() pulumi.StringPtr
 			return nil
 		}
 		return v.WorkflowId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes bookmark properties
+type BookmarkProperties struct {
+	// The time the bookmark was created
+	Created *string `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy *UserInfo `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName string `pulumi:"displayName"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo *IncidentInfo `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels []string `pulumi:"labels"`
+	// The notes of the bookmark
+	Notes *string `pulumi:"notes"`
+	// The query of the bookmark.
+	Query string `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult *string `pulumi:"queryResult"`
+	// The last time the bookmark was updated
+	Updated *string `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy *UserInfo `pulumi:"updatedBy"`
+}
+
+// BookmarkPropertiesInput is an input type that accepts BookmarkPropertiesArgs and BookmarkPropertiesOutput values.
+// You can construct a concrete instance of `BookmarkPropertiesInput` via:
+//
+//          BookmarkPropertiesArgs{...}
+type BookmarkPropertiesInput interface {
+	pulumi.Input
+
+	ToBookmarkPropertiesOutput() BookmarkPropertiesOutput
+	ToBookmarkPropertiesOutputWithContext(context.Context) BookmarkPropertiesOutput
+}
+
+// Describes bookmark properties
+type BookmarkPropertiesArgs struct {
+	// The time the bookmark was created
+	Created pulumi.StringPtrInput `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoPtrInput `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo IncidentInfoPtrInput `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// The notes of the bookmark
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// The query of the bookmark.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult pulumi.StringPtrInput `pulumi:"queryResult"`
+	// The last time the bookmark was updated
+	Updated pulumi.StringPtrInput `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy UserInfoPtrInput `pulumi:"updatedBy"`
+}
+
+func (BookmarkPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkProperties)(nil)).Elem()
+}
+
+func (i BookmarkPropertiesArgs) ToBookmarkPropertiesOutput() BookmarkPropertiesOutput {
+	return i.ToBookmarkPropertiesOutputWithContext(context.Background())
+}
+
+func (i BookmarkPropertiesArgs) ToBookmarkPropertiesOutputWithContext(ctx context.Context) BookmarkPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkPropertiesOutput)
+}
+
+func (i BookmarkPropertiesArgs) ToBookmarkPropertiesPtrOutput() BookmarkPropertiesPtrOutput {
+	return i.ToBookmarkPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BookmarkPropertiesArgs) ToBookmarkPropertiesPtrOutputWithContext(ctx context.Context) BookmarkPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkPropertiesOutput).ToBookmarkPropertiesPtrOutputWithContext(ctx)
+}
+
+// BookmarkPropertiesPtrInput is an input type that accepts BookmarkPropertiesArgs, BookmarkPropertiesPtr and BookmarkPropertiesPtrOutput values.
+// You can construct a concrete instance of `BookmarkPropertiesPtrInput` via:
+//
+//          BookmarkPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type BookmarkPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBookmarkPropertiesPtrOutput() BookmarkPropertiesPtrOutput
+	ToBookmarkPropertiesPtrOutputWithContext(context.Context) BookmarkPropertiesPtrOutput
+}
+
+type bookmarkPropertiesPtrType BookmarkPropertiesArgs
+
+func BookmarkPropertiesPtr(v *BookmarkPropertiesArgs) BookmarkPropertiesPtrInput {
+	return (*bookmarkPropertiesPtrType)(v)
+}
+
+func (*bookmarkPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BookmarkProperties)(nil)).Elem()
+}
+
+func (i *bookmarkPropertiesPtrType) ToBookmarkPropertiesPtrOutput() BookmarkPropertiesPtrOutput {
+	return i.ToBookmarkPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *bookmarkPropertiesPtrType) ToBookmarkPropertiesPtrOutputWithContext(ctx context.Context) BookmarkPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkPropertiesPtrOutput)
+}
+
+// Describes bookmark properties
+type BookmarkPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BookmarkPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkProperties)(nil)).Elem()
+}
+
+func (o BookmarkPropertiesOutput) ToBookmarkPropertiesOutput() BookmarkPropertiesOutput {
+	return o
+}
+
+func (o BookmarkPropertiesOutput) ToBookmarkPropertiesOutputWithContext(ctx context.Context) BookmarkPropertiesOutput {
+	return o
+}
+
+func (o BookmarkPropertiesOutput) ToBookmarkPropertiesPtrOutput() BookmarkPropertiesPtrOutput {
+	return o.ToBookmarkPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BookmarkPropertiesOutput) ToBookmarkPropertiesPtrOutputWithContext(ctx context.Context) BookmarkPropertiesPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *BookmarkProperties {
+		return &v
+	}).(BookmarkPropertiesPtrOutput)
+}
+
+// The time the bookmark was created
+func (o BookmarkPropertiesOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that created the bookmark
+func (o BookmarkPropertiesOutput) CreatedBy() UserInfoPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *UserInfo { return v.CreatedBy }).(UserInfoPtrOutput)
+}
+
+// The display name of the bookmark
+func (o BookmarkPropertiesOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkProperties) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Describes an incident that relates to bookmark
+func (o BookmarkPropertiesOutput) IncidentInfo() IncidentInfoPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *IncidentInfo { return v.IncidentInfo }).(IncidentInfoPtrOutput)
+}
+
+// List of labels relevant to this bookmark
+func (o BookmarkPropertiesOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BookmarkProperties) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// The notes of the bookmark
+func (o BookmarkPropertiesOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The query of the bookmark.
+func (o BookmarkPropertiesOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkProperties) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// The query result of the bookmark.
+func (o BookmarkPropertiesOutput) QueryResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *string { return v.QueryResult }).(pulumi.StringPtrOutput)
+}
+
+// The last time the bookmark was updated
+func (o BookmarkPropertiesOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *string { return v.Updated }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that updated the bookmark
+func (o BookmarkPropertiesOutput) UpdatedBy() UserInfoPtrOutput {
+	return o.ApplyT(func(v BookmarkProperties) *UserInfo { return v.UpdatedBy }).(UserInfoPtrOutput)
+}
+
+type BookmarkPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BookmarkPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BookmarkProperties)(nil)).Elem()
+}
+
+func (o BookmarkPropertiesPtrOutput) ToBookmarkPropertiesPtrOutput() BookmarkPropertiesPtrOutput {
+	return o
+}
+
+func (o BookmarkPropertiesPtrOutput) ToBookmarkPropertiesPtrOutputWithContext(ctx context.Context) BookmarkPropertiesPtrOutput {
+	return o
+}
+
+func (o BookmarkPropertiesPtrOutput) Elem() BookmarkPropertiesOutput {
+	return o.ApplyT(func(v *BookmarkProperties) BookmarkProperties { return *v }).(BookmarkPropertiesOutput)
+}
+
+// The time the bookmark was created
+func (o BookmarkPropertiesPtrOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Created
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that created the bookmark
+func (o BookmarkPropertiesPtrOutput) CreatedBy() UserInfoPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *UserInfo {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(UserInfoPtrOutput)
+}
+
+// The display name of the bookmark
+func (o BookmarkPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes an incident that relates to bookmark
+func (o BookmarkPropertiesPtrOutput) IncidentInfo() IncidentInfoPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *IncidentInfo {
+		if v == nil {
+			return nil
+		}
+		return v.IncidentInfo
+	}).(IncidentInfoPtrOutput)
+}
+
+// List of labels relevant to this bookmark
+func (o BookmarkPropertiesPtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BookmarkProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+// The notes of the bookmark
+func (o BookmarkPropertiesPtrOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Notes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query of the bookmark.
+func (o BookmarkPropertiesPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query result of the bookmark.
+func (o BookmarkPropertiesPtrOutput) QueryResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryResult
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last time the bookmark was updated
+func (o BookmarkPropertiesPtrOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Updated
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that updated the bookmark
+func (o BookmarkPropertiesPtrOutput) UpdatedBy() UserInfoPtrOutput {
+	return o.ApplyT(func(v *BookmarkProperties) *UserInfo {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatedBy
+	}).(UserInfoPtrOutput)
+}
+
+// Describes bookmark properties
+type BookmarkPropertiesResponse struct {
+	// The time the bookmark was created
+	Created *string `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName string `pulumi:"displayName"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo *IncidentInfoResponse `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels []string `pulumi:"labels"`
+	// The notes of the bookmark
+	Notes *string `pulumi:"notes"`
+	// The query of the bookmark.
+	Query string `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult *string `pulumi:"queryResult"`
+	// The last time the bookmark was updated
+	Updated *string `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+}
+
+// BookmarkPropertiesResponseInput is an input type that accepts BookmarkPropertiesResponseArgs and BookmarkPropertiesResponseOutput values.
+// You can construct a concrete instance of `BookmarkPropertiesResponseInput` via:
+//
+//          BookmarkPropertiesResponseArgs{...}
+type BookmarkPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToBookmarkPropertiesResponseOutput() BookmarkPropertiesResponseOutput
+	ToBookmarkPropertiesResponseOutputWithContext(context.Context) BookmarkPropertiesResponseOutput
+}
+
+// Describes bookmark properties
+type BookmarkPropertiesResponseArgs struct {
+	// The time the bookmark was created
+	Created pulumi.StringPtrInput `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoResponsePtrInput `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo IncidentInfoResponsePtrInput `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// The notes of the bookmark
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// The query of the bookmark.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult pulumi.StringPtrInput `pulumi:"queryResult"`
+	// The last time the bookmark was updated
+	Updated pulumi.StringPtrInput `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy UserInfoResponsePtrInput `pulumi:"updatedBy"`
+}
+
+func (BookmarkPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkPropertiesResponse)(nil)).Elem()
+}
+
+func (i BookmarkPropertiesResponseArgs) ToBookmarkPropertiesResponseOutput() BookmarkPropertiesResponseOutput {
+	return i.ToBookmarkPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i BookmarkPropertiesResponseArgs) ToBookmarkPropertiesResponseOutputWithContext(ctx context.Context) BookmarkPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkPropertiesResponseOutput)
+}
+
+func (i BookmarkPropertiesResponseArgs) ToBookmarkPropertiesResponsePtrOutput() BookmarkPropertiesResponsePtrOutput {
+	return i.ToBookmarkPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BookmarkPropertiesResponseArgs) ToBookmarkPropertiesResponsePtrOutputWithContext(ctx context.Context) BookmarkPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkPropertiesResponseOutput).ToBookmarkPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// BookmarkPropertiesResponsePtrInput is an input type that accepts BookmarkPropertiesResponseArgs, BookmarkPropertiesResponsePtr and BookmarkPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `BookmarkPropertiesResponsePtrInput` via:
+//
+//          BookmarkPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BookmarkPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToBookmarkPropertiesResponsePtrOutput() BookmarkPropertiesResponsePtrOutput
+	ToBookmarkPropertiesResponsePtrOutputWithContext(context.Context) BookmarkPropertiesResponsePtrOutput
+}
+
+type bookmarkPropertiesResponsePtrType BookmarkPropertiesResponseArgs
+
+func BookmarkPropertiesResponsePtr(v *BookmarkPropertiesResponseArgs) BookmarkPropertiesResponsePtrInput {
+	return (*bookmarkPropertiesResponsePtrType)(v)
+}
+
+func (*bookmarkPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BookmarkPropertiesResponse)(nil)).Elem()
+}
+
+func (i *bookmarkPropertiesResponsePtrType) ToBookmarkPropertiesResponsePtrOutput() BookmarkPropertiesResponsePtrOutput {
+	return i.ToBookmarkPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *bookmarkPropertiesResponsePtrType) ToBookmarkPropertiesResponsePtrOutputWithContext(ctx context.Context) BookmarkPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkPropertiesResponsePtrOutput)
+}
+
+// Describes bookmark properties
+type BookmarkPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (BookmarkPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkPropertiesResponse)(nil)).Elem()
+}
+
+func (o BookmarkPropertiesResponseOutput) ToBookmarkPropertiesResponseOutput() BookmarkPropertiesResponseOutput {
+	return o
+}
+
+func (o BookmarkPropertiesResponseOutput) ToBookmarkPropertiesResponseOutputWithContext(ctx context.Context) BookmarkPropertiesResponseOutput {
+	return o
+}
+
+func (o BookmarkPropertiesResponseOutput) ToBookmarkPropertiesResponsePtrOutput() BookmarkPropertiesResponsePtrOutput {
+	return o.ToBookmarkPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BookmarkPropertiesResponseOutput) ToBookmarkPropertiesResponsePtrOutputWithContext(ctx context.Context) BookmarkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *BookmarkPropertiesResponse {
+		return &v
+	}).(BookmarkPropertiesResponsePtrOutput)
+}
+
+// The time the bookmark was created
+func (o BookmarkPropertiesResponseOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that created the bookmark
+func (o BookmarkPropertiesResponseOutput) CreatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *UserInfoResponse { return v.CreatedBy }).(UserInfoResponsePtrOutput)
+}
+
+// The display name of the bookmark
+func (o BookmarkPropertiesResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Describes an incident that relates to bookmark
+func (o BookmarkPropertiesResponseOutput) IncidentInfo() IncidentInfoResponsePtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *IncidentInfoResponse { return v.IncidentInfo }).(IncidentInfoResponsePtrOutput)
+}
+
+// List of labels relevant to this bookmark
+func (o BookmarkPropertiesResponseOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// The notes of the bookmark
+func (o BookmarkPropertiesResponseOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The query of the bookmark.
+func (o BookmarkPropertiesResponseOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// The query result of the bookmark.
+func (o BookmarkPropertiesResponseOutput) QueryResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *string { return v.QueryResult }).(pulumi.StringPtrOutput)
+}
+
+// The last time the bookmark was updated
+func (o BookmarkPropertiesResponseOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *string { return v.Updated }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that updated the bookmark
+func (o BookmarkPropertiesResponseOutput) UpdatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v BookmarkPropertiesResponse) *UserInfoResponse { return v.UpdatedBy }).(UserInfoResponsePtrOutput)
+}
+
+type BookmarkPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BookmarkPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BookmarkPropertiesResponse)(nil)).Elem()
+}
+
+func (o BookmarkPropertiesResponsePtrOutput) ToBookmarkPropertiesResponsePtrOutput() BookmarkPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o BookmarkPropertiesResponsePtrOutput) ToBookmarkPropertiesResponsePtrOutputWithContext(ctx context.Context) BookmarkPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o BookmarkPropertiesResponsePtrOutput) Elem() BookmarkPropertiesResponseOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) BookmarkPropertiesResponse { return *v }).(BookmarkPropertiesResponseOutput)
+}
+
+// The time the bookmark was created
+func (o BookmarkPropertiesResponsePtrOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Created
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that created the bookmark
+func (o BookmarkPropertiesResponsePtrOutput) CreatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *UserInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(UserInfoResponsePtrOutput)
+}
+
+// The display name of the bookmark
+func (o BookmarkPropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes an incident that relates to bookmark
+func (o BookmarkPropertiesResponsePtrOutput) IncidentInfo() IncidentInfoResponsePtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *IncidentInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IncidentInfo
+	}).(IncidentInfoResponsePtrOutput)
+}
+
+// List of labels relevant to this bookmark
+func (o BookmarkPropertiesResponsePtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+// The notes of the bookmark
+func (o BookmarkPropertiesResponsePtrOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Notes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query of the bookmark.
+func (o BookmarkPropertiesResponsePtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query result of the bookmark.
+func (o BookmarkPropertiesResponsePtrOutput) QueryResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryResult
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last time the bookmark was updated
+func (o BookmarkPropertiesResponsePtrOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Updated
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that updated the bookmark
+func (o BookmarkPropertiesResponsePtrOutput) UpdatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *BookmarkPropertiesResponse) *UserInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatedBy
+	}).(UserInfoResponsePtrOutput)
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalData struct {
+}
+
+// IncidentAdditionalDataInput is an input type that accepts IncidentAdditionalDataArgs and IncidentAdditionalDataOutput values.
+// You can construct a concrete instance of `IncidentAdditionalDataInput` via:
+//
+//          IncidentAdditionalDataArgs{...}
+type IncidentAdditionalDataInput interface {
+	pulumi.Input
+
+	ToIncidentAdditionalDataOutput() IncidentAdditionalDataOutput
+	ToIncidentAdditionalDataOutputWithContext(context.Context) IncidentAdditionalDataOutput
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataArgs struct {
+}
+
+func (IncidentAdditionalDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentAdditionalData)(nil)).Elem()
+}
+
+func (i IncidentAdditionalDataArgs) ToIncidentAdditionalDataOutput() IncidentAdditionalDataOutput {
+	return i.ToIncidentAdditionalDataOutputWithContext(context.Background())
+}
+
+func (i IncidentAdditionalDataArgs) ToIncidentAdditionalDataOutputWithContext(ctx context.Context) IncidentAdditionalDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataOutput)
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataOutput struct{ *pulumi.OutputState }
+
+func (IncidentAdditionalDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentAdditionalData)(nil)).Elem()
+}
+
+func (o IncidentAdditionalDataOutput) ToIncidentAdditionalDataOutput() IncidentAdditionalDataOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataOutput) ToIncidentAdditionalDataOutputWithContext(ctx context.Context) IncidentAdditionalDataOutput {
+	return o
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataResponse struct {
+	// List of product names of alerts in the incident
+	AlertProductNames []string `pulumi:"alertProductNames"`
+	// The number of alerts in the incident
+	AlertsCount int `pulumi:"alertsCount"`
+	// The number of bookmarks in the incident
+	BookmarksCount int `pulumi:"bookmarksCount"`
+	// The number of comments in the incident
+	CommentsCount int `pulumi:"commentsCount"`
+	// The tactics associated with incident
+	Tactics []string `pulumi:"tactics"`
+}
+
+// IncidentAdditionalDataResponseInput is an input type that accepts IncidentAdditionalDataResponseArgs and IncidentAdditionalDataResponseOutput values.
+// You can construct a concrete instance of `IncidentAdditionalDataResponseInput` via:
+//
+//          IncidentAdditionalDataResponseArgs{...}
+type IncidentAdditionalDataResponseInput interface {
+	pulumi.Input
+
+	ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput
+	ToIncidentAdditionalDataResponseOutputWithContext(context.Context) IncidentAdditionalDataResponseOutput
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataResponseArgs struct {
+	// List of product names of alerts in the incident
+	AlertProductNames pulumi.StringArrayInput `pulumi:"alertProductNames"`
+	// The number of alerts in the incident
+	AlertsCount pulumi.IntInput `pulumi:"alertsCount"`
+	// The number of bookmarks in the incident
+	BookmarksCount pulumi.IntInput `pulumi:"bookmarksCount"`
+	// The number of comments in the incident
+	CommentsCount pulumi.IntInput `pulumi:"commentsCount"`
+	// The tactics associated with incident
+	Tactics pulumi.StringArrayInput `pulumi:"tactics"`
+}
+
+func (IncidentAdditionalDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput {
+	return i.ToIncidentAdditionalDataResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput)
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IncidentAdditionalDataResponseArgs) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponseOutput).ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx)
+}
+
+// IncidentAdditionalDataResponsePtrInput is an input type that accepts IncidentAdditionalDataResponseArgs, IncidentAdditionalDataResponsePtr and IncidentAdditionalDataResponsePtrOutput values.
+// You can construct a concrete instance of `IncidentAdditionalDataResponsePtrInput` via:
+//
+//          IncidentAdditionalDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentAdditionalDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput
+	ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Context) IncidentAdditionalDataResponsePtrOutput
+}
+
+type incidentAdditionalDataResponsePtrType IncidentAdditionalDataResponseArgs
+
+func IncidentAdditionalDataResponsePtr(v *IncidentAdditionalDataResponseArgs) IncidentAdditionalDataResponsePtrInput {
+	return (*incidentAdditionalDataResponsePtrType)(v)
+}
+
+func (*incidentAdditionalDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return i.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponsePtrOutput)
+}
+
+// Incident additional data property bag.
+type IncidentAdditionalDataResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentAdditionalDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOutput() IncidentAdditionalDataResponseOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponseOutputWithContext(ctx context.Context) IncidentAdditionalDataResponseOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return o.ToIncidentAdditionalDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
+		return &v
+	}).(IncidentAdditionalDataResponsePtrOutput)
+}
+
+// List of product names of alerts in the incident
+func (o IncidentAdditionalDataResponseOutput) AlertProductNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.AlertProductNames }).(pulumi.StringArrayOutput)
+}
+
+// The number of alerts in the incident
+func (o IncidentAdditionalDataResponseOutput) AlertsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.AlertsCount }).(pulumi.IntOutput)
+}
+
+// The number of bookmarks in the incident
+func (o IncidentAdditionalDataResponseOutput) BookmarksCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.BookmarksCount }).(pulumi.IntOutput)
+}
+
+// The number of comments in the incident
+func (o IncidentAdditionalDataResponseOutput) CommentsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.CommentsCount }).(pulumi.IntOutput)
+}
+
+// The tactics associated with incident
+func (o IncidentAdditionalDataResponseOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+type IncidentAdditionalDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentAdditionalDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentAdditionalDataResponse)(nil)).Elem()
+}
+
+func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutput() IncidentAdditionalDataResponsePtrOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
+	return o
+}
+
+func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataResponseOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse { return *v }).(IncidentAdditionalDataResponseOutput)
+}
+
+// List of product names of alerts in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertProductNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of alerts in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AlertsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of bookmarks in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BookmarksCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of comments in the incident
+func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CommentsCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The tactics associated with incident
+func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Tactics
+	}).(pulumi.StringArrayOutput)
+}
+
+// Describes related incident information for the bookmark
+type IncidentInfo struct {
+	// Incident Id
+	IncidentId string `pulumi:"incidentId"`
+	// Relation Name
+	RelationName string `pulumi:"relationName"`
+	// The severity of the incident
+	Severity string `pulumi:"severity"`
+	// The title of the incident
+	Title string `pulumi:"title"`
+}
+
+// IncidentInfoInput is an input type that accepts IncidentInfoArgs and IncidentInfoOutput values.
+// You can construct a concrete instance of `IncidentInfoInput` via:
+//
+//          IncidentInfoArgs{...}
+type IncidentInfoInput interface {
+	pulumi.Input
+
+	ToIncidentInfoOutput() IncidentInfoOutput
+	ToIncidentInfoOutputWithContext(context.Context) IncidentInfoOutput
+}
+
+// Describes related incident information for the bookmark
+type IncidentInfoArgs struct {
+	// Incident Id
+	IncidentId pulumi.StringInput `pulumi:"incidentId"`
+	// Relation Name
+	RelationName pulumi.StringInput `pulumi:"relationName"`
+	// The severity of the incident
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// The title of the incident
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (IncidentInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentInfo)(nil)).Elem()
+}
+
+func (i IncidentInfoArgs) ToIncidentInfoOutput() IncidentInfoOutput {
+	return i.ToIncidentInfoOutputWithContext(context.Background())
+}
+
+func (i IncidentInfoArgs) ToIncidentInfoOutputWithContext(ctx context.Context) IncidentInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoOutput)
+}
+
+func (i IncidentInfoArgs) ToIncidentInfoPtrOutput() IncidentInfoPtrOutput {
+	return i.ToIncidentInfoPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentInfoArgs) ToIncidentInfoPtrOutputWithContext(ctx context.Context) IncidentInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoOutput).ToIncidentInfoPtrOutputWithContext(ctx)
+}
+
+// IncidentInfoPtrInput is an input type that accepts IncidentInfoArgs, IncidentInfoPtr and IncidentInfoPtrOutput values.
+// You can construct a concrete instance of `IncidentInfoPtrInput` via:
+//
+//          IncidentInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentInfoPtrInput interface {
+	pulumi.Input
+
+	ToIncidentInfoPtrOutput() IncidentInfoPtrOutput
+	ToIncidentInfoPtrOutputWithContext(context.Context) IncidentInfoPtrOutput
+}
+
+type incidentInfoPtrType IncidentInfoArgs
+
+func IncidentInfoPtr(v *IncidentInfoArgs) IncidentInfoPtrInput {
+	return (*incidentInfoPtrType)(v)
+}
+
+func (*incidentInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentInfo)(nil)).Elem()
+}
+
+func (i *incidentInfoPtrType) ToIncidentInfoPtrOutput() IncidentInfoPtrOutput {
+	return i.ToIncidentInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentInfoPtrType) ToIncidentInfoPtrOutputWithContext(ctx context.Context) IncidentInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoPtrOutput)
+}
+
+// Describes related incident information for the bookmark
+type IncidentInfoOutput struct{ *pulumi.OutputState }
+
+func (IncidentInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentInfo)(nil)).Elem()
+}
+
+func (o IncidentInfoOutput) ToIncidentInfoOutput() IncidentInfoOutput {
+	return o
+}
+
+func (o IncidentInfoOutput) ToIncidentInfoOutputWithContext(ctx context.Context) IncidentInfoOutput {
+	return o
+}
+
+func (o IncidentInfoOutput) ToIncidentInfoPtrOutput() IncidentInfoPtrOutput {
+	return o.ToIncidentInfoPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentInfoOutput) ToIncidentInfoPtrOutputWithContext(ctx context.Context) IncidentInfoPtrOutput {
+	return o.ApplyT(func(v IncidentInfo) *IncidentInfo {
+		return &v
+	}).(IncidentInfoPtrOutput)
+}
+
+// Incident Id
+func (o IncidentInfoOutput) IncidentId() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfo) string { return v.IncidentId }).(pulumi.StringOutput)
+}
+
+// Relation Name
+func (o IncidentInfoOutput) RelationName() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfo) string { return v.RelationName }).(pulumi.StringOutput)
+}
+
+// The severity of the incident
+func (o IncidentInfoOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfo) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The title of the incident
+func (o IncidentInfoOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfo) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type IncidentInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentInfo)(nil)).Elem()
+}
+
+func (o IncidentInfoPtrOutput) ToIncidentInfoPtrOutput() IncidentInfoPtrOutput {
+	return o
+}
+
+func (o IncidentInfoPtrOutput) ToIncidentInfoPtrOutputWithContext(ctx context.Context) IncidentInfoPtrOutput {
+	return o
+}
+
+func (o IncidentInfoPtrOutput) Elem() IncidentInfoOutput {
+	return o.ApplyT(func(v *IncidentInfo) IncidentInfo { return *v }).(IncidentInfoOutput)
+}
+
+// Incident Id
+func (o IncidentInfoPtrOutput) IncidentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IncidentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Relation Name
+func (o IncidentInfoPtrOutput) RelationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The severity of the incident
+func (o IncidentInfoPtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the incident
+func (o IncidentInfoPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes related incident information for the bookmark
+type IncidentInfoResponse struct {
+	// Incident Id
+	IncidentId string `pulumi:"incidentId"`
+	// Relation Name
+	RelationName string `pulumi:"relationName"`
+	// The severity of the incident
+	Severity string `pulumi:"severity"`
+	// The title of the incident
+	Title string `pulumi:"title"`
+}
+
+// IncidentInfoResponseInput is an input type that accepts IncidentInfoResponseArgs and IncidentInfoResponseOutput values.
+// You can construct a concrete instance of `IncidentInfoResponseInput` via:
+//
+//          IncidentInfoResponseArgs{...}
+type IncidentInfoResponseInput interface {
+	pulumi.Input
+
+	ToIncidentInfoResponseOutput() IncidentInfoResponseOutput
+	ToIncidentInfoResponseOutputWithContext(context.Context) IncidentInfoResponseOutput
+}
+
+// Describes related incident information for the bookmark
+type IncidentInfoResponseArgs struct {
+	// Incident Id
+	IncidentId pulumi.StringInput `pulumi:"incidentId"`
+	// Relation Name
+	RelationName pulumi.StringInput `pulumi:"relationName"`
+	// The severity of the incident
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// The title of the incident
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (IncidentInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentInfoResponse)(nil)).Elem()
+}
+
+func (i IncidentInfoResponseArgs) ToIncidentInfoResponseOutput() IncidentInfoResponseOutput {
+	return i.ToIncidentInfoResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentInfoResponseArgs) ToIncidentInfoResponseOutputWithContext(ctx context.Context) IncidentInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoResponseOutput)
+}
+
+func (i IncidentInfoResponseArgs) ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput {
+	return i.ToIncidentInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IncidentInfoResponseArgs) ToIncidentInfoResponsePtrOutputWithContext(ctx context.Context) IncidentInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoResponseOutput).ToIncidentInfoResponsePtrOutputWithContext(ctx)
+}
+
+// IncidentInfoResponsePtrInput is an input type that accepts IncidentInfoResponseArgs, IncidentInfoResponsePtr and IncidentInfoResponsePtrOutput values.
+// You can construct a concrete instance of `IncidentInfoResponsePtrInput` via:
+//
+//          IncidentInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput
+	ToIncidentInfoResponsePtrOutputWithContext(context.Context) IncidentInfoResponsePtrOutput
+}
+
+type incidentInfoResponsePtrType IncidentInfoResponseArgs
+
+func IncidentInfoResponsePtr(v *IncidentInfoResponseArgs) IncidentInfoResponsePtrInput {
+	return (*incidentInfoResponsePtrType)(v)
+}
+
+func (*incidentInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentInfoResponse)(nil)).Elem()
+}
+
+func (i *incidentInfoResponsePtrType) ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput {
+	return i.ToIncidentInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentInfoResponsePtrType) ToIncidentInfoResponsePtrOutputWithContext(ctx context.Context) IncidentInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentInfoResponsePtrOutput)
+}
+
+// Describes related incident information for the bookmark
+type IncidentInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentInfoResponse)(nil)).Elem()
+}
+
+func (o IncidentInfoResponseOutput) ToIncidentInfoResponseOutput() IncidentInfoResponseOutput {
+	return o
+}
+
+func (o IncidentInfoResponseOutput) ToIncidentInfoResponseOutputWithContext(ctx context.Context) IncidentInfoResponseOutput {
+	return o
+}
+
+func (o IncidentInfoResponseOutput) ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput {
+	return o.ToIncidentInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentInfoResponseOutput) ToIncidentInfoResponsePtrOutputWithContext(ctx context.Context) IncidentInfoResponsePtrOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) *IncidentInfoResponse {
+		return &v
+	}).(IncidentInfoResponsePtrOutput)
+}
+
+// Incident Id
+func (o IncidentInfoResponseOutput) IncidentId() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) string { return v.IncidentId }).(pulumi.StringOutput)
+}
+
+// Relation Name
+func (o IncidentInfoResponseOutput) RelationName() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) string { return v.RelationName }).(pulumi.StringOutput)
+}
+
+// The severity of the incident
+func (o IncidentInfoResponseOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The title of the incident
+func (o IncidentInfoResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentInfoResponse) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type IncidentInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentInfoResponse)(nil)).Elem()
+}
+
+func (o IncidentInfoResponsePtrOutput) ToIncidentInfoResponsePtrOutput() IncidentInfoResponsePtrOutput {
+	return o
+}
+
+func (o IncidentInfoResponsePtrOutput) ToIncidentInfoResponsePtrOutputWithContext(ctx context.Context) IncidentInfoResponsePtrOutput {
+	return o
+}
+
+func (o IncidentInfoResponsePtrOutput) Elem() IncidentInfoResponseOutput {
+	return o.ApplyT(func(v *IncidentInfoResponse) IncidentInfoResponse { return *v }).(IncidentInfoResponseOutput)
+}
+
+// Incident Id
+func (o IncidentInfoResponsePtrOutput) IncidentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IncidentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Relation Name
+func (o IncidentInfoResponsePtrOutput) RelationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The severity of the incident
+func (o IncidentInfoResponsePtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the incident
+func (o IncidentInfoResponsePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents an incident label
+type IncidentLabel struct {
+	// The name of the label
+	LabelName string `pulumi:"labelName"`
+}
+
+// IncidentLabelInput is an input type that accepts IncidentLabelArgs and IncidentLabelOutput values.
+// You can construct a concrete instance of `IncidentLabelInput` via:
+//
+//          IncidentLabelArgs{...}
+type IncidentLabelInput interface {
+	pulumi.Input
+
+	ToIncidentLabelOutput() IncidentLabelOutput
+	ToIncidentLabelOutputWithContext(context.Context) IncidentLabelOutput
+}
+
+// Represents an incident label
+type IncidentLabelArgs struct {
+	// The name of the label
+	LabelName pulumi.StringInput `pulumi:"labelName"`
+}
+
+func (IncidentLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabel)(nil)).Elem()
+}
+
+func (i IncidentLabelArgs) ToIncidentLabelOutput() IncidentLabelOutput {
+	return i.ToIncidentLabelOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelArgs) ToIncidentLabelOutputWithContext(ctx context.Context) IncidentLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelOutput)
+}
+
+// IncidentLabelArrayInput is an input type that accepts IncidentLabelArray and IncidentLabelArrayOutput values.
+// You can construct a concrete instance of `IncidentLabelArrayInput` via:
+//
+//          IncidentLabelArray{ IncidentLabelArgs{...} }
+type IncidentLabelArrayInput interface {
+	pulumi.Input
+
+	ToIncidentLabelArrayOutput() IncidentLabelArrayOutput
+	ToIncidentLabelArrayOutputWithContext(context.Context) IncidentLabelArrayOutput
+}
+
+type IncidentLabelArray []IncidentLabelInput
+
+func (IncidentLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabel)(nil)).Elem()
+}
+
+func (i IncidentLabelArray) ToIncidentLabelArrayOutput() IncidentLabelArrayOutput {
+	return i.ToIncidentLabelArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelArray) ToIncidentLabelArrayOutputWithContext(ctx context.Context) IncidentLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelArrayOutput)
+}
+
+// Represents an incident label
+type IncidentLabelOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabel)(nil)).Elem()
+}
+
+func (o IncidentLabelOutput) ToIncidentLabelOutput() IncidentLabelOutput {
+	return o
+}
+
+func (o IncidentLabelOutput) ToIncidentLabelOutputWithContext(ctx context.Context) IncidentLabelOutput {
+	return o
+}
+
+// The name of the label
+func (o IncidentLabelOutput) LabelName() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentLabel) string { return v.LabelName }).(pulumi.StringOutput)
+}
+
+type IncidentLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabel)(nil)).Elem()
+}
+
+func (o IncidentLabelArrayOutput) ToIncidentLabelArrayOutput() IncidentLabelArrayOutput {
+	return o
+}
+
+func (o IncidentLabelArrayOutput) ToIncidentLabelArrayOutputWithContext(ctx context.Context) IncidentLabelArrayOutput {
+	return o
+}
+
+func (o IncidentLabelArrayOutput) Index(i pulumi.IntInput) IncidentLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentLabel {
+		return vs[0].([]IncidentLabel)[vs[1].(int)]
+	}).(IncidentLabelOutput)
+}
+
+// Represents an incident label
+type IncidentLabelResponse struct {
+	// The name of the label
+	LabelName string `pulumi:"labelName"`
+	// The type of the label
+	LabelType string `pulumi:"labelType"`
+}
+
+// IncidentLabelResponseInput is an input type that accepts IncidentLabelResponseArgs and IncidentLabelResponseOutput values.
+// You can construct a concrete instance of `IncidentLabelResponseInput` via:
+//
+//          IncidentLabelResponseArgs{...}
+type IncidentLabelResponseInput interface {
+	pulumi.Input
+
+	ToIncidentLabelResponseOutput() IncidentLabelResponseOutput
+	ToIncidentLabelResponseOutputWithContext(context.Context) IncidentLabelResponseOutput
+}
+
+// Represents an incident label
+type IncidentLabelResponseArgs struct {
+	// The name of the label
+	LabelName pulumi.StringInput `pulumi:"labelName"`
+	// The type of the label
+	LabelType pulumi.StringInput `pulumi:"labelType"`
+}
+
+func (IncidentLabelResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabelResponse)(nil)).Elem()
+}
+
+func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutput() IncidentLabelResponseOutput {
+	return i.ToIncidentLabelResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelResponseArgs) ToIncidentLabelResponseOutputWithContext(ctx context.Context) IncidentLabelResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseOutput)
+}
+
+// IncidentLabelResponseArrayInput is an input type that accepts IncidentLabelResponseArray and IncidentLabelResponseArrayOutput values.
+// You can construct a concrete instance of `IncidentLabelResponseArrayInput` via:
+//
+//          IncidentLabelResponseArray{ IncidentLabelResponseArgs{...} }
+type IncidentLabelResponseArrayInput interface {
+	pulumi.Input
+
+	ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput
+	ToIncidentLabelResponseArrayOutputWithContext(context.Context) IncidentLabelResponseArrayOutput
+}
+
+type IncidentLabelResponseArray []IncidentLabelResponseInput
+
+func (IncidentLabelResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabelResponse)(nil)).Elem()
+}
+
+func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput {
+	return i.ToIncidentLabelResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutputWithContext(ctx context.Context) IncidentLabelResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseArrayOutput)
+}
+
+// Represents an incident label
+type IncidentLabelResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentLabelResponse)(nil)).Elem()
+}
+
+func (o IncidentLabelResponseOutput) ToIncidentLabelResponseOutput() IncidentLabelResponseOutput {
+	return o
+}
+
+func (o IncidentLabelResponseOutput) ToIncidentLabelResponseOutputWithContext(ctx context.Context) IncidentLabelResponseOutput {
+	return o
+}
+
+// The name of the label
+func (o IncidentLabelResponseOutput) LabelName() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelName }).(pulumi.StringOutput)
+}
+
+// The type of the label
+func (o IncidentLabelResponseOutput) LabelType() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelType }).(pulumi.StringOutput)
+}
+
+type IncidentLabelResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentLabelResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentLabelResponse)(nil)).Elem()
+}
+
+func (o IncidentLabelResponseArrayOutput) ToIncidentLabelResponseArrayOutput() IncidentLabelResponseArrayOutput {
+	return o
+}
+
+func (o IncidentLabelResponseArrayOutput) ToIncidentLabelResponseArrayOutputWithContext(ctx context.Context) IncidentLabelResponseArrayOutput {
+	return o
+}
+
+func (o IncidentLabelResponseArrayOutput) Index(i pulumi.IntInput) IncidentLabelResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentLabelResponse {
+		return vs[0].([]IncidentLabelResponse)[vs[1].(int)]
+	}).(IncidentLabelResponseOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfo struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo *string `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email *string `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId *string `pulumi:"objectId"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName *string `pulumi:"userPrincipalName"`
+}
+
+// IncidentOwnerInfoInput is an input type that accepts IncidentOwnerInfoArgs and IncidentOwnerInfoOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoInput` via:
+//
+//          IncidentOwnerInfoArgs{...}
+type IncidentOwnerInfoInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoOutput() IncidentOwnerInfoOutput
+	ToIncidentOwnerInfoOutputWithContext(context.Context) IncidentOwnerInfoOutput
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoArgs struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
+}
+
+func (IncidentOwnerInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoOutput() IncidentOwnerInfoOutput {
+	return i.ToIncidentOwnerInfoOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoOutputWithContext(ctx context.Context) IncidentOwnerInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoOutput)
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return i.ToIncidentOwnerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoArgs) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoOutput).ToIncidentOwnerInfoPtrOutputWithContext(ctx)
+}
+
+// IncidentOwnerInfoPtrInput is an input type that accepts IncidentOwnerInfoArgs, IncidentOwnerInfoPtr and IncidentOwnerInfoPtrOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoPtrInput` via:
+//
+//          IncidentOwnerInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentOwnerInfoPtrInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput
+	ToIncidentOwnerInfoPtrOutputWithContext(context.Context) IncidentOwnerInfoPtrOutput
+}
+
+type incidentOwnerInfoPtrType IncidentOwnerInfoArgs
+
+func IncidentOwnerInfoPtr(v *IncidentOwnerInfoArgs) IncidentOwnerInfoPtrInput {
+	return (*incidentOwnerInfoPtrType)(v)
+}
+
+func (*incidentOwnerInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (i *incidentOwnerInfoPtrType) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return i.ToIncidentOwnerInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentOwnerInfoPtrType) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoPtrOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoOutput() IncidentOwnerInfoOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoOutputWithContext(ctx context.Context) IncidentOwnerInfoOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return o.ToIncidentOwnerInfoPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *IncidentOwnerInfo {
+		return &v
+	}).(IncidentOwnerInfoPtrOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+type IncidentOwnerInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfo)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoPtrOutput) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInfoPtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoPtrOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoPtrOutput) Elem() IncidentOwnerInfoOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo { return *v }).(IncidentOwnerInfoOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignedTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPrincipalName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoResponse struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo *string `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email *string `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId *string `pulumi:"objectId"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName *string `pulumi:"userPrincipalName"`
+}
+
+// IncidentOwnerInfoResponseInput is an input type that accepts IncidentOwnerInfoResponseArgs and IncidentOwnerInfoResponseOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoResponseInput` via:
+//
+//          IncidentOwnerInfoResponseArgs{...}
+type IncidentOwnerInfoResponseInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput
+	ToIncidentOwnerInfoResponseOutputWithContext(context.Context) IncidentOwnerInfoResponseOutput
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoResponseArgs struct {
+	// The name of the user the incident is assigned to.
+	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
+	// The email of the user the incident is assigned to.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The object id of the user the incident is assigned to.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The user principal name of the user the incident is assigned to.
+	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
+}
+
+func (IncidentOwnerInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput {
+	return i.ToIncidentOwnerInfoResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput)
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IncidentOwnerInfoResponseArgs) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponseOutput).ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx)
+}
+
+// IncidentOwnerInfoResponsePtrInput is an input type that accepts IncidentOwnerInfoResponseArgs, IncidentOwnerInfoResponsePtr and IncidentOwnerInfoResponsePtrOutput values.
+// You can construct a concrete instance of `IncidentOwnerInfoResponsePtrInput` via:
+//
+//          IncidentOwnerInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentOwnerInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput
+	ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Context) IncidentOwnerInfoResponsePtrOutput
+}
+
+type incidentOwnerInfoResponsePtrType IncidentOwnerInfoResponseArgs
+
+func IncidentOwnerInfoResponsePtr(v *IncidentOwnerInfoResponseArgs) IncidentOwnerInfoResponsePtrInput {
+	return (*incidentOwnerInfoResponsePtrType)(v)
+}
+
+func (*incidentOwnerInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return i.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// Information on the user an incident is assigned to
+type IncidentOwnerInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutput() IncidentOwnerInfoResponseOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponseOutputWithContext(ctx context.Context) IncidentOwnerInfoResponseOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return o.ToIncidentOwnerInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
+		return &v
+	}).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+type IncidentOwnerInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentOwnerInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentOwnerInfoResponse)(nil)).Elem()
+}
+
+func (o IncidentOwnerInfoResponsePtrOutput) ToIncidentOwnerInfoResponsePtrOutput() IncidentOwnerInfoResponsePtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponsePtrOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
+	return o
+}
+
+func (o IncidentOwnerInfoResponsePtrOutput) Elem() IncidentOwnerInfoResponseOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse { return *v }).(IncidentOwnerInfoResponseOutput)
+}
+
+// The name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) AssignedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignedTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the user the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserPrincipalName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes incident properties
+type IncidentProperties struct {
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// The description of the incident
+	Description *string `pulumi:"description"`
+	// The time of the first activity in the incident
+	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
+	// List of labels relevant to this incident
+	Labels []IncidentLabel `pulumi:"labels"`
+	// The time of the last activity in the incident
+	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
+	// Describes a user that the incident is assigned to
+	Owner *IncidentOwnerInfo `pulumi:"owner"`
+	// The severity of the incident
+	Severity string `pulumi:"severity"`
+	// The status of the incident
+	Status string `pulumi:"status"`
+	// The title of the incident
+	Title string `pulumi:"title"`
+}
+
+// IncidentPropertiesInput is an input type that accepts IncidentPropertiesArgs and IncidentPropertiesOutput values.
+// You can construct a concrete instance of `IncidentPropertiesInput` via:
+//
+//          IncidentPropertiesArgs{...}
+type IncidentPropertiesInput interface {
+	pulumi.Input
+
+	ToIncidentPropertiesOutput() IncidentPropertiesOutput
+	ToIncidentPropertiesOutputWithContext(context.Context) IncidentPropertiesOutput
+}
+
+// Describes incident properties
+type IncidentPropertiesArgs struct {
+	// The reason the incident was closed
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason pulumi.StringPtrInput `pulumi:"classificationReason"`
+	// The description of the incident
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The time of the first activity in the incident
+	FirstActivityTimeUtc pulumi.StringPtrInput `pulumi:"firstActivityTimeUtc"`
+	// List of labels relevant to this incident
+	Labels IncidentLabelArrayInput `pulumi:"labels"`
+	// The time of the last activity in the incident
+	LastActivityTimeUtc pulumi.StringPtrInput `pulumi:"lastActivityTimeUtc"`
+	// Describes a user that the incident is assigned to
+	Owner IncidentOwnerInfoPtrInput `pulumi:"owner"`
+	// The severity of the incident
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// The status of the incident
+	Status pulumi.StringInput `pulumi:"status"`
+	// The title of the incident
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (IncidentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentProperties)(nil)).Elem()
+}
+
+func (i IncidentPropertiesArgs) ToIncidentPropertiesOutput() IncidentPropertiesOutput {
+	return i.ToIncidentPropertiesOutputWithContext(context.Background())
+}
+
+func (i IncidentPropertiesArgs) ToIncidentPropertiesOutputWithContext(ctx context.Context) IncidentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPropertiesOutput)
+}
+
+func (i IncidentPropertiesArgs) ToIncidentPropertiesPtrOutput() IncidentPropertiesPtrOutput {
+	return i.ToIncidentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IncidentPropertiesArgs) ToIncidentPropertiesPtrOutputWithContext(ctx context.Context) IncidentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPropertiesOutput).ToIncidentPropertiesPtrOutputWithContext(ctx)
+}
+
+// IncidentPropertiesPtrInput is an input type that accepts IncidentPropertiesArgs, IncidentPropertiesPtr and IncidentPropertiesPtrOutput values.
+// You can construct a concrete instance of `IncidentPropertiesPtrInput` via:
+//
+//          IncidentPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIncidentPropertiesPtrOutput() IncidentPropertiesPtrOutput
+	ToIncidentPropertiesPtrOutputWithContext(context.Context) IncidentPropertiesPtrOutput
+}
+
+type incidentPropertiesPtrType IncidentPropertiesArgs
+
+func IncidentPropertiesPtr(v *IncidentPropertiesArgs) IncidentPropertiesPtrInput {
+	return (*incidentPropertiesPtrType)(v)
+}
+
+func (*incidentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentProperties)(nil)).Elem()
+}
+
+func (i *incidentPropertiesPtrType) ToIncidentPropertiesPtrOutput() IncidentPropertiesPtrOutput {
+	return i.ToIncidentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *incidentPropertiesPtrType) ToIncidentPropertiesPtrOutputWithContext(ctx context.Context) IncidentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPropertiesPtrOutput)
+}
+
+// Describes incident properties
+type IncidentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IncidentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentProperties)(nil)).Elem()
+}
+
+func (o IncidentPropertiesOutput) ToIncidentPropertiesOutput() IncidentPropertiesOutput {
+	return o
+}
+
+func (o IncidentPropertiesOutput) ToIncidentPropertiesOutputWithContext(ctx context.Context) IncidentPropertiesOutput {
+	return o
+}
+
+func (o IncidentPropertiesOutput) ToIncidentPropertiesPtrOutput() IncidentPropertiesPtrOutput {
+	return o.ToIncidentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IncidentPropertiesOutput) ToIncidentPropertiesPtrOutputWithContext(ctx context.Context) IncidentPropertiesPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *IncidentProperties {
+		return &v
+	}).(IncidentPropertiesPtrOutput)
+}
+
+// The reason the incident was closed
+func (o IncidentPropertiesOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o IncidentPropertiesOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *string { return v.ClassificationComment }).(pulumi.StringPtrOutput)
+}
+
+// The classification reason the incident was closed with
+func (o IncidentPropertiesOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *string { return v.ClassificationReason }).(pulumi.StringPtrOutput)
+}
+
+// The description of the incident
+func (o IncidentPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The time of the first activity in the incident
+func (o IncidentPropertiesOutput) FirstActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *string { return v.FirstActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// List of labels relevant to this incident
+func (o IncidentPropertiesOutput) Labels() IncidentLabelArrayOutput {
+	return o.ApplyT(func(v IncidentProperties) []IncidentLabel { return v.Labels }).(IncidentLabelArrayOutput)
+}
+
+// The time of the last activity in the incident
+func (o IncidentPropertiesOutput) LastActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *string { return v.LastActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o IncidentPropertiesOutput) Owner() IncidentOwnerInfoPtrOutput {
+	return o.ApplyT(func(v IncidentProperties) *IncidentOwnerInfo { return v.Owner }).(IncidentOwnerInfoPtrOutput)
+}
+
+// The severity of the incident
+func (o IncidentPropertiesOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentProperties) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The status of the incident
+func (o IncidentPropertiesOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentProperties) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The title of the incident
+func (o IncidentPropertiesOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentProperties) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type IncidentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentProperties)(nil)).Elem()
+}
+
+func (o IncidentPropertiesPtrOutput) ToIncidentPropertiesPtrOutput() IncidentPropertiesPtrOutput {
+	return o
+}
+
+func (o IncidentPropertiesPtrOutput) ToIncidentPropertiesPtrOutputWithContext(ctx context.Context) IncidentPropertiesPtrOutput {
+	return o
+}
+
+func (o IncidentPropertiesPtrOutput) Elem() IncidentPropertiesOutput {
+	return o.ApplyT(func(v *IncidentProperties) IncidentProperties { return *v }).(IncidentPropertiesOutput)
+}
+
+// The reason the incident was closed
+func (o IncidentPropertiesPtrOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o IncidentPropertiesPtrOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassificationComment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The classification reason the incident was closed with
+func (o IncidentPropertiesPtrOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassificationReason
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the incident
+func (o IncidentPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time of the first activity in the incident
+func (o IncidentPropertiesPtrOutput) FirstActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstActivityTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of labels relevant to this incident
+func (o IncidentPropertiesPtrOutput) Labels() IncidentLabelArrayOutput {
+	return o.ApplyT(func(v *IncidentProperties) []IncidentLabel {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(IncidentLabelArrayOutput)
+}
+
+// The time of the last activity in the incident
+func (o IncidentPropertiesPtrOutput) LastActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastActivityTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o IncidentPropertiesPtrOutput) Owner() IncidentOwnerInfoPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *IncidentOwnerInfo {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(IncidentOwnerInfoPtrOutput)
+}
+
+// The severity of the incident
+func (o IncidentPropertiesPtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the incident
+func (o IncidentPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the incident
+func (o IncidentPropertiesPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes incident properties
+type IncidentPropertiesResponse struct {
+	// Additional data on the incident
+	AdditionalData IncidentAdditionalDataResponse `pulumi:"additionalData"`
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// The time the incident was created
+	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
+	// The description of the incident
+	Description *string `pulumi:"description"`
+	// The time of the first activity in the incident
+	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
+	// A sequential number
+	IncidentNumber int `pulumi:"incidentNumber"`
+	// The deep-link url to the incident in Azure portal
+	IncidentUrl string `pulumi:"incidentUrl"`
+	// List of labels relevant to this incident
+	Labels []IncidentLabelResponse `pulumi:"labels"`
+	// The time of the last activity in the incident
+	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
+	// The last time the incident was updated
+	LastModifiedTimeUtc string `pulumi:"lastModifiedTimeUtc"`
+	// Describes a user that the incident is assigned to
+	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
+	// List of resource ids of Analytic rules related to the incident
+	RelatedAnalyticRuleIds []string `pulumi:"relatedAnalyticRuleIds"`
+	// The severity of the incident
+	Severity string `pulumi:"severity"`
+	// The status of the incident
+	Status string `pulumi:"status"`
+	// The title of the incident
+	Title string `pulumi:"title"`
+}
+
+// IncidentPropertiesResponseInput is an input type that accepts IncidentPropertiesResponseArgs and IncidentPropertiesResponseOutput values.
+// You can construct a concrete instance of `IncidentPropertiesResponseInput` via:
+//
+//          IncidentPropertiesResponseArgs{...}
+type IncidentPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToIncidentPropertiesResponseOutput() IncidentPropertiesResponseOutput
+	ToIncidentPropertiesResponseOutputWithContext(context.Context) IncidentPropertiesResponseOutput
+}
+
+// Describes incident properties
+type IncidentPropertiesResponseArgs struct {
+	// Additional data on the incident
+	AdditionalData IncidentAdditionalDataResponseInput `pulumi:"additionalData"`
+	// The reason the incident was closed
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason pulumi.StringPtrInput `pulumi:"classificationReason"`
+	// The time the incident was created
+	CreatedTimeUtc pulumi.StringInput `pulumi:"createdTimeUtc"`
+	// The description of the incident
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The time of the first activity in the incident
+	FirstActivityTimeUtc pulumi.StringPtrInput `pulumi:"firstActivityTimeUtc"`
+	// A sequential number
+	IncidentNumber pulumi.IntInput `pulumi:"incidentNumber"`
+	// The deep-link url to the incident in Azure portal
+	IncidentUrl pulumi.StringInput `pulumi:"incidentUrl"`
+	// List of labels relevant to this incident
+	Labels IncidentLabelResponseArrayInput `pulumi:"labels"`
+	// The time of the last activity in the incident
+	LastActivityTimeUtc pulumi.StringPtrInput `pulumi:"lastActivityTimeUtc"`
+	// The last time the incident was updated
+	LastModifiedTimeUtc pulumi.StringInput `pulumi:"lastModifiedTimeUtc"`
+	// Describes a user that the incident is assigned to
+	Owner IncidentOwnerInfoResponsePtrInput `pulumi:"owner"`
+	// List of resource ids of Analytic rules related to the incident
+	RelatedAnalyticRuleIds pulumi.StringArrayInput `pulumi:"relatedAnalyticRuleIds"`
+	// The severity of the incident
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// The status of the incident
+	Status pulumi.StringInput `pulumi:"status"`
+	// The title of the incident
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (IncidentPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentPropertiesResponse)(nil)).Elem()
+}
+
+func (i IncidentPropertiesResponseArgs) ToIncidentPropertiesResponseOutput() IncidentPropertiesResponseOutput {
+	return i.ToIncidentPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i IncidentPropertiesResponseArgs) ToIncidentPropertiesResponseOutputWithContext(ctx context.Context) IncidentPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPropertiesResponseOutput)
+}
+
+func (i IncidentPropertiesResponseArgs) ToIncidentPropertiesResponsePtrOutput() IncidentPropertiesResponsePtrOutput {
+	return i.ToIncidentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IncidentPropertiesResponseArgs) ToIncidentPropertiesResponsePtrOutputWithContext(ctx context.Context) IncidentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPropertiesResponseOutput).ToIncidentPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// IncidentPropertiesResponsePtrInput is an input type that accepts IncidentPropertiesResponseArgs, IncidentPropertiesResponsePtr and IncidentPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `IncidentPropertiesResponsePtrInput` via:
+//
+//          IncidentPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IncidentPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToIncidentPropertiesResponsePtrOutput() IncidentPropertiesResponsePtrOutput
+	ToIncidentPropertiesResponsePtrOutputWithContext(context.Context) IncidentPropertiesResponsePtrOutput
+}
+
+type incidentPropertiesResponsePtrType IncidentPropertiesResponseArgs
+
+func IncidentPropertiesResponsePtr(v *IncidentPropertiesResponseArgs) IncidentPropertiesResponsePtrInput {
+	return (*incidentPropertiesResponsePtrType)(v)
+}
+
+func (*incidentPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentPropertiesResponse)(nil)).Elem()
+}
+
+func (i *incidentPropertiesResponsePtrType) ToIncidentPropertiesResponsePtrOutput() IncidentPropertiesResponsePtrOutput {
+	return i.ToIncidentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *incidentPropertiesResponsePtrType) ToIncidentPropertiesResponsePtrOutputWithContext(ctx context.Context) IncidentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentPropertiesResponsePtrOutput)
+}
+
+// Describes incident properties
+type IncidentPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (IncidentPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentPropertiesResponse)(nil)).Elem()
+}
+
+func (o IncidentPropertiesResponseOutput) ToIncidentPropertiesResponseOutput() IncidentPropertiesResponseOutput {
+	return o
+}
+
+func (o IncidentPropertiesResponseOutput) ToIncidentPropertiesResponseOutputWithContext(ctx context.Context) IncidentPropertiesResponseOutput {
+	return o
+}
+
+func (o IncidentPropertiesResponseOutput) ToIncidentPropertiesResponsePtrOutput() IncidentPropertiesResponsePtrOutput {
+	return o.ToIncidentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IncidentPropertiesResponseOutput) ToIncidentPropertiesResponsePtrOutputWithContext(ctx context.Context) IncidentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *IncidentPropertiesResponse {
+		return &v
+	}).(IncidentPropertiesResponsePtrOutput)
+}
+
+// Additional data on the incident
+func (o IncidentPropertiesResponseOutput) AdditionalData() IncidentAdditionalDataResponseOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) IncidentAdditionalDataResponse { return v.AdditionalData }).(IncidentAdditionalDataResponseOutput)
+}
+
+// The reason the incident was closed
+func (o IncidentPropertiesResponseOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o IncidentPropertiesResponseOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *string { return v.ClassificationComment }).(pulumi.StringPtrOutput)
+}
+
+// The classification reason the incident was closed with
+func (o IncidentPropertiesResponseOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *string { return v.ClassificationReason }).(pulumi.StringPtrOutput)
+}
+
+// The time the incident was created
+func (o IncidentPropertiesResponseOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) string { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// The description of the incident
+func (o IncidentPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The time of the first activity in the incident
+func (o IncidentPropertiesResponseOutput) FirstActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *string { return v.FirstActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// A sequential number
+func (o IncidentPropertiesResponseOutput) IncidentNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) int { return v.IncidentNumber }).(pulumi.IntOutput)
+}
+
+// The deep-link url to the incident in Azure portal
+func (o IncidentPropertiesResponseOutput) IncidentUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) string { return v.IncidentUrl }).(pulumi.StringOutput)
+}
+
+// List of labels relevant to this incident
+func (o IncidentPropertiesResponseOutput) Labels() IncidentLabelResponseArrayOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) []IncidentLabelResponse { return v.Labels }).(IncidentLabelResponseArrayOutput)
+}
+
+// The time of the last activity in the incident
+func (o IncidentPropertiesResponseOutput) LastActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *string { return v.LastActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// The last time the incident was updated
+func (o IncidentPropertiesResponseOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) string { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o IncidentPropertiesResponseOutput) Owner() IncidentOwnerInfoResponsePtrOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) *IncidentOwnerInfoResponse { return v.Owner }).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// List of resource ids of Analytic rules related to the incident
+func (o IncidentPropertiesResponseOutput) RelatedAnalyticRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) []string { return v.RelatedAnalyticRuleIds }).(pulumi.StringArrayOutput)
+}
+
+// The severity of the incident
+func (o IncidentPropertiesResponseOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The status of the incident
+func (o IncidentPropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The title of the incident
+func (o IncidentPropertiesResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentPropertiesResponse) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type IncidentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IncidentPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IncidentPropertiesResponse)(nil)).Elem()
+}
+
+func (o IncidentPropertiesResponsePtrOutput) ToIncidentPropertiesResponsePtrOutput() IncidentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o IncidentPropertiesResponsePtrOutput) ToIncidentPropertiesResponsePtrOutputWithContext(ctx context.Context) IncidentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o IncidentPropertiesResponsePtrOutput) Elem() IncidentPropertiesResponseOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) IncidentPropertiesResponse { return *v }).(IncidentPropertiesResponseOutput)
+}
+
+// Additional data on the incident
+func (o IncidentPropertiesResponsePtrOutput) AdditionalData() IncidentAdditionalDataResponsePtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *IncidentAdditionalDataResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.AdditionalData
+	}).(IncidentAdditionalDataResponsePtrOutput)
+}
+
+// The reason the incident was closed
+func (o IncidentPropertiesResponsePtrOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o IncidentPropertiesResponsePtrOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassificationComment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The classification reason the incident was closed with
+func (o IncidentPropertiesResponsePtrOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassificationReason
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time the incident was created
+func (o IncidentPropertiesResponsePtrOutput) CreatedTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the incident
+func (o IncidentPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time of the first activity in the incident
+func (o IncidentPropertiesResponsePtrOutput) FirstActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstActivityTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// A sequential number
+func (o IncidentPropertiesResponsePtrOutput) IncidentNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IncidentNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The deep-link url to the incident in Azure portal
+func (o IncidentPropertiesResponsePtrOutput) IncidentUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IncidentUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of labels relevant to this incident
+func (o IncidentPropertiesResponsePtrOutput) Labels() IncidentLabelResponseArrayOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) []IncidentLabelResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(IncidentLabelResponseArrayOutput)
+}
+
+// The time of the last activity in the incident
+func (o IncidentPropertiesResponsePtrOutput) LastActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastActivityTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last time the incident was updated
+func (o IncidentPropertiesResponsePtrOutput) LastModifiedTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastModifiedTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o IncidentPropertiesResponsePtrOutput) Owner() IncidentOwnerInfoResponsePtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *IncidentOwnerInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// List of resource ids of Analytic rules related to the incident
+func (o IncidentPropertiesResponsePtrOutput) RelatedAnalyticRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RelatedAnalyticRuleIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The severity of the incident
+func (o IncidentPropertiesResponsePtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the incident
+func (o IncidentPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the incident
+func (o IncidentPropertiesResponsePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1840,11 +4441,317 @@ func (o TagResponseArrayOutput) Index(i pulumi.IntInput) TagResponseOutput {
 	}).(TagResponseOutput)
 }
 
+// User information that made some action
+type UserInfo struct {
+	// The object id of the user.
+	ObjectId string `pulumi:"objectId"`
+}
+
+// UserInfoInput is an input type that accepts UserInfoArgs and UserInfoOutput values.
+// You can construct a concrete instance of `UserInfoInput` via:
+//
+//          UserInfoArgs{...}
+type UserInfoInput interface {
+	pulumi.Input
+
+	ToUserInfoOutput() UserInfoOutput
+	ToUserInfoOutputWithContext(context.Context) UserInfoOutput
+}
+
+// User information that made some action
+type UserInfoArgs struct {
+	// The object id of the user.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+}
+
+func (UserInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfo)(nil)).Elem()
+}
+
+func (i UserInfoArgs) ToUserInfoOutput() UserInfoOutput {
+	return i.ToUserInfoOutputWithContext(context.Background())
+}
+
+func (i UserInfoArgs) ToUserInfoOutputWithContext(ctx context.Context) UserInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoOutput)
+}
+
+func (i UserInfoArgs) ToUserInfoPtrOutput() UserInfoPtrOutput {
+	return i.ToUserInfoPtrOutputWithContext(context.Background())
+}
+
+func (i UserInfoArgs) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoOutput).ToUserInfoPtrOutputWithContext(ctx)
+}
+
+// UserInfoPtrInput is an input type that accepts UserInfoArgs, UserInfoPtr and UserInfoPtrOutput values.
+// You can construct a concrete instance of `UserInfoPtrInput` via:
+//
+//          UserInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type UserInfoPtrInput interface {
+	pulumi.Input
+
+	ToUserInfoPtrOutput() UserInfoPtrOutput
+	ToUserInfoPtrOutputWithContext(context.Context) UserInfoPtrOutput
+}
+
+type userInfoPtrType UserInfoArgs
+
+func UserInfoPtr(v *UserInfoArgs) UserInfoPtrInput {
+	return (*userInfoPtrType)(v)
+}
+
+func (*userInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfo)(nil)).Elem()
+}
+
+func (i *userInfoPtrType) ToUserInfoPtrOutput() UserInfoPtrOutput {
+	return i.ToUserInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *userInfoPtrType) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoPtrOutput)
+}
+
+// User information that made some action
+type UserInfoOutput struct{ *pulumi.OutputState }
+
+func (UserInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfo)(nil)).Elem()
+}
+
+func (o UserInfoOutput) ToUserInfoOutput() UserInfoOutput {
+	return o
+}
+
+func (o UserInfoOutput) ToUserInfoOutputWithContext(ctx context.Context) UserInfoOutput {
+	return o
+}
+
+func (o UserInfoOutput) ToUserInfoPtrOutput() UserInfoPtrOutput {
+	return o.ToUserInfoPtrOutputWithContext(context.Background())
+}
+
+func (o UserInfoOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
+	return o.ApplyT(func(v UserInfo) *UserInfo {
+		return &v
+	}).(UserInfoPtrOutput)
+}
+
+// The object id of the user.
+func (o UserInfoOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserInfo) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+type UserInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (UserInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfo)(nil)).Elem()
+}
+
+func (o UserInfoPtrOutput) ToUserInfoPtrOutput() UserInfoPtrOutput {
+	return o
+}
+
+func (o UserInfoPtrOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
+	return o
+}
+
+func (o UserInfoPtrOutput) Elem() UserInfoOutput {
+	return o.ApplyT(func(v *UserInfo) UserInfo { return *v }).(UserInfoOutput)
+}
+
+// The object id of the user.
+func (o UserInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User information that made some action
+type UserInfoResponse struct {
+	// The email of the user.
+	Email string `pulumi:"email"`
+	// The name of the user.
+	Name string `pulumi:"name"`
+	// The object id of the user.
+	ObjectId string `pulumi:"objectId"`
+}
+
+// UserInfoResponseInput is an input type that accepts UserInfoResponseArgs and UserInfoResponseOutput values.
+// You can construct a concrete instance of `UserInfoResponseInput` via:
+//
+//          UserInfoResponseArgs{...}
+type UserInfoResponseInput interface {
+	pulumi.Input
+
+	ToUserInfoResponseOutput() UserInfoResponseOutput
+	ToUserInfoResponseOutputWithContext(context.Context) UserInfoResponseOutput
+}
+
+// User information that made some action
+type UserInfoResponseArgs struct {
+	// The email of the user.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The name of the user.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The object id of the user.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+}
+
+func (UserInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfoResponse)(nil)).Elem()
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponseOutput() UserInfoResponseOutput {
+	return i.ToUserInfoResponseOutputWithContext(context.Background())
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponseOutputWithContext(ctx context.Context) UserInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponseOutput)
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return i.ToUserInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserInfoResponseArgs) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponseOutput).ToUserInfoResponsePtrOutputWithContext(ctx)
+}
+
+// UserInfoResponsePtrInput is an input type that accepts UserInfoResponseArgs, UserInfoResponsePtr and UserInfoResponsePtrOutput values.
+// You can construct a concrete instance of `UserInfoResponsePtrInput` via:
+//
+//          UserInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput
+	ToUserInfoResponsePtrOutputWithContext(context.Context) UserInfoResponsePtrOutput
+}
+
+type userInfoResponsePtrType UserInfoResponseArgs
+
+func UserInfoResponsePtr(v *UserInfoResponseArgs) UserInfoResponsePtrInput {
+	return (*userInfoResponsePtrType)(v)
+}
+
+func (*userInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfoResponse)(nil)).Elem()
+}
+
+func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return i.ToUserInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponsePtrOutput)
+}
+
+// User information that made some action
+type UserInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (UserInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfoResponse)(nil)).Elem()
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponseOutput() UserInfoResponseOutput {
+	return o
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponseOutputWithContext(ctx context.Context) UserInfoResponseOutput {
+	return o
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return o.ToUserInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v UserInfoResponse) *UserInfoResponse {
+		return &v
+	}).(UserInfoResponsePtrOutput)
+}
+
+// The email of the user.
+func (o UserInfoResponseOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v UserInfoResponse) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The name of the user.
+func (o UserInfoResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserInfoResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The object id of the user.
+func (o UserInfoResponseOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserInfoResponse) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+type UserInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfoResponse)(nil)).Elem()
+}
+
+func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePtrOutput {
+	return o
+}
+
+func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
+	return o
+}
+
+func (o UserInfoResponsePtrOutput) Elem() UserInfoResponseOutput {
+	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse { return *v }).(UserInfoResponseOutput)
+}
+
+// The email of the user.
+func (o UserInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the user.
+func (o UserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user.
+func (o UserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Alert rule.
 type WorkspaceProviderAlertRuleType struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// The kind of the alert rule
+	// The alert rule kind
 	Kind string `pulumi:"kind"`
 	// Azure resource name
 	Name string `pulumi:"name"`
@@ -1867,7 +4774,7 @@ type WorkspaceProviderAlertRuleTypeInput interface {
 type WorkspaceProviderAlertRuleTypeArgs struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The kind of the alert rule
+	// The alert rule kind
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Azure resource name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1907,7 +4814,7 @@ func (o WorkspaceProviderAlertRuleTypeOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceProviderAlertRuleType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the alert rule
+// The alert rule kind
 func (o WorkspaceProviderAlertRuleTypeOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceProviderAlertRuleType) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -2004,11 +4911,93 @@ func (o WorkspaceProviderAlertRuleActionTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceProviderAlertRuleActionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Represents a bookmark in Azure Security Insights.
+type WorkspaceProviderBookmarkType struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Bookmark properties
+	Properties BookmarkPropertiesResponse `pulumi:"properties"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// WorkspaceProviderBookmarkTypeInput is an input type that accepts WorkspaceProviderBookmarkTypeArgs and WorkspaceProviderBookmarkTypeOutput values.
+// You can construct a concrete instance of `WorkspaceProviderBookmarkTypeInput` via:
+//
+//          WorkspaceProviderBookmarkTypeArgs{...}
+type WorkspaceProviderBookmarkTypeInput interface {
+	pulumi.Input
+
+	ToWorkspaceProviderBookmarkTypeOutput() WorkspaceProviderBookmarkTypeOutput
+	ToWorkspaceProviderBookmarkTypeOutputWithContext(context.Context) WorkspaceProviderBookmarkTypeOutput
+}
+
+// Represents a bookmark in Azure Security Insights.
+type WorkspaceProviderBookmarkTypeArgs struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Bookmark properties
+	Properties BookmarkPropertiesResponseInput `pulumi:"properties"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkspaceProviderBookmarkTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProviderBookmarkType)(nil)).Elem()
+}
+
+func (i WorkspaceProviderBookmarkTypeArgs) ToWorkspaceProviderBookmarkTypeOutput() WorkspaceProviderBookmarkTypeOutput {
+	return i.ToWorkspaceProviderBookmarkTypeOutputWithContext(context.Background())
+}
+
+func (i WorkspaceProviderBookmarkTypeArgs) ToWorkspaceProviderBookmarkTypeOutputWithContext(ctx context.Context) WorkspaceProviderBookmarkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderBookmarkTypeOutput)
+}
+
+// Represents a bookmark in Azure Security Insights.
+type WorkspaceProviderBookmarkTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceProviderBookmarkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProviderBookmarkType)(nil)).Elem()
+}
+
+func (o WorkspaceProviderBookmarkTypeOutput) ToWorkspaceProviderBookmarkTypeOutput() WorkspaceProviderBookmarkTypeOutput {
+	return o
+}
+
+func (o WorkspaceProviderBookmarkTypeOutput) ToWorkspaceProviderBookmarkTypeOutputWithContext(ctx context.Context) WorkspaceProviderBookmarkTypeOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o WorkspaceProviderBookmarkTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceProviderBookmarkType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o WorkspaceProviderBookmarkTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceProviderBookmarkType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bookmark properties
+func (o WorkspaceProviderBookmarkTypeOutput) Properties() BookmarkPropertiesResponseOutput {
+	return o.ApplyT(func(v WorkspaceProviderBookmarkType) BookmarkPropertiesResponse { return v.Properties }).(BookmarkPropertiesResponseOutput)
+}
+
+// Azure resource type
+func (o WorkspaceProviderBookmarkTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceProviderBookmarkType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Data connector.
 type WorkspaceProviderDataConnectorType struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
+	// The data connector kind
 	Kind string `pulumi:"kind"`
 	// Azure resource name
 	Name string `pulumi:"name"`
@@ -2031,7 +5020,7 @@ type WorkspaceProviderDataConnectorTypeInput interface {
 type WorkspaceProviderDataConnectorTypeArgs struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The kind of the data connector
+	// The data connector kind
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Azure resource name
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2071,7 +5060,7 @@ func (o WorkspaceProviderDataConnectorTypeOutput) Etag() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v WorkspaceProviderDataConnectorType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the data connector
+// The data connector kind
 func (o WorkspaceProviderDataConnectorTypeOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceProviderDataConnectorType) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -2084,6 +5073,88 @@ func (o WorkspaceProviderDataConnectorTypeOutput) Name() pulumi.StringOutput {
 // Azure resource type
 func (o WorkspaceProviderDataConnectorTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceProviderDataConnectorType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Represents an incident in Azure Security Insights.
+type WorkspaceProviderIncidentType struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Incident properties
+	Properties IncidentPropertiesResponse `pulumi:"properties"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// WorkspaceProviderIncidentTypeInput is an input type that accepts WorkspaceProviderIncidentTypeArgs and WorkspaceProviderIncidentTypeOutput values.
+// You can construct a concrete instance of `WorkspaceProviderIncidentTypeInput` via:
+//
+//          WorkspaceProviderIncidentTypeArgs{...}
+type WorkspaceProviderIncidentTypeInput interface {
+	pulumi.Input
+
+	ToWorkspaceProviderIncidentTypeOutput() WorkspaceProviderIncidentTypeOutput
+	ToWorkspaceProviderIncidentTypeOutputWithContext(context.Context) WorkspaceProviderIncidentTypeOutput
+}
+
+// Represents an incident in Azure Security Insights.
+type WorkspaceProviderIncidentTypeArgs struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Incident properties
+	Properties IncidentPropertiesResponseInput `pulumi:"properties"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkspaceProviderIncidentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProviderIncidentType)(nil)).Elem()
+}
+
+func (i WorkspaceProviderIncidentTypeArgs) ToWorkspaceProviderIncidentTypeOutput() WorkspaceProviderIncidentTypeOutput {
+	return i.ToWorkspaceProviderIncidentTypeOutputWithContext(context.Background())
+}
+
+func (i WorkspaceProviderIncidentTypeArgs) ToWorkspaceProviderIncidentTypeOutputWithContext(ctx context.Context) WorkspaceProviderIncidentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderIncidentTypeOutput)
+}
+
+// Represents an incident in Azure Security Insights.
+type WorkspaceProviderIncidentTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceProviderIncidentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProviderIncidentType)(nil)).Elem()
+}
+
+func (o WorkspaceProviderIncidentTypeOutput) ToWorkspaceProviderIncidentTypeOutput() WorkspaceProviderIncidentTypeOutput {
+	return o
+}
+
+func (o WorkspaceProviderIncidentTypeOutput) ToWorkspaceProviderIncidentTypeOutputWithContext(ctx context.Context) WorkspaceProviderIncidentTypeOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o WorkspaceProviderIncidentTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceProviderIncidentType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o WorkspaceProviderIncidentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceProviderIncidentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Incident properties
+func (o WorkspaceProviderIncidentTypeOutput) Properties() IncidentPropertiesResponseOutput {
+	return o.ApplyT(func(v WorkspaceProviderIncidentType) IncidentPropertiesResponse { return v.Properties }).(IncidentPropertiesResponseOutput)
+}
+
+// Azure resource type
+func (o WorkspaceProviderIncidentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceProviderIncidentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Value object for saved search results.
@@ -2264,6 +5335,29 @@ func init() {
 	pulumi.RegisterOutputType(ActionRequestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionResponsePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ActionResponsePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(BookmarkPropertiesOutput{})
+	pulumi.RegisterOutputType(BookmarkPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BookmarkPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(BookmarkPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(IncidentAdditionalDataOutput{})
+	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
+	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(IncidentInfoOutput{})
+	pulumi.RegisterOutputType(IncidentInfoPtrOutput{})
+	pulumi.RegisterOutputType(IncidentInfoResponseOutput{})
+	pulumi.RegisterOutputType(IncidentInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(IncidentLabelOutput{})
+	pulumi.RegisterOutputType(IncidentLabelArrayOutput{})
+	pulumi.RegisterOutputType(IncidentLabelResponseOutput{})
+	pulumi.RegisterOutputType(IncidentLabelResponseArrayOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoPtrOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoResponseOutput{})
+	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(IncidentPropertiesOutput{})
+	pulumi.RegisterOutputType(IncidentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IncidentPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(IncidentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesResponseOutput{})
@@ -2283,9 +5377,15 @@ func init() {
 	pulumi.RegisterOutputType(TagArrayOutput{})
 	pulumi.RegisterOutputType(TagResponseOutput{})
 	pulumi.RegisterOutputType(TagResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserInfoOutput{})
+	pulumi.RegisterOutputType(UserInfoPtrOutput{})
+	pulumi.RegisterOutputType(UserInfoResponseOutput{})
+	pulumi.RegisterOutputType(UserInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAlertRuleTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAlertRuleActionTypeOutput{})
+	pulumi.RegisterOutputType(WorkspaceProviderBookmarkTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderDataConnectorTypeOutput{})
+	pulumi.RegisterOutputType(WorkspaceProviderIncidentTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceSavedSearchTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageInsightConfigTypeOutput{})
 }

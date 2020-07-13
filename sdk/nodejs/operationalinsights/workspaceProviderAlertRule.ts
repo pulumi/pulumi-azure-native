@@ -40,7 +40,7 @@ export class WorkspaceProviderAlertRule extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * The kind of the alert rule
+     * The alert rule kind
      */
     public readonly kind!: pulumi.Output<string>;
     /**
@@ -109,7 +109,7 @@ export interface WorkspaceProviderAlertRuleState {
      */
     readonly etag?: pulumi.Input<string>;
     /**
-     * The kind of the alert rule
+     * The alert rule kind
      */
     readonly kind: pulumi.Input<string>;
     /**
@@ -131,7 +131,7 @@ export interface WorkspaceProviderAlertRuleArgs {
      */
     readonly etag?: pulumi.Input<string>;
     /**
-     * The kind of the alert rule
+     * The alert rule kind
      */
     readonly kind: pulumi.Input<string>;
     /**

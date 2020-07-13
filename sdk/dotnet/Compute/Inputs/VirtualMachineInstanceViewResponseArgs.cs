@@ -117,6 +117,12 @@ namespace Pulumi.AzureRM.Compute.Inputs
         [Input("vmAgent")]
         public Input<Inputs.VirtualMachineAgentInstanceViewResponseArgs>? VmAgent { get; set; }
 
+        /// <summary>
+        /// The health status for the VM.
+        /// </summary>
+        [Input("vmHealth", required: true)]
+        public Input<Inputs.VirtualMachineHealthStatusResponseArgs> VmHealth { get; set; } = null!;
+
         public VirtualMachineInstanceViewResponseArgs()
         {
         }

@@ -16,8 +16,6 @@ type FirewallPolicy struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The identity of the firewall policy.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
@@ -66,8 +64,6 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 type firewallPolicyState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
-	// The identity of the firewall policy.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -83,8 +79,6 @@ type firewallPolicyState struct {
 type FirewallPolicyState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
-	// The identity of the firewall policy.
-	Identity ManagedServiceIdentityResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
@@ -104,8 +98,6 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 type firewallPolicyArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The identity of the firewall policy.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Firewall Policy.
@@ -122,8 +114,6 @@ type firewallPolicyArgs struct {
 type FirewallPolicyArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The identity of the firewall policy.
-	Identity ManagedServiceIdentityPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Firewall Policy.

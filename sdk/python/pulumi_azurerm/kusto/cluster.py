@@ -31,6 +31,7 @@ class Cluster(pulumi.CustomResource):
     The cluster properties.
       * `data_ingestion_uri` (`str`) - The cluster data ingestion URI.
       * `enable_disk_encryption` (`bool`) - A boolean value that indicates if the cluster's disks are encrypted.
+      * `enable_double_encryption` (`bool`) - A boolean value that indicates if double encryption is enabled.
       * `enable_purge` (`bool`) - A boolean value that indicates if the purge operations are enabled.
       * `enable_streaming_ingest` (`bool`) - A boolean value that indicates if the streaming ingest is enabled.
       * `key_vault_properties` (`dict`) - KeyVault properties for the cluster encryption.
@@ -102,16 +103,13 @@ class Cluster(pulumi.CustomResource):
         The **properties** object supports the following:
 
           * `enable_disk_encryption` (`pulumi.Input[bool]`) - A boolean value that indicates if the cluster's disks are encrypted.
+          * `enable_double_encryption` (`pulumi.Input[bool]`) - A boolean value that indicates if double encryption is enabled.
           * `enable_purge` (`pulumi.Input[bool]`) - A boolean value that indicates if the purge operations are enabled.
           * `enable_streaming_ingest` (`pulumi.Input[bool]`) - A boolean value that indicates if the streaming ingest is enabled.
           * `key_vault_properties` (`pulumi.Input[dict]`) - KeyVault properties for the cluster encryption.
             * `key_name` (`pulumi.Input[str]`) - The name of the key vault key.
             * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of the key vault.
             * `key_version` (`pulumi.Input[str]`) - The version of the key vault key.
-
-          * `language_extensions` (`pulumi.Input[dict]`) - List of the cluster's language extensions.
-            * `value` (`pulumi.Input[list]`) - The list of language extensions.
-              * `language_extension_name` (`pulumi.Input[str]`) - The language extension name.
 
           * `optimized_autoscale` (`pulumi.Input[dict]`) - Optimized auto scale definition.
             * `is_enabled` (`pulumi.Input[bool]`) - A boolean value that indicate if the optimized autoscale feature is enabled or not.
@@ -202,6 +200,7 @@ class Cluster(pulumi.CustomResource):
 
           * `data_ingestion_uri` (`pulumi.Input[str]`) - The cluster data ingestion URI.
           * `enable_disk_encryption` (`pulumi.Input[bool]`) - A boolean value that indicates if the cluster's disks are encrypted.
+          * `enable_double_encryption` (`pulumi.Input[bool]`) - A boolean value that indicates if double encryption is enabled.
           * `enable_purge` (`pulumi.Input[bool]`) - A boolean value that indicates if the purge operations are enabled.
           * `enable_streaming_ingest` (`pulumi.Input[bool]`) - A boolean value that indicates if the streaming ingest is enabled.
           * `key_vault_properties` (`pulumi.Input[dict]`) - KeyVault properties for the cluster encryption.

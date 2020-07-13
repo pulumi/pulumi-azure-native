@@ -16,7 +16,7 @@ class WorkspaceProviderDataConnector(pulumi.CustomResource):
     """
     kind: pulumi.Output[str]
     """
-    The kind of the data connector
+    The data connector kind
     """
     name: pulumi.Output[str]
     """
@@ -33,7 +33,7 @@ class WorkspaceProviderDataConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] kind: The kind of the data connector
+        :param pulumi.Input[str] kind: The data connector kind
         :param pulumi.Input[str] name: Connector ID
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -85,7 +85,7 @@ class WorkspaceProviderDataConnector(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] kind: The kind of the data connector
+        :param pulumi.Input[str] kind: The data connector kind
         :param pulumi.Input[str] name: Azure resource name
         :param pulumi.Input[str] type: Azure resource type
         """

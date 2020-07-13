@@ -3104,6 +3104,8 @@ type ClusterCreateProperties struct {
 	ComputeProfile *ComputeProfile `pulumi:"computeProfile"`
 	// The disk encryption properties.
 	DiskEncryptionProperties *DiskEncryptionProperties `pulumi:"diskEncryptionProperties"`
+	// The encryption-in-transit properties.
+	EncryptionInTransitProperties *EncryptionInTransitProperties `pulumi:"encryptionInTransitProperties"`
 	// The cluster kafka rest proxy configuration.
 	KafkaRestProperties *KafkaRestProperties `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
@@ -3141,6 +3143,8 @@ type ClusterCreatePropertiesArgs struct {
 	ComputeProfile ComputeProfilePtrInput `pulumi:"computeProfile"`
 	// The disk encryption properties.
 	DiskEncryptionProperties DiskEncryptionPropertiesPtrInput `pulumi:"diskEncryptionProperties"`
+	// The encryption-in-transit properties.
+	EncryptionInTransitProperties EncryptionInTransitPropertiesPtrInput `pulumi:"encryptionInTransitProperties"`
 	// The cluster kafka rest proxy configuration.
 	KafkaRestProperties KafkaRestPropertiesPtrInput `pulumi:"kafkaRestProperties"`
 	// The minimal supported tls version.
@@ -3255,6 +3259,11 @@ func (o ClusterCreatePropertiesOutput) DiskEncryptionProperties() DiskEncryption
 	return o.ApplyT(func(v ClusterCreateProperties) *DiskEncryptionProperties { return v.DiskEncryptionProperties }).(DiskEncryptionPropertiesPtrOutput)
 }
 
+// The encryption-in-transit properties.
+func (o ClusterCreatePropertiesOutput) EncryptionInTransitProperties() EncryptionInTransitPropertiesPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *EncryptionInTransitProperties { return v.EncryptionInTransitProperties }).(EncryptionInTransitPropertiesPtrOutput)
+}
+
 // The cluster kafka rest proxy configuration.
 func (o ClusterCreatePropertiesOutput) KafkaRestProperties() KafkaRestPropertiesPtrOutput {
 	return o.ApplyT(func(v ClusterCreateProperties) *KafkaRestProperties { return v.KafkaRestProperties }).(KafkaRestPropertiesPtrOutput)
@@ -3346,6 +3355,16 @@ func (o ClusterCreatePropertiesPtrOutput) DiskEncryptionProperties() DiskEncrypt
 		}
 		return v.DiskEncryptionProperties
 	}).(DiskEncryptionPropertiesPtrOutput)
+}
+
+// The encryption-in-transit properties.
+func (o ClusterCreatePropertiesPtrOutput) EncryptionInTransitProperties() EncryptionInTransitPropertiesPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *EncryptionInTransitProperties {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionInTransitProperties
+	}).(EncryptionInTransitPropertiesPtrOutput)
 }
 
 // The cluster kafka rest proxy configuration.
@@ -3816,6 +3835,8 @@ type ClusterGetPropertiesResponse struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// The disk encryption properties.
 	DiskEncryptionProperties *DiskEncryptionPropertiesResponse `pulumi:"diskEncryptionProperties"`
+	// The encryption-in-transit properties.
+	EncryptionInTransitProperties *EncryptionInTransitPropertiesResponse `pulumi:"encryptionInTransitProperties"`
 	// The list of errors.
 	Errors []ErrorsResponse `pulumi:"errors"`
 	// The cluster kafka rest proxy configuration.
@@ -3863,6 +3884,8 @@ type ClusterGetPropertiesResponseArgs struct {
 	CreatedDate pulumi.StringPtrInput `pulumi:"createdDate"`
 	// The disk encryption properties.
 	DiskEncryptionProperties DiskEncryptionPropertiesResponsePtrInput `pulumi:"diskEncryptionProperties"`
+	// The encryption-in-transit properties.
+	EncryptionInTransitProperties EncryptionInTransitPropertiesResponsePtrInput `pulumi:"encryptionInTransitProperties"`
 	// The list of errors.
 	Errors ErrorsResponseArrayInput `pulumi:"errors"`
 	// The cluster kafka rest proxy configuration.
@@ -3998,6 +4021,13 @@ func (o ClusterGetPropertiesResponseOutput) DiskEncryptionProperties() DiskEncry
 	}).(DiskEncryptionPropertiesResponsePtrOutput)
 }
 
+// The encryption-in-transit properties.
+func (o ClusterGetPropertiesResponseOutput) EncryptionInTransitProperties() EncryptionInTransitPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ClusterGetPropertiesResponse) *EncryptionInTransitPropertiesResponse {
+		return v.EncryptionInTransitProperties
+	}).(EncryptionInTransitPropertiesResponsePtrOutput)
+}
+
 // The list of errors.
 func (o ClusterGetPropertiesResponseOutput) Errors() ErrorsResponseArrayOutput {
 	return o.ApplyT(func(v ClusterGetPropertiesResponse) []ErrorsResponse { return v.Errors }).(ErrorsResponseArrayOutput)
@@ -4129,6 +4159,16 @@ func (o ClusterGetPropertiesResponsePtrOutput) DiskEncryptionProperties() DiskEn
 		}
 		return v.DiskEncryptionProperties
 	}).(DiskEncryptionPropertiesResponsePtrOutput)
+}
+
+// The encryption-in-transit properties.
+func (o ClusterGetPropertiesResponsePtrOutput) EncryptionInTransitProperties() EncryptionInTransitPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ClusterGetPropertiesResponse) *EncryptionInTransitPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionInTransitProperties
+	}).(EncryptionInTransitPropertiesResponsePtrOutput)
 }
 
 // The list of errors.
@@ -5596,6 +5636,274 @@ func (o DiskEncryptionPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOu
 		}
 		return v.VaultUri
 	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption-in-transit properties.
+type EncryptionInTransitProperties struct {
+	// Indicates whether or not inter cluster node communication is encrypted in transit.
+	IsEncryptionInTransitEnabled *bool `pulumi:"isEncryptionInTransitEnabled"`
+}
+
+// EncryptionInTransitPropertiesInput is an input type that accepts EncryptionInTransitPropertiesArgs and EncryptionInTransitPropertiesOutput values.
+// You can construct a concrete instance of `EncryptionInTransitPropertiesInput` via:
+//
+//          EncryptionInTransitPropertiesArgs{...}
+type EncryptionInTransitPropertiesInput interface {
+	pulumi.Input
+
+	ToEncryptionInTransitPropertiesOutput() EncryptionInTransitPropertiesOutput
+	ToEncryptionInTransitPropertiesOutputWithContext(context.Context) EncryptionInTransitPropertiesOutput
+}
+
+// The encryption-in-transit properties.
+type EncryptionInTransitPropertiesArgs struct {
+	// Indicates whether or not inter cluster node communication is encrypted in transit.
+	IsEncryptionInTransitEnabled pulumi.BoolPtrInput `pulumi:"isEncryptionInTransitEnabled"`
+}
+
+func (EncryptionInTransitPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInTransitProperties)(nil)).Elem()
+}
+
+func (i EncryptionInTransitPropertiesArgs) ToEncryptionInTransitPropertiesOutput() EncryptionInTransitPropertiesOutput {
+	return i.ToEncryptionInTransitPropertiesOutputWithContext(context.Background())
+}
+
+func (i EncryptionInTransitPropertiesArgs) ToEncryptionInTransitPropertiesOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInTransitPropertiesOutput)
+}
+
+func (i EncryptionInTransitPropertiesArgs) ToEncryptionInTransitPropertiesPtrOutput() EncryptionInTransitPropertiesPtrOutput {
+	return i.ToEncryptionInTransitPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionInTransitPropertiesArgs) ToEncryptionInTransitPropertiesPtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInTransitPropertiesOutput).ToEncryptionInTransitPropertiesPtrOutputWithContext(ctx)
+}
+
+// EncryptionInTransitPropertiesPtrInput is an input type that accepts EncryptionInTransitPropertiesArgs, EncryptionInTransitPropertiesPtr and EncryptionInTransitPropertiesPtrOutput values.
+// You can construct a concrete instance of `EncryptionInTransitPropertiesPtrInput` via:
+//
+//          EncryptionInTransitPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionInTransitPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionInTransitPropertiesPtrOutput() EncryptionInTransitPropertiesPtrOutput
+	ToEncryptionInTransitPropertiesPtrOutputWithContext(context.Context) EncryptionInTransitPropertiesPtrOutput
+}
+
+type encryptionInTransitPropertiesPtrType EncryptionInTransitPropertiesArgs
+
+func EncryptionInTransitPropertiesPtr(v *EncryptionInTransitPropertiesArgs) EncryptionInTransitPropertiesPtrInput {
+	return (*encryptionInTransitPropertiesPtrType)(v)
+}
+
+func (*encryptionInTransitPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionInTransitProperties)(nil)).Elem()
+}
+
+func (i *encryptionInTransitPropertiesPtrType) ToEncryptionInTransitPropertiesPtrOutput() EncryptionInTransitPropertiesPtrOutput {
+	return i.ToEncryptionInTransitPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionInTransitPropertiesPtrType) ToEncryptionInTransitPropertiesPtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInTransitPropertiesPtrOutput)
+}
+
+// The encryption-in-transit properties.
+type EncryptionInTransitPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInTransitPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInTransitProperties)(nil)).Elem()
+}
+
+func (o EncryptionInTransitPropertiesOutput) ToEncryptionInTransitPropertiesOutput() EncryptionInTransitPropertiesOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesOutput) ToEncryptionInTransitPropertiesOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesOutput) ToEncryptionInTransitPropertiesPtrOutput() EncryptionInTransitPropertiesPtrOutput {
+	return o.ToEncryptionInTransitPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionInTransitPropertiesOutput) ToEncryptionInTransitPropertiesPtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesPtrOutput {
+	return o.ApplyT(func(v EncryptionInTransitProperties) *EncryptionInTransitProperties {
+		return &v
+	}).(EncryptionInTransitPropertiesPtrOutput)
+}
+
+// Indicates whether or not inter cluster node communication is encrypted in transit.
+func (o EncryptionInTransitPropertiesOutput) IsEncryptionInTransitEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EncryptionInTransitProperties) *bool { return v.IsEncryptionInTransitEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type EncryptionInTransitPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInTransitPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionInTransitProperties)(nil)).Elem()
+}
+
+func (o EncryptionInTransitPropertiesPtrOutput) ToEncryptionInTransitPropertiesPtrOutput() EncryptionInTransitPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesPtrOutput) ToEncryptionInTransitPropertiesPtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesPtrOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesPtrOutput) Elem() EncryptionInTransitPropertiesOutput {
+	return o.ApplyT(func(v *EncryptionInTransitProperties) EncryptionInTransitProperties { return *v }).(EncryptionInTransitPropertiesOutput)
+}
+
+// Indicates whether or not inter cluster node communication is encrypted in transit.
+func (o EncryptionInTransitPropertiesPtrOutput) IsEncryptionInTransitEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EncryptionInTransitProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEncryptionInTransitEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The encryption-in-transit properties.
+type EncryptionInTransitPropertiesResponse struct {
+	// Indicates whether or not inter cluster node communication is encrypted in transit.
+	IsEncryptionInTransitEnabled *bool `pulumi:"isEncryptionInTransitEnabled"`
+}
+
+// EncryptionInTransitPropertiesResponseInput is an input type that accepts EncryptionInTransitPropertiesResponseArgs and EncryptionInTransitPropertiesResponseOutput values.
+// You can construct a concrete instance of `EncryptionInTransitPropertiesResponseInput` via:
+//
+//          EncryptionInTransitPropertiesResponseArgs{...}
+type EncryptionInTransitPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionInTransitPropertiesResponseOutput() EncryptionInTransitPropertiesResponseOutput
+	ToEncryptionInTransitPropertiesResponseOutputWithContext(context.Context) EncryptionInTransitPropertiesResponseOutput
+}
+
+// The encryption-in-transit properties.
+type EncryptionInTransitPropertiesResponseArgs struct {
+	// Indicates whether or not inter cluster node communication is encrypted in transit.
+	IsEncryptionInTransitEnabled pulumi.BoolPtrInput `pulumi:"isEncryptionInTransitEnabled"`
+}
+
+func (EncryptionInTransitPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInTransitPropertiesResponse)(nil)).Elem()
+}
+
+func (i EncryptionInTransitPropertiesResponseArgs) ToEncryptionInTransitPropertiesResponseOutput() EncryptionInTransitPropertiesResponseOutput {
+	return i.ToEncryptionInTransitPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionInTransitPropertiesResponseArgs) ToEncryptionInTransitPropertiesResponseOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInTransitPropertiesResponseOutput)
+}
+
+func (i EncryptionInTransitPropertiesResponseArgs) ToEncryptionInTransitPropertiesResponsePtrOutput() EncryptionInTransitPropertiesResponsePtrOutput {
+	return i.ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionInTransitPropertiesResponseArgs) ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInTransitPropertiesResponseOutput).ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionInTransitPropertiesResponsePtrInput is an input type that accepts EncryptionInTransitPropertiesResponseArgs, EncryptionInTransitPropertiesResponsePtr and EncryptionInTransitPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionInTransitPropertiesResponsePtrInput` via:
+//
+//          EncryptionInTransitPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionInTransitPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionInTransitPropertiesResponsePtrOutput() EncryptionInTransitPropertiesResponsePtrOutput
+	ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(context.Context) EncryptionInTransitPropertiesResponsePtrOutput
+}
+
+type encryptionInTransitPropertiesResponsePtrType EncryptionInTransitPropertiesResponseArgs
+
+func EncryptionInTransitPropertiesResponsePtr(v *EncryptionInTransitPropertiesResponseArgs) EncryptionInTransitPropertiesResponsePtrInput {
+	return (*encryptionInTransitPropertiesResponsePtrType)(v)
+}
+
+func (*encryptionInTransitPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionInTransitPropertiesResponse)(nil)).Elem()
+}
+
+func (i *encryptionInTransitPropertiesResponsePtrType) ToEncryptionInTransitPropertiesResponsePtrOutput() EncryptionInTransitPropertiesResponsePtrOutput {
+	return i.ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionInTransitPropertiesResponsePtrType) ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInTransitPropertiesResponsePtrOutput)
+}
+
+// The encryption-in-transit properties.
+type EncryptionInTransitPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInTransitPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInTransitPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionInTransitPropertiesResponseOutput) ToEncryptionInTransitPropertiesResponseOutput() EncryptionInTransitPropertiesResponseOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesResponseOutput) ToEncryptionInTransitPropertiesResponseOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesResponseOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesResponseOutput) ToEncryptionInTransitPropertiesResponsePtrOutput() EncryptionInTransitPropertiesResponsePtrOutput {
+	return o.ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionInTransitPropertiesResponseOutput) ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionInTransitPropertiesResponse) *EncryptionInTransitPropertiesResponse {
+		return &v
+	}).(EncryptionInTransitPropertiesResponsePtrOutput)
+}
+
+// Indicates whether or not inter cluster node communication is encrypted in transit.
+func (o EncryptionInTransitPropertiesResponseOutput) IsEncryptionInTransitEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EncryptionInTransitPropertiesResponse) *bool { return v.IsEncryptionInTransitEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type EncryptionInTransitPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInTransitPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionInTransitPropertiesResponse)(nil)).Elem()
+}
+
+func (o EncryptionInTransitPropertiesResponsePtrOutput) ToEncryptionInTransitPropertiesResponsePtrOutput() EncryptionInTransitPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesResponsePtrOutput) ToEncryptionInTransitPropertiesResponsePtrOutputWithContext(ctx context.Context) EncryptionInTransitPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionInTransitPropertiesResponsePtrOutput) Elem() EncryptionInTransitPropertiesResponseOutput {
+	return o.ApplyT(func(v *EncryptionInTransitPropertiesResponse) EncryptionInTransitPropertiesResponse { return *v }).(EncryptionInTransitPropertiesResponseOutput)
+}
+
+// Indicates whether or not inter cluster node communication is encrypted in transit.
+func (o EncryptionInTransitPropertiesResponsePtrOutput) IsEncryptionInTransitEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EncryptionInTransitPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEncryptionInTransitEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The error message associated with the cluster creation.
@@ -9946,6 +10254,10 @@ func init() {
 	pulumi.RegisterOutputType(DiskEncryptionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionInTransitPropertiesOutput{})
+	pulumi.RegisterOutputType(EncryptionInTransitPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionInTransitPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionInTransitPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ErrorsOutput{})
 	pulumi.RegisterOutputType(ErrorsArrayOutput{})
 	pulumi.RegisterOutputType(ErrorsResponseOutput{})

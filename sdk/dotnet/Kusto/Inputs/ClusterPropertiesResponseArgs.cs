@@ -28,6 +28,12 @@ namespace Pulumi.AzureRM.Kusto.Inputs
         public Input<bool>? EnableDiskEncryption { get; set; }
 
         /// <summary>
+        /// A boolean value that indicates if double encryption is enabled.
+        /// </summary>
+        [Input("enableDoubleEncryption")]
+        public Input<bool>? EnableDoubleEncryption { get; set; }
+
+        /// <summary>
         /// A boolean value that indicates if the purge operations are enabled.
         /// </summary>
         [Input("enablePurge")]
@@ -48,8 +54,8 @@ namespace Pulumi.AzureRM.Kusto.Inputs
         /// <summary>
         /// List of the cluster's language extensions.
         /// </summary>
-        [Input("languageExtensions")]
-        public Input<Inputs.LanguageExtensionsListResponseArgs>? LanguageExtensions { get; set; }
+        [Input("languageExtensions", required: true)]
+        public Input<Inputs.LanguageExtensionsListResponseArgs> LanguageExtensions { get; set; } = null!;
 
         /// <summary>
         /// Optimized auto scale definition.

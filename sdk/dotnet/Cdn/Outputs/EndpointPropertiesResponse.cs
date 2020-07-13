@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Cdn.Outputs
         /// <summary>
         /// List of keys used to validate the signed URL hashes.
         /// </summary>
-        public readonly Outputs.UrlSigningKeyResponse? UrlSigningKeys;
+        public readonly ImmutableArray<Outputs.UrlSigningKeyResponse> UrlSigningKeys;
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.Cdn.Outputs
 
             string resourceState,
 
-            Outputs.UrlSigningKeyResponse? urlSigningKeys,
+            ImmutableArray<Outputs.UrlSigningKeyResponse> urlSigningKeys,
 
             Outputs.EndpointPropertiesUpdateParametersResponseProperties? webApplicationFirewallPolicyLink)
         {

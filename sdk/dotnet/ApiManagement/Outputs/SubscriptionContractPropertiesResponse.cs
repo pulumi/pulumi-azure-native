@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.ApiManagement.Outputs
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// Optional subscription comment added by an administrator.
+        /// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
         /// </summary>
         public readonly string? StateComment;
 

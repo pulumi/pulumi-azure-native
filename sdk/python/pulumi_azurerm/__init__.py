@@ -14,6 +14,7 @@ _submodules = [
     'appconfiguration',
     'authorization',
     'automation',
+    'avs',
     'azurestack',
     'batch',
     'batchai',

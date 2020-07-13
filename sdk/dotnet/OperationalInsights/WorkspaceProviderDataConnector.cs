@@ -21,7 +21,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the data connector
+        /// The data connector kind
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The kind of the data connector
+        /// The data connector kind
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.OperationalInsights
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The kind of the data connector
+        /// The data connector kind
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;

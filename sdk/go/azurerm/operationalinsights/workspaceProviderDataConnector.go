@@ -16,7 +16,7 @@ type WorkspaceProviderDataConnector struct {
 
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the data connector
+	// The data connector kind
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -66,7 +66,7 @@ func GetWorkspaceProviderDataConnector(ctx *pulumi.Context,
 type workspaceProviderDataConnectorState struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
+	// The data connector kind
 	Kind *string `pulumi:"kind"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
@@ -77,7 +77,7 @@ type workspaceProviderDataConnectorState struct {
 type WorkspaceProviderDataConnectorState struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
-	// The kind of the data connector
+	// The data connector kind
 	Kind pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
@@ -92,7 +92,7 @@ func (WorkspaceProviderDataConnectorState) ElementType() reflect.Type {
 type workspaceProviderDataConnectorArgs struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
+	// The data connector kind
 	Kind string `pulumi:"kind"`
 	// Connector ID
 	Name string `pulumi:"name"`
@@ -106,7 +106,7 @@ type workspaceProviderDataConnectorArgs struct {
 type WorkspaceProviderDataConnectorArgs struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
-	// The kind of the data connector
+	// The data connector kind
 	Kind pulumi.StringInput
 	// Connector ID
 	Name pulumi.StringInput

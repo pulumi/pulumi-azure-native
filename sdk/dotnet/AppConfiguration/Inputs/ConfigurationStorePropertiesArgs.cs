@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.AppConfiguration.Inputs
     /// </summary>
     public sealed class ConfigurationStorePropertiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encryption settings of the configuration store.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
         public ConfigurationStorePropertiesArgs()
         {
         }

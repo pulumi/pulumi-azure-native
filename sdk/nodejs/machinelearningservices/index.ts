@@ -4,4 +4,5 @@
 // Export members:
 export * from "./workspace";
 export * from "./workspaceCompute";
+export * from "./workspaceConnection";
 export * from "./workspacePrivateEndpointConnection";

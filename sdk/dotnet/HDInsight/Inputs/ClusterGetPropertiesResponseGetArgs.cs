@@ -63,6 +63,12 @@ namespace Pulumi.AzureRM.HDInsight.Inputs
         [Input("diskEncryptionProperties")]
         public Input<Inputs.DiskEncryptionPropertiesResponseGetArgs>? DiskEncryptionProperties { get; set; }
 
+        /// <summary>
+        /// The encryption-in-transit properties.
+        /// </summary>
+        [Input("encryptionInTransitProperties")]
+        public Input<Inputs.EncryptionInTransitPropertiesResponseGetArgs>? EncryptionInTransitProperties { get; set; }
+
         [Input("errors")]
         private InputList<Inputs.ErrorsResponseGetArgs>? _errors;
 

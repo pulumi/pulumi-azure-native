@@ -29,7 +29,7 @@ class ServiceSubscription(pulumi.CustomResource):
       * `secondary_key` (`str`) - Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
       * `start_date` (`str`) - Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
       * `state` (`str`) - Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-      * `state_comment` (`str`) - Optional subscription comment added by an administrator.
+      * `state_comment` (`str`) - Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
     """
     type: pulumi.Output[str]
     """
@@ -121,7 +121,7 @@ class ServiceSubscription(pulumi.CustomResource):
           * `secondary_key` (`pulumi.Input[str]`) - Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
           * `start_date` (`pulumi.Input[str]`) - Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
           * `state` (`pulumi.Input[str]`) - Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-          * `state_comment` (`pulumi.Input[str]`) - Optional subscription comment added by an administrator.
+          * `state_comment` (`pulumi.Input[str]`) - Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

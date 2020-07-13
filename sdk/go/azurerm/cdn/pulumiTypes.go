@@ -3637,7 +3637,7 @@ type EndpointProperties struct {
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// List of keys used to validate the signed URL hashes.
-	UrlSigningKeys *UrlSigningKey `pulumi:"urlSigningKeys"`
+	UrlSigningKeys []UrlSigningKey `pulumi:"urlSigningKeys"`
 	// Defines the Web Application Firewall policy for the endpoint (if applicable)
 	WebApplicationFirewallPolicyLink *EndpointPropertiesUpdateParametersProperties `pulumi:"webApplicationFirewallPolicyLink"`
 }
@@ -3684,7 +3684,7 @@ type EndpointPropertiesArgs struct {
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
 	// List of keys used to validate the signed URL hashes.
-	UrlSigningKeys UrlSigningKeyPtrInput `pulumi:"urlSigningKeys"`
+	UrlSigningKeys UrlSigningKeyArrayInput `pulumi:"urlSigningKeys"`
 	// Defines the Web Application Firewall policy for the endpoint (if applicable)
 	WebApplicationFirewallPolicyLink EndpointPropertiesUpdateParametersPropertiesPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
 }
@@ -3838,8 +3838,8 @@ func (o EndpointPropertiesOutput) QueryStringCachingBehavior() pulumi.StringPtrO
 }
 
 // List of keys used to validate the signed URL hashes.
-func (o EndpointPropertiesOutput) UrlSigningKeys() UrlSigningKeyPtrOutput {
-	return o.ApplyT(func(v EndpointProperties) *UrlSigningKey { return v.UrlSigningKeys }).(UrlSigningKeyPtrOutput)
+func (o EndpointPropertiesOutput) UrlSigningKeys() UrlSigningKeyArrayOutput {
+	return o.ApplyT(func(v EndpointProperties) []UrlSigningKey { return v.UrlSigningKeys }).(UrlSigningKeyArrayOutput)
 }
 
 // Defines the Web Application Firewall policy for the endpoint (if applicable)
@@ -4008,13 +4008,13 @@ func (o EndpointPropertiesPtrOutput) QueryStringCachingBehavior() pulumi.StringP
 }
 
 // List of keys used to validate the signed URL hashes.
-func (o EndpointPropertiesPtrOutput) UrlSigningKeys() UrlSigningKeyPtrOutput {
-	return o.ApplyT(func(v *EndpointProperties) *UrlSigningKey {
+func (o EndpointPropertiesPtrOutput) UrlSigningKeys() UrlSigningKeyArrayOutput {
+	return o.ApplyT(func(v *EndpointProperties) []UrlSigningKey {
 		if v == nil {
 			return nil
 		}
 		return v.UrlSigningKeys
-	}).(UrlSigningKeyPtrOutput)
+	}).(UrlSigningKeyArrayOutput)
 }
 
 // Defines the Web Application Firewall policy for the endpoint (if applicable)
@@ -4064,7 +4064,7 @@ type EndpointPropertiesResponse struct {
 	// Resource status of the endpoint.
 	ResourceState string `pulumi:"resourceState"`
 	// List of keys used to validate the signed URL hashes.
-	UrlSigningKeys *UrlSigningKeyResponse `pulumi:"urlSigningKeys"`
+	UrlSigningKeys []UrlSigningKeyResponse `pulumi:"urlSigningKeys"`
 	// Defines the Web Application Firewall policy for the endpoint (if applicable)
 	WebApplicationFirewallPolicyLink *EndpointPropertiesUpdateParametersResponseProperties `pulumi:"webApplicationFirewallPolicyLink"`
 }
@@ -4117,7 +4117,7 @@ type EndpointPropertiesResponseArgs struct {
 	// Resource status of the endpoint.
 	ResourceState pulumi.StringInput `pulumi:"resourceState"`
 	// List of keys used to validate the signed URL hashes.
-	UrlSigningKeys UrlSigningKeyResponsePtrInput `pulumi:"urlSigningKeys"`
+	UrlSigningKeys UrlSigningKeyResponseArrayInput `pulumi:"urlSigningKeys"`
 	// Defines the Web Application Firewall policy for the endpoint (if applicable)
 	WebApplicationFirewallPolicyLink EndpointPropertiesUpdateParametersResponsePropertiesPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
 }
@@ -4288,8 +4288,8 @@ func (o EndpointPropertiesResponseOutput) ResourceState() pulumi.StringOutput {
 }
 
 // List of keys used to validate the signed URL hashes.
-func (o EndpointPropertiesResponseOutput) UrlSigningKeys() UrlSigningKeyResponsePtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *UrlSigningKeyResponse { return v.UrlSigningKeys }).(UrlSigningKeyResponsePtrOutput)
+func (o EndpointPropertiesResponseOutput) UrlSigningKeys() UrlSigningKeyResponseArrayOutput {
+	return o.ApplyT(func(v EndpointPropertiesResponse) []UrlSigningKeyResponse { return v.UrlSigningKeys }).(UrlSigningKeyResponseArrayOutput)
 }
 
 // Defines the Web Application Firewall policy for the endpoint (if applicable)
@@ -4488,13 +4488,13 @@ func (o EndpointPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOut
 }
 
 // List of keys used to validate the signed URL hashes.
-func (o EndpointPropertiesResponsePtrOutput) UrlSigningKeys() UrlSigningKeyResponsePtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *UrlSigningKeyResponse {
+func (o EndpointPropertiesResponsePtrOutput) UrlSigningKeys() UrlSigningKeyResponseArrayOutput {
+	return o.ApplyT(func(v *EndpointPropertiesResponse) []UrlSigningKeyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UrlSigningKeys
-	}).(UrlSigningKeyResponsePtrOutput)
+	}).(UrlSigningKeyResponseArrayOutput)
 }
 
 // Defines the Web Application Firewall policy for the endpoint (if applicable)
@@ -5704,47 +5704,6 @@ func (i KeyVaultSigningKeyParametersArgs) ToKeyVaultSigningKeyParametersOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSigningKeyParametersOutput)
 }
 
-func (i KeyVaultSigningKeyParametersArgs) ToKeyVaultSigningKeyParametersPtrOutput() KeyVaultSigningKeyParametersPtrOutput {
-	return i.ToKeyVaultSigningKeyParametersPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSigningKeyParametersArgs) ToKeyVaultSigningKeyParametersPtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSigningKeyParametersOutput).ToKeyVaultSigningKeyParametersPtrOutputWithContext(ctx)
-}
-
-// KeyVaultSigningKeyParametersPtrInput is an input type that accepts KeyVaultSigningKeyParametersArgs, KeyVaultSigningKeyParametersPtr and KeyVaultSigningKeyParametersPtrOutput values.
-// You can construct a concrete instance of `KeyVaultSigningKeyParametersPtrInput` via:
-//
-//          KeyVaultSigningKeyParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultSigningKeyParametersPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultSigningKeyParametersPtrOutput() KeyVaultSigningKeyParametersPtrOutput
-	ToKeyVaultSigningKeyParametersPtrOutputWithContext(context.Context) KeyVaultSigningKeyParametersPtrOutput
-}
-
-type keyVaultSigningKeyParametersPtrType KeyVaultSigningKeyParametersArgs
-
-func KeyVaultSigningKeyParametersPtr(v *KeyVaultSigningKeyParametersArgs) KeyVaultSigningKeyParametersPtrInput {
-	return (*keyVaultSigningKeyParametersPtrType)(v)
-}
-
-func (*keyVaultSigningKeyParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSigningKeyParameters)(nil)).Elem()
-}
-
-func (i *keyVaultSigningKeyParametersPtrType) ToKeyVaultSigningKeyParametersPtrOutput() KeyVaultSigningKeyParametersPtrOutput {
-	return i.ToKeyVaultSigningKeyParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultSigningKeyParametersPtrType) ToKeyVaultSigningKeyParametersPtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSigningKeyParametersPtrOutput)
-}
-
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
 type KeyVaultSigningKeyParametersOutput struct{ *pulumi.OutputState }
 
@@ -5758,16 +5717,6 @@ func (o KeyVaultSigningKeyParametersOutput) ToKeyVaultSigningKeyParametersOutput
 
 func (o KeyVaultSigningKeyParametersOutput) ToKeyVaultSigningKeyParametersOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersOutput {
 	return o
-}
-
-func (o KeyVaultSigningKeyParametersOutput) ToKeyVaultSigningKeyParametersPtrOutput() KeyVaultSigningKeyParametersPtrOutput {
-	return o.ToKeyVaultSigningKeyParametersPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultSigningKeyParametersOutput) ToKeyVaultSigningKeyParametersPtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersPtrOutput {
-	return o.ApplyT(func(v KeyVaultSigningKeyParameters) *KeyVaultSigningKeyParameters {
-		return &v
-	}).(KeyVaultSigningKeyParametersPtrOutput)
 }
 
 // Resource group of the user's Key Vault containing the secret
@@ -5793,74 +5742,6 @@ func (o KeyVaultSigningKeyParametersOutput) SubscriptionId() pulumi.StringOutput
 // The name of the user's Key Vault containing the secret
 func (o KeyVaultSigningKeyParametersOutput) VaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultSigningKeyParameters) string { return v.VaultName }).(pulumi.StringOutput)
-}
-
-type KeyVaultSigningKeyParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultSigningKeyParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSigningKeyParameters)(nil)).Elem()
-}
-
-func (o KeyVaultSigningKeyParametersPtrOutput) ToKeyVaultSigningKeyParametersPtrOutput() KeyVaultSigningKeyParametersPtrOutput {
-	return o
-}
-
-func (o KeyVaultSigningKeyParametersPtrOutput) ToKeyVaultSigningKeyParametersPtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersPtrOutput {
-	return o
-}
-
-func (o KeyVaultSigningKeyParametersPtrOutput) Elem() KeyVaultSigningKeyParametersOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParameters) KeyVaultSigningKeyParameters { return *v }).(KeyVaultSigningKeyParametersOutput)
-}
-
-// Resource group of the user's Key Vault containing the secret
-func (o KeyVaultSigningKeyParametersPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceGroupName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of secret in Key Vault.
-func (o KeyVaultSigningKeyParametersPtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version(GUID) of secret in Key Vault.
-func (o KeyVaultSigningKeyParametersPtrOutput) SecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription Id of the user's Key Vault containing the secret
-func (o KeyVaultSigningKeyParametersPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the user's Key Vault containing the secret
-func (o KeyVaultSigningKeyParametersPtrOutput) VaultName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VaultName
-	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
@@ -5914,47 +5795,6 @@ func (i KeyVaultSigningKeyParametersResponseArgs) ToKeyVaultSigningKeyParameters
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSigningKeyParametersResponseOutput)
 }
 
-func (i KeyVaultSigningKeyParametersResponseArgs) ToKeyVaultSigningKeyParametersResponsePtrOutput() KeyVaultSigningKeyParametersResponsePtrOutput {
-	return i.ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSigningKeyParametersResponseArgs) ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSigningKeyParametersResponseOutput).ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(ctx)
-}
-
-// KeyVaultSigningKeyParametersResponsePtrInput is an input type that accepts KeyVaultSigningKeyParametersResponseArgs, KeyVaultSigningKeyParametersResponsePtr and KeyVaultSigningKeyParametersResponsePtrOutput values.
-// You can construct a concrete instance of `KeyVaultSigningKeyParametersResponsePtrInput` via:
-//
-//          KeyVaultSigningKeyParametersResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultSigningKeyParametersResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultSigningKeyParametersResponsePtrOutput() KeyVaultSigningKeyParametersResponsePtrOutput
-	ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(context.Context) KeyVaultSigningKeyParametersResponsePtrOutput
-}
-
-type keyVaultSigningKeyParametersResponsePtrType KeyVaultSigningKeyParametersResponseArgs
-
-func KeyVaultSigningKeyParametersResponsePtr(v *KeyVaultSigningKeyParametersResponseArgs) KeyVaultSigningKeyParametersResponsePtrInput {
-	return (*keyVaultSigningKeyParametersResponsePtrType)(v)
-}
-
-func (*keyVaultSigningKeyParametersResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSigningKeyParametersResponse)(nil)).Elem()
-}
-
-func (i *keyVaultSigningKeyParametersResponsePtrType) ToKeyVaultSigningKeyParametersResponsePtrOutput() KeyVaultSigningKeyParametersResponsePtrOutput {
-	return i.ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultSigningKeyParametersResponsePtrType) ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSigningKeyParametersResponsePtrOutput)
-}
-
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
 type KeyVaultSigningKeyParametersResponseOutput struct{ *pulumi.OutputState }
 
@@ -5968,16 +5808,6 @@ func (o KeyVaultSigningKeyParametersResponseOutput) ToKeyVaultSigningKeyParamete
 
 func (o KeyVaultSigningKeyParametersResponseOutput) ToKeyVaultSigningKeyParametersResponseOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersResponseOutput {
 	return o
-}
-
-func (o KeyVaultSigningKeyParametersResponseOutput) ToKeyVaultSigningKeyParametersResponsePtrOutput() KeyVaultSigningKeyParametersResponsePtrOutput {
-	return o.ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultSigningKeyParametersResponseOutput) ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultSigningKeyParametersResponse) *KeyVaultSigningKeyParametersResponse {
-		return &v
-	}).(KeyVaultSigningKeyParametersResponsePtrOutput)
 }
 
 // Resource group of the user's Key Vault containing the secret
@@ -6003,74 +5833,6 @@ func (o KeyVaultSigningKeyParametersResponseOutput) SubscriptionId() pulumi.Stri
 // The name of the user's Key Vault containing the secret
 func (o KeyVaultSigningKeyParametersResponseOutput) VaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultSigningKeyParametersResponse) string { return v.VaultName }).(pulumi.StringOutput)
-}
-
-type KeyVaultSigningKeyParametersResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultSigningKeyParametersResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSigningKeyParametersResponse)(nil)).Elem()
-}
-
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) ToKeyVaultSigningKeyParametersResponsePtrOutput() KeyVaultSigningKeyParametersResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) ToKeyVaultSigningKeyParametersResponsePtrOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersResponsePtrOutput {
-	return o
-}
-
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) Elem() KeyVaultSigningKeyParametersResponseOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParametersResponse) KeyVaultSigningKeyParametersResponse { return *v }).(KeyVaultSigningKeyParametersResponseOutput)
-}
-
-// Resource group of the user's Key Vault containing the secret
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceGroupName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of secret in Key Vault.
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version(GUID) of secret in Key Vault.
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) SecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription Id of the user's Key Vault containing the secret
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the user's Key Vault containing the secret
-func (o KeyVaultSigningKeyParametersResponsePtrOutput) VaultName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultSigningKeyParametersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VaultName
-	}).(pulumi.StringPtrOutput)
 }
 
 // Defines a managed rule group override setting.
@@ -10594,45 +10356,29 @@ func (i UrlSigningKeyArgs) ToUrlSigningKeyOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyOutput)
 }
 
-func (i UrlSigningKeyArgs) ToUrlSigningKeyPtrOutput() UrlSigningKeyPtrOutput {
-	return i.ToUrlSigningKeyPtrOutputWithContext(context.Background())
-}
-
-func (i UrlSigningKeyArgs) ToUrlSigningKeyPtrOutputWithContext(ctx context.Context) UrlSigningKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyOutput).ToUrlSigningKeyPtrOutputWithContext(ctx)
-}
-
-// UrlSigningKeyPtrInput is an input type that accepts UrlSigningKeyArgs, UrlSigningKeyPtr and UrlSigningKeyPtrOutput values.
-// You can construct a concrete instance of `UrlSigningKeyPtrInput` via:
+// UrlSigningKeyArrayInput is an input type that accepts UrlSigningKeyArray and UrlSigningKeyArrayOutput values.
+// You can construct a concrete instance of `UrlSigningKeyArrayInput` via:
 //
-//          UrlSigningKeyArgs{...}
-//
-//  or:
-//
-//          nil
-type UrlSigningKeyPtrInput interface {
+//          UrlSigningKeyArray{ UrlSigningKeyArgs{...} }
+type UrlSigningKeyArrayInput interface {
 	pulumi.Input
 
-	ToUrlSigningKeyPtrOutput() UrlSigningKeyPtrOutput
-	ToUrlSigningKeyPtrOutputWithContext(context.Context) UrlSigningKeyPtrOutput
+	ToUrlSigningKeyArrayOutput() UrlSigningKeyArrayOutput
+	ToUrlSigningKeyArrayOutputWithContext(context.Context) UrlSigningKeyArrayOutput
 }
 
-type urlSigningKeyPtrType UrlSigningKeyArgs
+type UrlSigningKeyArray []UrlSigningKeyInput
 
-func UrlSigningKeyPtr(v *UrlSigningKeyArgs) UrlSigningKeyPtrInput {
-	return (*urlSigningKeyPtrType)(v)
+func (UrlSigningKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningKey)(nil)).Elem()
 }
 
-func (*urlSigningKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UrlSigningKey)(nil)).Elem()
+func (i UrlSigningKeyArray) ToUrlSigningKeyArrayOutput() UrlSigningKeyArrayOutput {
+	return i.ToUrlSigningKeyArrayOutputWithContext(context.Background())
 }
 
-func (i *urlSigningKeyPtrType) ToUrlSigningKeyPtrOutput() UrlSigningKeyPtrOutput {
-	return i.ToUrlSigningKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *urlSigningKeyPtrType) ToUrlSigningKeyPtrOutputWithContext(ctx context.Context) UrlSigningKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyPtrOutput)
+func (i UrlSigningKeyArray) ToUrlSigningKeyArrayOutputWithContext(ctx context.Context) UrlSigningKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyArrayOutput)
 }
 
 // Url signing key
@@ -10650,16 +10396,6 @@ func (o UrlSigningKeyOutput) ToUrlSigningKeyOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o UrlSigningKeyOutput) ToUrlSigningKeyPtrOutput() UrlSigningKeyPtrOutput {
-	return o.ToUrlSigningKeyPtrOutputWithContext(context.Background())
-}
-
-func (o UrlSigningKeyOutput) ToUrlSigningKeyPtrOutputWithContext(ctx context.Context) UrlSigningKeyPtrOutput {
-	return o.ApplyT(func(v UrlSigningKey) *UrlSigningKey {
-		return &v
-	}).(UrlSigningKeyPtrOutput)
-}
-
 // Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
 func (o UrlSigningKeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlSigningKey) string { return v.KeyId }).(pulumi.StringOutput)
@@ -10670,42 +10406,24 @@ func (o UrlSigningKeyOutput) KeySourceParameters() KeyVaultSigningKeyParametersO
 	return o.ApplyT(func(v UrlSigningKey) KeyVaultSigningKeyParameters { return v.KeySourceParameters }).(KeyVaultSigningKeyParametersOutput)
 }
 
-type UrlSigningKeyPtrOutput struct{ *pulumi.OutputState }
+type UrlSigningKeyArrayOutput struct{ *pulumi.OutputState }
 
-func (UrlSigningKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UrlSigningKey)(nil)).Elem()
+func (UrlSigningKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningKey)(nil)).Elem()
 }
 
-func (o UrlSigningKeyPtrOutput) ToUrlSigningKeyPtrOutput() UrlSigningKeyPtrOutput {
+func (o UrlSigningKeyArrayOutput) ToUrlSigningKeyArrayOutput() UrlSigningKeyArrayOutput {
 	return o
 }
 
-func (o UrlSigningKeyPtrOutput) ToUrlSigningKeyPtrOutputWithContext(ctx context.Context) UrlSigningKeyPtrOutput {
+func (o UrlSigningKeyArrayOutput) ToUrlSigningKeyArrayOutputWithContext(ctx context.Context) UrlSigningKeyArrayOutput {
 	return o
 }
 
-func (o UrlSigningKeyPtrOutput) Elem() UrlSigningKeyOutput {
-	return o.ApplyT(func(v *UrlSigningKey) UrlSigningKey { return *v }).(UrlSigningKeyOutput)
-}
-
-// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
-func (o UrlSigningKeyPtrOutput) KeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UrlSigningKey) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the parameters for using customer key vault for Url Signing Key.
-func (o UrlSigningKeyPtrOutput) KeySourceParameters() KeyVaultSigningKeyParametersPtrOutput {
-	return o.ApplyT(func(v *UrlSigningKey) *KeyVaultSigningKeyParameters {
-		if v == nil {
-			return nil
-		}
-		return &v.KeySourceParameters
-	}).(KeyVaultSigningKeyParametersPtrOutput)
+func (o UrlSigningKeyArrayOutput) Index(i pulumi.IntInput) UrlSigningKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UrlSigningKey {
+		return vs[0].([]UrlSigningKey)[vs[1].(int)]
+	}).(UrlSigningKeyOutput)
 }
 
 // Url signing key
@@ -10747,45 +10465,29 @@ func (i UrlSigningKeyResponseArgs) ToUrlSigningKeyResponseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyResponseOutput)
 }
 
-func (i UrlSigningKeyResponseArgs) ToUrlSigningKeyResponsePtrOutput() UrlSigningKeyResponsePtrOutput {
-	return i.ToUrlSigningKeyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UrlSigningKeyResponseArgs) ToUrlSigningKeyResponsePtrOutputWithContext(ctx context.Context) UrlSigningKeyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyResponseOutput).ToUrlSigningKeyResponsePtrOutputWithContext(ctx)
-}
-
-// UrlSigningKeyResponsePtrInput is an input type that accepts UrlSigningKeyResponseArgs, UrlSigningKeyResponsePtr and UrlSigningKeyResponsePtrOutput values.
-// You can construct a concrete instance of `UrlSigningKeyResponsePtrInput` via:
+// UrlSigningKeyResponseArrayInput is an input type that accepts UrlSigningKeyResponseArray and UrlSigningKeyResponseArrayOutput values.
+// You can construct a concrete instance of `UrlSigningKeyResponseArrayInput` via:
 //
-//          UrlSigningKeyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type UrlSigningKeyResponsePtrInput interface {
+//          UrlSigningKeyResponseArray{ UrlSigningKeyResponseArgs{...} }
+type UrlSigningKeyResponseArrayInput interface {
 	pulumi.Input
 
-	ToUrlSigningKeyResponsePtrOutput() UrlSigningKeyResponsePtrOutput
-	ToUrlSigningKeyResponsePtrOutputWithContext(context.Context) UrlSigningKeyResponsePtrOutput
+	ToUrlSigningKeyResponseArrayOutput() UrlSigningKeyResponseArrayOutput
+	ToUrlSigningKeyResponseArrayOutputWithContext(context.Context) UrlSigningKeyResponseArrayOutput
 }
 
-type urlSigningKeyResponsePtrType UrlSigningKeyResponseArgs
+type UrlSigningKeyResponseArray []UrlSigningKeyResponseInput
 
-func UrlSigningKeyResponsePtr(v *UrlSigningKeyResponseArgs) UrlSigningKeyResponsePtrInput {
-	return (*urlSigningKeyResponsePtrType)(v)
+func (UrlSigningKeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningKeyResponse)(nil)).Elem()
 }
 
-func (*urlSigningKeyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UrlSigningKeyResponse)(nil)).Elem()
+func (i UrlSigningKeyResponseArray) ToUrlSigningKeyResponseArrayOutput() UrlSigningKeyResponseArrayOutput {
+	return i.ToUrlSigningKeyResponseArrayOutputWithContext(context.Background())
 }
 
-func (i *urlSigningKeyResponsePtrType) ToUrlSigningKeyResponsePtrOutput() UrlSigningKeyResponsePtrOutput {
-	return i.ToUrlSigningKeyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *urlSigningKeyResponsePtrType) ToUrlSigningKeyResponsePtrOutputWithContext(ctx context.Context) UrlSigningKeyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyResponsePtrOutput)
+func (i UrlSigningKeyResponseArray) ToUrlSigningKeyResponseArrayOutputWithContext(ctx context.Context) UrlSigningKeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyResponseArrayOutput)
 }
 
 // Url signing key
@@ -10803,16 +10505,6 @@ func (o UrlSigningKeyResponseOutput) ToUrlSigningKeyResponseOutputWithContext(ct
 	return o
 }
 
-func (o UrlSigningKeyResponseOutput) ToUrlSigningKeyResponsePtrOutput() UrlSigningKeyResponsePtrOutput {
-	return o.ToUrlSigningKeyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UrlSigningKeyResponseOutput) ToUrlSigningKeyResponsePtrOutputWithContext(ctx context.Context) UrlSigningKeyResponsePtrOutput {
-	return o.ApplyT(func(v UrlSigningKeyResponse) *UrlSigningKeyResponse {
-		return &v
-	}).(UrlSigningKeyResponsePtrOutput)
-}
-
 // Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
 func (o UrlSigningKeyResponseOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlSigningKeyResponse) string { return v.KeyId }).(pulumi.StringOutput)
@@ -10823,42 +10515,24 @@ func (o UrlSigningKeyResponseOutput) KeySourceParameters() KeyVaultSigningKeyPar
 	return o.ApplyT(func(v UrlSigningKeyResponse) KeyVaultSigningKeyParametersResponse { return v.KeySourceParameters }).(KeyVaultSigningKeyParametersResponseOutput)
 }
 
-type UrlSigningKeyResponsePtrOutput struct{ *pulumi.OutputState }
+type UrlSigningKeyResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (UrlSigningKeyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UrlSigningKeyResponse)(nil)).Elem()
+func (UrlSigningKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningKeyResponse)(nil)).Elem()
 }
 
-func (o UrlSigningKeyResponsePtrOutput) ToUrlSigningKeyResponsePtrOutput() UrlSigningKeyResponsePtrOutput {
+func (o UrlSigningKeyResponseArrayOutput) ToUrlSigningKeyResponseArrayOutput() UrlSigningKeyResponseArrayOutput {
 	return o
 }
 
-func (o UrlSigningKeyResponsePtrOutput) ToUrlSigningKeyResponsePtrOutputWithContext(ctx context.Context) UrlSigningKeyResponsePtrOutput {
+func (o UrlSigningKeyResponseArrayOutput) ToUrlSigningKeyResponseArrayOutputWithContext(ctx context.Context) UrlSigningKeyResponseArrayOutput {
 	return o
 }
 
-func (o UrlSigningKeyResponsePtrOutput) Elem() UrlSigningKeyResponseOutput {
-	return o.ApplyT(func(v *UrlSigningKeyResponse) UrlSigningKeyResponse { return *v }).(UrlSigningKeyResponseOutput)
-}
-
-// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
-func (o UrlSigningKeyResponsePtrOutput) KeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UrlSigningKeyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the parameters for using customer key vault for Url Signing Key.
-func (o UrlSigningKeyResponsePtrOutput) KeySourceParameters() KeyVaultSigningKeyParametersResponsePtrOutput {
-	return o.ApplyT(func(v *UrlSigningKeyResponse) *KeyVaultSigningKeyParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.KeySourceParameters
-	}).(KeyVaultSigningKeyParametersResponsePtrOutput)
+func (o UrlSigningKeyResponseArrayOutput) Index(i pulumi.IntInput) UrlSigningKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UrlSigningKeyResponse {
+		return vs[0].([]UrlSigningKeyResponse)[vs[1].(int)]
+	}).(UrlSigningKeyResponseOutput)
 }
 
 // Defines contents of a web application firewall global configuration
@@ -11351,9 +11025,7 @@ func init() {
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersOutput{})
-	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideResponseOutput{})
@@ -11414,9 +11086,9 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyOutput{})
-	pulumi.RegisterOutputType(UrlSigningKeyPtrOutput{})
+	pulumi.RegisterOutputType(UrlSigningKeyArrayOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyResponseOutput{})
-	pulumi.RegisterOutputType(UrlSigningKeyResponsePtrOutput{})
+	pulumi.RegisterOutputType(UrlSigningKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(PolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})

@@ -22,6 +22,10 @@ namespace Pulumi.AzureRM.Kusto.Outputs
         /// </summary>
         public readonly bool? EnableDiskEncryption;
         /// <summary>
+        /// A boolean value that indicates if double encryption is enabled.
+        /// </summary>
+        public readonly bool? EnableDoubleEncryption;
+        /// <summary>
         /// A boolean value that indicates if the purge operations are enabled.
         /// </summary>
         public readonly bool? EnablePurge;
@@ -36,7 +40,7 @@ namespace Pulumi.AzureRM.Kusto.Outputs
         /// <summary>
         /// List of the cluster's language extensions.
         /// </summary>
-        public readonly Outputs.LanguageExtensionsListResponse? LanguageExtensions;
+        public readonly Outputs.LanguageExtensionsListResponse LanguageExtensions;
         /// <summary>
         /// Optimized auto scale definition.
         /// </summary>
@@ -72,13 +76,15 @@ namespace Pulumi.AzureRM.Kusto.Outputs
 
             bool? enableDiskEncryption,
 
+            bool? enableDoubleEncryption,
+
             bool? enablePurge,
 
             bool? enableStreamingIngest,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
-            Outputs.LanguageExtensionsListResponse? languageExtensions,
+            Outputs.LanguageExtensionsListResponse languageExtensions,
 
             Outputs.OptimizedAutoscaleResponse? optimizedAutoscale,
 
@@ -96,6 +102,7 @@ namespace Pulumi.AzureRM.Kusto.Outputs
         {
             DataIngestionUri = dataIngestionUri;
             EnableDiskEncryption = enableDiskEncryption;
+            EnableDoubleEncryption = enableDoubleEncryption;
             EnablePurge = enablePurge;
             EnableStreamingIngest = enableStreamingIngest;
             KeyVaultProperties = keyVaultProperties;

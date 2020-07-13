@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.Compute.Outputs
         /// </summary>
         public readonly Outputs.LinuxConfigurationResponse? LinuxConfiguration;
         /// <summary>
-        /// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.
+        /// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
         /// </summary>
         public readonly bool? RequireGuestProvisionSignal;
         /// <summary>

@@ -22,16 +22,40 @@ namespace Pulumi.AzureRM.AppConfiguration.Inputs
         public Input<string> CreationDate { get; set; } = null!;
 
         /// <summary>
+        /// The encryption settings of the configuration store.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesResponseArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The DNS endpoint where the configuration store API will be available.
         /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
+
+        [Input("privateEndpointConnections", required: true)]
+        private InputList<Inputs.PrivateEndpointConnectionReferenceResponseArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionReferenceResponseArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionReferenceResponseArgs>());
+            set => _privateEndpointConnections = value;
+        }
 
         /// <summary>
         /// The provisioning state of the configuration store.
         /// </summary>
         [Input("provisioningState", required: true)]
         public Input<string> ProvisioningState { get; set; } = null!;
+
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         public ConfigurationStorePropertiesResponseArgs()
         {

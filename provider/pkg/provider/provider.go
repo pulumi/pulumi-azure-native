@@ -55,7 +55,7 @@ type azurermProvider struct {
 	version        string
 	subscriptionId string
 	client         autorest.Client
-	resourceMap    map[string]Resource
+	resourceMap    map[string]AzureApiResource
 	config         map[string]string
 }
 
@@ -67,7 +67,7 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 
 
 	var resourceMap map[string]AzureApiResource
-	err = json.Unmarshal(azureApiResources, &resourceMap)
+	err := json.Unmarshal(azureApiResources, &resourceMap)
 	if err != nil {
 		return nil, errors.Wrap(err, "unmarshalling resource map")
 	}
@@ -93,7 +93,7 @@ func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureReque
 
 	authConfig, err := k.getAuthConfig()
 	if err != nil {
-		return nil, fmt.Wrap(err, "building auth config",)
+		return nil, errors.Wrap(err, "building auth config",)
 	}
 
 	authorizer, err := k.getAuthorizationToken(authConfig)
@@ -545,18 +545,6 @@ func (k *azurermProvider) resolveProperties(schema openapi.Schema) ([]string, []
 	}
 
 	return properties, required, nil
-}
-
-// nameParameter parses the given URL path to find the name of the last template parameter.
-func nameParameter(path string) string {
-	parts := strings.Split(path, "/")
-	for i := len(parts)-1; i >= 0; i-- {
-		part := parts[i]
-		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
-			return part[1 : len(part)-1]
-		}
-	}
-	return ""
 }
 
 func (k *azurermProvider) setLoggingContext(ctx context.Context) {

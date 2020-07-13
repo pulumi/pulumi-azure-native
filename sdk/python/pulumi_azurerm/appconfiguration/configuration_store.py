@@ -30,8 +30,30 @@ class ConfigurationStore(pulumi.CustomResource):
     """
     The properties of a configuration store.
       * `creation_date` (`str`) - The creation date of configuration store.
+      * `encryption` (`dict`) - The encryption settings of the configuration store.
+        * `key_vault_properties` (`dict`) - Key vault properties.
+          * `identity_client_id` (`str`) - The client id of the identity which will be used to access key vault.
+          * `key_identifier` (`str`) - The URI of the key vault key used to encrypt data.
+
       * `endpoint` (`str`) - The DNS endpoint where the configuration store API will be available.
+      * `private_endpoint_connections` (`list`) - The list of private endpoint connections that are set up for this resource.
+        * `id` (`str`) - The resource ID.
+        * `name` (`str`) - The name of the resource.
+        * `properties` (`dict`) - The properties of a private endpoint connection.
+          * `private_endpoint` (`dict`) - The resource of private endpoint.
+            * `id` (`str`) - The resource Id for private endpoint
+
+          * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
+            * `actions_required` (`str`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+            * `description` (`str`) - The private link service connection description.
+            * `status` (`str`) - The private link service connection status.
+
+          * `provisioning_state` (`str`) - The provisioning status of the private endpoint connection.
+
+        * `type` (`str`) - The type of the resource.
+
       * `provisioning_state` (`str`) - The provisioning state of the configuration store.
+      * `public_network_access` (`str`) - Control permission for data plane traffic coming from public networks while private endpoint is enabled.
     """
     sku: pulumi.Output[dict]
     """
@@ -64,6 +86,15 @@ class ConfigurationStore(pulumi.CustomResource):
 
           * `type` (`pulumi.Input[str]`) - The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+
+        The **properties** object supports the following:
+
+          * `encryption` (`pulumi.Input[dict]`) - The encryption settings of the configuration store.
+            * `key_vault_properties` (`pulumi.Input[dict]`) - Key vault properties.
+              * `identity_client_id` (`pulumi.Input[str]`) - The client id of the identity which will be used to access key vault.
+              * `key_identifier` (`pulumi.Input[str]`) - The URI of the key vault key used to encrypt data.
+
+          * `public_network_access` (`pulumi.Input[str]`) - Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 
         The **sku** object supports the following:
 
@@ -135,8 +166,30 @@ class ConfigurationStore(pulumi.CustomResource):
         The **properties** object supports the following:
 
           * `creation_date` (`pulumi.Input[str]`) - The creation date of configuration store.
+          * `encryption` (`pulumi.Input[dict]`) - The encryption settings of the configuration store.
+            * `key_vault_properties` (`pulumi.Input[dict]`) - Key vault properties.
+              * `identity_client_id` (`pulumi.Input[str]`) - The client id of the identity which will be used to access key vault.
+              * `key_identifier` (`pulumi.Input[str]`) - The URI of the key vault key used to encrypt data.
+
           * `endpoint` (`pulumi.Input[str]`) - The DNS endpoint where the configuration store API will be available.
+          * `private_endpoint_connections` (`pulumi.Input[list]`) - The list of private endpoint connections that are set up for this resource.
+            * `id` (`pulumi.Input[str]`) - The resource ID.
+            * `name` (`pulumi.Input[str]`) - The name of the resource.
+            * `properties` (`pulumi.Input[dict]`) - The properties of a private endpoint connection.
+              * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private endpoint.
+                * `id` (`pulumi.Input[str]`) - The resource Id for private endpoint
+
+              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
+                * `actions_required` (`pulumi.Input[str]`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+                * `description` (`pulumi.Input[str]`) - The private link service connection description.
+                * `status` (`pulumi.Input[str]`) - The private link service connection status.
+
+              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the private endpoint connection.
+
+            * `type` (`pulumi.Input[str]`) - The type of the resource.
+
           * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the configuration store.
+          * `public_network_access` (`pulumi.Input[str]`) - Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 
         The **sku** object supports the following:
 

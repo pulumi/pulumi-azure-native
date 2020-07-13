@@ -40,7 +40,7 @@ export class WorkspaceProviderDataConnector extends pulumi.CustomResource {
      */
     public readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * The kind of the data connector
+     * The data connector kind
      */
     public readonly kind!: pulumi.Output<string>;
     /**
@@ -109,7 +109,7 @@ export interface WorkspaceProviderDataConnectorState {
      */
     readonly etag?: pulumi.Input<string>;
     /**
-     * The kind of the data connector
+     * The data connector kind
      */
     readonly kind: pulumi.Input<string>;
     /**
@@ -131,7 +131,7 @@ export interface WorkspaceProviderDataConnectorArgs {
      */
     readonly etag?: pulumi.Input<string>;
     /**
-     * The kind of the data connector
+     * The data connector kind
      */
     readonly kind: pulumi.Input<string>;
     /**

@@ -4,6 +4,8 @@
 // Export members:
 export * from "./workspaceProviderAlertRule";
 export * from "./workspaceProviderAlertRuleAction";
+export * from "./workspaceProviderBookmark";
 export * from "./workspaceProviderDataConnector";
+export * from "./workspaceProviderIncident";
 export * from "./workspaceSavedSearch";
 export * from "./workspaceStorageInsightConfig";

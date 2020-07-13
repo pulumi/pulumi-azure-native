@@ -40,6 +40,12 @@ namespace Pulumi.AzureRM.HDInsight.Inputs
         public Input<Inputs.DiskEncryptionPropertiesArgs>? DiskEncryptionProperties { get; set; }
 
         /// <summary>
+        /// The encryption-in-transit properties.
+        /// </summary>
+        [Input("encryptionInTransitProperties")]
+        public Input<Inputs.EncryptionInTransitPropertiesArgs>? EncryptionInTransitProperties { get; set; }
+
+        /// <summary>
         /// The cluster kafka rest proxy configuration.
         /// </summary>
         [Input("kafkaRestProperties")]

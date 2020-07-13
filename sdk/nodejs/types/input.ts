@@ -3239,7 +3239,7 @@ export namespace apimanagement {
          */
         state: pulumi.Input<string>;
         /**
-         * Optional subscription comment added by an administrator.
+         * Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
          */
         stateComment?: pulumi.Input<string>;
     }
@@ -3568,6 +3568,14 @@ export namespace appconfiguration {
      * The properties of a configuration store.
      */
     export interface ConfigurationStoreProperties {
+        /**
+         * The encryption settings of the configuration store.
+         */
+        encryption?: pulumi.Input<inputs.appconfiguration.EncryptionProperties>;
+        /**
+         * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+         */
+        publicNetworkAccess?: pulumi.Input<string>;
     }
 
     /**
@@ -3579,15 +3587,184 @@ export namespace appconfiguration {
          */
         creationDate: pulumi.Input<string>;
         /**
+         * The encryption settings of the configuration store.
+         */
+        encryption?: pulumi.Input<inputs.appconfiguration.EncryptionPropertiesResponse>;
+        /**
          * The DNS endpoint where the configuration store API will be available.
          */
         endpoint: pulumi.Input<string>;
         /**
+         * The list of private endpoint connections that are set up for this resource.
+         */
+        privateEndpointConnections: pulumi.Input<pulumi.Input<inputs.appconfiguration.PrivateEndpointConnectionReferenceResponse>[]>;
+        /**
          * The provisioning state of the configuration store.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+         */
+        publicNetworkAccess?: pulumi.Input<string>;
+    }
+
+    /**
+     * The encryption settings for a configuration store.
+     */
+    export interface EncryptionProperties {
+        /**
+         * Key vault properties.
+         */
+        keyVaultProperties?: pulumi.Input<inputs.appconfiguration.KeyVaultProperties>;
+    }
+
+    /**
+     * The encryption settings for a configuration store.
+     */
+    export interface EncryptionPropertiesResponse {
+        /**
+         * Key vault properties.
+         */
+        keyVaultProperties?: pulumi.Input<inputs.appconfiguration.KeyVaultPropertiesResponse>;
+    }
+
+    /**
+     * Settings concerning key vault encryption for a configuration store.
+     */
+    export interface KeyVaultProperties {
+        /**
+         * The client id of the identity which will be used to access key vault.
+         */
+        identityClientId?: pulumi.Input<string>;
+        /**
+         * The URI of the key vault key used to encrypt data.
+         */
+        keyIdentifier?: pulumi.Input<string>;
+    }
+
+    /**
+     * Settings concerning key vault encryption for a configuration store.
+     */
+    export interface KeyVaultPropertiesResponse {
+        /**
+         * The client id of the identity which will be used to access key vault.
+         */
+        identityClientId?: pulumi.Input<string>;
+        /**
+         * The URI of the key vault key used to encrypt data.
+         */
+        keyIdentifier?: pulumi.Input<string>;
+    }
+
+    /**
+     * Private endpoint which a connection belongs to.
+     */
+    export interface PrivateEndpoint {
+        /**
+         * The resource Id for private endpoint
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of a private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionProperties {
+        /**
+         * The resource of private endpoint.
+         */
+        privateEndpoint?: pulumi.Input<inputs.appconfiguration.PrivateEndpoint>;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.appconfiguration.PrivateLinkServiceConnectionState>;
+    }
+
+    /**
+     * Properties of a private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The resource of private endpoint.
+         */
+        privateEndpoint?: pulumi.Input<inputs.appconfiguration.PrivateEndpointResponse>;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.appconfiguration.PrivateLinkServiceConnectionStateResponse>;
+        /**
+         * The provisioning status of the private endpoint connection.
          */
         provisioningState: pulumi.Input<string>;
     }
 
+    /**
+     * A reference to a related private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionReferenceResponse {
+        /**
+         * The resource ID.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The name of the resource.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The properties of a private endpoint connection.
+         */
+        properties?: pulumi.Input<inputs.appconfiguration.PrivateEndpointConnectionPropertiesResponse>;
+        /**
+         * The type of the resource.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * Private endpoint which a connection belongs to.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The resource Id for private endpoint
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * The state of a private link service connection.
+     */
+    export interface PrivateLinkServiceConnectionState {
+        /**
+         * The private link service connection description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The private link service connection status.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
+     * The state of a private link service connection.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * Any action that is required beyond basic workflow (approve/ reject/ disconnect)
+         */
+        actionsRequired: pulumi.Input<string>;
+        /**
+         * The private link service connection description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The private link service connection status.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
+     * An identity that can be associated with a resource.
+     */
     export interface ResourceIdentity {
         /**
          * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
@@ -3599,6 +3776,9 @@ export namespace appconfiguration {
         userAssignedIdentities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    /**
+     * An identity that can be associated with a resource.
+     */
     export interface ResourceIdentityResponse {
         /**
          * The principal id of the identity. This property will only be provided for a system-assigned identity.
@@ -5150,6 +5330,354 @@ export namespace automation {
          * Gets or sets the webhook uri.
          */
         uri?: pulumi.Input<string>;
+    }
+}
+
+export namespace avs {
+    /**
+     * An ExpressRoute Circuit
+     */
+    export interface Circuit {
+    }
+
+    /**
+     * An ExpressRoute Circuit
+     */
+    export interface CircuitResponse {
+        /**
+         * Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+         */
+        expressRouteID: pulumi.Input<string>;
+        /**
+         * ExpressRoute Circuit private peering identifier
+         */
+        expressRoutePrivatePeeringID: pulumi.Input<string>;
+        /**
+         * CIDR of primary subnet
+         */
+        primarySubnet: pulumi.Input<string>;
+        /**
+         * CIDR of secondary subnet
+         */
+        secondarySubnet: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of a cluster
+     */
+    export interface ClusterProperties {
+        /**
+         * The cluster size
+         */
+        clusterSize: pulumi.Input<number>;
+    }
+
+    /**
+     * The properties of a cluster
+     */
+    export interface ClusterPropertiesResponse {
+        /**
+         * The identity
+         */
+        clusterId: pulumi.Input<number>;
+        /**
+         * The cluster size
+         */
+        clusterSize: pulumi.Input<number>;
+        /**
+         * The hosts
+         */
+        hosts: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The state of the cluster provisioning
+         */
+        provisioningState: pulumi.Input<string>;
+    }
+
+    /**
+     * Endpoint addresses
+     */
+    export interface EndpointsResponse {
+        /**
+         * Endpoint for the HCX Cloud Manager
+         */
+        hcxCloudManager: pulumi.Input<string>;
+        /**
+         * Endpoint for the NSX-T Data Center manager
+         */
+        nsxtManager: pulumi.Input<string>;
+        /**
+         * Endpoint for Virtual Center Server Appliance
+         */
+        vcsa: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of an ExpressRoute Circuit Authorization resource
+     */
+    export interface ExpressRouteAuthorizationPropertiesResponse {
+        /**
+         * The ID of the ExpressRoute Circuit Authorization
+         */
+        expressRouteAuthorizationId: pulumi.Input<string>;
+        /**
+         * The key of the ExpressRoute Circuit Authorization
+         */
+        expressRouteAuthorizationKey: pulumi.Input<string>;
+        /**
+         * The state of the  ExpressRoute Circuit Authorization provisioning
+         */
+        provisioningState: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of an HCX Enterprise Site
+     */
+    export interface HcxEnterpriseSitePropertiesResponse {
+        /**
+         * The activation key
+         */
+        activationKey: pulumi.Input<string>;
+        /**
+         * The status of the HCX Enterprise Site
+         */
+        status: pulumi.Input<string>;
+    }
+
+    /**
+     * vCenter Single Sign On Identity Source
+     */
+    export interface IdentitySource {
+        /**
+         * The domain's NetBIOS name
+         */
+        alias?: pulumi.Input<string>;
+        /**
+         * The base distinguished name for groups
+         */
+        baseGroupDN?: pulumi.Input<string>;
+        /**
+         * The base distinguished name for users
+         */
+        baseUserDN?: pulumi.Input<string>;
+        /**
+         * The domain's dns name
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * The name of the identity source
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * Primary server URL
+         */
+        primaryServer?: pulumi.Input<string>;
+        /**
+         * Secondary server URL
+         */
+        secondaryServer?: pulumi.Input<string>;
+        /**
+         * Protect LDAP communication using SSL certificate (LDAPS)
+         */
+        ssl?: pulumi.Input<string>;
+        /**
+         * The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    /**
+     * vCenter Single Sign On Identity Source
+     */
+    export interface IdentitySourceResponse {
+        /**
+         * The domain's NetBIOS name
+         */
+        alias?: pulumi.Input<string>;
+        /**
+         * The base distinguished name for groups
+         */
+        baseGroupDN?: pulumi.Input<string>;
+        /**
+         * The base distinguished name for users
+         */
+        baseUserDN?: pulumi.Input<string>;
+        /**
+         * The domain's dns name
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * The name of the identity source
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * Primary server URL
+         */
+        primaryServer?: pulumi.Input<string>;
+        /**
+         * Secondary server URL
+         */
+        secondaryServer?: pulumi.Input<string>;
+        /**
+         * Protect LDAP communication using SSL certificate (LDAPS)
+         */
+        ssl?: pulumi.Input<string>;
+        /**
+         * The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of a default cluster
+     */
+    export interface ManagementCluster {
+        /**
+         * The cluster size
+         */
+        clusterSize: pulumi.Input<number>;
+    }
+
+    /**
+     * The properties of a default cluster
+     */
+    export interface ManagementClusterResponse {
+        /**
+         * The identity
+         */
+        clusterId: pulumi.Input<number>;
+        /**
+         * The cluster size
+         */
+        clusterSize: pulumi.Input<number>;
+        /**
+         * The hosts
+         */
+        hosts: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The properties of a private cloud resource
+     */
+    export interface PrivateCloudProperties {
+        /**
+         * An ExpressRoute Circuit
+         */
+        circuit?: pulumi.Input<inputs.avs.Circuit>;
+        /**
+         * vCenter Single Sign On Identity Sources
+         */
+        identitySources?: pulumi.Input<pulumi.Input<inputs.avs.IdentitySource>[]>;
+        /**
+         * Connectivity to internet is enabled or disabled
+         */
+        internet?: pulumi.Input<string>;
+        /**
+         * The default cluster used for management
+         */
+        managementCluster: pulumi.Input<inputs.avs.ManagementCluster>;
+        /**
+         * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+         */
+        networkBlock: pulumi.Input<string>;
+        /**
+         * Optionally, set the NSX-T Manager password when the private cloud is created
+         */
+        nsxtPassword?: pulumi.Input<string>;
+        /**
+         * Optionally, set the vCenter admin password when the private cloud is created
+         */
+        vcenterPassword?: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of a private cloud resource
+     */
+    export interface PrivateCloudPropertiesResponse {
+        /**
+         * An ExpressRoute Circuit
+         */
+        circuit?: pulumi.Input<inputs.avs.CircuitResponse>;
+        /**
+         * The endpoints
+         */
+        endpoints: pulumi.Input<inputs.avs.EndpointsResponse>;
+        /**
+         * vCenter Single Sign On Identity Sources
+         */
+        identitySources?: pulumi.Input<pulumi.Input<inputs.avs.IdentitySourceResponse>[]>;
+        /**
+         * Connectivity to internet is enabled or disabled
+         */
+        internet?: pulumi.Input<string>;
+        /**
+         * The default cluster used for management
+         */
+        managementCluster: pulumi.Input<inputs.avs.ManagementClusterResponse>;
+        /**
+         * Network used to access vCenter Server and NSX-T Manager
+         */
+        managementNetwork: pulumi.Input<string>;
+        /**
+         * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+         */
+        networkBlock: pulumi.Input<string>;
+        /**
+         * Thumbprint of the NSX-T Manager SSL certificate
+         */
+        nsxtCertificateThumbprint: pulumi.Input<string>;
+        /**
+         * Optionally, set the NSX-T Manager password when the private cloud is created
+         */
+        nsxtPassword?: pulumi.Input<string>;
+        /**
+         * Used for virtual machine cold migration, cloning, and snapshot migration
+         */
+        provisioningNetwork: pulumi.Input<string>;
+        /**
+         * The provisioning state
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Thumbprint of the vCenter Server SSL certificate
+         */
+        vcenterCertificateThumbprint: pulumi.Input<string>;
+        /**
+         * Optionally, set the vCenter admin password when the private cloud is created
+         */
+        vcenterPassword?: pulumi.Input<string>;
+        /**
+         * Used for live migration of virtual machines
+         */
+        vmotionNetwork: pulumi.Input<string>;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface Sku {
+        /**
+         * The name of the SKU.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * The resource model definition representing SKU
+     */
+    export interface SkuResponse {
+        /**
+         * The name of the SKU.
+         */
+        name: pulumi.Input<string>;
     }
 }
 
@@ -9775,7 +10303,7 @@ export namespace cdn {
         /**
          * List of keys used to validate the signed URL hashes.
          */
-        urlSigningKeys?: pulumi.Input<inputs.cdn.UrlSigningKey>;
+        urlSigningKeys?: pulumi.Input<pulumi.Input<inputs.cdn.UrlSigningKey>[]>;
         /**
          * Defines the Web Application Firewall policy for the endpoint (if applicable)
          */
@@ -9857,7 +10385,7 @@ export namespace cdn {
         /**
          * List of keys used to validate the signed URL hashes.
          */
-        urlSigningKeys?: pulumi.Input<inputs.cdn.UrlSigningKeyResponse>;
+        urlSigningKeys?: pulumi.Input<pulumi.Input<inputs.cdn.UrlSigningKeyResponse>[]>;
         /**
          * Defines the Web Application Firewall policy for the endpoint (if applicable)
          */
@@ -14247,7 +14775,7 @@ export namespace compute {
          */
         linuxConfiguration?: pulumi.Input<inputs.compute.LinuxConfiguration>;
         /**
-         * Specifies whether the guest provision signal is required to infer provision success of the virtual machine.
+         * Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
          */
         requireGuestProvisionSignal?: pulumi.Input<boolean>;
         /**
@@ -14289,7 +14817,7 @@ export namespace compute {
          */
         linuxConfiguration?: pulumi.Input<inputs.compute.LinuxConfigurationResponse>;
         /**
-         * Specifies whether the guest provision signal is required to infer provision success of the virtual machine.
+         * Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
          */
         requireGuestProvisionSignal?: pulumi.Input<boolean>;
         /**
@@ -15511,6 +16039,10 @@ export namespace compute {
          * The VM Agent running on the virtual machine.
          */
         vmAgent?: pulumi.Input<inputs.compute.VirtualMachineAgentInstanceViewResponse>;
+        /**
+         * The health status for the VM.
+         */
+        vmHealth: pulumi.Input<inputs.compute.VirtualMachineHealthStatusResponse>;
     }
 
     /**
@@ -35418,6 +35950,10 @@ export namespace hdinsight {
          */
         diskEncryptionProperties?: pulumi.Input<inputs.hdinsight.DiskEncryptionProperties>;
         /**
+         * The encryption-in-transit properties.
+         */
+        encryptionInTransitProperties?: pulumi.Input<inputs.hdinsight.EncryptionInTransitProperties>;
+        /**
          * The cluster kafka rest proxy configuration.
          */
         kafkaRestProperties?: pulumi.Input<inputs.hdinsight.KafkaRestProperties>;
@@ -35523,6 +36059,10 @@ export namespace hdinsight {
          * The disk encryption properties.
          */
         diskEncryptionProperties?: pulumi.Input<inputs.hdinsight.DiskEncryptionPropertiesResponse>;
+        /**
+         * The encryption-in-transit properties.
+         */
+        encryptionInTransitProperties?: pulumi.Input<inputs.hdinsight.EncryptionInTransitPropertiesResponse>;
         /**
          * The list of errors.
          */
@@ -35717,6 +36257,26 @@ export namespace hdinsight {
          * Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
          */
         vaultUri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The encryption-in-transit properties.
+     */
+    export interface EncryptionInTransitProperties {
+        /**
+         * Indicates whether or not inter cluster node communication is encrypted in transit.
+         */
+        isEncryptionInTransitEnabled?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The encryption-in-transit properties.
+     */
+    export interface EncryptionInTransitPropertiesResponse {
+        /**
+         * Indicates whether or not inter cluster node communication is encrypted in transit.
+         */
+        isEncryptionInTransitEnabled?: pulumi.Input<boolean>;
     }
 
     /**
@@ -38670,6 +39230,10 @@ export namespace kusto {
          */
         enableDiskEncryption?: pulumi.Input<boolean>;
         /**
+         * A boolean value that indicates if double encryption is enabled.
+         */
+        enableDoubleEncryption?: pulumi.Input<boolean>;
+        /**
          * A boolean value that indicates if the purge operations are enabled.
          */
         enablePurge?: pulumi.Input<boolean>;
@@ -38681,10 +39245,6 @@ export namespace kusto {
          * KeyVault properties for the cluster encryption.
          */
         keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultProperties>;
-        /**
-         * List of the cluster's language extensions.
-         */
-        languageExtensions?: pulumi.Input<inputs.kusto.LanguageExtensionsList>;
         /**
          * Optimized auto scale definition.
          */
@@ -38712,6 +39272,10 @@ export namespace kusto {
          */
         enableDiskEncryption?: pulumi.Input<boolean>;
         /**
+         * A boolean value that indicates if double encryption is enabled.
+         */
+        enableDoubleEncryption?: pulumi.Input<boolean>;
+        /**
          * A boolean value that indicates if the purge operations are enabled.
          */
         enablePurge?: pulumi.Input<boolean>;
@@ -38726,7 +39290,7 @@ export namespace kusto {
         /**
          * List of the cluster's language extensions.
          */
-        languageExtensions?: pulumi.Input<inputs.kusto.LanguageExtensionsListResponse>;
+        languageExtensions: pulumi.Input<inputs.kusto.LanguageExtensionsListResponse>;
         /**
          * Optimized auto scale definition.
          */
@@ -38888,31 +39452,11 @@ export namespace kusto {
     /**
      * The language extension object.
      */
-    export interface LanguageExtension {
-        /**
-         * The language extension name.
-         */
-        languageExtensionName?: pulumi.Input<string>;
-    }
-
-    /**
-     * The language extension object.
-     */
     export interface LanguageExtensionResponse {
         /**
          * The language extension name.
          */
         languageExtensionName?: pulumi.Input<string>;
-    }
-
-    /**
-     * The list of language extension objects.
-     */
-    export interface LanguageExtensionsList {
-        /**
-         * The list of language extensions.
-         */
-        value?: pulumi.Input<pulumi.Input<inputs.kusto.LanguageExtension>[]>;
     }
 
     /**
@@ -45284,6 +45828,50 @@ export namespace machinelearningservices {
          * Tier of the sku like Basic or Enterprise
          */
         tier?: pulumi.Input<string>;
+    }
+
+    /**
+     * Workspace Connection specific properties.
+     */
+    export interface WorkspaceConnectionProps {
+        /**
+         * Authorization type of the workspace connection.
+         */
+        authType?: pulumi.Input<string>;
+        /**
+         * Category of the workspace connection.
+         */
+        category?: pulumi.Input<string>;
+        /**
+         * Target of the workspace connection.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * Value details of the workspace connection.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Workspace Connection specific properties.
+     */
+    export interface WorkspaceConnectionPropsResponse {
+        /**
+         * Authorization type of the workspace connection.
+         */
+        authType?: pulumi.Input<string>;
+        /**
+         * Category of the workspace connection.
+         */
+        category?: pulumi.Input<string>;
+        /**
+         * Target of the workspace connection.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * Value details of the workspace connection.
+         */
+        value?: pulumi.Input<string>;
     }
 
     /**
@@ -55009,54 +55597,6 @@ export namespace network {
     }
 
     /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyCertificateAuthority {
-        /**
-         * Name of the CA certificate.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Properties of the certificate authority.
-         */
-        properties?: pulumi.Input<inputs.network.FirewallPolicyCertificateAuthorityPropertiesFormat>;
-    }
-
-    /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyCertificateAuthorityPropertiesFormat {
-        /**
-         * Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
-         */
-        keyVaultSecretId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyCertificateAuthorityPropertiesFormatResponse {
-        /**
-         * Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
-         */
-        keyVaultSecretId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyCertificateAuthorityResponse {
-        /**
-         * Name of the CA certificate.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Properties of the certificate authority.
-         */
-        properties?: pulumi.Input<inputs.network.FirewallPolicyCertificateAuthorityPropertiesFormatResponse>;
-    }
-
-    /**
      * Firewall Policy definition.
      */
     export interface FirewallPolicyPropertiesFormat {
@@ -55069,10 +55609,6 @@ export namespace network {
          */
         dnsSettings?: pulumi.Input<inputs.network.DnsSettings>;
         /**
-         * The operation mode for Intrusion system.
-         */
-        intrusionSystemMode?: pulumi.Input<string>;
-        /**
          * The operation mode for Threat Intelligence.
          */
         threatIntelMode?: pulumi.Input<string>;
@@ -55080,10 +55616,6 @@ export namespace network {
          * ThreatIntel Whitelist for Firewall Policy.
          */
         threatIntelWhitelist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelWhitelist>;
-        /**
-         * TLS Configuration definition.
-         */
-        transportSecurity?: pulumi.Input<inputs.network.FirewallPolicyTransportSecurity>;
     }
 
     /**
@@ -55107,10 +55639,6 @@ export namespace network {
          */
         firewalls: pulumi.Input<pulumi.Input<inputs.network.SubResourceResponse>[]>;
         /**
-         * The operation mode for Intrusion system.
-         */
-        intrusionSystemMode?: pulumi.Input<string>;
-        /**
          * The provisioning state of the firewall policy resource.
          */
         provisioningState: pulumi.Input<string>;
@@ -55126,10 +55654,6 @@ export namespace network {
          * ThreatIntel Whitelist for Firewall Policy.
          */
         threatIntelWhitelist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelWhitelistResponse>;
-        /**
-         * TLS Configuration definition.
-         */
-        transportSecurity?: pulumi.Input<inputs.network.FirewallPolicyTransportSecurityResponse>;
     }
 
     /**
@@ -55226,90 +55750,6 @@ export namespace network {
          * List of IP addresses for the ThreatIntel Whitelist.
          */
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Configuration needed to perform TLS termination & initiation.
-     */
-    export interface FirewallPolicyTransportSecurity {
-        /**
-         * The CA used for intermediate CA generation.
-         */
-        certificateAuthority?: pulumi.Input<inputs.network.FirewallPolicyCertificateAuthority>;
-        /**
-         * List of domains which are excluded from TLS termination.
-         */
-        excludedDomains?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Certificates which are to be trusted by the firewall.
-         */
-        trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyTrustedRootCertificate>[]>;
-    }
-
-    /**
-     * Configuration needed to perform TLS termination & initiation.
-     */
-    export interface FirewallPolicyTransportSecurityResponse {
-        /**
-         * The CA used for intermediate CA generation.
-         */
-        certificateAuthority?: pulumi.Input<inputs.network.FirewallPolicyCertificateAuthorityResponse>;
-        /**
-         * List of domains which are excluded from TLS termination.
-         */
-        excludedDomains?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Certificates which are to be trusted by the firewall.
-         */
-        trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyTrustedRootCertificateResponse>[]>;
-    }
-
-    /**
-     * Trusted Root certificates of a firewall policy.
-     */
-    export interface FirewallPolicyTrustedRootCertificate {
-        /**
-         * Name of the trusted root certificate that is unique within a firewall policy.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Properties of the trusted root authorities.
-         */
-        properties?: pulumi.Input<inputs.network.FirewallPolicyTrustedRootCertificatePropertiesFormat>;
-    }
-
-    /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyTrustedRootCertificatePropertiesFormat {
-        /**
-         * Secret Id of (base-64 encoded unencrypted pfx) the public certificate data stored in KeyVault.
-         */
-        keyVaultSecretId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Trusted Root certificates properties for tls.
-     */
-    export interface FirewallPolicyTrustedRootCertificatePropertiesFormatResponse {
-        /**
-         * Secret Id of (base-64 encoded unencrypted pfx) the public certificate data stored in KeyVault.
-         */
-        keyVaultSecretId?: pulumi.Input<string>;
-    }
-
-    /**
-     * Trusted Root certificates of a firewall policy.
-     */
-    export interface FirewallPolicyTrustedRootCertificateResponse {
-        /**
-         * Name of the trusted root certificate that is unique within a firewall policy.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Properties of the trusted root authorities.
-         */
-        properties?: pulumi.Input<inputs.network.FirewallPolicyTrustedRootCertificatePropertiesFormatResponse>;
     }
 
     /**
@@ -65352,7 +65792,7 @@ export namespace operationalinsights {
      */
     export interface ActionRequestProperties {
         /**
-         * Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+         * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
          */
         logicAppResourceId: pulumi.Input<string>;
         /**
@@ -65366,13 +65806,367 @@ export namespace operationalinsights {
      */
     export interface ActionResponsePropertiesResponse {
         /**
-         * Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+         * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
          */
         logicAppResourceId: pulumi.Input<string>;
         /**
          * The name of the logic app's workflow.
          */
         workflowId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes bookmark properties
+     */
+    export interface BookmarkProperties {
+        /**
+         * The time the bookmark was created
+         */
+        created?: pulumi.Input<string>;
+        /**
+         * Describes a user that created the bookmark
+         */
+        createdBy?: pulumi.Input<inputs.operationalinsights.UserInfo>;
+        /**
+         * The display name of the bookmark
+         */
+        displayName: pulumi.Input<string>;
+        /**
+         * Describes an incident that relates to bookmark
+         */
+        incidentInfo?: pulumi.Input<inputs.operationalinsights.IncidentInfo>;
+        /**
+         * List of labels relevant to this bookmark
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The notes of the bookmark
+         */
+        notes?: pulumi.Input<string>;
+        /**
+         * The query of the bookmark.
+         */
+        query: pulumi.Input<string>;
+        /**
+         * The query result of the bookmark.
+         */
+        queryResult?: pulumi.Input<string>;
+        /**
+         * The last time the bookmark was updated
+         */
+        updated?: pulumi.Input<string>;
+        /**
+         * Describes a user that updated the bookmark
+         */
+        updatedBy?: pulumi.Input<inputs.operationalinsights.UserInfo>;
+    }
+
+    /**
+     * Describes bookmark properties
+     */
+    export interface BookmarkPropertiesResponse {
+        /**
+         * The time the bookmark was created
+         */
+        created?: pulumi.Input<string>;
+        /**
+         * Describes a user that created the bookmark
+         */
+        createdBy?: pulumi.Input<inputs.operationalinsights.UserInfoResponse>;
+        /**
+         * The display name of the bookmark
+         */
+        displayName: pulumi.Input<string>;
+        /**
+         * Describes an incident that relates to bookmark
+         */
+        incidentInfo?: pulumi.Input<inputs.operationalinsights.IncidentInfoResponse>;
+        /**
+         * List of labels relevant to this bookmark
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The notes of the bookmark
+         */
+        notes?: pulumi.Input<string>;
+        /**
+         * The query of the bookmark.
+         */
+        query: pulumi.Input<string>;
+        /**
+         * The query result of the bookmark.
+         */
+        queryResult?: pulumi.Input<string>;
+        /**
+         * The last time the bookmark was updated
+         */
+        updated?: pulumi.Input<string>;
+        /**
+         * Describes a user that updated the bookmark
+         */
+        updatedBy?: pulumi.Input<inputs.operationalinsights.UserInfoResponse>;
+    }
+
+    /**
+     * Incident additional data property bag.
+     */
+    export interface IncidentAdditionalDataResponse {
+        /**
+         * List of product names of alerts in the incident
+         */
+        alertProductNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of alerts in the incident
+         */
+        alertsCount: pulumi.Input<number>;
+        /**
+         * The number of bookmarks in the incident
+         */
+        bookmarksCount: pulumi.Input<number>;
+        /**
+         * The number of comments in the incident
+         */
+        commentsCount: pulumi.Input<number>;
+        /**
+         * The tactics associated with incident
+         */
+        tactics: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Describes related incident information for the bookmark
+     */
+    export interface IncidentInfo {
+        /**
+         * Incident Id
+         */
+        incidentId: pulumi.Input<string>;
+        /**
+         * Relation Name
+         */
+        relationName: pulumi.Input<string>;
+        /**
+         * The severity of the incident
+         */
+        severity: pulumi.Input<string>;
+        /**
+         * The title of the incident
+         */
+        title: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes related incident information for the bookmark
+     */
+    export interface IncidentInfoResponse {
+        /**
+         * Incident Id
+         */
+        incidentId: pulumi.Input<string>;
+        /**
+         * Relation Name
+         */
+        relationName: pulumi.Input<string>;
+        /**
+         * The severity of the incident
+         */
+        severity: pulumi.Input<string>;
+        /**
+         * The title of the incident
+         */
+        title: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents an incident label
+     */
+    export interface IncidentLabel {
+        /**
+         * The name of the label
+         */
+        labelName: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents an incident label
+     */
+    export interface IncidentLabelResponse {
+        /**
+         * The name of the label
+         */
+        labelName: pulumi.Input<string>;
+        /**
+         * The type of the label
+         */
+        labelType: pulumi.Input<string>;
+    }
+
+    /**
+     * Information on the user an incident is assigned to
+     */
+    export interface IncidentOwnerInfo {
+        /**
+         * The name of the user the incident is assigned to.
+         */
+        assignedTo?: pulumi.Input<string>;
+        /**
+         * The email of the user the incident is assigned to.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The object id of the user the incident is assigned to.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The user principal name of the user the incident is assigned to.
+         */
+        userPrincipalName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Information on the user an incident is assigned to
+     */
+    export interface IncidentOwnerInfoResponse {
+        /**
+         * The name of the user the incident is assigned to.
+         */
+        assignedTo?: pulumi.Input<string>;
+        /**
+         * The email of the user the incident is assigned to.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The object id of the user the incident is assigned to.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The user principal name of the user the incident is assigned to.
+         */
+        userPrincipalName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes incident properties
+     */
+    export interface IncidentProperties {
+        /**
+         * The reason the incident was closed
+         */
+        classification?: pulumi.Input<string>;
+        /**
+         * Describes the reason the incident was closed
+         */
+        classificationComment?: pulumi.Input<string>;
+        /**
+         * The classification reason the incident was closed with
+         */
+        classificationReason?: pulumi.Input<string>;
+        /**
+         * The description of the incident
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The time of the first activity in the incident
+         */
+        firstActivityTimeUtc?: pulumi.Input<string>;
+        /**
+         * List of labels relevant to this incident
+         */
+        labels?: pulumi.Input<pulumi.Input<inputs.operationalinsights.IncidentLabel>[]>;
+        /**
+         * The time of the last activity in the incident
+         */
+        lastActivityTimeUtc?: pulumi.Input<string>;
+        /**
+         * Describes a user that the incident is assigned to
+         */
+        owner?: pulumi.Input<inputs.operationalinsights.IncidentOwnerInfo>;
+        /**
+         * The severity of the incident
+         */
+        severity: pulumi.Input<string>;
+        /**
+         * The status of the incident
+         */
+        status: pulumi.Input<string>;
+        /**
+         * The title of the incident
+         */
+        title: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes incident properties
+     */
+    export interface IncidentPropertiesResponse {
+        /**
+         * Additional data on the incident
+         */
+        additionalData: pulumi.Input<inputs.operationalinsights.IncidentAdditionalDataResponse>;
+        /**
+         * The reason the incident was closed
+         */
+        classification?: pulumi.Input<string>;
+        /**
+         * Describes the reason the incident was closed
+         */
+        classificationComment?: pulumi.Input<string>;
+        /**
+         * The classification reason the incident was closed with
+         */
+        classificationReason?: pulumi.Input<string>;
+        /**
+         * The time the incident was created
+         */
+        createdTimeUtc: pulumi.Input<string>;
+        /**
+         * The description of the incident
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The time of the first activity in the incident
+         */
+        firstActivityTimeUtc?: pulumi.Input<string>;
+        /**
+         * A sequential number
+         */
+        incidentNumber: pulumi.Input<number>;
+        /**
+         * The deep-link url to the incident in Azure portal
+         */
+        incidentUrl: pulumi.Input<string>;
+        /**
+         * List of labels relevant to this incident
+         */
+        labels?: pulumi.Input<pulumi.Input<inputs.operationalinsights.IncidentLabelResponse>[]>;
+        /**
+         * The time of the last activity in the incident
+         */
+        lastActivityTimeUtc?: pulumi.Input<string>;
+        /**
+         * The last time the incident was updated
+         */
+        lastModifiedTimeUtc: pulumi.Input<string>;
+        /**
+         * Describes a user that the incident is assigned to
+         */
+        owner?: pulumi.Input<inputs.operationalinsights.IncidentOwnerInfoResponse>;
+        /**
+         * List of resource ids of Analytic rules related to the incident
+         */
+        relatedAnalyticRuleIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The severity of the incident
+         */
+        severity: pulumi.Input<string>;
+        /**
+         * The status of the incident
+         */
+        status: pulumi.Input<string>;
+        /**
+         * The title of the incident
+         */
+        title: pulumi.Input<string>;
     }
 
     /**
@@ -65535,6 +66329,34 @@ export namespace operationalinsights {
          * The tag value.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * User information that made some action
+     */
+    export interface UserInfo {
+        /**
+         * The object id of the user.
+         */
+        objectId: pulumi.Input<string>;
+    }
+
+    /**
+     * User information that made some action
+     */
+    export interface UserInfoResponse {
+        /**
+         * The email of the user.
+         */
+        email: pulumi.Input<string>;
+        /**
+         * The name of the user.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The object id of the user.
+         */
+        objectId: pulumi.Input<string>;
     }
 
 }

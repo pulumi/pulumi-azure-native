@@ -4745,6 +4745,461 @@ func (o WorkspaceComputeTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceComputeType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Workspace connection.
+type WorkspaceConnectionType struct {
+	// Friendly name of the workspace connection.
+	Name string `pulumi:"name"`
+	// Properties of workspace connection.
+	Properties WorkspaceConnectionPropsResponse `pulumi:"properties"`
+	// Resource type of workspace connection.
+	Type string `pulumi:"type"`
+}
+
+// WorkspaceConnectionTypeInput is an input type that accepts WorkspaceConnectionTypeArgs and WorkspaceConnectionTypeOutput values.
+// You can construct a concrete instance of `WorkspaceConnectionTypeInput` via:
+//
+//          WorkspaceConnectionTypeArgs{...}
+type WorkspaceConnectionTypeInput interface {
+	pulumi.Input
+
+	ToWorkspaceConnectionTypeOutput() WorkspaceConnectionTypeOutput
+	ToWorkspaceConnectionTypeOutputWithContext(context.Context) WorkspaceConnectionTypeOutput
+}
+
+// Workspace connection.
+type WorkspaceConnectionTypeArgs struct {
+	// Friendly name of the workspace connection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of workspace connection.
+	Properties WorkspaceConnectionPropsResponseInput `pulumi:"properties"`
+	// Resource type of workspace connection.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkspaceConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnectionType)(nil)).Elem()
+}
+
+func (i WorkspaceConnectionTypeArgs) ToWorkspaceConnectionTypeOutput() WorkspaceConnectionTypeOutput {
+	return i.ToWorkspaceConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConnectionTypeArgs) ToWorkspaceConnectionTypeOutputWithContext(ctx context.Context) WorkspaceConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionTypeOutput)
+}
+
+// Workspace connection.
+type WorkspaceConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnectionType)(nil)).Elem()
+}
+
+func (o WorkspaceConnectionTypeOutput) ToWorkspaceConnectionTypeOutput() WorkspaceConnectionTypeOutput {
+	return o
+}
+
+func (o WorkspaceConnectionTypeOutput) ToWorkspaceConnectionTypeOutputWithContext(ctx context.Context) WorkspaceConnectionTypeOutput {
+	return o
+}
+
+// Friendly name of the workspace connection.
+func (o WorkspaceConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of workspace connection.
+func (o WorkspaceConnectionTypeOutput) Properties() WorkspaceConnectionPropsResponseOutput {
+	return o.ApplyT(func(v WorkspaceConnectionType) WorkspaceConnectionPropsResponse { return v.Properties }).(WorkspaceConnectionPropsResponseOutput)
+}
+
+// Resource type of workspace connection.
+func (o WorkspaceConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Workspace Connection specific properties.
+type WorkspaceConnectionProps struct {
+	// Authorization type of the workspace connection.
+	AuthType *string `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category *string `pulumi:"category"`
+	// Target of the workspace connection.
+	Target *string `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+}
+
+// WorkspaceConnectionPropsInput is an input type that accepts WorkspaceConnectionPropsArgs and WorkspaceConnectionPropsOutput values.
+// You can construct a concrete instance of `WorkspaceConnectionPropsInput` via:
+//
+//          WorkspaceConnectionPropsArgs{...}
+type WorkspaceConnectionPropsInput interface {
+	pulumi.Input
+
+	ToWorkspaceConnectionPropsOutput() WorkspaceConnectionPropsOutput
+	ToWorkspaceConnectionPropsOutputWithContext(context.Context) WorkspaceConnectionPropsOutput
+}
+
+// Workspace Connection specific properties.
+type WorkspaceConnectionPropsArgs struct {
+	// Authorization type of the workspace connection.
+	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// Target of the workspace connection.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WorkspaceConnectionPropsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnectionProps)(nil)).Elem()
+}
+
+func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsOutput() WorkspaceConnectionPropsOutput {
+	return i.ToWorkspaceConnectionPropsOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsOutputWithContext(ctx context.Context) WorkspaceConnectionPropsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsOutput)
+}
+
+func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
+	return i.ToWorkspaceConnectionPropsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsOutput).ToWorkspaceConnectionPropsPtrOutputWithContext(ctx)
+}
+
+// WorkspaceConnectionPropsPtrInput is an input type that accepts WorkspaceConnectionPropsArgs, WorkspaceConnectionPropsPtr and WorkspaceConnectionPropsPtrOutput values.
+// You can construct a concrete instance of `WorkspaceConnectionPropsPtrInput` via:
+//
+//          WorkspaceConnectionPropsArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceConnectionPropsPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput
+	ToWorkspaceConnectionPropsPtrOutputWithContext(context.Context) WorkspaceConnectionPropsPtrOutput
+}
+
+type workspaceConnectionPropsPtrType WorkspaceConnectionPropsArgs
+
+func WorkspaceConnectionPropsPtr(v *WorkspaceConnectionPropsArgs) WorkspaceConnectionPropsPtrInput {
+	return (*workspaceConnectionPropsPtrType)(v)
+}
+
+func (*workspaceConnectionPropsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConnectionProps)(nil)).Elem()
+}
+
+func (i *workspaceConnectionPropsPtrType) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
+	return i.ToWorkspaceConnectionPropsPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceConnectionPropsPtrType) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsPtrOutput)
+}
+
+// Workspace Connection specific properties.
+type WorkspaceConnectionPropsOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConnectionPropsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnectionProps)(nil)).Elem()
+}
+
+func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsOutput() WorkspaceConnectionPropsOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsOutputWithContext(ctx context.Context) WorkspaceConnectionPropsOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
+	return o.ToWorkspaceConnectionPropsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionProps) *WorkspaceConnectionProps {
+		return &v
+	}).(WorkspaceConnectionPropsPtrOutput)
+}
+
+// Authorization type of the workspace connection.
+func (o WorkspaceConnectionPropsOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+}
+
+// Category of the workspace connection.
+func (o WorkspaceConnectionPropsOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// Target of the workspace connection.
+func (o WorkspaceConnectionPropsOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Value details of the workspace connection.
+func (o WorkspaceConnectionPropsOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceConnectionPropsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConnectionPropsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConnectionProps)(nil)).Elem()
+}
+
+func (o WorkspaceConnectionPropsPtrOutput) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsPtrOutput) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsPtrOutput) Elem() WorkspaceConnectionPropsOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionProps) WorkspaceConnectionProps { return *v }).(WorkspaceConnectionPropsOutput)
+}
+
+// Authorization type of the workspace connection.
+func (o WorkspaceConnectionPropsPtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Category of the workspace connection.
+func (o WorkspaceConnectionPropsPtrOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Category
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target of the workspace connection.
+func (o WorkspaceConnectionPropsPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value details of the workspace connection.
+func (o WorkspaceConnectionPropsPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workspace Connection specific properties.
+type WorkspaceConnectionPropsResponse struct {
+	// Authorization type of the workspace connection.
+	AuthType *string `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category *string `pulumi:"category"`
+	// Target of the workspace connection.
+	Target *string `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
+}
+
+// WorkspaceConnectionPropsResponseInput is an input type that accepts WorkspaceConnectionPropsResponseArgs and WorkspaceConnectionPropsResponseOutput values.
+// You can construct a concrete instance of `WorkspaceConnectionPropsResponseInput` via:
+//
+//          WorkspaceConnectionPropsResponseArgs{...}
+type WorkspaceConnectionPropsResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceConnectionPropsResponseOutput() WorkspaceConnectionPropsResponseOutput
+	ToWorkspaceConnectionPropsResponseOutputWithContext(context.Context) WorkspaceConnectionPropsResponseOutput
+}
+
+// Workspace Connection specific properties.
+type WorkspaceConnectionPropsResponseArgs struct {
+	// Authorization type of the workspace connection.
+	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// Target of the workspace connection.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WorkspaceConnectionPropsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnectionPropsResponse)(nil)).Elem()
+}
+
+func (i WorkspaceConnectionPropsResponseArgs) ToWorkspaceConnectionPropsResponseOutput() WorkspaceConnectionPropsResponseOutput {
+	return i.ToWorkspaceConnectionPropsResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConnectionPropsResponseArgs) ToWorkspaceConnectionPropsResponseOutputWithContext(ctx context.Context) WorkspaceConnectionPropsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsResponseOutput)
+}
+
+func (i WorkspaceConnectionPropsResponseArgs) ToWorkspaceConnectionPropsResponsePtrOutput() WorkspaceConnectionPropsResponsePtrOutput {
+	return i.ToWorkspaceConnectionPropsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceConnectionPropsResponseArgs) ToWorkspaceConnectionPropsResponsePtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsResponseOutput).ToWorkspaceConnectionPropsResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceConnectionPropsResponsePtrInput is an input type that accepts WorkspaceConnectionPropsResponseArgs, WorkspaceConnectionPropsResponsePtr and WorkspaceConnectionPropsResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceConnectionPropsResponsePtrInput` via:
+//
+//          WorkspaceConnectionPropsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceConnectionPropsResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceConnectionPropsResponsePtrOutput() WorkspaceConnectionPropsResponsePtrOutput
+	ToWorkspaceConnectionPropsResponsePtrOutputWithContext(context.Context) WorkspaceConnectionPropsResponsePtrOutput
+}
+
+type workspaceConnectionPropsResponsePtrType WorkspaceConnectionPropsResponseArgs
+
+func WorkspaceConnectionPropsResponsePtr(v *WorkspaceConnectionPropsResponseArgs) WorkspaceConnectionPropsResponsePtrInput {
+	return (*workspaceConnectionPropsResponsePtrType)(v)
+}
+
+func (*workspaceConnectionPropsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConnectionPropsResponse)(nil)).Elem()
+}
+
+func (i *workspaceConnectionPropsResponsePtrType) ToWorkspaceConnectionPropsResponsePtrOutput() WorkspaceConnectionPropsResponsePtrOutput {
+	return i.ToWorkspaceConnectionPropsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceConnectionPropsResponsePtrType) ToWorkspaceConnectionPropsResponsePtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsResponsePtrOutput)
+}
+
+// Workspace Connection specific properties.
+type WorkspaceConnectionPropsResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConnectionPropsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceConnectionPropsResponse)(nil)).Elem()
+}
+
+func (o WorkspaceConnectionPropsResponseOutput) ToWorkspaceConnectionPropsResponseOutput() WorkspaceConnectionPropsResponseOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsResponseOutput) ToWorkspaceConnectionPropsResponseOutputWithContext(ctx context.Context) WorkspaceConnectionPropsResponseOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsResponseOutput) ToWorkspaceConnectionPropsResponsePtrOutput() WorkspaceConnectionPropsResponsePtrOutput {
+	return o.ToWorkspaceConnectionPropsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceConnectionPropsResponseOutput) ToWorkspaceConnectionPropsResponsePtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionPropsResponse) *WorkspaceConnectionPropsResponse {
+		return &v
+	}).(WorkspaceConnectionPropsResponsePtrOutput)
+}
+
+// Authorization type of the workspace connection.
+func (o WorkspaceConnectionPropsResponseOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionPropsResponse) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+}
+
+// Category of the workspace connection.
+func (o WorkspaceConnectionPropsResponseOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionPropsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// Target of the workspace connection.
+func (o WorkspaceConnectionPropsResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionPropsResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Value details of the workspace connection.
+func (o WorkspaceConnectionPropsResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceConnectionPropsResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceConnectionPropsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceConnectionPropsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceConnectionPropsResponse)(nil)).Elem()
+}
+
+func (o WorkspaceConnectionPropsResponsePtrOutput) ToWorkspaceConnectionPropsResponsePtrOutput() WorkspaceConnectionPropsResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsResponsePtrOutput) ToWorkspaceConnectionPropsResponsePtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceConnectionPropsResponsePtrOutput) Elem() WorkspaceConnectionPropsResponseOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionPropsResponse) WorkspaceConnectionPropsResponse { return *v }).(WorkspaceConnectionPropsResponseOutput)
+}
+
+// Authorization type of the workspace connection.
+func (o WorkspaceConnectionPropsResponsePtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionPropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Category of the workspace connection.
+func (o WorkspaceConnectionPropsResponsePtrOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionPropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Category
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target of the workspace connection.
+func (o WorkspaceConnectionPropsResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionPropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value details of the workspace connection.
+func (o WorkspaceConnectionPropsResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnectionPropsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Private Endpoint Connection resource.
 type WorkspacePrivateEndpointConnectionType struct {
 	// The identity of the resource.
@@ -5740,6 +6195,11 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceComputeTypeOutput{})
+	pulumi.RegisterOutputType(WorkspaceConnectionTypeOutput{})
+	pulumi.RegisterOutputType(WorkspaceConnectionPropsOutput{})
+	pulumi.RegisterOutputType(WorkspaceConnectionPropsPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})

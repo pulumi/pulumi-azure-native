@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureRM.AppConfiguration.Inputs
 {
 
+    /// <summary>
+    /// An identity that can be associated with a resource.
+    /// </summary>
     public sealed class ResourceIdentityResponseArgs : Pulumi.ResourceArgs
     {
         /// <summary>

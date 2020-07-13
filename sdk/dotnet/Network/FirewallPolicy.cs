@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.Network
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the firewall policy.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -109,12 +103,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The identity of the firewall policy.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -162,12 +150,6 @@ namespace Pulumi.AzureRM.Network
         /// </summary>
         [Input("etag", required: true)]
         public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The identity of the firewall policy.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityResponseGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Resource location.

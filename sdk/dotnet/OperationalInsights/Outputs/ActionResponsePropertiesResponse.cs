@@ -14,7 +14,7 @@ namespace Pulumi.AzureRM.OperationalInsights.Outputs
     public sealed class ActionResponsePropertiesResponse
     {
         /// <summary>
-        /// Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+        /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         /// </summary>
         public readonly string LogicAppResourceId;
         /// <summary>

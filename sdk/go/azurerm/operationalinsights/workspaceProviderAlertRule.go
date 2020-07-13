@@ -16,7 +16,7 @@ type WorkspaceProviderAlertRule struct {
 
 	// Etag of the azure resource
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the alert rule
+	// The alert rule kind
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -66,7 +66,7 @@ func GetWorkspaceProviderAlertRule(ctx *pulumi.Context,
 type workspaceProviderAlertRuleState struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// The kind of the alert rule
+	// The alert rule kind
 	Kind *string `pulumi:"kind"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
@@ -77,7 +77,7 @@ type workspaceProviderAlertRuleState struct {
 type WorkspaceProviderAlertRuleState struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
-	// The kind of the alert rule
+	// The alert rule kind
 	Kind pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
@@ -92,7 +92,7 @@ func (WorkspaceProviderAlertRuleState) ElementType() reflect.Type {
 type workspaceProviderAlertRuleArgs struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// The kind of the alert rule
+	// The alert rule kind
 	Kind string `pulumi:"kind"`
 	// Alert rule ID
 	Name string `pulumi:"name"`
@@ -106,7 +106,7 @@ type workspaceProviderAlertRuleArgs struct {
 type WorkspaceProviderAlertRuleArgs struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
-	// The kind of the alert rule
+	// The alert rule kind
 	Kind pulumi.StringInput
 	// Alert rule ID
 	Name pulumi.StringInput

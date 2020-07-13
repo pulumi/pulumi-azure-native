@@ -117,6 +117,9 @@ class VirtualMachine(pulumi.CustomResource):
           * `statuses` (`list`) - The resource status information.
           * `vm_agent_version` (`str`) - The VM Agent full version.
 
+        * `vm_health` (`dict`) - The health status for the VM.
+          * `status` (`dict`) - The health status information for the VM.
+
       * `license_type` (`str`) - Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
       * `network_profile` (`dict`) - Specifies the network interfaces of the virtual machine.
         * `network_interfaces` (`list`) - Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
@@ -138,7 +141,7 @@ class VirtualMachine(pulumi.CustomResource):
               * `key_data` (`str`) - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
               * `path` (`str`) - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
 
-        * `require_guest_provision_signal` (`bool`) - Specifies whether the guest provision signal is required to infer provision success of the virtual machine.
+        * `require_guest_provision_signal` (`bool`) - Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
         * `secrets` (`list`) - Specifies set of certificates that should be installed onto the virtual machine.
           * `source_vault` (`dict`) - The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
           * `vault_certificates` (`list`) - The list of key vault references in SourceVault which contain certificates.
@@ -334,7 +337,7 @@ class VirtualMachine(pulumi.CustomResource):
                   * `key_data` (`pulumi.Input[str]`) - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
                   * `path` (`pulumi.Input[str]`) - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
 
-            * `require_guest_provision_signal` (`pulumi.Input[bool]`) - Specifies whether the guest provision signal is required to infer provision success of the virtual machine.
+            * `require_guest_provision_signal` (`pulumi.Input[bool]`) - Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
             * `secrets` (`pulumi.Input[list]`) - Specifies set of certificates that should be installed onto the virtual machine.
               * `source_vault` (`pulumi.Input[dict]`) - The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
               * `vault_certificates` (`pulumi.Input[list]`) - The list of key vault references in SourceVault which contain certificates.
@@ -573,6 +576,9 @@ class VirtualMachine(pulumi.CustomResource):
               * `statuses` (`pulumi.Input[list]`) - The resource status information.
               * `vm_agent_version` (`pulumi.Input[str]`) - The VM Agent full version.
 
+            * `vm_health` (`pulumi.Input[dict]`) - The health status for the VM.
+              * `status` (`pulumi.Input[dict]`) - The health status information for the VM.
+
           * `license_type` (`pulumi.Input[str]`) - Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
           * `network_profile` (`pulumi.Input[dict]`) - Specifies the network interfaces of the virtual machine.
             * `network_interfaces` (`pulumi.Input[list]`) - Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
@@ -594,7 +600,7 @@ class VirtualMachine(pulumi.CustomResource):
                   * `key_data` (`pulumi.Input[str]`) - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
                   * `path` (`pulumi.Input[str]`) - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
 
-            * `require_guest_provision_signal` (`pulumi.Input[bool]`) - Specifies whether the guest provision signal is required to infer provision success of the virtual machine.
+            * `require_guest_provision_signal` (`pulumi.Input[bool]`) - Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
             * `secrets` (`pulumi.Input[list]`) - Specifies set of certificates that should be installed onto the virtual machine.
               * `source_vault` (`pulumi.Input[dict]`) - The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
               * `vault_certificates` (`pulumi.Input[list]`) - The list of key vault references in SourceVault which contain certificates.

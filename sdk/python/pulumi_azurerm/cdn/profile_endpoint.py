@@ -84,7 +84,7 @@ class ProfileEndpoint(pulumi.CustomResource):
       * `provisioning_state` (`str`) - Provisioning status of the endpoint.
       * `query_string_caching_behavior` (`str`) - Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
       * `resource_state` (`str`) - Resource status of the endpoint.
-      * `url_signing_keys` (`dict`) - List of keys used to validate the signed URL hashes.
+      * `url_signing_keys` (`list`) - List of keys used to validate the signed URL hashes.
         * `key_id` (`str`) - Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
         * `key_source_parameters` (`dict`) - Defines the parameters for using customer key vault for Url Signing Key.
           * `resource_group_name` (`str`) - Resource group of the user's Key Vault containing the secret
@@ -178,7 +178,7 @@ class ProfileEndpoint(pulumi.CustomResource):
 
           * `probe_path` (`pulumi.Input[str]`) - Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
           * `query_string_caching_behavior` (`pulumi.Input[str]`) - Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-          * `url_signing_keys` (`pulumi.Input[dict]`) - List of keys used to validate the signed URL hashes.
+          * `url_signing_keys` (`pulumi.Input[list]`) - List of keys used to validate the signed URL hashes.
             * `key_id` (`pulumi.Input[str]`) - Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
             * `key_source_parameters` (`pulumi.Input[dict]`) - Defines the parameters for using customer key vault for Url Signing Key.
               * `resource_group_name` (`pulumi.Input[str]`) - Resource group of the user's Key Vault containing the secret
@@ -307,7 +307,7 @@ class ProfileEndpoint(pulumi.CustomResource):
           * `provisioning_state` (`pulumi.Input[str]`) - Provisioning status of the endpoint.
           * `query_string_caching_behavior` (`pulumi.Input[str]`) - Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
           * `resource_state` (`pulumi.Input[str]`) - Resource status of the endpoint.
-          * `url_signing_keys` (`pulumi.Input[dict]`) - List of keys used to validate the signed URL hashes.
+          * `url_signing_keys` (`pulumi.Input[list]`) - List of keys used to validate the signed URL hashes.
             * `key_id` (`pulumi.Input[str]`) - Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
             * `key_source_parameters` (`pulumi.Input[dict]`) - Defines the parameters for using customer key vault for Url Signing Key.
               * `resource_group_name` (`pulumi.Input[str]`) - Resource group of the user's Key Vault containing the secret

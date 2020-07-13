@@ -101,6 +101,9 @@ class Cluster(pulumi.CustomResource):
         * `msi_resource_id` (`str`) - Resource ID of Managed Identity that is used to access the key vault.
         * `vault_uri` (`str`) - Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
 
+      * `encryption_in_transit_properties` (`dict`) - The encryption-in-transit properties.
+        * `is_encryption_in_transit_enabled` (`bool`) - Indicates whether or not inter cluster node communication is encrypted in transit.
+
       * `errors` (`list`) - The list of errors.
         * `code` (`str`) - The error code.
         * `message` (`str`) - The error message.
@@ -218,6 +221,9 @@ class Cluster(pulumi.CustomResource):
             * `key_version` (`pulumi.Input[str]`) - Specific key version that is used for enabling disk encryption.
             * `msi_resource_id` (`pulumi.Input[str]`) - Resource ID of Managed Identity that is used to access the key vault.
             * `vault_uri` (`pulumi.Input[str]`) - Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
+
+          * `encryption_in_transit_properties` (`pulumi.Input[dict]`) - The encryption-in-transit properties.
+            * `is_encryption_in_transit_enabled` (`pulumi.Input[bool]`) - Indicates whether or not inter cluster node communication is encrypted in transit.
 
           * `kafka_rest_properties` (`pulumi.Input[dict]`) - The cluster kafka rest proxy configuration.
             * `client_group_info` (`pulumi.Input[dict]`) - The information of AAD security group.
@@ -381,6 +387,9 @@ class Cluster(pulumi.CustomResource):
             * `key_version` (`pulumi.Input[str]`) - Specific key version that is used for enabling disk encryption.
             * `msi_resource_id` (`pulumi.Input[str]`) - Resource ID of Managed Identity that is used to access the key vault.
             * `vault_uri` (`pulumi.Input[str]`) - Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
+
+          * `encryption_in_transit_properties` (`pulumi.Input[dict]`) - The encryption-in-transit properties.
+            * `is_encryption_in_transit_enabled` (`pulumi.Input[bool]`) - Indicates whether or not inter cluster node communication is encrypted in transit.
 
           * `errors` (`pulumi.Input[list]`) - The list of errors.
             * `code` (`pulumi.Input[str]`) - The error code.

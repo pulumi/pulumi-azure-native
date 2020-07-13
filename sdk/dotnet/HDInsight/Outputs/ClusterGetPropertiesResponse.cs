@@ -42,6 +42,10 @@ namespace Pulumi.AzureRM.HDInsight.Outputs
         /// </summary>
         public readonly Outputs.DiskEncryptionPropertiesResponse? DiskEncryptionProperties;
         /// <summary>
+        /// The encryption-in-transit properties.
+        /// </summary>
+        public readonly Outputs.EncryptionInTransitPropertiesResponse? EncryptionInTransitProperties;
+        /// <summary>
         /// The list of errors.
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorsResponse> Errors;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureRM.HDInsight.Outputs
 
             Outputs.DiskEncryptionPropertiesResponse? diskEncryptionProperties,
 
+            Outputs.EncryptionInTransitPropertiesResponse? encryptionInTransitProperties,
+
             ImmutableArray<Outputs.ErrorsResponse> errors,
 
             Outputs.KafkaRestPropertiesResponse? kafkaRestProperties,
@@ -119,6 +125,7 @@ namespace Pulumi.AzureRM.HDInsight.Outputs
             ConnectivityEndpoints = connectivityEndpoints;
             CreatedDate = createdDate;
             DiskEncryptionProperties = diskEncryptionProperties;
+            EncryptionInTransitProperties = encryptionInTransitProperties;
             Errors = errors;
             KafkaRestProperties = kafkaRestProperties;
             MinSupportedTlsVersion = minSupportedTlsVersion;

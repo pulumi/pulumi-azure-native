@@ -21,7 +21,7 @@ class WorkspaceProviderAlertRuleAction(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     Action properties for get request
-      * `logic_app_resource_id` (`str`) - Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+      * `logic_app_resource_id` (`str`) - Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
       * `workflow_id` (`str`) - The name of the logic app's workflow.
     """
     type: pulumi.Output[str]
@@ -43,7 +43,7 @@ class WorkspaceProviderAlertRuleAction(pulumi.CustomResource):
 
         The **properties** object supports the following:
 
-          * `logic_app_resource_id` (`pulumi.Input[str]`) - Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+          * `logic_app_resource_id` (`pulumi.Input[str]`) - Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
           * `trigger_uri` (`pulumi.Input[str]`) - Logic App Callback URL for this specific workflow.
         """
         if __name__ is not None:
@@ -100,7 +100,7 @@ class WorkspaceProviderAlertRuleAction(pulumi.CustomResource):
 
         The **properties** object supports the following:
 
-          * `logic_app_resource_id` (`pulumi.Input[str]`) - Logic App Resource Id, providers/Microsoft.Logic/workflows/{WorkflowID}.
+          * `logic_app_resource_id` (`pulumi.Input[str]`) - Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
           * `workflow_id` (`pulumi.Input[str]`) - The name of the logic app's workflow.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

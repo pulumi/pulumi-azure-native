@@ -141,11 +141,17 @@ namespace Pulumi.AzureRM.Cdn.Inputs
         [Input("resourceState", required: true)]
         public Input<string> ResourceState { get; set; } = null!;
 
+        [Input("urlSigningKeys")]
+        private InputList<Inputs.UrlSigningKeyResponseArgs>? _urlSigningKeys;
+
         /// <summary>
         /// List of keys used to validate the signed URL hashes.
         /// </summary>
-        [Input("urlSigningKeys")]
-        public Input<Inputs.UrlSigningKeyResponseArgs>? UrlSigningKeys { get; set; }
+        public InputList<Inputs.UrlSigningKeyResponseArgs> UrlSigningKeys
+        {
+            get => _urlSigningKeys ?? (_urlSigningKeys = new InputList<Inputs.UrlSigningKeyResponseArgs>());
+            set => _urlSigningKeys = value;
+        }
 
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)

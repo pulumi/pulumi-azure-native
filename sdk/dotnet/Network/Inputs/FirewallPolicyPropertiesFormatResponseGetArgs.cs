@@ -52,12 +52,6 @@ namespace Pulumi.AzureRM.Network.Inputs
         }
 
         /// <summary>
-        /// The operation mode for Intrusion system.
-        /// </summary>
-        [Input("intrusionSystemMode")]
-        public Input<string>? IntrusionSystemMode { get; set; }
-
-        /// <summary>
         /// The provisioning state of the firewall policy resource.
         /// </summary>
         [Input("provisioningState", required: true)]
@@ -86,12 +80,6 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// </summary>
         [Input("threatIntelWhitelist")]
         public Input<Inputs.FirewallPolicyThreatIntelWhitelistResponseGetArgs>? ThreatIntelWhitelist { get; set; }
-
-        /// <summary>
-        /// TLS Configuration definition.
-        /// </summary>
-        [Input("transportSecurity")]
-        public Input<Inputs.FirewallPolicyTransportSecurityResponseGetArgs>? TransportSecurity { get; set; }
 
         public FirewallPolicyPropertiesFormatResponseGetArgs()
         {

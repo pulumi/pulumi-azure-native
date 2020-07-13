@@ -123,11 +123,17 @@ namespace Pulumi.AzureRM.Cdn.Inputs
         [Input("queryStringCachingBehavior")]
         public Input<string>? QueryStringCachingBehavior { get; set; }
 
+        [Input("urlSigningKeys")]
+        private InputList<Inputs.UrlSigningKeyArgs>? _urlSigningKeys;
+
         /// <summary>
         /// List of keys used to validate the signed URL hashes.
         /// </summary>
-        [Input("urlSigningKeys")]
-        public Input<Inputs.UrlSigningKeyArgs>? UrlSigningKeys { get; set; }
+        public InputList<Inputs.UrlSigningKeyArgs> UrlSigningKeys
+        {
+            get => _urlSigningKeys ?? (_urlSigningKeys = new InputList<Inputs.UrlSigningKeyArgs>());
+            set => _urlSigningKeys = value;
+        }
 
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)

@@ -23583,7 +23583,7 @@ type SubscriptionContractPropertiesResponse struct {
 	StartDate *string `pulumi:"startDate"`
 	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 	State string `pulumi:"state"`
-	// Optional subscription comment added by an administrator.
+	// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
 	StateComment *string `pulumi:"stateComment"`
 }
 
@@ -23624,7 +23624,7 @@ type SubscriptionContractPropertiesResponseArgs struct {
 	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
 	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
 	State pulumi.StringInput `pulumi:"state"`
-	// Optional subscription comment added by an administrator.
+	// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
 	StateComment pulumi.StringPtrInput `pulumi:"stateComment"`
 }
 
@@ -23766,7 +23766,7 @@ func (o SubscriptionContractPropertiesResponseOutput) State() pulumi.StringOutpu
 	return o.ApplyT(func(v SubscriptionContractPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Optional subscription comment added by an administrator.
+// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
 func (o SubscriptionContractPropertiesResponseOutput) StateComment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionContractPropertiesResponse) *string { return v.StateComment }).(pulumi.StringPtrOutput)
 }
@@ -23909,7 +23909,7 @@ func (o SubscriptionContractPropertiesResponsePtrOutput) State() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional subscription comment added by an administrator.
+// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
 func (o SubscriptionContractPropertiesResponsePtrOutput) StateComment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionContractPropertiesResponse) *string {
 		if v == nil {

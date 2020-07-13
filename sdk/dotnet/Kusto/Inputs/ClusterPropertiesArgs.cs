@@ -22,6 +22,12 @@ namespace Pulumi.AzureRM.Kusto.Inputs
         public Input<bool>? EnableDiskEncryption { get; set; }
 
         /// <summary>
+        /// A boolean value that indicates if double encryption is enabled.
+        /// </summary>
+        [Input("enableDoubleEncryption")]
+        public Input<bool>? EnableDoubleEncryption { get; set; }
+
+        /// <summary>
         /// A boolean value that indicates if the purge operations are enabled.
         /// </summary>
         [Input("enablePurge")]
@@ -38,12 +44,6 @@ namespace Pulumi.AzureRM.Kusto.Inputs
         /// </summary>
         [Input("keyVaultProperties")]
         public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
-
-        /// <summary>
-        /// List of the cluster's language extensions.
-        /// </summary>
-        [Input("languageExtensions")]
-        public Input<Inputs.LanguageExtensionsListArgs>? LanguageExtensions { get; set; }
 
         /// <summary>
         /// Optimized auto scale definition.

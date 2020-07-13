@@ -42,10 +42,6 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The identity of the firewall policy.
-     */
-    public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
-    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -79,7 +75,6 @@ export class FirewallPolicy extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as FirewallPolicyState | undefined;
             inputs["etag"] = state ? state.etag : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
@@ -94,7 +89,6 @@ export class FirewallPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -122,10 +116,6 @@ export interface FirewallPolicyState {
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: pulumi.Input<string>;
-    /**
-     * The identity of the firewall policy.
-     */
-    readonly identity?: pulumi.Input<inputs.network.ManagedServiceIdentityResponse>;
     /**
      * Resource location.
      */
@@ -156,10 +146,6 @@ export interface FirewallPolicyArgs {
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
-    /**
-     * The identity of the firewall policy.
-     */
-    readonly identity?: pulumi.Input<inputs.network.ManagedServiceIdentity>;
     /**
      * Resource location.
      */

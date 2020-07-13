@@ -69,6 +69,10 @@ namespace Pulumi.AzureRM.Compute.Outputs
         /// The VM Agent running on the virtual machine.
         /// </summary>
         public readonly Outputs.VirtualMachineAgentInstanceViewResponse? VmAgent;
+        /// <summary>
+        /// The health status for the VM.
+        /// </summary>
+        public readonly Outputs.VirtualMachineHealthStatusResponse VmHealth;
 
         [OutputConstructor]
         private VirtualMachineInstanceViewResponse(
@@ -98,7 +102,9 @@ namespace Pulumi.AzureRM.Compute.Outputs
 
             ImmutableArray<Outputs.InstanceViewStatusResponse> statuses,
 
-            Outputs.VirtualMachineAgentInstanceViewResponse? vmAgent)
+            Outputs.VirtualMachineAgentInstanceViewResponse? vmAgent,
+
+            Outputs.VirtualMachineHealthStatusResponse vmHealth)
         {
             AssignedHost = assignedHost;
             BootDiagnostics = bootDiagnostics;
@@ -114,6 +120,7 @@ namespace Pulumi.AzureRM.Compute.Outputs
             RdpThumbPrint = rdpThumbPrint;
             Statuses = statuses;
             VmAgent = vmAgent;
+            VmHealth = vmHealth;
         }
     }
 }

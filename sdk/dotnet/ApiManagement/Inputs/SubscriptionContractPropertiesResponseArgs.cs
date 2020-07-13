@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.ApiManagement.Inputs
         public Input<string> State { get; set; } = null!;
 
         /// <summary>
-        /// Optional subscription comment added by an administrator.
+        /// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
         /// </summary>
         [Input("stateComment")]
         public Input<string>? StateComment { get; set; }

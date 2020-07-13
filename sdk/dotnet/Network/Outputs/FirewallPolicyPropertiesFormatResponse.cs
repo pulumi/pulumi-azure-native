@@ -30,10 +30,6 @@ namespace Pulumi.AzureRM.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
         /// <summary>
-        /// The operation mode for Intrusion system.
-        /// </summary>
-        public readonly string? IntrusionSystemMode;
-        /// <summary>
         /// The provisioning state of the firewall policy resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -49,10 +45,6 @@ namespace Pulumi.AzureRM.Network.Outputs
         /// ThreatIntel Whitelist for Firewall Policy.
         /// </summary>
         public readonly Outputs.FirewallPolicyThreatIntelWhitelistResponse? ThreatIntelWhitelist;
-        /// <summary>
-        /// TLS Configuration definition.
-        /// </summary>
-        public readonly Outputs.FirewallPolicyTransportSecurityResponse? TransportSecurity;
 
         [OutputConstructor]
         private FirewallPolicyPropertiesFormatResponse(
@@ -64,28 +56,22 @@ namespace Pulumi.AzureRM.Network.Outputs
 
             ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
-            string? intrusionSystemMode,
-
             string provisioningState,
 
             ImmutableArray<Outputs.SubResourceResponse> ruleCollectionGroups,
 
             string? threatIntelMode,
 
-            Outputs.FirewallPolicyThreatIntelWhitelistResponse? threatIntelWhitelist,
-
-            Outputs.FirewallPolicyTransportSecurityResponse? transportSecurity)
+            Outputs.FirewallPolicyThreatIntelWhitelistResponse? threatIntelWhitelist)
         {
             BasePolicy = basePolicy;
             ChildPolicies = childPolicies;
             DnsSettings = dnsSettings;
             Firewalls = firewalls;
-            IntrusionSystemMode = intrusionSystemMode;
             ProvisioningState = provisioningState;
             RuleCollectionGroups = ruleCollectionGroups;
             ThreatIntelMode = threatIntelMode;
             ThreatIntelWhitelist = threatIntelWhitelist;
-            TransportSecurity = transportSecurity;
         }
     }
 }

@@ -28,12 +28,6 @@ namespace Pulumi.AzureRM.Network.Inputs
         public Input<Inputs.DnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
-        /// The operation mode for Intrusion system.
-        /// </summary>
-        [Input("intrusionSystemMode")]
-        public Input<string>? IntrusionSystemMode { get; set; }
-
-        /// <summary>
         /// The operation mode for Threat Intelligence.
         /// </summary>
         [Input("threatIntelMode")]
@@ -44,12 +38,6 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// </summary>
         [Input("threatIntelWhitelist")]
         public Input<Inputs.FirewallPolicyThreatIntelWhitelistArgs>? ThreatIntelWhitelist { get; set; }
-
-        /// <summary>
-        /// TLS Configuration definition.
-        /// </summary>
-        [Input("transportSecurity")]
-        public Input<Inputs.FirewallPolicyTransportSecurityArgs>? TransportSecurity { get; set; }
 
         public FirewallPolicyPropertiesFormatArgs()
         {
