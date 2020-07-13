@@ -46,6 +46,10 @@ func main() {
 		switch language {
 		case "schema":
 			err = emitSchema(pkgSpec, outdir)
+			if err == nil {
+				// Also, emit the resource metadata for the provider.
+				err = provider.GenerateResourceMap(specs)
+			}
 		default:
 			err = emitPackage(pkgSpec, language, outdir)
 		}
