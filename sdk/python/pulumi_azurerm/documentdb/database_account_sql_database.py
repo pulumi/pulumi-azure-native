@@ -101,7 +101,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DatabaseAccountSqlDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -109,32 +109,11 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[str] name: The name of the ARM resource.
-        :param pulumi.Input[dict] properties: The properties of an Azure Cosmos DB SQL database
-        :param pulumi.Input[dict] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        :param pulumi.Input[str] type: The type of Azure resource.
-
-        The **properties** object supports the following:
-
-          * `options` (`pulumi.Input[dict]`)
-          * `resource` (`pulumi.Input[dict]`)
-            * `_colls` (`pulumi.Input[str]`) - A system generated property that specified the addressable path of the collections resource.
-            * `_etag` (`pulumi.Input[str]`) - A system generated property representing the resource etag required for optimistic concurrency control.
-            * `_rid` (`pulumi.Input[str]`) - A system generated property. A unique identifier.
-            * `_ts` (`pulumi.Input[dict]`) - A system generated property that denotes the last updated timestamp of the resource.
-            * `_users` (`pulumi.Input[str]`) - A system generated property that specifies the addressable path of the users resource.
-            * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB SQL database
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DatabaseAccountSqlDatabase(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

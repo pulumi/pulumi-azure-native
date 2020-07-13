@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private DdosProtectionPlan(string name, Input<string> id, DdosProtectionPlanState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:DdosProtectionPlan", name, state, MakeResourceOptions(options, id))
+        private DdosProtectionPlan(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:DdosProtectionPlan", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DdosProtectionPlan Get(string name, Input<string> id, DdosProtectionPlanState? state = null, CustomResourceOptions? options = null)
+        public static DdosProtectionPlan Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DdosProtectionPlan(name, id, state, options);
+            return new DdosProtectionPlan(name, id, options);
         }
     }
 
@@ -133,55 +132,6 @@ namespace Pulumi.AzureRM.Network
         }
 
         public DdosProtectionPlanArgs()
-        {
-        }
-    }
-
-    public sealed class DdosProtectionPlanState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the DDoS protection plan.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DdosProtectionPlanPropertiesFormatResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DdosProtectionPlanState()
         {
         }
     }

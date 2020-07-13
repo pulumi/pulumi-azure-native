@@ -244,7 +244,7 @@ class JobCollectionJob(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing JobCollectionJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -252,110 +252,11 @@ class JobCollectionJob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Gets the job resource name.
-        :param pulumi.Input[dict] properties: Gets or sets the job properties.
-        :param pulumi.Input[str] type: Gets the job resource type.
-
-        The **properties** object supports the following:
-
-          * `action` (`pulumi.Input[dict]`) - Gets or sets the job action.
-            * `error_action` (`pulumi.Input[dict]`) - Gets or sets the error action.
-              * `queue_message` (`pulumi.Input[dict]`) - Gets or sets the storage queue message.
-                * `message` (`pulumi.Input[str]`) - Gets or sets the message.
-                * `queue_name` (`pulumi.Input[str]`) - Gets or sets the queue name.
-                * `sas_token` (`pulumi.Input[str]`) - Gets or sets the SAS key.
-                * `storage_account` (`pulumi.Input[str]`) - Gets or sets the storage account name.
-
-              * `request` (`pulumi.Input[dict]`) - Gets or sets the http requests.
-                * `authentication` (`pulumi.Input[dict]`) - Gets or sets the authentication method of the request.
-                  * `type` (`pulumi.Input[str]`) - Gets or sets the HTTP authentication type.
-
-                * `body` (`pulumi.Input[str]`) - Gets or sets the request body.
-                * `headers` (`pulumi.Input[dict]`) - Gets or sets the headers.
-                * `method` (`pulumi.Input[str]`) - Gets or sets the method of the request.
-                * `uri` (`pulumi.Input[str]`) - Gets or sets the URI of the request.
-
-              * `retry_policy` (`pulumi.Input[dict]`) - Gets or sets the retry policy.
-                * `retry_count` (`pulumi.Input[float]`) - Gets or sets the number of times a retry should be attempted.
-                * `retry_interval` (`pulumi.Input[str]`) - Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
-                * `retry_type` (`pulumi.Input[str]`) - Gets or sets the retry strategy to be used.
-
-              * `service_bus_queue_message` (`pulumi.Input[dict]`) - Gets or sets the service bus queue message.
-                * `authentication` (`pulumi.Input[dict]`) - Gets or sets the Service Bus authentication.
-                  * `sas_key` (`pulumi.Input[str]`) - Gets or sets the SAS key.
-                  * `sas_key_name` (`pulumi.Input[str]`) - Gets or sets the SAS key name.
-                  * `type` (`pulumi.Input[str]`) - Gets or sets the authentication type.
-
-                * `brokered_message_properties` (`pulumi.Input[dict]`) - Gets or sets the brokered message properties.
-                  * `content_type` (`pulumi.Input[str]`) - Gets or sets the content type.
-                  * `correlation_id` (`pulumi.Input[str]`) - Gets or sets the correlation ID.
-                  * `force_persistence` (`pulumi.Input[bool]`) - Gets or sets the force persistence.
-                  * `label` (`pulumi.Input[str]`) - Gets or sets the label.
-                  * `message_id` (`pulumi.Input[str]`) - Gets or sets the message ID.
-                  * `partition_key` (`pulumi.Input[str]`) - Gets or sets the partition key.
-                  * `reply_to` (`pulumi.Input[str]`) - Gets or sets the reply to.
-                  * `reply_to_session_id` (`pulumi.Input[str]`) - Gets or sets the reply to session ID.
-                  * `scheduled_enqueue_time_utc` (`pulumi.Input[str]`) - Gets or sets the scheduled enqueue time UTC.
-                  * `session_id` (`pulumi.Input[str]`) - Gets or sets the session ID.
-                  * `time_to_live` (`pulumi.Input[str]`) - Gets or sets the time to live.
-                  * `to` (`pulumi.Input[str]`) - Gets or sets the to.
-                  * `via_partition_key` (`pulumi.Input[str]`) - Gets or sets the via partition key.
-
-                * `custom_message_properties` (`pulumi.Input[dict]`) - Gets or sets the custom message properties.
-                * `message` (`pulumi.Input[str]`) - Gets or sets the message.
-                * `namespace` (`pulumi.Input[str]`) - Gets or sets the namespace.
-                * `queue_name` (`pulumi.Input[str]`) - Gets or sets the queue name.
-                * `transport_type` (`pulumi.Input[str]`) - Gets or sets the transport type.
-
-              * `service_bus_topic_message` (`pulumi.Input[dict]`) - Gets or sets the service bus topic message.
-                * `authentication` (`pulumi.Input[dict]`) - Gets or sets the Service Bus authentication.
-                * `brokered_message_properties` (`pulumi.Input[dict]`) - Gets or sets the brokered message properties.
-                * `custom_message_properties` (`pulumi.Input[dict]`) - Gets or sets the custom message properties.
-                * `message` (`pulumi.Input[str]`) - Gets or sets the message.
-                * `namespace` (`pulumi.Input[str]`) - Gets or sets the namespace.
-                * `topic_path` (`pulumi.Input[str]`) - Gets or sets the topic path.
-                * `transport_type` (`pulumi.Input[str]`) - Gets or sets the transport type.
-
-              * `type` (`pulumi.Input[str]`) - Gets or sets the job error action type.
-
-            * `queue_message` (`pulumi.Input[dict]`) - Gets or sets the storage queue message.
-            * `request` (`pulumi.Input[dict]`) - Gets or sets the http requests.
-            * `retry_policy` (`pulumi.Input[dict]`) - Gets or sets the retry policy.
-            * `service_bus_queue_message` (`pulumi.Input[dict]`) - Gets or sets the service bus queue message.
-            * `service_bus_topic_message` (`pulumi.Input[dict]`) - Gets or sets the service bus topic message.
-            * `type` (`pulumi.Input[str]`) - Gets or sets the job action type.
-
-          * `recurrence` (`pulumi.Input[dict]`) - Gets or sets the job recurrence.
-            * `count` (`pulumi.Input[float]`) - Gets or sets the maximum number of times that the job should run.
-            * `end_time` (`pulumi.Input[str]`) - Gets or sets the time at which the job will complete.
-            * `frequency` (`pulumi.Input[str]`) - Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-            * `interval` (`pulumi.Input[float]`) - Gets or sets the interval between retries.
-            * `schedule` (`pulumi.Input[dict]`)
-              * `hours` (`pulumi.Input[list]`) - Gets or sets the hours of the day that the job should execute at.
-              * `minutes` (`pulumi.Input[list]`) - Gets or sets the minutes of the hour that the job should execute at.
-              * `month_days` (`pulumi.Input[list]`) - Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
-              * `monthly_occurrences` (`pulumi.Input[list]`) - Gets or sets the occurrences of days within a month.
-                * `occurrence` (`pulumi.Input[float]`) - Gets or sets the occurrence. Must be between -5 and 5.
-                * `day` (`pulumi.Input[str]`) - Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-
-              * `week_days` (`pulumi.Input[list]`) - Gets or sets the days of the week that the job should execute on.
-
-          * `start_time` (`pulumi.Input[str]`) - Gets or sets the job start time.
-          * `state` (`pulumi.Input[str]`) - Gets or set the job state.
-          * `status` (`pulumi.Input[dict]`) - Gets the job status.
-            * `execution_count` (`pulumi.Input[float]`) - Gets the number of times this job has executed.
-            * `failure_count` (`pulumi.Input[float]`) - Gets the number of times this job has failed.
-            * `faulted_count` (`pulumi.Input[float]`) - Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
-            * `last_execution_time` (`pulumi.Input[str]`) - Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
-            * `next_execution_time` (`pulumi.Input[str]`) - Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return JobCollectionJob(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

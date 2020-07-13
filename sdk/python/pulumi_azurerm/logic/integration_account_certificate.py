@@ -107,7 +107,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing IntegrationAccountCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,37 +115,11 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: Gets the resource name.
-        :param pulumi.Input[dict] properties: The integration account certificate properties.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: Gets the resource type.
-
-        The **properties** object supports the following:
-
-          * `changed_time` (`pulumi.Input[str]`) - The changed time.
-          * `created_time` (`pulumi.Input[str]`) - The created time.
-          * `key` (`pulumi.Input[dict]`) - The key details in the key vault.
-            * `key_name` (`pulumi.Input[str]`) - The private key name in key vault.
-            * `key_vault` (`pulumi.Input[dict]`) - The key vault reference.
-              * `id` (`pulumi.Input[str]`) - The resource id.
-              * `name` (`pulumi.Input[str]`) - The resource name.
-              * `type` (`pulumi.Input[str]`) - The resource type.
-
-            * `key_version` (`pulumi.Input[str]`) - The private key version in key vault.
-
-          * `metadata` (`pulumi.Input[dict]`) - The metadata.
-          * `public_certificate` (`pulumi.Input[str]`) - The public certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return IntegrationAccountCertificate(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

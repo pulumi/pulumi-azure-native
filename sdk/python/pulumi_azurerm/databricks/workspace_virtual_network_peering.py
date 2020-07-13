@@ -99,7 +99,7 @@ class WorkspaceVirtualNetworkPeering(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing WorkspaceVirtualNetworkPeering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -107,34 +107,11 @@ class WorkspaceVirtualNetworkPeering(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the virtual network peering resource
-        :param pulumi.Input[dict] properties: List of properties for vNet Peering
-        :param pulumi.Input[str] type: type of the virtual network peering resource
-
-        The **properties** object supports the following:
-
-          * `allow_forwarded_traffic` (`pulumi.Input[bool]`) - Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-          * `allow_gateway_transit` (`pulumi.Input[bool]`) - If gateway links can be used in remote virtual networking to link to this virtual network.
-          * `allow_virtual_network_access` (`pulumi.Input[bool]`) - Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-          * `databricks_address_space` (`pulumi.Input[dict]`) - The reference to the databricks virtual network address space.
-            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-          * `databricks_virtual_network` (`pulumi.Input[dict]`) -  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-            * `id` (`pulumi.Input[str]`) - The Id of the databricks virtual network.
-
-          * `peering_state` (`pulumi.Input[str]`) - The status of the virtual network peering.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual network peering resource.
-          * `remote_address_space` (`pulumi.Input[dict]`) - The reference to the remote virtual network address space.
-          * `remote_virtual_network` (`pulumi.Input[dict]`) -  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-          * `use_remote_gateways` (`pulumi.Input[bool]`) - If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return WorkspaceVirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Automation
         {
         }
 
-        private AutomationAccountSchedule(string name, Input<string> id, AutomationAccountScheduleState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:automation:AutomationAccountSchedule", name, state, MakeResourceOptions(options, id))
+        private AutomationAccountSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:automation:AutomationAccountSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Automation
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static AutomationAccountSchedule Get(string name, Input<string> id, AutomationAccountScheduleState? state = null, CustomResourceOptions? options = null)
+        public static AutomationAccountSchedule Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new AutomationAccountSchedule(name, id, state, options);
+            return new AutomationAccountSchedule(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.Automation
         public Input<string> ScheduleName { get; set; } = null!;
 
         public AutomationAccountScheduleArgs()
-        {
-        }
-    }
-
-    public sealed class AutomationAccountScheduleState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the properties of the schedule.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SchedulePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public AutomationAccountScheduleState()
         {
         }
     }

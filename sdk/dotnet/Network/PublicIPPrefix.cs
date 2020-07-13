@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private PublicIPPrefix(string name, Input<string> id, PublicIPPrefixState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:PublicIPPrefix", name, state, MakeResourceOptions(options, id))
+        private PublicIPPrefix(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:PublicIPPrefix", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -98,11 +98,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PublicIPPrefix Get(string name, Input<string> id, PublicIPPrefixState? state = null, CustomResourceOptions? options = null)
+        public static PublicIPPrefix Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PublicIPPrefix(name, id, state, options);
+            return new PublicIPPrefix(name, id, options);
         }
     }
 
@@ -169,73 +168,6 @@ namespace Pulumi.AzureRM.Network
         }
 
         public PublicIPPrefixArgs()
-        {
-        }
-    }
-
-    public sealed class PublicIPPrefixState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Public IP prefix properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PublicIPPrefixPropertiesFormatResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The public IP prefix SKU.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.PublicIPPrefixSkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("zones")]
-        private InputList<string>? _zones;
-
-        /// <summary>
-        /// A list of availability zones denoting the IP allocated for the resource needs to come from.
-        /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
-
-        public PublicIPPrefixState()
         {
         }
     }

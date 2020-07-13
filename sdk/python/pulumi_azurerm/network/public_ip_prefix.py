@@ -124,7 +124,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PublicIPPrefix resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -132,49 +132,11 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Public IP prefix properties.
-        :param pulumi.Input[dict] sku: The public IP prefix SKU.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-        :param pulumi.Input[list] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
-
-        The **properties** object supports the following:
-
-          * `ip_prefix` (`pulumi.Input[str]`) - The allocated Prefix.
-          * `ip_tags` (`pulumi.Input[list]`) - The list of tags associated with the public IP prefix.
-            * `ip_tag_type` (`pulumi.Input[str]`) - The IP tag type. Example: FirstPartyUsage.
-            * `tag` (`pulumi.Input[str]`) - The value of the IP tag associated with the public IP. Example: SQL.
-
-          * `load_balancer_frontend_ip_configuration` (`pulumi.Input[dict]`) - The reference to load balancer frontend IP configuration associated with the public IP prefix.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `prefix_length` (`pulumi.Input[float]`) - The Length of the Public IP Prefix.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the public IP prefix resource.
-          * `public_ip_address_version` (`pulumi.Input[str]`) - The public IP address version.
-          * `public_ip_addresses` (`pulumi.Input[list]`) - The list of all referenced PublicIPAddresses.
-            * `id` (`pulumi.Input[str]`) - The PublicIPAddress Reference.
-
-          * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the public IP prefix resource.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of a public IP prefix SKU.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["zones"] = zones
         return PublicIPPrefix(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

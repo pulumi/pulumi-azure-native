@@ -146,7 +146,7 @@ class VaultReplicationFabricReplicationRecoveryServicesProvider(pulumi.CustomRes
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VaultReplicationFabricReplicationRecoveryServicesProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,77 +154,11 @@ class VaultReplicationFabricReplicationRecoveryServicesProvider(pulumi.CustomRes
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[dict] properties: Provider properties.
-        :param pulumi.Input[str] type: Resource Type
-
-        The **properties** object supports the following:
-
-          * `allowed_scenarios` (`pulumi.Input[list]`) - The scenarios allowed on this provider.
-          * `authentication_identity_details` (`pulumi.Input[dict]`) - The authentication identity details.
-            * `aad_authority` (`pulumi.Input[str]`) - The base authority for Azure Active Directory authentication.
-            * `application_id` (`pulumi.Input[str]`) - The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-            * `audience` (`pulumi.Input[str]`) - The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-            * `object_id` (`pulumi.Input[str]`) - The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-            * `tenant_id` (`pulumi.Input[str]`) - The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-
-          * `connection_status` (`pulumi.Input[str]`) - A value indicating whether DRA is responsive.
-          * `dra_identifier` (`pulumi.Input[str]`) - The DRA Id.
-          * `fabric_friendly_name` (`pulumi.Input[str]`) - The fabric friendly name.
-          * `fabric_type` (`pulumi.Input[str]`) - Type of the site.
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly name of the DRA.
-          * `health_error_details` (`pulumi.Input[list]`) - The recovery services provider health error details.
-            * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-            * `customer_resolvability` (`pulumi.Input[str]`) - Value indicating whether the health error is customer resolvable.
-            * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-            * `error_category` (`pulumi.Input[str]`) - Category of error.
-            * `error_code` (`pulumi.Input[str]`) - Error code.
-            * `error_id` (`pulumi.Input[str]`) - The health error unique id.
-            * `error_level` (`pulumi.Input[str]`) - Level of error.
-            * `error_message` (`pulumi.Input[str]`) - Error message.
-            * `error_source` (`pulumi.Input[str]`) - Source of error.
-            * `error_type` (`pulumi.Input[str]`) - Type of error.
-            * `inner_health_errors` (`pulumi.Input[list]`) - The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-              * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-              * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-              * `error_category` (`pulumi.Input[str]`) - Category of error.
-              * `error_code` (`pulumi.Input[str]`) - Error code.
-              * `error_level` (`pulumi.Input[str]`) - Level of error.
-              * `error_message` (`pulumi.Input[str]`) - Error message.
-              * `error_source` (`pulumi.Input[str]`) - Source of error.
-              * `error_type` (`pulumi.Input[str]`) - Type of error.
-              * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-              * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-              * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-              * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-            * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-            * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-            * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-            * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-          * `last_heart_beat` (`pulumi.Input[str]`) - Time when last heartbeat was sent by the DRA.
-          * `protected_item_count` (`pulumi.Input[float]`) - Number of protected VMs currently managed by the DRA.
-          * `provider_version` (`pulumi.Input[str]`) - The provider version.
-          * `provider_version_details` (`pulumi.Input[dict]`) - The provider version details.
-            * `expiry_date` (`pulumi.Input[str]`) - Version expiry date.
-            * `status` (`pulumi.Input[str]`) - A value indicating whether security update required.
-            * `version` (`pulumi.Input[str]`) - The agent version.
-
-          * `provider_version_expiry_date` (`pulumi.Input[str]`) - Expiry date of the version.
-          * `provider_version_state` (`pulumi.Input[str]`) - DRA version status.
-          * `resource_access_identity_details` (`pulumi.Input[dict]`) - The resource access identity details.
-          * `server_version` (`pulumi.Input[str]`) - The fabric provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return VaultReplicationFabricReplicationRecoveryServicesProvider(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

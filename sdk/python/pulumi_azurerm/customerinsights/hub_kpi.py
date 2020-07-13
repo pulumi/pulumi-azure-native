@@ -130,7 +130,7 @@ class HubKpi(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HubKpi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,55 +138,11 @@ class HubKpi(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Defines the KPI Threshold limits.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `aliases` (`pulumi.Input[list]`) - The aliases.
-            * `alias_name` (`pulumi.Input[str]`) - KPI alias name.
-            * `expression` (`pulumi.Input[str]`) - The expression.
-
-          * `calculation_window` (`pulumi.Input[str]`) - The calculation window.
-          * `calculation_window_field_name` (`pulumi.Input[str]`) - Name of calculation window field.
-          * `description` (`pulumi.Input[dict]`) - Localized description for the KPI.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the KPI.
-          * `entity_type` (`pulumi.Input[str]`) - The mapping entity type.
-          * `entity_type_name` (`pulumi.Input[str]`) - The mapping entity name.
-          * `expression` (`pulumi.Input[str]`) - The computation expression for the KPI.
-          * `extracts` (`pulumi.Input[list]`) - The KPI extracts.
-            * `expression` (`pulumi.Input[str]`) - The expression.
-            * `extract_name` (`pulumi.Input[str]`) - KPI extract name.
-
-          * `filter` (`pulumi.Input[str]`) - The filter expression for the KPI.
-          * `function` (`pulumi.Input[str]`) - The computation function for the KPI.
-          * `group_by` (`pulumi.Input[list]`) - the group by properties for the KPI.
-          * `group_by_metadata` (`pulumi.Input[list]`) - The KPI GroupByMetadata.
-            * `display_name` (`pulumi.Input[dict]`) - The display name.
-            * `field_name` (`pulumi.Input[str]`) - The name of the field.
-            * `field_type` (`pulumi.Input[str]`) - The type of the field.
-
-          * `kpi_name` (`pulumi.Input[str]`) - The KPI name.
-          * `participant_profiles_metadata` (`pulumi.Input[list]`) - The participant profiles.
-            * `type_name` (`pulumi.Input[str]`) - Name of the type.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state.
-          * `tenant_id` (`pulumi.Input[str]`) - The hub name.
-          * `thres_holds` (`pulumi.Input[dict]`) - The KPI thresholds.
-            * `increasing_kpi` (`pulumi.Input[bool]`) - Whether or not the KPI is an increasing KPI.
-            * `lower_limit` (`pulumi.Input[float]`) - The lower threshold limit.
-            * `upper_limit` (`pulumi.Input[float]`) - The upper threshold limit.
-
-          * `unit` (`pulumi.Input[str]`) - The unit of measurement for the KPI.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return HubKpi(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -16,11 +16,10 @@ export class Account extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountState, opts?: pulumi.CustomResourceOptions): Account {
-        return new Account(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
+        return new Account(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -81,39 +80,24 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AccountArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["identity"] = args ? args.identity : undefined;
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -123,48 +107,6 @@ export class Account extends pulumi.CustomResource {
         }
         super(Account.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
- */
-export interface AccountState {
-    /**
-     * Entity Tag
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * The identity of Cognitive Services account.
-     */
-    readonly identity?: pulumi.Input<inputs.cognitiveservices.IdentityResponse>;
-    /**
-     * The Kind of the resource.
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * The location of the resource
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the created account
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of Cognitive Services account.
-     */
-    readonly properties: pulumi.Input<inputs.cognitiveservices.CognitiveServicesAccountPropertiesResponse>;
-    /**
-     * The SKU of Cognitive Services account.
-     */
-    readonly sku?: pulumi.Input<inputs.cognitiveservices.SkuResponse>;
-    /**
-     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

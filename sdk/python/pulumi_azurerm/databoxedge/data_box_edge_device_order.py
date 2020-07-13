@@ -115,7 +115,7 @@ class DataBoxEdgeDeviceOrder(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataBoxEdgeDeviceOrder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -123,50 +123,11 @@ class DataBoxEdgeDeviceOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The object name.
-        :param pulumi.Input[dict] properties: The order properties.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `contact_information` (`pulumi.Input[dict]`) - The contact details.
-            * `company_name` (`pulumi.Input[str]`) - The name of the company.
-            * `contact_person` (`pulumi.Input[str]`) - The contact person name.
-            * `email_list` (`pulumi.Input[list]`) - The email list.
-            * `phone` (`pulumi.Input[str]`) - The phone number.
-
-          * `current_status` (`pulumi.Input[dict]`) - Current status of the order.
-            * `additional_order_details` (`pulumi.Input[dict]`) - Dictionary to hold generic information which is not stored
-              by the already existing properties
-            * `comments` (`pulumi.Input[str]`) - Comments related to this status change.
-            * `status` (`pulumi.Input[str]`) - Status of the order as per the allowed status types.
-            * `update_date_time` (`pulumi.Input[str]`) - Time of status update.
-
-          * `delivery_tracking_info` (`pulumi.Input[list]`) - Tracking information for the package delivered to the customer whether it has an original or a replacement device.
-            * `carrier_name` (`pulumi.Input[str]`) - Name of the carrier used in the delivery.
-            * `serial_number` (`pulumi.Input[str]`) - Serial number of the device being tracked.
-            * `tracking_id` (`pulumi.Input[str]`) - Tracking ID of the shipment.
-            * `tracking_url` (`pulumi.Input[str]`) - Tracking URL of the shipment.
-
-          * `order_history` (`pulumi.Input[list]`) - List of status changes in the order.
-          * `return_tracking_info` (`pulumi.Input[list]`) - Tracking information for the package returned from the customer whether it has an original or a replacement device.
-          * `serial_number` (`pulumi.Input[str]`) - Serial number of the device.
-          * `shipping_address` (`pulumi.Input[dict]`) - The shipping address.
-            * `address_line1` (`pulumi.Input[str]`) - The address line1.
-            * `address_line2` (`pulumi.Input[str]`) - The address line2.
-            * `address_line3` (`pulumi.Input[str]`) - The address line3.
-            * `city` (`pulumi.Input[str]`) - The city name.
-            * `country` (`pulumi.Input[str]`) - The country name.
-            * `postal_code` (`pulumi.Input[str]`) - The postal code.
-            * `state` (`pulumi.Input[str]`) - The state name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataBoxEdgeDeviceOrder(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

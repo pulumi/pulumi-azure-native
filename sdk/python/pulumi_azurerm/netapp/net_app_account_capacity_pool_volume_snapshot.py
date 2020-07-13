@@ -92,7 +92,7 @@ class NetAppAccountCapacityPoolVolumeSnapshot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetAppAccountCapacityPoolVolumeSnapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -100,26 +100,11 @@ class NetAppAccountCapacityPoolVolumeSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Snapshot Properties
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `created` (`pulumi.Input[str]`) - The creation date of the snapshot
-          * `file_system_id` (`pulumi.Input[str]`) - UUID v4 used to identify the FileSystem
-          * `provisioning_state` (`pulumi.Input[str]`) - Azure lifecycle management
-          * `snapshot_id` (`pulumi.Input[str]`) - UUID v4 used to identify the Snapshot
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NetAppAccountCapacityPoolVolumeSnapshot(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

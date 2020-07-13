@@ -141,7 +141,7 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -149,63 +149,11 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location the resource resides in.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Properties of the server.
-        :param pulumi.Input[dict] sku: The SKU (pricing tier) of the server.
-        :param pulumi.Input[dict] tags: Application-specific metadata in the form of key-value pairs.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `administrator_login` (`pulumi.Input[str]`) - The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-          * `earliest_restore_date` (`pulumi.Input[str]`) - Earliest restore point creation time (ISO8601 format)
-          * `fully_qualified_domain_name` (`pulumi.Input[str]`) - The fully qualified domain name of a server.
-          * `master_server_id` (`pulumi.Input[str]`) - The master server id of a replica server.
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of private endpoint connections on a server
-            * `id` (`pulumi.Input[str]`) - Resource Id of the private endpoint connection.
-            * `properties` (`pulumi.Input[dict]`) - Private endpoint connection properties
-              * `private_endpoint` (`pulumi.Input[dict]`) - Private endpoint which the connection belongs to.
-                * `id` (`pulumi.Input[str]`) - Resource id of the private endpoint.
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Connection state of the private endpoint connection.
-                * `actions_required` (`pulumi.Input[str]`) - The actions required for private link service connection.
-                * `description` (`pulumi.Input[str]`) - The private link service connection description.
-                * `status` (`pulumi.Input[str]`) - The private link service connection status.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - State of the private endpoint connection.
-
-          * `public_network_access` (`pulumi.Input[str]`) - Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-          * `replica_capacity` (`pulumi.Input[float]`) - The maximum number of replicas that a master server can have.
-          * `replication_role` (`pulumi.Input[str]`) - The replication role of the server.
-          * `ssl_enforcement` (`pulumi.Input[str]`) - Enable ssl enforcement or not when connect to server.
-          * `storage_profile` (`pulumi.Input[dict]`) - Storage profile of a server.
-            * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server.
-            * `geo_redundant_backup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup.
-            * `storage_autogrow` (`pulumi.Input[str]`) - Enable Storage Auto Grow.
-            * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server.
-
-          * `user_visible_state` (`pulumi.Input[str]`) - A state of a server that is visible to user.
-          * `version` (`pulumi.Input[str]`) - Server version.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The scale up/out capacity, representing server's compute units.
-          * `family` (`pulumi.Input[str]`) - The family of hardware.
-          * `name` (`pulumi.Input[str]`) - The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-          * `size` (`pulumi.Input[str]`) - The size code, to be interpreted by resource as appropriate.
-          * `tier` (`pulumi.Input[str]`) - The tier of the particular SKU, e.g. Basic.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Server(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

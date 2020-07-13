@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.ImportExport
         {
         }
 
-        private Job(string name, Input<string> id, JobState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:importexport:Job", name, state, MakeResourceOptions(options, id))
+        private Job(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:importexport:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.ImportExport
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Job Get(string name, Input<string> id, JobState? state = null, CustomResourceOptions? options = null)
+        public static Job Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Job(name, id, state, options);
+            return new Job(name, id, options);
         }
     }
 
@@ -127,49 +126,6 @@ namespace Pulumi.AzureRM.ImportExport
         }
 
         public JobArgs()
-        {
-        }
-    }
-
-    public sealed class JobState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Azure location where the job is created.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the job.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the job properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JobDetailsResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Specifies the tags that are assigned to the job.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Specifies the type of the job resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public JobState()
         {
         }
     }

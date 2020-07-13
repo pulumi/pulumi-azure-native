@@ -101,7 +101,7 @@ class ManagerDeviceVolumeContainerVolume(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagerDeviceVolumeContainerVolume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -109,31 +109,11 @@ class ManagerDeviceVolumeContainerVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The name of the object.
-        :param pulumi.Input[dict] properties: The properties of the volume.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `access_control_record_ids` (`pulumi.Input[list]`) - The IDs of the access control records, associated with the volume.
-          * `backup_policy_ids` (`pulumi.Input[list]`) - The IDs of the backup policies, in which this volume is part of.
-          * `backup_status` (`pulumi.Input[str]`) - The backup status of the volume.
-          * `monitoring_status` (`pulumi.Input[str]`) - The monitoring status of the volume.
-          * `operation_status` (`pulumi.Input[str]`) - The operation status on the volume.
-          * `size_in_bytes` (`pulumi.Input[float]`) - The size of the volume in bytes.
-          * `volume_container_id` (`pulumi.Input[str]`) - The ID of the volume container, in which this volume is created.
-          * `volume_status` (`pulumi.Input[str]`) - The volume status.
-          * `volume_type` (`pulumi.Input[str]`) - The type of the volume.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagerDeviceVolumeContainerVolume(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

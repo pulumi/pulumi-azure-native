@@ -131,7 +131,7 @@ class VaultReplicationFabricReplicationProtectionContainerReplicationProtectionC
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,64 +139,11 @@ class VaultReplicationFabricReplicationProtectionContainerReplicationProtectionC
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[dict] properties: The custom data.
-        :param pulumi.Input[str] type: Resource Type
-
-        The **properties** object supports the following:
-
-          * `health` (`pulumi.Input[str]`) - Health of pairing.
-          * `health_error_details` (`pulumi.Input[list]`) - Health error.
-            * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-            * `customer_resolvability` (`pulumi.Input[str]`) - Value indicating whether the health error is customer resolvable.
-            * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-            * `error_category` (`pulumi.Input[str]`) - Category of error.
-            * `error_code` (`pulumi.Input[str]`) - Error code.
-            * `error_id` (`pulumi.Input[str]`) - The health error unique id.
-            * `error_level` (`pulumi.Input[str]`) - Level of error.
-            * `error_message` (`pulumi.Input[str]`) - Error message.
-            * `error_source` (`pulumi.Input[str]`) - Source of error.
-            * `error_type` (`pulumi.Input[str]`) - Type of error.
-            * `inner_health_errors` (`pulumi.Input[list]`) - The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-              * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-              * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-              * `error_category` (`pulumi.Input[str]`) - Category of error.
-              * `error_code` (`pulumi.Input[str]`) - Error code.
-              * `error_level` (`pulumi.Input[str]`) - Level of error.
-              * `error_message` (`pulumi.Input[str]`) - Error message.
-              * `error_source` (`pulumi.Input[str]`) - Source of error.
-              * `error_type` (`pulumi.Input[str]`) - Type of error.
-              * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-              * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-              * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-              * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-            * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-            * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-            * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-            * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-          * `policy_friendly_name` (`pulumi.Input[str]`) - Friendly name of replication policy.
-          * `policy_id` (`pulumi.Input[str]`) - Policy ARM Id.
-          * `provider_specific_details` (`pulumi.Input[dict]`) - Provider specific provider details.
-            * `instance_type` (`pulumi.Input[str]`) - Gets the class type. Overridden in derived classes.
-
-          * `source_fabric_friendly_name` (`pulumi.Input[str]`) - Friendly name of source fabric.
-          * `source_protection_container_friendly_name` (`pulumi.Input[str]`) - Friendly name of source protection container.
-          * `state` (`pulumi.Input[str]`) - Association Status
-          * `target_fabric_friendly_name` (`pulumi.Input[str]`) - Friendly name of target fabric.
-          * `target_protection_container_friendly_name` (`pulumi.Input[str]`) - Friendly name of paired container.
-          * `target_protection_container_id` (`pulumi.Input[str]`) - Paired protection container ARM ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMapping(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

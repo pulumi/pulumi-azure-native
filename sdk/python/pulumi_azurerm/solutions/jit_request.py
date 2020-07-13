@@ -107,7 +107,7 @@ class JitRequest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing JitRequest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,43 +115,11 @@ class JitRequest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: The JIT request properties.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `application_resource_id` (`pulumi.Input[str]`) - The parent application id.
-          * `created_by` (`pulumi.Input[dict]`) - The client entity that created the JIT request.
-            * `application_id` (`pulumi.Input[str]`) - The client application Id.
-            * `oid` (`pulumi.Input[str]`) - The client Oid.
-            * `puid` (`pulumi.Input[str]`) - The client Puid
-
-          * `jit_authorization_policies` (`pulumi.Input[list]`) - The JIT authorization policies.
-            * `principal_id` (`pulumi.Input[str]`) - The the principal id that will be granted JIT access.
-            * `role_definition_id` (`pulumi.Input[str]`) - The role definition id that will be granted to the Principal.
-
-          * `jit_request_state` (`pulumi.Input[str]`) - The JIT request state.
-          * `jit_scheduling_policy` (`pulumi.Input[dict]`) - The JIT request properties.
-            * `duration` (`pulumi.Input[str]`)
-            * `start_time` (`pulumi.Input[str]`) - The start time of the request.
-            * `type` (`pulumi.Input[str]`) - The type of JIT schedule.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The JIT request provisioning state.
-          * `publisher_tenant_id` (`pulumi.Input[str]`) - The publisher tenant id.
-          * `updated_by` (`pulumi.Input[dict]`) - The client entity that last updated the JIT request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return JitRequest(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

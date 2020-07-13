@@ -81,7 +81,7 @@ class ServiceApiVersionSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceApiVersionSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,25 +89,11 @@ class ServiceApiVersionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Api VersionSet contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Description of API Version Set.
-          * `display_name` (`pulumi.Input[str]`) - Name of API Version Set
-          * `version_header_name` (`pulumi.Input[str]`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-          * `version_query_name` (`pulumi.Input[str]`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-          * `versioning_scheme` (`pulumi.Input[str]`) - An value that determines where the API Version identifer will be located in a HTTP request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceApiVersionSet(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

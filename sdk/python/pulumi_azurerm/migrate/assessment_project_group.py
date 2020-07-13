@@ -82,7 +82,7 @@ class AssessmentProjectGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AssessmentProjectGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,28 +90,11 @@ class AssessmentProjectGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: For optimistic concurrency control.
-        :param pulumi.Input[str] name: Name of the group.
-        :param pulumi.Input[dict] properties: Properties of the group.
-        :param pulumi.Input[str] type: Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
-
-        The **properties** object supports the following:
-
-          * `are_assessments_running` (`pulumi.Input[bool]`) - If the assessments are in running state.
-          * `assessments` (`pulumi.Input[list]`) - List of References to Assessments created on this group.
-          * `created_timestamp` (`pulumi.Input[str]`) - Time when this group was created. Date-Time represented in ISO-8601 format.
-          * `group_status` (`pulumi.Input[str]`) - Whether the group has been created and is valid.
-          * `machine_count` (`pulumi.Input[float]`) - Number of machines part of this group.
-          * `updated_timestamp` (`pulumi.Input[str]`) - Time when this group was last updated. Date-Time represented in ISO-8601 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AssessmentProjectGroup(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

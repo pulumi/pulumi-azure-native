@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.AppConfiguration
         {
         }
 
-        private ConfigurationStorePrivateEndpointConnection(string name, Input<string> id, ConfigurationStorePrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:appconfiguration:ConfigurationStorePrivateEndpointConnection", name, state, MakeResourceOptions(options, id))
+        private ConfigurationStorePrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:appconfiguration:ConfigurationStorePrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.AppConfiguration
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ConfigurationStorePrivateEndpointConnection Get(string name, Input<string> id, ConfigurationStorePrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
+        public static ConfigurationStorePrivateEndpointConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ConfigurationStorePrivateEndpointConnection(name, id, state, options);
+            return new ConfigurationStorePrivateEndpointConnection(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.AppConfiguration
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ConfigurationStorePrivateEndpointConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class ConfigurationStorePrivateEndpointConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a private endpoint.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ConfigurationStorePrivateEndpointConnectionState()
         {
         }
     }

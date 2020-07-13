@@ -103,7 +103,7 @@ class NetAppAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetAppAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,36 +111,11 @@ class NetAppAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: NetApp Account properties
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `active_directories` (`pulumi.Input[list]`) - Active Directories
-            * `active_directory_id` (`pulumi.Input[str]`) - Id of the Active Directory
-            * `dns` (`pulumi.Input[str]`) - Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-            * `domain` (`pulumi.Input[str]`) - Name of the Active Directory domain
-            * `organizational_unit` (`pulumi.Input[str]`) - The Organizational Unit (OU) within the Windows Active Directory
-            * `password` (`pulumi.Input[str]`) - Plain text password of Active Directory domain administrator
-            * `site` (`pulumi.Input[str]`) - The Active Directory site the service will limit Domain Controller discovery to
-            * `smb_server_name` (`pulumi.Input[str]`) - NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-            * `status` (`pulumi.Input[str]`) - Status of the Active Directory
-            * `username` (`pulumi.Input[str]`) - Username of Active Directory domain administrator
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Azure lifecycle management
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return NetAppAccount(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

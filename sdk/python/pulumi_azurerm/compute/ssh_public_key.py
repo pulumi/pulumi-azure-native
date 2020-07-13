@@ -83,7 +83,7 @@ class SshPublicKey(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing SshPublicKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,25 +91,11 @@ class SshPublicKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of the SSH public key.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `public_key` (`pulumi.Input[str]`) - SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return SshPublicKey(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

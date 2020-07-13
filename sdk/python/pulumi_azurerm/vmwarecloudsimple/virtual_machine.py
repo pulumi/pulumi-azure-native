@@ -204,7 +204,7 @@ class VirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -212,98 +212,11 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[str] name: {virtualMachineName}
-        :param pulumi.Input[dict] properties: Virtual machine properties
-        :param pulumi.Input[dict] tags: The list of tags
-        :param pulumi.Input[str] type: {resourceProviderNamespace}/{resourceType}
-
-        The **properties** object supports the following:
-
-          * `amount_of_ram` (`pulumi.Input[float]`) - The amount of memory
-          * `controllers` (`pulumi.Input[list]`) - The list of Virtual Disks' Controllers
-            * `id` (`pulumi.Input[str]`) - Controller's id
-            * `name` (`pulumi.Input[str]`) - The display name of Controller
-            * `sub_type` (`pulumi.Input[str]`) - dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
-            * `type` (`pulumi.Input[str]`) - disk controller type (SCSI)
-
-          * `customization` (`pulumi.Input[dict]`) - Virtual machine properties
-            * `dns_servers` (`pulumi.Input[list]`) - List of dns servers to use
-            * `host_name` (`pulumi.Input[str]`) - Virtual Machine hostname
-            * `password` (`pulumi.Input[str]`) - Password for login
-            * `policy_id` (`pulumi.Input[str]`) - id of customization policy
-            * `username` (`pulumi.Input[str]`) - Username for login
-
-          * `disks` (`pulumi.Input[list]`) - The list of Virtual Disks
-            * `controller_id` (`pulumi.Input[str]`) - Disk's Controller id
-            * `independence_mode` (`pulumi.Input[str]`) - Disk's independence mode type
-            * `total_size` (`pulumi.Input[float]`) - Disk's total size
-            * `virtual_disk_id` (`pulumi.Input[str]`) - Disk's id
-            * `virtual_disk_name` (`pulumi.Input[str]`) - Disk's display name
-
-          * `dnsname` (`pulumi.Input[str]`) - The DNS name of Virtual Machine in VCenter
-          * `expose_to_guest_vm` (`pulumi.Input[bool]`) - Expose Guest OS or not
-          * `folder` (`pulumi.Input[str]`) - The path to virtual machine folder in VCenter
-          * `guest_os` (`pulumi.Input[str]`) - The name of Guest OS
-          * `guest_os_type` (`pulumi.Input[str]`) - The Guest OS type
-          * `nics` (`pulumi.Input[list]`) - The list of Virtual NICs
-            * `customization` (`pulumi.Input[dict]`) - guest OS customization for nic
-              * `allocation` (`pulumi.Input[str]`) - IP address allocation method
-              * `dns_servers` (`pulumi.Input[list]`) - List of dns servers to use
-              * `gateway` (`pulumi.Input[list]`) - Gateway addresses assigned to nic
-              * `ip_address` (`pulumi.Input[str]`) - Static ip address for nic
-              * `mask` (`pulumi.Input[str]`) - Network mask for nic
-              * `primary_wins_server` (`pulumi.Input[str]`) - primary WINS server for Windows
-              * `secondary_wins_server` (`pulumi.Input[str]`) - secondary WINS server for Windows
-
-            * `ip_addresses` (`pulumi.Input[list]`) - NIC ip address
-            * `mac_address` (`pulumi.Input[str]`) - NIC MAC address
-            * `network` (`pulumi.Input[dict]`) - Virtual Network
-              * `assignable` (`pulumi.Input[bool]`) - can be used in vm creation/deletion
-              * `id` (`pulumi.Input[str]`) - virtual network id (privateCloudId:vsphereId)
-              * `location` (`pulumi.Input[str]`) - Azure region
-              * `name` (`pulumi.Input[str]`) - {VirtualNetworkName}
-              * `properties` (`pulumi.Input[dict]`) - Virtual Network properties
-                * `private_cloud_id` (`pulumi.Input[str]`) - The Private Cloud id
-
-              * `type` (`pulumi.Input[str]`) - {resourceProviderNamespace}/{resourceType}
-
-            * `nic_type` (`pulumi.Input[str]`) - NIC type
-            * `power_on_boot` (`pulumi.Input[bool]`) - Is NIC powered on/off on boot
-            * `virtual_nic_id` (`pulumi.Input[str]`) - NIC id
-            * `virtual_nic_name` (`pulumi.Input[str]`) - NIC name
-
-          * `number_of_cores` (`pulumi.Input[float]`) - The number of CPU cores
-          * `password` (`pulumi.Input[str]`) - Password for login. Deprecated - use customization property
-          * `private_cloud_id` (`pulumi.Input[str]`) - Private Cloud Id
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource
-          * `public_ip` (`pulumi.Input[str]`) - The public ip of Virtual Machine
-          * `resource_pool` (`pulumi.Input[dict]`) - Virtual Machines Resource Pool
-            * `id` (`pulumi.Input[str]`) - resource pool id (privateCloudId:vsphereId)
-            * `location` (`pulumi.Input[str]`) - Azure region
-            * `name` (`pulumi.Input[str]`) - {ResourcePoolName}
-            * `private_cloud_id` (`pulumi.Input[str]`) - The Private Cloud Id
-            * `properties` (`pulumi.Input[dict]`) - Resource pool properties
-              * `full_name` (`pulumi.Input[str]`) - Hierarchical resource pool name
-
-            * `type` (`pulumi.Input[str]`) - {resourceProviderNamespace}/{resourceType}
-
-          * `status` (`pulumi.Input[str]`) - The status of Virtual machine
-          * `template_id` (`pulumi.Input[str]`) - Virtual Machine Template Id
-          * `username` (`pulumi.Input[str]`) - Username for login. Deprecated - use customization property
-          * `v_sphere_networks` (`pulumi.Input[list]`) - The list of Virtual VSphere Networks
-          * `vm_id` (`pulumi.Input[str]`) - The internal id of Virtual Machine in VCenter
-          * `vmwaretools` (`pulumi.Input[str]`) - VMware tools version
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

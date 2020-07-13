@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         {
         }
 
-        private EnvironmentEventSource(string name, Input<string> id, EnvironmentEventSourceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights:EnvironmentEventSource", name, state, MakeResourceOptions(options, id))
+        private EnvironmentEventSource(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:timeseriesinsights:EnvironmentEventSource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static EnvironmentEventSource Get(string name, Input<string> id, EnvironmentEventSourceState? state = null, CustomResourceOptions? options = null)
+        public static EnvironmentEventSource Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new EnvironmentEventSource(name, id, state, options);
+            return new EnvironmentEventSource(name, id, options);
         }
     }
 
@@ -133,49 +132,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         }
 
         public EnvironmentEventSourceArgs()
-        {
-        }
-    }
-
-    public sealed class EnvironmentEventSourceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kind of the event source.
-        /// </summary>
-        [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public EnvironmentEventSourceState()
         {
         }
     }

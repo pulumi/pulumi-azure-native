@@ -16,11 +16,10 @@ export class NatGateway extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NatGatewayState, opts?: pulumi.CustomResourceOptions): NatGateway {
-        return new NatGateway(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NatGateway {
+        return new NatGateway(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -77,38 +76,24 @@ export class NatGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NatGatewayArgs | NatGatewayState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: NatGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NatGatewayState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
-        } else {
-            const args = argsOrState as NatGatewayArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["id"] = args ? args.id : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["zones"] = args ? args.zones : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -118,44 +103,6 @@ export class NatGateway extends pulumi.CustomResource {
         }
         super(NatGateway.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Nat Gateway resource.
- */
-export interface NatGatewayState {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * Resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Nat Gateway properties.
-     */
-    readonly properties: pulumi.Input<inputs.network.NatGatewayPropertiesFormatResponse>;
-    /**
-     * The nat gateway SKU.
-     */
-    readonly sku?: pulumi.Input<inputs.network.NatGatewaySkuResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
-    /**
-     * A list of availability zones denoting the zone in which Nat Gateway should be deployed.
-     */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**

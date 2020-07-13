@@ -106,7 +106,7 @@ class ManagerDeviceBackupPolicySchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagerDeviceBackupPolicySchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,32 +114,11 @@ class ManagerDeviceBackupPolicySchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The name of the object.
-        :param pulumi.Input[dict] properties: The properties of the backup schedule.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `backup_type` (`pulumi.Input[str]`) - The type of backup which needs to be taken.
-          * `last_successful_run` (`pulumi.Input[str]`) - The last successful backup run which was triggered for the schedule.
-          * `retention_count` (`pulumi.Input[float]`) - The number of backups to be retained.
-          * `schedule_recurrence` (`pulumi.Input[dict]`) - The schedule recurrence.
-            * `recurrence_type` (`pulumi.Input[str]`) - The recurrence type.
-            * `recurrence_value` (`pulumi.Input[float]`) - The recurrence value.
-            * `weekly_days_list` (`pulumi.Input[list]`) - The week days list. Applicable only for schedules of recurrence type 'weekly'.
-
-          * `schedule_status` (`pulumi.Input[str]`) - The schedule status.
-          * `start_time` (`pulumi.Input[str]`) - The start time of the schedule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagerDeviceBackupPolicySchedule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -16,11 +16,10 @@ export class MachineProviderGuestConfigurationAssignment extends pulumi.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MachineProviderGuestConfigurationAssignmentState, opts?: pulumi.CustomResourceOptions): MachineProviderGuestConfigurationAssignment {
-        return new MachineProviderGuestConfigurationAssignment(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MachineProviderGuestConfigurationAssignment {
+        return new MachineProviderGuestConfigurationAssignment(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class MachineProviderGuestConfigurationAssignment extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MachineProviderGuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MachineProviderGuestConfigurationAssignmentArgs | MachineProviderGuestConfigurationAssignmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: MachineProviderGuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MachineProviderGuestConfigurationAssignmentState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as MachineProviderGuestConfigurationAssignmentArgs | undefined;
             if (!args || args.guestConfigurationAssignmentName === undefined) {
                 throw new Error("Missing required property 'guestConfigurationAssignmentName'");
             }
@@ -81,14 +71,13 @@ export class MachineProviderGuestConfigurationAssignment extends pulumi.CustomRe
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["machineName"] = args ? args.machineName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["machineName"] = args ? args.machineName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -98,28 +87,6 @@ export class MachineProviderGuestConfigurationAssignment extends pulumi.CustomRe
         }
         super(MachineProviderGuestConfigurationAssignment.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Guest configuration assignment is an association between a machine and guest configuration.
- */
-export interface MachineProviderGuestConfigurationAssignmentState {
-    /**
-     * Region where the VM is located.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Name of the guest configuration assignment.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * Properties of the Guest configuration assignment.
-     */
-    readonly properties: pulumi.Input<inputs.hybridcompute.GuestConfigurationAssignmentPropertiesResponse>;
-    /**
-     * The type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

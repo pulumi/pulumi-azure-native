@@ -141,8 +141,8 @@ namespace Pulumi.AzureRM.Insights
         {
         }
 
-        private ComponentExportconfiguration(string name, Input<string> id, ComponentExportconfigurationState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:insights:ComponentExportconfiguration", name, state, MakeResourceOptions(options, id))
+        private ComponentExportconfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:insights:ComponentExportconfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -164,11 +164,10 @@ namespace Pulumi.AzureRM.Insights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ComponentExportconfiguration Get(string name, Input<string> id, ComponentExportconfigurationState? state = null, CustomResourceOptions? options = null)
+        public static ComponentExportconfiguration Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ComponentExportconfiguration(name, id, state, options);
+            return new ComponentExportconfiguration(name, id, options);
         }
     }
 
@@ -247,127 +246,6 @@ namespace Pulumi.AzureRM.Insights
         public Input<string> ResourceName { get; set; } = null!;
 
         public ComponentExportconfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class ComponentExportconfigurationState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the Application Insights component.
-        /// </summary>
-        [Input("ApplicationName", required: true)]
-        public Input<string> ApplicationName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the destination storage container.
-        /// </summary>
-        [Input("ContainerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of destination account.
-        /// </summary>
-        [Input("DestinationAccountId", required: true)]
-        public Input<string> DestinationAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// The destination account location ID.
-        /// </summary>
-        [Input("DestinationStorageLocationId", required: true)]
-        public Input<string> DestinationStorageLocationId { get; set; } = null!;
-
-        /// <summary>
-        /// The destination storage account subscription ID.
-        /// </summary>
-        [Input("DestinationStorageSubscriptionId", required: true)]
-        public Input<string> DestinationStorageSubscriptionId { get; set; } = null!;
-
-        /// <summary>
-        /// The destination type.
-        /// </summary>
-        [Input("DestinationType", required: true)]
-        public Input<string> DestinationType { get; set; } = null!;
-
-        /// <summary>
-        /// The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-        /// </summary>
-        [Input("ExportId", required: true)]
-        public Input<string> ExportId { get; set; } = null!;
-
-        /// <summary>
-        /// This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-        /// </summary>
-        [Input("ExportStatus", required: true)]
-        public Input<string> ExportStatus { get; set; } = null!;
-
-        /// <summary>
-        /// The instrumentation key of the Application Insights component.
-        /// </summary>
-        [Input("InstrumentationKey", required: true)]
-        public Input<string> InstrumentationKey { get; set; } = null!;
-
-        /// <summary>
-        /// This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-        /// </summary>
-        [Input("IsUserEnabled", required: true)]
-        public Input<string> IsUserEnabled { get; set; } = null!;
-
-        /// <summary>
-        /// The last time the Continuous Export configuration started failing.
-        /// </summary>
-        [Input("LastGapTime", required: true)]
-        public Input<string> LastGapTime { get; set; } = null!;
-
-        /// <summary>
-        /// The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-        /// </summary>
-        [Input("LastSuccessTime", required: true)]
-        public Input<string> LastSuccessTime { get; set; } = null!;
-
-        /// <summary>
-        /// Last time the Continuous Export configuration was updated.
-        /// </summary>
-        [Input("LastUserUpdate", required: true)]
-        public Input<string> LastUserUpdate { get; set; } = null!;
-
-        /// <summary>
-        /// Deprecated
-        /// </summary>
-        [Input("NotificationQueueEnabled")]
-        public Input<string>? NotificationQueueEnabled { get; set; }
-
-        /// <summary>
-        /// This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-        /// </summary>
-        [Input("PermanentErrorReason", required: true)]
-        public Input<string> PermanentErrorReason { get; set; } = null!;
-
-        /// <summary>
-        /// This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-        /// </summary>
-        [Input("RecordTypes")]
-        public Input<string>? RecordTypes { get; set; }
-
-        /// <summary>
-        /// The resource group of the Application Insights component.
-        /// </summary>
-        [Input("ResourceGroup", required: true)]
-        public Input<string> ResourceGroup { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the destination storage account.
-        /// </summary>
-        [Input("StorageName", required: true)]
-        public Input<string> StorageName { get; set; } = null!;
-
-        /// <summary>
-        /// The subscription of the Application Insights component.
-        /// </summary>
-        [Input("SubscriptionId", required: true)]
-        public Input<string> SubscriptionId { get; set; } = null!;
-
-        public ComponentExportconfigurationState()
         {
         }
     }

@@ -130,7 +130,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetworkWatcherFlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,47 +138,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the flow log.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable flow logging.
-          * `flow_analytics_configuration` (`pulumi.Input[dict]`) - Parameters that define the configuration of traffic analytics.
-            * `network_watcher_flow_analytics_configuration` (`pulumi.Input[dict]`) - Parameters that define the configuration of traffic analytics.
-              * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable traffic analytics.
-              * `traffic_analytics_interval` (`pulumi.Input[float]`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
-              * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
-              * `workspace_region` (`pulumi.Input[str]`) - The location of the attached workspace.
-              * `workspace_resource_id` (`pulumi.Input[str]`) - Resource Id of the attached workspace.
-
-          * `format` (`pulumi.Input[dict]`) - Parameters that define the flow log format.
-            * `type` (`pulumi.Input[str]`) - The file type of flow log.
-            * `version` (`pulumi.Input[float]`) - The version (revision) of the flow log.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the flow log.
-          * `retention_policy` (`pulumi.Input[dict]`) - Parameters that define the retention policy for flow log.
-            * `days` (`pulumi.Input[float]`) - Number of days to retain flow log records.
-            * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable retention.
-
-          * `storage_id` (`pulumi.Input[str]`) - ID of the storage account which is used to store the flow log.
-          * `target_resource_guid` (`pulumi.Input[str]`) - Guid of network security group to which flow log will be applied.
-          * `target_resource_id` (`pulumi.Input[str]`) - ID of network security group to which flow log will be applied.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return NetworkWatcherFlowLog(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

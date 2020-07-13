@@ -16,11 +16,10 @@ export class WorkspaceStorageInsightConfig extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WorkspaceStorageInsightConfigState, opts?: pulumi.CustomResourceOptions): WorkspaceStorageInsightConfig {
-        return new WorkspaceStorageInsightConfig(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceStorageInsightConfig {
+        return new WorkspaceStorageInsightConfig(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class WorkspaceStorageInsightConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkspaceStorageInsightConfigArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WorkspaceStorageInsightConfigArgs | WorkspaceStorageInsightConfigState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: WorkspaceStorageInsightConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as WorkspaceStorageInsightConfigState | undefined;
-            inputs["eTag"] = state ? state.eTag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as WorkspaceStorageInsightConfigArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -86,14 +75,13 @@ export class WorkspaceStorageInsightConfig extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["eTag"] = args ? args.eTag : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["workspaceName"] = args ? args.workspaceName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -103,32 +91,6 @@ export class WorkspaceStorageInsightConfig extends pulumi.CustomResource {
         }
         super(WorkspaceStorageInsightConfig.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The top level storage insight resource container.
- */
-export interface WorkspaceStorageInsightConfigState {
-    /**
-     * The ETag of the storage insight.
-     */
-    readonly eTag?: pulumi.Input<string>;
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Storage insight properties.
-     */
-    readonly properties: pulumi.Input<inputs.operationalinsights.StorageInsightPropertiesResponse>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

@@ -119,7 +119,7 @@ class Component(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Component resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -127,47 +127,11 @@ class Component(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Azure resource name
-        :param pulumi.Input[dict] properties: Properties that define an Application Insights component resource.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Azure resource type
-
-        The **properties** object supports the following:
-
-          * `app_id` (`pulumi.Input[str]`) - Application Insights Unique ID for your Application.
-          * `application_id` (`pulumi.Input[str]`) - The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
-          * `application__type` (`pulumi.Input[str]`) - Type of application being monitored.
-          * `connection_string` (`pulumi.Input[str]`) - Application Insights component connection string.
-          * `creation_date` (`pulumi.Input[str]`) - Creation Date for the Application Insights component, in ISO 8601 format.
-          * `disable_ip_masking` (`pulumi.Input[bool]`) - Disable IP masking.
-          * `flow__type` (`pulumi.Input[str]`) - Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-          * `hockey_app_id` (`pulumi.Input[str]`) - The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
-          * `hockey_app_token` (`pulumi.Input[str]`) - Token used to authenticate communications with between Application Insights and HockeyApp.
-          * `immediate_purge_data_on30_days` (`pulumi.Input[bool]`) - Purge data immediately after 30 days.
-          * `ingestion_mode` (`pulumi.Input[str]`) - Indicates the flow of the ingestion.
-          * `instrumentation_key` (`pulumi.Input[str]`) - Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
-          * `private_link_scoped_resources` (`pulumi.Input[list]`) - List of linked private link scope resources.
-            * `resource_id` (`pulumi.Input[str]`) - The full resource Id of the private link scope resource.
-            * `scope_id` (`pulumi.Input[str]`) - The private link scope unique Identifier.
-
-          * `request__source` (`pulumi.Input[str]`) - Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-          * `retention_in_days` (`pulumi.Input[float]`) - Retention period in days.
-          * `sampling_percentage` (`pulumi.Input[float]`) - Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-          * `tenant_id` (`pulumi.Input[str]`) - Azure Tenant Id.
-          * `provisioning_state` (`pulumi.Input[str]`) - Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Component(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

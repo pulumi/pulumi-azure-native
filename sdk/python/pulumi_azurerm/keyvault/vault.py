@@ -163,7 +163,7 @@ class Vault(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -171,70 +171,11 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Azure location of the key vault resource.
-        :param pulumi.Input[str] name: Name of the key vault resource.
-        :param pulumi.Input[dict] properties: Properties of the vault
-        :param pulumi.Input[dict] tags: Tags assigned to the key vault resource.
-        :param pulumi.Input[str] type: Resource type of the key vault resource.
-
-        The **properties** object supports the following:
-
-          * `access_policies` (`pulumi.Input[list]`) - An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-            * `application_id` (`pulumi.Input[str]`) -  Application ID of the client making request on behalf of a principal
-            * `object_id` (`pulumi.Input[str]`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-            * `permissions` (`pulumi.Input[dict]`) - Permissions the identity has for keys, secrets and certificates.
-              * `certificates` (`pulumi.Input[list]`) - Permissions to certificates
-              * `keys` (`pulumi.Input[list]`) - Permissions to keys
-              * `secrets` (`pulumi.Input[list]`) - Permissions to secrets
-              * `storage` (`pulumi.Input[list]`) - Permissions to storage accounts
-
-            * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-
-          * `create_mode` (`pulumi.Input[str]`) - The vault's create mode to indicate whether the vault need to be recovered or not.
-          * `enable_purge_protection` (`pulumi.Input[bool]`) - Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
-          * `enable_rbac_authorization` (`pulumi.Input[bool]`) - Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
-          * `enable_soft_delete` (`pulumi.Input[bool]`) - Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
-          * `enabled_for_deployment` (`pulumi.Input[bool]`) - Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
-          * `enabled_for_disk_encryption` (`pulumi.Input[bool]`) - Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-          * `enabled_for_template_deployment` (`pulumi.Input[bool]`) - Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
-          * `network_acls` (`pulumi.Input[dict]`) - Rules governing the accessibility of the key vault from specific network locations.
-            * `bypass` (`pulumi.Input[str]`) - Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
-            * `default_action` (`pulumi.Input[str]`) - The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-            * `ip_rules` (`pulumi.Input[list]`) - The list of IP address rules.
-              * `value` (`pulumi.Input[str]`) - An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
-
-            * `virtual_network_rules` (`pulumi.Input[list]`) - The list of virtual network rules.
-              * `id` (`pulumi.Input[str]`) - Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
-
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of private endpoint connections associated with the key vault.
-            * `properties` (`pulumi.Input[dict]`) - Private endpoint connection properties.
-              * `private_endpoint` (`pulumi.Input[dict]`) - Properties of the private endpoint object.
-                * `id` (`pulumi.Input[str]`) - Full identifier of the private endpoint resource.
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Approval state of the private link connection.
-                * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-                * `description` (`pulumi.Input[str]`) - The reason for approval or rejection.
-                * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been approved, rejected or removed by the key vault owner.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the private endpoint connection.
-
-          * `sku` (`pulumi.Input[dict]`) - SKU details
-            * `family` (`pulumi.Input[str]`) - SKU family name
-            * `name` (`pulumi.Input[str]`) - SKU name to specify whether the key vault is a standard vault or a premium vault.
-
-          * `soft_delete_retention_in_days` (`pulumi.Input[float]`) - softDelete data retention days. It accepts >=7 and <=90.
-          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-          * `vault_uri` (`pulumi.Input[str]`) - The URI of the vault for performing operations on keys and secrets.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Vault(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

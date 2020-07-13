@@ -94,7 +94,7 @@ class AppServiceHostNameBinding(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServiceHostNameBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -102,31 +102,11 @@ class AppServiceHostNameBinding(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: HostNameBinding resource specific properties
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `azure_resource_name` (`pulumi.Input[str]`) - Azure resource name.
-          * `azure_resource_type` (`pulumi.Input[str]`) - Azure resource type.
-          * `custom_host_name_dns_record_type` (`pulumi.Input[str]`) - Custom DNS record type.
-          * `domain_id` (`pulumi.Input[str]`) - Fully qualified ARM domain resource URI.
-          * `host_name_type` (`pulumi.Input[str]`) - Hostname type.
-          * `site_name` (`pulumi.Input[str]`) - App Service app name.
-          * `ssl_state` (`pulumi.Input[str]`) - SSL type
-          * `thumbprint` (`pulumi.Input[str]`) - SSL certificate thumbprint
-          * `virtual_ip` (`pulumi.Input[str]`) - Virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AppServiceHostNameBinding(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

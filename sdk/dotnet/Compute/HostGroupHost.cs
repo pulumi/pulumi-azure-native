@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Compute
         {
         }
 
-        private HostGroupHost(string name, Input<string> id, HostGroupHostState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:compute:HostGroupHost", name, state, MakeResourceOptions(options, id))
+        private HostGroupHost(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:compute:HostGroupHost", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Compute
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static HostGroupHost Get(string name, Input<string> id, HostGroupHostState? state = null, CustomResourceOptions? options = null)
+        public static HostGroupHost Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new HostGroupHost(name, id, state, options);
+            return new HostGroupHost(name, id, options);
         }
     }
 
@@ -145,55 +144,6 @@ namespace Pulumi.AzureRM.Compute
         }
 
         public HostGroupHostArgs()
-        {
-        }
-    }
-
-    public sealed class HostGroupHostState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the dedicated host.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DedicatedHostPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public HostGroupHostState()
         {
         }
     }

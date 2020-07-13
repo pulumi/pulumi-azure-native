@@ -144,7 +144,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ExpressRoutePort resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -152,65 +152,11 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[dict] identity: The identity of ExpressRoutePort, if configured.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: ExpressRoutePort properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `allocation_date` (`pulumi.Input[str]`) - Date of the physical port allocation to be used in Letter of Authorization.
-          * `bandwidth_in_gbps` (`pulumi.Input[float]`) - Bandwidth of procured ports in Gbps.
-          * `circuits` (`pulumi.Input[list]`) - Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `encapsulation` (`pulumi.Input[str]`) - Encapsulation method on physical ports.
-          * `ether_type` (`pulumi.Input[str]`) - Ether type of the physical port.
-          * `links` (`pulumi.Input[list]`) - The set of physical links of the ExpressRoutePort resource.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of child port resource that is unique among child port resources of the parent.
-            * `properties` (`pulumi.Input[dict]`) - ExpressRouteLink properties.
-              * `admin_state` (`pulumi.Input[str]`) - Administrative state of the physical port.
-              * `connector_type` (`pulumi.Input[str]`) - Physical fiber port type.
-              * `interface_name` (`pulumi.Input[str]`) - Name of Azure router interface.
-              * `mac_sec_config` (`pulumi.Input[dict]`) - MacSec configuration.
-                * `cak_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CAK key.
-                * `cipher` (`pulumi.Input[str]`) - Mac security cipher.
-                * `ckn_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CKN key.
-
-              * `patch_panel_id` (`pulumi.Input[str]`) - Mapping between physical port to patch panel port.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the express route link resource.
-              * `rack_id` (`pulumi.Input[str]`) - Mapping of physical patch panel to rack.
-              * `router_name` (`pulumi.Input[str]`) - Name of Azure router associated with physical port.
-
-          * `mtu` (`pulumi.Input[str]`) - Maximum transmission unit of the physical port pair(s).
-          * `peering_location` (`pulumi.Input[str]`) - The name of the peering location that the ExpressRoutePort is mapped to physically.
-          * `provisioned_bandwidth_in_gbps` (`pulumi.Input[float]`) - Aggregate Gbps of associated circuit bandwidths.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the express route port resource.
-          * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the express route port resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ExpressRoutePort(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

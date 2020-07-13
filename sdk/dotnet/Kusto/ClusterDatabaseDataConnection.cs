@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.Kusto
         {
         }
 
-        private ClusterDatabaseDataConnection(string name, Input<string> id, ClusterDatabaseDataConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:kusto:ClusterDatabaseDataConnection", name, state, MakeResourceOptions(options, id))
+        private ClusterDatabaseDataConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:kusto:ClusterDatabaseDataConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.Kusto
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ClusterDatabaseDataConnection Get(string name, Input<string> id, ClusterDatabaseDataConnectionState? state = null, CustomResourceOptions? options = null)
+        public static ClusterDatabaseDataConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ClusterDatabaseDataConnection(name, id, state, options);
+            return new ClusterDatabaseDataConnection(name, id, options);
         }
     }
 
@@ -121,37 +120,6 @@ namespace Pulumi.AzureRM.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ClusterDatabaseDataConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterDatabaseDataConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Kind of the endpoint for the data connection
-        /// </summary>
-        [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ClusterDatabaseDataConnectionState()
         {
         }
     }

@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Peering
         {
         }
 
-        private PeeringService(string name, Input<string> id, PeeringServiceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:peering:PeeringService", name, state, MakeResourceOptions(options, id))
+        private PeeringService(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:peering:PeeringService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Peering
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PeeringService Get(string name, Input<string> id, PeeringServiceState? state = null, CustomResourceOptions? options = null)
+        public static PeeringService Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PeeringService(name, id, state, options);
+            return new PeeringService(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Peering
         }
 
         public PeeringServiceArgs()
-        {
-        }
-    }
-
-    public sealed class PeeringServiceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The location of the resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties that define a peering service.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PeeringServicePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU that defines the type of the peering service.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.PeeringServiceSkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public PeeringServiceState()
         {
         }
     }

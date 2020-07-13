@@ -91,7 +91,7 @@ class ManagerDeviceBackupPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagerDeviceBackupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,29 +99,11 @@ class ManagerDeviceBackupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The name of the object.
-        :param pulumi.Input[dict] properties: The properties of the backup policy.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `backup_policy_creation_type` (`pulumi.Input[str]`) - The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-          * `last_backup_time` (`pulumi.Input[str]`) - The time of the last backup for the backup policy.
-          * `next_backup_time` (`pulumi.Input[str]`) - The time of the next backup for the backup policy.
-          * `scheduled_backup_status` (`pulumi.Input[str]`) - Indicates whether at least one of the schedules in the backup policy is active or not.
-          * `schedules_count` (`pulumi.Input[float]`) - The count of schedules the backup policy contains.
-          * `ssm_host_name` (`pulumi.Input[str]`) - If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-          * `volume_ids` (`pulumi.Input[list]`) - The path IDs of the volumes which are part of the backup policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagerDeviceBackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

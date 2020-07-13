@@ -182,7 +182,7 @@ class Peering(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Peering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -190,77 +190,11 @@ class Peering(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The kind of the peering.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties that define a peering.
-        :param pulumi.Input[dict] sku: The SKU that defines the tier and kind of the peering.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `direct` (`pulumi.Input[dict]`) - The properties that define a direct peering.
-            * `connections` (`pulumi.Input[list]`) - The set of connections that constitute a direct peering.
-              * `bandwidth_in_mbps` (`pulumi.Input[float]`) - The bandwidth of the connection.
-              * `bgp_session` (`pulumi.Input[dict]`) - The BGP session associated with the connection.
-                * `max_prefixes_advertised_v4` (`pulumi.Input[float]`) - The maximum number of prefixes advertised over the IPv4 session.
-                * `max_prefixes_advertised_v6` (`pulumi.Input[float]`) - The maximum number of prefixes advertised over the IPv6 session.
-                * `md5_authentication_key` (`pulumi.Input[str]`) - The MD5 authentication key of the session.
-                * `microsoft_session_i_pv4_address` (`pulumi.Input[str]`) - The IPv4 session address on Microsoft's end.
-                * `microsoft_session_i_pv6_address` (`pulumi.Input[str]`) - The IPv6 session address on Microsoft's end.
-                * `peer_session_i_pv4_address` (`pulumi.Input[str]`) - The IPv4 session address on peer's end.
-                * `peer_session_i_pv6_address` (`pulumi.Input[str]`) - The IPv6 session address on peer's end.
-                * `session_prefix_v4` (`pulumi.Input[str]`) - The IPv4 prefix that contains both ends' IPv4 addresses.
-                * `session_prefix_v6` (`pulumi.Input[str]`) - The IPv6 prefix that contains both ends' IPv6 addresses.
-                * `session_state_v4` (`pulumi.Input[str]`) - The state of the IPv4 session.
-                * `session_state_v6` (`pulumi.Input[str]`) - The state of the IPv6 session.
-
-              * `connection_identifier` (`pulumi.Input[str]`) - The unique identifier (GUID) for the connection.
-              * `connection_state` (`pulumi.Input[str]`) - The state of the connection.
-              * `error_message` (`pulumi.Input[str]`) - The error message related to the connection state, if any.
-              * `peering_db_facility_id` (`pulumi.Input[float]`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
-              * `provisioned_bandwidth_in_mbps` (`pulumi.Input[float]`) - The bandwidth that is actually provisioned.
-              * `session_address_provider` (`pulumi.Input[str]`) - The field indicating if Microsoft provides session ip addresses.
-              * `use_for_peering_service` (`pulumi.Input[bool]`) - The flag that indicates whether or not the connection is used for peering service.
-
-            * `direct_peering_type` (`pulumi.Input[str]`) - The type of direct peering.
-            * `peer_asn` (`pulumi.Input[dict]`) - The reference of the peer ASN.
-              * `id` (`pulumi.Input[str]`) - The identifier of the referenced resource.
-
-            * `use_for_peering_service` (`pulumi.Input[bool]`) - The flag that indicates whether or not the peering is used for peering service.
-
-          * `exchange` (`pulumi.Input[dict]`) - The properties that define an exchange peering.
-            * `connections` (`pulumi.Input[list]`) - The set of connections that constitute an exchange peering.
-              * `bgp_session` (`pulumi.Input[dict]`) - The BGP session associated with the connection.
-              * `connection_identifier` (`pulumi.Input[str]`) - The unique identifier (GUID) for the connection.
-              * `connection_state` (`pulumi.Input[str]`) - The state of the connection.
-              * `error_message` (`pulumi.Input[str]`) - The error message related to the connection state, if any.
-              * `peering_db_facility_id` (`pulumi.Input[float]`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
-
-            * `peer_asn` (`pulumi.Input[dict]`) - The reference of the peer ASN.
-
-          * `peering_location` (`pulumi.Input[str]`) - The location of the peering.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-
-        The **sku** object supports the following:
-
-          * `family` (`pulumi.Input[str]`) - The family of the peering SKU.
-          * `name` (`pulumi.Input[str]`) - The name of the peering SKU.
-          * `size` (`pulumi.Input[str]`) - The size of the peering SKU.
-          * `tier` (`pulumi.Input[str]`) - The tier of the peering SKU.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Peering(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

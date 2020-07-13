@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.SignalRService
         {
         }
 
-        private SignalRPrivateEndpointConnection(string name, Input<string> id, SignalRPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:signalrservice:SignalRPrivateEndpointConnection", name, state, MakeResourceOptions(options, id))
+        private SignalRPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:signalrservice:SignalRPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.SignalRService
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SignalRPrivateEndpointConnection Get(string name, Input<string> id, SignalRPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
+        public static SignalRPrivateEndpointConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new SignalRPrivateEndpointConnection(name, id, state, options);
+            return new SignalRPrivateEndpointConnection(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.SignalRService
         public Input<string> ResourceName { get; set; } = null!;
 
         public SignalRPrivateEndpointConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class SignalRPrivateEndpointConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the private endpoint connection
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public SignalRPrivateEndpointConnectionState()
         {
         }
     }

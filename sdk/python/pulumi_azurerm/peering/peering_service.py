@@ -97,7 +97,7 @@ class PeeringService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PeeringService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,33 +105,11 @@ class PeeringService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties that define a peering service.
-        :param pulumi.Input[dict] sku: The SKU that defines the type of the peering service.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `peering_service_location` (`pulumi.Input[str]`) - The PeeringServiceLocation of the Customer.
-          * `peering_service_provider` (`pulumi.Input[str]`) - The MAPS Provider Name.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the peering service SKU.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return PeeringService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

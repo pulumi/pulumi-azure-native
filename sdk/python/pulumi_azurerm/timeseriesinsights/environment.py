@@ -121,7 +121,7 @@ class Environment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -129,48 +129,11 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of the environment.
-        :param pulumi.Input[dict] sku: The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `creation_time` (`pulumi.Input[str]`) - The time the resource was created.
-          * `data_access_fqdn` (`pulumi.Input[str]`) - The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-          * `data_access_id` (`pulumi.Input[str]`) - An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-          * `data_retention_time` (`pulumi.Input[str]`) - ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-          * `partition_key_properties` (`pulumi.Input[list]`) - The list of partition keys according to which the data in the environment will be ordered.
-            * `name` (`pulumi.Input[str]`) - The name of the property.
-            * `type` (`pulumi.Input[str]`) - The type of the property.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the resource.
-          * `status` (`pulumi.Input[dict]`) - An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-            * `ingress` (`pulumi.Input[dict]`) - An object that represents the status of ingress on an environment.
-              * `state` (`pulumi.Input[str]`) - This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-              * `state_details` (`pulumi.Input[dict]`) - An object that contains the details about an environment's state.
-                * `code` (`pulumi.Input[str]`) - Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-                * `message` (`pulumi.Input[str]`) - A message that describes the state in detail.
-
-          * `storage_limit_exceeded_behavior` (`pulumi.Input[str]`) - The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-          * `name` (`pulumi.Input[str]`) - The name of this SKU.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

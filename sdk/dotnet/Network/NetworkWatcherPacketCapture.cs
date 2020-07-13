@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private NetworkWatcherPacketCapture(string name, Input<string> id, NetworkWatcherPacketCaptureState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:NetworkWatcherPacketCapture", name, state, MakeResourceOptions(options, id))
+        private NetworkWatcherPacketCapture(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:NetworkWatcherPacketCapture", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static NetworkWatcherPacketCapture Get(string name, Input<string> id, NetworkWatcherPacketCaptureState? state = null, CustomResourceOptions? options = null)
+        public static NetworkWatcherPacketCapture Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new NetworkWatcherPacketCapture(name, id, state, options);
+            return new NetworkWatcherPacketCapture(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public NetworkWatcherPacketCaptureArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkWatcherPacketCaptureState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the packet capture session.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the packet capture result.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PacketCaptureResultPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        public NetworkWatcherPacketCaptureState()
         {
         }
     }

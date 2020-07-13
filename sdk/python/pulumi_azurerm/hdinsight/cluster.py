@@ -295,7 +295,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -303,137 +303,11 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag for the resource
-        :param pulumi.Input[dict] identity: The identity of the cluster, if configured.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The properties of the cluster.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of cluster identity. This property will only be provided for a system assigned identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id associated with the cluster. This property will only be provided for a system assigned identity.
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `cluster_definition` (`pulumi.Input[dict]`) - The cluster definition.
-            * `blueprint` (`pulumi.Input[str]`) - The link to the blueprint.
-            * `component_version` (`pulumi.Input[dict]`) - The versions of different services in the cluster.
-            * `configurations` (`pulumi.Input[dict]`) - The cluster configurations.
-            * `kind` (`pulumi.Input[str]`) - The type of cluster.
-
-          * `cluster_state` (`pulumi.Input[str]`) - The state of the cluster.
-          * `cluster_version` (`pulumi.Input[str]`) - The version of the cluster.
-          * `compute_profile` (`pulumi.Input[dict]`) - The compute profile.
-            * `roles` (`pulumi.Input[list]`) - The list of roles in the cluster.
-              * `autoscale` (`pulumi.Input[dict]`) - The autoscale configurations.
-                * `capacity` (`pulumi.Input[dict]`) - Parameters for load-based autoscale
-                  * `max_instance_count` (`pulumi.Input[float]`) - The maximum instance count of the cluster
-                  * `min_instance_count` (`pulumi.Input[float]`) - The minimum instance count of the cluster
-
-                * `recurrence` (`pulumi.Input[dict]`) - Parameters for schedule-based autoscale
-                  * `schedule` (`pulumi.Input[list]`) - Array of schedule-based autoscale rules
-                    * `days` (`pulumi.Input[list]`) - Days of the week for a schedule-based autoscale rule
-                    * `time_and_capacity` (`pulumi.Input[dict]`) - Time and capacity for a schedule-based autoscale rule
-                      * `max_instance_count` (`pulumi.Input[float]`) - The maximum instance count of the cluster
-                      * `min_instance_count` (`pulumi.Input[float]`) - The minimum instance count of the cluster
-                      * `time` (`pulumi.Input[str]`) - 24-hour time in the form xx:xx
-
-                  * `time_zone` (`pulumi.Input[str]`) - The time zone for the autoscale schedule times
-
-              * `data_disks_groups` (`pulumi.Input[list]`) - The data disks groups for the role.
-                * `disk_size_gb` (`pulumi.Input[float]`) - ReadOnly. The DiskSize in GB. Do not set this value.
-                * `disks_per_node` (`pulumi.Input[float]`) - The number of disks per node.
-                * `storage_account_type` (`pulumi.Input[str]`) - ReadOnly. The storage account type. Do not set this value.
-
-              * `hardware_profile` (`pulumi.Input[dict]`) - The hardware profile.
-                * `vm_size` (`pulumi.Input[str]`) - The size of the VM
-
-              * `min_instance_count` (`pulumi.Input[float]`) - The minimum instance count of the cluster.
-              * `name` (`pulumi.Input[str]`) - The name of the role.
-              * `os_profile` (`pulumi.Input[dict]`) - The operating system profile.
-                * `linux_operating_system_profile` (`pulumi.Input[dict]`) - The Linux OS profile.
-                  * `password` (`pulumi.Input[str]`) - The password.
-                  * `ssh_profile` (`pulumi.Input[dict]`) - The SSH profile.
-                    * `public_keys` (`pulumi.Input[list]`) - The list of SSH public keys.
-                      * `certificate_data` (`pulumi.Input[str]`) - The certificate for SSH.
-
-                  * `username` (`pulumi.Input[str]`) - The username.
-
-              * `script_actions` (`pulumi.Input[list]`) - The list of script actions on the role.
-                * `name` (`pulumi.Input[str]`) - The name of the script action.
-                * `parameters` (`pulumi.Input[str]`) - The parameters for the script provided.
-                * `uri` (`pulumi.Input[str]`) - The URI to the script.
-
-              * `target_instance_count` (`pulumi.Input[float]`) - The instance count of the cluster.
-              * `virtual_network_profile` (`pulumi.Input[dict]`) - The virtual network profile.
-                * `id` (`pulumi.Input[str]`) - The ID of the virtual network.
-                * `subnet` (`pulumi.Input[str]`) - The name of the subnet.
-
-          * `connectivity_endpoints` (`pulumi.Input[list]`) - The list of connectivity endpoints.
-            * `location` (`pulumi.Input[str]`) - The location of the endpoint.
-            * `name` (`pulumi.Input[str]`) - The name of the endpoint.
-            * `port` (`pulumi.Input[float]`) - The port to connect to.
-            * `protocol` (`pulumi.Input[str]`) - The protocol of the endpoint.
-
-          * `created_date` (`pulumi.Input[str]`) - The date on which the cluster was created.
-          * `disk_encryption_properties` (`pulumi.Input[dict]`) - The disk encryption properties.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm identifier for encryption, default RSA-OAEP.
-            * `key_name` (`pulumi.Input[str]`) - Key name that is used for enabling disk encryption.
-            * `key_version` (`pulumi.Input[str]`) - Specific key version that is used for enabling disk encryption.
-            * `msi_resource_id` (`pulumi.Input[str]`) - Resource ID of Managed Identity that is used to access the key vault.
-            * `vault_uri` (`pulumi.Input[str]`) - Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net
-
-          * `encryption_in_transit_properties` (`pulumi.Input[dict]`) - The encryption-in-transit properties.
-            * `is_encryption_in_transit_enabled` (`pulumi.Input[bool]`) - Indicates whether or not inter cluster node communication is encrypted in transit.
-
-          * `errors` (`pulumi.Input[list]`) - The list of errors.
-            * `code` (`pulumi.Input[str]`) - The error code.
-            * `message` (`pulumi.Input[str]`) - The error message.
-
-          * `kafka_rest_properties` (`pulumi.Input[dict]`) - The cluster kafka rest proxy configuration.
-            * `client_group_info` (`pulumi.Input[dict]`) - The information of AAD security group.
-              * `group_id` (`pulumi.Input[str]`) - The AAD security group id.
-              * `group_name` (`pulumi.Input[str]`) - The AAD security group name.
-
-          * `min_supported_tls_version` (`pulumi.Input[str]`) - The minimal supported tls version.
-          * `network_settings` (`pulumi.Input[dict]`) - The network settings.
-            * `outbound_only_public_network_access_type` (`pulumi.Input[str]`) - The mechanism through which the cluster will have outbound access to the public network.
-            * `public_network_access` (`pulumi.Input[str]`) - Specifies whether public network access is enabled for inbound and outbound, or outbound only.
-
-          * `os_type` (`pulumi.Input[str]`) - The type of operating system.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-          * `quota_info` (`pulumi.Input[dict]`) - The quota information.
-            * `cores_used` (`pulumi.Input[float]`) - The cores used by the cluster.
-
-          * `security_profile` (`pulumi.Input[dict]`) - The security profile.
-            * `aadds_resource_id` (`pulumi.Input[str]`) - The resource ID of the user's Azure Active Directory Domain Service.
-            * `cluster_users_group_d_ns` (`pulumi.Input[list]`) - Optional. The Distinguished Names for cluster user groups
-            * `directory_type` (`pulumi.Input[str]`) - The directory type.
-            * `domain` (`pulumi.Input[str]`) - The organization's active directory domain.
-            * `domain_user_password` (`pulumi.Input[str]`) - The domain admin password.
-            * `domain_username` (`pulumi.Input[str]`) - The domain user account that will have admin privileges on the cluster.
-            * `ldaps_urls` (`pulumi.Input[list]`) - The LDAPS protocol URLs to communicate with the Active Directory.
-            * `msi_resource_id` (`pulumi.Input[str]`) - User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
-            * `organizational_unit_dn` (`pulumi.Input[str]`) - The organizational unit within the Active Directory to place the cluster and service accounts.
-
-          * `tier` (`pulumi.Input[str]`) - The cluster tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

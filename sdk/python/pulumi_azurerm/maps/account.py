@@ -91,7 +91,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,28 +99,11 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the Maps Account, which is unique within a Resource Group.
-        :param pulumi.Input[dict] properties: The map account properties.
-        :param pulumi.Input[dict] sku: The SKU of this account.
-        :param pulumi.Input[dict] tags: Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-        :param pulumi.Input[str] type: Azure resource type.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The name of the SKU, in standard format (such as S0).
-          * `tier` (`pulumi.Input[str]`) - Gets the sku tier. This is based on the SKU name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Account(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

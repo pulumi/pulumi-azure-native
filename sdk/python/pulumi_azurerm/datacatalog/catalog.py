@@ -103,7 +103,7 @@ class Catalog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Catalog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,35 +111,11 @@ class Catalog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Resource etag
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Azure Data Catalog properties.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `admins` (`pulumi.Input[list]`) - Azure data catalog admin list.
-            * `object_id` (`pulumi.Input[str]`) - Object Id for the user
-            * `upn` (`pulumi.Input[str]`) - UPN of the user.
-
-          * `enable_automatic_unit_adjustment` (`pulumi.Input[bool]`) - Automatic unit adjustment enabled or not.
-          * `sku` (`pulumi.Input[str]`) - Azure data catalog SKU.
-          * `successfully_provisioned` (`pulumi.Input[bool]`) - Azure data catalog provision status.
-          * `units` (`pulumi.Input[float]`) - Azure data catalog units.
-          * `users` (`pulumi.Input[list]`) - Azure data catalog user list.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Catalog(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

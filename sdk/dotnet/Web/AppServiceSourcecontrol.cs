@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.Web
         {
         }
 
-        private AppServiceSourcecontrol(string name, Input<string> id, AppServiceSourcecontrolState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:web:AppServiceSourcecontrol", name, state, MakeResourceOptions(options, id))
+        private AppServiceSourcecontrol(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:web:AppServiceSourcecontrol", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.Web
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static AppServiceSourcecontrol Get(string name, Input<string> id, AppServiceSourcecontrolState? state = null, CustomResourceOptions? options = null)
+        public static AppServiceSourcecontrol Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new AppServiceSourcecontrol(name, id, state, options);
+            return new AppServiceSourcecontrol(name, id, options);
         }
     }
 
@@ -109,37 +108,6 @@ namespace Pulumi.AzureRM.Web
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public AppServiceSourcecontrolArgs()
-        {
-        }
-    }
-
-    public sealed class AppServiceSourcecontrolState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// SiteSourceControl resource specific properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SiteSourceControlResponsePropertiesGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public AppServiceSourcecontrolState()
         {
         }
     }

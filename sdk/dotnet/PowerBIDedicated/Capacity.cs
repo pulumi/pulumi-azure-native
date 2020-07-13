@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.PowerBIDedicated
         {
         }
 
-        private Capacity(string name, Input<string> id, CapacityState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:powerbidedicated:Capacity", name, state, MakeResourceOptions(options, id))
+        private Capacity(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:powerbidedicated:Capacity", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.PowerBIDedicated
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Capacity Get(string name, Input<string> id, CapacityState? state = null, CustomResourceOptions? options = null)
+        public static Capacity Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Capacity(name, id, state, options);
+            return new Capacity(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.PowerBIDedicated
         }
 
         public CapacityArgs()
-        {
-        }
-    }
-
-    public sealed class CapacityState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Location of the PowerBI Dedicated resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the PowerBI Dedicated resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the provision operation request.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DedicatedCapacityPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of the PowerBI Dedicated resource.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.ResourceSkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of additional resource provisioning properties.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the PowerBI Dedicated resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public CapacityState()
         {
         }
     }

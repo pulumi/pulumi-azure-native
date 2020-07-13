@@ -98,7 +98,7 @@ class EnvironmentReferenceDataSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing EnvironmentReferenceDataSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,31 +106,11 @@ class EnvironmentReferenceDataSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of the reference data set.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `creation_time` (`pulumi.Input[str]`) - The time the resource was created.
-          * `data_string_comparison_behavior` (`pulumi.Input[str]`) - The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-          * `key_properties` (`pulumi.Input[list]`) - The list of key properties for the reference data set.
-            * `name` (`pulumi.Input[str]`) - The name of the key property.
-            * `type` (`pulumi.Input[str]`) - The type of the key property.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return EnvironmentReferenceDataSet(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Compute
         {
         }
 
-        private VirtualMachine(string name, Input<string> id, VirtualMachineState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:compute:VirtualMachine", name, state, MakeResourceOptions(options, id))
+        private VirtualMachine(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:compute:VirtualMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -104,11 +104,10 @@ namespace Pulumi.AzureRM.Compute
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static VirtualMachine Get(string name, Input<string> id, VirtualMachineState? state = null, CustomResourceOptions? options = null)
+        public static VirtualMachine Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new VirtualMachine(name, id, state, options);
+            return new VirtualMachine(name, id, options);
         }
     }
 
@@ -175,85 +174,6 @@ namespace Pulumi.AzureRM.Compute
         }
 
         public VirtualMachineArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualMachineState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The identity of the virtual machine, if configured.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.VirtualMachineIdentityResponseGetArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
-        /// </summary>
-        [Input("plan")]
-        public Input<Inputs.PlanResponseGetArgs>? Plan { get; set; }
-
-        /// <summary>
-        /// Describes the properties of a Virtual Machine.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualMachinePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("resources", required: true)]
-        private InputList<Inputs.VirtualMachineExtensionResponseGetArgs>? _resources;
-
-        /// <summary>
-        /// The virtual machine child extension resources.
-        /// </summary>
-        public InputList<Inputs.VirtualMachineExtensionResponseGetArgs> Resources
-        {
-            get => _resources ?? (_resources = new InputList<Inputs.VirtualMachineExtensionResponseGetArgs>());
-            set => _resources = value;
-        }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("zones")]
-        private InputList<string>? _zones;
-
-        /// <summary>
-        /// The virtual machine zones.
-        /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
-
-        public VirtualMachineState()
         {
         }
     }

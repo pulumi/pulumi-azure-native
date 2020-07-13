@@ -207,7 +207,7 @@ class Application(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -215,102 +215,11 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the resource.
-        :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] plan: The plan information.
-        :param pulumi.Input[dict] properties: The managed application properties.
-        :param pulumi.Input[dict] sku: The SKU of the resource.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal ID of resource identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant ID of resource.
-          * `type` (`pulumi.Input[str]`) - The identity type.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The plan name.
-          * `product` (`pulumi.Input[str]`) - The product code.
-          * `promotion_code` (`pulumi.Input[str]`) - The promotion code.
-          * `publisher` (`pulumi.Input[str]`) - The publisher ID.
-          * `version` (`pulumi.Input[str]`) - The plan's version.
-
-        The **properties** object supports the following:
-
-          * `application_definition_id` (`pulumi.Input[str]`) - The fully qualified path of managed application definition Id.
-          * `artifacts` (`pulumi.Input[list]`) - The collection of managed application artifacts.
-            * `name` (`pulumi.Input[str]`) - The managed application artifact name.
-            * `type` (`pulumi.Input[str]`) - The managed application artifact type.
-            * `uri` (`pulumi.Input[str]`) - The managed application artifact blob uri.
-
-          * `authorizations` (`pulumi.Input[list]`) - The  read-only authorizations property that is retrieved from the application package.
-            * `principal_id` (`pulumi.Input[str]`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-            * `role_definition_id` (`pulumi.Input[str]`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-
-          * `billing_details` (`pulumi.Input[dict]`) - The managed application billing details.
-            * `resource_usage_id` (`pulumi.Input[str]`) - The managed application resource usage Id.
-
-          * `created_by` (`pulumi.Input[dict]`) - The client entity that created the JIT request.
-            * `application_id` (`pulumi.Input[str]`) - The client application Id.
-            * `oid` (`pulumi.Input[str]`) - The client Oid.
-            * `puid` (`pulumi.Input[str]`) - The client Puid
-
-          * `customer_support` (`pulumi.Input[dict]`) - The read-only customer support property that is retrieved from the application package.
-            * `contact_name` (`pulumi.Input[str]`) - The contact name.
-            * `email` (`pulumi.Input[str]`) - The contact email.
-            * `phone` (`pulumi.Input[str]`) - The contact phone number.
-
-          * `jit_access_policy` (`pulumi.Input[dict]`) - The managed application Jit access policy.
-            * `jit_access_enabled` (`pulumi.Input[bool]`) - Whether the JIT access is enabled.
-            * `jit_approval_mode` (`pulumi.Input[str]`) - JIT approval mode.
-            * `jit_approvers` (`pulumi.Input[list]`) - The JIT approvers
-              * `display_name` (`pulumi.Input[str]`) - The approver display name.
-              * `id` (`pulumi.Input[str]`) - The approver service principal Id.
-              * `type` (`pulumi.Input[str]`) - The approver type.
-
-            * `maximum_jit_access_duration` (`pulumi.Input[str]`) - The maximum duration JIT access is granted. This is an ISO8601 time period value.
-
-          * `managed_resource_group_id` (`pulumi.Input[str]`) - The managed resource group Id.
-          * `management_mode` (`pulumi.Input[str]`) - The managed application management mode.
-          * `outputs` (`pulumi.Input[dict]`) - Name and value pairs that define the managed application outputs.
-          * `parameters` (`pulumi.Input[dict]`) - Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-          * `provisioning_state` (`pulumi.Input[str]`) - The managed application provisioning state.
-          * `publisher_tenant_id` (`pulumi.Input[str]`) - The publisher tenant Id.
-          * `support_urls` (`pulumi.Input[dict]`) - The read-only support URLs property that is retrieved from the application package.
-            * `government_cloud` (`pulumi.Input[str]`) - The government cloud support URL.
-            * `public_azure` (`pulumi.Input[str]`) - The public azure support URL.
-
-          * `updated_by` (`pulumi.Input[dict]`) - The client entity that last updated the JIT request.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The SKU capacity.
-          * `family` (`pulumi.Input[str]`) - The SKU family.
-          * `model` (`pulumi.Input[str]`) - The SKU model.
-          * `name` (`pulumi.Input[str]`) - The SKU name.
-          * `size` (`pulumi.Input[str]`) - The SKU size.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["managed_by"] = managed_by
-        __props__["name"] = name
-        __props__["plan"] = plan
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Application(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

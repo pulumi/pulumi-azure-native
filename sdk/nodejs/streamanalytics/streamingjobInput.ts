@@ -16,11 +16,10 @@ export class StreamingjobInput extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StreamingjobInputState, opts?: pulumi.CustomResourceOptions): StreamingjobInput {
-        return new StreamingjobInput(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingjobInput {
+        return new StreamingjobInput(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class StreamingjobInput extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StreamingjobInputArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StreamingjobInputArgs | StreamingjobInputState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: StreamingjobInputArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StreamingjobInputState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as StreamingjobInputArgs | undefined;
             if (!args || args.inputName === undefined) {
                 throw new Error("Missing required property 'inputName'");
             }
@@ -76,13 +67,12 @@ export class StreamingjobInput extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["inputName"] = args ? args.inputName : undefined;
-            inputs["jobName"] = args ? args.jobName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["inputName"] = args ? args.inputName : undefined;
+        inputs["jobName"] = args ? args.jobName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -92,24 +82,6 @@ export class StreamingjobInput extends pulumi.CustomResource {
         }
         super(StreamingjobInput.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
- */
-export interface StreamingjobInputState {
-    /**
-     * Resource name
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-     */
-    readonly properties: pulumi.Input<inputs.streamanalytics.InputPropertiesResponse>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

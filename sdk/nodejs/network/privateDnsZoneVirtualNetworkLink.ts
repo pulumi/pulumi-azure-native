@@ -16,11 +16,10 @@ export class PrivateDnsZoneVirtualNetworkLink extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PrivateDnsZoneVirtualNetworkLinkState, opts?: pulumi.CustomResourceOptions): PrivateDnsZoneVirtualNetworkLink {
-        return new PrivateDnsZoneVirtualNetworkLink(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateDnsZoneVirtualNetworkLink {
+        return new PrivateDnsZoneVirtualNetworkLink(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class PrivateDnsZoneVirtualNetworkLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PrivateDnsZoneVirtualNetworkLinkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PrivateDnsZoneVirtualNetworkLinkArgs | PrivateDnsZoneVirtualNetworkLinkState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PrivateDnsZoneVirtualNetworkLinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as PrivateDnsZoneVirtualNetworkLinkState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as PrivateDnsZoneVirtualNetworkLinkArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -91,15 +79,14 @@ export class PrivateDnsZoneVirtualNetworkLink extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["etag"] = args ? args.etag : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -109,36 +96,6 @@ export class PrivateDnsZoneVirtualNetworkLink extends pulumi.CustomResource {
         }
         super(PrivateDnsZoneVirtualNetworkLink.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Describes a link to virtual network for a Private DNS zone.
- */
-export interface PrivateDnsZoneVirtualNetworkLinkState {
-    /**
-     * The ETag of the virtual network link.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * The Azure Region where the resource lives
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the virtual network link to the Private DNS zone.
-     */
-    readonly properties: pulumi.Input<inputs.network.VirtualNetworkLinkPropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

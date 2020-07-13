@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private FirewallPolicyRuleCollectionGroup(string name, Input<string> id, FirewallPolicyRuleCollectionGroupState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:FirewallPolicyRuleCollectionGroup", name, state, MakeResourceOptions(options, id))
+        private FirewallPolicyRuleCollectionGroup(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:FirewallPolicyRuleCollectionGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static FirewallPolicyRuleCollectionGroup Get(string name, Input<string> id, FirewallPolicyRuleCollectionGroupState? state = null, CustomResourceOptions? options = null)
+        public static FirewallPolicyRuleCollectionGroup Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new FirewallPolicyRuleCollectionGroup(name, id, state, options);
+            return new FirewallPolicyRuleCollectionGroup(name, id, options);
         }
     }
 
@@ -121,37 +120,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string> RuleCollectionGroupName { get; set; } = null!;
 
         public FirewallPolicyRuleCollectionGroupArgs()
-        {
-        }
-    }
-
-    public sealed class FirewallPolicyRuleCollectionGroupState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The properties of the firewall policy rule collection group.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FirewallPolicyRuleCollectionGroupPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Rule Group type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirewallPolicyRuleCollectionGroupState()
         {
         }
     }

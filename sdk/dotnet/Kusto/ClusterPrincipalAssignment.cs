@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Kusto
         {
         }
 
-        private ClusterPrincipalAssignment(string name, Input<string> id, ClusterPrincipalAssignmentState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:kusto:ClusterPrincipalAssignment", name, state, MakeResourceOptions(options, id))
+        private ClusterPrincipalAssignment(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:kusto:ClusterPrincipalAssignment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Kusto
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ClusterPrincipalAssignment Get(string name, Input<string> id, ClusterPrincipalAssignmentState? state = null, CustomResourceOptions? options = null)
+        public static ClusterPrincipalAssignment Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ClusterPrincipalAssignment(name, id, state, options);
+            return new ClusterPrincipalAssignment(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ClusterPrincipalAssignmentArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterPrincipalAssignmentState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The cluster principal.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ClusterPrincipalPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ClusterPrincipalAssignmentState()
         {
         }
     }

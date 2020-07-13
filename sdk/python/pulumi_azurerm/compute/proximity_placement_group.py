@@ -103,7 +103,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ProximityPlacementGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,38 +111,11 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Describes the properties of a Proximity Placement Group.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `availability_sets` (`pulumi.Input[list]`) - A list of references to all availability sets in the proximity placement group.
-            * `colocation_status` (`pulumi.Input[dict]`) - Describes colocation status of a resource in the Proximity Placement Group.
-              * `code` (`pulumi.Input[str]`) - The status code.
-              * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
-              * `level` (`pulumi.Input[str]`) - The level code.
-              * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
-              * `time` (`pulumi.Input[str]`) - The time of the status.
-
-            * `id` (`pulumi.Input[str]`) - Resource Id
-
-          * `colocation_status` (`pulumi.Input[dict]`) - Describes colocation status of the Proximity Placement Group.
-          * `proximity_placement_group_type` (`pulumi.Input[str]`) - Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-          * `virtual_machine_scale_sets` (`pulumi.Input[list]`) - A list of references to all virtual machine scale sets in the proximity placement group.
-          * `virtual_machines` (`pulumi.Input[list]`) - A list of references to all virtual machines in the proximity placement group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ProximityPlacementGroup(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

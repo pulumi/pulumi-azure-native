@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private ApplicationGatewayPrivateEndpointConnection(string name, Input<string> id, ApplicationGatewayPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:ApplicationGatewayPrivateEndpointConnection", name, state, MakeResourceOptions(options, id))
+        private ApplicationGatewayPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:ApplicationGatewayPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ApplicationGatewayPrivateEndpointConnection Get(string name, Input<string> id, ApplicationGatewayPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
+        public static ApplicationGatewayPrivateEndpointConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ApplicationGatewayPrivateEndpointConnection(name, id, state, options);
+            return new ApplicationGatewayPrivateEndpointConnection(name, id, options);
         }
     }
 
@@ -121,37 +120,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ApplicationGatewayPrivateEndpointConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayPrivateEndpointConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the private endpoint connection on an application gateway.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Properties of the application gateway private endpoint connection.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApplicationGatewayPrivateEndpointConnectionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ApplicationGatewayPrivateEndpointConnectionState()
         {
         }
     }

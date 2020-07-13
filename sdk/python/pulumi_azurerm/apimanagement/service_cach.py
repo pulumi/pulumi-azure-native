@@ -77,7 +77,7 @@ class ServiceCach(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceCach resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,23 +85,11 @@ class ServiceCach(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Cache properties details.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `connection_string` (`pulumi.Input[str]`) - Runtime connection string to cache
-          * `description` (`pulumi.Input[str]`) - Cache description
-          * `resource_id` (`pulumi.Input[str]`) - Original uri of entity in external system cache points to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceCach(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

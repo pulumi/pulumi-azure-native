@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.StorSimple
         {
         }
 
-        private ManagerDeviceIscsiserver(string name, Input<string> id, ManagerDeviceIscsiserverState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple:ManagerDeviceIscsiserver", name, state, MakeResourceOptions(options, id))
+        private ManagerDeviceIscsiserver(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:storsimple:ManagerDeviceIscsiserver", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.StorSimple
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ManagerDeviceIscsiserver Get(string name, Input<string> id, ManagerDeviceIscsiserverState? state = null, CustomResourceOptions? options = null)
+        public static ManagerDeviceIscsiserver Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ManagerDeviceIscsiserver(name, id, state, options);
+            return new ManagerDeviceIscsiserver(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.StorSimple
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ManagerDeviceIscsiserverArgs()
-        {
-        }
-    }
-
-    public sealed class ManagerDeviceIscsiserverState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ISCSIServerPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ManagerDeviceIscsiserverState()
         {
         }
     }

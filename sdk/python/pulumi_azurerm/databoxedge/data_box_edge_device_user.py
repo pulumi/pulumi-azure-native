@@ -93,7 +93,7 @@ class DataBoxEdgeDeviceUser(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataBoxEdgeDeviceUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -101,30 +101,11 @@ class DataBoxEdgeDeviceUser(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The object name.
-        :param pulumi.Input[dict] properties: The storage account credential properties.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `encrypted_password` (`pulumi.Input[dict]`) - The password details.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-            * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-            * `value` (`pulumi.Input[str]`) - The value of the secret.
-
-          * `share_access_rights` (`pulumi.Input[list]`) - List of shares that the user has rights on. This field should not be specified during user creation.
-            * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed on the share for this user.
-            * `share_id` (`pulumi.Input[str]`) - The share ID.
-
-          * `user_type` (`pulumi.Input[str]`) - Type of the user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataBoxEdgeDeviceUser(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

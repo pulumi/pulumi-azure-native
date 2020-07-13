@@ -16,11 +16,10 @@ export class ServerDatabase extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServerDatabaseState, opts?: pulumi.CustomResourceOptions): ServerDatabase {
-        return new ServerDatabase(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerDatabase {
+        return new ServerDatabase(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class ServerDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerDatabaseArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerDatabaseArgs | ServerDatabaseState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ServerDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServerDatabaseState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ServerDatabaseArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -94,15 +82,14 @@ export class ServerDatabase extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["serverName"] = args ? args.serverName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["kind"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -112,36 +99,6 @@ export class ServerDatabase extends pulumi.CustomResource {
         }
         super(ServerDatabase.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Represents a database.
- */
-export interface ServerDatabaseState {
-    /**
-     * Kind of database.  This is metadata used for the Azure portal experience.
-     */
-    readonly kind: pulumi.Input<string>;
-    /**
-     * Resource location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties representing the resource.
-     */
-    readonly properties: pulumi.Input<inputs.sql.DatabasePropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

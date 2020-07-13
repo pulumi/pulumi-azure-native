@@ -95,7 +95,7 @@ class ServiceSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -103,33 +103,11 @@ class ServiceSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Subscription contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `allow_tracing` (`pulumi.Input[bool]`) - Determines whether tracing is enabled
-          * `created_date` (`pulumi.Input[str]`) - Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `display_name` (`pulumi.Input[str]`) - The name of the subscription, or null if the subscription has no name.
-          * `end_date` (`pulumi.Input[str]`) - Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `expiration_date` (`pulumi.Input[str]`) - Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `notification_date` (`pulumi.Input[str]`) - Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `owner_id` (`pulumi.Input[str]`) - The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
-          * `primary_key` (`pulumi.Input[str]`) - Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-          * `scope` (`pulumi.Input[str]`) - Scope like /products/{productId} or /apis or /apis/{apiId}.
-          * `secondary_key` (`pulumi.Input[str]`) - Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-          * `start_date` (`pulumi.Input[str]`) - Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `state` (`pulumi.Input[str]`) - Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-          * `state_comment` (`pulumi.Input[str]`) - Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceSubscription(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

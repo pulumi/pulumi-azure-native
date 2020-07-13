@@ -16,11 +16,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DatabaseAccountState, opts?: pulumi.CustomResourceOptions): DatabaseAccount {
-        return new DatabaseAccount(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccount {
+        return new DatabaseAccount(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabaseAccountArgs | DatabaseAccountState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DatabaseAccountState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as DatabaseAccountArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -91,14 +79,13 @@ export class DatabaseAccount extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -108,36 +95,6 @@ export class DatabaseAccount extends pulumi.CustomResource {
         }
         super(DatabaseAccount.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * An Azure Cosmos DB database account.
- */
-export interface DatabaseAccountState {
-    /**
-     * Indicates the type of database account. This can only be set at database account creation.
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * The location of the resource group to which the resource belongs.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the ARM resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties for the database account.
-     */
-    readonly properties: pulumi.Input<inputs.documentdb.DatabaseAccountGetPropertiesResponse>;
-    /**
-     * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-     */
-    readonly tags?: pulumi.Input<inputs.documentdb.TagsResponse>;
-    /**
-     * The type of Azure resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

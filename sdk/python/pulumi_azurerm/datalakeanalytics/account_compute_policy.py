@@ -81,7 +81,7 @@ class AccountComputePolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AccountComputePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,24 +89,11 @@ class AccountComputePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: The compute policy properties.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `max_degree_of_parallelism_per_job` (`pulumi.Input[float]`) - The maximum degree of parallelism per job this user can use to submit jobs.
-          * `min_priority_per_job` (`pulumi.Input[float]`) - The minimum priority per job this user can use to submit jobs.
-          * `object_id` (`pulumi.Input[str]`) - The AAD object identifier for the entity to create a policy for.
-          * `object_type` (`pulumi.Input[str]`) - The type of AAD object the object identifier refers to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AccountComputePolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

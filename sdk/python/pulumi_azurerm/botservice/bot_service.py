@@ -126,7 +126,7 @@ class BotService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing BotService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,48 +134,11 @@ class BotService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Entity Tag
-        :param pulumi.Input[str] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: Specifies the name of the resource.
-        :param pulumi.Input[dict] properties: The set of properties specific to bot resource
-        :param pulumi.Input[dict] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
-        :param pulumi.Input[str] type: Specifies the type of the resource.
-
-        The **properties** object supports the following:
-
-          * `configured_channels` (`pulumi.Input[list]`) - Collection of channels for which the bot is configured
-          * `description` (`pulumi.Input[str]`) - The description of the bot
-          * `developer_app_insight_key` (`pulumi.Input[str]`) - The Application Insights key
-          * `developer_app_insights_api_key` (`pulumi.Input[str]`) - The Application Insights Api Key
-          * `developer_app_insights_application_id` (`pulumi.Input[str]`) - The Application Insights App Id
-          * `display_name` (`pulumi.Input[str]`) - The Name of the bot
-          * `enabled_channels` (`pulumi.Input[list]`) - Collection of channels for which the bot is enabled
-          * `endpoint` (`pulumi.Input[str]`) - The bot's endpoint
-          * `endpoint_version` (`pulumi.Input[str]`) - The bot's endpoint version
-          * `icon_url` (`pulumi.Input[str]`) - The Icon Url of the bot
-          * `luis_app_ids` (`pulumi.Input[list]`) - Collection of LUIS App Ids
-          * `luis_key` (`pulumi.Input[str]`) - The LUIS Key
-          * `msa_app_id` (`pulumi.Input[str]`) - Microsoft App Id for the bot
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name
-          * `tier` (`pulumi.Input[str]`) - Gets the sku tier. This is based on the SKU name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return BotService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Solutions
         {
         }
 
-        private JitRequest(string name, Input<string> id, JitRequestState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:solutions:JitRequest", name, state, MakeResourceOptions(options, id))
+        private JitRequest(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:solutions:JitRequest", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.Solutions
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static JitRequest Get(string name, Input<string> id, JitRequestState? state = null, CustomResourceOptions? options = null)
+        public static JitRequest Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new JitRequest(name, id, state, options);
+            return new JitRequest(name, id, options);
         }
     }
 
@@ -127,49 +126,6 @@ namespace Pulumi.AzureRM.Solutions
         }
 
         public JitRequestArgs()
-        {
-        }
-    }
-
-    public sealed class JitRequestState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The JIT request properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JitRequestPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public JitRequestState()
         {
         }
     }

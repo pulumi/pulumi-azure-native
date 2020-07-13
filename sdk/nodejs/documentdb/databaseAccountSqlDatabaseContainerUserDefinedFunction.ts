@@ -16,11 +16,10 @@ export class DatabaseAccountSqlDatabaseContainerUserDefinedFunction extends pulu
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DatabaseAccountSqlDatabaseContainerUserDefinedFunctionState, opts?: pulumi.CustomResourceOptions): DatabaseAccountSqlDatabaseContainerUserDefinedFunction {
-        return new DatabaseAccountSqlDatabaseContainerUserDefinedFunction(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountSqlDatabaseContainerUserDefinedFunction {
+        return new DatabaseAccountSqlDatabaseContainerUserDefinedFunction(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class DatabaseAccountSqlDatabaseContainerUserDefinedFunction extends pulu
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatabaseAccountSqlDatabaseContainerUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DatabaseAccountSqlDatabaseContainerUserDefinedFunctionArgs | DatabaseAccountSqlDatabaseContainerUserDefinedFunctionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DatabaseAccountSqlDatabaseContainerUserDefinedFunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DatabaseAccountSqlDatabaseContainerUserDefinedFunctionState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as DatabaseAccountSqlDatabaseContainerUserDefinedFunctionArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -95,16 +84,15 @@ export class DatabaseAccountSqlDatabaseContainerUserDefinedFunction extends pulu
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["accountName"] = args ? args.accountName : undefined;
+        inputs["containerName"] = args ? args.containerName : undefined;
+        inputs["databaseName"] = args ? args.databaseName : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -114,32 +102,6 @@ export class DatabaseAccountSqlDatabaseContainerUserDefinedFunction extends pulu
         }
         super(DatabaseAccountSqlDatabaseContainerUserDefinedFunction.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * An Azure Cosmos DB userDefinedFunction.
- */
-export interface DatabaseAccountSqlDatabaseContainerUserDefinedFunctionState {
-    /**
-     * The location of the resource group to which the resource belongs.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the ARM resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties of an Azure Cosmos DB userDefinedFunction
-     */
-    readonly properties: pulumi.Input<inputs.documentdb.SqlUserDefinedFunctionGetPropertiesResponse>;
-    /**
-     * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-     */
-    readonly tags?: pulumi.Input<inputs.documentdb.TagsResponse>;
-    /**
-     * The type of Azure resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

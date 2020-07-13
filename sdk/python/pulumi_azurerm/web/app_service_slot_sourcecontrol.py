@@ -87,7 +87,7 @@ class AppServiceSlotSourcecontrol(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServiceSlotSourcecontrol resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -95,27 +95,11 @@ class AppServiceSlotSourcecontrol(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: SiteSourceControl resource specific properties
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `branch` (`pulumi.Input[str]`) - Name of branch to use for deployment.
-          * `deployment_rollback_enabled` (`pulumi.Input[bool]`) - <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-          * `is_manual_integration` (`pulumi.Input[bool]`) - <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-          * `is_mercurial` (`pulumi.Input[bool]`) - <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-          * `repo_url` (`pulumi.Input[str]`) - Repository or source control URL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AppServiceSlotSourcecontrol(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

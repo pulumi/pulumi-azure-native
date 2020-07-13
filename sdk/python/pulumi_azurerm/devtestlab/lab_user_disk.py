@@ -106,7 +106,7 @@ class LabUserDisk(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabUserDisk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,34 +114,11 @@ class LabUserDisk(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `created_date` (`pulumi.Input[str]`) - The creation date of the disk.
-          * `disk_blob_name` (`pulumi.Input[str]`) - When backed by a blob, the name of the VHD blob without extension.
-          * `disk_size_gi_b` (`pulumi.Input[float]`) - The size of the disk in GibiBytes.
-          * `disk_type` (`pulumi.Input[str]`) - The storage type for the disk (i.e. Standard, Premium).
-          * `disk_uri` (`pulumi.Input[str]`) - When backed by a blob, the URI of underlying blob.
-          * `host_caching` (`pulumi.Input[str]`) - The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-          * `leased_by_lab_vm_id` (`pulumi.Input[str]`) - The resource ID of the VM to which this disk is leased.
-          * `managed_disk_id` (`pulumi.Input[str]`) - When backed by managed disk, this is the ID of the compute disk resource.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabUserDisk(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

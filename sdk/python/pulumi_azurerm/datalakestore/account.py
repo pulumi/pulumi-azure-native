@@ -169,7 +169,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -177,78 +177,11 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The Key Vault encryption identity, if any.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: The Data Lake Store account properties.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal identifier associated with the encryption.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant identifier associated with the encryption.
-          * `type` (`pulumi.Input[str]`) - The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-
-        The **properties** object supports the following:
-
-          * `account_id` (`pulumi.Input[str]`) - The unique identifier associated with this Data Lake Store account.
-          * `creation_time` (`pulumi.Input[str]`) - The account creation time.
-          * `current_tier` (`pulumi.Input[str]`) - The commitment tier in use for the current month.
-          * `default_group` (`pulumi.Input[str]`) - The default owner group for all new folders and files created in the Data Lake Store account.
-          * `encryption_config` (`pulumi.Input[dict]`) - The Key Vault encryption configuration.
-            * `key_vault_meta_info` (`pulumi.Input[dict]`) - The Key Vault information for connecting to user managed encryption keys.
-              * `encryption_key_name` (`pulumi.Input[str]`) - The name of the user managed encryption key.
-              * `encryption_key_version` (`pulumi.Input[str]`) - The version of the user managed encryption key.
-              * `key_vault_resource_id` (`pulumi.Input[str]`) - The resource identifier for the user managed Key Vault being used to encrypt.
-
-            * `type` (`pulumi.Input[str]`) - The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-
-          * `encryption_provisioning_state` (`pulumi.Input[str]`) - The current state of encryption provisioning for this Data Lake Store account.
-          * `encryption_state` (`pulumi.Input[str]`) - The current state of encryption for this Data Lake Store account.
-          * `endpoint` (`pulumi.Input[str]`) - The full CName endpoint for this account.
-          * `firewall_allow_azure_ips` (`pulumi.Input[str]`) - The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-          * `firewall_rules` (`pulumi.Input[list]`) - The list of firewall rules associated with this Data Lake Store account.
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-            * `name` (`pulumi.Input[str]`) - The resource name.
-            * `properties` (`pulumi.Input[dict]`) - The firewall rule properties.
-              * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-              * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `firewall_state` (`pulumi.Input[str]`) - The current state of the IP address firewall for this Data Lake Store account.
-          * `last_modified_time` (`pulumi.Input[str]`) - The account last modified time.
-          * `new_tier` (`pulumi.Input[str]`) - The commitment tier to use for next month.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the Data Lake Store account.
-          * `state` (`pulumi.Input[str]`) - The state of the Data Lake Store account.
-          * `trusted_id_provider_state` (`pulumi.Input[str]`) - The current state of the trusted identity provider feature for this Data Lake Store account.
-          * `trusted_id_providers` (`pulumi.Input[list]`) - The list of trusted identity providers associated with this Data Lake Store account.
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-            * `name` (`pulumi.Input[str]`) - The resource name.
-            * `properties` (`pulumi.Input[dict]`) - The trusted identity provider properties.
-              * `id_provider` (`pulumi.Input[str]`) - The URL of this trusted identity provider.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `virtual_network_rules` (`pulumi.Input[list]`) - The list of virtual network rules associated with this Data Lake Store account.
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-            * `name` (`pulumi.Input[str]`) - The resource name.
-            * `properties` (`pulumi.Input[dict]`) - The virtual network rule properties.
-              * `subnet_id` (`pulumi.Input[str]`) - The resource identifier for the subnet.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Account(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

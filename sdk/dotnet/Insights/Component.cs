@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Insights
         {
         }
 
-        private Component(string name, Input<string> id, ComponentState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:insights:Component", name, state, MakeResourceOptions(options, id))
+        private Component(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:insights:Component", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Insights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Component Get(string name, Input<string> id, ComponentState? state = null, CustomResourceOptions? options = null)
+        public static Component Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Component(name, id, state, options);
+            return new Component(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Insights
         }
 
         public ComponentArgs()
-        {
-        }
-    }
-
-    public sealed class ComponentState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
-        /// </summary>
-        [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Azure resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties that define an Application Insights component resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApplicationInsightsComponentPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Azure resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ComponentState()
         {
         }
     }

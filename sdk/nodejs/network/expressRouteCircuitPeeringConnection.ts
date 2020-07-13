@@ -16,11 +16,10 @@ export class ExpressRouteCircuitPeeringConnection extends pulumi.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ExpressRouteCircuitPeeringConnectionState, opts?: pulumi.CustomResourceOptions): ExpressRouteCircuitPeeringConnection {
-        return new ExpressRouteCircuitPeeringConnection(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExpressRouteCircuitPeeringConnection {
+        return new ExpressRouteCircuitPeeringConnection(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class ExpressRouteCircuitPeeringConnection extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ExpressRouteCircuitPeeringConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ExpressRouteCircuitPeeringConnectionArgs | ExpressRouteCircuitPeeringConnectionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ExpressRouteCircuitPeeringConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ExpressRouteCircuitPeeringConnectionState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ExpressRouteCircuitPeeringConnectionArgs | undefined;
             if (!args || args.circuitName === undefined) {
                 throw new Error("Missing required property 'circuitName'");
             }
@@ -84,16 +74,15 @@ export class ExpressRouteCircuitPeeringConnection extends pulumi.CustomResource 
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["circuitName"] = args ? args.circuitName : undefined;
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["circuitName"] = args ? args.circuitName : undefined;
+        inputs["connectionName"] = args ? args.connectionName : undefined;
+        inputs["id"] = args ? args.id : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["peeringName"] = args ? args.peeringName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -103,28 +92,6 @@ export class ExpressRouteCircuitPeeringConnection extends pulumi.CustomResource 
         }
         super(ExpressRouteCircuitPeeringConnection.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
- */
-export interface ExpressRouteCircuitPeeringConnectionState {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * Properties of the express route circuit connection.
-     */
-    readonly properties: pulumi.Input<inputs.network.ExpressRouteCircuitConnectionPropertiesFormatResponse>;
-    /**
-     * Type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

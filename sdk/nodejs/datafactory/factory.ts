@@ -16,11 +16,10 @@ export class Factory extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FactoryState, opts?: pulumi.CustomResourceOptions): Factory {
-        return new Factory(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Factory {
+        return new Factory(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,35 +72,22 @@ export class Factory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FactoryArgs | FactoryState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: FactoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as FactoryState | undefined;
-            inputs["eTag"] = state ? state.eTag : undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as FactoryArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["identity"] = args ? args.identity : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["eTag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -111,40 +97,6 @@ export class Factory extends pulumi.CustomResource {
         }
         super(Factory.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Factory resource type.
- */
-export interface FactoryState {
-    /**
-     * Etag identifies change in the resource.
-     */
-    readonly eTag: pulumi.Input<string>;
-    /**
-     * Managed service identity of the factory.
-     */
-    readonly identity?: pulumi.Input<inputs.datafactory.FactoryIdentityResponse>;
-    /**
-     * The resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the factory.
-     */
-    readonly properties: pulumi.Input<inputs.datafactory.FactoryPropertiesResponse>;
-    /**
-     * The resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

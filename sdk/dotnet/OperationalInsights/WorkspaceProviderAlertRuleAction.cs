@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.OperationalInsights
         {
         }
 
-        private WorkspaceProviderAlertRuleAction(string name, Input<string> id, WorkspaceProviderAlertRuleActionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights:WorkspaceProviderAlertRuleAction", name, state, MakeResourceOptions(options, id))
+        private WorkspaceProviderAlertRuleAction(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:operationalinsights:WorkspaceProviderAlertRuleAction", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.OperationalInsights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static WorkspaceProviderAlertRuleAction Get(string name, Input<string> id, WorkspaceProviderAlertRuleActionState? state = null, CustomResourceOptions? options = null)
+        public static WorkspaceProviderAlertRuleAction Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new WorkspaceProviderAlertRuleAction(name, id, state, options);
+            return new WorkspaceProviderAlertRuleAction(name, id, options);
         }
     }
 
@@ -121,37 +120,6 @@ namespace Pulumi.AzureRM.OperationalInsights
         public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceProviderAlertRuleActionArgs()
-        {
-        }
-    }
-
-    public sealed class WorkspaceProviderAlertRuleActionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Etag of the action.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// Azure resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Action properties for get request
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ActionResponsePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Azure resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WorkspaceProviderAlertRuleActionState()
         {
         }
     }

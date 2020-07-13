@@ -16,11 +16,10 @@ export class NamespaceHybridConnectionAuthorizationRule extends pulumi.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamespaceHybridConnectionAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): NamespaceHybridConnectionAuthorizationRule {
-        return new NamespaceHybridConnectionAuthorizationRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamespaceHybridConnectionAuthorizationRule {
+        return new NamespaceHybridConnectionAuthorizationRule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class NamespaceHybridConnectionAuthorizationRule extends pulumi.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NamespaceHybridConnectionAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NamespaceHybridConnectionAuthorizationRuleArgs | NamespaceHybridConnectionAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: NamespaceHybridConnectionAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NamespaceHybridConnectionAuthorizationRuleState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as NamespaceHybridConnectionAuthorizationRuleArgs | undefined;
             if (!args || args.hybridConnectionName === undefined) {
                 throw new Error("Missing required property 'hybridConnectionName'");
             }
@@ -82,13 +73,12 @@ export class NamespaceHybridConnectionAuthorizationRule extends pulumi.CustomRes
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["namespaceName"] = args ? args.namespaceName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -98,24 +88,6 @@ export class NamespaceHybridConnectionAuthorizationRule extends pulumi.CustomRes
         }
         super(NamespaceHybridConnectionAuthorizationRule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Description of a namespace authorization rule.
- */
-export interface NamespaceHybridConnectionAuthorizationRuleState {
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Authorization rule properties.
-     */
-    readonly properties: pulumi.Input<inputs.relay.AuthorizationRuleResponseProperties>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

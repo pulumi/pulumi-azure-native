@@ -133,7 +133,7 @@ class LabaccountLabEnvironmentsetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabaccountLabEnvironmentsetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -141,57 +141,11 @@ class LabaccountLabEnvironmentsetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the Environment Setting resource
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `configuration_state` (`pulumi.Input[str]`) - Describes the user's progress in configuring their environment setting
-          * `description` (`pulumi.Input[str]`) - Describes the environment and its resource settings
-          * `last_changed` (`pulumi.Input[str]`) - Time when the template VM was last changed.
-          * `last_published` (`pulumi.Input[str]`) - Time when the template VM was last sent for publishing.
-          * `latest_operation_result` (`pulumi.Input[dict]`) - The details of the latest operation. ex: status, error
-            * `error_code` (`pulumi.Input[str]`) - Error code on failure.
-            * `error_message` (`pulumi.Input[str]`) - The error message.
-            * `http_method` (`pulumi.Input[str]`) - The HttpMethod - PUT/POST/DELETE for the operation.
-            * `operation_url` (`pulumi.Input[str]`) - The URL to use to check long-running operation status
-            * `request_uri` (`pulumi.Input[str]`) - Request URI of the operation.
-            * `status` (`pulumi.Input[str]`) - The current status of the operation.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `publishing_state` (`pulumi.Input[str]`) - Describes the readiness of this environment setting
-          * `resource_settings` (`pulumi.Input[dict]`) - The resource specific settings
-            * `cores` (`pulumi.Input[float]`) - The translated compute cores of the virtual machine
-            * `gallery_image_resource_id` (`pulumi.Input[str]`) - The resource id of the gallery image used for creating the virtual machine
-            * `id` (`pulumi.Input[str]`) - The unique id of the resource setting
-            * `image_name` (`pulumi.Input[str]`) - The name of the image used to created the environment setting
-            * `reference_vm` (`pulumi.Input[dict]`) - Details specific to Reference Vm
-              * `password` (`pulumi.Input[str]`) - The password of the virtual machine. This will be set to null in GET resource API
-              * `user_name` (`pulumi.Input[str]`) - The username of the virtual machine
-              * `vm_resource_id` (`pulumi.Input[str]`) - VM resource Id for the environment
-              * `vm_state_details` (`pulumi.Input[dict]`) - The state details for the reference virtual machine.
-                * `last_known_power_state` (`pulumi.Input[str]`) - Last known compute power state captured in DTL
-                * `power_state` (`pulumi.Input[str]`) - The power state of the reference virtual machine.
-                * `rdp_authority` (`pulumi.Input[str]`) - The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-                * `ssh_authority` (`pulumi.Input[str]`) - The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-
-            * `size` (`pulumi.Input[str]`) - The size of the virtual machine
-
-          * `title` (`pulumi.Input[str]`) - Brief title describing the environment and its resource settings
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabaccountLabEnvironmentsetting(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

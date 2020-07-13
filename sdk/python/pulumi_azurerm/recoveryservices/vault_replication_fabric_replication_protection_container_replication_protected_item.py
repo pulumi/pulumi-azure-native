@@ -150,7 +150,7 @@ class VaultReplicationFabricReplicationProtectionContainerReplicationProtectedIt
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -158,84 +158,11 @@ class VaultReplicationFabricReplicationProtectionContainerReplicationProtectedIt
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[dict] properties: The custom data.
-        :param pulumi.Input[str] type: Resource Type
-
-        The **properties** object supports the following:
-
-          * `active_location` (`pulumi.Input[str]`) - The Current active location of the PE.
-          * `allowed_operations` (`pulumi.Input[list]`) - The allowed operations on the Replication protected item.
-          * `current_scenario` (`pulumi.Input[dict]`) - The current scenario.
-            * `job_id` (`pulumi.Input[str]`) - ARM Id of the job being executed.
-            * `scenario_name` (`pulumi.Input[str]`) - Scenario name.
-            * `start_time` (`pulumi.Input[str]`) - Start time of the workflow.
-
-          * `failover_health` (`pulumi.Input[str]`) - The consolidated failover health for the VM.
-          * `failover_recovery_point_id` (`pulumi.Input[str]`) - The recovery point ARM Id to which the Vm was failed over.
-          * `friendly_name` (`pulumi.Input[str]`) - The name.
-          * `health_errors` (`pulumi.Input[list]`) - List of health errors.
-            * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-            * `customer_resolvability` (`pulumi.Input[str]`) - Value indicating whether the health error is customer resolvable.
-            * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-            * `error_category` (`pulumi.Input[str]`) - Category of error.
-            * `error_code` (`pulumi.Input[str]`) - Error code.
-            * `error_id` (`pulumi.Input[str]`) - The health error unique id.
-            * `error_level` (`pulumi.Input[str]`) - Level of error.
-            * `error_message` (`pulumi.Input[str]`) - Error message.
-            * `error_source` (`pulumi.Input[str]`) - Source of error.
-            * `error_type` (`pulumi.Input[str]`) - Type of error.
-            * `inner_health_errors` (`pulumi.Input[list]`) - The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-              * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-              * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-              * `error_category` (`pulumi.Input[str]`) - Category of error.
-              * `error_code` (`pulumi.Input[str]`) - Error code.
-              * `error_level` (`pulumi.Input[str]`) - Level of error.
-              * `error_message` (`pulumi.Input[str]`) - Error message.
-              * `error_source` (`pulumi.Input[str]`) - Source of error.
-              * `error_type` (`pulumi.Input[str]`) - Type of error.
-              * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-              * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-              * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-              * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-            * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-            * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-            * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-            * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-          * `last_successful_failover_time` (`pulumi.Input[str]`) - The Last successful failover time.
-          * `last_successful_test_failover_time` (`pulumi.Input[str]`) - The Last successful test failover time.
-          * `policy_friendly_name` (`pulumi.Input[str]`) - The name of Policy governing this PE.
-          * `policy_id` (`pulumi.Input[str]`) - The ID of Policy governing this PE.
-          * `primary_fabric_friendly_name` (`pulumi.Input[str]`) - The friendly name of the primary fabric.
-          * `primary_fabric_provider` (`pulumi.Input[str]`) - The fabric provider of the primary fabric.
-          * `primary_protection_container_friendly_name` (`pulumi.Input[str]`) - The name of primary protection container friendly name.
-          * `protectable_item_id` (`pulumi.Input[str]`) - The protected item ARM Id.
-          * `protected_item_type` (`pulumi.Input[str]`) - The type of protected item type.
-          * `protection_state` (`pulumi.Input[str]`) - The protection status.
-          * `protection_state_description` (`pulumi.Input[str]`) - The protection state description.
-          * `provider_specific_details` (`pulumi.Input[dict]`) - The Replication provider custom settings.
-            * `instance_type` (`pulumi.Input[str]`) - Gets the Instance type.
-
-          * `recovery_container_id` (`pulumi.Input[str]`) - The recovery container Id.
-          * `recovery_fabric_friendly_name` (`pulumi.Input[str]`) - The friendly name of recovery fabric.
-          * `recovery_fabric_id` (`pulumi.Input[str]`) - The Arm Id of recovery fabric.
-          * `recovery_protection_container_friendly_name` (`pulumi.Input[str]`) - The name of recovery container friendly name.
-          * `recovery_services_provider_id` (`pulumi.Input[str]`) - The recovery provider ARM Id.
-          * `replication_health` (`pulumi.Input[str]`) - The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
-          * `test_failover_state` (`pulumi.Input[str]`) - The Test failover state.
-          * `test_failover_state_description` (`pulumi.Input[str]`) - The Test failover state description.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItem(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

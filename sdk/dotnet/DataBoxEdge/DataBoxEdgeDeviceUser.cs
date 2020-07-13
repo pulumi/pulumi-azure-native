@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.DataBoxEdge
         {
         }
 
-        private DataBoxEdgeDeviceUser(string name, Input<string> id, DataBoxEdgeDeviceUserState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge:DataBoxEdgeDeviceUser", name, state, MakeResourceOptions(options, id))
+        private DataBoxEdgeDeviceUser(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:databoxedge:DataBoxEdgeDeviceUser", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.DataBoxEdge
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DataBoxEdgeDeviceUser Get(string name, Input<string> id, DataBoxEdgeDeviceUserState? state = null, CustomResourceOptions? options = null)
+        public static DataBoxEdgeDeviceUser Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DataBoxEdgeDeviceUser(name, id, state, options);
+            return new DataBoxEdgeDeviceUser(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.DataBoxEdge
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public DataBoxEdgeDeviceUserArgs()
-        {
-        }
-    }
-
-    public sealed class DataBoxEdgeDeviceUserState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The object name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The storage account credential properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.UserPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The hierarchical type of the object.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DataBoxEdgeDeviceUserState()
         {
         }
     }

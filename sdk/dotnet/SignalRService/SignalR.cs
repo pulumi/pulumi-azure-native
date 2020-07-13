@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.SignalRService
         {
         }
 
-        private SignalR(string name, Input<string> id, SignalRState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:signalrservice:SignalR", name, state, MakeResourceOptions(options, id))
+        private SignalR(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:signalrservice:SignalR", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -92,11 +92,10 @@ namespace Pulumi.AzureRM.SignalRService
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SignalR Get(string name, Input<string> id, SignalRState? state = null, CustomResourceOptions? options = null)
+        public static SignalR Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new SignalR(name, id, state, options);
+            return new SignalR(name, id, options);
         }
     }
 
@@ -151,61 +150,6 @@ namespace Pulumi.AzureRM.SignalRService
         }
 
         public SignalRArgs()
-        {
-        }
-    }
-
-    public sealed class SignalRState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
-        /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Settings used to provision or configure the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SignalRPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The billing information of the resource.(e.g. Free, Standard)
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.ResourceSkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public SignalRState()
         {
         }
     }

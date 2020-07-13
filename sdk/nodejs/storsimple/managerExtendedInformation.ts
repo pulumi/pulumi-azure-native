@@ -16,11 +16,10 @@ export class ManagerExtendedInformation extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ManagerExtendedInformationState, opts?: pulumi.CustomResourceOptions): ManagerExtendedInformation {
-        return new ManagerExtendedInformation(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagerExtendedInformation {
+        return new ManagerExtendedInformation(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,31 +64,20 @@ export class ManagerExtendedInformation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagerExtendedInformationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagerExtendedInformationArgs | ManagerExtendedInformationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ManagerExtendedInformationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ManagerExtendedInformationState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ManagerExtendedInformationArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["etag"] = args ? args.etag : undefined;
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -99,32 +87,6 @@ export class ManagerExtendedInformation extends pulumi.CustomResource {
         }
         super(ManagerExtendedInformation.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The extended info of the manager.
- */
-export interface ManagerExtendedInformationState {
-    /**
-     * The etag of the resource.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * The Kind of the object. Currently only Series8000 is supported
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * The name of the object.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The extended info properties.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.ManagerExtendedInfoPropertiesResponse>;
-    /**
-     * The hierarchical type of the object.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

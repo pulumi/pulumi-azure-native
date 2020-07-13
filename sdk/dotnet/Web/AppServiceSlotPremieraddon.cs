@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Web
         {
         }
 
-        private AppServiceSlotPremieraddon(string name, Input<string> id, AppServiceSlotPremieraddonState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:web:AppServiceSlotPremieraddon", name, state, MakeResourceOptions(options, id))
+        private AppServiceSlotPremieraddon(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:web:AppServiceSlotPremieraddon", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Web
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static AppServiceSlotPremieraddon Get(string name, Input<string> id, AppServiceSlotPremieraddonState? state = null, CustomResourceOptions? options = null)
+        public static AppServiceSlotPremieraddon Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new AppServiceSlotPremieraddon(name, id, state, options);
+            return new AppServiceSlotPremieraddon(name, id, options);
         }
     }
 
@@ -151,55 +150,6 @@ namespace Pulumi.AzureRM.Web
         }
 
         public AppServiceSlotPremieraddonArgs()
-        {
-        }
-    }
-
-    public sealed class AppServiceSlotPremieraddonState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Kind of resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
-        /// Resource Location.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource Name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// PremierAddOn resource specific properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PremierAddOnResponsePropertiesGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public AppServiceSlotPremieraddonState()
         {
         }
     }

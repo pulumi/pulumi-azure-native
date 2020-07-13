@@ -16,11 +16,10 @@ export class AutomationAccountRunbook extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AutomationAccountRunbookState, opts?: pulumi.CustomResourceOptions): AutomationAccountRunbook {
-        return new AutomationAccountRunbook(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AutomationAccountRunbook {
+        return new AutomationAccountRunbook(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class AutomationAccountRunbook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AutomationAccountRunbookArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AutomationAccountRunbookArgs | AutomationAccountRunbookState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AutomationAccountRunbookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AutomationAccountRunbookState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AutomationAccountRunbookArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -94,16 +82,15 @@ export class AutomationAccountRunbook extends pulumi.CustomResource {
             if (!args || args.runbookName === undefined) {
                 throw new Error("Missing required property 'runbookName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runbookName"] = args ? args.runbookName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["runbookName"] = args ? args.runbookName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -113,36 +100,6 @@ export class AutomationAccountRunbook extends pulumi.CustomResource {
         }
         super(AutomationAccountRunbook.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Definition of the runbook type.
- */
-export interface AutomationAccountRunbookState {
-    /**
-     * Gets or sets the etag of the resource.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * The Azure Region where the resource lives
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Gets or sets the runbook properties.
-     */
-    readonly properties: pulumi.Input<inputs.automation.RunbookPropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

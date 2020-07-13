@@ -89,7 +89,7 @@ class AppServicePrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServicePrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,31 +97,11 @@ class AppServicePrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: Core resource properties
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - PrivateEndpoint of a remote private endpoint connection
-            * `id` (`pulumi.Input[str]`)
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - The state of a private link connection
-            * `actions_required` (`pulumi.Input[str]`) - ActionsRequired for a private link connection
-            * `description` (`pulumi.Input[str]`) - Description of a private link connection
-            * `status` (`pulumi.Input[str]`) - Status of a private link connection
-
-          * `provisioning_state` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AppServicePrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

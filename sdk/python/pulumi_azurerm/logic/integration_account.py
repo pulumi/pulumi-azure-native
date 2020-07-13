@@ -163,7 +163,7 @@ class IntegrationAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing IntegrationAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -171,67 +171,11 @@ class IntegrationAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: Gets the resource name.
-        :param pulumi.Input[dict] properties: The integration account properties.
-        :param pulumi.Input[dict] sku: The sku.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: Gets the resource type.
-
-        The **properties** object supports the following:
-
-          * `integration_service_environment` (`pulumi.Input[dict]`) - The integration service environment.
-            * `id` (`pulumi.Input[str]`) - The resource id.
-            * `location` (`pulumi.Input[str]`) - The resource location.
-            * `name` (`pulumi.Input[str]`) - Gets the resource name.
-            * `properties` (`pulumi.Input[dict]`) - The integration service environment properties.
-              * `endpoints_configuration` (`pulumi.Input[dict]`) - The endpoints configuration.
-                * `connector` (`pulumi.Input[dict]`) - The connector endpoints.
-                  * `access_endpoint_ip_addresses` (`pulumi.Input[list]`) - The access endpoint ip address.
-                    * `address` (`pulumi.Input[str]`) - The address.
-
-                  * `outgoing_ip_addresses` (`pulumi.Input[list]`) - The outgoing ip address.
-
-                * `workflow` (`pulumi.Input[dict]`) - The workflow endpoints.
-
-              * `integration_service_environment_id` (`pulumi.Input[str]`) - Gets the tracking id.
-              * `network_configuration` (`pulumi.Input[dict]`) - The network configuration.
-                * `access_endpoint` (`pulumi.Input[dict]`) - The access endpoint.
-                  * `type` (`pulumi.Input[str]`) - The access endpoint type.
-
-                * `subnets` (`pulumi.Input[list]`) - The subnets.
-                  * `id` (`pulumi.Input[str]`) - The resource id.
-                  * `name` (`pulumi.Input[str]`) - Gets the resource name.
-                  * `type` (`pulumi.Input[str]`) - Gets the resource type.
-
-                * `virtual_network_address_space` (`pulumi.Input[str]`) - Gets the virtual network address space.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state.
-              * `state` (`pulumi.Input[str]`) - The integration service environment state.
-
-            * `sku` (`pulumi.Input[dict]`) - The sku.
-              * `capacity` (`pulumi.Input[float]`) - The sku capacity.
-              * `name` (`pulumi.Input[str]`) - The sku name.
-
-            * `tags` (`pulumi.Input[dict]`) - The resource tags.
-            * `type` (`pulumi.Input[str]`) - Gets the resource type.
-
-          * `state` (`pulumi.Input[str]`) - The workflow state.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

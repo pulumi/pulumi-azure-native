@@ -126,7 +126,7 @@ class WorkspaceProviderIncident(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing WorkspaceProviderIncident resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,53 +134,11 @@ class WorkspaceProviderIncident(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] name: Azure resource name
-        :param pulumi.Input[dict] properties: Incident properties
-        :param pulumi.Input[str] type: Azure resource type
-
-        The **properties** object supports the following:
-
-          * `additional_data` (`pulumi.Input[dict]`) - Additional data on the incident
-            * `alert_product_names` (`pulumi.Input[list]`) - List of product names of alerts in the incident
-            * `alerts_count` (`pulumi.Input[float]`) - The number of alerts in the incident
-            * `bookmarks_count` (`pulumi.Input[float]`) - The number of bookmarks in the incident
-            * `comments_count` (`pulumi.Input[float]`) - The number of comments in the incident
-            * `tactics` (`pulumi.Input[list]`) - The tactics associated with incident
-
-          * `classification` (`pulumi.Input[str]`) - The reason the incident was closed
-          * `classification_comment` (`pulumi.Input[str]`) - Describes the reason the incident was closed
-          * `classification_reason` (`pulumi.Input[str]`) - The classification reason the incident was closed with
-          * `created_time_utc` (`pulumi.Input[str]`) - The time the incident was created
-          * `description` (`pulumi.Input[str]`) - The description of the incident
-          * `first_activity_time_utc` (`pulumi.Input[str]`) - The time of the first activity in the incident
-          * `incident_number` (`pulumi.Input[float]`) - A sequential number
-          * `incident_url` (`pulumi.Input[str]`) - The deep-link url to the incident in Azure portal
-          * `labels` (`pulumi.Input[list]`) - List of labels relevant to this incident
-            * `label_name` (`pulumi.Input[str]`) - The name of the label
-            * `label_type` (`pulumi.Input[str]`) - The type of the label
-
-          * `last_activity_time_utc` (`pulumi.Input[str]`) - The time of the last activity in the incident
-          * `last_modified_time_utc` (`pulumi.Input[str]`) - The last time the incident was updated
-          * `owner` (`pulumi.Input[dict]`) - Describes a user that the incident is assigned to
-            * `assigned_to` (`pulumi.Input[str]`) - The name of the user the incident is assigned to.
-            * `email` (`pulumi.Input[str]`) - The email of the user the incident is assigned to.
-            * `object_id` (`pulumi.Input[str]`) - The object id of the user the incident is assigned to.
-            * `user_principal_name` (`pulumi.Input[str]`) - The user principal name of the user the incident is assigned to.
-
-          * `related_analytic_rule_ids` (`pulumi.Input[list]`) - List of resource ids of Analytic rules related to the incident
-          * `severity` (`pulumi.Input[str]`) - The severity of the incident
-          * `status` (`pulumi.Input[str]`) - The status of the incident
-          * `title` (`pulumi.Input[str]`) - The title of the incident
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return WorkspaceProviderIncident(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

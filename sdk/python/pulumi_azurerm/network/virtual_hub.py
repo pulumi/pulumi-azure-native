@@ -160,7 +160,7 @@ class VirtualHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VirtualHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -168,61 +168,11 @@ class VirtualHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the virtual hub.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `address_prefix` (`pulumi.Input[str]`) - Address-prefix for this VirtualHub.
-          * `azure_firewall` (`pulumi.Input[dict]`) - The azureFirewall associated with this VirtualHub.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `bgp_connections` (`pulumi.Input[list]`) - List of references to Bgp Connections.
-          * `express_route_gateway` (`pulumi.Input[dict]`) - The expressRouteGateway associated with this VirtualHub.
-          * `ip_configurations` (`pulumi.Input[list]`) - List of references to IpConfigurations.
-          * `p2_s_vpn_gateway` (`pulumi.Input[dict]`) - The P2SVpnGateway associated with this VirtualHub.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual hub resource.
-          * `route_table` (`pulumi.Input[dict]`) - The routeTable associated with this virtual hub.
-            * `routes` (`pulumi.Input[list]`) - List of all routes.
-              * `address_prefixes` (`pulumi.Input[list]`) - List of all addressPrefixes.
-              * `next_hop_ip_address` (`pulumi.Input[str]`) - NextHop ip address.
-
-          * `routing_state` (`pulumi.Input[str]`) - The routing state.
-          * `security_partner_provider` (`pulumi.Input[dict]`) - The securityPartnerProvider associated with this VirtualHub.
-          * `security_provider_name` (`pulumi.Input[str]`) - The Security Provider name.
-          * `sku` (`pulumi.Input[str]`) - The sku of this VirtualHub.
-          * `virtual_hub_route_table_v2s` (`pulumi.Input[list]`) - List of all virtual hub route table v2s associated with this VirtualHub.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the virtual hub route table v2.
-              * `attached_connections` (`pulumi.Input[list]`) - List of all connections attached to this route table v2.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual hub route table v2 resource.
-              * `routes` (`pulumi.Input[list]`) - List of all routes.
-                * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
-                * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-                * `next_hop_type` (`pulumi.Input[str]`) - The type of next hops.
-                * `next_hops` (`pulumi.Input[list]`) - NextHops ip address.
-
-          * `virtual_router_asn` (`pulumi.Input[float]`) - VirtualRouter ASN.
-          * `virtual_router_ips` (`pulumi.Input[list]`) - VirtualRouter IPs.
-          * `virtual_wan` (`pulumi.Input[dict]`) - The VirtualWAN to which the VirtualHub belongs.
-          * `vpn_gateway` (`pulumi.Input[dict]`) - The VpnGateway associated with this VirtualHub.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

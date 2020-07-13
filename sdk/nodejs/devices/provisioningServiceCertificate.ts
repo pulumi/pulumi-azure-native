@@ -16,11 +16,10 @@ export class ProvisioningServiceCertificate extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProvisioningServiceCertificateState, opts?: pulumi.CustomResourceOptions): ProvisioningServiceCertificate {
-        return new ProvisioningServiceCertificate(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProvisioningServiceCertificate {
+        return new ProvisioningServiceCertificate(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class ProvisioningServiceCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProvisioningServiceCertificateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProvisioningServiceCertificateArgs | ProvisioningServiceCertificateState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProvisioningServiceCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ProvisioningServiceCertificateState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ProvisioningServiceCertificateArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -81,14 +71,13 @@ export class ProvisioningServiceCertificate extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["certificate"] = args ? args.certificate : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["properties"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -98,28 +87,6 @@ export class ProvisioningServiceCertificate extends pulumi.CustomResource {
         }
         super(ProvisioningServiceCertificate.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The X509 Certificate.
- */
-export interface ProvisioningServiceCertificateState {
-    /**
-     * The entity tag.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * The name of the certificate.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * properties of a certificate
-     */
-    readonly properties: pulumi.Input<inputs.devices.CertificatePropertiesResponse>;
-    /**
-     * The resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

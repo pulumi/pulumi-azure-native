@@ -105,7 +105,7 @@ class ProfileEndpointOrigin(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ProfileEndpointOrigin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,33 +113,11 @@ class ProfileEndpointOrigin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The JSON object that contains the properties of the origin.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Origin is enabled for load balancing or not
-          * `host_name` (`pulumi.Input[str]`) - The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-          * `http_port` (`pulumi.Input[float]`) - The value of the HTTP port. Must be between 1 and 65535.
-          * `https_port` (`pulumi.Input[float]`) - The value of the HTTPS port. Must be between 1 and 65535.
-          * `origin_host_header` (`pulumi.Input[str]`) - The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
-          * `priority` (`pulumi.Input[float]`) - Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning status of the origin.
-          * `resource_state` (`pulumi.Input[str]`) - Resource status of the origin.
-          * `weight` (`pulumi.Input[float]`) - Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ProfileEndpointOrigin(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

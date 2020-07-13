@@ -82,7 +82,7 @@ class ManagerAccessControlRecord(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagerAccessControlRecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,24 +90,11 @@ class ManagerAccessControlRecord(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The name of the object.
-        :param pulumi.Input[dict] properties: The properties of access control record.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `initiator_name` (`pulumi.Input[str]`) - The iSCSI initiator name (IQN).
-          * `volume_count` (`pulumi.Input[float]`) - The number of volumes using the access control record.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagerAccessControlRecord(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

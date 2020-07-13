@@ -108,7 +108,7 @@ class HubLink(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HubLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -116,40 +116,11 @@ class HubLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The definition of Link.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[dict]`) - Localized descriptions for the Link.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the Link.
-          * `link_name` (`pulumi.Input[str]`) - The link name.
-          * `mappings` (`pulumi.Input[list]`) - The set of properties mappings between the source and target Types.
-            * `link_type` (`pulumi.Input[str]`) - Link type.
-            * `source_property_name` (`pulumi.Input[str]`) -  Property name on the source Entity Type.
-            * `target_property_name` (`pulumi.Input[str]`) - Property name on the target Entity Type.
-
-          * `operation_type` (`pulumi.Input[str]`) - Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-          * `participant_property_references` (`pulumi.Input[list]`) - The properties that represent the participating profile.
-            * `source_property_name` (`pulumi.Input[str]`) - The source property that maps to the target property.
-            * `target_property_name` (`pulumi.Input[str]`) - The target property that maps to the source property.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state.
-          * `reference_only` (`pulumi.Input[bool]`) - Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
-          * `source_entity_type` (`pulumi.Input[str]`) - Type of source entity.
-          * `source_entity_type_name` (`pulumi.Input[str]`) - Name of the source Entity Type.
-          * `target_entity_type` (`pulumi.Input[str]`) - Type of target entity.
-          * `target_entity_type_name` (`pulumi.Input[str]`) - Name of the target Entity Type.
-          * `tenant_id` (`pulumi.Input[str]`) - The hub name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return HubLink(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -54,8 +54,8 @@ namespace Pulumi.AzureRM.PowerBI
         {
         }
 
-        private WorkspaceCollection(string name, Input<string> id, WorkspaceCollectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:powerbi:WorkspaceCollection", name, state, MakeResourceOptions(options, id))
+        private WorkspaceCollection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:powerbi:WorkspaceCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,11 +77,10 @@ namespace Pulumi.AzureRM.PowerBI
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static WorkspaceCollection Get(string name, Input<string> id, WorkspaceCollectionState? state = null, CustomResourceOptions? options = null)
+        public static WorkspaceCollection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new WorkspaceCollection(name, id, state, options);
+            return new WorkspaceCollection(name, id, options);
         }
     }
 
@@ -117,54 +116,6 @@ namespace Pulumi.AzureRM.PowerBI
         }
 
         public WorkspaceCollectionArgs()
-        {
-        }
-    }
-
-    public sealed class WorkspaceCollectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Azure location
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Workspace collection name
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("properties", required: true)]
-        private InputMap<string>? _properties;
-
-        /// <summary>
-        /// Properties
-        /// </summary>
-        public InputMap<string> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<string>());
-            set => _properties = value;
-        }
-
-        [Input("sku")]
-        public Input<Inputs.AzureSkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public WorkspaceCollectionState()
         {
         }
     }

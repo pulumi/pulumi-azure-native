@@ -108,7 +108,7 @@ class NamespaceEventhub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceEventhub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -116,40 +116,11 @@ class NamespaceEventhub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties supplied to the Create Or Update Event Hub operation.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `capture_description` (`pulumi.Input[dict]`) - Properties of capture description
-            * `destination` (`pulumi.Input[dict]`) - Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-              * `name` (`pulumi.Input[str]`) - Name for capture destination
-              * `properties` (`pulumi.Input[dict]`) - Properties describing the storage account, blob container and archive name format for capture destination
-                * `archive_name_format` (`pulumi.Input[str]`) - Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-                * `blob_container` (`pulumi.Input[str]`) - Blob container Name
-                * `storage_account_resource_id` (`pulumi.Input[str]`) - Resource id of the storage account to be used to create the blobs
-
-            * `enabled` (`pulumi.Input[bool]`) - A value that indicates whether capture description is enabled. 
-            * `encoding` (`pulumi.Input[str]`) - Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-            * `interval_in_seconds` (`pulumi.Input[float]`) - The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-            * `size_limit_in_bytes` (`pulumi.Input[float]`) - The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-            * `skip_empty_archives` (`pulumi.Input[bool]`) - A value that indicates whether to Skip Empty Archives
-
-          * `created_at` (`pulumi.Input[str]`) - Exact time the Event Hub was created.
-          * `message_retention_in_days` (`pulumi.Input[float]`) - Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-          * `partition_count` (`pulumi.Input[float]`) - Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-          * `partition_ids` (`pulumi.Input[list]`) - Current number of shards on the Event Hub.
-          * `status` (`pulumi.Input[str]`) - Enumerates the possible values for the status of the Event Hub.
-          * `updated_at` (`pulumi.Input[str]`) - The exact time the message was updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceEventhub(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

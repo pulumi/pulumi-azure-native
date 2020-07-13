@@ -16,11 +16,10 @@ export class MediaServiceTransformJob extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MediaServiceTransformJobState, opts?: pulumi.CustomResourceOptions): MediaServiceTransformJob {
-        return new MediaServiceTransformJob(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MediaServiceTransformJob {
+        return new MediaServiceTransformJob(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class MediaServiceTransformJob extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MediaServiceTransformJobArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MediaServiceTransformJobArgs | MediaServiceTransformJobState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: MediaServiceTransformJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MediaServiceTransformJobState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as MediaServiceTransformJobArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -79,13 +70,12 @@ export class MediaServiceTransformJob extends pulumi.CustomResource {
             if (!args || args.transformName === undefined) {
                 throw new Error("Missing required property 'transformName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["transformName"] = args ? args.transformName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["accountName"] = args ? args.accountName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["transformName"] = args ? args.transformName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -95,24 +85,6 @@ export class MediaServiceTransformJob extends pulumi.CustomResource {
         }
         super(MediaServiceTransformJob.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
- */
-export interface MediaServiceTransformJobState {
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The resource properties.
-     */
-    readonly properties: pulumi.Input<inputs.media.JobPropertiesResponse>;
-    /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

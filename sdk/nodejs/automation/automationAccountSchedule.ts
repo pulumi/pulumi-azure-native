@@ -16,11 +16,10 @@ export class AutomationAccountSchedule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AutomationAccountScheduleState, opts?: pulumi.CustomResourceOptions): AutomationAccountSchedule {
-        return new AutomationAccountSchedule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AutomationAccountSchedule {
+        return new AutomationAccountSchedule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class AutomationAccountSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AutomationAccountScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AutomationAccountScheduleArgs | AutomationAccountScheduleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AutomationAccountScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AutomationAccountScheduleState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AutomationAccountScheduleArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -82,13 +73,12 @@ export class AutomationAccountSchedule extends pulumi.CustomResource {
             if (!args || args.scheduleName === undefined) {
                 throw new Error("Missing required property 'scheduleName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scheduleName"] = args ? args.scheduleName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["scheduleName"] = args ? args.scheduleName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -98,24 +88,6 @@ export class AutomationAccountSchedule extends pulumi.CustomResource {
         }
         super(AutomationAccountSchedule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Definition of the schedule.
- */
-export interface AutomationAccountScheduleState {
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Gets or sets the properties of the schedule.
-     */
-    readonly properties: pulumi.Input<inputs.automation.SchedulePropertiesResponse>;
-    /**
-     * The type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

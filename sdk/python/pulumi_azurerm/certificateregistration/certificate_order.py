@@ -123,7 +123,7 @@ class CertificateOrder(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing CertificateOrder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -131,55 +131,11 @@ class CertificateOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: AppServiceCertificateOrder resource specific properties
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `app_service_certificate_not_renewable_reasons` (`pulumi.Input[list]`) - Reasons why App Service Certificate is not renewable at the current moment.
-          * `auto_renew` (`pulumi.Input[bool]`) - <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-          * `certificates` (`pulumi.Input[dict]`) - State of the Key Vault secret.
-          * `csr` (`pulumi.Input[str]`) - Last CSR that was created for this order.
-          * `distinguished_name` (`pulumi.Input[str]`) - Certificate distinguished name.
-          * `domain_verification_token` (`pulumi.Input[str]`) - Domain verification token.
-          * `expiration_time` (`pulumi.Input[str]`) - Certificate expiration time.
-          * `intermediate` (`pulumi.Input[dict]`) - Intermediate certificate.
-            * `issuer` (`pulumi.Input[str]`) - Certificate Issuer.
-            * `not_after` (`pulumi.Input[str]`) - Date Certificate is valid to.
-            * `not_before` (`pulumi.Input[str]`) - Date Certificate is valid from.
-            * `raw_data` (`pulumi.Input[str]`) - Raw certificate data.
-            * `serial_number` (`pulumi.Input[str]`) - Certificate Serial Number.
-            * `signature_algorithm` (`pulumi.Input[str]`) - Certificate Signature algorithm.
-            * `subject` (`pulumi.Input[str]`) - Certificate Subject.
-            * `thumbprint` (`pulumi.Input[str]`) - Certificate Thumbprint.
-            * `version` (`pulumi.Input[float]`) - Certificate Version.
-
-          * `is_private_key_external` (`pulumi.Input[bool]`) - <code>true</code> if private key is external; otherwise, <code>false</code>.
-          * `key_size` (`pulumi.Input[float]`) - Certificate key size.
-          * `last_certificate_issuance_time` (`pulumi.Input[str]`) - Certificate last issuance time.
-          * `next_auto_renewal_time_stamp` (`pulumi.Input[str]`) - Time stamp when the certificate would be auto renewed next
-          * `product_type` (`pulumi.Input[str]`) - Certificate product type.
-          * `provisioning_state` (`pulumi.Input[str]`) - Status of certificate order.
-          * `root` (`pulumi.Input[dict]`) - Root certificate.
-          * `serial_number` (`pulumi.Input[str]`) - Current serial number of the certificate.
-          * `signed_certificate` (`pulumi.Input[dict]`) - Signed certificate.
-          * `status` (`pulumi.Input[str]`) - Current order status.
-          * `validity_in_years` (`pulumi.Input[float]`) - Duration in years (must be between 1 and 3).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return CertificateOrder(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

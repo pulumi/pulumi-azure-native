@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.StreamAnalytics
         {
         }
 
-        private StreamingjobOutput(string name, Input<string> id, StreamingjobOutputState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics:StreamingjobOutput", name, state, MakeResourceOptions(options, id))
+        private StreamingjobOutput(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:streamanalytics:StreamingjobOutput", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.StreamAnalytics
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static StreamingjobOutput Get(string name, Input<string> id, StreamingjobOutputState? state = null, CustomResourceOptions? options = null)
+        public static StreamingjobOutput Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new StreamingjobOutput(name, id, state, options);
+            return new StreamingjobOutput(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.StreamAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public StreamingjobOutputArgs()
-        {
-        }
-    }
-
-    public sealed class StreamingjobOutputState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.OutputPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamingjobOutputState()
         {
         }
     }

@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Batch
         {
         }
 
-        private BatchAccount(string name, Input<string> id, BatchAccountState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:batch:BatchAccount", name, state, MakeResourceOptions(options, id))
+        private BatchAccount(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:batch:BatchAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Batch
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static BatchAccount Get(string name, Input<string> id, BatchAccountState? state = null, CustomResourceOptions? options = null)
+        public static BatchAccount Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new BatchAccount(name, id, state, options);
+            return new BatchAccount(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Batch
         }
 
         public BatchAccountArgs()
-        {
-        }
-    }
-
-    public sealed class BatchAccountState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The identity of the Batch account.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.BatchAccountIdentityResponseGetArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// The location of the resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties associated with the account.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BatchAccountPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags", required: true)]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags of the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public BatchAccountState()
         {
         }
     }

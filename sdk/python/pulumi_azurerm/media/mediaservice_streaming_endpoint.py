@@ -143,7 +143,7 @@ class MediaserviceStreamingEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaserviceStreamingEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -151,55 +151,11 @@ class MediaserviceStreamingEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The StreamingEndpoint properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `access_control` (`pulumi.Input[dict]`) - The access control definition of the StreamingEndpoint.
-            * `akamai` (`pulumi.Input[dict]`) - The access control of Akamai
-              * `akamai_signature_header_authentication_key_list` (`pulumi.Input[list]`) - authentication key list
-                * `base64_key` (`pulumi.Input[str]`) - authentication key
-                * `expiration` (`pulumi.Input[str]`) - The expiration time of the authentication key.
-                * `identifier` (`pulumi.Input[str]`) - identifier of the key
-
-            * `ip` (`pulumi.Input[dict]`) - The IP access control of the StreamingEndpoint.
-              * `allow` (`pulumi.Input[list]`) - The IP allow list.
-                * `address` (`pulumi.Input[str]`) - The IP address.
-                * `name` (`pulumi.Input[str]`) - The friendly name for the IP address range.
-                * `subnet_prefix_length` (`pulumi.Input[float]`) - The subnet mask prefix length (see CIDR notation).
-
-          * `availability_set_name` (`pulumi.Input[str]`) - The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
-          * `cdn_enabled` (`pulumi.Input[bool]`) - The CDN enabled flag.
-          * `cdn_profile` (`pulumi.Input[str]`) - The CDN profile name.
-          * `cdn_provider` (`pulumi.Input[str]`) - The CDN provider name.
-          * `created` (`pulumi.Input[str]`) - The exact time the StreamingEndpoint was created.
-          * `cross_site_access_policies` (`pulumi.Input[dict]`) - The StreamingEndpoint access policies.
-            * `client_access_policy` (`pulumi.Input[str]`) - The content of clientaccesspolicy.xml used by Silverlight.
-            * `cross_domain_policy` (`pulumi.Input[str]`) - The content of crossdomain.xml used by Silverlight.
-
-          * `custom_host_names` (`pulumi.Input[list]`) - The custom host names of the StreamingEndpoint
-          * `description` (`pulumi.Input[str]`) - The StreamingEndpoint description.
-          * `free_trial_end_time` (`pulumi.Input[str]`) - The free trial expiration time.
-          * `host_name` (`pulumi.Input[str]`) - The StreamingEndpoint host name.
-          * `last_modified` (`pulumi.Input[str]`) - The exact time the StreamingEndpoint was last modified.
-          * `max_cache_age` (`pulumi.Input[float]`) - Max cache age
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the StreamingEndpoint.
-          * `resource_state` (`pulumi.Input[str]`) - The resource state of the StreamingEndpoint.
-          * `scale_units` (`pulumi.Input[float]`) - The number of scale units.  Use the Scale operation to adjust this value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return MediaserviceStreamingEndpoint(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

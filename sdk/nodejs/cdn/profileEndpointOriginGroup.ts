@@ -16,11 +16,10 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProfileEndpointOriginGroupState, opts?: pulumi.CustomResourceOptions): ProfileEndpointOriginGroup {
-        return new ProfileEndpointOriginGroup(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProfileEndpointOriginGroup {
+        return new ProfileEndpointOriginGroup(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProfileEndpointOriginGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProfileEndpointOriginGroupArgs | ProfileEndpointOriginGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProfileEndpointOriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ProfileEndpointOriginGroupState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ProfileEndpointOriginGroupArgs | undefined;
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
@@ -79,13 +70,12 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["endpointName"] = args ? args.endpointName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["profileName"] = args ? args.profileName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -95,24 +85,6 @@ export class ProfileEndpointOriginGroup extends pulumi.CustomResource {
         }
         super(ProfileEndpointOriginGroup.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
- */
-export interface ProfileEndpointOriginGroupState {
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The JSON object that contains the properties of the origin group.
-     */
-    readonly properties: pulumi.Input<inputs.cdn.OriginGroupPropertiesResponse>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

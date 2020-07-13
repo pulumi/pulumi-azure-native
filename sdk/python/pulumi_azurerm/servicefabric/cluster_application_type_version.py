@@ -96,7 +96,7 @@ class ClusterApplicationTypeVersion(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ClusterApplicationTypeVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -104,29 +104,11 @@ class ClusterApplicationTypeVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Azure resource etag.
-        :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
-        :param pulumi.Input[str] name: Azure resource name.
-        :param pulumi.Input[dict] properties: The properties of the application type version resource.
-        :param pulumi.Input[dict] tags: Azure resource tags.
-        :param pulumi.Input[str] type: Azure resource type.
-
-        The **properties** object supports the following:
-
-          * `app_package_url` (`pulumi.Input[str]`) - The URL to the application package
-          * `default_parameter_list` (`pulumi.Input[dict]`) - List of application type parameters that can be overridden when creating or updating the application.
-          * `provisioning_state` (`pulumi.Input[str]`) - The current deployment or provisioning state, which only appears in the response
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ClusterApplicationTypeVersion(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -140,7 +140,7 @@ class LabCustomimage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabCustomimage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,53 +148,11 @@ class LabCustomimage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `author` (`pulumi.Input[str]`) - The author of the custom image.
-          * `creation_date` (`pulumi.Input[str]`) - The creation date of the custom image.
-          * `custom_image_plan` (`pulumi.Input[dict]`) - Storage information about the plan related to this custom image
-            * `id` (`pulumi.Input[str]`) - The id of the plan, equivalent to name of the plan
-            * `offer` (`pulumi.Input[str]`) - The offer for the plan from the marketplace image the custom image is derived from
-            * `publisher` (`pulumi.Input[str]`) - The publisher for the plan from the marketplace image the custom image is derived from
-
-          * `data_disk_storage_info` (`pulumi.Input[list]`) - Storage information about the data disks present in the custom image
-            * `lun` (`pulumi.Input[str]`) - Disk Lun
-            * `storage_type` (`pulumi.Input[str]`) - Disk Storage Type
-
-          * `description` (`pulumi.Input[str]`) - The description of the custom image.
-          * `is_plan_authorized` (`pulumi.Input[bool]`) - Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
-          * `managed_image_id` (`pulumi.Input[str]`) - The Managed Image Id backing the custom image.
-          * `managed_snapshot_id` (`pulumi.Input[str]`) - The Managed Snapshot Id backing the custom image.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-          * `vhd` (`pulumi.Input[dict]`) - The VHD from which the image is to be created.
-            * `image_name` (`pulumi.Input[str]`) - The image name.
-            * `os_type` (`pulumi.Input[str]`) - The OS type of the custom image (i.e. Windows, Linux)
-            * `sys_prep` (`pulumi.Input[bool]`) - Indicates whether sysprep has been run on the VHD.
-
-          * `vm` (`pulumi.Input[dict]`) - The virtual machine from which the image is to be created.
-            * `linux_os_info` (`pulumi.Input[dict]`) - The Linux OS information of the VM.
-              * `linux_os_state` (`pulumi.Input[str]`) - The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
-
-            * `source_vm_id` (`pulumi.Input[str]`) - The source vm identifier.
-            * `windows_os_info` (`pulumi.Input[dict]`) - The Windows OS information of the VM.
-              * `windows_os_state` (`pulumi.Input[str]`) - The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabCustomimage(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

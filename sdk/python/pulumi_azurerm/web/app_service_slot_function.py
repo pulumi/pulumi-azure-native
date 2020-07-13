@@ -107,7 +107,7 @@ class AppServiceSlotFunction(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServiceSlotFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,35 +115,11 @@ class AppServiceSlotFunction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: FunctionEnvelope resource specific properties
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `config` (`pulumi.Input[dict]`) - Config information.
-          * `config_href` (`pulumi.Input[str]`) - Config URI.
-          * `files` (`pulumi.Input[dict]`) - File list.
-          * `function_app_id` (`pulumi.Input[str]`) - Function App ID.
-          * `href` (`pulumi.Input[str]`) - Function URI.
-          * `invoke_url_template` (`pulumi.Input[str]`) - The invocation URL
-          * `is_disabled` (`pulumi.Input[bool]`) - Gets or sets a value indicating whether the function is disabled
-          * `language` (`pulumi.Input[str]`) - The function language
-          * `script_href` (`pulumi.Input[str]`) - Script URI.
-          * `script_root_path_href` (`pulumi.Input[str]`) - Script root path URI.
-          * `secrets_file_href` (`pulumi.Input[str]`) - Secrets file URI.
-          * `test_data` (`pulumi.Input[str]`) - Test data used when testing via the Azure Portal.
-          * `test_data_href` (`pulumi.Input[str]`) - Test data URI.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AppServiceSlotFunction(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

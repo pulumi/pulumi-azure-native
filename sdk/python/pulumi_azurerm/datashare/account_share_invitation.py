@@ -91,7 +91,7 @@ class AccountShareInvitation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AccountShareInvitation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,31 +99,11 @@ class AccountShareInvitation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the azure resource
-        :param pulumi.Input[dict] properties: Properties on the Invitation
-        :param pulumi.Input[str] type: Type of the azure resource
-
-        The **properties** object supports the following:
-
-          * `invitation_id` (`pulumi.Input[str]`) - unique invitation id
-          * `invitation_status` (`pulumi.Input[str]`) - The status of the invitation.
-          * `responded_at` (`pulumi.Input[str]`) - The time the recipient responded to the invitation.
-          * `sent_at` (`pulumi.Input[str]`) - Gets the time at which the invitation was sent.
-          * `target_active_directory_id` (`pulumi.Input[str]`) - The target Azure AD Id. Can't be combined with email.
-          * `target_email` (`pulumi.Input[str]`) - The email the invitation is directed to.
-          * `target_object_id` (`pulumi.Input[str]`) - The target user or application Id that invitation is being sent to.
-            Must be specified along TargetActiveDirectoryId. This enables sending
-            invitations to specific users or applications in an AD tenant.
-          * `user_email` (`pulumi.Input[str]`) - Email of the user who created the resource
-          * `user_name` (`pulumi.Input[str]`) - Name of the user who created the resource
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AccountShareInvitation(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

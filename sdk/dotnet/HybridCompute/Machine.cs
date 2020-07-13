@@ -60,8 +60,8 @@ namespace Pulumi.AzureRM.HybridCompute
         {
         }
 
-        private Machine(string name, Input<string> id, MachineState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:hybridcompute:Machine", name, state, MakeResourceOptions(options, id))
+        private Machine(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:hybridcompute:Machine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,11 +83,10 @@ namespace Pulumi.AzureRM.HybridCompute
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Machine Get(string name, Input<string> id, MachineState? state = null, CustomResourceOptions? options = null)
+        public static Machine Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Machine(name, id, state, options);
+            return new Machine(name, id, options);
         }
     }
 
@@ -144,63 +143,6 @@ namespace Pulumi.AzureRM.HybridCompute
         }
 
         public MachineArgs()
-        {
-        }
-    }
-
-    public sealed class MachineState : Pulumi.ResourceArgs
-    {
-        [Input("identity")]
-        private InputMap<string>? _identity;
-        public InputMap<string> Identity
-        {
-            get => _identity ?? (_identity = new InputMap<string>());
-            set => _identity = value;
-        }
-
-        /// <summary>
-        /// The geo-location where the resource lives
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("properties", required: true)]
-        private InputMap<string>? _properties;
-
-        /// <summary>
-        /// Hybrid Compute Machine properties
-        /// </summary>
-        public InputMap<string> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<string>());
-            set => _properties = value;
-        }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public MachineState()
         {
         }
     }

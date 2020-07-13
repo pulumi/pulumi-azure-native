@@ -92,7 +92,7 @@ class PrivateEndpointPrivateDnsZoneGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PrivateEndpointPrivateDnsZoneGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -100,33 +100,11 @@ class PrivateEndpointPrivateDnsZoneGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[dict] properties: Properties of the private dns zone group.
-
-        The **properties** object supports the following:
-
-          * `private_dns_zone_configs` (`pulumi.Input[list]`) - A collection of private dns zone configurations of the private dns zone group.
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the private dns zone configuration.
-              * `private_dns_zone_id` (`pulumi.Input[str]`) - The resource id of the private dns zone.
-              * `record_sets` (`pulumi.Input[list]`) - A collection of information regarding a recordSet, holding information to identify private resources.
-                * `fqdn` (`pulumi.Input[str]`) - Fqdn that resolves to private endpoint ip address.
-                * `ip_addresses` (`pulumi.Input[list]`) - The private ip address of the private endpoint.
-                * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the recordset.
-                * `record_set_name` (`pulumi.Input[str]`) - Recordset name.
-                * `record_type` (`pulumi.Input[str]`) - Resource record type.
-                * `ttl` (`pulumi.Input[float]`) - Recordset time to live.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the private dns zone group resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
         return PrivateEndpointPrivateDnsZoneGroup(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

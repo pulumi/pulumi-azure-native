@@ -105,7 +105,7 @@ class AppServiceVirtualNetworkConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServiceVirtualNetworkConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,45 +113,11 @@ class AppServiceVirtualNetworkConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: VnetInfo resource specific properties
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `cert_blob` (`pulumi.Input[str]`) - A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-            Point-To-Site VPN connection.
-          * `cert_thumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint.
-          * `dns_servers` (`pulumi.Input[str]`) - DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-          * `is_swift` (`pulumi.Input[bool]`) - Flag that is used to denote if this is VNET injection
-          * `resync_required` (`pulumi.Input[bool]`) - <code>true</code> if a resync is required; otherwise, <code>false</code>.
-          * `routes` (`pulumi.Input[list]`) - The routes that this Virtual Network connection uses.
-            * `id` (`pulumi.Input[str]`) - Resource Id.
-            * `kind` (`pulumi.Input[str]`) - Kind of resource.
-            * `name` (`pulumi.Input[str]`) - Resource Name.
-            * `properties` (`pulumi.Input[dict]`) - VnetRoute resource specific properties
-              * `end_address` (`pulumi.Input[str]`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-              * `route_type` (`pulumi.Input[str]`) - The type of route this is:
-                DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-                INHERITED - Routes inherited from the real Virtual Network routes
-                STATIC - Static route set on the app only
-                
-                These values will be used for syncing an app's routes with those from a Virtual Network.
-              * `start_address` (`pulumi.Input[str]`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-
-            * `type` (`pulumi.Input[str]`) - Resource type.
-
-          * `vnet_resource_id` (`pulumi.Input[str]`) - The Virtual Network's resource ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AppServiceVirtualNetworkConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

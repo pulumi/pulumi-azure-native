@@ -120,7 +120,7 @@ class FactoryPipeline(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing FactoryPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -128,43 +128,11 @@ class FactoryPipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag identifies change in the resource.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: Properties of the pipeline.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `activities` (`pulumi.Input[list]`) - List of activities in pipeline.
-            * `depends_on` (`pulumi.Input[list]`) - Activity depends on condition.
-              * `activity` (`pulumi.Input[str]`) - Activity name.
-              * `dependency_conditions` (`pulumi.Input[list]`) - Match-Condition for the dependency.
-
-            * `description` (`pulumi.Input[str]`) - Activity description.
-            * `name` (`pulumi.Input[str]`) - Activity name.
-            * `type` (`pulumi.Input[str]`) - Type of activity.
-            * `user_properties` (`pulumi.Input[list]`) - Activity user properties.
-              * `name` (`pulumi.Input[str]`) - User property name.
-              * `value` (`pulumi.Input[dict]`) - User property value. Type: string (or Expression with resultType string).
-
-          * `annotations` (`pulumi.Input[list]`) - List of tags that can be used for describing the Pipeline.
-          * `concurrency` (`pulumi.Input[float]`) - The max number of concurrent runs for the pipeline.
-          * `description` (`pulumi.Input[str]`) - The description of the pipeline.
-          * `folder` (`pulumi.Input[dict]`) - The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-            * `name` (`pulumi.Input[str]`) - The name of the folder that this Pipeline is in.
-
-          * `parameters` (`pulumi.Input[dict]`) - List of parameters for pipeline.
-          * `run_dimensions` (`pulumi.Input[dict]`) - Dimensions emitted by Pipeline.
-          * `variables` (`pulumi.Input[dict]`) - List of variables for pipeline.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return FactoryPipeline(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

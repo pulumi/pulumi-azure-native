@@ -16,11 +16,10 @@ export class ManagedClusterPrivateEndpointConnection extends pulumi.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ManagedClusterPrivateEndpointConnectionState, opts?: pulumi.CustomResourceOptions): ManagedClusterPrivateEndpointConnection {
-        return new ManagedClusterPrivateEndpointConnection(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedClusterPrivateEndpointConnection {
+        return new ManagedClusterPrivateEndpointConnection(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class ManagedClusterPrivateEndpointConnection extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagedClusterPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagedClusterPrivateEndpointConnectionArgs | ManagedClusterPrivateEndpointConnectionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ManagedClusterPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ManagedClusterPrivateEndpointConnectionState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ManagedClusterPrivateEndpointConnectionArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -76,12 +67,11 @@ export class ManagedClusterPrivateEndpointConnection extends pulumi.CustomResour
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["resourceName"] = args ? args.resourceName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -91,24 +81,6 @@ export class ManagedClusterPrivateEndpointConnection extends pulumi.CustomResour
         }
         super(ManagedClusterPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A private endpoint connection
- */
-export interface ManagedClusterPrivateEndpointConnectionState {
-    /**
-     * The name of the private endpoint connection.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties of a private endpoint connection.
-     */
-    readonly properties: pulumi.Input<inputs.containerservice.PrivateEndpointConnectionPropertiesResponse>;
-    /**
-     * The resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

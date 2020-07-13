@@ -106,7 +106,7 @@ class NetworkWatcherPacketCapture(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetworkWatcherPacketCapture resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,37 +114,11 @@ class NetworkWatcherPacketCapture(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] name: Name of the packet capture session.
-        :param pulumi.Input[dict] properties: Properties of the packet capture result.
-
-        The **properties** object supports the following:
-
-          * `bytes_to_capture_per_packet` (`pulumi.Input[float]`) - Number of bytes captured per packet, the remaining bytes are truncated.
-          * `filters` (`pulumi.Input[list]`) - A list of packet capture filters.
-            * `local_ip_address` (`pulumi.Input[str]`) - Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5"? for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-            * `local_port` (`pulumi.Input[str]`) - Local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-            * `protocol` (`pulumi.Input[str]`) - Protocol to be filtered on.
-            * `remote_ip_address` (`pulumi.Input[str]`) - Local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-            * `remote_port` (`pulumi.Input[str]`) - Remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Default = null.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the packet capture session.
-          * `storage_location` (`pulumi.Input[dict]`) - The storage location for a packet capture session.
-            * `file_path` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with /var/captures. Required if no storage ID is provided, otherwise optional.
-            * `storage_id` (`pulumi.Input[str]`) - The ID of the storage account to save the packet capture session. Required if no local file path is provided.
-            * `storage_path` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture. Must be a well-formed URI describing the location to save the packet capture.
-
-          * `target` (`pulumi.Input[str]`) - The ID of the targeted resource, only VM is currently supported.
-          * `time_limit_in_seconds` (`pulumi.Input[float]`) - Maximum duration of the capture session in seconds.
-          * `total_bytes_per_session` (`pulumi.Input[float]`) - Maximum size of the capture output.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
         return NetworkWatcherPacketCapture(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

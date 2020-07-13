@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DocumentDB
         {
         }
 
-        private DatabaseAccount(string name, Input<string> id, DatabaseAccountState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb:DatabaseAccount", name, state, MakeResourceOptions(options, id))
+        private DatabaseAccount(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:documentdb:DatabaseAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.DocumentDB
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DatabaseAccount Get(string name, Input<string> id, DatabaseAccountState? state = null, CustomResourceOptions? options = null)
+        public static DatabaseAccount Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DatabaseAccount(name, id, state, options);
+            return new DatabaseAccount(name, id, options);
         }
     }
 
@@ -133,49 +132,6 @@ namespace Pulumi.AzureRM.DocumentDB
         public Input<Inputs.TagsArgs>? Tags { get; set; }
 
         public DatabaseAccountArgs()
-        {
-        }
-    }
-
-    public sealed class DatabaseAccountState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates the type of database account. This can only be set at database account creation.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
-        /// The location of the resource group to which the resource belongs.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the ARM resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties for the database account.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DatabaseAccountGetPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        /// </summary>
-        [Input("tags")]
-        public Input<Inputs.TagsResponseGetArgs>? Tags { get; set; }
-
-        /// <summary>
-        /// The type of Azure resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DatabaseAccountState()
         {
         }
     }

@@ -16,11 +16,10 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IntegrationServiceEnvironmentManagedApiState, opts?: pulumi.CustomResourceOptions): IntegrationServiceEnvironmentManagedApi {
-        return new IntegrationServiceEnvironmentManagedApi(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationServiceEnvironmentManagedApi {
+        return new IntegrationServiceEnvironmentManagedApi(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationServiceEnvironmentManagedApiArgs | IntegrationServiceEnvironmentManagedApiState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IntegrationServiceEnvironmentManagedApiState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as IntegrationServiceEnvironmentManagedApiArgs | undefined;
             if (!args || args.integrationServiceEnvironmentName === undefined) {
                 throw new Error("Missing required property 'integrationServiceEnvironmentName'");
             }
@@ -86,14 +75,13 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
             if (!args || args.resourceGroup === undefined) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+        inputs["location"] = undefined /*out*/;
+        inputs["properties"] = undefined /*out*/;
+        inputs["tags"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -103,32 +91,6 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         }
         super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The managed api definition.
- */
-export interface IntegrationServiceEnvironmentManagedApiState {
-    /**
-     * The resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Gets the resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The api resource properties.
-     */
-    readonly properties: pulumi.Input<inputs.logic.ApiResourcePropertiesResponse>;
-    /**
-     * The resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Gets the resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

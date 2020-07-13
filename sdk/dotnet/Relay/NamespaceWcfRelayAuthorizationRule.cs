@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Relay
         {
         }
 
-        private NamespaceWcfRelayAuthorizationRule(string name, Input<string> id, NamespaceWcfRelayAuthorizationRuleState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:relay:NamespaceWcfRelayAuthorizationRule", name, state, MakeResourceOptions(options, id))
+        private NamespaceWcfRelayAuthorizationRule(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:relay:NamespaceWcfRelayAuthorizationRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Relay
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static NamespaceWcfRelayAuthorizationRule Get(string name, Input<string> id, NamespaceWcfRelayAuthorizationRuleState? state = null, CustomResourceOptions? options = null)
+        public static NamespaceWcfRelayAuthorizationRule Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new NamespaceWcfRelayAuthorizationRule(name, id, state, options);
+            return new NamespaceWcfRelayAuthorizationRule(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.Relay
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public NamespaceWcfRelayAuthorizationRuleArgs()
-        {
-        }
-    }
-
-    public sealed class NamespaceWcfRelayAuthorizationRuleState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Authorization rule properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AuthorizationRuleResponsePropertiesGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public NamespaceWcfRelayAuthorizationRuleState()
         {
         }
     }

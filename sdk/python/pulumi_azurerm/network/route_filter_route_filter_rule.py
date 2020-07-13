@@ -88,7 +88,7 @@ class RouteFilterRouteFilterRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing RouteFilterRouteFilterRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -96,26 +96,11 @@ class RouteFilterRouteFilterRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[dict] properties: Properties of the route filter rule.
-
-        The **properties** object supports the following:
-
-          * `access` (`pulumi.Input[str]`) - The access type of the rule.
-          * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the route filter rule resource.
-          * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
         return RouteFilterRouteFilterRule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

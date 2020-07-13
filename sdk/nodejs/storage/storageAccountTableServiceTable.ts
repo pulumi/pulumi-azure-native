@@ -16,11 +16,10 @@ export class StorageAccountTableServiceTable extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StorageAccountTableServiceTableState, opts?: pulumi.CustomResourceOptions): StorageAccountTableServiceTable {
-        return new StorageAccountTableServiceTable(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccountTableServiceTable {
+        return new StorageAccountTableServiceTable(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class StorageAccountTableServiceTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StorageAccountTableServiceTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StorageAccountTableServiceTableArgs | StorageAccountTableServiceTableState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: StorageAccountTableServiceTableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as StorageAccountTableServiceTableState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as StorageAccountTableServiceTableArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -76,12 +67,11 @@ export class StorageAccountTableServiceTable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["accountName"] = args ? args.accountName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["properties"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -91,24 +81,6 @@ export class StorageAccountTableServiceTable extends pulumi.CustomResource {
         }
         super(StorageAccountTableServiceTable.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Properties of the table, including Id, resource name, resource type.
- */
-export interface StorageAccountTableServiceTableState {
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Table resource properties.
-     */
-    readonly properties: pulumi.Input<inputs.storage.TablePropertiesResponse>;
-    /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

@@ -16,11 +16,10 @@ export class VpnGatewayVpnConnection extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VpnGatewayVpnConnectionState, opts?: pulumi.CustomResourceOptions): VpnGatewayVpnConnection {
-        return new VpnGatewayVpnConnection(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VpnGatewayVpnConnection {
+        return new VpnGatewayVpnConnection(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class VpnGatewayVpnConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpnGatewayVpnConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VpnGatewayVpnConnectionArgs | VpnGatewayVpnConnectionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VpnGatewayVpnConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VpnGatewayVpnConnectionState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-        } else {
-            const args = argsOrState as VpnGatewayVpnConnectionArgs | undefined;
             if (!args || args.connectionName === undefined) {
                 throw new Error("Missing required property 'connectionName'");
             }
@@ -76,14 +67,13 @@ export class VpnGatewayVpnConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-        }
+        inputs["connectionName"] = args ? args.connectionName : undefined;
+        inputs["gatewayName"] = args ? args.gatewayName : undefined;
+        inputs["id"] = args ? args.id : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["etag"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -93,24 +83,6 @@ export class VpnGatewayVpnConnection extends pulumi.CustomResource {
         }
         super(VpnGatewayVpnConnection.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * VpnConnection Resource.
- */
-export interface VpnGatewayVpnConnectionState {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * Properties of the VPN connection.
-     */
-    readonly properties: pulumi.Input<inputs.network.VpnConnectionPropertiesResponse>;
 }
 
 /**

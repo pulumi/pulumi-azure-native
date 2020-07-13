@@ -221,7 +221,7 @@ class RegistryTask(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing RegistryTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -229,97 +229,11 @@ class RegistryTask(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: Identity for the resource.
-        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of a task.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal ID of resource identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant ID of resource.
-          * `type` (`pulumi.Input[str]`) - The identity type.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the resource. The user identity 
-            dictionary key references will be ARM resource ids in the form: 
-            '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-                providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `agent_configuration` (`pulumi.Input[dict]`) - The machine configuration of the run agent.
-            * `cpu` (`pulumi.Input[float]`) - The CPU configuration in terms of number of cores required for the run.
-
-          * `creation_date` (`pulumi.Input[str]`) - The creation date of task.
-          * `credentials` (`pulumi.Input[dict]`) - The properties that describes a set of credentials that will be used when this run is invoked.
-            * `custom_registries` (`pulumi.Input[dict]`) - Describes the credential parameters for accessing other custom registries. The key
-              for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-              the value of the item will be the registry credentials for accessing the registry.
-            * `source_registry` (`pulumi.Input[dict]`) - Describes the credential parameters for accessing the source registry.
-              * `login_mode` (`pulumi.Input[str]`) - The authentication mode which determines the source registry login scope. The credentials for the source registry
-                will be generated using the given scope. These credentials will be used to login to
-                the source registry during the run.
-
-          * `platform` (`pulumi.Input[dict]`) - The platform properties against which the run has to happen.
-            * `architecture` (`pulumi.Input[str]`) - The OS architecture.
-            * `os` (`pulumi.Input[str]`) - The operating system type required for the run.
-            * `variant` (`pulumi.Input[str]`) - Variant of the CPU.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the task.
-          * `status` (`pulumi.Input[str]`) - The current status of task.
-          * `step` (`pulumi.Input[dict]`) - The properties of a task step.
-            * `base_image_dependencies` (`pulumi.Input[list]`) - List of base image dependencies for a step.
-              * `digest` (`pulumi.Input[str]`) - The sha256-based digest of the image manifest.
-              * `registry` (`pulumi.Input[str]`) - The registry login server.
-              * `repository` (`pulumi.Input[str]`) - The repository name.
-              * `tag` (`pulumi.Input[str]`) - The tag name.
-              * `type` (`pulumi.Input[str]`) - The type of the base image dependency.
-
-            * `context_access_token` (`pulumi.Input[str]`) - The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-            * `context_path` (`pulumi.Input[str]`) - The URL(absolute or relative) of the source context for the task step.
-            * `type` (`pulumi.Input[str]`) - The type of the step.
-
-          * `timeout` (`pulumi.Input[float]`) - Run timeout in seconds.
-          * `trigger` (`pulumi.Input[dict]`) - The properties that describe all triggers for the task.
-            * `base_image_trigger` (`pulumi.Input[dict]`) - The trigger based on base image dependencies.
-              * `base_image_trigger_type` (`pulumi.Input[str]`) - The type of the auto trigger for base image dependency updates.
-              * `name` (`pulumi.Input[str]`) - The name of the trigger.
-              * `status` (`pulumi.Input[str]`) - The current status of trigger.
-
-            * `source_triggers` (`pulumi.Input[list]`) - The collection of triggers based on source code repository.
-              * `name` (`pulumi.Input[str]`) - The name of the trigger.
-              * `source_repository` (`pulumi.Input[dict]`) - The properties that describes the source(code) for the task.
-                * `branch` (`pulumi.Input[str]`) - The branch name of the source code.
-                * `repository_url` (`pulumi.Input[str]`) - The full URL to the source code repository
-                * `source_control_auth_properties` (`pulumi.Input[dict]`) - The authorization properties for accessing the source code repository and to set up
-                  webhooks for notifications.
-                  * `expires_in` (`pulumi.Input[float]`) - Time in seconds that the token remains valid
-                  * `refresh_token` (`pulumi.Input[str]`) - The refresh token used to refresh the access token.
-                  * `scope` (`pulumi.Input[str]`) - The scope of the access token.
-                  * `token` (`pulumi.Input[str]`) - The access token used to access the source control provider.
-                  * `token_type` (`pulumi.Input[str]`) - The type of Auth token.
-
-                * `source_control_type` (`pulumi.Input[str]`) - The type of source control service.
-
-              * `source_trigger_events` (`pulumi.Input[list]`) - The source event corresponding to the trigger.
-              * `status` (`pulumi.Input[str]`) - The current status of trigger.
-
-            * `timer_triggers` (`pulumi.Input[list]`) - The collection of timer triggers.
-              * `name` (`pulumi.Input[str]`) - The name of the trigger.
-              * `schedule` (`pulumi.Input[str]`) - The CRON expression for the task schedule
-              * `status` (`pulumi.Input[str]`) - The current status of trigger.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return RegistryTask(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

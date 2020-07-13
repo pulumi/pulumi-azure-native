@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Logic
         {
         }
 
-        private IntegrationAccount(string name, Input<string> id, IntegrationAccountState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:logic:IntegrationAccount", name, state, MakeResourceOptions(options, id))
+        private IntegrationAccount(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:logic:IntegrationAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Logic
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static IntegrationAccount Get(string name, Input<string> id, IntegrationAccountState? state = null, CustomResourceOptions? options = null)
+        public static IntegrationAccount Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new IntegrationAccount(name, id, state, options);
+            return new IntegrationAccount(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Logic
         }
 
         public IntegrationAccountArgs()
-        {
-        }
-    }
-
-    public sealed class IntegrationAccountState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Gets the resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The sku.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.IntegrationAccountSkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Gets the resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public IntegrationAccountState()
         {
         }
     }

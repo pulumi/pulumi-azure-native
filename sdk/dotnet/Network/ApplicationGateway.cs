@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private ApplicationGateway(string name, Input<string> id, ApplicationGatewayState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:ApplicationGateway", name, state, MakeResourceOptions(options, id))
+        private ApplicationGateway(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:ApplicationGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -98,11 +98,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ApplicationGateway Get(string name, Input<string> id, ApplicationGatewayState? state = null, CustomResourceOptions? options = null)
+        public static ApplicationGateway Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ApplicationGateway(name, id, state, options);
+            return new ApplicationGateway(name, id, options);
         }
     }
 
@@ -169,73 +168,6 @@ namespace Pulumi.AzureRM.Network
         }
 
         public ApplicationGatewayArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The identity of the application gateway, if configured.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityResponseGetArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the application gateway.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApplicationGatewayPropertiesFormatResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("zones")]
-        private InputList<string>? _zones;
-
-        /// <summary>
-        /// A list of availability zones denoting where the resource needs to come from.
-        /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
-
-        public ApplicationGatewayState()
         {
         }
     }

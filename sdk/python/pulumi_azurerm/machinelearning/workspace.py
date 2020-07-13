@@ -105,7 +105,7 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,39 +113,11 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the machine learning workspace.
-        :param pulumi.Input[dict] sku: The sku of the workspace.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `creation_time` (`pulumi.Input[str]`) - The creation time for this workspace resource.
-          * `key_vault_identifier_id` (`pulumi.Input[str]`) - The key vault identifier used for encrypted workspaces.
-          * `owner_email` (`pulumi.Input[str]`) - The email id of the owner for this workspace.
-          * `studio_endpoint` (`pulumi.Input[str]`) - The regional endpoint for the machine learning studio service which hosts this workspace.
-          * `user_storage_account_id` (`pulumi.Input[str]`) - The fully qualified arm id of the storage account associated with this workspace.
-          * `workspace_id` (`pulumi.Input[str]`) - The immutable id associated with this workspace.
-          * `workspace_state` (`pulumi.Input[str]`) - The current state of workspace resource.
-          * `workspace_type` (`pulumi.Input[str]`) - The type of this workspace.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the sku
-          * `tier` (`pulumi.Input[str]`) - Tier of the sku like Basic or Enterprise
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

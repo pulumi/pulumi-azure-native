@@ -122,7 +122,7 @@ class ManagedClusterAgentPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagedClusterAgentPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -130,46 +130,11 @@ class ManagedClusterAgentPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[dict] properties: Properties of an agent pool.
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `availability_zones` (`pulumi.Input[list]`) - Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
-          * `enable_auto_scaling` (`pulumi.Input[bool]`) - Whether to enable auto-scaler
-          * `enable_node_public_ip` (`pulumi.Input[bool]`) - Enable public IP for nodes
-          * `max_count` (`pulumi.Input[float]`) - Maximum number of nodes for auto-scaling
-          * `max_pods` (`pulumi.Input[float]`) - Maximum number of pods that can run on a node.
-          * `min_count` (`pulumi.Input[float]`) - Minimum number of nodes for auto-scaling
-          * `mode` (`pulumi.Input[str]`) - AgentPoolMode represents mode of an agent pool
-          * `node_image_version` (`pulumi.Input[str]`) - Version of node image
-          * `node_labels` (`pulumi.Input[dict]`) - Agent pool node labels to be persisted across all nodes in agent pool.
-          * `node_taints` (`pulumi.Input[list]`) - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-          * `orchestrator_version` (`pulumi.Input[str]`) - Version of orchestrator specified when creating the managed cluster.
-          * `os_disk_size_gb` (`pulumi.Input[dict]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-          * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-          * `provisioning_state` (`pulumi.Input[str]`) - The current deployment or provisioning state, which only appears in the response.
-          * `proximity_placement_group_id` (`pulumi.Input[str]`) - The ID for Proximity Placement Group.
-          * `scale_set_eviction_policy` (`pulumi.Input[str]`) - ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
-          * `scale_set_priority` (`pulumi.Input[str]`) - ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-          * `spot_max_price` (`pulumi.Input[dict]`) - SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-          * `tags` (`pulumi.Input[dict]`) - Agent pool tags to be persisted on the agent pool virtual machine scale set.
-          * `type` (`pulumi.Input[str]`) - AgentPoolType represents types of an agent pool
-          * `upgrade_settings` (`pulumi.Input[dict]`) - Settings for upgrading the agentpool
-            * `max_surge` (`pulumi.Input[str]`) - Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
-
-          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-          * `vnet_subnet_id` (`pulumi.Input[str]`) - VNet SubnetID specifies the VNet's subnet identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagedClusterAgentPool(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

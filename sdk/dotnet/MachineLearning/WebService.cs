@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.MachineLearning
         {
         }
 
-        private WebService(string name, Input<string> id, WebServiceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearning:WebService", name, state, MakeResourceOptions(options, id))
+        private WebService(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:machinelearning:WebService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.MachineLearning
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static WebService Get(string name, Input<string> id, WebServiceState? state = null, CustomResourceOptions? options = null)
+        public static WebService Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new WebService(name, id, state, options);
+            return new WebService(name, id, options);
         }
     }
 
@@ -127,49 +126,6 @@ namespace Pulumi.AzureRM.MachineLearning
         }
 
         public WebServiceArgs()
-        {
-        }
-    }
-
-    public sealed class WebServiceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the location of the resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Contains the property payload that describes the web service.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.WebServicePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Specifies the type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WebServiceState()
         {
         }
     }

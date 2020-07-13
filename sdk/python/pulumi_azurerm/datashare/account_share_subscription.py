@@ -89,7 +89,7 @@ class AccountShareSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AccountShareSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,34 +97,11 @@ class AccountShareSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the azure resource
-        :param pulumi.Input[dict] properties: Properties on the share subscription
-        :param pulumi.Input[str] type: Type of the azure resource
-
-        The **properties** object supports the following:
-
-          * `created_at` (`pulumi.Input[str]`) - Time at which the share subscription was created.
-          * `invitation_id` (`pulumi.Input[str]`) - The invitation id.
-          * `provider_email` (`pulumi.Input[str]`) - Email of the provider who created the resource
-          * `provider_name` (`pulumi.Input[str]`) - Name of the provider who created the resource
-          * `provider_tenant_name` (`pulumi.Input[str]`) - Tenant name of the provider who created the resource
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the share subscription
-          * `share_description` (`pulumi.Input[str]`) - Description of share
-          * `share_kind` (`pulumi.Input[str]`) - Kind of share
-          * `share_name` (`pulumi.Input[str]`) - Name of the share
-          * `share_subscription_status` (`pulumi.Input[str]`) - Gets the current status of share subscription.
-          * `share_terms` (`pulumi.Input[str]`) - Terms of a share
-          * `source_share_location` (`pulumi.Input[str]`) - Source share location.
-          * `user_email` (`pulumi.Input[str]`) - Email of the user who created the resource
-          * `user_name` (`pulumi.Input[str]`) - Name of the user who created the resource
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AccountShareSubscription(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

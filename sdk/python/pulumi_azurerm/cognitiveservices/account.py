@@ -202,7 +202,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -210,93 +210,11 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Entity Tag
-        :param pulumi.Input[dict] identity: The identity of Cognitive Services account.
-        :param pulumi.Input[str] kind: The Kind of the resource.
-        :param pulumi.Input[str] location: The location of the resource
-        :param pulumi.Input[str] name: The name of the created account
-        :param pulumi.Input[dict] properties: Properties of Cognitive Services account.
-        :param pulumi.Input[dict] sku: The SKU of Cognitive Services account.
-        :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-        :param pulumi.Input[str] type: Resource type
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - Principal Id of managed service identity.
-          * `tenant_id` (`pulumi.Input[str]`) - Tenant of managed service identity.
-          * `type` (`pulumi.Input[str]`) - Type of managed service identity.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-
-        The **properties** object supports the following:
-
-          * `api_properties` (`pulumi.Input[dict]`) - The api properties for special APIs.
-            * `event_hub_connection_string` (`pulumi.Input[str]`) - (Personalization Only) The flag to enable statistics of Bing Search.
-            * `qna_runtime_endpoint` (`pulumi.Input[str]`) - (QnAMaker Only) The runtime endpoint of QnAMaker.
-            * `statistics_enabled` (`pulumi.Input[bool]`) - (Bing Search Only) The flag to enable statistics of Bing Search.
-            * `storage_account_connection_string` (`pulumi.Input[str]`) - (Personalization Only) The storage account connection string.
-
-          * `capabilities` (`pulumi.Input[list]`) - Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
-            * `name` (`pulumi.Input[str]`) - The name of the SkuCapability.
-            * `value` (`pulumi.Input[str]`) - The value of the SkuCapability.
-
-          * `custom_sub_domain_name` (`pulumi.Input[str]`) - Optional subdomain name used for token-based authentication.
-          * `encryption` (`pulumi.Input[dict]`) - The encryption properties for this resource.
-            * `key_source` (`pulumi.Input[str]`) - Enumerates the possible value of keySource for Encryption
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Properties of KeyVault
-              * `key_name` (`pulumi.Input[str]`) - Name of the Key from KeyVault
-              * `key_vault_uri` (`pulumi.Input[str]`) - Uri of KeyVault
-              * `key_version` (`pulumi.Input[str]`) - Version of the Key from KeyVault
-
-          * `endpoint` (`pulumi.Input[str]`) - Endpoint of the created account.
-          * `internal_id` (`pulumi.Input[str]`) - The internal identifier.
-          * `network_acls` (`pulumi.Input[dict]`) - A collection of rules governing the accessibility from specific network locations.
-            * `default_action` (`pulumi.Input[str]`) - The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
-            * `ip_rules` (`pulumi.Input[list]`) - The list of IP address rules.
-              * `value` (`pulumi.Input[str]`) - An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
-
-            * `virtual_network_rules` (`pulumi.Input[list]`) - The list of virtual network rules.
-              * `id` (`pulumi.Input[str]`) - Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
-              * `ignore_missing_vnet_service_endpoint` (`pulumi.Input[bool]`) - Ignore missing vnet service endpoint or not.
-              * `state` (`pulumi.Input[str]`) - Gets the state of virtual network rule.
-
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - The private endpoint connection associated with the Cognitive Services account.
-            * `id` (`pulumi.Input[str]`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-            * `name` (`pulumi.Input[str]`) - The name of the resource
-            * `properties` (`pulumi.Input[dict]`) - Resource properties.
-              * `group_ids` (`pulumi.Input[list]`) - The private link resource group ids.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
-                * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-                * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-                * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-                * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-            * `type` (`pulumi.Input[str]`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the status of the cognitive services account at the time the operation was called.
-          * `public_network_access` (`pulumi.Input[str]`) - Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-          * `user_owned_storage` (`pulumi.Input[list]`) - The storage accounts for this resource.
-            * `resource_id` (`pulumi.Input[str]`) - Full resource id of a Microsoft.Storage resource.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Gets or sets the sku name. Required for account creation, optional for update.
-          * `tier` (`pulumi.Input[str]`) - Gets the sku tier. This is based on the SKU name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["identity"] = identity
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Account(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

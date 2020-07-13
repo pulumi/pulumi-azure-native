@@ -228,7 +228,7 @@ class ClusterApplication(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ClusterApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -236,100 +236,11 @@ class ClusterApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag for the application
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The properties of the application.
-        :param pulumi.Input[dict] tags: The tags for the application.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `application_state` (`pulumi.Input[str]`) - The application state.
-          * `application_type` (`pulumi.Input[str]`) - The application type.
-          * `compute_profile` (`pulumi.Input[dict]`) - The list of roles in the cluster.
-            * `roles` (`pulumi.Input[list]`) - The list of roles in the cluster.
-              * `autoscale` (`pulumi.Input[dict]`) - The autoscale configurations.
-                * `capacity` (`pulumi.Input[dict]`) - Parameters for load-based autoscale
-                  * `max_instance_count` (`pulumi.Input[float]`) - The maximum instance count of the cluster
-                  * `min_instance_count` (`pulumi.Input[float]`) - The minimum instance count of the cluster
-
-                * `recurrence` (`pulumi.Input[dict]`) - Parameters for schedule-based autoscale
-                  * `schedule` (`pulumi.Input[list]`) - Array of schedule-based autoscale rules
-                    * `days` (`pulumi.Input[list]`) - Days of the week for a schedule-based autoscale rule
-                    * `time_and_capacity` (`pulumi.Input[dict]`) - Time and capacity for a schedule-based autoscale rule
-                      * `max_instance_count` (`pulumi.Input[float]`) - The maximum instance count of the cluster
-                      * `min_instance_count` (`pulumi.Input[float]`) - The minimum instance count of the cluster
-                      * `time` (`pulumi.Input[str]`) - 24-hour time in the form xx:xx
-
-                  * `time_zone` (`pulumi.Input[str]`) - The time zone for the autoscale schedule times
-
-              * `data_disks_groups` (`pulumi.Input[list]`) - The data disks groups for the role.
-                * `disk_size_gb` (`pulumi.Input[float]`) - ReadOnly. The DiskSize in GB. Do not set this value.
-                * `disks_per_node` (`pulumi.Input[float]`) - The number of disks per node.
-                * `storage_account_type` (`pulumi.Input[str]`) - ReadOnly. The storage account type. Do not set this value.
-
-              * `hardware_profile` (`pulumi.Input[dict]`) - The hardware profile.
-                * `vm_size` (`pulumi.Input[str]`) - The size of the VM
-
-              * `min_instance_count` (`pulumi.Input[float]`) - The minimum instance count of the cluster.
-              * `name` (`pulumi.Input[str]`) - The name of the role.
-              * `os_profile` (`pulumi.Input[dict]`) - The operating system profile.
-                * `linux_operating_system_profile` (`pulumi.Input[dict]`) - The Linux OS profile.
-                  * `password` (`pulumi.Input[str]`) - The password.
-                  * `ssh_profile` (`pulumi.Input[dict]`) - The SSH profile.
-                    * `public_keys` (`pulumi.Input[list]`) - The list of SSH public keys.
-                      * `certificate_data` (`pulumi.Input[str]`) - The certificate for SSH.
-
-                  * `username` (`pulumi.Input[str]`) - The username.
-
-              * `script_actions` (`pulumi.Input[list]`) - The list of script actions on the role.
-                * `name` (`pulumi.Input[str]`) - The name of the script action.
-                * `parameters` (`pulumi.Input[str]`) - The parameters for the script provided.
-                * `uri` (`pulumi.Input[str]`) - The URI to the script.
-
-              * `target_instance_count` (`pulumi.Input[float]`) - The instance count of the cluster.
-              * `virtual_network_profile` (`pulumi.Input[dict]`) - The virtual network profile.
-                * `id` (`pulumi.Input[str]`) - The ID of the virtual network.
-                * `subnet` (`pulumi.Input[str]`) - The name of the subnet.
-
-          * `created_date` (`pulumi.Input[str]`) - The application create date time.
-          * `errors` (`pulumi.Input[list]`) - The list of errors.
-            * `code` (`pulumi.Input[str]`) - The error code.
-            * `message` (`pulumi.Input[str]`) - The error message.
-
-          * `https_endpoints` (`pulumi.Input[list]`) - The list of application HTTPS endpoints.
-            * `access_modes` (`pulumi.Input[list]`) - The list of access modes for the application.
-            * `destination_port` (`pulumi.Input[float]`) - The destination port to connect to.
-            * `disable_gateway_auth` (`pulumi.Input[bool]`) - The value indicates whether to disable GatewayAuth.
-            * `location` (`pulumi.Input[str]`) - The location of the endpoint.
-            * `public_port` (`pulumi.Input[float]`) - The public port to connect to.
-            * `sub_domain_suffix` (`pulumi.Input[str]`) - The subdomain suffix of the application.
-
-          * `install_script_actions` (`pulumi.Input[list]`) - The list of install script actions.
-            * `application_name` (`pulumi.Input[str]`) - The application name of the script action, if any.
-            * `name` (`pulumi.Input[str]`) - The name of the script action.
-            * `parameters` (`pulumi.Input[str]`) - The parameters for the script
-            * `roles` (`pulumi.Input[list]`) - The list of roles where script will be executed.
-            * `uri` (`pulumi.Input[str]`) - The URI to the script.
-
-          * `marketplace_identifier` (`pulumi.Input[str]`) - The marketplace identifier.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the application.
-          * `ssh_endpoints` (`pulumi.Input[list]`) - The list of application SSH endpoints.
-            * `destination_port` (`pulumi.Input[float]`) - The destination port to connect to.
-            * `location` (`pulumi.Input[str]`) - The location of the endpoint.
-            * `public_port` (`pulumi.Input[float]`) - The public port to connect to.
-
-          * `uninstall_script_actions` (`pulumi.Input[list]`) - The list of uninstall script actions.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ClusterApplication(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

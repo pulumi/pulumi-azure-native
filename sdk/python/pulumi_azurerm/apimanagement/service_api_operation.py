@@ -135,7 +135,7 @@ class ServiceApiOperation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceApiOperation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -143,50 +143,11 @@ class ServiceApiOperation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the Operation Contract.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Description of the operation. May include HTML formatting tags.
-          * `display_name` (`pulumi.Input[str]`) - Operation Name.
-          * `method` (`pulumi.Input[str]`) - A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-          * `policies` (`pulumi.Input[str]`) - Operation Policies
-          * `request` (`pulumi.Input[dict]`) - An entity containing request details.
-            * `description` (`pulumi.Input[str]`) - Operation request description.
-            * `headers` (`pulumi.Input[list]`) - Collection of operation request headers.
-              * `default_value` (`pulumi.Input[str]`) - Default parameter value.
-              * `description` (`pulumi.Input[str]`) - Parameter description.
-              * `name` (`pulumi.Input[str]`) - Parameter name.
-              * `required` (`pulumi.Input[bool]`) - Specifies whether parameter is required or not.
-              * `type` (`pulumi.Input[str]`) - Parameter type.
-              * `values` (`pulumi.Input[list]`) - Parameter values.
-
-            * `query_parameters` (`pulumi.Input[list]`) - Collection of operation request query parameters.
-            * `representations` (`pulumi.Input[list]`) - Collection of operation request representations.
-              * `content_type` (`pulumi.Input[str]`) - Specifies a registered or custom content type for this representation, e.g. application/xml.
-              * `form_parameters` (`pulumi.Input[list]`) - Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
-              * `sample` (`pulumi.Input[str]`) - An example of the representation.
-              * `schema_id` (`pulumi.Input[str]`) - Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-              * `type_name` (`pulumi.Input[str]`) - Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-
-          * `responses` (`pulumi.Input[list]`) - Array of Operation responses.
-            * `description` (`pulumi.Input[str]`) - Operation response description.
-            * `headers` (`pulumi.Input[list]`) - Collection of operation response headers.
-            * `representations` (`pulumi.Input[list]`) - Collection of operation response representations.
-            * `status_code` (`pulumi.Input[float]`) - Operation response HTTP status code.
-
-          * `template_parameters` (`pulumi.Input[list]`) - Collection of URL template parameters.
-          * `url_template` (`pulumi.Input[str]`) - Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceApiOperation(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

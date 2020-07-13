@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.DataFactory
         {
         }
 
-        private FactoryLinkedservice(string name, Input<string> id, FactoryLinkedserviceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:datafactory:FactoryLinkedservice", name, state, MakeResourceOptions(options, id))
+        private FactoryLinkedservice(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:datafactory:FactoryLinkedservice", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.DataFactory
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static FactoryLinkedservice Get(string name, Input<string> id, FactoryLinkedserviceState? state = null, CustomResourceOptions? options = null)
+        public static FactoryLinkedservice Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new FactoryLinkedservice(name, id, state, options);
+            return new FactoryLinkedservice(name, id, options);
         }
     }
 
@@ -109,37 +108,6 @@ namespace Pulumi.AzureRM.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public FactoryLinkedserviceArgs()
-        {
-        }
-    }
-
-    public sealed class FactoryLinkedserviceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Etag identifies change in the resource.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of linked service.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.LinkedServiceResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FactoryLinkedserviceState()
         {
         }
     }

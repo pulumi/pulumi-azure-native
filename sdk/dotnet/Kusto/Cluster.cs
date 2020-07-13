@@ -75,8 +75,8 @@ namespace Pulumi.AzureRM.Kusto
         {
         }
 
-        private Cluster(string name, Input<string> id, ClusterState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:kusto:Cluster", name, state, MakeResourceOptions(options, id))
+        private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:kusto:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -98,11 +98,10 @@ namespace Pulumi.AzureRM.Kusto
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Cluster Get(string name, Input<string> id, ClusterState? state = null, CustomResourceOptions? options = null)
+        public static Cluster Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Cluster(name, id, state, options);
+            return new Cluster(name, id, options);
         }
     }
 
@@ -163,67 +162,6 @@ namespace Pulumi.AzureRM.Kusto
         public Input<Inputs.ZonesArgs>? Zones { get; set; }
 
         public ClusterArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The identity of the cluster, if configured.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityResponseGetArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// The geo-location where the resource lives
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The cluster properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ClusterPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of the cluster.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.AzureSkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The availability zones of the cluster.
-        /// </summary>
-        [Input("zones")]
-        public Input<Inputs.ZonesResponseGetArgs>? Zones { get; set; }
-
-        public ClusterState()
         {
         }
     }

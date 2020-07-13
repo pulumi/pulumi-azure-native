@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Sql
         {
         }
 
-        private ServerAdministrator(string name, Input<string> id, ServerAdministratorState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:sql:ServerAdministrator", name, state, MakeResourceOptions(options, id))
+        private ServerAdministrator(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:sql:ServerAdministrator", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Sql
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ServerAdministrator Get(string name, Input<string> id, ServerAdministratorState? state = null, CustomResourceOptions? options = null)
+        public static ServerAdministrator Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ServerAdministrator(name, id, state, options);
+            return new ServerAdministrator(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.Sql
         public Input<string> ServerName { get; set; } = null!;
 
         public ServerAdministratorArgs()
-        {
-        }
-    }
-
-    public sealed class ServerAdministratorState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ServerAdministratorPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServerAdministratorState()
         {
         }
     }

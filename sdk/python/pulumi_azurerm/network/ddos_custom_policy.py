@@ -102,7 +102,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DdosCustomPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -110,37 +110,11 @@ class DdosCustomPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the DDoS custom policy.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `protocol_custom_settings` (`pulumi.Input[list]`) - The protocol-specific DDoS policy customization parameters.
-            * `protocol` (`pulumi.Input[str]`) - The protocol for which the DDoS protection policy is being customized.
-            * `source_rate_override` (`pulumi.Input[str]`) - The customized DDoS protection source rate.
-            * `trigger_rate_override` (`pulumi.Input[str]`) - The customized DDoS protection trigger rate.
-            * `trigger_sensitivity_override` (`pulumi.Input[str]`) - The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the DDoS custom policy resource.
-          * `public_ip_addresses` (`pulumi.Input[list]`) - The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DdosCustomPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

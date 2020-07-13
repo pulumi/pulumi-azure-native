@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Storage
         {
         }
 
-        private StorageAccountPrivateEndpointConnection(string name, Input<string> id, StorageAccountPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:storage:StorageAccountPrivateEndpointConnection", name, state, MakeResourceOptions(options, id))
+        private StorageAccountPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:storage:StorageAccountPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Storage
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static StorageAccountPrivateEndpointConnection Get(string name, Input<string> id, StorageAccountPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
+        public static StorageAccountPrivateEndpointConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new StorageAccountPrivateEndpointConnection(name, id, state, options);
+            return new StorageAccountPrivateEndpointConnection(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.Storage
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public StorageAccountPrivateEndpointConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class StorageAccountPrivateEndpointConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Resource properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StorageAccountPrivateEndpointConnectionState()
         {
         }
     }

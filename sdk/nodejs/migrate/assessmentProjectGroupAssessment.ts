@@ -16,11 +16,10 @@ export class AssessmentProjectGroupAssessment extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssessmentProjectGroupAssessmentState, opts?: pulumi.CustomResourceOptions): AssessmentProjectGroupAssessment {
-        return new AssessmentProjectGroupAssessment(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AssessmentProjectGroupAssessment {
+        return new AssessmentProjectGroupAssessment(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class AssessmentProjectGroupAssessment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentProjectGroupAssessmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AssessmentProjectGroupAssessmentArgs | AssessmentProjectGroupAssessmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AssessmentProjectGroupAssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AssessmentProjectGroupAssessmentState | undefined;
-            inputs["eTag"] = state ? state.eTag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AssessmentProjectGroupAssessmentArgs | undefined;
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -87,14 +77,13 @@ export class AssessmentProjectGroupAssessment extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["eTag"] = args ? args.eTag : undefined;
+        inputs["groupName"] = args ? args.groupName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["projectName"] = args ? args.projectName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -104,28 +93,6 @@ export class AssessmentProjectGroupAssessment extends pulumi.CustomResource {
         }
         super(AssessmentProjectGroupAssessment.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * An assessment created for a group in the Migration project.
- */
-export interface AssessmentProjectGroupAssessmentState {
-    /**
-     * For optimistic concurrency control.
-     */
-    readonly eTag?: pulumi.Input<string>;
-    /**
-     * Unique name of an assessment.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the assessment.
-     */
-    readonly properties: pulumi.Input<inputs.migrate.AssessmentPropertiesResponse>;
-    /**
-     * Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

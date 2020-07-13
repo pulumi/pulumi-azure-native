@@ -88,7 +88,7 @@ class HubConnector(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HubConnector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -96,31 +96,11 @@ class HubConnector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of connector.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `connector_id` (`pulumi.Input[float]`) - ID of the connector.
-          * `connector_name` (`pulumi.Input[str]`) - Name of the connector.
-          * `connector_properties` (`pulumi.Input[dict]`) - The connector properties.
-          * `connector_type` (`pulumi.Input[str]`) - Type of connector.
-          * `created` (`pulumi.Input[str]`) - The created time.
-          * `description` (`pulumi.Input[str]`) - Description of the connector.
-          * `display_name` (`pulumi.Input[str]`) - Display name of the connector.
-          * `is_internal` (`pulumi.Input[bool]`) - If this is an internal connector.
-          * `last_modified` (`pulumi.Input[str]`) - The last modified time.
-          * `state` (`pulumi.Input[str]`) - State of connector.
-          * `tenant_id` (`pulumi.Input[str]`) - The hub name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return HubConnector(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

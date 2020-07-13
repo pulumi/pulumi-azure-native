@@ -79,7 +79,7 @@ class ServerDisasterRecoveryConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServerDisasterRecoveryConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -87,29 +87,11 @@ class ServerDisasterRecoveryConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Location of the server that contains this disaster recovery configuration.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The properties representing the resource.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `auto_failover` (`pulumi.Input[str]`) - Whether or not failover can be done automatically.
-          * `failover_policy` (`pulumi.Input[str]`) - How aggressive the automatic failover should be.
-          * `logical_server_name` (`pulumi.Input[str]`) - Logical name of the server.
-          * `partner_logical_server_name` (`pulumi.Input[str]`) - Logical name of the partner server.
-          * `partner_server_id` (`pulumi.Input[str]`) - Id of the partner server.
-          * `role` (`pulumi.Input[str]`) - The role of the current server in the disaster recovery configuration.
-          * `status` (`pulumi.Input[str]`) - The status of the disaster recovery configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServerDisasterRecoveryConfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

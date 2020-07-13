@@ -98,7 +98,7 @@ class PrivateDnsZoneVirtualNetworkLink(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PrivateDnsZoneVirtualNetworkLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,32 +106,11 @@ class PrivateDnsZoneVirtualNetworkLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag of the virtual network link.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Properties of the virtual network link to the Private DNS zone.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-
-        The **properties** object supports the following:
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
-          * `registration_enabled` (`pulumi.Input[bool]`) - Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
-          * `virtual_network` (`pulumi.Input[dict]`) - The reference of the virtual network.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `virtual_network_link_state` (`pulumi.Input[str]`) - The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return PrivateDnsZoneVirtualNetworkLink(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

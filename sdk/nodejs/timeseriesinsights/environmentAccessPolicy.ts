@@ -16,11 +16,10 @@ export class EnvironmentAccessPolicy extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EnvironmentAccessPolicyState, opts?: pulumi.CustomResourceOptions): EnvironmentAccessPolicy {
-        return new EnvironmentAccessPolicy(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EnvironmentAccessPolicy {
+        return new EnvironmentAccessPolicy(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -54,16 +53,8 @@ export class EnvironmentAccessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EnvironmentAccessPolicyArgs | EnvironmentAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: EnvironmentAccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EnvironmentAccessPolicyState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as EnvironmentAccessPolicyArgs | undefined;
             if (!args || args.environmentName === undefined) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -76,12 +67,11 @@ export class EnvironmentAccessPolicy extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["environmentName"] = args ? args.environmentName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -91,21 +81,6 @@ export class EnvironmentAccessPolicy extends pulumi.CustomResource {
         }
         super(EnvironmentAccessPolicy.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
- */
-export interface EnvironmentAccessPolicyState {
-    /**
-     * Resource name
-     */
-    readonly name: pulumi.Input<string>;
-    readonly properties: pulumi.Input<inputs.timeseriesinsights.AccessPolicyResourcePropertiesResponse>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

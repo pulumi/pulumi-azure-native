@@ -113,7 +113,7 @@ class WorkspaceProviderBookmark(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing WorkspaceProviderBookmark resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,41 +121,11 @@ class WorkspaceProviderBookmark(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] name: Azure resource name
-        :param pulumi.Input[dict] properties: Bookmark properties
-        :param pulumi.Input[str] type: Azure resource type
-
-        The **properties** object supports the following:
-
-          * `created` (`pulumi.Input[str]`) - The time the bookmark was created
-          * `created_by` (`pulumi.Input[dict]`) - Describes a user that created the bookmark
-            * `email` (`pulumi.Input[str]`) - The email of the user.
-            * `name` (`pulumi.Input[str]`) - The name of the user.
-            * `object_id` (`pulumi.Input[str]`) - The object id of the user.
-
-          * `display_name` (`pulumi.Input[str]`) - The display name of the bookmark
-          * `incident_info` (`pulumi.Input[dict]`) - Describes an incident that relates to bookmark
-            * `incident_id` (`pulumi.Input[str]`) - Incident Id
-            * `relation_name` (`pulumi.Input[str]`) - Relation Name
-            * `severity` (`pulumi.Input[str]`) - The severity of the incident
-            * `title` (`pulumi.Input[str]`) - The title of the incident
-
-          * `labels` (`pulumi.Input[list]`) - List of labels relevant to this bookmark
-          * `notes` (`pulumi.Input[str]`) - The notes of the bookmark
-          * `query` (`pulumi.Input[str]`) - The query of the bookmark.
-          * `query_result` (`pulumi.Input[str]`) - The query result of the bookmark.
-          * `updated` (`pulumi.Input[str]`) - The last time the bookmark was updated
-          * `updated_by` (`pulumi.Input[dict]`) - Describes a user that updated the bookmark
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return WorkspaceProviderBookmark(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

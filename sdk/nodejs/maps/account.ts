@@ -16,11 +16,10 @@ export class Account extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountState, opts?: pulumi.CustomResourceOptions): Account {
-        return new Account(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
+        return new Account(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AccountArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -94,14 +82,13 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["properties"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -111,36 +98,6 @@ export class Account extends pulumi.CustomResource {
         }
         super(Account.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * An Azure resource which represents access to a suite of Maps REST APIs.
- */
-export interface AccountState {
-    /**
-     * The location of the resource.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * The name of the Maps Account, which is unique within a Resource Group.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The map account properties.
-     */
-    readonly properties: pulumi.Input<inputs.maps.MapsAccountPropertiesResponse>;
-    /**
-     * The SKU of this account.
-     */
-    readonly sku: pulumi.Input<inputs.maps.SkuResponse>;
-    /**
-     * Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-     */
-    readonly tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Azure resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

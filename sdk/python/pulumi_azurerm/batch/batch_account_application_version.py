@@ -82,7 +82,7 @@ class BatchAccountApplicationVersion(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing BatchAccountApplicationVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,27 +90,11 @@ class BatchAccountApplicationVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag of the resource, used for concurrency statements.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties associated with the Application Package.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `format` (`pulumi.Input[str]`) - The format of the application package, if the package is active.
-          * `last_activation_time` (`pulumi.Input[str]`) - The time at which the package was last activated, if the package is active.
-          * `state` (`pulumi.Input[str]`) - The current state of the application package.
-          * `storage_url` (`pulumi.Input[str]`) - The URL for the application package in Azure Storage.
-          * `storage_url_expiry` (`pulumi.Input[str]`) - The UTC time at which the Azure Storage URL will expire.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return BatchAccountApplicationVersion(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

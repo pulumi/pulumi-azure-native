@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Cdn
         {
         }
 
-        private Profile(string name, Input<string> id, ProfileState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:cdn:Profile", name, state, MakeResourceOptions(options, id))
+        private Profile(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:cdn:Profile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Cdn
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Profile Get(string name, Input<string> id, ProfileState? state = null, CustomResourceOptions? options = null)
+        public static Profile Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Profile(name, id, state, options);
+            return new Profile(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Cdn
         }
 
         public ProfileArgs()
-        {
-        }
-    }
-
-    public sealed class ProfileState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The JSON object that contains the properties required to create a profile.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ProfilePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ProfileState()
         {
         }
     }

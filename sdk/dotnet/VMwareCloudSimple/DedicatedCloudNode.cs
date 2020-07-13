@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.VMwareCloudSimple
         {
         }
 
-        private DedicatedCloudNode(string name, Input<string> id, DedicatedCloudNodeState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:vmwarecloudsimple:DedicatedCloudNode", name, state, MakeResourceOptions(options, id))
+        private DedicatedCloudNode(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:vmwarecloudsimple:DedicatedCloudNode", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.VMwareCloudSimple
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DedicatedCloudNode Get(string name, Input<string> id, DedicatedCloudNodeState? state = null, CustomResourceOptions? options = null)
+        public static DedicatedCloudNode Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DedicatedCloudNode(name, id, state, options);
+            return new DedicatedCloudNode(name, id, options);
         }
     }
 
@@ -139,49 +138,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple
         public Input<Inputs.TagsArgs>? Tags { get; set; }
 
         public DedicatedCloudNodeArgs()
-        {
-        }
-    }
-
-    public sealed class DedicatedCloudNodeState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Azure region
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// {dedicatedCloudNodeName}
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Dedicated Cloud Nodes properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DedicatedCloudNodePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Dedicated Cloud Nodes SKU
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuResponseGetArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// Dedicated Cloud Nodes tags
-        /// </summary>
-        [Input("tags")]
-        public Input<Inputs.TagsResponseGetArgs>? Tags { get; set; }
-
-        /// <summary>
-        /// {resourceProviderNamespace}/{resourceType}
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DedicatedCloudNodeState()
         {
         }
     }

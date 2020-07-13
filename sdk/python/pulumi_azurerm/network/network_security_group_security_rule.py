@@ -122,7 +122,7 @@ class NetworkSecurityGroupSecurityRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetworkSecurityGroupSecurityRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -130,47 +130,11 @@ class NetworkSecurityGroupSecurityRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[dict] properties: Properties of the security rule.
-
-        The **properties** object supports the following:
-
-          * `access` (`pulumi.Input[str]`) - The network traffic is allowed or denied.
-          * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 chars.
-          * `destination_address_prefix` (`pulumi.Input[str]`) - The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-          * `destination_address_prefixes` (`pulumi.Input[list]`) - The destination address prefixes. CIDR or destination IP ranges.
-          * `destination_application_security_groups` (`pulumi.Input[list]`) - The application security group specified as destination.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `location` (`pulumi.Input[str]`) - Resource location.
-            * `name` (`pulumi.Input[str]`) - Resource name.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application security group.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the application security group resource.
-              * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-
-            * `tags` (`pulumi.Input[dict]`) - Resource tags.
-            * `type` (`pulumi.Input[str]`) - Resource type.
-
-          * `destination_port_range` (`pulumi.Input[str]`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-          * `destination_port_ranges` (`pulumi.Input[list]`) - The destination port ranges.
-          * `direction` (`pulumi.Input[str]`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-          * `priority` (`pulumi.Input[float]`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the security rule resource.
-          * `source_address_prefix` (`pulumi.Input[str]`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-          * `source_address_prefixes` (`pulumi.Input[list]`) - The CIDR or source IP ranges.
-          * `source_application_security_groups` (`pulumi.Input[list]`) - The application security group specified as source.
-          * `source_port_range` (`pulumi.Input[str]`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-          * `source_port_ranges` (`pulumi.Input[list]`) - The source port ranges.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
         return NetworkSecurityGroupSecurityRule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

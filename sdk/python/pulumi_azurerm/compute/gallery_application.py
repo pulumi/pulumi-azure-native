@@ -97,7 +97,7 @@ class GalleryApplication(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing GalleryApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,30 +105,11 @@ class GalleryApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Describes the properties of a gallery Application Definition.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description of this gallery Application Definition resource. This property is updatable.
-          * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-          * `eula` (`pulumi.Input[str]`) - The Eula agreement for the gallery Application Definition.
-          * `privacy_statement_uri` (`pulumi.Input[str]`) - The privacy statement uri.
-          * `release_note_uri` (`pulumi.Input[str]`) - The release note uri.
-          * `supported_os_type` (`pulumi.Input[str]`) - This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return GalleryApplication(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

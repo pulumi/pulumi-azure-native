@@ -127,7 +127,7 @@ class Namespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,48 +135,11 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of the Namespace.
-        :param pulumi.Input[dict] sku: The sku of the created namespace
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `created_at` (`pulumi.Input[str]`) - The time the namespace was created.
-          * `critical` (`pulumi.Input[bool]`) - Whether or not the namespace is set as Critical.
-          * `data_center` (`pulumi.Input[str]`) - Data center for the namespace
-          * `enabled` (`pulumi.Input[bool]`) - Whether or not the namespace is currently enabled.
-          * `metric_id` (`pulumi.Input[str]`) - Identifier for Azure Insights metrics
-          * `name` (`pulumi.Input[str]`) - The name of the namespace.
-          * `namespace_type` (`pulumi.Input[str]`) - The namespace type.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Namespace.
-          * `region` (`pulumi.Input[str]`) - Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-          * `scale_unit` (`pulumi.Input[str]`) - ScaleUnit where the namespace gets created
-          * `service_bus_endpoint` (`pulumi.Input[str]`) - Endpoint you can use to perform NotificationHub operations.
-          * `status` (`pulumi.Input[str]`) - Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-          * `subscription_id` (`pulumi.Input[str]`) - The Id of the Azure subscription associated with the namespace.
-          * `updated_at` (`pulumi.Input[str]`) - The time the namespace was updated.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The capacity of the resource
-          * `family` (`pulumi.Input[str]`) - The Sku Family
-          * `name` (`pulumi.Input[str]`) - Name of the notification hub sku
-          * `size` (`pulumi.Input[str]`) - The Sku size
-          * `tier` (`pulumi.Input[str]`) - The tier of particular sku
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

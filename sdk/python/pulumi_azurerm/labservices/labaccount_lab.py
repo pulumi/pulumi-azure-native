@@ -106,7 +106,7 @@ class LabaccountLab(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabaccountLab resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,42 +114,11 @@ class LabaccountLab(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `created_by_object_id` (`pulumi.Input[str]`) - Object id of the user that created the lab.
-          * `created_by_user_principal_name` (`pulumi.Input[str]`) - Lab creator name
-          * `created_date` (`pulumi.Input[str]`) - Creation date for the lab
-          * `invitation_code` (`pulumi.Input[str]`) - Invitation code that users can use to join a lab.
-          * `latest_operation_result` (`pulumi.Input[dict]`) - The details of the latest operation. ex: status, error
-            * `error_code` (`pulumi.Input[str]`) - Error code on failure.
-            * `error_message` (`pulumi.Input[str]`) - The error message.
-            * `http_method` (`pulumi.Input[str]`) - The HttpMethod - PUT/POST/DELETE for the operation.
-            * `operation_url` (`pulumi.Input[str]`) - The URL to use to check long-running operation status
-            * `request_uri` (`pulumi.Input[str]`) - Request URI of the operation.
-            * `status` (`pulumi.Input[str]`) - The current status of the operation.
-
-          * `max_users_in_lab` (`pulumi.Input[float]`) - Maximum number of users allowed in the lab.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-          * `usage_quota` (`pulumi.Input[str]`) - Maximum duration a user can use an environment for in the lab.
-          * `user_access_mode` (`pulumi.Input[str]`) - Lab user access mode (open to all vs. restricted to those listed on the lab).
-          * `user_quota` (`pulumi.Input[float]`) - Maximum value MaxUsersInLab can be set to, as specified by the service
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabaccountLab(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

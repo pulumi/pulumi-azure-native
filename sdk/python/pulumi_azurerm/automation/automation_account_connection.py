@@ -89,7 +89,7 @@ class AutomationAccountConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,27 +97,11 @@ class AutomationAccountConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the properties of the connection.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `connection_type` (`pulumi.Input[dict]`) - Gets or sets the connectionType of the connection.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the connection type.
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets the creation time.
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `field_definition_values` (`pulumi.Input[dict]`) - Gets the field definition values of the connection.
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets the last modified time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AutomationAccountConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

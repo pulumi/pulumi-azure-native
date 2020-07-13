@@ -200,7 +200,7 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -208,97 +208,11 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the resource.
-        :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: Specifies the name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the machine learning workspace.
-        :param pulumi.Input[dict] sku: The sku of the workspace.
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
-        :param pulumi.Input[str] type: Specifies the type of the resource.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal ID of resource identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant ID of resource.
-          * `type` (`pulumi.Input[str]`) - The identity type.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `allow_public_access_when_behind_vnet` (`pulumi.Input[bool]`) - The flag to indicate whether to allow public access when behind VNet.
-          * `application_insights` (`pulumi.Input[str]`) - ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-          * `container_registry` (`pulumi.Input[str]`) - ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-          * `creation_time` (`pulumi.Input[str]`) - The creation time of the machine learning workspace in ISO8601 format.
-          * `description` (`pulumi.Input[str]`) - The description of this workspace.
-          * `discovery_url` (`pulumi.Input[str]`) - Url for the discovery service to identify regional endpoints for machine learning experimentation services
-          * `encryption` (`pulumi.Input[dict]`) - The encryption settings of Azure ML workspace.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Customer Key vault properties.
-              * `identity_client_id` (`pulumi.Input[str]`) - For future use - The client id of the identity which will be used to access key vault.
-              * `key_identifier` (`pulumi.Input[str]`) - Key vault uri to access the encryption key.
-              * `key_vault_arm_id` (`pulumi.Input[str]`) - The ArmId of the keyVault where the customer owned encryption key is present.
-
-            * `status` (`pulumi.Input[str]`) - Indicates whether or not the encryption is enabled for the workspace.
-
-          * `friendly_name` (`pulumi.Input[str]`) - The friendly name for this workspace. This name in mutable
-          * `hbi_workspace` (`pulumi.Input[bool]`) - The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-          * `image_build_compute` (`pulumi.Input[str]`) - The compute name for image build
-          * `key_vault` (`pulumi.Input[str]`) - ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-          * `notebook_info` (`pulumi.Input[dict]`) - The notebook info of Azure ML workspace.
-            * `fqdn` (`pulumi.Input[str]`)
-            * `notebook_preparation_error` (`pulumi.Input[dict]`) - The error that occurs when preparing notebook.
-              * `error_message` (`pulumi.Input[str]`)
-              * `status_code` (`pulumi.Input[float]`)
-
-            * `resource_id` (`pulumi.Input[str]`) - the data plane resourceId that used to initialize notebook component
-
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - The list of private endpoint connections in the workspace.
-            * `id` (`pulumi.Input[str]`) - Specifies the resource ID.
-            * `identity` (`pulumi.Input[dict]`) - The identity of the resource.
-            * `location` (`pulumi.Input[str]`) - Specifies the location of the resource.
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the resource.
-            * `properties` (`pulumi.Input[dict]`) - Resource properties.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
-                * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-                * `actions_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-                * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-                * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the private endpoint connection resource.
-
-            * `sku` (`pulumi.Input[dict]`) - The sku of the workspace.
-              * `name` (`pulumi.Input[str]`) - Name of the sku
-              * `tier` (`pulumi.Input[str]`) - Tier of the sku like Basic or Enterprise
-
-            * `tags` (`pulumi.Input[dict]`) - Contains resource tags defined as key/value pairs.
-            * `type` (`pulumi.Input[str]`) - Specifies the type of the resource.
-
-          * `private_link_count` (`pulumi.Input[float]`) - Count of private connections in the workspace
-          * `provisioning_state` (`pulumi.Input[str]`) - The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-          * `service_provisioned_resource_group` (`pulumi.Input[str]`) - The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
-          * `shared_private_link_resources` (`pulumi.Input[list]`) - The list of shared private link resources in this workspace.
-            * `name` (`pulumi.Input[str]`) - Unique name of the private link.
-            * `properties` (`pulumi.Input[dict]`) - Resource properties.
-              * `group_id` (`pulumi.Input[str]`) - The private link resource group id.
-              * `private_link_resource_id` (`pulumi.Input[str]`) - The resource id that private link links to.
-              * `request_message` (`pulumi.Input[str]`) - Request message.
-              * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-          * `storage_account` (`pulumi.Input[str]`) - ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-          * `workspace_id` (`pulumi.Input[str]`) - The immutable id associated with this workspace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

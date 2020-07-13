@@ -109,7 +109,7 @@ class ServiceAuthorizationServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceAuthorizationServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -117,39 +117,11 @@ class ServiceAuthorizationServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the External OAuth authorization server Contract.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `authorization_endpoint` (`pulumi.Input[str]`) - OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
-          * `authorization_methods` (`pulumi.Input[list]`) - HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
-          * `bearer_token_sending_methods` (`pulumi.Input[list]`) - Specifies the mechanism by which access token is passed to the API. 
-          * `client_authentication_method` (`pulumi.Input[list]`) - Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
-          * `client_id` (`pulumi.Input[str]`) - Client or app id registered with this authorization server.
-          * `client_registration_endpoint` (`pulumi.Input[str]`) - Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
-          * `client_secret` (`pulumi.Input[str]`) - Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-          * `default_scope` (`pulumi.Input[str]`) - Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
-          * `description` (`pulumi.Input[str]`) - Description of the authorization server. Can contain HTML formatting tags.
-          * `display_name` (`pulumi.Input[str]`) - User-friendly authorization server name.
-          * `grant_types` (`pulumi.Input[list]`) - Form of an authorization grant, which the client uses to request the access token.
-          * `resource_owner_password` (`pulumi.Input[str]`) - Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
-          * `resource_owner_username` (`pulumi.Input[str]`) - Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
-          * `support_state` (`pulumi.Input[bool]`) - If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
-          * `token_body_parameters` (`pulumi.Input[list]`) - Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
-            * `name` (`pulumi.Input[str]`) - body parameter name.
-            * `value` (`pulumi.Input[str]`) - body parameter value.
-
-          * `token_endpoint` (`pulumi.Input[str]`) - OAuth token endpoint. Contains absolute URI to entity being referenced.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceAuthorizationServer(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

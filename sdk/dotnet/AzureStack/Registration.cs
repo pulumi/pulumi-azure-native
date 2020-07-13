@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.AzureStack
         {
         }
 
-        private Registration(string name, Input<string> id, RegistrationState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:azurestack:Registration", name, state, MakeResourceOptions(options, id))
+        private Registration(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:azurestack:Registration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.AzureStack
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Registration Get(string name, Input<string> id, RegistrationState? state = null, CustomResourceOptions? options = null)
+        public static Registration Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Registration(name, id, state, options);
+            return new Registration(name, id, options);
         }
     }
 
@@ -121,55 +120,6 @@ namespace Pulumi.AzureRM.AzureStack
         public Input<string> ResourceGroup { get; set; } = null!;
 
         public RegistrationArgs()
-        {
-        }
-    }
-
-    public sealed class RegistrationState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The entity tag used for optimistic concurrency when modifying the resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// Location of the resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Registration resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RegistrationPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Custom tags for the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Type of Resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RegistrationState()
         {
         }
     }

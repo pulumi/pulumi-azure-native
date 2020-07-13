@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.MachineLearningServices
         {
         }
 
-        private WorkspaceConnection(string name, Input<string> id, WorkspaceConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:machinelearningservices:WorkspaceConnection", name, state, MakeResourceOptions(options, id))
+        private WorkspaceConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:machinelearningservices:WorkspaceConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.MachineLearningServices
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static WorkspaceConnection Get(string name, Input<string> id, WorkspaceConnectionState? state = null, CustomResourceOptions? options = null)
+        public static WorkspaceConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new WorkspaceConnection(name, id, state, options);
+            return new WorkspaceConnection(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.MachineLearningServices
         public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class WorkspaceConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Friendly name of the workspace connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of workspace connection.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.WorkspaceConnectionPropsResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type of workspace connection.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WorkspaceConnectionState()
         {
         }
     }

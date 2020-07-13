@@ -83,7 +83,7 @@ class ServiceLogger(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceLogger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,26 +91,11 @@ class ServiceLogger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Logger entity contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `credentials` (`pulumi.Input[dict]`) - The name and SendRule connection string of the event hub for azureEventHub logger.
-            Instrumentation key for applicationInsights logger.
-          * `description` (`pulumi.Input[str]`) - Logger description.
-          * `is_buffered` (`pulumi.Input[bool]`) - Whether records are buffered in the logger before publishing. Default is assumed to be true.
-          * `logger_type` (`pulumi.Input[str]`) - Logger type.
-          * `resource_id` (`pulumi.Input[str]`) - Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceLogger(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Cdn
         {
         }
 
-        private ProfileEndpoint(string name, Input<string> id, ProfileEndpointState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:cdn:ProfileEndpoint", name, state, MakeResourceOptions(options, id))
+        private ProfileEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:cdn:ProfileEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.Cdn
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ProfileEndpoint Get(string name, Input<string> id, ProfileEndpointState? state = null, CustomResourceOptions? options = null)
+        public static ProfileEndpoint Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ProfileEndpoint(name, id, state, options);
+            return new ProfileEndpoint(name, id, options);
         }
     }
 
@@ -133,49 +132,6 @@ namespace Pulumi.AzureRM.Cdn
         }
 
         public ProfileEndpointArgs()
-        {
-        }
-    }
-
-    public sealed class ProfileEndpointState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The JSON object that contains the properties required to create an endpoint.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.EndpointPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ProfileEndpointState()
         {
         }
     }

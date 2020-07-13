@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.AzureStack
         {
         }
 
-        private RegistrationCustomerSubscription(string name, Input<string> id, RegistrationCustomerSubscriptionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:azurestack:RegistrationCustomerSubscription", name, state, MakeResourceOptions(options, id))
+        private RegistrationCustomerSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:azurestack:RegistrationCustomerSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.AzureStack
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static RegistrationCustomerSubscription Get(string name, Input<string> id, RegistrationCustomerSubscriptionState? state = null, CustomResourceOptions? options = null)
+        public static RegistrationCustomerSubscription Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new RegistrationCustomerSubscription(name, id, state, options);
+            return new RegistrationCustomerSubscription(name, id, options);
         }
     }
 
@@ -115,37 +114,6 @@ namespace Pulumi.AzureRM.AzureStack
         public Input<string> ResourceGroup { get; set; } = null!;
 
         public RegistrationCustomerSubscriptionArgs()
-        {
-        }
-    }
-
-    public sealed class RegistrationCustomerSubscriptionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The entity tag used for optimistic concurrency when modifying the resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// Name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Customer subscription properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CustomerSubscriptionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Type of Resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RegistrationCustomerSubscriptionState()
         {
         }
     }

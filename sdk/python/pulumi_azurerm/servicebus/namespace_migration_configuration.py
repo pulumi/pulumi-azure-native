@@ -78,7 +78,7 @@ class NamespaceMigrationConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceMigrationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -86,25 +86,11 @@ class NamespaceMigrationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties required to the Create Migration Configuration
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `migration_state` (`pulumi.Input[str]`) - State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
-          * `pending_replication_operations_count` (`pulumi.Input[float]`) - Number of entities pending to be replicated.
-          * `post_migration_name` (`pulumi.Input[str]`) - Name to access Standard Namespace after migration
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of Migration Configuration 
-          * `target_namespace` (`pulumi.Input[str]`) - Existing premium Namespace ARM Id name which has no entities, will be used for migration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceMigrationConfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

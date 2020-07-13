@@ -93,8 +93,8 @@ namespace Pulumi.AzureRM.Insights
         {
         }
 
-        private ComponentFavorite(string name, Input<string> id, ComponentFavoriteState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:insights:ComponentFavorite", name, state, MakeResourceOptions(options, id))
+        private ComponentFavorite(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:insights:ComponentFavorite", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -116,11 +116,10 @@ namespace Pulumi.AzureRM.Insights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ComponentFavorite Get(string name, Input<string> id, ComponentFavoriteState? state = null, CustomResourceOptions? options = null)
+        public static ComponentFavorite Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ComponentFavorite(name, id, state, options);
+            return new ComponentFavorite(name, id, options);
         }
     }
 
@@ -199,85 +198,6 @@ namespace Pulumi.AzureRM.Insights
         public Input<string> ResourceName { get; set; } = null!;
 
         public ComponentFavoriteArgs()
-        {
-        }
-    }
-
-    public sealed class ComponentFavoriteState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Favorite category, as defined by the user at creation time.
-        /// </summary>
-        [Input("Category")]
-        public Input<string>? Category { get; set; }
-
-        /// <summary>
-        /// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-        /// </summary>
-        [Input("Config")]
-        public Input<string>? Config { get; set; }
-
-        /// <summary>
-        /// Internally assigned unique id of the favorite definition.
-        /// </summary>
-        [Input("FavoriteId", required: true)]
-        public Input<string> FavoriteId { get; set; } = null!;
-
-        /// <summary>
-        /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        /// </summary>
-        [Input("FavoriteType")]
-        public Input<string>? FavoriteType { get; set; }
-
-        /// <summary>
-        /// Flag denoting wether or not this favorite was generated from a template.
-        /// </summary>
-        [Input("IsGeneratedFromTemplate")]
-        public Input<bool>? IsGeneratedFromTemplate { get; set; }
-
-        /// <summary>
-        /// The user-defined name of the favorite.
-        /// </summary>
-        [Input("Name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The source of the favorite definition.
-        /// </summary>
-        [Input("SourceType")]
-        public Input<string>? SourceType { get; set; }
-
-        [Input("Tags")]
-        private InputList<string>? _Tags;
-
-        /// <summary>
-        /// A list of 0 or more tags that are associated with this favorite definition
-        /// </summary>
-        public InputList<string> Tags
-        {
-            get => _Tags ?? (_Tags = new InputList<string>());
-            set => _Tags = value;
-        }
-
-        /// <summary>
-        /// Date and time in UTC of the last modification that was made to this favorite definition.
-        /// </summary>
-        [Input("TimeModified", required: true)]
-        public Input<string> TimeModified { get; set; } = null!;
-
-        /// <summary>
-        /// Unique user id of the specific user that owns this favorite.
-        /// </summary>
-        [Input("UserId", required: true)]
-        public Input<string> UserId { get; set; } = null!;
-
-        /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-        /// </summary>
-        [Input("Version")]
-        public Input<string>? Version { get; set; }
-
-        public ComponentFavoriteState()
         {
         }
     }

@@ -83,7 +83,7 @@ class ServiceApiSchema(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceApiSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,24 +91,11 @@ class ServiceApiSchema(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the Schema.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `content_type` (`pulumi.Input[str]`) - Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-          * `document` (`pulumi.Input[dict]`) - Create or update Properties of the Schema Document.
-            * `definitions` (`pulumi.Input[dict]`) - Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-            * `value` (`pulumi.Input[str]`) - Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceApiSchema(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private P2svpnGateway(string name, Input<string> id, P2svpnGatewayState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:P2svpnGateway", name, state, MakeResourceOptions(options, id))
+        private P2svpnGateway(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:P2svpnGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static P2svpnGateway Get(string name, Input<string> id, P2svpnGatewayState? state = null, CustomResourceOptions? options = null)
+        public static P2svpnGateway Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new P2svpnGateway(name, id, state, options);
+            return new P2svpnGateway(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Network
         }
 
         public P2svpnGatewayArgs()
-        {
-        }
-    }
-
-    public sealed class P2svpnGatewayState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the P2SVpnGateway.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.P2SVpnGatewayPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public P2svpnGatewayState()
         {
         }
     }

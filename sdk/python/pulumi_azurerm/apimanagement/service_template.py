@@ -90,7 +90,7 @@ class ServiceTemplate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -98,30 +98,11 @@ class ServiceTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Email Template entity contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `body` (`pulumi.Input[str]`) - Email Template Body. This should be a valid XDocument
-          * `description` (`pulumi.Input[str]`) - Description of the Email Template.
-          * `is_default` (`pulumi.Input[bool]`) - Whether the template is the default template provided by Api Management or has been edited.
-          * `parameters` (`pulumi.Input[list]`) - Email Template Parameter values.
-            * `description` (`pulumi.Input[str]`) - Template parameter description.
-            * `name` (`pulumi.Input[str]`) - Template parameter name.
-            * `title` (`pulumi.Input[str]`) - Template parameter title.
-
-          * `subject` (`pulumi.Input[str]`) - Subject of the Template.
-          * `title` (`pulumi.Input[str]`) - Title of the Template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceTemplate(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

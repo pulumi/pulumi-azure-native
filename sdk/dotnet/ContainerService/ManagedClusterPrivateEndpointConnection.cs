@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.ContainerService
         {
         }
 
-        private ManagedClusterPrivateEndpointConnection(string name, Input<string> id, ManagedClusterPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:containerservice:ManagedClusterPrivateEndpointConnection", name, state, MakeResourceOptions(options, id))
+        private ManagedClusterPrivateEndpointConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:containerservice:ManagedClusterPrivateEndpointConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.ContainerService
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ManagedClusterPrivateEndpointConnection Get(string name, Input<string> id, ManagedClusterPrivateEndpointConnectionState? state = null, CustomResourceOptions? options = null)
+        public static ManagedClusterPrivateEndpointConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ManagedClusterPrivateEndpointConnection(name, id, state, options);
+            return new ManagedClusterPrivateEndpointConnection(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.ContainerService
         public Input<string> ResourceName { get; set; } = null!;
 
         public ManagedClusterPrivateEndpointConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class ManagedClusterPrivateEndpointConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the private endpoint connection.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a private endpoint connection.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ManagedClusterPrivateEndpointConnectionState()
         {
         }
     }

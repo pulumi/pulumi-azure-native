@@ -131,7 +131,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetworkVirtualAppliance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,54 +139,11 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[dict] identity: The service principal that has read access to cloud-init and config blob.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the Network Virtual Appliance.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `boot_strap_configuration_blobs` (`pulumi.Input[list]`) - BootStrapConfigurationBlobs storage URLs.
-          * `cloud_init_configuration` (`pulumi.Input[str]`) - CloudInitConfiguration string in plain text.
-          * `cloud_init_configuration_blobs` (`pulumi.Input[list]`) - CloudInitConfigurationBlob storage URLs.
-          * `nva_sku` (`pulumi.Input[dict]`) - Network Virtual Appliance SKU.
-            * `bundled_scale_unit` (`pulumi.Input[str]`) - Virtual Appliance Scale Unit.
-            * `market_place_version` (`pulumi.Input[str]`) - Virtual Appliance Version.
-            * `vendor` (`pulumi.Input[str]`) - Virtual Appliance Vendor.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `virtual_appliance_asn` (`pulumi.Input[float]`) - VirtualAppliance ASN.
-          * `virtual_appliance_nics` (`pulumi.Input[list]`) - List of Virtual Appliance Network Interfaces.
-            * `name` (`pulumi.Input[str]`) - NIC name.
-            * `private_ip_address` (`pulumi.Input[str]`) - Private IP address.
-            * `public_ip_address` (`pulumi.Input[str]`) - Public IP address.
-
-          * `virtual_appliance_sites` (`pulumi.Input[list]`) - List of references to VirtualApplianceSite.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `virtual_hub` (`pulumi.Input[dict]`) - The Virtual Hub where Network Virtual Appliance is being deployed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return NetworkVirtualAppliance(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

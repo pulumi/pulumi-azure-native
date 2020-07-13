@@ -103,7 +103,7 @@ class PolicySetDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PolicySetDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,38 +111,11 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the policy set definition.
-        :param pulumi.Input[dict] properties: The policy definition properties.
-        :param pulumi.Input[str] type: The type of the resource (Microsoft.Authorization/policySetDefinitions).
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The policy set definition description.
-          * `display_name` (`pulumi.Input[str]`) - The display name of the policy set definition.
-          * `metadata` (`pulumi.Input[dict]`) - The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-          * `parameters` (`pulumi.Input[dict]`) - The policy set definition parameters that can be used in policy definition references.
-          * `policy_definition_groups` (`pulumi.Input[list]`) - The metadata describing groups of policy definition references within the policy set definition.
-            * `additional_metadata_id` (`pulumi.Input[str]`) - A resource ID of a resource that contains additional metadata about the group.
-            * `category` (`pulumi.Input[str]`) - The group's category.
-            * `description` (`pulumi.Input[str]`) - The group's description.
-            * `display_name` (`pulumi.Input[str]`) - The group's display name.
-            * `name` (`pulumi.Input[str]`) - The name of the group.
-
-          * `policy_definitions` (`pulumi.Input[list]`) - An array of policy definition references.
-            * `group_names` (`pulumi.Input[list]`) - The name of the groups that this policy definition reference belongs to.
-            * `parameters` (`pulumi.Input[dict]`) - The parameter values for the referenced policy rule. The keys are the parameter names.
-            * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition.
-            * `policy_definition_reference_id` (`pulumi.Input[str]`) - A unique id (within the policy set definition) for this policy definition reference.
-
-          * `policy_type` (`pulumi.Input[str]`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return PolicySetDefinition(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

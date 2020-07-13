@@ -16,11 +16,10 @@ export class Mediaservice extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MediaserviceState, opts?: pulumi.CustomResourceOptions): Mediaservice {
-        return new Mediaservice(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Mediaservice {
+        return new Mediaservice(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class Mediaservice extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MediaserviceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MediaserviceArgs | MediaserviceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: MediaserviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MediaserviceState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as MediaserviceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -91,14 +79,13 @@ export class Mediaservice extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["identity"] = args ? args.identity : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -108,36 +95,6 @@ export class Mediaservice extends pulumi.CustomResource {
         }
         super(Mediaservice.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A Media Services account.
- */
-export interface MediaserviceState {
-    /**
-     * The Managed Identity for the Media Services account.
-     */
-    readonly identity?: pulumi.Input<inputs.media.MediaServiceIdentityResponse>;
-    /**
-     * The geo-location where the resource lives
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The resource properties.
-     */
-    readonly properties: pulumi.Input<inputs.media.MediaServicePropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

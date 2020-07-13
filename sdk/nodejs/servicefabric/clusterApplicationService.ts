@@ -16,11 +16,10 @@ export class ClusterApplicationService extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterApplicationServiceState, opts?: pulumi.CustomResourceOptions): ClusterApplicationService {
-        return new ClusterApplicationService(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ClusterApplicationService {
+        return new ClusterApplicationService(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class ClusterApplicationService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterApplicationServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterApplicationServiceArgs | ClusterApplicationServiceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ClusterApplicationServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterApplicationServiceState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ClusterApplicationServiceArgs | undefined;
             if (!args || args.applicationName === undefined) {
                 throw new Error("Missing required property 'applicationName'");
             }
@@ -94,16 +82,15 @@ export class ClusterApplicationService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["applicationName"] = args ? args.applicationName : undefined;
+        inputs["clusterName"] = args ? args.clusterName : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -113,36 +100,6 @@ export class ClusterApplicationService extends pulumi.CustomResource {
         }
         super(ClusterApplicationService.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The service resource.
- */
-export interface ClusterApplicationServiceState {
-    /**
-     * Azure resource etag.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * It will be deprecated in New API, resource location depends on the parent resource.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Azure resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The service resource properties.
-     */
-    readonly properties: pulumi.Input<inputs.servicefabric.ServiceResourcePropertiesResponse>;
-    /**
-     * Azure resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Azure resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

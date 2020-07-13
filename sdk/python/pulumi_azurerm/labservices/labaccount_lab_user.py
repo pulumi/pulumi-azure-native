@@ -104,7 +104,7 @@ class LabaccountLabUser(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabaccountLabUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,39 +112,11 @@ class LabaccountLabUser(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: These are the properties for the user registered under a lab.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `email` (`pulumi.Input[str]`) - The user email address, as it was specified during registration.
-          * `family_name` (`pulumi.Input[str]`) - The user family name, as it was specified during registration.
-          * `given_name` (`pulumi.Input[str]`) - The user given name, as it was specified during registration.
-          * `latest_operation_result` (`pulumi.Input[dict]`) - The details of the latest operation. ex: status, error
-            * `error_code` (`pulumi.Input[str]`) - Error code on failure.
-            * `error_message` (`pulumi.Input[str]`) - The error message.
-            * `http_method` (`pulumi.Input[str]`) - The HttpMethod - PUT/POST/DELETE for the operation.
-            * `operation_url` (`pulumi.Input[str]`) - The URL to use to check long-running operation status
-            * `request_uri` (`pulumi.Input[str]`) - Request URI of the operation.
-            * `status` (`pulumi.Input[str]`) - The current status of the operation.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `tenant_id` (`pulumi.Input[str]`) - The user tenant ID, as it was specified during registration.
-          * `total_usage` (`pulumi.Input[str]`) - How long the user has used his VMs in this lab
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabaccountLabUser(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

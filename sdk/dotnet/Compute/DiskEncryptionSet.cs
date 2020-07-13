@@ -60,8 +60,8 @@ namespace Pulumi.AzureRM.Compute
         {
         }
 
-        private DiskEncryptionSet(string name, Input<string> id, DiskEncryptionSetState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:compute:DiskEncryptionSet", name, state, MakeResourceOptions(options, id))
+        private DiskEncryptionSet(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:compute:DiskEncryptionSet", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -83,11 +83,10 @@ namespace Pulumi.AzureRM.Compute
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DiskEncryptionSet Get(string name, Input<string> id, DiskEncryptionSetState? state = null, CustomResourceOptions? options = null)
+        public static DiskEncryptionSet Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DiskEncryptionSet(name, id, state, options);
+            return new DiskEncryptionSet(name, id, options);
         }
     }
 
@@ -133,52 +132,6 @@ namespace Pulumi.AzureRM.Compute
         }
 
         public DiskEncryptionSetArgs()
-        {
-        }
-    }
-
-    public sealed class DiskEncryptionSetState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.EncryptionSetIdentityResponseGetArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("properties", required: true)]
-        public Input<Inputs.EncryptionSetPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DiskEncryptionSetState()
         {
         }
     }

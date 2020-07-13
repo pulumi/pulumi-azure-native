@@ -176,7 +176,7 @@ class DatabaseAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DatabaseAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -184,83 +184,11 @@ class DatabaseAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
-        :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[str] name: The name of the ARM resource.
-        :param pulumi.Input[dict] properties: Properties for the database account.
-        :param pulumi.Input[dict] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        :param pulumi.Input[str] type: The type of Azure resource.
-
-        The **properties** object supports the following:
-
-          * `api_properties` (`pulumi.Input[dict]`) - API specific properties.
-            * `server_version` (`pulumi.Input[str]`) - Describes the ServerVersion of an a MongoDB account.
-
-          * `capabilities` (`pulumi.Input[list]`) - List of Cosmos DB capabilities for the account
-            * `name` (`pulumi.Input[str]`) - Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
-
-          * `connector_offer` (`pulumi.Input[str]`) - The cassandra connector offer type for the Cosmos DB database C* account.
-          * `consistency_policy` (`pulumi.Input[dict]`) - The consistency policy for the Cosmos DB database account.
-            * `default_consistency_level` (`pulumi.Input[str]`) - The default consistency level and configuration settings of the Cosmos DB account.
-            * `max_interval_in_seconds` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-            * `max_staleness_prefix` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
-
-          * `database_account_offer_type` (`pulumi.Input[str]`) - The offer type for the Cosmos DB database account. Default value: Standard.
-          * `disable_key_based_metadata_write_access` (`pulumi.Input[bool]`) - Disable write operations on metadata resources (databases, containers, throughput) via account keys
-          * `document_endpoint` (`pulumi.Input[str]`) - The connection endpoint for the Cosmos DB database account.
-          * `enable_analytical_storage` (`pulumi.Input[bool]`) - Flag to indicate whether to enable storage analytics.
-          * `enable_automatic_failover` (`pulumi.Input[bool]`) - Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-          * `enable_cassandra_connector` (`pulumi.Input[bool]`) - Enables the cassandra connector on the Cosmos DB C* account
-          * `enable_free_tier` (`pulumi.Input[bool]`) - Flag to indicate whether Free Tier is enabled.
-          * `enable_multiple_write_locations` (`pulumi.Input[bool]`) - Enables the account to write in multiple locations
-          * `failover_policies` (`pulumi.Input[list]`) - An array that contains the regions ordered by their failover priorities.
-            * `failover_priority` (`pulumi.Input[float]`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-            * `id` (`pulumi.Input[str]`) - The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-            * `location_name` (`pulumi.Input[str]`) - The name of the region in which the database account exists.
-
-          * `ip_rules` (`pulumi.Input[dict]`) - List of IpRules.
-          * `is_virtual_network_filter_enabled` (`pulumi.Input[bool]`) - Flag to indicate whether to enable/disable Virtual Network ACL rules.
-          * `key_vault_key_uri` (`pulumi.Input[str]`) - The URI of the key vault
-          * `locations` (`pulumi.Input[list]`) - An array that contains all of the locations enabled for the Cosmos DB account.
-            * `document_endpoint` (`pulumi.Input[str]`) - The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
-            * `failover_priority` (`pulumi.Input[float]`) - The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
-            * `id` (`pulumi.Input[str]`) - The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
-            * `is_zone_redundant` (`pulumi.Input[bool]`) - Flag to indicate whether or not this region is an AvailabilityZone region
-            * `location_name` (`pulumi.Input[str]`) - The name of the region.
-            * `provisioning_state` (`pulumi.Input[str]`) - The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of Private Endpoint Connections configured for the Cosmos DB account.
-            * `id` (`pulumi.Input[str]`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-            * `name` (`pulumi.Input[str]`) - The name of the resource
-            * `properties` (`pulumi.Input[dict]`) - Resource properties.
-              * `private_endpoint` (`pulumi.Input[dict]`) - Private endpoint which the connection belongs to.
-                * `id` (`pulumi.Input[str]`) - Resource id of the private endpoint.
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Connection State of the Private Endpoint Connection.
-                * `actions_required` (`pulumi.Input[str]`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-                * `status` (`pulumi.Input[str]`) - The private link service connection status.
-
-            * `type` (`pulumi.Input[str]`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-          * `public_network_access` (`pulumi.Input[str]`) - Whether requests from Public Network are allowed
-          * `read_locations` (`pulumi.Input[list]`) - An array that contains of the read locations enabled for the Cosmos DB account.
-          * `virtual_network_rules` (`pulumi.Input[list]`) - List of Virtual Network ACL rules configured for the Cosmos DB account.
-            * `id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
-            * `ignore_missing_v_net_service_endpoint` (`pulumi.Input[bool]`) - Create firewall rule before the virtual network has vnet service endpoint enabled.
-
-          * `write_locations` (`pulumi.Input[list]`) - An array that contains the write location for the Cosmos DB account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DatabaseAccount(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

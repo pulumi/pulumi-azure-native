@@ -159,7 +159,7 @@ class BatchAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing BatchAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -167,79 +167,11 @@ class BatchAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the Batch account.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties associated with the account.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of the Batch account. This property will only be provided for a system assigned identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id associated with the Batch account. This property will only be provided for a system assigned identity.
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the Batch account.
-
-        The **properties** object supports the following:
-
-          * `account_endpoint` (`pulumi.Input[str]`) - The account endpoint used to interact with the Batch service.
-          * `active_job_and_job_schedule_quota` (`pulumi.Input[float]`)
-          * `auto_storage` (`pulumi.Input[dict]`) - Contains information about the auto-storage account associated with a Batch account.
-            * `last_key_sync` (`pulumi.Input[str]`) - The UTC time at which storage keys were last synchronized with the Batch account.
-            * `storage_account_id` (`pulumi.Input[str]`) - The resource ID of the storage account to be used for auto-storage account.
-
-          * `dedicated_core_quota` (`pulumi.Input[float]`) - For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-          * `dedicated_core_quota_per_vm_family` (`pulumi.Input[list]`) - A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-            * `core_quota` (`pulumi.Input[float]`) - The core quota for the VM family for the Batch account.
-            * `name` (`pulumi.Input[str]`) - The Virtual Machine family name.
-
-          * `dedicated_core_quota_per_vm_family_enforced` (`pulumi.Input[bool]`) - Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
-          * `encryption` (`pulumi.Input[dict]`) - Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-            * `key_source` (`pulumi.Input[str]`) - Type of the key source.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Additional details when using Microsoft.KeyVault
-              * `key_identifier` (`pulumi.Input[str]`) - Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
-                
-                 The Batch Account has a System Assigned identity
-                 The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-                 The KeyVault has soft-delete and purge protection enabled
-
-          * `key_vault_reference` (`pulumi.Input[dict]`) - Identifies the Azure key vault associated with a Batch account.
-            * `id` (`pulumi.Input[str]`) - The resource ID of the Azure key vault associated with the Batch account.
-            * `url` (`pulumi.Input[str]`) - The URL of the Azure key vault associated with the Batch account.
-
-          * `low_priority_core_quota` (`pulumi.Input[float]`) - For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-          * `pool_allocation_mode` (`pulumi.Input[str]`) - The allocation mode for creating pools in the Batch account.
-          * `pool_quota` (`pulumi.Input[float]`)
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of private endpoint connections associated with the Batch account
-            * `etag` (`pulumi.Input[str]`) - The ETag of the resource, used for concurrency statements.
-            * `id` (`pulumi.Input[str]`) - The ID of the resource.
-            * `name` (`pulumi.Input[str]`) - The name of the resource.
-            * `properties` (`pulumi.Input[dict]`) - The properties associated with the private endpoint connection.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The private endpoint of the private endpoint connection.
-                * `id` (`pulumi.Input[str]`)
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - The private link service connection state of the private endpoint connection
-                * `action_required` (`pulumi.Input[str]`)
-                * `description` (`pulumi.Input[str]`)
-                * `status` (`pulumi.Input[str]`)
-
-              * `provisioning_state` (`pulumi.Input[str]`)
-
-            * `type` (`pulumi.Input[str]`) - The type of the resource.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioned state of the resource
-          * `public_network_access` (`pulumi.Input[str]`) - If not specified, the default value is 'enabled'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return BatchAccount(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

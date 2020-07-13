@@ -14,11 +14,10 @@ export class AccountShareSubscriptionDataSetMapping extends pulumi.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountShareSubscriptionDataSetMappingState, opts?: pulumi.CustomResourceOptions): AccountShareSubscriptionDataSetMapping {
-        return new AccountShareSubscriptionDataSetMapping(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AccountShareSubscriptionDataSetMapping {
+        return new AccountShareSubscriptionDataSetMapping(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -55,16 +54,8 @@ export class AccountShareSubscriptionDataSetMapping extends pulumi.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountShareSubscriptionDataSetMappingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountShareSubscriptionDataSetMappingArgs | AccountShareSubscriptionDataSetMappingState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AccountShareSubscriptionDataSetMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountShareSubscriptionDataSetMappingState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AccountShareSubscriptionDataSetMappingArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -80,13 +71,12 @@ export class AccountShareSubscriptionDataSetMapping extends pulumi.CustomResourc
             if (!args || args.shareSubscriptionName === undefined) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["accountName"] = args ? args.accountName : undefined;
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -96,24 +86,6 @@ export class AccountShareSubscriptionDataSetMapping extends pulumi.CustomResourc
         }
         super(AccountShareSubscriptionDataSetMapping.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A data set mapping data transfer object.
- */
-export interface AccountShareSubscriptionDataSetMappingState {
-    /**
-     * Kind of data set mapping.
-     */
-    readonly kind: pulumi.Input<string>;
-    /**
-     * Name of the azure resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Type of the azure resource
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

@@ -104,7 +104,7 @@ class LabArtifactsource(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabArtifactsource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,35 +112,11 @@ class LabArtifactsource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `arm_template_folder_path` (`pulumi.Input[str]`) - The folder containing Azure Resource Manager templates.
-          * `branch_ref` (`pulumi.Input[str]`) - The artifact source's branch reference.
-          * `created_date` (`pulumi.Input[str]`) - The artifact source's creation date.
-          * `display_name` (`pulumi.Input[str]`) - The artifact source's display name.
-          * `folder_path` (`pulumi.Input[str]`) - The folder containing artifacts.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `security_token` (`pulumi.Input[str]`) - The security token to authenticate to the artifact source.
-          * `source_type` (`pulumi.Input[str]`) - The artifact source's type.
-          * `status` (`pulumi.Input[str]`) - Indicates if the artifact source is enabled (values: Enabled, Disabled).
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-          * `uri` (`pulumi.Input[str]`) - The artifact source's URI.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabArtifactsource(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

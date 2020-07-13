@@ -16,11 +16,10 @@ export class NamespaceNotificationHubAuthorizationRule extends pulumi.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamespaceNotificationHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): NamespaceNotificationHubAuthorizationRule {
-        return new NamespaceNotificationHubAuthorizationRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamespaceNotificationHubAuthorizationRule {
+        return new NamespaceNotificationHubAuthorizationRule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class NamespaceNotificationHubAuthorizationRule extends pulumi.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NamespaceNotificationHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NamespaceNotificationHubAuthorizationRuleArgs | NamespaceNotificationHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: NamespaceNotificationHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NamespaceNotificationHubAuthorizationRuleState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as NamespaceNotificationHubAuthorizationRuleArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -97,16 +85,15 @@ export class NamespaceNotificationHubAuthorizationRule extends pulumi.CustomReso
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["namespaceName"] = args ? args.namespaceName : undefined;
+        inputs["notificationHubName"] = args ? args.notificationHubName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["location"] = undefined /*out*/;
+        inputs["sku"] = undefined /*out*/;
+        inputs["tags"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -116,36 +103,6 @@ export class NamespaceNotificationHubAuthorizationRule extends pulumi.CustomReso
         }
         super(NamespaceNotificationHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Description of a Namespace AuthorizationRules.
- */
-export interface NamespaceNotificationHubAuthorizationRuleState {
-    /**
-     * Resource location
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Resource name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the Namespace AuthorizationRule.
-     */
-    readonly properties: pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse>;
-    /**
-     * The sku of the created namespace
-     */
-    readonly sku?: pulumi.Input<inputs.notificationhubs.SkuResponse>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

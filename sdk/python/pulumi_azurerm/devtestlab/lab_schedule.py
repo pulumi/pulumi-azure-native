@@ -128,7 +128,7 @@ class LabSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -136,47 +136,11 @@ class LabSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `created_date` (`pulumi.Input[str]`) - The creation date of the schedule.
-          * `daily_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur once each day of the week, specify the daily recurrence.
-            * `time` (`pulumi.Input[str]`) - The time of day the schedule will occur.
-
-          * `hourly_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
-            * `minute` (`pulumi.Input[float]`) - Minutes of the hour the schedule will run.
-
-          * `notification_settings` (`pulumi.Input[dict]`) - Notification settings.
-            * `email_recipient` (`pulumi.Input[str]`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-            * `notification_locale` (`pulumi.Input[str]`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
-            * `status` (`pulumi.Input[str]`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-            * `time_in_minutes` (`pulumi.Input[float]`) - Time in minutes before event at which notification will be sent.
-            * `webhook_url` (`pulumi.Input[str]`) - The webhook URL to which the notification will be sent.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `status` (`pulumi.Input[str]`) - The status of the schedule (i.e. Enabled, Disabled)
-          * `target_resource_id` (`pulumi.Input[str]`) - The resource ID to which the schedule belongs
-          * `task_type` (`pulumi.Input[str]`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-          * `time_zone_id` (`pulumi.Input[str]`) - The time zone ID (e.g. Pacific Standard time).
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-          * `weekly_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
-            * `time` (`pulumi.Input[str]`) - The time of the day the schedule will occur.
-            * `weekdays` (`pulumi.Input[list]`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabSchedule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -16,11 +16,10 @@ export class Labaccount extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LabaccountState, opts?: pulumi.CustomResourceOptions): Labaccount {
-        return new Labaccount(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Labaccount {
+        return new Labaccount(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,31 +64,20 @@ export class Labaccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LabaccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LabaccountArgs | LabaccountState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: LabaccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LabaccountState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as LabaccountArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -99,32 +87,6 @@ export class Labaccount extends pulumi.CustomResource {
         }
         super(Labaccount.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Represents a lab account.
- */
-export interface LabaccountState {
-    /**
-     * The location of the resource.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.labservices.LabAccountPropertiesResponse>;
-    /**
-     * The tags of the resource.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

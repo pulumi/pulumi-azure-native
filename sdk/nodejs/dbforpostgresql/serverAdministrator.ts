@@ -16,11 +16,10 @@ export class ServerAdministrator extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServerAdministratorState, opts?: pulumi.CustomResourceOptions): ServerAdministrator {
-        return new ServerAdministrator(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerAdministrator {
+        return new ServerAdministrator(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,27 +56,18 @@ export class ServerAdministrator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerAdministratorArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerAdministratorArgs | ServerAdministratorState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ServerAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServerAdministratorState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ServerAdministratorArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -87,24 +77,6 @@ export class ServerAdministrator extends pulumi.CustomResource {
         }
         super(ServerAdministrator.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Represents a and external administrator to be created.
- */
-export interface ServerAdministratorState {
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the server AAD administrator.
-     */
-    readonly properties: pulumi.Input<inputs.dbforpostgresql.ServerAdministratorPropertiesResponse>;
-    /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

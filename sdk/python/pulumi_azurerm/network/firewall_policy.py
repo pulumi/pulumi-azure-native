@@ -114,7 +114,7 @@ class FirewallPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing FirewallPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -122,42 +122,11 @@ class FirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the firewall policy.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `base_policy` (`pulumi.Input[dict]`) - The parent firewall policy from which rules are inherited.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `child_policies` (`pulumi.Input[list]`) - List of references to Child Firewall Policies.
-          * `dns_settings` (`pulumi.Input[dict]`) - DNS Proxy Settings definition.
-            * `enable_proxy` (`pulumi.Input[bool]`) - Enable DNS Proxy on Firewalls attached to the Firewall Policy.
-            * `require_proxy_for_network_rules` (`pulumi.Input[bool]`) - FQDNs in Network Rules are supported when set to true.
-            * `servers` (`pulumi.Input[list]`) - List of Custom DNS Servers.
-
-          * `firewalls` (`pulumi.Input[list]`) - List of references to Azure Firewalls that this Firewall Policy is associated with.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the firewall policy resource.
-          * `rule_collection_groups` (`pulumi.Input[list]`) - List of references to FirewallPolicyRuleCollectionGroups.
-          * `threat_intel_mode` (`pulumi.Input[str]`) - The operation mode for Threat Intelligence.
-          * `threat_intel_whitelist` (`pulumi.Input[dict]`) - ThreatIntel Whitelist for Firewall Policy.
-            * `fqdns` (`pulumi.Input[list]`) - List of FQDNs for the ThreatIntel Whitelist.
-            * `ip_addresses` (`pulumi.Input[list]`) - List of IP addresses for the ThreatIntel Whitelist.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return FirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

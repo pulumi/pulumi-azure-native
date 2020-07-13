@@ -81,7 +81,7 @@ class DataBoxEdgeDeviceBandwidthSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataBoxEdgeDeviceBandwidthSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,24 +89,11 @@ class DataBoxEdgeDeviceBandwidthSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The object name.
-        :param pulumi.Input[dict] properties: The properties of the bandwidth schedule.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `days` (`pulumi.Input[list]`) - The days of the week when this schedule is applicable.
-          * `rate_in_mbps` (`pulumi.Input[float]`) - The bandwidth rate in Mbps.
-          * `start` (`pulumi.Input[str]`) - The start time of the schedule in UTC.
-          * `stop` (`pulumi.Input[str]`) - The stop time of the schedule in UTC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataBoxEdgeDeviceBandwidthSchedule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

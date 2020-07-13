@@ -77,7 +77,7 @@ class AccountFirewallRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AccountFirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,22 +85,11 @@ class AccountFirewallRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: The firewall rule properties.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-          * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AccountFirewallRule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

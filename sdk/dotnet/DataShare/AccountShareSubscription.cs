@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.DataShare
         {
         }
 
-        private AccountShareSubscription(string name, Input<string> id, AccountShareSubscriptionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:datashare:AccountShareSubscription", name, state, MakeResourceOptions(options, id))
+        private AccountShareSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:datashare:AccountShareSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.DataShare
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static AccountShareSubscription Get(string name, Input<string> id, AccountShareSubscriptionState? state = null, CustomResourceOptions? options = null)
+        public static AccountShareSubscription Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new AccountShareSubscription(name, id, state, options);
+            return new AccountShareSubscription(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.DataShare
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public AccountShareSubscriptionArgs()
-        {
-        }
-    }
-
-    public sealed class AccountShareSubscriptionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the azure resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties on the share subscription
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ShareSubscriptionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the azure resource
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public AccountShareSubscriptionState()
         {
         }
     }

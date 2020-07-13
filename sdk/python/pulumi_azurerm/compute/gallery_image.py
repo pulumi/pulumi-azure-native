@@ -142,7 +142,7 @@ class GalleryImage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing GalleryImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -150,53 +150,11 @@ class GalleryImage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Describes the properties of a gallery Image Definition.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description of this gallery Image Definition resource. This property is updatable.
-          * `disallowed` (`pulumi.Input[dict]`) - Describes the disallowed disk types.
-            * `disk_types` (`pulumi.Input[list]`) - A list of disk types.
-
-          * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-          * `eula` (`pulumi.Input[str]`) - The Eula agreement for the gallery Image Definition.
-          * `hyper_v_generation` (`pulumi.Input[str]`) - The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-          * `identifier` (`pulumi.Input[dict]`) - This is the gallery Image Definition identifier.
-            * `offer` (`pulumi.Input[str]`) - The name of the gallery Image Definition offer.
-            * `publisher` (`pulumi.Input[str]`) - The name of the gallery Image Definition publisher.
-            * `sku` (`pulumi.Input[str]`) - The name of the gallery Image Definition SKU.
-
-          * `os_state` (`pulumi.Input[str]`) - This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-          * `os_type` (`pulumi.Input[str]`) - This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-          * `privacy_statement_uri` (`pulumi.Input[str]`) - The privacy statement uri.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-          * `purchase_plan` (`pulumi.Input[dict]`) - Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-            * `name` (`pulumi.Input[str]`) - The plan ID.
-            * `product` (`pulumi.Input[str]`) - The product ID.
-            * `publisher` (`pulumi.Input[str]`) - The publisher ID.
-
-          * `recommended` (`pulumi.Input[dict]`) - The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-            * `memory` (`pulumi.Input[dict]`) - Describes the resource range.
-              * `max` (`pulumi.Input[float]`) - The maximum number of the resource.
-              * `min` (`pulumi.Input[float]`) - The minimum number of the resource.
-
-            * `v_cp_us` (`pulumi.Input[dict]`) - Describes the resource range.
-
-          * `release_note_uri` (`pulumi.Input[str]`) - The release note uri.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

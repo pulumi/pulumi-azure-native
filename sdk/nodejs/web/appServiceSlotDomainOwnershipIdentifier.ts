@@ -16,11 +16,10 @@ export class AppServiceSlotDomainOwnershipIdentifier extends pulumi.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AppServiceSlotDomainOwnershipIdentifierState, opts?: pulumi.CustomResourceOptions): AppServiceSlotDomainOwnershipIdentifier {
-        return new AppServiceSlotDomainOwnershipIdentifier(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServiceSlotDomainOwnershipIdentifier {
+        return new AppServiceSlotDomainOwnershipIdentifier(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class AppServiceSlotDomainOwnershipIdentifier extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppServiceSlotDomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppServiceSlotDomainOwnershipIdentifierArgs | AppServiceSlotDomainOwnershipIdentifierState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AppServiceSlotDomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AppServiceSlotDomainOwnershipIdentifierState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AppServiceSlotDomainOwnershipIdentifierArgs | undefined;
             if (!args || args.domainOwnershipIdentifierName === undefined) {
                 throw new Error("Missing required property 'domainOwnershipIdentifierName'");
             }
@@ -84,14 +74,13 @@ export class AppServiceSlotDomainOwnershipIdentifier extends pulumi.CustomResour
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["slot"] = args ? args.slot : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -101,28 +90,6 @@ export class AppServiceSlotDomainOwnershipIdentifier extends pulumi.CustomResour
         }
         super(AppServiceSlotDomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A domain specific resource identifier.
- */
-export interface AppServiceSlotDomainOwnershipIdentifierState {
-    /**
-     * Kind of resource.
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * Resource Name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Identifier resource specific properties
-     */
-    readonly properties: pulumi.Input<inputs.web.IdentifierResponseProperties>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

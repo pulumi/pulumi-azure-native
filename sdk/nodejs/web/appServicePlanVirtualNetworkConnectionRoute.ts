@@ -16,11 +16,10 @@ export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AppServicePlanVirtualNetworkConnectionRouteState, opts?: pulumi.CustomResourceOptions): AppServicePlanVirtualNetworkConnectionRoute {
-        return new AppServicePlanVirtualNetworkConnectionRoute(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServicePlanVirtualNetworkConnectionRoute {
+        return new AppServicePlanVirtualNetworkConnectionRoute(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppServicePlanVirtualNetworkConnectionRouteArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppServicePlanVirtualNetworkConnectionRouteArgs | AppServicePlanVirtualNetworkConnectionRouteState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AppServicePlanVirtualNetworkConnectionRouteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AppServicePlanVirtualNetworkConnectionRouteState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AppServicePlanVirtualNetworkConnectionRouteArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -84,14 +74,13 @@ export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomRe
             if (!args || args.vnetName === undefined) {
                 throw new Error("Missing required property 'vnetName'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeName"] = args ? args.routeName : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["routeName"] = args ? args.routeName : undefined;
+        inputs["vnetName"] = args ? args.vnetName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -101,28 +90,6 @@ export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomRe
         }
         super(AppServicePlanVirtualNetworkConnectionRoute.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Virtual Network route contract used to pass routing information for a Virtual Network.
- */
-export interface AppServicePlanVirtualNetworkConnectionRouteState {
-    /**
-     * Kind of resource.
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * Resource Name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * VnetRoute resource specific properties
-     */
-    readonly properties: pulumi.Input<inputs.web.VnetRouteResponseProperties>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

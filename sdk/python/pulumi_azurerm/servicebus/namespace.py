@@ -98,7 +98,7 @@ class Namespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,37 +106,11 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The Geo-location where the resource lives
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of the namespace.
-        :param pulumi.Input[dict] sku: Properties of Sku
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `created_at` (`pulumi.Input[str]`) - The time the namespace was created.
-          * `metric_id` (`pulumi.Input[str]`) - Identifier for Azure Insights metrics
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the namespace.
-          * `service_bus_endpoint` (`pulumi.Input[str]`) - Endpoint you can use to perform Service Bus operations.
-          * `updated_at` (`pulumi.Input[str]`) - The time the namespace was updated.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
-          * `name` (`pulumi.Input[str]`) - Name of this SKU.
-          * `tier` (`pulumi.Input[str]`) - The billing tier of this particular SKU.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

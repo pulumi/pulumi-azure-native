@@ -144,7 +144,7 @@ class SearchService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing SearchService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -152,71 +152,11 @@ class SearchService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the resource.
-        :param pulumi.Input[str] location: The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: Properties of the Search service.
-        :param pulumi.Input[dict] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-        :param pulumi.Input[dict] tags: Tags to help categorize the resource in the Azure portal.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal ID of resource identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant ID of resource.
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **properties** object supports the following:
-
-          * `hosting_mode` (`pulumi.Input[str]`) - Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-          * `network_rule_set` (`pulumi.Input[dict]`) - Network specific rules that determine how the Azure Cognitive Search service may be reached.
-            * `ip_rules` (`pulumi.Input[list]`) - A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
-              * `value` (`pulumi.Input[str]`) - Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
-
-          * `partition_count` (`pulumi.Input[float]`) - The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - The list of private endpoint connections to the Azure Cognitive Search service.
-            * `id` (`pulumi.Input[str]`) - The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
-            * `name` (`pulumi.Input[str]`) - The name of the private endpoint connection.
-            * `properties` (`pulumi.Input[dict]`) - Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The private endpoint resource from Microsoft.Network provider.
-                * `id` (`pulumi.Input[str]`) - The resource id of the private endpoint resource from Microsoft.Network provider.
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The state of the last provisioning operation performed on the Search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create Search service. This is because the free service uses capacity that is already set up.
-          * `public_network_access` (`pulumi.Input[str]`) - This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-          * `replica_count` (`pulumi.Input[float]`) - The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-          * `shared_private_link_resources` (`pulumi.Input[list]`) - The list of shared private link resources managed by the Azure Cognitive Search service.
-            * `id` (`pulumi.Input[str]`) - The ID of the shared private link resource.
-            * `name` (`pulumi.Input[str]`) - The name of the shared private link resource.
-            * `properties` (`pulumi.Input[dict]`) - Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-              * `group_id` (`pulumi.Input[str]`) - The group id from the provider of resource the shared private link resource is for.
-              * `private_link_resource_id` (`pulumi.Input[str]`) - The resource id of the resource the shared private link resource is for.
-              * `request_message` (`pulumi.Input[str]`) - The request message for requesting approval of the shared private link resource.
-              * `status` (`pulumi.Input[str]`) - Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `status` (`pulumi.Input[str]`) - The status of the Search service. Possible values include: 'running': The Search service is running and no provisioning operations are underway. 'provisioning': The Search service is being provisioned or scaled up or down. 'deleting': The Search service is being deleted. 'degraded': The Search service is degraded. This can occur when the underlying search units are not healthy. The Search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The Search service is disabled. In this state, the service will reject all API requests. 'error': The Search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
-          * `status_details` (`pulumi.Input[str]`) - The details of the Search service status.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return SearchService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

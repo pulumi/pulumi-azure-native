@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Compute
         {
         }
 
-        private VirtualMachineScaleSetExtension(string name, Input<string> id, VirtualMachineScaleSetExtensionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:compute:VirtualMachineScaleSetExtension", name, state, MakeResourceOptions(options, id))
+        private VirtualMachineScaleSetExtension(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:compute:VirtualMachineScaleSetExtension", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Compute
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static VirtualMachineScaleSetExtension Get(string name, Input<string> id, VirtualMachineScaleSetExtensionState? state = null, CustomResourceOptions? options = null)
+        public static VirtualMachineScaleSetExtension Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new VirtualMachineScaleSetExtension(name, id, state, options);
+            return new VirtualMachineScaleSetExtension(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.Compute
         public Input<string> VmssExtensionName { get; set; } = null!;
 
         public VirtualMachineScaleSetExtensionArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualMachineScaleSetExtensionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the extension.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Describes the properties of a Virtual Machine Scale Set Extension.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualMachineScaleSetExtensionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public VirtualMachineScaleSetExtensionState()
         {
         }
     }

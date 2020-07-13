@@ -131,7 +131,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing IntegrationAccountBatchConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,47 +139,11 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: Gets the resource name.
-        :param pulumi.Input[dict] properties: The batch configuration properties.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: Gets the resource type.
-
-        The **properties** object supports the following:
-
-          * `batch_group_name` (`pulumi.Input[str]`) - The name of the batch group.
-          * `changed_time` (`pulumi.Input[str]`) - The artifact changed time.
-          * `created_time` (`pulumi.Input[str]`) - The artifact creation time.
-          * `metadata` (`pulumi.Input[dict]`)
-          * `release_criteria` (`pulumi.Input[dict]`) - The batch release criteria.
-            * `batch_size` (`pulumi.Input[float]`) - The batch size in bytes.
-            * `message_count` (`pulumi.Input[float]`) - The message count.
-            * `recurrence` (`pulumi.Input[dict]`) - The recurrence.
-              * `end_time` (`pulumi.Input[str]`) - The end time.
-              * `frequency` (`pulumi.Input[str]`) - The frequency.
-              * `interval` (`pulumi.Input[float]`) - The interval.
-              * `schedule` (`pulumi.Input[dict]`) - The recurrence schedule.
-                * `hours` (`pulumi.Input[list]`) - The hours.
-                * `minutes` (`pulumi.Input[list]`) - The minutes.
-                * `month_days` (`pulumi.Input[list]`) - The month days.
-                * `monthly_occurrences` (`pulumi.Input[list]`) - The monthly occurrences.
-                  * `day` (`pulumi.Input[str]`) - The day of the week.
-                  * `occurrence` (`pulumi.Input[float]`) - The occurrence.
-
-                * `week_days` (`pulumi.Input[list]`) - The days of the week.
-
-              * `start_time` (`pulumi.Input[str]`) - The start time.
-              * `time_zone` (`pulumi.Input[str]`) - The time zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return IntegrationAccountBatchConfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -74,7 +74,7 @@ class DiskAccess(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DiskAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -82,41 +82,11 @@ class DiskAccess(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
-            * `id` (`pulumi.Input[str]`) - private endpoint connection Id
-            * `name` (`pulumi.Input[str]`) - private endpoint connection name
-            * `properties` (`pulumi.Input[dict]`) - Resource properties.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
-                * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between DiskAccess and Virtual Network.
-                * `actions_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-                * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-                * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the private endpoint connection resource.
-
-            * `type` (`pulumi.Input[str]`) - private endpoint connection type
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The disk access resource provisioning state.
-          * `time_created` (`pulumi.Input[str]`) - The time when the disk access was created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DiskAccess(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

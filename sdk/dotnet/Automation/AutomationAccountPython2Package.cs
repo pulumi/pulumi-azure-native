@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Automation
         {
         }
 
-        private AutomationAccountPython2Package(string name, Input<string> id, AutomationAccountPython2PackageState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:automation:AutomationAccountPython2Package", name, state, MakeResourceOptions(options, id))
+        private AutomationAccountPython2Package(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:automation:AutomationAccountPython2Package", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Automation
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static AutomationAccountPython2Package Get(string name, Input<string> id, AutomationAccountPython2PackageState? state = null, CustomResourceOptions? options = null)
+        public static AutomationAccountPython2Package Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new AutomationAccountPython2Package(name, id, state, options);
+            return new AutomationAccountPython2Package(name, id, options);
         }
     }
 
@@ -133,55 +132,6 @@ namespace Pulumi.AzureRM.Automation
         }
 
         public AutomationAccountPython2PackageArgs()
-        {
-        }
-    }
-
-    public sealed class AutomationAccountPython2PackageState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Gets or sets the etag of the resource.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// The Azure Region where the resource lives
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the module properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ModulePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public AutomationAccountPython2PackageState()
         {
         }
     }

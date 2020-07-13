@@ -118,7 +118,7 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,50 +126,11 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: Certificate resource specific properties
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `canonical_name` (`pulumi.Input[str]`) - CNAME of the certificate to be issued via free certificate
-          * `cer_blob` (`pulumi.Input[str]`) - Raw bytes of .cer file
-          * `expiration_date` (`pulumi.Input[str]`) - Certificate expiration date.
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly name of the certificate.
-          * `host_names` (`pulumi.Input[list]`) - Host names the certificate applies to.
-          * `hosting_environment_profile` (`pulumi.Input[dict]`) - Specification for the App Service Environment to use for the certificate.
-            * `id` (`pulumi.Input[str]`) - Resource ID of the App Service Environment.
-            * `name` (`pulumi.Input[str]`) - Name of the App Service Environment.
-            * `type` (`pulumi.Input[str]`) - Resource type of the App Service Environment.
-
-          * `issue_date` (`pulumi.Input[str]`) - Certificate issue Date.
-          * `issuer` (`pulumi.Input[str]`) - Certificate issuer.
-          * `key_vault_id` (`pulumi.Input[str]`) - Key Vault Csm resource Id.
-          * `key_vault_secret_name` (`pulumi.Input[str]`) - Key Vault secret name.
-          * `key_vault_secret_status` (`pulumi.Input[str]`) - Status of the Key Vault secret.
-          * `password` (`pulumi.Input[str]`) - Certificate password.
-          * `pfx_blob` (`pulumi.Input[str]`) - Pfx blob.
-          * `public_key_hash` (`pulumi.Input[str]`) - Public key hash.
-          * `self_link` (`pulumi.Input[str]`) - Self link.
-          * `server_farm_id` (`pulumi.Input[str]`) - Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-          * `site_name` (`pulumi.Input[str]`) - App name.
-          * `subject_name` (`pulumi.Input[str]`) - Subject name of the certificate.
-          * `thumbprint` (`pulumi.Input[str]`) - Certificate thumbprint.
-          * `valid` (`pulumi.Input[bool]`) - Is the certificate valid?.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

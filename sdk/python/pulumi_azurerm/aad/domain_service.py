@@ -156,7 +156,7 @@ class DomainService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DomainService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -164,76 +164,11 @@ class DomainService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Resource etag
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Domain service properties
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `deployment_id` (`pulumi.Input[str]`) - Deployment Id
-          * `domain_name` (`pulumi.Input[str]`) - The name of the Azure domain that the user would like to deploy Domain Services to.
-          * `domain_security_settings` (`pulumi.Input[dict]`) - DomainSecurity Settings
-            * `ntlm_v1` (`pulumi.Input[str]`) - A flag to determine whether or not NtlmV1 is enabled or disabled.
-            * `sync_ntlm_passwords` (`pulumi.Input[str]`) - A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
-            * `tls_v1` (`pulumi.Input[str]`) - A flag to determine whether or not TlsV1 is enabled or disabled.
-
-          * `filtered_sync` (`pulumi.Input[str]`) - Enabled or Disabled flag to turn on Group-based filtered sync
-          * `ldaps_settings` (`pulumi.Input[dict]`) - Secure LDAP Settings
-            * `certificate_not_after` (`pulumi.Input[str]`) - NotAfter DateTime of configure ldaps certificate.
-            * `certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint of configure ldaps certificate.
-            * `external_access` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-            * `ldaps` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP is enabled or disabled.
-            * `pfx_certificate` (`pulumi.Input[str]`) - The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-            * `pfx_certificate_password` (`pulumi.Input[str]`) - The password to decrypt the provided Secure LDAP certificate pfx file.
-            * `public_certificate` (`pulumi.Input[str]`) - Public certificate used to configure secure ldap.
-
-          * `notification_settings` (`pulumi.Input[dict]`) - Notification Settings
-            * `additional_recipients` (`pulumi.Input[list]`) - The list of additional recipients
-            * `notify_dc_admins` (`pulumi.Input[str]`) - Should domain controller admins be notified
-            * `notify_global_admins` (`pulumi.Input[str]`) - Should global admins be notified
-
-          * `provisioning_state` (`pulumi.Input[str]`) - the current deployment or provisioning state, which only appears in the response.
-          * `replica_sets` (`pulumi.Input[list]`) - List of ReplicaSets
-            * `domain_controller_ip_address` (`pulumi.Input[list]`) - List of Domain Controller IP Address
-            * `external_access_ip_address` (`pulumi.Input[str]`) - External access ip address.
-            * `health_alerts` (`pulumi.Input[list]`) - List of Domain Health Alerts
-              * `id` (`pulumi.Input[str]`) - Health Alert Id
-              * `issue` (`pulumi.Input[str]`) - Health Alert Issue
-              * `last_detected` (`pulumi.Input[str]`) - Health Alert Last Detected DateTime
-              * `name` (`pulumi.Input[str]`) - Health Alert Name
-              * `raised` (`pulumi.Input[str]`) - Health Alert Raised DateTime
-              * `resolution_uri` (`pulumi.Input[str]`) - Health Alert TSG Link
-              * `severity` (`pulumi.Input[str]`) - Health Alert Severity
-
-            * `health_last_evaluated` (`pulumi.Input[str]`) - Last domain evaluation run DateTime
-            * `health_monitors` (`pulumi.Input[list]`) - List of Domain Health Monitors
-              * `details` (`pulumi.Input[str]`) - Health Monitor Details
-              * `id` (`pulumi.Input[str]`) - Health Monitor Id
-              * `name` (`pulumi.Input[str]`) - Health Monitor Name
-
-            * `location` (`pulumi.Input[str]`) - Virtual network location
-            * `replica_set_id` (`pulumi.Input[str]`) - ReplicaSet Id
-            * `service_status` (`pulumi.Input[str]`) - Status of Domain Service instance
-            * `subnet_id` (`pulumi.Input[str]`) - The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
-            * `vnet_site_id` (`pulumi.Input[str]`) - Virtual network site id
-
-          * `sync_owner` (`pulumi.Input[str]`) - SyncOwner ReplicaSet Id
-          * `tenant_id` (`pulumi.Input[str]`) - Azure Active Directory Tenant Id
-          * `version` (`pulumi.Input[float]`) - Data Model Version
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DomainService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

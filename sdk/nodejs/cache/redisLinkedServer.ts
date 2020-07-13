@@ -16,11 +16,10 @@ export class RedisLinkedServer extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RedisLinkedServerState, opts?: pulumi.CustomResourceOptions): RedisLinkedServer {
-        return new RedisLinkedServer(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RedisLinkedServer {
+        return new RedisLinkedServer(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class RedisLinkedServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RedisLinkedServerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RedisLinkedServerArgs | RedisLinkedServerState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RedisLinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RedisLinkedServerState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as RedisLinkedServerArgs | undefined;
             if (!args || args.linkedServerName === undefined) {
                 throw new Error("Missing required property 'linkedServerName'");
             }
@@ -79,12 +70,11 @@ export class RedisLinkedServer extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["linkedServerName"] = args ? args.linkedServerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["linkedServerName"] = args ? args.linkedServerName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -94,24 +84,6 @@ export class RedisLinkedServer extends pulumi.CustomResource {
         }
         super(RedisLinkedServer.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Response to put/get linked server (with properties) for Redis cache.
- */
-export interface RedisLinkedServerState {
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the linked server.
-     */
-    readonly properties: pulumi.Input<inputs.cache.RedisLinkedServerPropertiesResponse>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

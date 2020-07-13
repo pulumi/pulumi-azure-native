@@ -87,7 +87,7 @@ class StorageAccountBlobServiceContainerImmutabilityPolicy(pulumi.CustomResource
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageAccountBlobServiceContainerImmutabilityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -95,25 +95,11 @@ class StorageAccountBlobServiceContainerImmutabilityPolicy(pulumi.CustomResource
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Resource Etag.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The properties of an ImmutabilityPolicy of a blob container.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `allow_protected_append_writes` (`pulumi.Input[bool]`) - This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-          * `immutability_period_since_creation_in_days` (`pulumi.Input[float]`) - The immutability period for the blobs in the container since the policy creation, in days.
-          * `state` (`pulumi.Input[str]`) - The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StorageAccountBlobServiceContainerImmutabilityPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -194,7 +194,7 @@ class CdnWebApplicationFirewallPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing CdnWebApplicationFirewallPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -202,82 +202,11 @@ class CdnWebApplicationFirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the web application firewall policy.
-        :param pulumi.Input[dict] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `custom_rules` (`pulumi.Input[dict]`) - Describes custom rules inside the policy.
-            * `rules` (`pulumi.Input[list]`) - List of rules
-              * `action` (`pulumi.Input[str]`) - Describes what action to be applied when rule matches
-              * `enabled_state` (`pulumi.Input[str]`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-              * `match_conditions` (`pulumi.Input[list]`) - List of match conditions.
-                * `match_value` (`pulumi.Input[list]`) - List of possible match values.
-                * `match_variable` (`pulumi.Input[str]`) - Match variable to compare against.
-                * `negate_condition` (`pulumi.Input[bool]`) - Describes if the result of this condition should be negated.
-                * `operator` (`pulumi.Input[str]`) - Describes operator to be matched
-                * `selector` (`pulumi.Input[str]`) - Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
-                * `transforms` (`pulumi.Input[list]`) - List of transforms.
-
-              * `name` (`pulumi.Input[str]`) - Defines the name of the custom rule
-              * `priority` (`pulumi.Input[float]`) - Defines in what order this rule be evaluated in the overall list of custom rules
-
-          * `endpoint_links` (`pulumi.Input[list]`) - Describes Azure CDN endpoints associated with this Web Application Firewall policy.
-            * `id` (`pulumi.Input[str]`) - ARM Resource ID string.
-
-          * `managed_rules` (`pulumi.Input[dict]`) - Describes managed rules inside the policy.
-            * `managed_rule_sets` (`pulumi.Input[list]`) - List of rule sets.
-              * `anomaly_score` (`pulumi.Input[float]`) - Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
-              * `rule_group_overrides` (`pulumi.Input[list]`) - Defines the rule overrides to apply to the rule set.
-                * `rule_group_name` (`pulumi.Input[str]`) - Describes the managed rule group within the rule set to override
-                * `rules` (`pulumi.Input[list]`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-                  * `action` (`pulumi.Input[str]`) - Describes the override action to be applied when rule matches.
-                  * `enabled_state` (`pulumi.Input[str]`) - Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-                  * `rule_id` (`pulumi.Input[str]`) - Identifier for the managed rule.
-
-              * `rule_set_type` (`pulumi.Input[str]`) - Defines the rule set type to use.
-              * `rule_set_version` (`pulumi.Input[str]`) - Defines the version of the rule set to use.
-
-          * `policy_settings` (`pulumi.Input[dict]`) - Describes  policySettings for policy
-            * `default_custom_block_response_body` (`pulumi.Input[str]`) - If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-            * `default_custom_block_response_status_code` (`pulumi.Input[float]`) - If the action type is block, this field defines the default customer overridable http response status code.
-            * `default_redirect_url` (`pulumi.Input[str]`) - If action type is redirect, this field represents the default redirect URL for the client.
-            * `enabled_state` (`pulumi.Input[str]`) - describes if the policy is in enabled state or disabled state
-            * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode or prevention mode at policy level.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the WebApplicationFirewallPolicy.
-          * `rate_limit_rules` (`pulumi.Input[dict]`) - Describes rate limit rules inside the policy.
-            * `rules` (`pulumi.Input[list]`) - List of rules
-              * `action` (`pulumi.Input[str]`) - Describes what action to be applied when rule matches
-              * `enabled_state` (`pulumi.Input[str]`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-              * `match_conditions` (`pulumi.Input[list]`) - List of match conditions.
-              * `name` (`pulumi.Input[str]`) - Defines the name of the custom rule
-              * `priority` (`pulumi.Input[float]`) - Defines in what order this rule be evaluated in the overall list of custom rules
-              * `rate_limit_duration_in_minutes` (`pulumi.Input[float]`) - Defines rate limit duration. Default is 1 minute.
-              * `rate_limit_threshold` (`pulumi.Input[float]`) - Defines rate limit threshold.
-
-          * `resource_state` (`pulumi.Input[str]`)
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Name of the pricing tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return CdnWebApplicationFirewallPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

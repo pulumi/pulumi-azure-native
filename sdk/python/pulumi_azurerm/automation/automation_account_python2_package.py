@@ -117,7 +117,7 @@ class AutomationAccountPython2Package(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountPython2Package resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,47 +125,11 @@ class AutomationAccountPython2Package(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the module properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `activity_count` (`pulumi.Input[float]`) - Gets or sets the activity count of the module.
-          * `content_link` (`pulumi.Input[dict]`) - Gets or sets the contentLink of the module.
-            * `content_hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-              * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-              * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
-
-            * `uri` (`pulumi.Input[str]`) - Gets or sets the uri of the runbook content.
-            * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time.
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `error` (`pulumi.Input[dict]`) - Gets or sets the error info of the module.
-            * `code` (`pulumi.Input[str]`) - Gets or sets the error code.
-            * `message` (`pulumi.Input[str]`) - Gets or sets the error message.
-
-          * `is_composite` (`pulumi.Input[bool]`) - Gets or sets type of module, if its composite or not.
-          * `is_global` (`pulumi.Input[bool]`) - Gets or sets the isGlobal flag of the module.
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets the provisioning state of the module.
-          * `size_in_bytes` (`pulumi.Input[float]`) - Gets or sets the size in bytes of the module.
-          * `version` (`pulumi.Input[str]`) - Gets or sets the version of the module.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return AutomationAccountPython2Package(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

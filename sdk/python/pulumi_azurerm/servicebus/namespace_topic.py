@@ -103,7 +103,7 @@ class NamespaceTopic(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceTopic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,42 +111,11 @@ class NamespaceTopic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of topic resource.
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `accessed_at` (`pulumi.Input[str]`) - Last time the message was sent, or a request was received, for this topic.
-          * `auto_delete_on_idle` (`pulumi.Input[str]`) - ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-          * `count_details` (`pulumi.Input[dict]`) - Message count details
-            * `active_message_count` (`pulumi.Input[float]`) - Number of active messages in the queue, topic, or subscription.
-            * `dead_letter_message_count` (`pulumi.Input[float]`) - Number of messages that are dead lettered.
-            * `scheduled_message_count` (`pulumi.Input[float]`) - Number of scheduled messages.
-            * `transfer_dead_letter_message_count` (`pulumi.Input[float]`) - Number of messages transferred into dead letters.
-            * `transfer_message_count` (`pulumi.Input[float]`) - Number of messages transferred to another queue, topic, or subscription.
-
-          * `created_at` (`pulumi.Input[str]`) - Exact time the message was created.
-          * `default_message_time_to_live` (`pulumi.Input[str]`) - ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-          * `duplicate_detection_history_time_window` (`pulumi.Input[str]`) - ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-          * `enable_batched_operations` (`pulumi.Input[bool]`) - Value that indicates whether server-side batched operations are enabled.
-          * `enable_express` (`pulumi.Input[bool]`) - Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-          * `enable_partitioning` (`pulumi.Input[bool]`) - Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
-          * `max_size_in_megabytes` (`pulumi.Input[float]`) - Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
-          * `requires_duplicate_detection` (`pulumi.Input[bool]`) - Value indicating if this topic requires duplicate detection.
-          * `size_in_bytes` (`pulumi.Input[float]`) - Size of the topic, in bytes.
-          * `status` (`pulumi.Input[str]`) - Enumerates the possible values for the status of a messaging entity.
-          * `subscription_count` (`pulumi.Input[float]`) - Number of subscriptions.
-          * `support_ordering` (`pulumi.Input[bool]`) - Value that indicates whether the topic supports ordering.
-          * `updated_at` (`pulumi.Input[str]`) - The exact time the message was updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceTopic(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

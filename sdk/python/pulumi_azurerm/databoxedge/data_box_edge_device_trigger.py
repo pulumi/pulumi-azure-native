@@ -70,7 +70,7 @@ class DataBoxEdgeDeviceTrigger(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataBoxEdgeDeviceTrigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -78,17 +78,11 @@ class DataBoxEdgeDeviceTrigger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Trigger Kind.
-        :param pulumi.Input[str] name: The object name.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["type"] = type
         return DataBoxEdgeDeviceTrigger(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

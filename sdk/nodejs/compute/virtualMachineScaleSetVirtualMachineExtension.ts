@@ -16,11 +16,10 @@ export class VirtualMachineScaleSetVirtualMachineExtension extends pulumi.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualMachineScaleSetVirtualMachineExtensionState, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVirtualMachineExtension {
-        return new VirtualMachineScaleSetVirtualMachineExtension(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVirtualMachineExtension {
+        return new VirtualMachineScaleSetVirtualMachineExtension(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class VirtualMachineScaleSetVirtualMachineExtension extends pulumi.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineScaleSetVirtualMachineExtensionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineScaleSetVirtualMachineExtensionArgs | VirtualMachineScaleSetVirtualMachineExtensionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VirtualMachineScaleSetVirtualMachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VirtualMachineScaleSetVirtualMachineExtensionState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as VirtualMachineScaleSetVirtualMachineExtensionArgs | undefined;
             if (!args || args.instanceId === undefined) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -92,15 +81,14 @@ export class VirtualMachineScaleSetVirtualMachineExtension extends pulumi.Custom
             if (!args || args.vmScaleSetName === undefined) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["instanceId"] = args ? args.instanceId : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -110,32 +98,6 @@ export class VirtualMachineScaleSetVirtualMachineExtension extends pulumi.Custom
         }
         super(VirtualMachineScaleSetVirtualMachineExtension.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Describes a Virtual Machine Extension.
- */
-export interface VirtualMachineScaleSetVirtualMachineExtensionState {
-    /**
-     * Resource location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Describes the properties of a Virtual Machine Extension.
-     */
-    readonly properties: pulumi.Input<inputs.compute.VirtualMachineExtensionPropertiesResponse>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

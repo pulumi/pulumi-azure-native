@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.RecoveryServices
         {
         }
 
-        private VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem(string name, Input<string> id, VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:recoveryservices:VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem", name, state, MakeResourceOptions(options, id))
+        private VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:recoveryservices:VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.RecoveryServices
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem Get(string name, Input<string> id, VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemState? state = null, CustomResourceOptions? options = null)
+        public static VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem(name, id, state, options);
+            return new VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem(name, id, options);
         }
     }
 
@@ -121,37 +120,6 @@ namespace Pulumi.AzureRM.RecoveryServices
         public Input<string> ResourceName { get; set; } = null!;
 
         public VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemArgs()
-        {
-        }
-    }
-
-    public sealed class VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource Location
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource Name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The migration item properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.MigrationItemPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource Type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemState()
         {
         }
     }

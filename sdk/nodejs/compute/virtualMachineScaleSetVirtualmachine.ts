@@ -16,11 +16,10 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualMachineScaleSetVirtualmachineState, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVirtualmachine {
-        return new VirtualMachineScaleSetVirtualmachine(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineScaleSetVirtualmachine {
+        return new VirtualMachineScaleSetVirtualmachine(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -85,23 +84,8 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualMachineScaleSetVirtualmachineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualMachineScaleSetVirtualmachineArgs | VirtualMachineScaleSetVirtualmachineState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VirtualMachineScaleSetVirtualmachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VirtualMachineScaleSetVirtualmachineState | undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["plan"] = state ? state.plan : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
-        } else {
-            const args = argsOrState as VirtualMachineScaleSetVirtualmachineArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -114,19 +98,18 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
             if (!args || args.vmScaleSetName === undefined) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["instanceId"] = undefined /*out*/;
-            inputs["resources"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
-        }
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["plan"] = args ? args.plan : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+        inputs["instanceId"] = undefined /*out*/;
+        inputs["resources"] = undefined /*out*/;
+        inputs["sku"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
+        inputs["zones"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -136,52 +119,6 @@ export class VirtualMachineScaleSetVirtualmachine extends pulumi.CustomResource 
         }
         super(VirtualMachineScaleSetVirtualmachine.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Describes a virtual machine scale set virtual machine.
- */
-export interface VirtualMachineScaleSetVirtualmachineState {
-    /**
-     * The virtual machine instance ID.
-     */
-    readonly instanceId: pulumi.Input<string>;
-    /**
-     * Resource location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-     */
-    readonly plan?: pulumi.Input<inputs.compute.PlanResponse>;
-    /**
-     * Describes the properties of a virtual machine scale set virtual machine.
-     */
-    readonly properties: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMPropertiesResponse>;
-    /**
-     * The virtual machine child extension resources.
-     */
-    readonly resources: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineExtensionResponse>[]>;
-    /**
-     * The virtual machine SKU.
-     */
-    readonly sku: pulumi.Input<inputs.compute.SkuResponse>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
-    /**
-     * The virtual machine zones.
-     */
-    readonly zones: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**

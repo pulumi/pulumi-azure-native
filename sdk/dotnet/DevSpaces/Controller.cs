@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.DevSpaces
         {
         }
 
-        private Controller(string name, Input<string> id, ControllerState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:devspaces:Controller", name, state, MakeResourceOptions(options, id))
+        private Controller(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:devspaces:Controller", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.DevSpaces
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Controller Get(string name, Input<string> id, ControllerState? state = null, CustomResourceOptions? options = null)
+        public static Controller Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Controller(name, id, state, options);
+            return new Controller(name, id, options);
         }
     }
 
@@ -130,52 +129,6 @@ namespace Pulumi.AzureRM.DevSpaces
         }
 
         public ControllerArgs()
-        {
-        }
-    }
-
-    public sealed class ControllerState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Region where the Azure resource is located.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("properties", required: true)]
-        public Input<Inputs.ControllerPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Model representing SKU for Azure Dev Spaces Controller.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags for the Azure resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ControllerState()
         {
         }
     }

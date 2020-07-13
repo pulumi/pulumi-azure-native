@@ -148,7 +148,7 @@ class NetAppAccountCapacityPoolVolume(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetAppAccountCapacityPoolVolume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -156,55 +156,11 @@ class NetAppAccountCapacityPoolVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Volume properties
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `baremetal_tenant_id` (`pulumi.Input[str]`) - Unique Baremetal Tenant Identifier.
-          * `creation_token` (`pulumi.Input[str]`) - A unique file path for the volume. Used when creating mount targets
-          * `data_protection` (`pulumi.Input[dict]`) - DataProtection type volumes include an object containing details of the replication
-            * `replication` (`pulumi.Input[dict]`) - Replication properties
-              * `endpoint_type` (`pulumi.Input[str]`) - Indicates whether the local volume is the source or destination for the Volume Replication
-              * `remote_volume_region` (`pulumi.Input[str]`) - The remote region for the other end of the Volume Replication.
-              * `remote_volume_resource_id` (`pulumi.Input[str]`) - The resource ID of the remote volume.
-              * `replication_id` (`pulumi.Input[str]`) - Id
-              * `replication_schedule` (`pulumi.Input[str]`) - Schedule
-
-          * `export_policy` (`pulumi.Input[dict]`) - Set of export policy rules
-          * `file_system_id` (`pulumi.Input[str]`) - Unique FileSystem Identifier.
-          * `is_restoring` (`pulumi.Input[bool]`) - Restoring
-          * `mount_targets` (`pulumi.Input[list]`) - List of mount targets
-            * `end_ip` (`pulumi.Input[str]`) - The end of IPv4 address range to use when creating a new mount target
-            * `file_system_id` (`pulumi.Input[str]`) - UUID v4 used to identify the MountTarget
-            * `gateway` (`pulumi.Input[str]`) - The gateway of the IPv4 address range to use when creating a new mount target
-            * `ip_address` (`pulumi.Input[str]`) - The mount target's IPv4 address
-            * `mount_target_id` (`pulumi.Input[str]`) - UUID v4 used to identify the MountTarget
-            * `netmask` (`pulumi.Input[str]`) - The netmask of the IPv4 address range to use when creating a new mount target
-            * `smb_server_fqdn` (`pulumi.Input[str]`) - The SMB server's Fully Qualified Domain Name, FQDN
-            * `start_ip` (`pulumi.Input[str]`) - The start of IPv4 address range to use when creating a new mount target
-            * `subnet` (`pulumi.Input[str]`) - The subnet
-
-          * `protocol_types` (`pulumi.Input[list]`) - Set of protocol types
-          * `provisioning_state` (`pulumi.Input[str]`) - Azure lifecycle management
-          * `service_level` (`pulumi.Input[str]`) - The service level of the file system
-          * `snapshot_id` (`pulumi.Input[str]`) - UUID v4 or resource identifier used to identify the Snapshot.
-          * `subnet_id` (`pulumi.Input[str]`) - The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-          * `usage_threshold` (`pulumi.Input[float]`) - Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-          * `volume_type` (`pulumi.Input[str]`) - What type of volume is this
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return NetAppAccountCapacityPoolVolume(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

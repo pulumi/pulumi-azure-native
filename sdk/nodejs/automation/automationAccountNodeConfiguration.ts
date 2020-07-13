@@ -16,11 +16,10 @@ export class AutomationAccountNodeConfiguration extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AutomationAccountNodeConfigurationState, opts?: pulumi.CustomResourceOptions): AutomationAccountNodeConfiguration {
-        return new AutomationAccountNodeConfiguration(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AutomationAccountNodeConfiguration {
+        return new AutomationAccountNodeConfiguration(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class AutomationAccountNodeConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AutomationAccountNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AutomationAccountNodeConfigurationArgs | AutomationAccountNodeConfigurationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AutomationAccountNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AutomationAccountNodeConfigurationState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AutomationAccountNodeConfigurationArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -76,14 +67,13 @@ export class AutomationAccountNodeConfiguration extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nodeConfigurationName"] = args ? args.nodeConfigurationName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["nodeConfigurationName"] = args ? args.nodeConfigurationName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -93,24 +83,6 @@ export class AutomationAccountNodeConfiguration extends pulumi.CustomResource {
         }
         super(AutomationAccountNodeConfiguration.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Definition of the dsc node configuration.
- */
-export interface AutomationAccountNodeConfigurationState {
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Gets or sets the configuration properties.
-     */
-    readonly properties: pulumi.Input<inputs.automation.DscNodeConfigurationPropertiesResponse>;
-    /**
-     * The type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

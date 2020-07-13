@@ -13,11 +13,10 @@ export class JobCollectionJob extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: JobCollectionJobState, opts?: pulumi.CustomResourceOptions): JobCollectionJob {
-        return new JobCollectionJob(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobCollectionJob {
+        return new JobCollectionJob(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -54,16 +53,8 @@ export class JobCollectionJob extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobCollectionJobArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: JobCollectionJobArgs | JobCollectionJobState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: JobCollectionJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as JobCollectionJobState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as JobCollectionJobArgs | undefined;
             if (!args || args.jobCollectionName === undefined) {
                 throw new Error("Missing required property 'jobCollectionName'");
             }
@@ -73,12 +64,11 @@ export class JobCollectionJob extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["jobCollectionName"] = args ? args.jobCollectionName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["jobCollectionName"] = args ? args.jobCollectionName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -88,21 +78,6 @@ export class JobCollectionJob extends pulumi.CustomResource {
         }
         super(JobCollectionJob.__pulumiType, name, inputs, opts);
     }
-}
-
-export interface JobCollectionJobState {
-    /**
-     * Gets the job resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Gets or sets the job properties.
-     */
-    readonly properties: pulumi.Input<inputs.scheduler.JobPropertiesResponse>;
-    /**
-     * Gets the job resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

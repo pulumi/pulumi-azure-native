@@ -79,7 +79,7 @@ class NamespaceEventhubConsumergroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceEventhubConsumergroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -87,23 +87,11 @@ class NamespaceEventhubConsumergroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Single item in List or Get Consumer group operation
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `created_at` (`pulumi.Input[str]`) - Exact time the message was created.
-          * `updated_at` (`pulumi.Input[str]`) - The exact time the message was updated.
-          * `user_metadata` (`pulumi.Input[str]`) - User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceEventhubConsumergroup(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

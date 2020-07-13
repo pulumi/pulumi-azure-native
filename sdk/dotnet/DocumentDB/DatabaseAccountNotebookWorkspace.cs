@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.DocumentDB
         {
         }
 
-        private DatabaseAccountNotebookWorkspace(string name, Input<string> id, DatabaseAccountNotebookWorkspaceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:documentdb:DatabaseAccountNotebookWorkspace", name, state, MakeResourceOptions(options, id))
+        private DatabaseAccountNotebookWorkspace(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:documentdb:DatabaseAccountNotebookWorkspace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.DocumentDB
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DatabaseAccountNotebookWorkspace Get(string name, Input<string> id, DatabaseAccountNotebookWorkspaceState? state = null, CustomResourceOptions? options = null)
+        public static DatabaseAccountNotebookWorkspace Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DatabaseAccountNotebookWorkspace(name, id, state, options);
+            return new DatabaseAccountNotebookWorkspace(name, id, options);
         }
     }
 
@@ -97,31 +96,6 @@ namespace Pulumi.AzureRM.DocumentDB
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public DatabaseAccountNotebookWorkspaceArgs()
-        {
-        }
-    }
-
-    public sealed class DatabaseAccountNotebookWorkspaceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the database account.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Resource properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.NotebookWorkspacePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of Azure resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DatabaseAccountNotebookWorkspaceState()
         {
         }
     }

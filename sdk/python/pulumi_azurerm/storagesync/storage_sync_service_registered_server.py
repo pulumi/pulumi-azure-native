@@ -100,7 +100,7 @@ class StorageSyncServiceRegisteredServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageSyncServiceRegisteredServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,40 +108,11 @@ class StorageSyncServiceRegisteredServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: RegisteredServer properties.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `agent_version` (`pulumi.Input[str]`) - Registered Server Agent Version
-          * `cluster_id` (`pulumi.Input[str]`) - Registered Server clusterId
-          * `cluster_name` (`pulumi.Input[str]`) - Registered Server clusterName
-          * `discovery_endpoint_uri` (`pulumi.Input[str]`) - Resource discoveryEndpointUri
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly Name
-          * `last_heart_beat` (`pulumi.Input[str]`) - Registered Server last heart beat
-          * `last_operation_name` (`pulumi.Input[str]`) - Resource Last Operation Name
-          * `last_workflow_id` (`pulumi.Input[str]`) - Registered Server lastWorkflowId
-          * `management_endpoint_uri` (`pulumi.Input[str]`) - Management Endpoint Uri
-          * `monitoring_configuration` (`pulumi.Input[str]`) - Monitoring Configuration
-          * `monitoring_endpoint_uri` (`pulumi.Input[str]`) - Telemetry Endpoint Uri
-          * `provisioning_state` (`pulumi.Input[str]`) - Registered Server Provisioning State
-          * `resource_location` (`pulumi.Input[str]`) - Resource Location
-          * `server_certificate` (`pulumi.Input[str]`) - Registered Server Certificate
-          * `server_id` (`pulumi.Input[str]`) - Registered Server serverId
-          * `server_management_error_code` (`pulumi.Input[float]`) - Registered Server Management Error Code
-          * `server_os_version` (`pulumi.Input[str]`) - Registered Server OS Version
-          * `server_role` (`pulumi.Input[str]`) - Registered Server serverRole
-          * `service_location` (`pulumi.Input[str]`) - Service Location
-          * `storage_sync_service_uid` (`pulumi.Input[str]`) - Registered Server storageSyncServiceUid
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StorageSyncServiceRegisteredServer(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

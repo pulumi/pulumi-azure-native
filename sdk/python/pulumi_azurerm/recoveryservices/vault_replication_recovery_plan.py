@@ -135,7 +135,7 @@ class VaultReplicationRecoveryPlan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VaultReplicationRecoveryPlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -143,59 +143,11 @@ class VaultReplicationRecoveryPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[dict] properties: The custom details.
-        :param pulumi.Input[str] type: Resource Type
-
-        The **properties** object supports the following:
-
-          * `allowed_operations` (`pulumi.Input[list]`) - The list of allowed operations.
-          * `current_scenario` (`pulumi.Input[dict]`) - The current scenario details.
-            * `job_id` (`pulumi.Input[str]`) - ARM Id of the job being executed.
-            * `scenario_name` (`pulumi.Input[str]`) - Scenario name.
-            * `start_time` (`pulumi.Input[str]`) - Start time of the workflow.
-
-          * `current_scenario_status` (`pulumi.Input[str]`) - The recovery plan status.
-          * `current_scenario_status_description` (`pulumi.Input[str]`) - The recovery plan status description.
-          * `failover_deployment_model` (`pulumi.Input[str]`) - The failover deployment model.
-          * `friendly_name` (`pulumi.Input[str]`) - The friendly name.
-          * `groups` (`pulumi.Input[list]`) - The recovery plan groups.
-            * `end_group_actions` (`pulumi.Input[list]`) - The end group actions.
-              * `action_name` (`pulumi.Input[str]`) - The action name.
-              * `custom_details` (`pulumi.Input[dict]`) - The custom details.
-                * `instance_type` (`pulumi.Input[str]`) - Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-
-              * `failover_directions` (`pulumi.Input[list]`) - The list of failover directions.
-              * `failover_types` (`pulumi.Input[list]`) - The list of failover types.
-
-            * `group_type` (`pulumi.Input[str]`) - The group type.
-            * `replication_protected_items` (`pulumi.Input[list]`) - The list of protected items.
-              * `id` (`pulumi.Input[str]`) - The ARM Id of the recovery plan protected item.
-              * `virtual_machine_id` (`pulumi.Input[str]`) - The virtual machine Id.
-
-            * `start_group_actions` (`pulumi.Input[list]`) - The start group actions.
-
-          * `last_planned_failover_time` (`pulumi.Input[str]`) - The start time of the last planned failover.
-          * `last_test_failover_time` (`pulumi.Input[str]`) - The start time of the last test failover.
-          * `last_unplanned_failover_time` (`pulumi.Input[str]`) - The start time of the last unplanned failover.
-          * `primary_fabric_friendly_name` (`pulumi.Input[str]`) - The primary fabric friendly name.
-          * `primary_fabric_id` (`pulumi.Input[str]`) - The primary fabric Id.
-          * `provider_specific_details` (`pulumi.Input[list]`) - The provider id and provider specific details.
-            * `instance_type` (`pulumi.Input[str]`) - Gets the Instance type.
-
-          * `recovery_fabric_friendly_name` (`pulumi.Input[str]`) - The recovery fabric friendly name.
-          * `recovery_fabric_id` (`pulumi.Input[str]`) - The recovery fabric Id.
-          * `replication_providers` (`pulumi.Input[list]`) - The list of replication providers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return VaultReplicationRecoveryPlan(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

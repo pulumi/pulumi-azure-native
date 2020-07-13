@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.ServiceBus
         {
         }
 
-        private NamespaceDisasterRecoveryConfig(string name, Input<string> id, NamespaceDisasterRecoveryConfigState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:servicebus:NamespaceDisasterRecoveryConfig", name, state, MakeResourceOptions(options, id))
+        private NamespaceDisasterRecoveryConfig(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:servicebus:NamespaceDisasterRecoveryConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.ServiceBus
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static NamespaceDisasterRecoveryConfig Get(string name, Input<string> id, NamespaceDisasterRecoveryConfigState? state = null, CustomResourceOptions? options = null)
+        public static NamespaceDisasterRecoveryConfig Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new NamespaceDisasterRecoveryConfig(name, id, state, options);
+            return new NamespaceDisasterRecoveryConfig(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.ServiceBus
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public NamespaceDisasterRecoveryConfigArgs()
-        {
-        }
-    }
-
-    public sealed class NamespaceDisasterRecoveryConfigState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ArmDisasterRecoveryResponsePropertiesGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public NamespaceDisasterRecoveryConfigState()
         {
         }
     }

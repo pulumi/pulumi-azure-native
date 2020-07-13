@@ -81,7 +81,7 @@ class RedisPatchSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing RedisPatchSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,24 +89,11 @@ class RedisPatchSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: List of patch schedules for a Redis cache.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `schedule_entries` (`pulumi.Input[list]`) - List of patch schedules for a Redis cache.
-            * `day_of_week` (`pulumi.Input[str]`) - Day of the week when a cache can be patched.
-            * `maintenance_window` (`pulumi.Input[str]`) - ISO8601 timespan specifying how much time cache patching can take. 
-            * `start_hour_utc` (`pulumi.Input[float]`) - Start hour after which cache patching can start.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return RedisPatchSchedule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -86,7 +86,7 @@ class ConfigurationStorePrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ConfigurationStorePrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,29 +94,11 @@ class ConfigurationStorePrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of a private endpoint.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private endpoint.
-            * `id` (`pulumi.Input[str]`) - The resource Id for private endpoint
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-            * `actions_required` (`pulumi.Input[str]`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-            * `description` (`pulumi.Input[str]`) - The private link service connection description.
-            * `status` (`pulumi.Input[str]`) - The private link service connection status.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the private endpoint connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ConfigurationStorePrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

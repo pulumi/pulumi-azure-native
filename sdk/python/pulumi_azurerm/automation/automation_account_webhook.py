@@ -98,7 +98,7 @@ class AutomationAccountWebhook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountWebhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,33 +106,11 @@ class AutomationAccountWebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the webhook properties.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time.
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `expiry_time` (`pulumi.Input[str]`) - Gets or sets the expiry time.
-          * `is_enabled` (`pulumi.Input[bool]`) - Gets or sets the value of the enabled flag of the webhook.
-          * `last_invoked_time` (`pulumi.Input[str]`) - Gets or sets the last invoked time.
-          * `last_modified_by` (`pulumi.Input[str]`) - Details of the user who last modified the Webhook
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time.
-          * `parameters` (`pulumi.Input[dict]`) - Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-          * `run_on` (`pulumi.Input[str]`) - Gets or sets the name of the hybrid worker group the webhook job will run on.
-          * `runbook` (`pulumi.Input[dict]`) - Gets or sets the runbook the webhook is associated with.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
-
-          * `uri` (`pulumi.Input[str]`) - Gets or sets the webhook uri.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AutomationAccountWebhook(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

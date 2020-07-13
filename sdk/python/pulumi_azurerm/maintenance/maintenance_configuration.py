@@ -85,7 +85,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MaintenanceConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,27 +93,11 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Gets or sets location of the resource
-        :param pulumi.Input[str] name: Name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets properties of the resource
-        :param pulumi.Input[dict] tags: Gets or sets tags of the resource
-        :param pulumi.Input[str] type: Type of the resource
-
-        The **properties** object supports the following:
-
-          * `extension_properties` (`pulumi.Input[dict]`) - Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
-          * `maintenance_scope` (`pulumi.Input[str]`) - Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-          * `namespace` (`pulumi.Input[str]`) - Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return MaintenanceConfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

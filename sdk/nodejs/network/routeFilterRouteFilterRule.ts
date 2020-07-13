@@ -16,11 +16,10 @@ export class RouteFilterRouteFilterRule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RouteFilterRouteFilterRuleState, opts?: pulumi.CustomResourceOptions): RouteFilterRouteFilterRule {
-        return new RouteFilterRouteFilterRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteFilterRouteFilterRule {
+        return new RouteFilterRouteFilterRule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class RouteFilterRouteFilterRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RouteFilterRouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RouteFilterRouteFilterRuleArgs | RouteFilterRouteFilterRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RouteFilterRouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RouteFilterRouteFilterRuleState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-        } else {
-            const args = argsOrState as RouteFilterRouteFilterRuleArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -81,15 +71,14 @@ export class RouteFilterRouteFilterRule extends pulumi.CustomResource {
             if (!args || args.ruleName === undefined) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeFilterName"] = args ? args.routeFilterName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["etag"] = undefined /*out*/;
-        }
+        inputs["id"] = args ? args.id : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["routeFilterName"] = args ? args.routeFilterName : undefined;
+        inputs["ruleName"] = args ? args.ruleName : undefined;
+        inputs["etag"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -99,28 +88,6 @@ export class RouteFilterRouteFilterRule extends pulumi.CustomResource {
         }
         super(RouteFilterRouteFilterRule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Route Filter Rule Resource.
- */
-export interface RouteFilterRouteFilterRuleState {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * Resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * Properties of the route filter rule.
-     */
-    readonly properties: pulumi.Input<inputs.network.RouteFilterRulePropertiesFormatResponse>;
 }
 
 /**

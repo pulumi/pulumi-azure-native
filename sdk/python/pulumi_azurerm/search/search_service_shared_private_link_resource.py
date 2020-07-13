@@ -79,7 +79,7 @@ class SearchServiceSharedPrivateLinkResource(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing SearchServiceSharedPrivateLinkResource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -87,24 +87,11 @@ class SearchServiceSharedPrivateLinkResource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the shared private link resource.
-        :param pulumi.Input[dict] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `group_id` (`pulumi.Input[str]`) - The group id from the provider of resource the shared private link resource is for.
-          * `private_link_resource_id` (`pulumi.Input[str]`) - The resource id of the resource the shared private link resource is for.
-          * `request_message` (`pulumi.Input[str]`) - The request message for requesting approval of the shared private link resource.
-          * `status` (`pulumi.Input[str]`) - Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return SearchServiceSharedPrivateLinkResource(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

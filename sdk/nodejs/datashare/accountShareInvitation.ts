@@ -16,11 +16,10 @@ export class AccountShareInvitation extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccountShareInvitationState, opts?: pulumi.CustomResourceOptions): AccountShareInvitation {
-        return new AccountShareInvitation(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AccountShareInvitation {
+        return new AccountShareInvitation(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class AccountShareInvitation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccountShareInvitationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AccountShareInvitationArgs | AccountShareInvitationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AccountShareInvitationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AccountShareInvitationState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AccountShareInvitationArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -79,13 +70,12 @@ export class AccountShareInvitation extends pulumi.CustomResource {
             if (!args || args.shareName === undefined) {
                 throw new Error("Missing required property 'shareName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["accountName"] = args ? args.accountName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["shareName"] = args ? args.shareName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -95,24 +85,6 @@ export class AccountShareInvitation extends pulumi.CustomResource {
         }
         super(AccountShareInvitation.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A Invitation data transfer object.
- */
-export interface AccountShareInvitationState {
-    /**
-     * Name of the azure resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties on the Invitation
-     */
-    readonly properties: pulumi.Input<inputs.datashare.InvitationPropertiesResponse>;
-    /**
-     * Type of the azure resource
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

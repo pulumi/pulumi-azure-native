@@ -91,7 +91,7 @@ class LabServicerunner(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabServicerunner resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,28 +99,11 @@ class LabServicerunner(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **identity** object supports the following:
-
-          * `client_secret_url` (`pulumi.Input[str]`) - The client secret URL of the identity.
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of resource identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant identifier of resource.
-          * `type` (`pulumi.Input[str]`) - Managed identity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabServicerunner(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

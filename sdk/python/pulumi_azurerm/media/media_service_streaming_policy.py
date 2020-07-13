@@ -178,7 +178,7 @@ class MediaServiceStreamingPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaServiceStreamingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -186,74 +186,11 @@ class MediaServiceStreamingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Class to specify properties of Streaming Policy
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `common_encryption_cbcs` (`pulumi.Input[dict]`) - Configuration of CommonEncryptionCbcs
-            * `clear_tracks` (`pulumi.Input[list]`) - Representing which tracks should not be encrypted
-              * `track_selections` (`pulumi.Input[list]`) - TrackSelections is a track property condition list which can specify track(s)
-                * `operation` (`pulumi.Input[str]`) - Track property condition operation
-                * `property` (`pulumi.Input[str]`) - Track property type
-                * `value` (`pulumi.Input[str]`) - Track property value
-
-            * `content_keys` (`pulumi.Input[dict]`) - Representing default content key for each encryption scheme and separate content keys for specific tracks
-              * `default_key` (`pulumi.Input[dict]`) - Default content key for an encryption scheme
-                * `label` (`pulumi.Input[str]`) - Label can be used to specify Content Key when creating a Streaming Locator
-                * `policy_name` (`pulumi.Input[str]`) - Policy used by Default Key
-
-              * `key_to_track_mappings` (`pulumi.Input[list]`) - Representing tracks needs separate content key
-                * `label` (`pulumi.Input[str]`) - Label can be used to specify Content Key when creating a Streaming Locator
-                * `policy_name` (`pulumi.Input[str]`) - Policy used by Content Key
-                * `tracks` (`pulumi.Input[list]`) - Tracks which use this content key
-
-            * `drm` (`pulumi.Input[dict]`) - Configuration of DRMs for current encryption scheme
-              * `fair_play` (`pulumi.Input[dict]`) - FairPlay configurations
-                * `allow_persistent_license` (`pulumi.Input[bool]`) - All license to be persistent or not
-                * `custom_license_acquisition_url_template` (`pulumi.Input[str]`) - Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
-
-              * `play_ready` (`pulumi.Input[dict]`) - PlayReady configurations
-                * `custom_license_acquisition_url_template` (`pulumi.Input[str]`) - Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
-                * `play_ready_custom_attributes` (`pulumi.Input[str]`) - Custom attributes for PlayReady
-
-              * `widevine` (`pulumi.Input[dict]`) - Widevine configurations
-                * `custom_license_acquisition_url_template` (`pulumi.Input[str]`) - Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
-
-            * `enabled_protocols` (`pulumi.Input[dict]`) - Representing supported protocols
-              * `dash` (`pulumi.Input[bool]`) - Enable DASH protocol or not
-              * `download` (`pulumi.Input[bool]`) - Enable Download protocol or not
-              * `hls` (`pulumi.Input[bool]`) - Enable HLS protocol or not
-              * `smooth_streaming` (`pulumi.Input[bool]`) - Enable SmoothStreaming protocol or not
-
-          * `common_encryption_cenc` (`pulumi.Input[dict]`) - Configuration of CommonEncryptionCenc
-            * `clear_tracks` (`pulumi.Input[list]`) - Representing which tracks should not be encrypted
-            * `content_keys` (`pulumi.Input[dict]`) - Representing default content key for each encryption scheme and separate content keys for specific tracks
-            * `drm` (`pulumi.Input[dict]`) - Configuration of DRMs for CommonEncryptionCenc encryption scheme
-              * `play_ready` (`pulumi.Input[dict]`) - PlayReady configurations
-              * `widevine` (`pulumi.Input[dict]`) - Widevine configurations
-
-            * `enabled_protocols` (`pulumi.Input[dict]`) - Representing supported protocols
-
-          * `created` (`pulumi.Input[str]`) - Creation time of Streaming Policy
-          * `default_content_key_policy_name` (`pulumi.Input[str]`) - Default ContentKey used by current Streaming Policy
-          * `envelope_encryption` (`pulumi.Input[dict]`) - Configuration of EnvelopeEncryption
-            * `clear_tracks` (`pulumi.Input[list]`) - Representing which tracks should not be encrypted
-            * `content_keys` (`pulumi.Input[dict]`) - Representing default content key for each encryption scheme and separate content keys for specific tracks
-            * `custom_key_acquisition_url_template` (`pulumi.Input[str]`) - Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
-            * `enabled_protocols` (`pulumi.Input[dict]`) - Representing supported protocols
-
-          * `no_encryption` (`pulumi.Input[dict]`) - Configurations of NoEncryption
-            * `enabled_protocols` (`pulumi.Input[dict]`) - Representing supported protocols
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MediaServiceStreamingPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

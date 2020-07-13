@@ -54,8 +54,8 @@ namespace Pulumi.AzureRM.Scheduler
         {
         }
 
-        private JobCollection(string name, Input<string> id, JobCollectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:scheduler:JobCollection", name, state, MakeResourceOptions(options, id))
+        private JobCollection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:scheduler:JobCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,11 +77,10 @@ namespace Pulumi.AzureRM.Scheduler
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static JobCollection Get(string name, Input<string> id, JobCollectionState? state = null, CustomResourceOptions? options = null)
+        public static JobCollection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new JobCollection(name, id, state, options);
+            return new JobCollection(name, id, options);
         }
     }
 
@@ -130,49 +129,6 @@ namespace Pulumi.AzureRM.Scheduler
         }
 
         public JobCollectionArgs()
-        {
-        }
-    }
-
-    public sealed class JobCollectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Gets or sets the storage account location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Gets or sets the job collection resource name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the job collection properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JobCollectionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Gets or sets the tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Gets the job collection resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public JobCollectionState()
         {
         }
     }

@@ -83,7 +83,7 @@ class MediaServiceAsset(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaServiceAsset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,28 +91,11 @@ class MediaServiceAsset(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The resource properties.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `alternate_id` (`pulumi.Input[str]`) - The alternate ID of the Asset.
-          * `asset_id` (`pulumi.Input[str]`) - The Asset ID.
-          * `container` (`pulumi.Input[str]`) - The name of the asset blob container.
-          * `created` (`pulumi.Input[str]`) - The creation date of the Asset.
-          * `description` (`pulumi.Input[str]`) - The Asset description.
-          * `last_modified` (`pulumi.Input[str]`) - The last modified date of the Asset.
-          * `storage_account_name` (`pulumi.Input[str]`) - The name of the storage account.
-          * `storage_encryption_format` (`pulumi.Input[str]`) - The Asset encryption format. One of None or MediaStorageEncryption.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MediaServiceAsset(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

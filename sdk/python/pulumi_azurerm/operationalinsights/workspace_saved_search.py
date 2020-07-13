@@ -95,7 +95,7 @@ class WorkspaceSavedSearch(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing WorkspaceSavedSearch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -103,30 +103,11 @@ class WorkspaceSavedSearch(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: The ETag of the saved search.
-        :param pulumi.Input[str] name: The name of the saved search.
-        :param pulumi.Input[dict] properties: The properties of the saved search.
-        :param pulumi.Input[str] type: The type of the saved search.
-
-        The **properties** object supports the following:
-
-          * `category` (`pulumi.Input[str]`) - The category of the saved search. This helps the user to find a saved search faster. 
-          * `display_name` (`pulumi.Input[str]`) - Saved search display name.
-          * `query` (`pulumi.Input[str]`) - The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-          * `tags` (`pulumi.Input[list]`) - The tags attached to the saved search.
-            * `name` (`pulumi.Input[str]`) - The tag name.
-            * `value` (`pulumi.Input[str]`) - The tag value.
-
-          * `version` (`pulumi.Input[float]`) - The version number of the query language. The current version is 2 and is the default.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return WorkspaceSavedSearch(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

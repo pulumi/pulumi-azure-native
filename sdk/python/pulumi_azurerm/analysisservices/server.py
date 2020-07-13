@@ -133,7 +133,7 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -141,52 +141,11 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Location of the Analysis Services resource.
-        :param pulumi.Input[str] name: The name of the Analysis Services resource.
-        :param pulumi.Input[dict] properties: Properties of the provision operation request.
-        :param pulumi.Input[dict] sku: The SKU of the Analysis Services resource.
-        :param pulumi.Input[dict] tags: Key-value pairs of additional resource provisioning properties.
-        :param pulumi.Input[str] type: The type of the Analysis Services resource.
-
-        The **properties** object supports the following:
-
-          * `as_administrators` (`pulumi.Input[dict]`) - A collection of AS server administrators
-            * `members` (`pulumi.Input[list]`) - An array of administrator user identities.
-
-          * `backup_blob_container_uri` (`pulumi.Input[str]`) - The SAS container URI to the backup container.
-          * `gateway_details` (`pulumi.Input[dict]`) - The gateway details configured for the AS server.
-            * `dmts_cluster_uri` (`pulumi.Input[str]`) - Uri of the DMTS cluster.
-            * `gateway_object_id` (`pulumi.Input[str]`) - Gateway object id from in the DMTS cluster for the gateway resource.
-            * `gateway_resource_id` (`pulumi.Input[str]`) - Gateway resource to be associated with the server.
-
-          * `ip_v4_firewall_settings` (`pulumi.Input[dict]`) - The firewall settings for the AS server.
-            * `enable_power_bi_service` (`pulumi.Input[bool]`) - The indicator of enabling PBI service.
-            * `firewall_rules` (`pulumi.Input[list]`) - An array of firewall rules.
-              * `firewall_rule_name` (`pulumi.Input[str]`) - The rule name.
-              * `range_end` (`pulumi.Input[str]`) - The end range of IPv4.
-              * `range_start` (`pulumi.Input[str]`) - The start range of IPv4.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
-          * `querypool_connection_mode` (`pulumi.Input[str]`) - How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-          * `server_full_name` (`pulumi.Input[str]`) - The full name of the Analysis Services resource.
-          * `state` (`pulumi.Input[str]`) - The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The number of instances in the read only query pool.
-          * `name` (`pulumi.Input[str]`) - Name of the SKU level.
-          * `tier` (`pulumi.Input[str]`) - The name of the Azure pricing tier to which the SKU applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Server(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

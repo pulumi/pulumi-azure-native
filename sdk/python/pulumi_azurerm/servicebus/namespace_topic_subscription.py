@@ -110,7 +110,7 @@ class NamespaceTopicSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceTopicSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -118,43 +118,11 @@ class NamespaceTopicSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of subscriptions resource.
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `accessed_at` (`pulumi.Input[str]`) - Last time there was a receive request to this subscription.
-          * `auto_delete_on_idle` (`pulumi.Input[str]`) - ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-          * `count_details` (`pulumi.Input[dict]`) - Message count details
-            * `active_message_count` (`pulumi.Input[float]`) - Number of active messages in the queue, topic, or subscription.
-            * `dead_letter_message_count` (`pulumi.Input[float]`) - Number of messages that are dead lettered.
-            * `scheduled_message_count` (`pulumi.Input[float]`) - Number of scheduled messages.
-            * `transfer_dead_letter_message_count` (`pulumi.Input[float]`) - Number of messages transferred into dead letters.
-            * `transfer_message_count` (`pulumi.Input[float]`) - Number of messages transferred to another queue, topic, or subscription.
-
-          * `created_at` (`pulumi.Input[str]`) - Exact time the message was created.
-          * `dead_lettering_on_filter_evaluation_exceptions` (`pulumi.Input[bool]`) - Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
-          * `dead_lettering_on_message_expiration` (`pulumi.Input[bool]`) - Value that indicates whether a subscription has dead letter support when a message expires.
-          * `default_message_time_to_live` (`pulumi.Input[str]`) - ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-          * `duplicate_detection_history_time_window` (`pulumi.Input[str]`) - ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-          * `enable_batched_operations` (`pulumi.Input[bool]`) - Value that indicates whether server-side batched operations are enabled.
-          * `forward_dead_lettered_messages_to` (`pulumi.Input[str]`) - Queue/Topic name to forward the Dead Letter message
-          * `forward_to` (`pulumi.Input[str]`) - Queue/Topic name to forward the messages
-          * `lock_duration` (`pulumi.Input[str]`) - ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
-          * `max_delivery_count` (`pulumi.Input[float]`) - Number of maximum deliveries.
-          * `message_count` (`pulumi.Input[float]`) - Number of messages.
-          * `requires_session` (`pulumi.Input[bool]`) - Value indicating if a subscription supports the concept of sessions.
-          * `status` (`pulumi.Input[str]`) - Enumerates the possible values for the status of a messaging entity.
-          * `updated_at` (`pulumi.Input[str]`) - The exact time the message was updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceTopicSubscription(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

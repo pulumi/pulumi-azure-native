@@ -81,7 +81,7 @@ class ServiceApiRelease(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceApiRelease resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,24 +89,11 @@ class ServiceApiRelease(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: ApiRelease entity contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `api_id` (`pulumi.Input[str]`) - Identifier of the API the release belongs to.
-          * `created_date_time` (`pulumi.Input[str]`) - The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
-          * `notes` (`pulumi.Input[str]`) - Release Notes
-          * `updated_date_time` (`pulumi.Input[str]`) - The time the API release was updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceApiRelease(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

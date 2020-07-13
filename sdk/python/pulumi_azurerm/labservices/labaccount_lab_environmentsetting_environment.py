@@ -124,7 +124,7 @@ class LabaccountLabEnvironmentsettingEnvironment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabaccountLabEnvironmentsettingEnvironment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -132,51 +132,11 @@ class LabaccountLabEnvironmentsettingEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the Environment resource
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `claimed_by_user_name` (`pulumi.Input[str]`) - The name or email address of the user who has claimed the environment
-          * `claimed_by_user_object_id` (`pulumi.Input[str]`) - The AAD object Id of the user who has claimed the environment
-          * `claimed_by_user_principal_id` (`pulumi.Input[str]`) - The user principal Id of the user who has claimed the environment
-          * `is_claimed` (`pulumi.Input[bool]`) - Is the environment claimed or not
-          * `last_known_power_state` (`pulumi.Input[str]`) - Last known power state of the environment
-          * `latest_operation_result` (`pulumi.Input[dict]`) - The details of the latest operation. ex: status, error
-            * `error_code` (`pulumi.Input[str]`) - Error code on failure.
-            * `error_message` (`pulumi.Input[str]`) - The error message.
-            * `http_method` (`pulumi.Input[str]`) - The HttpMethod - PUT/POST/DELETE for the operation.
-            * `operation_url` (`pulumi.Input[str]`) - The URL to use to check long-running operation status
-            * `request_uri` (`pulumi.Input[str]`) - Request URI of the operation.
-            * `status` (`pulumi.Input[str]`) - The current status of the operation.
-
-          * `network_interface` (`pulumi.Input[dict]`) - Network details of the environment
-            * `private_ip_address` (`pulumi.Input[str]`) - PrivateIp address of the Compute VM
-            * `rdp_authority` (`pulumi.Input[str]`) - Connection information for Windows
-            * `ssh_authority` (`pulumi.Input[str]`) - Connection information for Linux
-            * `username` (`pulumi.Input[str]`) - Username of the VM
-
-          * `password_last_reset` (`pulumi.Input[str]`) - When the password was last reset on the environment.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `resource_sets` (`pulumi.Input[dict]`) - The set of a VM and the setting id it was created for
-            * `resource_setting_id` (`pulumi.Input[str]`) - resourceSettingId for the environment
-            * `vm_resource_id` (`pulumi.Input[str]`) - VM resource Id for the environment
-
-          * `total_usage` (`pulumi.Input[str]`) - How long the environment has been used by a lab user
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabaccountLabEnvironmentsettingEnvironment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

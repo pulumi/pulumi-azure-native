@@ -16,11 +16,10 @@ export class RegistrationCustomerSubscription extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RegistrationCustomerSubscriptionState, opts?: pulumi.CustomResourceOptions): RegistrationCustomerSubscription {
-        return new RegistrationCustomerSubscription(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegistrationCustomerSubscription {
+        return new RegistrationCustomerSubscription(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class RegistrationCustomerSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RegistrationCustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: RegistrationCustomerSubscriptionArgs | RegistrationCustomerSubscriptionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: RegistrationCustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as RegistrationCustomerSubscriptionState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as RegistrationCustomerSubscriptionArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -81,13 +71,12 @@ export class RegistrationCustomerSubscription extends pulumi.CustomResource {
             if (!args || args.resourceGroup === undefined) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["registrationName"] = args ? args.registrationName : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["etag"] = args ? args.etag : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["registrationName"] = args ? args.registrationName : undefined;
+        inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -97,28 +86,6 @@ export class RegistrationCustomerSubscription extends pulumi.CustomResource {
         }
         super(RegistrationCustomerSubscription.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Customer subscription.
- */
-export interface RegistrationCustomerSubscriptionState {
-    /**
-     * The entity tag used for optimistic concurrency when modifying the resource.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * Name of the resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Customer subscription properties.
-     */
-    readonly properties: pulumi.Input<inputs.azurestack.CustomerSubscriptionPropertiesResponse>;
-    /**
-     * Type of Resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

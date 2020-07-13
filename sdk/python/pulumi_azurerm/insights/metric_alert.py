@@ -112,7 +112,7 @@ class MetricAlert(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MetricAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -120,39 +120,11 @@ class MetricAlert(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Azure resource name
-        :param pulumi.Input[dict] properties: The alert rule properties of the resource.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Azure resource type
-
-        The **properties** object supports the following:
-
-          * `actions` (`pulumi.Input[list]`) - the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-            * `action_group_id` (`pulumi.Input[str]`) - the id of the action group to use.
-            * `web_hook_properties` (`pulumi.Input[dict]`) - The properties of a webhook object.
-
-          * `auto_mitigate` (`pulumi.Input[bool]`) - the flag that indicates whether the alert should be auto resolved or not. The default is true.
-          * `criteria` (`pulumi.Input[dict]`) - defines the specific alert criteria information.
-          * `description` (`pulumi.Input[str]`) - the description of the metric alert that will be included in the alert email.
-          * `enabled` (`pulumi.Input[bool]`) - the flag that indicates whether the metric alert is enabled.
-          * `evaluation_frequency` (`pulumi.Input[str]`) - how often the metric alert is evaluated represented in ISO 8601 duration format.
-          * `last_updated_time` (`pulumi.Input[str]`) - Last time the rule was updated in ISO8601 format.
-          * `scopes` (`pulumi.Input[list]`) - the list of resource id's that this metric alert is scoped to.
-          * `severity` (`pulumi.Input[float]`) - Alert severity {0, 1, 2, 3, 4}
-          * `target_resource_region` (`pulumi.Input[str]`) - the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
-          * `target_resource_type` (`pulumi.Input[str]`) - the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
-          * `window_size` (`pulumi.Input[str]`) - the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return MetricAlert(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

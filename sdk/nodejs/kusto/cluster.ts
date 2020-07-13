@@ -16,11 +16,10 @@ export class Cluster extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ClusterState, opts?: pulumi.CustomResourceOptions): Cluster {
-        return new Cluster(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
+        return new Cluster(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -77,21 +76,8 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["zones"] = state ? state.zones : undefined;
-        } else {
-            const args = argsOrState as ClusterArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -104,16 +90,15 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["identity"] = args ? args.identity : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["zones"] = args ? args.zones : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -123,44 +108,6 @@ export class Cluster extends pulumi.CustomResource {
         }
         super(Cluster.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Class representing a Kusto cluster.
- */
-export interface ClusterState {
-    /**
-     * The identity of the cluster, if configured.
-     */
-    readonly identity?: pulumi.Input<inputs.kusto.IdentityResponse>;
-    /**
-     * The geo-location where the resource lives
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The cluster properties.
-     */
-    readonly properties: pulumi.Input<inputs.kusto.ClusterPropertiesResponse>;
-    /**
-     * The SKU of the cluster.
-     */
-    readonly sku: pulumi.Input<inputs.kusto.AzureSkuResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-     */
-    readonly type: pulumi.Input<string>;
-    /**
-     * The availability zones of the cluster.
-     */
-    readonly zones?: pulumi.Input<inputs.kusto.ZonesResponse>;
 }
 
 /**

@@ -125,7 +125,7 @@ class Redis(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None, zones=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Redis resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -133,50 +133,11 @@ class Redis(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Redis cache properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-        :param pulumi.Input[list] zones: A list of availability zones denoting where the resource needs to come from.
-
-        The **properties** object supports the following:
-
-          * `access_keys` (`pulumi.Input[dict]`) - The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
-            * `primary_key` (`pulumi.Input[str]`) - The current primary key that clients can use to authenticate with Redis cache.
-            * `secondary_key` (`pulumi.Input[str]`) - The current secondary key that clients can use to authenticate with Redis cache.
-
-          * `enable_non_ssl_port` (`pulumi.Input[bool]`) - Specifies whether the non-ssl Redis server port (6379) is enabled.
-          * `host_name` (`pulumi.Input[str]`) - Redis host name.
-          * `linked_servers` (`pulumi.Input[list]`) - List of the linked servers associated with the cache
-            * `id` (`pulumi.Input[str]`) - Linked server Id.
-
-          * `minimum_tls_version` (`pulumi.Input[str]`) - Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-          * `port` (`pulumi.Input[float]`) - Redis non-SSL port.
-          * `provisioning_state` (`pulumi.Input[str]`) - Redis instance provisioning status.
-          * `redis_configuration` (`pulumi.Input[dict]`) - All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-          * `redis_version` (`pulumi.Input[str]`) - Redis version.
-          * `shard_count` (`pulumi.Input[float]`) - The number of shards to be created on a Premium Cluster Cache.
-          * `sku` (`pulumi.Input[dict]`) - The SKU of the Redis cache to deploy.
-            * `capacity` (`pulumi.Input[float]`) - The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
-            * `family` (`pulumi.Input[str]`) - The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-            * `name` (`pulumi.Input[str]`) - The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-
-          * `ssl_port` (`pulumi.Input[float]`) - Redis SSL port.
-          * `static_ip` (`pulumi.Input[str]`) - Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
-          * `subnet_id` (`pulumi.Input[str]`) - The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
-          * `tenant_settings` (`pulumi.Input[dict]`) - A dictionary of tenant settings
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["zones"] = zones
         return Redis(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

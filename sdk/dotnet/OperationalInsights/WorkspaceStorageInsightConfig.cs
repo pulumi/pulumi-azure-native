@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.OperationalInsights
         {
         }
 
-        private WorkspaceStorageInsightConfig(string name, Input<string> id, WorkspaceStorageInsightConfigState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights:WorkspaceStorageInsightConfig", name, state, MakeResourceOptions(options, id))
+        private WorkspaceStorageInsightConfig(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:operationalinsights:WorkspaceStorageInsightConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.OperationalInsights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static WorkspaceStorageInsightConfig Get(string name, Input<string> id, WorkspaceStorageInsightConfigState? state = null, CustomResourceOptions? options = null)
+        public static WorkspaceStorageInsightConfig Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new WorkspaceStorageInsightConfig(name, id, state, options);
+            return new WorkspaceStorageInsightConfig(name, id, options);
         }
     }
 
@@ -133,49 +132,6 @@ namespace Pulumi.AzureRM.OperationalInsights
         public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceStorageInsightConfigArgs()
-        {
-        }
-    }
-
-    public sealed class WorkspaceStorageInsightConfigState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ETag of the storage insight.
-        /// </summary>
-        [Input("eTag")]
-        public Input<string>? ETag { get; set; }
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Storage insight properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StorageInsightPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WorkspaceStorageInsightConfigState()
         {
         }
     }

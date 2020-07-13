@@ -84,7 +84,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServerCommunicationLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -92,26 +92,11 @@ class ServerCommunicationLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Communication link kind.  This property is used for Azure Portal metadata.
-        :param pulumi.Input[str] location: Communication link location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The properties of resource.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `partner_server` (`pulumi.Input[str]`) - The name of the partner server.
-          * `state` (`pulumi.Input[str]`) - The state.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServerCommunicationLink(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

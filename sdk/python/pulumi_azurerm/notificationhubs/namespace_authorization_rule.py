@@ -103,7 +103,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,43 +111,11 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of the Namespace AuthorizationRule.
-        :param pulumi.Input[dict] sku: The sku of the created namespace
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `claim_type` (`pulumi.Input[str]`) - A string that describes the claim type
-          * `claim_value` (`pulumi.Input[str]`) - A string that describes the claim value
-          * `created_time` (`pulumi.Input[str]`) - The created time for this rule
-          * `key_name` (`pulumi.Input[str]`) - A string that describes the authorization rule.
-          * `modified_time` (`pulumi.Input[str]`) - The last modified time for this rule
-          * `primary_key` (`pulumi.Input[str]`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-          * `revision` (`pulumi.Input[float]`) - The revision number for the rule
-          * `rights` (`pulumi.Input[list]`) - The rights associated with the rule.
-          * `secondary_key` (`pulumi.Input[str]`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The capacity of the resource
-          * `family` (`pulumi.Input[str]`) - The Sku Family
-          * `name` (`pulumi.Input[str]`) - Name of the notification hub sku
-          * `size` (`pulumi.Input[str]`) - The Sku size
-          * `tier` (`pulumi.Input[str]`) - The tier of particular sku
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return NamespaceAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

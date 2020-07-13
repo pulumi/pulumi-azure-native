@@ -85,7 +85,7 @@ class ServerPrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServerPrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,29 +93,11 @@ class ServerPrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Resource properties.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - Private endpoint which the connection belongs to.
-            * `id` (`pulumi.Input[str]`) - Resource id of the private endpoint.
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Connection state of the private endpoint connection.
-            * `actions_required` (`pulumi.Input[str]`) - The actions required for private link service connection.
-            * `description` (`pulumi.Input[str]`) - The private link service connection description.
-            * `status` (`pulumi.Input[str]`) - The private link service connection status.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - State of the private endpoint connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServerPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

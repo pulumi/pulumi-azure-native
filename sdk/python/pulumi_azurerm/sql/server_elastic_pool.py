@@ -104,7 +104,7 @@ class ServerElasticPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServerElasticPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,34 +112,11 @@ class ServerElasticPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of elastic pool.  This is metadata used for the Azure portal experience.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The properties representing the resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `creation_date` (`pulumi.Input[str]`) - The creation date of the elastic pool (ISO8601 format).
-          * `database_dtu_max` (`pulumi.Input[float]`) - The maximum DTU any one database can consume.
-          * `database_dtu_min` (`pulumi.Input[float]`) - The minimum DTU all databases are guaranteed.
-          * `dtu` (`pulumi.Input[float]`) - The total shared DTU for the database elastic pool.
-          * `edition` (`pulumi.Input[str]`) - The edition of the elastic pool.
-          * `state` (`pulumi.Input[str]`) - The state of the elastic pool.
-          * `storage_mb` (`pulumi.Input[float]`) - Gets storage limit for the database elastic pool in MB.
-          * `zone_redundant` (`pulumi.Input[bool]`) - Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ServerElasticPool(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

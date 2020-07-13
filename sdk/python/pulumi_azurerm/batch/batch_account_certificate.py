@@ -95,7 +95,7 @@ class BatchAccountCertificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing BatchAccountCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -103,36 +103,11 @@ class BatchAccountCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag of the resource, used for concurrency statements.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties associated with the certificate.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `delete_certificate_error` (`pulumi.Input[dict]`) - This is only returned when the certificate provisioningState is 'Failed'.
-            * `code` (`pulumi.Input[str]`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-            * `details` (`pulumi.Input[list]`) - A list of additional details about the error.
-            * `message` (`pulumi.Input[str]`) - A message describing the error, intended to be suitable for display in a user interface.
-            * `target` (`pulumi.Input[str]`) - The target of the particular error. For example, the name of the property in error.
-
-          * `format` (`pulumi.Input[str]`) - The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-          * `previous_provisioning_state` (`pulumi.Input[str]`) - The previous provisioned state of the resource
-          * `previous_provisioning_state_transition_time` (`pulumi.Input[str]`)
-          * `provisioning_state` (`pulumi.Input[str]`)
-          * `provisioning_state_transition_time` (`pulumi.Input[str]`)
-          * `public_data` (`pulumi.Input[str]`) - The public key of the certificate.
-          * `thumbprint` (`pulumi.Input[str]`) - This must match the thumbprint from the name.
-          * `thumbprint_algorithm` (`pulumi.Input[str]`) - This must match the first portion of the certificate name. Currently required to be 'SHA1'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return BatchAccountCertificate(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

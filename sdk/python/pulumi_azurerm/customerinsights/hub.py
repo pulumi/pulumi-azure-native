@@ -94,7 +94,7 @@ class Hub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Hub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -102,33 +102,11 @@ class Hub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of hub.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `api_endpoint` (`pulumi.Input[str]`) - API endpoint URL of the hub.
-          * `hub_billing_info` (`pulumi.Input[dict]`) - Billing settings of the hub.
-            * `max_units` (`pulumi.Input[float]`) - The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-            * `min_units` (`pulumi.Input[float]`) - The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-            * `sku_name` (`pulumi.Input[str]`) - The sku name.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the hub.
-          * `tenant_features` (`pulumi.Input[float]`) - The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
-          * `web_endpoint` (`pulumi.Input[str]`) - Web endpoint URL of the hub.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Hub(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -82,7 +82,7 @@ class ProfileEndpointCustomDomain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ProfileEndpointCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,26 +90,11 @@ class ProfileEndpointCustomDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The JSON object that contains the properties of the custom domain to create.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `custom_https_provisioning_state` (`pulumi.Input[str]`) - Provisioning status of Custom Https of the custom domain.
-          * `custom_https_provisioning_substate` (`pulumi.Input[str]`) - Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-          * `host_name` (`pulumi.Input[str]`) - The host name of the custom domain. Must be a domain name.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning status of the custom domain.
-          * `resource_state` (`pulumi.Input[str]`) - Resource status of the custom domain.
-          * `validation_data` (`pulumi.Input[str]`) - Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ProfileEndpointCustomDomain(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

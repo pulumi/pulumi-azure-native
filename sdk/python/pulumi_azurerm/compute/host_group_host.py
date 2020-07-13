@@ -127,7 +127,7 @@ class HostGroupHost(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HostGroupHost resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,54 +135,11 @@ class HostGroupHost(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of the dedicated host.
-        :param pulumi.Input[dict] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `auto_replace_on_failure` (`pulumi.Input[bool]`) - Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-          * `host_id` (`pulumi.Input[str]`) - A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
-          * `instance_view` (`pulumi.Input[dict]`) - The dedicated host instance view.
-            * `asset_id` (`pulumi.Input[str]`) - Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
-            * `available_capacity` (`pulumi.Input[dict]`) - Unutilized capacity of the dedicated host.
-              * `allocatable_v_ms` (`pulumi.Input[list]`) - The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
-                * `count` (`pulumi.Input[float]`) - Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
-                * `vm_size` (`pulumi.Input[str]`) - VM size in terms of which the unutilized capacity is represented.
-
-            * `statuses` (`pulumi.Input[list]`) - The resource status information.
-              * `code` (`pulumi.Input[str]`) - The status code.
-              * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
-              * `level` (`pulumi.Input[str]`) - The level code.
-              * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
-              * `time` (`pulumi.Input[str]`) - The time of the status.
-
-          * `license_type` (`pulumi.Input[str]`) - Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-          * `platform_fault_domain` (`pulumi.Input[float]`) - Fault domain of the dedicated host within a dedicated host group.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-          * `provisioning_time` (`pulumi.Input[str]`) - The date when the host was first provisioned.
-          * `virtual_machines` (`pulumi.Input[list]`) - A list of references to all virtual machines in the Dedicated Host.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Specifies the number of virtual machines in the scale set.
-          * `name` (`pulumi.Input[str]`) - The sku name.
-          * `tier` (`pulumi.Input[str]`) - Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return HostGroupHost(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

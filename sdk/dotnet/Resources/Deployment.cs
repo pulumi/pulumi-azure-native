@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Resources
         {
         }
 
-        private Deployment(string name, Input<string> id, DeploymentState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:resources:Deployment", name, state, MakeResourceOptions(options, id))
+        private Deployment(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:resources:Deployment", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.Resources
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Deployment Get(string name, Input<string> id, DeploymentState? state = null, CustomResourceOptions? options = null)
+        public static Deployment Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Deployment(name, id, state, options);
+            return new Deployment(name, id, options);
         }
     }
 
@@ -127,49 +126,6 @@ namespace Pulumi.AzureRM.Resources
         }
 
         public DeploymentArgs()
-        {
-        }
-    }
-
-    public sealed class DeploymentState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// the location of the deployment.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the deployment.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Deployment properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DeploymentPropertiesExtendedResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Deployment tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the deployment.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DeploymentState()
         {
         }
     }

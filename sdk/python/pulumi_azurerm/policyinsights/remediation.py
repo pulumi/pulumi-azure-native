@@ -87,7 +87,7 @@ class Remediation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Remediation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -95,34 +95,11 @@ class Remediation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the remediation.
-        :param pulumi.Input[dict] properties: Properties for the remediation.
-        :param pulumi.Input[str] type: The type of the remediation.
-
-        The **properties** object supports the following:
-
-          * `created_on` (`pulumi.Input[str]`) - The time at which the remediation was created.
-          * `deployment_status` (`pulumi.Input[dict]`) - The deployment status summary for all deployments created by the remediation.
-            * `failed_deployments` (`pulumi.Input[float]`) - The number of deployments required by the remediation that have failed.
-            * `successful_deployments` (`pulumi.Input[float]`) - The number of deployments required by the remediation that have succeeded.
-            * `total_deployments` (`pulumi.Input[float]`) - The number of deployments required by the remediation.
-
-          * `filters` (`pulumi.Input[dict]`) - The filters that will be applied to determine which resources to remediate.
-            * `locations` (`pulumi.Input[list]`) - The resource locations that will be remediated.
-
-          * `last_updated_on` (`pulumi.Input[str]`) - The time at which the remediation was last updated.
-          * `policy_assignment_id` (`pulumi.Input[str]`) - The resource ID of the policy assignment that should be remediated.
-          * `policy_definition_reference_id` (`pulumi.Input[str]`) - The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-          * `provisioning_state` (`pulumi.Input[str]`) - The status of the remediation.
-          * `resource_discovery_mode` (`pulumi.Input[str]`) - The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return Remediation(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

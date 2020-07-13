@@ -89,7 +89,7 @@ class PrivateDnsZone(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PrivateDnsZone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,33 +97,11 @@ class PrivateDnsZone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag of the zone.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Properties of the Private DNS zone.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-
-        The **properties** object supports the following:
-
-          * `max_number_of_record_sets` (`pulumi.Input[float]`) - The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-          * `max_number_of_virtual_network_links` (`pulumi.Input[float]`) - The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-          * `max_number_of_virtual_network_links_with_registration` (`pulumi.Input[float]`) - The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-          * `number_of_record_sets` (`pulumi.Input[float]`) - The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-          * `number_of_virtual_network_links` (`pulumi.Input[float]`) - The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-          * `number_of_virtual_network_links_with_registration` (`pulumi.Input[float]`) - The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return PrivateDnsZone(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

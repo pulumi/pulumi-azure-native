@@ -42,8 +42,8 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         {
         }
 
-        private EnvironmentAccessPolicy(string name, Input<string> id, EnvironmentAccessPolicyState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:timeseriesinsights:EnvironmentAccessPolicy", name, state, MakeResourceOptions(options, id))
+        private EnvironmentAccessPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:timeseriesinsights:EnvironmentAccessPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -65,11 +65,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static EnvironmentAccessPolicy Get(string name, Input<string> id, EnvironmentAccessPolicyState? state = null, CustomResourceOptions? options = null)
+        public static EnvironmentAccessPolicy Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new EnvironmentAccessPolicy(name, id, state, options);
+            return new EnvironmentAccessPolicy(name, id, options);
         }
     }
 
@@ -97,28 +96,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public EnvironmentAccessPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class EnvironmentAccessPolicyState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("properties", required: true)]
-        public Input<Inputs.AccessPolicyResourcePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public EnvironmentAccessPolicyState()
         {
         }
     }

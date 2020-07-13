@@ -126,7 +126,7 @@ class BotServiceConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing BotServiceConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,45 +134,11 @@ class BotServiceConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Entity Tag
-        :param pulumi.Input[str] kind: Required. Gets or sets the Kind of the resource.
-        :param pulumi.Input[str] location: Specifies the location of the resource.
-        :param pulumi.Input[str] name: Specifies the name of the resource.
-        :param pulumi.Input[dict] properties: The set of properties specific to bot channel resource
-        :param pulumi.Input[dict] sku: Gets or sets the SKU of the resource.
-        :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
-        :param pulumi.Input[str] type: Specifies the type of the resource.
-
-        The **properties** object supports the following:
-
-          * `client_id` (`pulumi.Input[str]`) - Client Id associated with the Connection Setting.
-          * `client_secret` (`pulumi.Input[str]`) - Client Secret associated with the Connection Setting
-          * `parameters` (`pulumi.Input[list]`) - Service Provider Parameters associated with the Connection Setting
-            * `key` (`pulumi.Input[str]`) - Key for the Connection Setting Parameter.
-            * `value` (`pulumi.Input[str]`) - Value associated with the Connection Setting Parameter.
-
-          * `scopes` (`pulumi.Input[str]`) - Scopes associated with the Connection Setting
-          * `service_provider_display_name` (`pulumi.Input[str]`) - Service Provider Display Name associated with the Connection Setting
-          * `service_provider_id` (`pulumi.Input[str]`) - Service Provider Id associated with the Connection Setting
-          * `setting_id` (`pulumi.Input[str]`) - Setting Id set by the service for the Connection Setting.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name
-          * `tier` (`pulumi.Input[str]`) - Gets the sku tier. This is based on the SKU name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return BotServiceConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

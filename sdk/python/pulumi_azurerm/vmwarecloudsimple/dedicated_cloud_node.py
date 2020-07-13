@@ -128,7 +128,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DedicatedCloudNode resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -136,51 +136,11 @@ class DedicatedCloudNode(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[str] name: {dedicatedCloudNodeName}
-        :param pulumi.Input[dict] properties: Dedicated Cloud Nodes properties
-        :param pulumi.Input[dict] sku: Dedicated Cloud Nodes SKU
-        :param pulumi.Input[dict] tags: Dedicated Cloud Nodes tags
-        :param pulumi.Input[str] type: {resourceProviderNamespace}/{resourceType}
-
-        The **properties** object supports the following:
-
-          * `availability_zone_id` (`pulumi.Input[str]`) - Availability Zone id, e.g. "az1"
-          * `availability_zone_name` (`pulumi.Input[str]`) - Availability Zone name, e.g. "Availability Zone 1"
-          * `cloud_rack_name` (`pulumi.Input[str]`) - VMWare Cloud Rack Name
-          * `created` (`pulumi.Input[dict]`) - date time the resource was created
-          * `nodes_count` (`pulumi.Input[float]`) - count of nodes to create
-          * `placement_group_id` (`pulumi.Input[str]`) - Placement Group id, e.g. "n1"
-          * `placement_group_name` (`pulumi.Input[str]`) - Placement Name, e.g. "Placement Group 1"
-          * `private_cloud_id` (`pulumi.Input[str]`) - Private Cloud Id
-          * `private_cloud_name` (`pulumi.Input[str]`) - Resource Pool Name
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource
-          * `purchase_id` (`pulumi.Input[str]`) - purchase id
-          * `sku_description` (`pulumi.Input[dict]`) - Dedicated Cloud Nodes SKU's description
-            * `id` (`pulumi.Input[str]`) - SKU's id
-            * `name` (`pulumi.Input[str]`) - SKU's name
-
-          * `status` (`pulumi.Input[str]`) - Node status, indicates is private cloud set up on this node or not
-          * `vmware_cluster_name` (`pulumi.Input[str]`) - VMWare Cluster Name
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[str]`) - The capacity of the SKU
-          * `description` (`pulumi.Input[str]`) - dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
-          * `family` (`pulumi.Input[str]`) - If the service has different generations of hardware, for the same SKU, then that can be captured here
-          * `name` (`pulumi.Input[str]`) - The name of the SKU for VMWare CloudSimple Node
-          * `tier` (`pulumi.Input[str]`) - The tier of the SKU
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DedicatedCloudNode(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

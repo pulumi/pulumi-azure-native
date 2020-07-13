@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.CognitiveServices
         {
         }
 
-        private Account(string name, Input<string> id, AccountState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:cognitiveservices:Account", name, state, MakeResourceOptions(options, id))
+        private Account(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:cognitiveservices:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -104,11 +104,10 @@ namespace Pulumi.AzureRM.CognitiveServices
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Account Get(string name, Input<string> id, AccountState? state = null, CustomResourceOptions? options = null)
+        public static Account Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Account(name, id, state, options);
+            return new Account(name, id, options);
         }
     }
 
@@ -169,73 +168,6 @@ namespace Pulumi.AzureRM.CognitiveServices
         }
 
         public AccountArgs()
-        {
-        }
-    }
-
-    public sealed class AccountState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Entity Tag
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The identity of Cognitive Services account.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityResponseGetArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// The Kind of the resource.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
-        /// The location of the resource
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the created account
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of Cognitive Services account.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CognitiveServicesAccountPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of Cognitive Services account.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public AccountState()
         {
         }
     }

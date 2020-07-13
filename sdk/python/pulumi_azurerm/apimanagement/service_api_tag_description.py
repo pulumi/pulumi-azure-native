@@ -83,7 +83,7 @@ class ServiceApiTagDescription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceApiTagDescription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,25 +91,11 @@ class ServiceApiTagDescription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: TagDescription entity contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Description of the Tag.
-          * `display_name` (`pulumi.Input[str]`) - Tag name.
-          * `external_docs_description` (`pulumi.Input[str]`) - Description of the external resources describing the tag.
-          * `external_docs_url` (`pulumi.Input[str]`) - Absolute URL of external resources describing the tag.
-          * `tag_id` (`pulumi.Input[str]`) - Identifier of the tag in the form of /tags/{tagId}
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceApiTagDescription(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -113,7 +113,7 @@ class ProfileEndpointOriginGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ProfileEndpointOriginGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,40 +121,11 @@ class ProfileEndpointOriginGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The JSON object that contains the properties of the origin group.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `health_probe_settings` (`pulumi.Input[dict]`) - Health probe settings to the origin that is used to determine the health of the origin.
-            * `probe_interval_in_seconds` (`pulumi.Input[float]`) - The number of seconds between health probes.Default is 240sec.
-            * `probe_path` (`pulumi.Input[str]`) - The path relative to the origin that is used to determine the health of the origin.
-            * `probe_protocol` (`pulumi.Input[str]`) - Protocol to use for health probe.
-            * `probe_request_type` (`pulumi.Input[str]`) - The type of health probe request that is made.
-
-          * `origins` (`pulumi.Input[list]`) - The source of the content being delivered via CDN within given origin group.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning status of the origin group.
-          * `resource_state` (`pulumi.Input[str]`) - Resource status of the origin group.
-          * `response_based_origin_error_detection_settings` (`pulumi.Input[dict]`) - The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-            * `http_error_ranges` (`pulumi.Input[list]`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
-              * `begin` (`pulumi.Input[float]`) - The inclusive start of the http status code range.
-              * `end` (`pulumi.Input[float]`) - The inclusive end of the http status code range.
-
-            * `response_based_detected_error_types` (`pulumi.Input[str]`) - Type of response errors for real user requests for which origin will be deemed unhealthy
-            * `response_based_failover_threshold_percentage` (`pulumi.Input[float]`) - The percentage of failed requests in the sample where failover should trigger.
-
-          * `traffic_restoration_time_to_healed_or_new_endpoints_in_minutes` (`pulumi.Input[float]`) - Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ProfileEndpointOriginGroup(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

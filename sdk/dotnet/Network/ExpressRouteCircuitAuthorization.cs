@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private ExpressRouteCircuitAuthorization(string name, Input<string> id, ExpressRouteCircuitAuthorizationState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:ExpressRouteCircuitAuthorization", name, state, MakeResourceOptions(options, id))
+        private ExpressRouteCircuitAuthorization(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:ExpressRouteCircuitAuthorization", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ExpressRouteCircuitAuthorization Get(string name, Input<string> id, ExpressRouteCircuitAuthorizationState? state = null, CustomResourceOptions? options = null)
+        public static ExpressRouteCircuitAuthorization Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ExpressRouteCircuitAuthorization(name, id, state, options);
+            return new ExpressRouteCircuitAuthorization(name, id, options);
         }
     }
 
@@ -121,37 +120,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ExpressRouteCircuitAuthorizationArgs()
-        {
-        }
-    }
-
-    public sealed class ExpressRouteCircuitAuthorizationState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Properties of the express route circuit authorization.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AuthorizationPropertiesFormatResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ExpressRouteCircuitAuthorizationState()
         {
         }
     }

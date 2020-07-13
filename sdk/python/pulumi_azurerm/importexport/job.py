@@ -205,7 +205,7 @@ class Job(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -213,87 +213,11 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Specifies the Azure location where the job is created.
-        :param pulumi.Input[str] name: Specifies the name of the job.
-        :param pulumi.Input[dict] properties: Specifies the job properties
-        :param pulumi.Input[dict] tags: Specifies the tags that are assigned to the job.
-        :param pulumi.Input[str] type: Specifies the type of the job resource.
-
-        The **properties** object supports the following:
-
-          * `backup_drive_manifest` (`pulumi.Input[bool]`) - Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
-          * `cancel_requested` (`pulumi.Input[bool]`) - Indicates whether a request has been submitted to cancel the job.
-          * `delivery_package` (`pulumi.Input[dict]`) - Contains information about the package being shipped by the customer to the Microsoft data center. 
-            * `carrier_name` (`pulumi.Input[str]`) - The name of the carrier that is used to ship the import or export drives.
-            * `drive_count` (`pulumi.Input[float]`) - The number of drives included in the package.
-            * `ship_date` (`pulumi.Input[str]`) - The date when the package is shipped.
-            * `tracking_number` (`pulumi.Input[str]`) - The tracking number of the package.
-
-          * `diagnostics_path` (`pulumi.Input[str]`) - The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-          * `drive_list` (`pulumi.Input[list]`) - List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
-            * `bit_locker_key` (`pulumi.Input[str]`) - The BitLocker key used to encrypt the drive.
-            * `bytes_succeeded` (`pulumi.Input[float]`) - Bytes successfully transferred for the drive.
-            * `copy_status` (`pulumi.Input[str]`) - Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
-            * `drive_header_hash` (`pulumi.Input[str]`) - The drive header hash value.
-            * `drive_id` (`pulumi.Input[str]`) - The drive's hardware serial number, without spaces.
-            * `error_log_uri` (`pulumi.Input[str]`) - A URI that points to the blob containing the error log for the data transfer operation.
-            * `manifest_file` (`pulumi.Input[str]`) - The relative path of the manifest file on the drive. 
-            * `manifest_hash` (`pulumi.Input[str]`) - The Base16-encoded MD5 hash of the manifest file on the drive.
-            * `manifest_uri` (`pulumi.Input[str]`) - A URI that points to the blob containing the drive manifest file. 
-            * `percent_complete` (`pulumi.Input[float]`) - Percentage completed for the drive. 
-            * `state` (`pulumi.Input[str]`) - The drive's current state. 
-            * `verbose_log_uri` (`pulumi.Input[str]`) - A URI that points to the blob containing the verbose log for the data transfer operation. 
-
-          * `export` (`pulumi.Input[dict]`) - A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
-            * `blob_list` (`pulumi.Input[dict]`) - A list of the blobs to be exported.
-              * `blob_path` (`pulumi.Input[list]`) - A collection of blob-path strings.
-              * `blob_path_prefix` (`pulumi.Input[list]`) - A collection of blob-prefix strings.
-
-            * `blob_listblob_path` (`pulumi.Input[str]`) - The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
-
-          * `incomplete_blob_list_uri` (`pulumi.Input[str]`) - A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
-          * `job_type` (`pulumi.Input[str]`) - The type of job
-          * `log_level` (`pulumi.Input[str]`) - Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-          * `percent_complete` (`pulumi.Input[float]`) - Overall percentage completed for the job.
-          * `provisioning_state` (`pulumi.Input[str]`) - Specifies the provisioning state of the job.
-          * `return_address` (`pulumi.Input[dict]`) - Specifies the return address information for the job. 
-            * `city` (`pulumi.Input[str]`) - The city name to use when returning the drives.
-            * `country_or_region` (`pulumi.Input[str]`) - The country or region to use when returning the drives. 
-            * `email` (`pulumi.Input[str]`) - Email address of the recipient of the returned drives.
-            * `phone` (`pulumi.Input[str]`) - Phone number of the recipient of the returned drives.
-            * `postal_code` (`pulumi.Input[str]`) - The postal code to use when returning the drives.
-            * `recipient_name` (`pulumi.Input[str]`) - The name of the recipient who will receive the hard drives when they are returned. 
-            * `state_or_province` (`pulumi.Input[str]`) - The state or province to use when returning the drives.
-            * `street_address1` (`pulumi.Input[str]`) - The first line of the street address to use when returning the drives. 
-            * `street_address2` (`pulumi.Input[str]`) - The second line of the street address to use when returning the drives. 
-
-          * `return_package` (`pulumi.Input[dict]`) - Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
-          * `return_shipping` (`pulumi.Input[dict]`) - Specifies the return carrier and customer's account with the carrier. 
-            * `carrier_account_number` (`pulumi.Input[str]`) - The customer's account number with the carrier.
-            * `carrier_name` (`pulumi.Input[str]`) - The carrier's name.
-
-          * `shipping_information` (`pulumi.Input[dict]`) - Contains information about the Microsoft datacenter to which the drives should be shipped. 
-            * `city` (`pulumi.Input[str]`) - The city name to use when returning the drives.
-            * `country_or_region` (`pulumi.Input[str]`) - The country or region to use when returning the drives. 
-            * `phone` (`pulumi.Input[str]`) - Phone number of the recipient of the returned drives.
-            * `postal_code` (`pulumi.Input[str]`) - The postal code to use when returning the drives.
-            * `recipient_name` (`pulumi.Input[str]`) - The name of the recipient who will receive the hard drives when they are returned. 
-            * `state_or_province` (`pulumi.Input[str]`) - The state or province to use when returning the drives.
-            * `street_address1` (`pulumi.Input[str]`) - The first line of the street address to use when returning the drives. 
-            * `street_address2` (`pulumi.Input[str]`) - The second line of the street address to use when returning the drives. 
-
-          * `state` (`pulumi.Input[str]`) - Current state of the job.
-          * `storage_account_id` (`pulumi.Input[str]`) - The resource identifier of the storage account where data will be imported to or exported from.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Job(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

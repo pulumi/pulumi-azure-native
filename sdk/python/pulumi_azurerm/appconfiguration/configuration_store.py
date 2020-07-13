@@ -140,7 +140,7 @@ class ConfigurationStore(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ConfigurationStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,64 +148,11 @@ class ConfigurationStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The managed identity information, if configured.
-        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of a configuration store.
-        :param pulumi.Input[dict] sku: The sku of the configuration store.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of the identity. This property will only be provided for a system-assigned identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
-          * `type` (`pulumi.Input[str]`) - The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `creation_date` (`pulumi.Input[str]`) - The creation date of configuration store.
-          * `encryption` (`pulumi.Input[dict]`) - The encryption settings of the configuration store.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Key vault properties.
-              * `identity_client_id` (`pulumi.Input[str]`) - The client id of the identity which will be used to access key vault.
-              * `key_identifier` (`pulumi.Input[str]`) - The URI of the key vault key used to encrypt data.
-
-          * `endpoint` (`pulumi.Input[str]`) - The DNS endpoint where the configuration store API will be available.
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - The list of private endpoint connections that are set up for this resource.
-            * `id` (`pulumi.Input[str]`) - The resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource.
-            * `properties` (`pulumi.Input[dict]`) - The properties of a private endpoint connection.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private endpoint.
-                * `id` (`pulumi.Input[str]`) - The resource Id for private endpoint
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-                * `actions_required` (`pulumi.Input[str]`) - Any action that is required beyond basic workflow (approve/ reject/ disconnect)
-                * `description` (`pulumi.Input[str]`) - The private link service connection description.
-                * `status` (`pulumi.Input[str]`) - The private link service connection status.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the private endpoint connection.
-
-            * `type` (`pulumi.Input[str]`) - The type of the resource.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the configuration store.
-          * `public_network_access` (`pulumi.Input[str]`) - Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The SKU name of the configuration store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ConfigurationStore(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -118,7 +118,7 @@ class StorageAccountBlobServiceContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageAccountBlobServiceContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,60 +126,11 @@ class StorageAccountBlobServiceContainer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Resource Etag.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Properties of the blob container.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `default_encryption_scope` (`pulumi.Input[str]`) - Default the container to use specified encryption scope for all writes.
-          * `deleted` (`pulumi.Input[bool]`) - Indicates whether the blob container was deleted.
-          * `deleted_time` (`pulumi.Input[str]`) - Blob container deletion time.
-          * `deny_encryption_scope_override` (`pulumi.Input[bool]`) - Block override of encryption scope from the container default.
-          * `has_immutability_policy` (`pulumi.Input[bool]`) - The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-          * `has_legal_hold` (`pulumi.Input[bool]`) - The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-          * `immutability_policy` (`pulumi.Input[dict]`) - The ImmutabilityPolicy property of the container.
-            * `etag` (`pulumi.Input[str]`) - ImmutabilityPolicy Etag.
-            * `properties` (`pulumi.Input[dict]`) - The properties of an ImmutabilityPolicy of a blob container.
-              * `allow_protected_append_writes` (`pulumi.Input[bool]`) - This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-              * `immutability_period_since_creation_in_days` (`pulumi.Input[float]`) - The immutability period for the blobs in the container since the policy creation, in days.
-              * `state` (`pulumi.Input[str]`) - The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-
-            * `update_history` (`pulumi.Input[list]`) - The ImmutabilityPolicy update history of the blob container.
-              * `immutability_period_since_creation_in_days` (`pulumi.Input[float]`) - The immutability period for the blobs in the container since the policy creation, in days.
-              * `object_identifier` (`pulumi.Input[str]`) - Returns the Object ID of the user who updated the ImmutabilityPolicy.
-              * `tenant_id` (`pulumi.Input[str]`) - Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
-              * `timestamp` (`pulumi.Input[str]`) - Returns the date and time the ImmutabilityPolicy was updated.
-              * `update` (`pulumi.Input[str]`) - The ImmutabilityPolicy update type of a blob container, possible values include: put, lock and extend.
-              * `upn` (`pulumi.Input[str]`) - Returns the User Principal Name of the user who updated the ImmutabilityPolicy.
-
-          * `last_modified_time` (`pulumi.Input[str]`) - Returns the date and time the container was last modified.
-          * `lease_duration` (`pulumi.Input[str]`) - Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-          * `lease_state` (`pulumi.Input[str]`) - Lease state of the container.
-          * `lease_status` (`pulumi.Input[str]`) - The lease status of the container.
-          * `legal_hold` (`pulumi.Input[dict]`) - The LegalHold property of the container.
-            * `has_legal_hold` (`pulumi.Input[bool]`) - The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-            * `tags` (`pulumi.Input[list]`) - The list of LegalHold tags of a blob container.
-              * `object_identifier` (`pulumi.Input[str]`) - Returns the Object ID of the user who added the tag.
-              * `tag` (`pulumi.Input[str]`) - The tag value.
-              * `tenant_id` (`pulumi.Input[str]`) - Returns the Tenant ID that issued the token for the user who added the tag.
-              * `timestamp` (`pulumi.Input[str]`) - Returns the date and time the tag was added.
-              * `upn` (`pulumi.Input[str]`) - Returns the User Principal Name of the user who added the tag.
-
-          * `metadata` (`pulumi.Input[dict]`) - A name-value pair to associate with the container as metadata.
-          * `public_access` (`pulumi.Input[str]`) - Specifies whether data in the container may be accessed publicly and the level of access.
-          * `remaining_retention_days` (`pulumi.Input[float]`) - Remaining retention days for soft deleted blob container.
-          * `version` (`pulumi.Input[str]`) - The version of the deleted blob container.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StorageAccountBlobServiceContainer(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

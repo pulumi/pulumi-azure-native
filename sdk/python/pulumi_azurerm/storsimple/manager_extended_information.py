@@ -91,7 +91,7 @@ class ManagerExtendedInformation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagerExtendedInformation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,30 +99,11 @@ class ManagerExtendedInformation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The etag of the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The name of the object.
-        :param pulumi.Input[dict] properties: The extended info properties.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `algorithm` (`pulumi.Input[str]`) - Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
-          * `encryption_key` (`pulumi.Input[str]`) - Represents the CEK of the resource.
-          * `encryption_key_thumbprint` (`pulumi.Input[str]`) - Represents the Cert thumbprint that was used to encrypt the CEK.
-          * `integrity_key` (`pulumi.Input[str]`) - Represents the CIK of the resource.
-          * `portal_certificate_thumbprint` (`pulumi.Input[str]`) - Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-          * `version` (`pulumi.Input[str]`) - The version of the extended info being persisted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagerExtendedInformation(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

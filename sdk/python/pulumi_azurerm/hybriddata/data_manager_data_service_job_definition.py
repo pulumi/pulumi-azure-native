@@ -109,7 +109,7 @@ class DataManagerDataServiceJobDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataManagerDataServiceJobDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -117,36 +117,11 @@ class DataManagerDataServiceJobDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the object.
-        :param pulumi.Input[dict] properties: JobDefinition properties.
-        :param pulumi.Input[str] type: Type of the object.
-
-        The **properties** object supports the following:
-
-          * `customer_secrets` (`pulumi.Input[list]`) - List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-            * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
-            * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
-            * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
-
-          * `data_service_input` (`pulumi.Input[dict]`) - A generic json used differently by each data service type.
-          * `data_sink_id` (`pulumi.Input[str]`) - Data Sink Id associated to the job definition.
-          * `data_source_id` (`pulumi.Input[str]`) - Data Source Id associated to the job definition.
-          * `last_modified_time` (`pulumi.Input[str]`) - Last modified time of the job definition.
-          * `run_location` (`pulumi.Input[str]`) - This is the preferred geo location for the job to run.
-          * `schedules` (`pulumi.Input[list]`) - Schedule for running the job definition
-            * `name` (`pulumi.Input[str]`) - Name of the schedule.
-            * `policy_list` (`pulumi.Input[list]`) - A list of repetition intervals in ISO 8601 format.
-
-          * `state` (`pulumi.Input[str]`) - State of the job definition.
-          * `user_confirmation` (`pulumi.Input[str]`) - Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataManagerDataServiceJobDefinition(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

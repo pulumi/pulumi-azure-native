@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Cache
         {
         }
 
-        private RedisLinkedServer(string name, Input<string> id, RedisLinkedServerState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:cache:RedisLinkedServer", name, state, MakeResourceOptions(options, id))
+        private RedisLinkedServer(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:cache:RedisLinkedServer", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Cache
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static RedisLinkedServer Get(string name, Input<string> id, RedisLinkedServerState? state = null, CustomResourceOptions? options = null)
+        public static RedisLinkedServer Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new RedisLinkedServer(name, id, state, options);
+            return new RedisLinkedServer(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.Cache
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public RedisLinkedServerArgs()
-        {
-        }
-    }
-
-    public sealed class RedisLinkedServerState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the linked server.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RedisLinkedServerPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public RedisLinkedServerState()
         {
         }
     }

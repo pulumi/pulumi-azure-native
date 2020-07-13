@@ -16,11 +16,10 @@ export class NetworkWatcherPacketCapture extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkWatcherPacketCaptureState, opts?: pulumi.CustomResourceOptions): NetworkWatcherPacketCapture {
-        return new NetworkWatcherPacketCapture(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NetworkWatcherPacketCapture {
+        return new NetworkWatcherPacketCapture(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class NetworkWatcherPacketCapture extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkWatcherPacketCaptureArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NetworkWatcherPacketCaptureArgs | NetworkWatcherPacketCaptureState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: NetworkWatcherPacketCaptureArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NetworkWatcherPacketCaptureState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-        } else {
-            const args = argsOrState as NetworkWatcherPacketCaptureArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -79,12 +70,11 @@ export class NetworkWatcherPacketCapture extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["etag"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -94,24 +84,6 @@ export class NetworkWatcherPacketCapture extends pulumi.CustomResource {
         }
         super(NetworkWatcherPacketCapture.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Information about packet capture session.
- */
-export interface NetworkWatcherPacketCaptureState {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * Name of the packet capture session.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the packet capture result.
-     */
-    readonly properties: pulumi.Input<inputs.network.PacketCaptureResultPropertiesResponse>;
 }
 
 /**

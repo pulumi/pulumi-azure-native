@@ -16,11 +16,10 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IntegrationServiceEnvironmentState, opts?: pulumi.CustomResourceOptions): IntegrationServiceEnvironment {
-        return new IntegrationServiceEnvironment(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationServiceEnvironment {
+        return new IntegrationServiceEnvironment(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,33 +68,21 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationServiceEnvironmentArgs | IntegrationServiceEnvironmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: IntegrationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IntegrationServiceEnvironmentState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as IntegrationServiceEnvironmentArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroup === undefined) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -105,36 +92,6 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
         }
         super(IntegrationServiceEnvironment.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The integration service environment.
- */
-export interface IntegrationServiceEnvironmentState {
-    /**
-     * The resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Gets the resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The integration service environment properties.
-     */
-    readonly properties: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentPropertiesResponse>;
-    /**
-     * The sku.
-     */
-    readonly sku?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentSkuResponse>;
-    /**
-     * The resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Gets the resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

@@ -79,7 +79,7 @@ class SearchServicePrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing SearchServicePrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -87,24 +87,11 @@ class SearchServicePrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the private endpoint connection.
-        :param pulumi.Input[dict] properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - The private endpoint resource from Microsoft.Network provider.
-            * `id` (`pulumi.Input[str]`) - The resource id of the private endpoint resource from Microsoft.Network provider.
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return SearchServicePrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

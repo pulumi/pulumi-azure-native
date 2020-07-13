@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Compute
         {
         }
 
-        private HostGroup(string name, Input<string> id, HostGroupState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:compute:HostGroup", name, state, MakeResourceOptions(options, id))
+        private HostGroup(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:compute:HostGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Compute
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static HostGroup Get(string name, Input<string> id, HostGroupState? state = null, CustomResourceOptions? options = null)
+        public static HostGroup Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new HostGroup(name, id, state, options);
+            return new HostGroup(name, id, options);
         }
     }
 
@@ -145,61 +144,6 @@ namespace Pulumi.AzureRM.Compute
         }
 
         public HostGroupArgs()
-        {
-        }
-    }
-
-    public sealed class HostGroupState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Dedicated Host Group Properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DedicatedHostGroupPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("zones")]
-        private InputList<string>? _zones;
-
-        /// <summary>
-        /// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-        /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
-
-        public HostGroupState()
         {
         }
     }

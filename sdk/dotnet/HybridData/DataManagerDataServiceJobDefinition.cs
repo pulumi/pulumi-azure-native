@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.HybridData
         {
         }
 
-        private DataManagerDataServiceJobDefinition(string name, Input<string> id, DataManagerDataServiceJobDefinitionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:hybriddata:DataManagerDataServiceJobDefinition", name, state, MakeResourceOptions(options, id))
+        private DataManagerDataServiceJobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:hybriddata:DataManagerDataServiceJobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.HybridData
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DataManagerDataServiceJobDefinition Get(string name, Input<string> id, DataManagerDataServiceJobDefinitionState? state = null, CustomResourceOptions? options = null)
+        public static DataManagerDataServiceJobDefinition Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DataManagerDataServiceJobDefinition(name, id, state, options);
+            return new DataManagerDataServiceJobDefinition(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.HybridData
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public DataManagerDataServiceJobDefinitionArgs()
-        {
-        }
-    }
-
-    public sealed class DataManagerDataServiceJobDefinitionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the object.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// JobDefinition properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JobDefinitionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the object.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DataManagerDataServiceJobDefinitionState()
         {
         }
     }

@@ -106,7 +106,7 @@ class FactoryDataset(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing FactoryDataset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,36 +114,11 @@ class FactoryDataset(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag identifies change in the resource.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: Dataset properties.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `annotations` (`pulumi.Input[list]`) - List of tags that can be used for describing the Dataset.
-          * `description` (`pulumi.Input[str]`) - Dataset description.
-          * `folder` (`pulumi.Input[dict]`) - The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-            * `name` (`pulumi.Input[str]`) - The name of the folder that this Dataset is in.
-
-          * `linked_service_name` (`pulumi.Input[dict]`) - Linked service reference.
-            * `parameters` (`pulumi.Input[dict]`) - Arguments for LinkedService.
-            * `reference_name` (`pulumi.Input[str]`) - Reference LinkedService name.
-            * `type` (`pulumi.Input[str]`) - Linked service reference type.
-
-          * `parameters` (`pulumi.Input[dict]`) - Parameters for dataset.
-          * `schema` (`pulumi.Input[dict]`) - Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-          * `structure` (`pulumi.Input[dict]`) - Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-          * `type` (`pulumi.Input[str]`) - Type of dataset.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return FactoryDataset(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

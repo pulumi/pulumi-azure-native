@@ -117,7 +117,7 @@ class ClusterApplicationService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ClusterApplicationService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,39 +125,11 @@ class ClusterApplicationService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Azure resource etag.
-        :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
-        :param pulumi.Input[str] name: Azure resource name.
-        :param pulumi.Input[dict] properties: The service resource properties.
-        :param pulumi.Input[dict] tags: Azure resource tags.
-        :param pulumi.Input[str] type: Azure resource type.
-
-        The **properties** object supports the following:
-
-          * `correlation_scheme` (`pulumi.Input[dict]`) - A list that describes the correlation of the service with other services.
-          * `default_move_cost` (`pulumi.Input[str]`) - Specifies the move cost for the service.
-          * `partition_description` (`pulumi.Input[dict]`) - Describes how the service is partitioned.
-            * `partition_scheme` (`pulumi.Input[str]`) - Specifies how the service is partitioned.
-
-          * `placement_constraints` (`pulumi.Input[str]`) - The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-          * `provisioning_state` (`pulumi.Input[str]`) - The current deployment or provisioning state, which only appears in the response
-          * `service_dns_name` (`pulumi.Input[str]`) - Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
-          * `service_kind` (`pulumi.Input[str]`) - The kind of service (Stateless or Stateful).
-          * `service_load_metrics` (`pulumi.Input[dict]`) - The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-          * `service_package_activation_mode` (`pulumi.Input[str]`) - The activation Mode of the service package
-          * `service_placement_policies` (`pulumi.Input[dict]`) - A list that describes the correlation of the service with other services.
-          * `service_type_name` (`pulumi.Input[str]`) - The name of the service type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ClusterApplicationService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

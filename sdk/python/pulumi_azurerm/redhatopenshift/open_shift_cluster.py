@@ -157,7 +157,7 @@ class OpenShiftCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing OpenShiftCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -165,62 +165,11 @@ class OpenShiftCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The cluster properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `apiserver_profile` (`pulumi.Input[dict]`) - The cluster API server profile.
-            * `ip` (`pulumi.Input[str]`) - The IP of the cluster API server (immutable).
-            * `url` (`pulumi.Input[str]`) - The URL to access the cluster API server (immutable).
-            * `visibility` (`pulumi.Input[str]`) - API server visibility (immutable).
-
-          * `cluster_profile` (`pulumi.Input[dict]`) - The cluster profile.
-            * `domain` (`pulumi.Input[str]`) - The domain for the cluster (immutable).
-            * `pull_secret` (`pulumi.Input[str]`) - The pull secret for the cluster (immutable).
-            * `resource_group_id` (`pulumi.Input[str]`) - The ID of the cluster resource group (immutable).
-            * `version` (`pulumi.Input[str]`) - The version of the cluster (immutable).
-
-          * `console_profile` (`pulumi.Input[dict]`) - The console profile.
-            * `url` (`pulumi.Input[str]`) - The URL to access the cluster console (immutable).
-
-          * `ingress_profiles` (`pulumi.Input[list]`) - The cluster ingress profiles.
-            * `ip` (`pulumi.Input[str]`) - The IP of the ingress (immutable).
-            * `name` (`pulumi.Input[str]`) - The ingress profile name.  Must be "default" (immutable).
-            * `visibility` (`pulumi.Input[str]`) - Ingress visibility (immutable).
-
-          * `master_profile` (`pulumi.Input[dict]`) - The cluster master profile.
-            * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the master subnet (immutable).
-            * `vm_size` (`pulumi.Input[str]`) - The size of the master VMs (immutable).
-
-          * `network_profile` (`pulumi.Input[dict]`) - The cluster network profile.
-            * `pod_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Pods (immutable).
-            * `service_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Services (immutable).
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The cluster provisioning state (immutable).
-          * `service_principal_profile` (`pulumi.Input[dict]`) - The cluster service principal profile.
-            * `client_id` (`pulumi.Input[str]`) - The client ID used for the cluster (immutable).
-            * `client_secret` (`pulumi.Input[str]`) - The client secret used for the cluster (immutable).
-
-          * `worker_profiles` (`pulumi.Input[list]`) - The cluster worker profiles.
-            * `count` (`pulumi.Input[float]`) - The number of worker VMs.  Must be between 3 and 20 (immutable).
-            * `disk_size_gb` (`pulumi.Input[float]`) - The disk size of the worker VMs.  Must be 128 or greater (immutable).
-            * `name` (`pulumi.Input[str]`) - The worker profile name.  Must be "worker" (immutable).
-            * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the worker subnet (immutable).
-            * `vm_size` (`pulumi.Input[str]`) - The size of the worker VMs (immutable).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return OpenShiftCluster(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

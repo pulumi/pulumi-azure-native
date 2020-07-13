@@ -142,7 +142,7 @@ class AutomationAccountRunbook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountRunbook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -150,55 +150,11 @@ class AutomationAccountRunbook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the runbook properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time.
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `draft` (`pulumi.Input[dict]`) - Gets or sets the draft runbook properties.
-            * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time of the runbook draft.
-            * `draft_content_link` (`pulumi.Input[dict]`) - Gets or sets the draft runbook content link.
-              * `content_hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-                * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-                * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
-
-              * `uri` (`pulumi.Input[str]`) - Gets or sets the uri of the runbook content.
-              * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
-
-            * `in_edit` (`pulumi.Input[bool]`) - Gets or sets whether runbook is in edit mode.
-            * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time of the runbook draft.
-            * `output_types` (`pulumi.Input[list]`) - Gets or sets the runbook output types.
-            * `parameters` (`pulumi.Input[dict]`) - Gets or sets the runbook draft parameters.
-
-          * `job_count` (`pulumi.Input[float]`) - Gets or sets the job count of the runbook.
-          * `last_modified_by` (`pulumi.Input[str]`) - Gets or sets the last modified by.
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time.
-          * `log_activity_trace` (`pulumi.Input[float]`) - Gets or sets the option to log activity trace of the runbook.
-          * `log_progress` (`pulumi.Input[bool]`) - Gets or sets progress log option.
-          * `log_verbose` (`pulumi.Input[bool]`) - Gets or sets verbose log option.
-          * `output_types` (`pulumi.Input[list]`) - Gets or sets the runbook output types.
-          * `parameters` (`pulumi.Input[dict]`) - Gets or sets the runbook parameters.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets the provisioning state of the runbook.
-          * `publish_content_link` (`pulumi.Input[dict]`) - Gets or sets the published runbook content link.
-          * `runbook_type` (`pulumi.Input[str]`) - Gets or sets the type of the runbook.
-          * `state` (`pulumi.Input[str]`) - Gets or sets the state of the runbook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return AutomationAccountRunbook(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

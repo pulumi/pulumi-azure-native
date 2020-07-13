@@ -16,11 +16,10 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IntegrationAccountMapState, opts?: pulumi.CustomResourceOptions): IntegrationAccountMap {
-        return new IntegrationAccountMap(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IntegrationAccountMap {
+        return new IntegrationAccountMap(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationAccountMapArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: IntegrationAccountMapArgs | IntegrationAccountMapState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: IntegrationAccountMapArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as IntegrationAccountMapState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as IntegrationAccountMapArgs | undefined;
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -89,14 +78,13 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -106,32 +94,6 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
         }
         super(IntegrationAccountMap.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The integration account map.
- */
-export interface IntegrationAccountMapState {
-    /**
-     * The resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Gets the resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The integration account map properties.
-     */
-    readonly properties: pulumi.Input<inputs.logic.IntegrationAccountMapPropertiesResponse>;
-    /**
-     * The resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Gets the resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

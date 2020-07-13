@@ -85,7 +85,7 @@ class ClusterAttachedDatabaseConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ClusterAttachedDatabaseConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,27 +93,11 @@ class ClusterAttachedDatabaseConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The properties of the attached database configuration.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `attached_database_names` (`pulumi.Input[list]`) - The list of databases from the clusterResourceId which are currently attached to the cluster.
-          * `cluster_resource_id` (`pulumi.Input[str]`) - The resource id of the cluster where the databases you would like to attach reside.
-          * `database_name` (`pulumi.Input[str]`) - The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-          * `default_principals_modification_kind` (`pulumi.Input[str]`) - The default principals modification kind
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioned state of the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ClusterAttachedDatabaseConfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

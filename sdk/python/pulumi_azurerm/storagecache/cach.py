@@ -168,7 +168,7 @@ class Cach(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Cach resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -176,61 +176,11 @@ class Cach(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the cache, if configured.
-        :param pulumi.Input[str] location: Region name string.
-        :param pulumi.Input[str] name: Name of Cache.
-        :param pulumi.Input[dict] properties: Properties of the Cache.
-        :param pulumi.Input[dict] sku: SKU for the Cache.
-        :param pulumi.Input[dict] tags: ARM tags as name/value pairs.
-        :param pulumi.Input[str] type: Type of the Cache; Microsoft.StorageCache/Cache
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of the cache.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id associated with the cache.
-          * `type` (`pulumi.Input[str]`) - The type of identity used for the cache
-
-        The **properties** object supports the following:
-
-          * `cache_size_gb` (`pulumi.Input[float]`) - The size of this Cache, in GB.
-          * `encryption_settings` (`pulumi.Input[dict]`) - Specifies encryption settings of the cache.
-            * `key_encryption_key` (`pulumi.Input[dict]`) - Specifies the location of the key encryption key in Key Vault.
-              * `key_url` (`pulumi.Input[str]`) - The URL referencing a key encryption key in Key Vault.
-              * `source_vault` (`pulumi.Input[dict]`) - Describes a resource Id to source Key Vault.
-                * `id` (`pulumi.Input[str]`) - Resource Id.
-
-          * `health` (`pulumi.Input[dict]`) - Health of the Cache.
-            * `state` (`pulumi.Input[str]`) - List of Cache health states.
-            * `status_description` (`pulumi.Input[str]`) - Describes explanation of state.
-
-          * `mount_addresses` (`pulumi.Input[list]`) - Array of IP addresses that can be used by clients mounting this Cache.
-          * `network_settings` (`pulumi.Input[dict]`) - Specifies network settings of the cache.
-            * `mtu` (`pulumi.Input[float]`) - The IPv4 maximum transmission unit configured for the subnet.
-            * `utility_addresses` (`pulumi.Input[list]`) - Array of additional IP addresses used by this Cache.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-          * `security_settings` (`pulumi.Input[dict]`) - Specifies security settings of the cache.
-            * `root_squash` (`pulumi.Input[bool]`) - root squash of cache property.
-
-          * `subnet` (`pulumi.Input[str]`) - Subnet used for the Cache.
-          * `upgrade_status` (`pulumi.Input[dict]`) - Upgrade status of the Cache.
-            * `current_firmware_version` (`pulumi.Input[str]`) - Version string of the firmware currently installed on this Cache.
-            * `firmware_update_deadline` (`pulumi.Input[str]`) - Time at which the pending firmware update will automatically be installed on the Cache.
-            * `firmware_update_status` (`pulumi.Input[str]`) - True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-            * `last_firmware_update` (`pulumi.Input[str]`) - Time of the last successful firmware update.
-            * `pending_firmware_version` (`pulumi.Input[str]`) - When firmwareUpdateAvailable is true, this field holds the version string for the update.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Cach(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -103,7 +103,7 @@ class ManagerDeviceVolumeContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagerDeviceVolumeContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,34 +111,11 @@ class ManagerDeviceVolumeContainer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The name of the object.
-        :param pulumi.Input[dict] properties: The volume container properties.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `band_width_rate_in_mbps` (`pulumi.Input[float]`) - The bandwidth-rate set on the volume container.
-          * `bandwidth_setting_id` (`pulumi.Input[str]`) - The ID of the bandwidth setting associated with the volume container.
-          * `encryption_key` (`pulumi.Input[dict]`) - The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-            * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-            * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
-            * `value` (`pulumi.Input[str]`) - The value of the secret.
-
-          * `encryption_status` (`pulumi.Input[str]`) - The flag to denote whether encryption is enabled or not.
-          * `owner_ship_status` (`pulumi.Input[str]`) - The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
-          * `storage_account_credential_id` (`pulumi.Input[str]`) - The path ID of storage account associated with the volume container.
-          * `total_cloud_storage_usage_in_bytes` (`pulumi.Input[float]`) - The total cloud storage for the volume container.
-          * `volume_count` (`pulumi.Input[float]`) - The number of volumes in the volume Container.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagerDeviceVolumeContainer(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

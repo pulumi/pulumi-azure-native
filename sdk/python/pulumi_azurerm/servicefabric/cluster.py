@@ -344,7 +344,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -352,165 +352,11 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Azure resource etag.
-        :param pulumi.Input[str] location: Azure resource location.
-        :param pulumi.Input[str] name: Azure resource name.
-        :param pulumi.Input[dict] properties: The cluster resource properties
-        :param pulumi.Input[dict] tags: Azure resource tags.
-        :param pulumi.Input[str] type: Azure resource type.
-
-        The **properties** object supports the following:
-
-          * `add_on_features` (`pulumi.Input[list]`) - The list of add-on features to enable in the cluster.
-          * `application_type_versions_cleanup_policy` (`pulumi.Input[dict]`) - The policy used to clean up unused versions.
-            * `max_unused_versions_to_keep` (`pulumi.Input[float]`) - Number of unused versions per application type to keep.
-
-          * `available_cluster_versions` (`pulumi.Input[list]`) - The Service Fabric runtime versions available for this cluster.
-            * `code_version` (`pulumi.Input[str]`) - The Service Fabric runtime version of the cluster.
-            * `environment` (`pulumi.Input[str]`) - Indicates if this version is for Windows or Linux operating system.
-            * `support_expiry_utc` (`pulumi.Input[str]`) - The date of expiry of support of the version.
-
-          * `azure_active_directory` (`pulumi.Input[dict]`) - The AAD authentication settings of the cluster.
-            * `client_application` (`pulumi.Input[str]`) - Azure active directory client application id.
-            * `cluster_application` (`pulumi.Input[str]`) - Azure active directory cluster application id.
-            * `tenant_id` (`pulumi.Input[str]`) - Azure active directory tenant id.
-
-          * `certificate` (`pulumi.Input[dict]`) - The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
-            * `thumbprint` (`pulumi.Input[str]`) - Thumbprint of the primary certificate.
-            * `thumbprint_secondary` (`pulumi.Input[str]`) - Thumbprint of the secondary certificate.
-            * `x509_store_name` (`pulumi.Input[str]`) - The local certificate store location.
-
-          * `certificate_common_names` (`pulumi.Input[dict]`) - Describes a list of server certificates referenced by common name that are used to secure the cluster.
-            * `common_names` (`pulumi.Input[list]`) - The list of server certificates referenced by common name that are used to secure the cluster.
-              * `certificate_common_name` (`pulumi.Input[str]`) - The common name of the server certificate.
-              * `certificate_issuer_thumbprint` (`pulumi.Input[str]`) - The issuer thumbprint of the server certificate.
-
-            * `x509_store_name` (`pulumi.Input[str]`) - The local certificate store location.
-
-          * `client_certificate_common_names` (`pulumi.Input[list]`) - The list of client certificates referenced by common name that are allowed to manage the cluster.
-            * `certificate_common_name` (`pulumi.Input[str]`) - The common name of the client certificate.
-            * `certificate_issuer_thumbprint` (`pulumi.Input[str]`) - The issuer thumbprint of the client certificate.
-            * `is_admin` (`pulumi.Input[bool]`) - Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-
-          * `client_certificate_thumbprints` (`pulumi.Input[list]`) - The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
-            * `certificate_thumbprint` (`pulumi.Input[str]`) - The thumbprint of the client certificate.
-            * `is_admin` (`pulumi.Input[bool]`) - Indicates if the client certificate has admin access to the cluster. Non admin clients can perform only read only operations on the cluster.
-
-          * `cluster_code_version` (`pulumi.Input[str]`) - The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-          * `cluster_endpoint` (`pulumi.Input[str]`) - The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
-          * `cluster_id` (`pulumi.Input[str]`) - A service generated unique identifier for the cluster resource.
-          * `cluster_state` (`pulumi.Input[str]`) - The current state of the cluster.
-            
-              - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-              - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-              - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-              - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-              - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-              - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-              - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-              - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-              - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-              - Ready - Indicates that the cluster is in a stable state.
-          * `diagnostics_storage_account_config` (`pulumi.Input[dict]`) - The storage account information for storing Service Fabric diagnostic logs.
-            * `blob_endpoint` (`pulumi.Input[str]`) - The blob endpoint of the azure storage account.
-            * `protected_account_key_name` (`pulumi.Input[str]`) - The protected diagnostics storage key name.
-            * `protected_account_key_name2` (`pulumi.Input[str]`) - The secondary protected diagnostics storage key name. If one of the storage account keys is rotated the cluster will fallback to using the other.
-            * `queue_endpoint` (`pulumi.Input[str]`) - The queue endpoint of the azure storage account.
-            * `storage_account_name` (`pulumi.Input[str]`) - The Azure storage account name.
-            * `table_endpoint` (`pulumi.Input[str]`) - The table endpoint of the azure storage account.
-
-          * `event_store_service_enabled` (`pulumi.Input[bool]`) - Indicates if the event store service is enabled.
-          * `fabric_settings` (`pulumi.Input[list]`) - The list of custom fabric settings to configure the cluster.
-            * `name` (`pulumi.Input[str]`) - The section name of the fabric settings.
-            * `parameters` (`pulumi.Input[list]`) - The collection of parameters in the section.
-              * `name` (`pulumi.Input[str]`) - The parameter name of fabric setting.
-              * `value` (`pulumi.Input[str]`) - The parameter value of fabric setting.
-
-          * `management_endpoint` (`pulumi.Input[str]`) - The http management endpoint of the cluster.
-          * `node_types` (`pulumi.Input[list]`) - The list of node types in the cluster.
-            * `application_ports` (`pulumi.Input[dict]`) - The range of ports from which cluster assigned port to Service Fabric applications.
-              * `end_port` (`pulumi.Input[float]`) - End port of a range of ports
-              * `start_port` (`pulumi.Input[float]`) - Starting port of a range of ports
-
-            * `capacities` (`pulumi.Input[dict]`) - The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-            * `client_connection_endpoint_port` (`pulumi.Input[float]`) - The TCP cluster management endpoint port.
-            * `durability_level` (`pulumi.Input[str]`) - The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-              
-                - Bronze - No privileges. This is the default.
-                - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
-                - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-            * `ephemeral_ports` (`pulumi.Input[dict]`) - The range of ephemeral ports that nodes in this node type should be configured with.
-            * `http_gateway_endpoint_port` (`pulumi.Input[float]`) - The HTTP cluster management endpoint port.
-            * `is_primary` (`pulumi.Input[bool]`) - The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
-            * `name` (`pulumi.Input[str]`) - The name of the node type.
-            * `placement_properties` (`pulumi.Input[dict]`) - The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-            * `reverse_proxy_endpoint_port` (`pulumi.Input[float]`) - The endpoint used by reverse proxy.
-            * `vm_instance_count` (`pulumi.Input[float]`) - The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the cluster resource.
-          * `reliability_level` (`pulumi.Input[str]`) - The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-            
-              - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
-              - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
-              - Silver - Run the System services with a target replica set count of 5.
-              - Gold - Run the System services with a target replica set count of 7.
-              - Platinum - Run the System services with a target replica set count of 9.
-          * `reverse_proxy_certificate` (`pulumi.Input[dict]`) - The server certificate used by reverse proxy.
-          * `reverse_proxy_certificate_common_names` (`pulumi.Input[dict]`) - Describes a list of server certificates referenced by common name that are used to secure the cluster.
-          * `upgrade_description` (`pulumi.Input[dict]`) - The policy to use when upgrading the cluster.
-            * `delta_health_policy` (`pulumi.Input[dict]`) - The cluster delta health policy used when upgrading the cluster.
-              * `application_delta_health_policies` (`pulumi.Input[dict]`) - Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-              * `max_percent_delta_unhealthy_applications` (`pulumi.Input[float]`) - The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
-                The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
-                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
-              * `max_percent_delta_unhealthy_nodes` (`pulumi.Input[float]`) - The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
-                The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
-                The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
-              * `max_percent_upgrade_domain_delta_unhealthy_nodes` (`pulumi.Input[float]`) - The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
-                The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
-                The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
-
-            * `force_restart` (`pulumi.Input[bool]`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-            * `health_check_retry_timeout` (`pulumi.Input[str]`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-            * `health_check_stable_duration` (`pulumi.Input[str]`) - The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-            * `health_check_wait_duration` (`pulumi.Input[str]`) - The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-            * `health_policy` (`pulumi.Input[dict]`) - The cluster health policy used when upgrading the cluster.
-              * `application_health_policies` (`pulumi.Input[dict]`) - Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-              * `max_percent_unhealthy_applications` (`pulumi.Input[float]`) - The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
-                
-                The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
-                If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
-                This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
-                The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
-              * `max_percent_unhealthy_nodes` (`pulumi.Input[float]`) - The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
-                
-                The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
-                If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
-                The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
-                The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
-                
-                In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
-
-            * `upgrade_domain_timeout` (`pulumi.Input[str]`) - The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-            * `upgrade_replica_set_check_timeout` (`pulumi.Input[str]`) - The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-            * `upgrade_timeout` (`pulumi.Input[str]`) - The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
-
-          * `upgrade_mode` (`pulumi.Input[str]`) - The upgrade mode of the cluster when new Service Fabric runtime version is available.
-            
-              - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-              - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-          * `vm_image` (`pulumi.Input[str]`) - The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

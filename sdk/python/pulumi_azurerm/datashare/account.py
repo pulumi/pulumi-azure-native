@@ -95,7 +95,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -103,36 +103,11 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: Identity Info on the Account
-        :param pulumi.Input[str] location: Location of the azure resource.
-        :param pulumi.Input[str] name: Name of the azure resource
-        :param pulumi.Input[dict] properties: Properties on the account
-        :param pulumi.Input[dict] tags: Tags on the azure resource.
-        :param pulumi.Input[str] type: Type of the azure resource
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - service principal Id
-          * `tenant_id` (`pulumi.Input[str]`) - Tenant Id
-          * `type` (`pulumi.Input[str]`) - Identity Type
-
-        The **properties** object supports the following:
-
-          * `created_at` (`pulumi.Input[str]`) - Time at which the account was created.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Account
-          * `user_email` (`pulumi.Input[str]`) - Email of the user who created the resource
-          * `user_name` (`pulumi.Input[str]`) - Name of the user who created the resource
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Account(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -149,7 +149,7 @@ class ProvisioningService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ProvisioningService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -157,58 +157,11 @@ class ProvisioningService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: Service specific properties for a provisioning service
-        :param pulumi.Input[dict] sku: Sku info for a provisioning Service.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `allocation_policy` (`pulumi.Input[str]`) - Allocation policy to be used by this provisioning service.
-          * `authorization_policies` (`pulumi.Input[list]`) - List of authorization keys for a provisioning service.
-            * `key_name` (`pulumi.Input[str]`) - Name of the key.
-            * `primary_key` (`pulumi.Input[str]`) - Primary SAS key value.
-            * `rights` (`pulumi.Input[str]`) - Rights that this key has.
-            * `secondary_key` (`pulumi.Input[str]`) - Secondary SAS key value.
-
-          * `device_provisioning_host_name` (`pulumi.Input[str]`) - Device endpoint for this provisioning service.
-          * `id_scope` (`pulumi.Input[str]`) - Unique identifier of this provisioning service.
-          * `iot_hubs` (`pulumi.Input[list]`) - List of IoT hubs associated with this provisioning service.
-            * `allocation_weight` (`pulumi.Input[float]`) - weight to apply for a given iot h.
-            * `apply_allocation_policy` (`pulumi.Input[bool]`) - flag for applying allocationPolicy or not for a given iot hub.
-            * `connection_string` (`pulumi.Input[str]`) - Connection string og the IoT hub.
-            * `location` (`pulumi.Input[str]`) - ARM region of the IoT hub.
-            * `name` (`pulumi.Input[str]`) - Host name of the IoT hub.
-
-          * `ip_filter_rules` (`pulumi.Input[list]`) - The IP filter rules.
-            * `action` (`pulumi.Input[str]`) - The desired action for requests captured by this rule.
-            * `filter_name` (`pulumi.Input[str]`) - The name of the IP filter rule.
-            * `ip_mask` (`pulumi.Input[str]`) - A string that contains the IP address range in CIDR notation for the rule.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The ARM provisioning state of the provisioning service.
-          * `service_operations_host_name` (`pulumi.Input[str]`) - Service endpoint for provisioning service.
-          * `state` (`pulumi.Input[str]`) - Current state of the provisioning service.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The number of units to provision
-          * `name` (`pulumi.Input[str]`) - Sku name.
-          * `tier` (`pulumi.Input[str]`) - Pricing tier name of the provisioning service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ProvisioningService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

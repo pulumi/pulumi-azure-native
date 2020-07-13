@@ -16,11 +16,10 @@ export class SignalR extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SignalRState, opts?: pulumi.CustomResourceOptions): SignalR {
-        return new SignalR(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SignalR {
+        return new SignalR(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,35 +72,22 @@ export class SignalR extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SignalRArgs | SignalRState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SignalRState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as SignalRArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -111,40 +97,6 @@ export class SignalR extends pulumi.CustomResource {
         }
         super(SignalR.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A class represent a SignalR service resource.
- */
-export interface SignalRState {
-    /**
-     * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Settings used to provision or configure the resource
-     */
-    readonly properties: pulumi.Input<inputs.signalrservice.SignalRPropertiesResponse>;
-    /**
-     * The billing information of the resource.(e.g. Free, Standard)
-     */
-    readonly sku?: pulumi.Input<inputs.signalrservice.ResourceSkuResponse>;
-    /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

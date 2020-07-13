@@ -100,7 +100,7 @@ class DnsZone(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DnsZone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,34 +108,11 @@ class DnsZone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The etag of the zone.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The properties of the zone.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `max_number_of_record_sets` (`pulumi.Input[float]`) - The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-          * `name_servers` (`pulumi.Input[list]`) - The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-          * `number_of_record_sets` (`pulumi.Input[float]`) - The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-          * `registration_virtual_networks` (`pulumi.Input[list]`) - A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `resolution_virtual_networks` (`pulumi.Input[list]`) - A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-          * `zone_type` (`pulumi.Input[str]`) - The type of this DNS zone (Public or Private).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DnsZone(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

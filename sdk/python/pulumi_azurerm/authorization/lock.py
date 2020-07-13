@@ -77,7 +77,7 @@ class Lock(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Lock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,24 +85,11 @@ class Lock(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the lock.
-        :param pulumi.Input[dict] properties: The properties of the lock.
-        :param pulumi.Input[str] type: The resource type of the lock - Microsoft.Authorization/locks.
-
-        The **properties** object supports the following:
-
-          * `level` (`pulumi.Input[str]`) - The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-          * `notes` (`pulumi.Input[str]`) - Notes about the lock. Maximum of 512 characters.
-          * `owners` (`pulumi.Input[list]`) - The owners of the lock.
-            * `application_id` (`pulumi.Input[str]`) - The application ID of the lock owner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return Lock(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

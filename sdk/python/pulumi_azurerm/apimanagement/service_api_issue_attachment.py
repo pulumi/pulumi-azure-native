@@ -85,7 +85,7 @@ class ServiceApiIssueAttachment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceApiIssueAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,23 +93,11 @@ class ServiceApiIssueAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the Issue Attachment.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `content` (`pulumi.Input[str]`) - An HTTP link or Base64-encoded binary data.
-          * `content_format` (`pulumi.Input[str]`) - Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
-          * `title` (`pulumi.Input[str]`) - Filename by which the binary data will be saved.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceApiIssueAttachment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

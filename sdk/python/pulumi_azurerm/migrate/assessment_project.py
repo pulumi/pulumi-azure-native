@@ -101,7 +101,7 @@ class AssessmentProject(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AssessmentProject resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -109,38 +109,11 @@ class AssessmentProject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: For optimistic concurrency control.
-        :param pulumi.Input[str] location: Azure location in which project is created.
-        :param pulumi.Input[str] name: Name of the project.
-        :param pulumi.Input[dict] properties: Properties of the project.
-        :param pulumi.Input[dict] tags: Tags provided by Azure Tagging service.
-        :param pulumi.Input[str] type: Type of the object = [Microsoft.Migrate/assessmentProjects].
-
-        The **properties** object supports the following:
-
-          * `assessment_solution_id` (`pulumi.Input[str]`) - Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
-          * `created_timestamp` (`pulumi.Input[str]`) - Time when this project was created. Date-Time represented in ISO-8601 format.
-          * `customer_workspace_id` (`pulumi.Input[str]`) - The ARM id of service map workspace created by customer.
-          * `customer_workspace_location` (`pulumi.Input[str]`) - Location of service map workspace created by customer.
-          * `last_assessment_timestamp` (`pulumi.Input[str]`) - Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-          * `number_of_assessments` (`pulumi.Input[float]`) - Number of assessments created in the project.
-          * `number_of_groups` (`pulumi.Input[float]`) - Number of groups created in the project.
-          * `number_of_machines` (`pulumi.Input[float]`) - Number of machines in the project.
-          * `project_status` (`pulumi.Input[str]`) - Assessment project status.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the project.
-          * `service_endpoint` (`pulumi.Input[str]`) - Endpoint at which the collector agent can call agent REST API.
-          * `updated_timestamp` (`pulumi.Input[str]`) - Time when this project was last updated. Date-Time represented in ISO-8601 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return AssessmentProject(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

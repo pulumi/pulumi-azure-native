@@ -16,11 +16,10 @@ export class BatchAccountPool extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BatchAccountPoolState, opts?: pulumi.CustomResourceOptions): BatchAccountPool {
-        return new BatchAccountPool(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BatchAccountPool {
+        return new BatchAccountPool(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class BatchAccountPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BatchAccountPoolArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: BatchAccountPoolArgs | BatchAccountPoolState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: BatchAccountPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as BatchAccountPoolState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as BatchAccountPoolArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -81,13 +71,12 @@ export class BatchAccountPool extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["accountName"] = args ? args.accountName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -97,28 +86,6 @@ export class BatchAccountPool extends pulumi.CustomResource {
         }
         super(BatchAccountPool.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Contains information about a pool.
- */
-export interface BatchAccountPoolState {
-    /**
-     * The ETag of the resource, used for concurrency statements.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * The name of the resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties associated with the pool.
-     */
-    readonly properties: pulumi.Input<inputs.batch.PoolPropertiesResponse>;
-    /**
-     * The type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

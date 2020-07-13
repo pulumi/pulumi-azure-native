@@ -99,7 +99,7 @@ class ManagerBandwidthSetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ManagerBandwidthSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -107,33 +107,11 @@ class ManagerBandwidthSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
-        :param pulumi.Input[str] name: The name of the object.
-        :param pulumi.Input[dict] properties: The properties of the bandwidth setting.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `schedules` (`pulumi.Input[list]`) - The schedules.
-            * `days` (`pulumi.Input[list]`) - The days of the week when this schedule is applicable.
-            * `rate_in_mbps` (`pulumi.Input[float]`) - The rate in Mbps.
-            * `start` (`pulumi.Input[dict]`) - The start time of the schedule.
-              * `hours` (`pulumi.Input[float]`) - The hour.
-              * `minutes` (`pulumi.Input[float]`) - The minute.
-              * `seconds` (`pulumi.Input[float]`) - The second.
-
-            * `stop` (`pulumi.Input[dict]`) - The stop time of the schedule.
-
-          * `volume_count` (`pulumi.Input[float]`) - The number of volumes that uses the bandwidth setting.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ManagerBandwidthSetting(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

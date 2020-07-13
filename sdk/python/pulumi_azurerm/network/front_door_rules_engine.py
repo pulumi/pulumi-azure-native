@@ -115,7 +115,7 @@ class FrontDoorRulesEngine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing FrontDoorRulesEngine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -123,42 +123,11 @@ class FrontDoorRulesEngine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the Rules Engine Configuration.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `resource_state` (`pulumi.Input[str]`) - Resource status.
-          * `rules` (`pulumi.Input[list]`) - A list of rules that define a particular Rules Engine Configuration.
-            * `action` (`pulumi.Input[dict]`) - Actions to perform on the request and response if all of the match conditions are met.
-              * `request_header_actions` (`pulumi.Input[list]`) - A list of header actions to apply from the request from AFD to the origin.
-                * `header_action_type` (`pulumi.Input[str]`) - Which type of manipulation to apply to the header.
-                * `header_name` (`pulumi.Input[str]`) - The name of the header this action will apply to.
-                * `value` (`pulumi.Input[str]`) - The value to update the given header name with. This value is not used if the actionType is Delete.
-
-              * `response_header_actions` (`pulumi.Input[list]`) - A list of header actions to apply from the response from AFD to the client.
-              * `route_configuration_override` (`pulumi.Input[dict]`) - Override the route configuration.
-
-            * `match_conditions` (`pulumi.Input[list]`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-              * `negate_condition` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
-              * `rules_engine_match_value` (`pulumi.Input[list]`) - Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-              * `rules_engine_match_variable` (`pulumi.Input[str]`) - Match Variable
-              * `rules_engine_operator` (`pulumi.Input[str]`) - Describes operator to apply to the match condition.
-              * `selector` (`pulumi.Input[str]`) - Name of selector in RequestHeader or RequestBody to be matched
-              * `transforms` (`pulumi.Input[list]`) - List of transforms
-
-            * `match_processing_behavior` (`pulumi.Input[str]`) - If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-            * `name` (`pulumi.Input[str]`) - A name to refer to this specific rule.
-            * `priority` (`pulumi.Input[float]`) - A priority assigned to this rule. 
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return FrontDoorRulesEngine(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

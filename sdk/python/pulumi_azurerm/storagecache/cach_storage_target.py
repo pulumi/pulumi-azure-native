@@ -105,7 +105,7 @@ class CachStorageTarget(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing CachStorageTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,37 +113,11 @@ class CachStorageTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the Storage Target.
-        :param pulumi.Input[dict] properties: StorageTarget properties
-        :param pulumi.Input[str] type: Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-
-        The **properties** object supports the following:
-
-          * `clfs` (`pulumi.Input[dict]`) - Properties when targetType is clfs.
-            * `target` (`pulumi.Input[str]`) - Resource ID of storage container.
-
-          * `junctions` (`pulumi.Input[list]`) - List of Cache namespace junctions to target for namespace associations.
-            * `namespace_path` (`pulumi.Input[str]`) - Namespace path on a Cache for a Storage Target.
-            * `nfs_export` (`pulumi.Input[str]`) - NFS export where targetPath exists.
-            * `target_path` (`pulumi.Input[str]`) - Path in Storage Target to which namespacePath points.
-
-          * `nfs3` (`pulumi.Input[dict]`) - Properties when targetType is nfs3.
-            * `target` (`pulumi.Input[str]`) - IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-            * `usage_model` (`pulumi.Input[str]`) - Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
-
-          * `provisioning_state` (`pulumi.Input[str]`) - ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-          * `target_base_type` (`pulumi.Input[str]`) - Type of the Storage Target.
-          * `target_type` (`pulumi.Input[str]`) - Type of the Storage Target.
-          * `unknown` (`pulumi.Input[dict]`) - Properties when targetType is unknown.
-            * `unknown_map` (`pulumi.Input[dict]`) - Dictionary of string->string pairs containing information about the Storage Target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return CachStorageTarget(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

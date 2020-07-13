@@ -85,7 +85,7 @@ class ServerFirewallRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServerFirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,26 +93,11 @@ class ServerFirewallRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of server that contains this firewall rule.
-        :param pulumi.Input[str] location: Location of the server that contains this firewall rule.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The properties representing the resource.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `end_ip_address` (`pulumi.Input[str]`) - The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-          * `start_ip_address` (`pulumi.Input[str]`) - The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServerFirewallRule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

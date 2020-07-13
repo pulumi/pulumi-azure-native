@@ -215,7 +215,7 @@ class Job(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Job resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -223,108 +223,11 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-        :param pulumi.Input[str] name: Name of the object.
-        :param pulumi.Input[dict] properties: Properties of a job.
-        :param pulumi.Input[dict] sku: The sku type.
-        :param pulumi.Input[dict] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-        :param pulumi.Input[str] type: Type of the object.
-
-        The **properties** object supports the following:
-
-          * `cancellation_reason` (`pulumi.Input[str]`) - Reason for cancellation.
-          * `delivery_info` (`pulumi.Input[dict]`) - Delivery Info of Job.
-            * `scheduled_date_time` (`pulumi.Input[str]`) - Scheduled date time.
-
-          * `delivery_type` (`pulumi.Input[str]`) - Delivery type of Job.
-          * `details` (`pulumi.Input[dict]`) - Details of a job run. This field will only be sent for expand details filter.
-            * `chain_of_custody_sas_key` (`pulumi.Input[str]`) - Shared access key to download the chain of custody logs
-            * `contact_details` (`pulumi.Input[dict]`) - Contact details for notification and shipping.
-              * `contact_name` (`pulumi.Input[str]`) - Contact name of the person.
-              * `email_list` (`pulumi.Input[list]`) - List of Email-ids to be notified about job progress.
-              * `mobile` (`pulumi.Input[str]`) - Mobile number of the contact person.
-              * `notification_preference` (`pulumi.Input[list]`) - Notification preference for a job stage.
-                * `send_notification` (`pulumi.Input[bool]`) - Notification is required or not.
-                * `stage_name` (`pulumi.Input[str]`) - Name of the stage.
-
-              * `phone` (`pulumi.Input[str]`) - Phone number of the contact person.
-              * `phone_extension` (`pulumi.Input[str]`) - Phone extension number of the contact person.
-
-            * `copy_log_details` (`pulumi.Input[list]`) - List of copy log details.
-              * `copy_log_details_type` (`pulumi.Input[str]`) - Indicates the type of job details.
-
-            * `delivery_package` (`pulumi.Input[dict]`) - Delivery package shipping details.
-              * `carrier_name` (`pulumi.Input[str]`) - Name of the carrier.
-              * `tracking_id` (`pulumi.Input[str]`) - Tracking Id of shipment.
-              * `tracking_url` (`pulumi.Input[str]`) - Url where shipment can be tracked.
-
-            * `destination_account_details` (`pulumi.Input[list]`) - Destination account details.
-              * `account_id` (`pulumi.Input[str]`) - Arm Id of the destination where the data has to be moved.
-              * `data_destination_type` (`pulumi.Input[str]`) - Data Destination Type.
-              * `share_password` (`pulumi.Input[str]`) - Share password to be shared by all shares in SA.
-
-            * `error_details` (`pulumi.Input[list]`) - Error details for failure. This is optional.
-              * `error_code` (`pulumi.Input[float]`) - Code for the error.
-              * `error_message` (`pulumi.Input[str]`) - Message for the error.
-              * `exception_message` (`pulumi.Input[str]`) - Contains the non localized exception message
-              * `recommended_action` (`pulumi.Input[str]`) - Recommended action for the error.
-
-            * `expected_data_size_in_terabytes` (`pulumi.Input[float]`) - The expected size of the data, which needs to be transferred in this job, in terabytes.
-            * `job_details_type` (`pulumi.Input[str]`) - Indicates the type of job details.
-            * `job_stages` (`pulumi.Input[list]`) - List of stages that run in the job.
-              * `display_name` (`pulumi.Input[str]`) - Display name of the job stage.
-              * `error_details` (`pulumi.Input[list]`) - Error details for the stage.
-              * `job_stage_details` (`pulumi.Input[dict]`) - Job Stage Details
-              * `stage_name` (`pulumi.Input[str]`) - Name of the job stage.
-              * `stage_status` (`pulumi.Input[str]`) - Status of the job stage.
-              * `stage_time` (`pulumi.Input[str]`) - Time for the job stage in UTC ISO 8601 format.
-
-            * `preferences` (`pulumi.Input[dict]`) - Preferences for the order.
-              * `preferred_data_center_region` (`pulumi.Input[list]`) - Preferred Data Center Region.
-              * `transport_preferences` (`pulumi.Input[dict]`) - Preferences related to the shipment logistics of the sku.
-                * `preferred_shipment_type` (`pulumi.Input[str]`) - Indicates Shipment Logistics type that the customer preferred.
-
-            * `return_package` (`pulumi.Input[dict]`) - Return package shipping details.
-            * `reverse_shipment_label_sas_key` (`pulumi.Input[str]`) - Shared access key to download the return shipment label
-            * `shipping_address` (`pulumi.Input[dict]`) - Shipping address of the customer.
-              * `address_type` (`pulumi.Input[str]`) - Type of address.
-              * `city` (`pulumi.Input[str]`) - Name of the City.
-              * `company_name` (`pulumi.Input[str]`) - Name of the company.
-              * `country` (`pulumi.Input[str]`) - Name of the Country.
-              * `postal_code` (`pulumi.Input[str]`) - Postal code.
-              * `state_or_province` (`pulumi.Input[str]`) - Name of the State or Province.
-              * `street_address1` (`pulumi.Input[str]`) - Street Address line 1.
-              * `street_address2` (`pulumi.Input[str]`) - Street Address line 2.
-              * `street_address3` (`pulumi.Input[str]`) - Street Address line 3.
-              * `zip_extended_code` (`pulumi.Input[str]`) - Extended Zip Code.
-
-          * `error` (`pulumi.Input[dict]`) - Top level error for the job.
-            * `code` (`pulumi.Input[str]`) - Error code that can be used to programmatically identify the error.
-            * `message` (`pulumi.Input[str]`) - Describes the error in detail and provides debugging information.
-
-          * `is_cancellable` (`pulumi.Input[bool]`) - Describes whether the job is cancellable or not.
-          * `is_cancellable_without_fee` (`pulumi.Input[bool]`) - Flag to indicate cancellation of scheduled job.
-          * `is_deletable` (`pulumi.Input[bool]`) - Describes whether the job is deletable or not.
-          * `is_shipping_address_editable` (`pulumi.Input[bool]`) - Describes whether the shipping address is editable or not.
-          * `start_time` (`pulumi.Input[str]`) - Time at which the job was started in UTC ISO 8601 format.
-          * `status` (`pulumi.Input[str]`) - Name of the stage which is in progress.
-
-        The **sku** object supports the following:
-
-          * `display_name` (`pulumi.Input[str]`) - The display name of the sku.
-          * `family` (`pulumi.Input[str]`) - The sku family.
-          * `name` (`pulumi.Input[str]`) - The sku name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Job(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -97,7 +97,7 @@ class DataManager(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataManager resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,31 +105,11 @@ class DataManager(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag of the Resource.
-        :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
-               US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
-               region is specified on update the request will succeed.
-        :param pulumi.Input[str] name: The Resource Name.
-        :param pulumi.Input[dict] sku: The sku type.
-        :param pulumi.Input[dict] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
-               (across resource groups).
-        :param pulumi.Input[str] type: The Resource type.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name. Required for data manager creation, optional for update.
-          * `tier` (`pulumi.Input[str]`) - The sku tier. This is based on the SKU name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DataManager(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -81,7 +81,7 @@ class PolicyDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PolicyDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,27 +89,11 @@ class PolicyDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the policy definition.
-        :param pulumi.Input[dict] properties: The policy definition properties.
-        :param pulumi.Input[str] type: The type of the resource (Microsoft.Authorization/policyDefinitions).
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The policy definition description.
-          * `display_name` (`pulumi.Input[str]`) - The display name of the policy definition.
-          * `metadata` (`pulumi.Input[dict]`) - The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-          * `mode` (`pulumi.Input[str]`) - The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-          * `parameters` (`pulumi.Input[dict]`) - The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-          * `policy_rule` (`pulumi.Input[dict]`) - The policy rule.
-          * `policy_type` (`pulumi.Input[str]`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return PolicyDefinition(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

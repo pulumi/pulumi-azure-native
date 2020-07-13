@@ -177,7 +177,7 @@ class StorageSyncServiceSyncGroupServerEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageSyncServiceSyncGroupServerEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -185,112 +185,11 @@ class StorageSyncServiceSyncGroupServerEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Server Endpoint properties.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `cloud_tiering` (`pulumi.Input[str]`) - Cloud Tiering.
-          * `cloud_tiering_status` (`pulumi.Input[dict]`) - Cloud tiering status. Only populated if cloud tiering is enabled.
-            * `cache_performance` (`pulumi.Input[dict]`) - Information regarding how well the local cache on the server is performing.
-              * `cache_hit_bytes` (`pulumi.Input[float]`) - Count of bytes that were served from the local server
-              * `cache_hit_bytes_percent` (`pulumi.Input[float]`) - Percentage of total bytes (hit + miss) that were served from the local server
-              * `cache_miss_bytes` (`pulumi.Input[float]`) - Count of bytes that were served from the cloud
-              * `last_updated_timestamp` (`pulumi.Input[str]`) - Last updated timestamp
-
-            * `date_policy_status` (`pulumi.Input[dict]`) - Status of the date policy
-              * `last_updated_timestamp` (`pulumi.Input[str]`) - Last updated timestamp
-              * `tiered_files_most_recent_access_timestamp` (`pulumi.Input[str]`) - Most recent access time of tiered files
-
-            * `files_not_tiering` (`pulumi.Input[dict]`) - Information regarding files that failed to be tiered
-              * `errors` (`pulumi.Input[list]`) - Array of tiering errors
-                * `error_code` (`pulumi.Input[float]`) - Error code (HResult)
-                * `file_count` (`pulumi.Input[float]`) - Count of files with this error
-
-              * `last_updated_timestamp` (`pulumi.Input[str]`) - Last updated timestamp
-              * `total_file_count` (`pulumi.Input[float]`) - Last cloud tiering result (HResult)
-
-            * `health` (`pulumi.Input[str]`) - Cloud tiering health state.
-            * `health_last_updated_timestamp` (`pulumi.Input[str]`) - The last updated timestamp of health state
-            * `last_cloud_tiering_result` (`pulumi.Input[float]`) - Last cloud tiering result (HResult)
-            * `last_success_timestamp` (`pulumi.Input[str]`) - Last cloud tiering success timestamp
-            * `last_updated_timestamp` (`pulumi.Input[str]`) - Last updated timestamp
-            * `space_savings` (`pulumi.Input[dict]`) - Information regarding how much local space cloud tiering is saving.
-              * `cached_size_bytes` (`pulumi.Input[float]`) - Cached content size on the server
-              * `last_updated_timestamp` (`pulumi.Input[str]`) - Last updated timestamp
-              * `space_savings_bytes` (`pulumi.Input[float]`) - Count of bytes saved on the server
-              * `space_savings_percent` (`pulumi.Input[float]`) - Percentage of cached size over total size
-              * `total_size_cloud_bytes` (`pulumi.Input[float]`) - Total size of content in the azure file share
-              * `volume_size_bytes` (`pulumi.Input[float]`) - Volume size
-
-            * `volume_free_space_policy_status` (`pulumi.Input[dict]`) - Status of the volume free space policy
-              * `current_volume_free_space_percent` (`pulumi.Input[float]`) - Current volume free space percentage.
-              * `effective_volume_free_space_policy` (`pulumi.Input[float]`) - In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
-              * `last_updated_timestamp` (`pulumi.Input[str]`) - Last updated timestamp
-
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly Name
-          * `initial_download_policy` (`pulumi.Input[str]`) - Policy for how namespace and files are recalled during FastDr.
-          * `last_operation_name` (`pulumi.Input[str]`) - Resource Last Operation Name
-          * `last_workflow_id` (`pulumi.Input[str]`) - ServerEndpoint lastWorkflowId
-          * `local_cache_mode` (`pulumi.Input[str]`) - Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
-          * `offline_data_transfer` (`pulumi.Input[str]`) - Offline data transfer
-          * `offline_data_transfer_share_name` (`pulumi.Input[str]`) - Offline data transfer share name
-          * `offline_data_transfer_storage_account_resource_id` (`pulumi.Input[str]`) - Offline data transfer storage account resource ID
-          * `offline_data_transfer_storage_account_tenant_id` (`pulumi.Input[str]`) - Offline data transfer storage account tenant ID
-          * `provisioning_state` (`pulumi.Input[str]`) - ServerEndpoint Provisioning State
-          * `recall_status` (`pulumi.Input[dict]`) - Recall status. Only populated if cloud tiering is enabled.
-            * `last_updated_timestamp` (`pulumi.Input[str]`) - Last updated timestamp
-            * `recall_errors` (`pulumi.Input[list]`) - Array of recall errors
-              * `count` (`pulumi.Input[float]`) - Count of occurences of the error
-              * `error_code` (`pulumi.Input[float]`) - Error code (HResult)
-
-            * `total_recall_errors_count` (`pulumi.Input[float]`) - Total count of recall errors.
-
-          * `server_local_path` (`pulumi.Input[str]`) - Server Local path.
-          * `server_resource_id` (`pulumi.Input[str]`) - Server Resource Id.
-          * `sync_status` (`pulumi.Input[dict]`) - Server Endpoint sync status
-            * `combined_health` (`pulumi.Input[str]`) - Combined Health Status.
-            * `download_activity` (`pulumi.Input[dict]`) - Download sync activity
-              * `applied_bytes` (`pulumi.Input[float]`) - Applied bytes
-              * `applied_item_count` (`pulumi.Input[float]`) - Applied item count.
-              * `per_item_error_count` (`pulumi.Input[float]`) - Per item error count
-              * `timestamp` (`pulumi.Input[str]`) - Timestamp when properties were updated
-              * `total_bytes` (`pulumi.Input[float]`) - Total bytes (if available)
-              * `total_item_count` (`pulumi.Input[float]`) - Total item count (if available)
-
-            * `download_health` (`pulumi.Input[str]`) - Download Health Status.
-            * `download_status` (`pulumi.Input[dict]`) - Download Status
-              * `files_not_syncing_errors` (`pulumi.Input[list]`) - Array of per-item errors coming from the last sync session.
-                * `error_code` (`pulumi.Input[float]`) - Error code (HResult)
-                * `persistent_count` (`pulumi.Input[float]`) - Count of persistent files not syncing with the specified error code
-                * `transient_count` (`pulumi.Input[float]`) - Count of transient files not syncing with the specified error code
-
-              * `last_sync_per_item_error_count` (`pulumi.Input[float]`) - Last sync per item error count.
-              * `last_sync_result` (`pulumi.Input[float]`) - Last sync result (HResult)
-              * `last_sync_success_timestamp` (`pulumi.Input[str]`) - Last sync success timestamp
-              * `last_sync_timestamp` (`pulumi.Input[str]`) - Last sync timestamp
-              * `persistent_files_not_syncing_count` (`pulumi.Input[float]`) - Count of persistent files not syncing.
-              * `transient_files_not_syncing_count` (`pulumi.Input[float]`) - Count of transient files not syncing.
-
-            * `last_updated_timestamp` (`pulumi.Input[str]`) - Last Updated Timestamp
-            * `offline_data_transfer_status` (`pulumi.Input[str]`) - Offline Data Transfer State
-            * `sync_activity` (`pulumi.Input[str]`) - Sync activity
-            * `total_persistent_files_not_syncing_count` (`pulumi.Input[float]`) - Total count of persistent files not syncing (combined upload + download).
-            * `upload_activity` (`pulumi.Input[dict]`) - Upload sync activity
-            * `upload_health` (`pulumi.Input[str]`) - Upload Health Status.
-            * `upload_status` (`pulumi.Input[dict]`) - Upload Status
-
-          * `tier_files_older_than_days` (`pulumi.Input[float]`) - Tier files older than days.
-          * `volume_free_space_percent` (`pulumi.Input[float]`) - Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StorageSyncServiceSyncGroupServerEndpoint(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

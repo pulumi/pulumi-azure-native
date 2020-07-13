@@ -103,7 +103,7 @@ class VirtualWan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VirtualWan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,36 +111,11 @@ class VirtualWan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the virtual WAN.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `allow_branch_to_branch_traffic` (`pulumi.Input[bool]`) - True if branch to branch traffic is allowed.
-          * `allow_vnet_to_vnet_traffic` (`pulumi.Input[bool]`) - True if Vnet to Vnet traffic is allowed.
-          * `disable_vpn_encryption` (`pulumi.Input[bool]`) - Vpn encryption to be disabled or not.
-          * `office365_local_breakout_category` (`pulumi.Input[str]`) - The office local breakout category.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual WAN resource.
-          * `type` (`pulumi.Input[str]`) - The type of the VirtualWAN.
-          * `virtual_hubs` (`pulumi.Input[list]`) - List of VirtualHubs in the VirtualWAN.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `vpn_sites` (`pulumi.Input[list]`) - List of VpnSites in the VirtualWAN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return VirtualWan(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

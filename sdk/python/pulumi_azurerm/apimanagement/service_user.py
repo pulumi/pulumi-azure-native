@@ -100,7 +100,7 @@ class ServiceUser(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,37 +108,11 @@ class ServiceUser(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: User entity contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `email` (`pulumi.Input[str]`) - Email address.
-          * `first_name` (`pulumi.Input[str]`) - First name.
-          * `groups` (`pulumi.Input[list]`) - Collection of groups user is part of.
-            * `built_in` (`pulumi.Input[bool]`) - true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-            * `description` (`pulumi.Input[str]`) - Group description. Can contain HTML formatting tags.
-            * `display_name` (`pulumi.Input[str]`) - Group name.
-            * `external_id` (`pulumi.Input[str]`) - For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
-            * `type` (`pulumi.Input[str]`) - Group type.
-
-          * `identities` (`pulumi.Input[list]`) - Collection of user identities.
-            * `id` (`pulumi.Input[str]`) - Identifier value within provider.
-            * `provider` (`pulumi.Input[str]`) - Identity provider name.
-
-          * `last_name` (`pulumi.Input[str]`) - Last name.
-          * `note` (`pulumi.Input[str]`) - Optional note about a user set by the administrator.
-          * `registration_date` (`pulumi.Input[str]`) - Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `state` (`pulumi.Input[str]`) - Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceUser(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

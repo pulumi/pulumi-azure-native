@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.OperationalInsights
         {
         }
 
-        private WorkspaceProviderDataConnector(string name, Input<string> id, WorkspaceProviderDataConnectorState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:operationalinsights:WorkspaceProviderDataConnector", name, state, MakeResourceOptions(options, id))
+        private WorkspaceProviderDataConnector(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:operationalinsights:WorkspaceProviderDataConnector", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.OperationalInsights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static WorkspaceProviderDataConnector Get(string name, Input<string> id, WorkspaceProviderDataConnectorState? state = null, CustomResourceOptions? options = null)
+        public static WorkspaceProviderDataConnector Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new WorkspaceProviderDataConnector(name, id, state, options);
+            return new WorkspaceProviderDataConnector(name, id, options);
         }
     }
 
@@ -115,37 +114,6 @@ namespace Pulumi.AzureRM.OperationalInsights
         public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceProviderDataConnectorArgs()
-        {
-        }
-    }
-
-    public sealed class WorkspaceProviderDataConnectorState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Etag of the azure resource
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// The data connector kind
-        /// </summary>
-        [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// Azure resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Azure resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WorkspaceProviderDataConnectorState()
         {
         }
     }

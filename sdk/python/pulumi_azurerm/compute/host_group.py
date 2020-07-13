@@ -110,7 +110,7 @@ class HostGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None, zones=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HostGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -118,47 +118,11 @@ class HostGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Dedicated Host Group Properties.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-        :param pulumi.Input[list] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-
-        The **properties** object supports the following:
-
-          * `hosts` (`pulumi.Input[list]`) - A list of references to all dedicated hosts in the dedicated host group.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-
-          * `instance_view` (`pulumi.Input[dict]`) - The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
-            * `hosts` (`pulumi.Input[list]`) - List of instance view of the dedicated hosts under the dedicated host group.
-              * `asset_id` (`pulumi.Input[str]`) - Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
-              * `available_capacity` (`pulumi.Input[dict]`) - Unutilized capacity of the dedicated host.
-                * `allocatable_v_ms` (`pulumi.Input[list]`) - The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
-                  * `count` (`pulumi.Input[float]`) - Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
-                  * `vm_size` (`pulumi.Input[str]`) - VM size in terms of which the unutilized capacity is represented.
-
-              * `name` (`pulumi.Input[str]`) - The name of the dedicated host.
-              * `statuses` (`pulumi.Input[list]`) - The resource status information.
-                * `code` (`pulumi.Input[str]`) - The status code.
-                * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
-                * `level` (`pulumi.Input[str]`) - The level code.
-                * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
-                * `time` (`pulumi.Input[str]`) - The time of the status.
-
-          * `platform_fault_domain_count` (`pulumi.Input[float]`) - Number of fault domains that the host group can span.
-          * `support_automatic_placement` (`pulumi.Input[bool]`) - Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["zones"] = zones
         return HostGroup(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

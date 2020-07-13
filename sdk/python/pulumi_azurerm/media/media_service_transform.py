@@ -83,7 +83,7 @@ class MediaServiceTransform(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaServiceTransform resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,27 +91,11 @@ class MediaServiceTransform(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The resource properties.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `created` (`pulumi.Input[str]`) - The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-          * `description` (`pulumi.Input[str]`) - An optional verbose description of the Transform.
-          * `last_modified` (`pulumi.Input[str]`) - The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-          * `outputs` (`pulumi.Input[list]`) - An array of one or more TransformOutputs that the Transform should generate.
-            * `on_error` (`pulumi.Input[str]`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-            * `preset` (`pulumi.Input[dict]`) - Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-            * `relative_priority` (`pulumi.Input[str]`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MediaServiceTransform(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

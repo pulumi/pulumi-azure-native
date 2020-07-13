@@ -122,7 +122,7 @@ class AutomationAccountConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -130,44 +130,11 @@ class AutomationAccountConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the configuration properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time.
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `job_count` (`pulumi.Input[float]`) - Gets or sets the job count of the configuration.
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time.
-          * `log_verbose` (`pulumi.Input[bool]`) - Gets or sets verbose log option.
-          * `node_configuration_count` (`pulumi.Input[float]`) - Gets the number of compiled node configurations.
-          * `parameters` (`pulumi.Input[dict]`) - Gets or sets the configuration parameters.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets the provisioning state of the configuration.
-          * `source` (`pulumi.Input[dict]`) - Gets or sets the source.
-            * `hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-              * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-              * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
-
-            * `type` (`pulumi.Input[str]`) - Gets or sets the content source type.
-            * `value` (`pulumi.Input[str]`) - Gets or sets the value of the content. This is based on the content source type.
-            * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
-
-          * `state` (`pulumi.Input[str]`) - Gets or sets the state of the configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return AutomationAccountConfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -103,7 +103,7 @@ class HubRelationshipLink(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HubRelationshipLink resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,38 +111,11 @@ class HubRelationshipLink(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The definition of relationship link.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[dict]`) - Localized descriptions for the Relationship Link.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the Relationship Link.
-          * `interaction_type` (`pulumi.Input[str]`) - The InteractionType associated with the Relationship Link.
-          * `link_name` (`pulumi.Input[str]`) - The name of the Relationship Link.
-          * `mappings` (`pulumi.Input[list]`) - The mappings between Interaction and Relationship fields.
-            * `interaction_field_name` (`pulumi.Input[str]`) - The field name on the Interaction Type.
-            * `link_type` (`pulumi.Input[str]`) - Link type.
-            * `relationship_field_name` (`pulumi.Input[str]`) - The field name on the Relationship metadata.
-
-          * `profile_property_references` (`pulumi.Input[list]`) - The property references for the Profile of the Relationship.
-            * `interaction_property_name` (`pulumi.Input[str]`) - The source interaction property that maps to the target profile property.
-            * `profile_property_name` (`pulumi.Input[str]`) - The target profile property that maps to the source interaction property.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state.
-          * `related_profile_property_references` (`pulumi.Input[list]`) - The property references for the Related Profile of the Relationship.
-          * `relationship_guid_id` (`pulumi.Input[str]`) - The relationship guid id.
-          * `relationship_name` (`pulumi.Input[str]`) - The Relationship associated with the Link.
-          * `tenant_id` (`pulumi.Input[str]`) - The hub name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return HubRelationshipLink(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -39,8 +39,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private ExpressRouteGatewayExpressRouteConnection(string name, Input<string> id, ExpressRouteGatewayExpressRouteConnectionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:ExpressRouteGatewayExpressRouteConnection", name, state, MakeResourceOptions(options, id))
+        private ExpressRouteGatewayExpressRouteConnection(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:ExpressRouteGatewayExpressRouteConnection", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -62,11 +62,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ExpressRouteGatewayExpressRouteConnection Get(string name, Input<string> id, ExpressRouteGatewayExpressRouteConnectionState? state = null, CustomResourceOptions? options = null)
+        public static ExpressRouteGatewayExpressRouteConnection Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ExpressRouteGatewayExpressRouteConnection(name, id, state, options);
+            return new ExpressRouteGatewayExpressRouteConnection(name, id, options);
         }
     }
 
@@ -109,25 +108,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ExpressRouteGatewayExpressRouteConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class ExpressRouteGatewayExpressRouteConnectionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the express route connection.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ExpressRouteConnectionPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        public ExpressRouteGatewayExpressRouteConnectionState()
         {
         }
     }

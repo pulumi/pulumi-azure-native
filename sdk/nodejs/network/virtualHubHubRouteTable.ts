@@ -16,11 +16,10 @@ export class VirtualHubHubRouteTable extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualHubHubRouteTableState, opts?: pulumi.CustomResourceOptions): VirtualHubHubRouteTable {
-        return new VirtualHubHubRouteTable(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualHubHubRouteTable {
+        return new VirtualHubHubRouteTable(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class VirtualHubHubRouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualHubHubRouteTableArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualHubHubRouteTableArgs | VirtualHubHubRouteTableState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VirtualHubHubRouteTableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VirtualHubHubRouteTableState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as VirtualHubHubRouteTableArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -81,15 +71,14 @@ export class VirtualHubHubRouteTable extends pulumi.CustomResource {
             if (!args || args.virtualHubName === undefined) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeTableName"] = args ? args.routeTableName : undefined;
-            inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["id"] = args ? args.id : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["routeTableName"] = args ? args.routeTableName : undefined;
+        inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -99,28 +88,6 @@ export class VirtualHubHubRouteTable extends pulumi.CustomResource {
         }
         super(VirtualHubHubRouteTable.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * RouteTable resource in a virtual hub.
- */
-export interface VirtualHubHubRouteTableState {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * Properties of the RouteTable resource.
-     */
-    readonly properties: pulumi.Input<inputs.network.HubRouteTablePropertiesResponse>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

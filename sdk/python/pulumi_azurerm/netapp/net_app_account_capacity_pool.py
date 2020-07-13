@@ -93,7 +93,7 @@ class NetAppAccountCapacityPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NetAppAccountCapacityPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -101,28 +101,11 @@ class NetAppAccountCapacityPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Capacity pool properties
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `pool_id` (`pulumi.Input[str]`) - UUID v4 used to identify the Pool
-          * `provisioning_state` (`pulumi.Input[str]`) - Azure lifecycle management
-          * `service_level` (`pulumi.Input[str]`) - The service level of the file system
-          * `size` (`pulumi.Input[float]`) - Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return NetAppAccountCapacityPool(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

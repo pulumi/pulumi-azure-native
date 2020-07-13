@@ -99,7 +99,7 @@ class WorkspaceStorageInsightConfig(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing WorkspaceStorageInsightConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -107,34 +107,11 @@ class WorkspaceStorageInsightConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: The ETag of the storage insight.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Storage insight properties.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `containers` (`pulumi.Input[list]`) - The names of the blob containers that the workspace should read
-          * `status` (`pulumi.Input[dict]`) - The status of the storage insight
-            * `description` (`pulumi.Input[str]`) - Description of the state of the storage insight.
-            * `state` (`pulumi.Input[str]`) - The state of the storage insight connection to the workspace
-
-          * `storage_account` (`pulumi.Input[dict]`) - The storage account connection details
-            * `id` (`pulumi.Input[str]`) - The Azure Resource Manager ID of the storage account resource.
-            * `key` (`pulumi.Input[str]`) - The storage account key.
-
-          * `tables` (`pulumi.Input[list]`) - The names of the Azure tables that the workspace should read
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return WorkspaceStorageInsightConfig(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

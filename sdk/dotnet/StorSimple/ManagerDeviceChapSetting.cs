@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.StorSimple
         {
         }
 
-        private ManagerDeviceChapSetting(string name, Input<string> id, ManagerDeviceChapSettingState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:storsimple:ManagerDeviceChapSetting", name, state, MakeResourceOptions(options, id))
+        private ManagerDeviceChapSetting(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:storsimple:ManagerDeviceChapSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.StorSimple
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ManagerDeviceChapSetting Get(string name, Input<string> id, ManagerDeviceChapSettingState? state = null, CustomResourceOptions? options = null)
+        public static ManagerDeviceChapSetting Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ManagerDeviceChapSetting(name, id, state, options);
+            return new ManagerDeviceChapSetting(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.StorSimple
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public ManagerDeviceChapSettingArgs()
-        {
-        }
-    }
-
-    public sealed class ManagerDeviceChapSettingState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Chap properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ChapPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ManagerDeviceChapSettingState()
         {
         }
     }

@@ -91,7 +91,7 @@ class DataManagerDataStore(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataManagerDataStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,29 +99,11 @@ class DataManagerDataStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the object.
-        :param pulumi.Input[dict] properties: DataStore properties.
-        :param pulumi.Input[str] type: Type of the object.
-
-        The **properties** object supports the following:
-
-          * `customer_secrets` (`pulumi.Input[list]`) - List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-            * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
-            * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
-            * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
-
-          * `data_store_type_id` (`pulumi.Input[str]`) - The arm id of the data store type.
-          * `extended_properties` (`pulumi.Input[dict]`) - A generic json used differently by each data source type.
-          * `repository_id` (`pulumi.Input[str]`) - Arm Id for the manager resource to which the data source is associated. This is optional.
-          * `state` (`pulumi.Input[str]`) - State of the data source.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataManagerDataStore(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

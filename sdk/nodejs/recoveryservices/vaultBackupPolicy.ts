@@ -16,11 +16,10 @@ export class VaultBackupPolicy extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VaultBackupPolicyState, opts?: pulumi.CustomResourceOptions): VaultBackupPolicy {
-        return new VaultBackupPolicy(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VaultBackupPolicy {
+        return new VaultBackupPolicy(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,19 +68,8 @@ export class VaultBackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VaultBackupPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VaultBackupPolicyArgs | VaultBackupPolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VaultBackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VaultBackupPolicyState | undefined;
-            inputs["eTag"] = state ? state.eTag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as VaultBackupPolicyArgs | undefined;
             if (!args || args.policyName === undefined) {
                 throw new Error("Missing required property 'policyName'");
             }
@@ -91,17 +79,16 @@ export class VaultBackupPolicy extends pulumi.CustomResource {
             if (!args || args.vaultName === undefined) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
-        }
+        inputs["eTag"] = args ? args.eTag : undefined;
+        inputs["id"] = args ? args.id : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["policyName"] = args ? args.policyName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = args ? args.type : undefined;
+        inputs["vaultName"] = args ? args.vaultName : undefined;
         if (!opts) {
             opts = {}
         }
@@ -111,36 +98,6 @@ export class VaultBackupPolicy extends pulumi.CustomResource {
         }
         super(VaultBackupPolicy.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The base class for backup policy. Workload-specific backup policies are derived from this class.
- */
-export interface VaultBackupPolicyState {
-    /**
-     * Optional ETag.
-     */
-    readonly eTag?: pulumi.Input<string>;
-    /**
-     * Resource location.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Resource name associated with the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * The base class for a backup policy. Workload-specific backup policies are derived from this class.
-     */
-    readonly properties: pulumi.Input<inputs.recoveryservices.ProtectionPolicyResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-     */
-    readonly type?: pulumi.Input<string>;
 }
 
 /**

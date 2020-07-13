@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Storage
         {
         }
 
-        private StorageAccountTableServiceTable(string name, Input<string> id, StorageAccountTableServiceTableState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:storage:StorageAccountTableServiceTable", name, state, MakeResourceOptions(options, id))
+        private StorageAccountTableServiceTable(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:storage:StorageAccountTableServiceTable", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Storage
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static StorageAccountTableServiceTable Get(string name, Input<string> id, StorageAccountTableServiceTableState? state = null, CustomResourceOptions? options = null)
+        public static StorageAccountTableServiceTable Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new StorageAccountTableServiceTable(name, id, state, options);
+            return new StorageAccountTableServiceTable(name, id, options);
         }
     }
 
@@ -97,31 +96,6 @@ namespace Pulumi.AzureRM.Storage
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public StorageAccountTableServiceTableArgs()
-        {
-        }
-    }
-
-    public sealed class StorageAccountTableServiceTableState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Table resource properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.TablePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StorageAccountTableServiceTableState()
         {
         }
     }

@@ -266,7 +266,7 @@ class ServerDatabase(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServerDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -274,150 +274,11 @@ class ServerDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of database.  This is metadata used for the Azure portal experience.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The properties representing the resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `collation` (`pulumi.Input[str]`) - The collation of the database. If createMode is not Default, this value is ignored.
-          * `containment_state` (`pulumi.Input[float]`) - The containment state of the database.
-          * `create_mode` (`pulumi.Input[str]`) - Specifies the mode of database creation.
-            
-            Default: regular database creation.
-            
-            Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-            
-            OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-            
-            PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-            
-            Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-            
-            Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-            
-            RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-            
-            Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-          * `creation_date` (`pulumi.Input[str]`) - The creation date of the database (ISO8601 format).
-          * `current_service_objective_id` (`pulumi.Input[str]`) - The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
-          * `database_id` (`pulumi.Input[str]`) - The ID of the database.
-          * `default_secondary_location` (`pulumi.Input[str]`) - The default secondary region for this database.
-          * `earliest_restore_date` (`pulumi.Input[str]`) - This records the earliest start date and time that restore is available for this database (ISO8601 format).
-          * `edition` (`pulumi.Input[str]`) - The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-            
-            The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-            
-            ```azurecli
-            az sql db list-editions -l <location> -o table
-            ````
-            
-            ```powershell
-            Get-AzSqlServerServiceObjective -Location <location>
-            ````
-          * `elastic_pool_name` (`pulumi.Input[str]`) - The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-          * `failover_group_id` (`pulumi.Input[str]`) - The resource identifier of the failover group containing this database.
-          * `max_size_bytes` (`pulumi.Input[str]`) - The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-          * `read_scale` (`pulumi.Input[str]`) - Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-          * `recommended_index` (`pulumi.Input[list]`) - The recommended indices for this database.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Resource name.
-            * `properties` (`pulumi.Input[dict]`) - The properties representing the resource.
-              * `action` (`pulumi.Input[str]`) - The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
-              * `columns` (`pulumi.Input[list]`) - Columns over which to build index
-              * `created` (`pulumi.Input[str]`) - The UTC datetime showing when this resource was created (ISO8601 format).
-              * `estimated_impact` (`pulumi.Input[list]`) - The estimated impact of doing recommended index action.
-                * `change_value_absolute` (`pulumi.Input[float]`) - The absolute impact to dimension.
-                * `change_value_relative` (`pulumi.Input[float]`) - The relative impact to dimension (null if not applicable)
-                * `name` (`pulumi.Input[str]`) - The name of the impact dimension.
-                * `unit` (`pulumi.Input[str]`) - The unit in which estimated impact to dimension is measured.
-
-              * `included_columns` (`pulumi.Input[list]`) - The list of column names to be included in the index
-              * `index_script` (`pulumi.Input[str]`) - The full build index script
-              * `index_type` (`pulumi.Input[str]`) - The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
-              * `last_modified` (`pulumi.Input[str]`) - The UTC datetime of when was this resource last changed (ISO8601 format).
-              * `reported_impact` (`pulumi.Input[list]`) - The values reported after index action is complete.
-              * `schema` (`pulumi.Input[str]`) - The schema where table to build index over resides
-              * `state` (`pulumi.Input[str]`) - The current recommendation state.
-              * `table` (`pulumi.Input[str]`) - The table on which to build index.
-
-            * `type` (`pulumi.Input[str]`) - Resource type.
-
-          * `recovery_services_recovery_point_resource_id` (`pulumi.Input[str]`) - Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-          * `requested_service_objective_id` (`pulumi.Input[str]`) - The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-            
-            The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-          * `requested_service_objective_name` (`pulumi.Input[str]`) - The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
-            
-            The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-            
-            ```azurecli
-            az sql db list-editions -l <location> -o table
-            ````
-            
-            ```powershell
-            Get-AzSqlServerServiceObjective -Location <location>
-            ````
-          * `restore_point_in_time` (`pulumi.Input[str]`) - Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-          * `sample_name` (`pulumi.Input[str]`) - Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-          * `service_level_objective` (`pulumi.Input[str]`) - The current service level objective of the database.
-          * `service_tier_advisors` (`pulumi.Input[list]`) - The list of service tier advisors for this database. Expanded property
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Resource name.
-            * `properties` (`pulumi.Input[dict]`) - The properties representing the resource.
-              * `active_time_ratio` (`pulumi.Input[float]`) - The activeTimeRatio for service tier advisor.
-              * `avg_dtu` (`pulumi.Input[float]`) - Gets or sets avgDtu for service tier advisor.
-              * `confidence` (`pulumi.Input[float]`) - Gets or sets confidence for service tier advisor.
-              * `current_service_level_objective` (`pulumi.Input[str]`) - Gets or sets currentServiceLevelObjective for service tier advisor.
-              * `current_service_level_objective_id` (`pulumi.Input[str]`) - Gets or sets currentServiceLevelObjectiveId for service tier advisor.
-              * `database_size_based_recommendation_service_level_objective` (`pulumi.Input[str]`) - Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
-              * `database_size_based_recommendation_service_level_objective_id` (`pulumi.Input[str]`) - Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-              * `disaster_plan_based_recommendation_service_level_objective` (`pulumi.Input[str]`) - Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
-              * `disaster_plan_based_recommendation_service_level_objective_id` (`pulumi.Input[str]`) - Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-              * `max_dtu` (`pulumi.Input[float]`) - Gets or sets maxDtu for service tier advisor.
-              * `max_size_in_gb` (`pulumi.Input[float]`) - Gets or sets maxSizeInGB for service tier advisor.
-              * `min_dtu` (`pulumi.Input[float]`) - Gets or sets minDtu for service tier advisor.
-              * `observation_period_end` (`pulumi.Input[str]`) - The observation period start (ISO8601 format).
-              * `observation_period_start` (`pulumi.Input[str]`) - The observation period start (ISO8601 format).
-              * `overall_recommendation_service_level_objective` (`pulumi.Input[str]`) - Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
-              * `overall_recommendation_service_level_objective_id` (`pulumi.Input[str]`) - Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-              * `service_level_objective_usage_metrics` (`pulumi.Input[list]`) - Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
-                * `in_range_time_ratio` (`pulumi.Input[float]`) - Gets or sets inRangeTimeRatio for SLO usage metric.
-                * `service_level_objective` (`pulumi.Input[str]`) - The serviceLevelObjective for SLO usage metric.
-                * `service_level_objective_id` (`pulumi.Input[str]`) - The serviceLevelObjectiveId for SLO usage metric.
-
-              * `usage_based_recommendation_service_level_objective` (`pulumi.Input[str]`) - Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
-              * `usage_based_recommendation_service_level_objective_id` (`pulumi.Input[str]`) - Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
-
-            * `type` (`pulumi.Input[str]`) - Resource type.
-
-          * `source_database_deletion_date` (`pulumi.Input[str]`) - Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-          * `source_database_id` (`pulumi.Input[str]`) - Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-          * `status` (`pulumi.Input[str]`) - The status of the database.
-          * `transparent_data_encryption` (`pulumi.Input[list]`) - The transparent data encryption info for this database.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `location` (`pulumi.Input[str]`) - Resource location.
-            * `name` (`pulumi.Input[str]`) - Resource name.
-            * `properties` (`pulumi.Input[dict]`) - Represents the properties of the resource.
-              * `status` (`pulumi.Input[str]`) - The status of the database transparent data encryption.
-
-            * `type` (`pulumi.Input[str]`) - Resource type.
-
-          * `zone_redundant` (`pulumi.Input[bool]`) - Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ServerDatabase(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

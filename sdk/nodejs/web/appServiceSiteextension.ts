@@ -16,11 +16,10 @@ export class AppServiceSiteextension extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AppServiceSiteextensionState, opts?: pulumi.CustomResourceOptions): AppServiceSiteextension {
-        return new AppServiceSiteextension(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServiceSiteextension {
+        return new AppServiceSiteextension(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class AppServiceSiteextension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AppServiceSiteextensionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: AppServiceSiteextensionArgs | AppServiceSiteextensionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AppServiceSiteextensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as AppServiceSiteextensionState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as AppServiceSiteextensionArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -81,13 +71,12 @@ export class AppServiceSiteextension extends pulumi.CustomResource {
             if (!args || args.siteExtensionId === undefined) {
                 throw new Error("Missing required property 'siteExtensionId'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteExtensionId"] = args ? args.siteExtensionId : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["siteExtensionId"] = args ? args.siteExtensionId : undefined;
+        inputs["kind"] = undefined /*out*/;
+        inputs["properties"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -97,28 +86,6 @@ export class AppServiceSiteextension extends pulumi.CustomResource {
         }
         super(AppServiceSiteextension.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Site Extension Information.
- */
-export interface AppServiceSiteextensionState {
-    /**
-     * Kind of resource.
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * Resource Name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * SiteExtensionInfo resource specific properties
-     */
-    readonly properties: pulumi.Input<inputs.web.SiteExtensionInfoResponseProperties>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

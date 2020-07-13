@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.EventHub
         {
         }
 
-        private Namespace(string name, Input<string> id, NamespaceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:eventhub:Namespace", name, state, MakeResourceOptions(options, id))
+        private Namespace(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:eventhub:Namespace", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.EventHub
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Namespace Get(string name, Input<string> id, NamespaceState? state = null, CustomResourceOptions? options = null)
+        public static Namespace Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Namespace(name, id, state, options);
+            return new Namespace(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.EventHub
         }
 
         public NamespaceArgs()
-        {
-        }
-    }
-
-    public sealed class NamespaceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Namespace properties supplied for create namespace operation.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.EHNamespaceResponsePropertiesGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of sku resource
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public NamespaceState()
         {
         }
     }

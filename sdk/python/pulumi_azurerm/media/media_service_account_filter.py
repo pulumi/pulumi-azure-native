@@ -103,7 +103,7 @@ class MediaServiceAccountFilter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaServiceAccountFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,36 +111,11 @@ class MediaServiceAccountFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The Media Filter properties.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `first_quality` (`pulumi.Input[dict]`) - The first quality.
-            * `bitrate` (`pulumi.Input[float]`) - The first quality bitrate.
-
-          * `presentation_time_range` (`pulumi.Input[dict]`) - The presentation time range.
-            * `end_timestamp` (`pulumi.Input[float]`) - The absolute end time boundary.
-            * `force_end_timestamp` (`pulumi.Input[bool]`) - The indicator of forcing existing of end time stamp.
-            * `live_backoff_duration` (`pulumi.Input[float]`) - The relative to end right edge.
-            * `presentation_window_duration` (`pulumi.Input[float]`) - The relative to end sliding window.
-            * `start_timestamp` (`pulumi.Input[float]`) - The absolute start time boundary.
-            * `timescale` (`pulumi.Input[float]`) - The time scale of time stamps.
-
-          * `tracks` (`pulumi.Input[list]`) - The tracks selection conditions.
-            * `track_selections` (`pulumi.Input[list]`) - The track selections.
-              * `operation` (`pulumi.Input[str]`) - The track property condition operation.
-              * `property` (`pulumi.Input[str]`) - The track property type.
-              * `value` (`pulumi.Input[str]`) - The track property value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MediaServiceAccountFilter(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

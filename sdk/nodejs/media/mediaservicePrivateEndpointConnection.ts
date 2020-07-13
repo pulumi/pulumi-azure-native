@@ -16,11 +16,10 @@ export class MediaservicePrivateEndpointConnection extends pulumi.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MediaservicePrivateEndpointConnectionState, opts?: pulumi.CustomResourceOptions): MediaservicePrivateEndpointConnection {
-        return new MediaservicePrivateEndpointConnection(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MediaservicePrivateEndpointConnection {
+        return new MediaservicePrivateEndpointConnection(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class MediaservicePrivateEndpointConnection extends pulumi.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MediaservicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MediaservicePrivateEndpointConnectionArgs | MediaservicePrivateEndpointConnectionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: MediaservicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as MediaservicePrivateEndpointConnectionState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as MediaservicePrivateEndpointConnectionArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -76,12 +67,11 @@ export class MediaservicePrivateEndpointConnection extends pulumi.CustomResource
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["accountName"] = args ? args.accountName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -91,24 +81,6 @@ export class MediaservicePrivateEndpointConnection extends pulumi.CustomResource
         }
         super(MediaservicePrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The Private Endpoint Connection resource.
- */
-export interface MediaservicePrivateEndpointConnectionState {
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Resource properties.
-     */
-    readonly properties: pulumi.Input<inputs.media.PrivateEndpointConnectionPropertiesResponse>;
-    /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

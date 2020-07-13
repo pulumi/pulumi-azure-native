@@ -96,7 +96,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DiskEncryptionSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -104,39 +104,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-          * `type` (`pulumi.Input[str]`) - The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
-
-        The **properties** object supports the following:
-
-          * `active_key` (`pulumi.Input[dict]`) - The key vault key which is currently used by this disk encryption set.
-            * `key_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-            * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
-              * `id` (`pulumi.Input[str]`) - Resource Id
-
-          * `encryption_type` (`pulumi.Input[str]`) - The type of key used to encrypt the data of the disk.
-          * `previous_keys` (`pulumi.Input[list]`) - A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-          * `provisioning_state` (`pulumi.Input[str]`) - The disk encryption set provisioning state.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DiskEncryptionSet(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

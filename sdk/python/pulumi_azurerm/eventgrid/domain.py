@@ -134,7 +134,7 @@ class Domain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -142,54 +142,11 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[str] name: Name of the resource.
-        :param pulumi.Input[dict] properties: Properties of the domain.
-        :param pulumi.Input[dict] tags: Tags of the resource.
-        :param pulumi.Input[str] type: Type of the resource.
-
-        The **properties** object supports the following:
-
-          * `endpoint` (`pulumi.Input[str]`) - Endpoint for the domain.
-          * `inbound_ip_rules` (`pulumi.Input[list]`) - This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-            * `action` (`pulumi.Input[str]`) - Action to perform based on the match or no match of the IpMask.
-            * `ip_mask` (`pulumi.Input[str]`) - IP Address in CIDR notation e.g., 10.0.0.0/8.
-
-          * `input_schema` (`pulumi.Input[str]`) - This determines the format that Event Grid should expect for incoming events published to the domain.
-          * `input_schema_mapping` (`pulumi.Input[dict]`) - Information about the InputSchemaMapping which specified the info about mapping event payload.
-            * `input_schema_mapping_type` (`pulumi.Input[str]`) - Type of the custom mapping
-
-          * `metric_resource_id` (`pulumi.Input[str]`) - Metric resource id for the domain.
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of private endpoint connections.
-            * `id` (`pulumi.Input[str]`) - Fully qualified identifier of the resource.
-            * `name` (`pulumi.Input[str]`) - Name of the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the PrivateEndpointConnection.
-              * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
-                * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Details about the state of the connection.
-                * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
-                * `description` (`pulumi.Input[str]`) - Description of the connection state.
-                * `status` (`pulumi.Input[str]`) - Status of the connection.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
-
-            * `type` (`pulumi.Input[str]`) - Type of the resource.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the domain.
-          * `public_network_access` (`pulumi.Input[str]`) - This determines if traffic is allowed over public network. By default it is enabled. 
-            You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

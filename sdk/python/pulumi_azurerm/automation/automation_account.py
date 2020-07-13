@@ -100,7 +100,7 @@ class AutomationAccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,36 +108,11 @@ class AutomationAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
-        :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the automation account properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets the creation time.
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `last_modified_by` (`pulumi.Input[str]`) - Gets or sets the last modified by.
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets the last modified time.
-          * `sku` (`pulumi.Input[dict]`) - Gets or sets the SKU of account.
-            * `capacity` (`pulumi.Input[float]`) - Gets or sets the SKU capacity.
-            * `family` (`pulumi.Input[str]`) - Gets or sets the SKU family.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the SKU name of the account.
-
-          * `state` (`pulumi.Input[str]`) - Gets status of account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return AutomationAccount(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

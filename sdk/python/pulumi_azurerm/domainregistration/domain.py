@@ -168,7 +168,7 @@ class Domain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -176,75 +176,11 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: Domain resource specific properties
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `auth_code` (`pulumi.Input[str]`)
-          * `auto_renew` (`pulumi.Input[bool]`) - <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
-          * `consent` (`pulumi.Input[dict]`) - Legal agreement consent.
-            * `agreed_at` (`pulumi.Input[str]`) - Timestamp when the agreements were accepted.
-            * `agreed_by` (`pulumi.Input[str]`) - Client IP address.
-            * `agreement_keys` (`pulumi.Input[list]`) - List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
-
-          * `contact_admin` (`pulumi.Input[dict]`) - Administrative contact.
-            * `address_mailing` (`pulumi.Input[dict]`) - Mailing address.
-              * `address1` (`pulumi.Input[str]`) - First line of an Address.
-              * `address2` (`pulumi.Input[str]`) - The second line of the Address. Optional.
-              * `city` (`pulumi.Input[str]`) - The city for the address.
-              * `country` (`pulumi.Input[str]`) - The country for the address.
-              * `postal_code` (`pulumi.Input[str]`) - The postal code for the address.
-              * `state` (`pulumi.Input[str]`) - The state or province for the address.
-
-            * `email` (`pulumi.Input[str]`) - Email address.
-            * `fax` (`pulumi.Input[str]`) - Fax number.
-            * `job_title` (`pulumi.Input[str]`) - Job title.
-            * `name_first` (`pulumi.Input[str]`) - First name.
-            * `name_last` (`pulumi.Input[str]`) - Last name.
-            * `name_middle` (`pulumi.Input[str]`) - Middle name.
-            * `organization` (`pulumi.Input[str]`) - Organization contact belongs to.
-            * `phone` (`pulumi.Input[str]`) - Phone number.
-
-          * `contact_billing` (`pulumi.Input[dict]`) - Billing contact.
-          * `contact_registrant` (`pulumi.Input[dict]`) - Registrant contact.
-          * `contact_tech` (`pulumi.Input[dict]`) - Technical contact.
-          * `created_time` (`pulumi.Input[str]`) - Domain creation timestamp.
-          * `dns_type` (`pulumi.Input[str]`) - Current DNS type
-          * `dns_zone_id` (`pulumi.Input[str]`) - Azure DNS Zone to use
-          * `domain_not_renewable_reasons` (`pulumi.Input[list]`) - Reasons why domain is not renewable.
-          * `expiration_time` (`pulumi.Input[str]`) - Domain expiration timestamp.
-          * `last_renewed_time` (`pulumi.Input[str]`) - Timestamp when the domain was renewed last time.
-          * `managed_host_names` (`pulumi.Input[list]`) - All hostnames derived from the domain and assigned to Azure resources.
-            * `azure_resource_name` (`pulumi.Input[str]`) - Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
-            * `azure_resource_type` (`pulumi.Input[str]`) - Type of the Azure resource the hostname is assigned to.
-            * `custom_host_name_dns_record_type` (`pulumi.Input[str]`) - Type of the DNS record.
-            * `host_name_type` (`pulumi.Input[str]`) - Type of the hostname.
-            * `name` (`pulumi.Input[str]`) - Name of the hostname.
-            * `site_names` (`pulumi.Input[list]`) - List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
-
-          * `name_servers` (`pulumi.Input[list]`) - Name servers.
-          * `privacy` (`pulumi.Input[bool]`) - <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
-          * `provisioning_state` (`pulumi.Input[str]`) - Domain provisioning state.
-          * `ready_for_dns_record_management` (`pulumi.Input[bool]`) - <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
-             it is hosted on name servers Azure has programmatic access to.
-          * `registration_status` (`pulumi.Input[str]`) - Domain registration status.
-          * `target_dns_type` (`pulumi.Input[str]`) - Target DNS type (would be used for migration)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

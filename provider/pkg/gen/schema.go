@@ -98,8 +98,6 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 				ObjectTypeSpec:  objectSpec,
 				InputProperties: requestProperties.all,
 				RequiredInputs:  requestProperties.required.SortedValues(),
-				// TODO: this is probably wrong, state inputs are set here because codegen fails without them.
-				StateInputs: &objectSpec,
 			}
 			pkg.Resources[tok] = resourceSpec
 		}

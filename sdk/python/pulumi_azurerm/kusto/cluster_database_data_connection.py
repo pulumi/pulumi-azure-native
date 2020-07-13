@@ -80,7 +80,7 @@ class ClusterDatabaseDataConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ClusterDatabaseDataConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,19 +88,11 @@ class ClusterDatabaseDataConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["type"] = type
         return ClusterDatabaseDataConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

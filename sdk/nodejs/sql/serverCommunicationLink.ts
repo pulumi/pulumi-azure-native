@@ -16,11 +16,10 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServerCommunicationLinkState, opts?: pulumi.CustomResourceOptions): ServerCommunicationLink {
-        return new ServerCommunicationLink(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerCommunicationLink {
+        return new ServerCommunicationLink(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerCommunicationLinkArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ServerCommunicationLinkArgs | ServerCommunicationLinkState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ServerCommunicationLinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ServerCommunicationLinkState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ServerCommunicationLinkArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -86,14 +75,13 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["serverName"] = args ? args.serverName : undefined;
+        inputs["kind"] = undefined /*out*/;
+        inputs["location"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -103,32 +91,6 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         }
         super(ServerCommunicationLink.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Server communication link.
- */
-export interface ServerCommunicationLinkState {
-    /**
-     * Communication link kind.  This property is used for Azure Portal metadata.
-     */
-    readonly kind: pulumi.Input<string>;
-    /**
-     * Communication link location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties of resource.
-     */
-    readonly properties: pulumi.Input<inputs.sql.ServerCommunicationLinkPropertiesResponse>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

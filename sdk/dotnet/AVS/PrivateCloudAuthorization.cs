@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.AVS
         {
         }
 
-        private PrivateCloudAuthorization(string name, Input<string> id, PrivateCloudAuthorizationState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:avs:PrivateCloudAuthorization", name, state, MakeResourceOptions(options, id))
+        private PrivateCloudAuthorization(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:avs:PrivateCloudAuthorization", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.AVS
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PrivateCloudAuthorization Get(string name, Input<string> id, PrivateCloudAuthorizationState? state = null, CustomResourceOptions? options = null)
+        public static PrivateCloudAuthorization Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PrivateCloudAuthorization(name, id, state, options);
+            return new PrivateCloudAuthorization(name, id, options);
         }
     }
 
@@ -97,31 +96,6 @@ namespace Pulumi.AzureRM.AVS
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public PrivateCloudAuthorizationArgs()
-        {
-        }
-    }
-
-    public sealed class PrivateCloudAuthorizationState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of an ExpressRoute Circuit Authorization resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ExpressRouteAuthorizationPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public PrivateCloudAuthorizationState()
         {
         }
     }

@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.StreamAnalytics
         {
         }
 
-        private Streamingjob(string name, Input<string> id, StreamingjobState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics:Streamingjob", name, state, MakeResourceOptions(options, id))
+        private Streamingjob(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:streamanalytics:Streamingjob", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.StreamAnalytics
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Streamingjob Get(string name, Input<string> id, StreamingjobState? state = null, CustomResourceOptions? options = null)
+        public static Streamingjob Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Streamingjob(name, id, state, options);
+            return new Streamingjob(name, id, options);
         }
     }
 
@@ -127,49 +126,6 @@ namespace Pulumi.AzureRM.StreamAnalytics
         }
 
         public StreamingjobArgs()
-        {
-        }
-    }
-
-    public sealed class StreamingjobState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location. Required on PUT (CreateOrReplace) requests.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StreamingJobPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamingjobState()
         {
         }
     }

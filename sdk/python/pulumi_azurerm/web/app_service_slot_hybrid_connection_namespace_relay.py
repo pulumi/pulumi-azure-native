@@ -103,7 +103,7 @@ class AppServiceSlotHybridConnectionNamespaceRelay(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServiceSlotHybridConnectionNamespaceRelay resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,31 +111,11 @@ class AppServiceSlotHybridConnectionNamespaceRelay(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: HybridConnection resource specific properties
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `hostname` (`pulumi.Input[str]`) - The hostname of the endpoint.
-          * `port` (`pulumi.Input[float]`) - The port of the endpoint.
-          * `relay_arm_uri` (`pulumi.Input[str]`) - The ARM URI to the Service Bus relay.
-          * `relay_name` (`pulumi.Input[str]`) - The name of the Service Bus relay.
-          * `send_key_name` (`pulumi.Input[str]`) - The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-          * `send_key_value` (`pulumi.Input[str]`) - The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-            normally, use the POST /listKeys API instead.
-          * `service_bus_namespace` (`pulumi.Input[str]`) - The name of the Service Bus namespace.
-          * `service_bus_suffix` (`pulumi.Input[str]`) - The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AppServiceSlotHybridConnectionNamespaceRelay(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -98,7 +98,7 @@ class VaultBackupPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VaultBackupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,28 +106,11 @@ class VaultBackupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: Optional ETag.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name associated with the resource.
-        :param pulumi.Input[dict] properties: The base class for a backup policy. Workload-specific backup policies are derived from this class.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-
-        The **properties** object supports the following:
-
-          * `backup_management_type` (`pulumi.Input[str]`) - This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-          * `protected_items_count` (`pulumi.Input[float]`) - The number of items associated with this policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return VaultBackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.MixedReality
         {
         }
 
-        private SpatialAnchorsAccount(string name, Input<string> id, SpatialAnchorsAccountState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:mixedreality:SpatialAnchorsAccount", name, state, MakeResourceOptions(options, id))
+        private SpatialAnchorsAccount(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:mixedreality:SpatialAnchorsAccount", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.MixedReality
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SpatialAnchorsAccount Get(string name, Input<string> id, SpatialAnchorsAccountState? state = null, CustomResourceOptions? options = null)
+        public static SpatialAnchorsAccount Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new SpatialAnchorsAccount(name, id, state, options);
+            return new SpatialAnchorsAccount(name, id, options);
         }
     }
 
@@ -127,49 +126,6 @@ namespace Pulumi.AzureRM.MixedReality
         }
 
         public SpatialAnchorsAccountArgs()
-        {
-        }
-    }
-
-    public sealed class SpatialAnchorsAccountState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The geo-location where the resource lives
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Property bag.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.MixedRealityAccountPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public SpatialAnchorsAccountState()
         {
         }
     }

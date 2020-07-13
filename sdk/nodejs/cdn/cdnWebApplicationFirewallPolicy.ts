@@ -16,11 +16,10 @@ export class CdnWebApplicationFirewallPolicy extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CdnWebApplicationFirewallPolicyState, opts?: pulumi.CustomResourceOptions): CdnWebApplicationFirewallPolicy {
-        return new CdnWebApplicationFirewallPolicy(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CdnWebApplicationFirewallPolicy {
+        return new CdnWebApplicationFirewallPolicy(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,20 +72,8 @@ export class CdnWebApplicationFirewallPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CdnWebApplicationFirewallPolicyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CdnWebApplicationFirewallPolicyArgs | CdnWebApplicationFirewallPolicyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: CdnWebApplicationFirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as CdnWebApplicationFirewallPolicyState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as CdnWebApplicationFirewallPolicyArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -99,15 +86,14 @@ export class CdnWebApplicationFirewallPolicy extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["etag"] = args ? args.etag : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -117,40 +103,6 @@ export class CdnWebApplicationFirewallPolicy extends pulumi.CustomResource {
         }
         super(CdnWebApplicationFirewallPolicy.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Defines web application firewall policy for Azure CDN.
- */
-export interface CdnWebApplicationFirewallPolicyState {
-    /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * Resource location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the web application firewall policy.
-     */
-    readonly properties: pulumi.Input<inputs.cdn.CdnWebApplicationFirewallPolicyPropertiesResponse>;
-    /**
-     * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-     */
-    readonly sku: pulumi.Input<inputs.cdn.SkuResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

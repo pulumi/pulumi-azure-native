@@ -113,7 +113,7 @@ class ExpressRouteGatewayExpressRouteConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ExpressRouteGatewayExpressRouteConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,39 +121,11 @@ class ExpressRouteGatewayExpressRouteConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: Properties of the express route connection.
-
-        The **properties** object supports the following:
-
-          * `authorization_key` (`pulumi.Input[str]`) - Authorization key to establish the connection.
-          * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security.
-          * `express_route_circuit_peering` (`pulumi.Input[dict]`) - The ExpressRoute circuit peering.
-            * `id` (`pulumi.Input[str]`) - The ID of the ExpressRoute circuit peering.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the express route connection resource.
-          * `routing_configuration` (`pulumi.Input[dict]`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
-            * `associated_route_table` (`pulumi.Input[dict]`) - The resource id RouteTable associated with this RoutingConfiguration.
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-
-            * `propagated_route_tables` (`pulumi.Input[dict]`) - The list of RouteTables to advertise the routes to.
-              * `ids` (`pulumi.Input[list]`) - The list of resource ids of all the RouteTables.
-              * `labels` (`pulumi.Input[list]`) - The list of labels.
-
-            * `vnet_routes` (`pulumi.Input[dict]`) - List of routes that control routing from VirtualHub into a virtual network connection.
-              * `static_routes` (`pulumi.Input[list]`) - List of all Static Routes.
-                * `address_prefixes` (`pulumi.Input[list]`) - List of all address prefixes.
-                * `name` (`pulumi.Input[str]`) - The name of the StaticRoute that is unique within a VnetRoute.
-                * `next_hop_ip_address` (`pulumi.Input[str]`) - The ip address of the next hop.
-
-          * `routing_weight` (`pulumi.Input[float]`) - The routing weight associated to the connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
         return ExpressRouteGatewayExpressRouteConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.DevTestLab
         {
         }
 
-        private LabUser(string name, Input<string> id, LabUserState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:devtestlab:LabUser", name, state, MakeResourceOptions(options, id))
+        private LabUser(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:devtestlab:LabUser", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.DevTestLab
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static LabUser Get(string name, Input<string> id, LabUserState? state = null, CustomResourceOptions? options = null)
+        public static LabUser Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new LabUser(name, id, state, options);
+            return new LabUser(name, id, options);
         }
     }
 
@@ -133,49 +132,6 @@ namespace Pulumi.AzureRM.DevTestLab
         }
 
         public LabUserArgs()
-        {
-        }
-    }
-
-    public sealed class LabUserState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The location of the resource.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.UserPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags of the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public LabUserState()
         {
         }
     }

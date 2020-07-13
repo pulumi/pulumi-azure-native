@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Insights
         {
         }
 
-        private Webtest(string name, Input<string> id, WebtestState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:insights:Webtest", name, state, MakeResourceOptions(options, id))
+        private Webtest(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:insights:Webtest", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Insights
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Webtest Get(string name, Input<string> id, WebtestState? state = null, CustomResourceOptions? options = null)
+        public static Webtest Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Webtest(name, id, state, options);
+            return new Webtest(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Insights
         }
 
         public WebtestArgs()
-        {
-        }
-    }
-
-    public sealed class WebtestState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kind of web test that this web test watches. Choices are ping and multistep.
-        /// </summary>
-        [Input("kind")]
-        public Input<string>? Kind { get; set; }
-
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Azure resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Metadata describing a web test for an Azure resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.WebTestPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Azure resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WebtestState()
         {
         }
     }

@@ -14,11 +14,10 @@ export class WorkspaceProviderAlertRule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WorkspaceProviderAlertRuleState, opts?: pulumi.CustomResourceOptions): WorkspaceProviderAlertRule {
-        return new WorkspaceProviderAlertRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceProviderAlertRule {
+        return new WorkspaceProviderAlertRule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -59,17 +58,8 @@ export class WorkspaceProviderAlertRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkspaceProviderAlertRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: WorkspaceProviderAlertRuleArgs | WorkspaceProviderAlertRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: WorkspaceProviderAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as WorkspaceProviderAlertRuleState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as WorkspaceProviderAlertRuleArgs | undefined;
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -82,13 +72,12 @@ export class WorkspaceProviderAlertRule extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["etag"] = args ? args.etag : undefined;
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["workspaceName"] = args ? args.workspaceName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -98,28 +87,6 @@ export class WorkspaceProviderAlertRule extends pulumi.CustomResource {
         }
         super(WorkspaceProviderAlertRule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Alert rule.
- */
-export interface WorkspaceProviderAlertRuleState {
-    /**
-     * Etag of the azure resource
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * The alert rule kind
-     */
-    readonly kind: pulumi.Input<string>;
-    /**
-     * Azure resource name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Azure resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

@@ -160,7 +160,7 @@ class ComponentExportconfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, application_name=None, container_name=None, destination_account_id=None, destination_storage_location_id=None, destination_storage_subscription_id=None, destination_type=None, export_id=None, export_status=None, instrumentation_key=None, is_user_enabled=None, last_gap_time=None, last_success_time=None, last_user_update=None, notification_queue_enabled=None, permanent_error_reason=None, record_types=None, resource_group=None, storage_name=None, subscription_id=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ComponentExportconfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -168,49 +168,11 @@ class ComponentExportconfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_name: The name of the Application Insights component.
-        :param pulumi.Input[str] container_name: The name of the destination storage container.
-        :param pulumi.Input[str] destination_account_id: The name of destination account.
-        :param pulumi.Input[str] destination_storage_location_id: The destination account location ID.
-        :param pulumi.Input[str] destination_storage_subscription_id: The destination storage account subscription ID.
-        :param pulumi.Input[str] destination_type: The destination type.
-        :param pulumi.Input[str] export_id: The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-        :param pulumi.Input[str] export_status: This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-        :param pulumi.Input[str] instrumentation_key: The instrumentation key of the Application Insights component.
-        :param pulumi.Input[str] is_user_enabled: This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-        :param pulumi.Input[str] last_gap_time: The last time the Continuous Export configuration started failing.
-        :param pulumi.Input[str] last_success_time: The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-        :param pulumi.Input[str] last_user_update: Last time the Continuous Export configuration was updated.
-        :param pulumi.Input[str] notification_queue_enabled: Deprecated
-        :param pulumi.Input[str] permanent_error_reason: This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-        :param pulumi.Input[str] record_types: This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-        :param pulumi.Input[str] resource_group: The resource group of the Application Insights component.
-        :param pulumi.Input[str] storage_name: The name of the destination storage account.
-        :param pulumi.Input[str] subscription_id: The subscription of the Application Insights component.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["application_name"] = application_name
-        __props__["container_name"] = container_name
-        __props__["destination_account_id"] = destination_account_id
-        __props__["destination_storage_location_id"] = destination_storage_location_id
-        __props__["destination_storage_subscription_id"] = destination_storage_subscription_id
-        __props__["destination_type"] = destination_type
-        __props__["export_id"] = export_id
-        __props__["export_status"] = export_status
-        __props__["instrumentation_key"] = instrumentation_key
-        __props__["is_user_enabled"] = is_user_enabled
-        __props__["last_gap_time"] = last_gap_time
-        __props__["last_success_time"] = last_success_time
-        __props__["last_user_update"] = last_user_update
-        __props__["notification_queue_enabled"] = notification_queue_enabled
-        __props__["permanent_error_reason"] = permanent_error_reason
-        __props__["record_types"] = record_types
-        __props__["resource_group"] = resource_group
-        __props__["storage_name"] = storage_name
-        __props__["subscription_id"] = subscription_id
         return ComponentExportconfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

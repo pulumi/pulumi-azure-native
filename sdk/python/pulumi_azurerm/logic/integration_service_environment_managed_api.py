@@ -131,7 +131,7 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing IntegrationServiceEnvironmentManagedApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,78 +139,11 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: Gets the resource name.
-        :param pulumi.Input[dict] properties: The api resource properties.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: Gets the resource type.
-
-        The **properties** object supports the following:
-
-          * `api_definition_url` (`pulumi.Input[str]`) - The API definition.
-          * `api_definitions` (`pulumi.Input[dict]`) - The api definitions.
-            * `modified_swagger_url` (`pulumi.Input[str]`) - The modified swagger url.
-            * `original_swagger_url` (`pulumi.Input[str]`) - The original swagger url.
-
-          * `backend_service` (`pulumi.Input[dict]`) - The backend service.
-            * `service_url` (`pulumi.Input[str]`) - The service URL.
-
-          * `capabilities` (`pulumi.Input[list]`) - The capabilities.
-          * `category` (`pulumi.Input[str]`) - The category.
-          * `connection_parameters` (`pulumi.Input[dict]`) - The connection parameters.
-          * `general_information` (`pulumi.Input[dict]`) - The api general information.
-            * `description` (`pulumi.Input[str]`) - The description.
-            * `display_name` (`pulumi.Input[str]`) - The display name.
-            * `icon_url` (`pulumi.Input[str]`) - The icon url.
-            * `release_tag` (`pulumi.Input[str]`) - The release tag.
-            * `terms_of_use_url` (`pulumi.Input[str]`) - The terms of use url.
-            * `tier` (`pulumi.Input[str]`) - The tier.
-
-          * `integration_service_environment` (`pulumi.Input[dict]`) - The integration service environment reference.
-            * `id` (`pulumi.Input[str]`) - The resource id.
-            * `name` (`pulumi.Input[str]`) - Gets the resource name.
-            * `type` (`pulumi.Input[str]`) - Gets the resource type.
-
-          * `metadata` (`pulumi.Input[dict]`) - The metadata.
-            * `api_type` (`pulumi.Input[str]`) - The api type.
-            * `brand_color` (`pulumi.Input[str]`) - The brand color.
-            * `connection_type` (`pulumi.Input[str]`) - The connection type.
-            * `deployment_parameters` (`pulumi.Input[dict]`) - The connector deployment parameters metadata.
-              * `package_content_link` (`pulumi.Input[dict]`) - The package content link parameter.
-                * `description` (`pulumi.Input[str]`) - The description.
-                * `display_name` (`pulumi.Input[str]`) - The display name.
-                * `is_required` (`pulumi.Input[bool]`) - Indicates whether its required.
-                * `type` (`pulumi.Input[str]`) - The type.
-                * `visibility` (`pulumi.Input[str]`) - The visibility.
-
-              * `redis_cache_connection_string` (`pulumi.Input[dict]`) - The package content link parameter.
-
-            * `hide_key` (`pulumi.Input[str]`) - The hide key.
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state.
-            * `source` (`pulumi.Input[str]`) - The source.
-            * `tags` (`pulumi.Input[dict]`) - The tags.
-            * `wsdl_import_method` (`pulumi.Input[str]`) - The WSDL import method.
-            * `wsdl_service` (`pulumi.Input[dict]`) - The WSDL service.
-              * `endpoint_qualified_names` (`pulumi.Input[list]`) - The list of endpoints' qualified names.
-              * `qualified_name` (`pulumi.Input[str]`) - The qualified name.
-
-          * `name` (`pulumi.Input[str]`) - The name
-          * `policies` (`pulumi.Input[dict]`) - The policies for the API.
-            * `content` (`pulumi.Input[str]`) - The API level only policies XML as embedded content.
-            * `content_link` (`pulumi.Input[str]`) - The content link to the policies.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state.
-          * `runtime_urls` (`pulumi.Input[list]`) - The runtime urls.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return IntegrationServiceEnvironmentManagedApi(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

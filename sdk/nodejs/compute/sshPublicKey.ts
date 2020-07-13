@@ -16,11 +16,10 @@ export class SshPublicKey extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SshPublicKeyState, opts?: pulumi.CustomResourceOptions): SshPublicKey {
-        return new SshPublicKey(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SshPublicKey {
+        return new SshPublicKey(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class SshPublicKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SshPublicKeyArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SshPublicKeyArgs | SshPublicKeyState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SshPublicKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SshPublicKeyState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as SshPublicKeyArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -86,13 +75,12 @@ export class SshPublicKey extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -102,32 +90,6 @@ export class SshPublicKey extends pulumi.CustomResource {
         }
         super(SshPublicKey.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Specifies information about the SSH public key.
- */
-export interface SshPublicKeyState {
-    /**
-     * Resource location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the SSH public key.
-     */
-    readonly properties: pulumi.Input<inputs.compute.SshPublicKeyResourcePropertiesResponse>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

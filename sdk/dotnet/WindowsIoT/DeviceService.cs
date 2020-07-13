@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.WindowsIoT
         {
         }
 
-        private DeviceService(string name, Input<string> id, DeviceServiceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:windowsiot:DeviceService", name, state, MakeResourceOptions(options, id))
+        private DeviceService(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:windowsiot:DeviceService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.WindowsIoT
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DeviceService Get(string name, Input<string> id, DeviceServiceState? state = null, CustomResourceOptions? options = null)
+        public static DeviceService Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DeviceService(name, id, state, options);
+            return new DeviceService(name, id, options);
         }
     }
 
@@ -133,55 +132,6 @@ namespace Pulumi.AzureRM.WindowsIoT
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public DeviceServiceArgs()
-        {
-        }
-    }
-
-    public sealed class DeviceServiceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// The Azure Region where the resource lives
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a Windows IoT Device Service.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DeviceServicePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DeviceServiceState()
         {
         }
     }

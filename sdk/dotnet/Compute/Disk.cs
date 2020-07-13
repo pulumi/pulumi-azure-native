@@ -81,8 +81,8 @@ namespace Pulumi.AzureRM.Compute
         {
         }
 
-        private Disk(string name, Input<string> id, DiskState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:compute:Disk", name, state, MakeResourceOptions(options, id))
+        private Disk(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:compute:Disk", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -104,11 +104,10 @@ namespace Pulumi.AzureRM.Compute
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Disk Get(string name, Input<string> id, DiskState? state = null, CustomResourceOptions? options = null)
+        public static Disk Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Disk(name, id, state, options);
+            return new Disk(name, id, options);
         }
     }
 
@@ -169,85 +168,6 @@ namespace Pulumi.AzureRM.Compute
         }
 
         public DiskArgs()
-        {
-        }
-    }
-
-    public sealed class DiskState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// A relative URI containing the ID of the VM that has the disk attached.
-        /// </summary>
-        [Input("managedBy", required: true)]
-        public Input<string> ManagedBy { get; set; } = null!;
-
-        [Input("managedByExtended", required: true)]
-        private InputList<string>? _managedByExtended;
-
-        /// <summary>
-        /// List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
-        /// </summary>
-        public InputList<string> ManagedByExtended
-        {
-            get => _managedByExtended ?? (_managedByExtended = new InputList<string>());
-            set => _managedByExtended = value;
-        }
-
-        /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Disk resource properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DiskPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.DiskSkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        [Input("zones")]
-        private InputList<string>? _zones;
-
-        /// <summary>
-        /// The Logical zone list for Disk.
-        /// </summary>
-        public InputList<string> Zones
-        {
-            get => _zones ?? (_zones = new InputList<string>());
-            set => _zones = value;
-        }
-
-        public DiskState()
         {
         }
     }

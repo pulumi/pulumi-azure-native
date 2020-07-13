@@ -156,7 +156,7 @@ class MachineProviderGuestConfigurationAssignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MachineProviderGuestConfigurationAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -164,73 +164,11 @@ class MachineProviderGuestConfigurationAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Region where the VM is located.
-        :param pulumi.Input[str] name: Name of the guest configuration assignment.
-        :param pulumi.Input[dict] properties: Properties of the Guest configuration assignment.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `assignment_hash` (`pulumi.Input[str]`) - Combined hash of the configuration package and parameters.
-          * `compliance_status` (`pulumi.Input[str]`) - A value indicating compliance status of the machine for the assigned guest configuration.
-          * `context` (`pulumi.Input[str]`) - The source which initiated the guest configuration assignment. Ex: Azure Policy
-          * `guest_configuration` (`pulumi.Input[dict]`) - The guest configuration to assign.
-            * `configuration_parameter` (`pulumi.Input[list]`) - The configuration parameters for the guest configuration.
-              * `name` (`pulumi.Input[str]`) - Name of the configuration parameter.
-              * `value` (`pulumi.Input[str]`) - Value of the configuration parameter.
-
-            * `configuration_setting` (`pulumi.Input[dict]`) - The configuration setting for the guest configuration.
-              * `action_after_reboot` (`pulumi.Input[str]`) - Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-              * `allow_module_overwrite` (`pulumi.Input[str]`) - If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-              * `configuration_mode` (`pulumi.Input[str]`) - Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-              * `configuration_mode_frequency_mins` (`pulumi.Input[float]`) - How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-              * `reboot_if_needed` (`pulumi.Input[str]`) - Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-              * `refresh_frequency_mins` (`pulumi.Input[float]`) - The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-
-            * `content_hash` (`pulumi.Input[str]`) - Combined hash of the guest configuration package and configuration parameters.
-            * `content_uri` (`pulumi.Input[str]`) - Uri of the storage where guest configuration package is uploaded.
-            * `kind` (`pulumi.Input[str]`) - Kind of the guest configuration. For example:DSC
-            * `name` (`pulumi.Input[str]`) - Name of the guest configuration.
-            * `version` (`pulumi.Input[str]`) - Version of the guest configuration.
-
-          * `last_compliance_status_checked` (`pulumi.Input[str]`) - Date and time when last compliance status was checked.
-          * `latest_assignment_report` (`pulumi.Input[dict]`) - Last reported guest configuration assignment report.
-            * `assignment` (`pulumi.Input[dict]`) - Configuration details of the guest configuration assignment.
-              * `configuration` (`pulumi.Input[dict]`) - Information about the configuration.
-                * `name` (`pulumi.Input[str]`) - Name of the configuration.
-                * `version` (`pulumi.Input[str]`) - Version of the configuration.
-
-              * `name` (`pulumi.Input[str]`) - Name of the guest configuration assignment.
-
-            * `compliance_status` (`pulumi.Input[str]`) - A value indicating compliance status of the machine for the assigned guest configuration.
-            * `end_time` (`pulumi.Input[str]`) - End date and time of the guest configuration assignment compliance status check.
-            * `id` (`pulumi.Input[str]`) - ARM resource id of the report for the guest configuration assignment.
-            * `operation_type` (`pulumi.Input[str]`) - Type of report, Consistency or Initial
-            * `report_id` (`pulumi.Input[str]`) - GUID that identifies the guest configuration assignment report under a subscription, resource group.
-            * `resources` (`pulumi.Input[list]`) - The list of resources for which guest configuration assignment compliance is checked.
-              * `compliance_status` (`pulumi.Input[str]`) - A value indicating compliance status of the machine for the assigned guest configuration.
-              * `properties` (`pulumi.Input[dict]`) - Properties of a guest configuration assignment resource.
-              * `reasons` (`pulumi.Input[list]`) - Compliance reason and reason code for a resource.
-                * `code` (`pulumi.Input[str]`) - Code for the compliance of the guest configuration assignment resource.
-                * `phrase` (`pulumi.Input[str]`) - Reason for the compliance of the guest configuration assignment resource.
-
-            * `start_time` (`pulumi.Input[str]`) - Start date and time of the guest configuration assignment compliance status check.
-            * `vm` (`pulumi.Input[dict]`) - Information about the VM.
-              * `id` (`pulumi.Input[str]`) - Azure resource Id of the VM.
-              * `uuid` (`pulumi.Input[str]`) - UUID(Universally Unique Identifier) of the VM.
-
-          * `latest_report_id` (`pulumi.Input[str]`) - Id of the latest report for the guest configuration assignment. 
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-          * `target_resource_id` (`pulumi.Input[str]`) - VM resource Id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MachineProviderGuestConfigurationAssignment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

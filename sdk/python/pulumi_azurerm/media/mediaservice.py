@@ -118,7 +118,7 @@ class Mediaservice(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Mediaservice resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,45 +126,11 @@ class Mediaservice(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The Managed Identity for the Media Services account.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The resource properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The Principal ID of the identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID of the identity.
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **properties** object supports the following:
-
-          * `encryption` (`pulumi.Input[dict]`) - The account encryption properties.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - The properties of the key used to encrypt the account.
-              * `current_key_identifier` (`pulumi.Input[str]`) - The current key used to encrypt the Media Services account, including the key version.
-              * `key_identifier` (`pulumi.Input[str]`) - The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-
-            * `type` (`pulumi.Input[str]`) - The type of key used to encrypt the Account Key.
-
-          * `media_service_id` (`pulumi.Input[str]`) - The Media Services account ID.
-          * `storage_accounts` (`pulumi.Input[list]`) - The storage accounts for this resource.
-            * `id` (`pulumi.Input[str]`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-            * `type` (`pulumi.Input[str]`) - The type of the storage account.
-
-          * `storage_authentication` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Mediaservice(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

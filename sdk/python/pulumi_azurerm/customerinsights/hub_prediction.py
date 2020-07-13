@@ -110,7 +110,7 @@ class HubPrediction(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HubPrediction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -118,41 +118,11 @@ class HubPrediction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The prediction definition.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `auto_analyze` (`pulumi.Input[bool]`) - Whether do auto analyze.
-          * `description` (`pulumi.Input[dict]`) - Description of the prediction.
-          * `display_name` (`pulumi.Input[dict]`) - Display name of the prediction.
-          * `grades` (`pulumi.Input[list]`) - The prediction grades.
-            * `grade_name` (`pulumi.Input[str]`) - Name of the grade.
-            * `max_score_threshold` (`pulumi.Input[float]`) - Maximum score threshold.
-            * `min_score_threshold` (`pulumi.Input[float]`) - Minimum score threshold.
-
-          * `involved_interaction_types` (`pulumi.Input[list]`) - Interaction types involved in the prediction.
-          * `involved_kpi_types` (`pulumi.Input[list]`) - KPI types involved in the prediction.
-          * `involved_relationships` (`pulumi.Input[list]`) - Relationships involved in the prediction.
-          * `mappings` (`pulumi.Input[dict]`) - Definition of the link mapping of prediction.
-          * `negative_outcome_expression` (`pulumi.Input[str]`) - Negative outcome expression.
-          * `positive_outcome_expression` (`pulumi.Input[str]`) - Positive outcome expression.
-          * `prediction_name` (`pulumi.Input[str]`) - Name of the prediction.
-          * `primary_profile_type` (`pulumi.Input[str]`) - Primary profile type.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state.
-          * `scope_expression` (`pulumi.Input[str]`) - Scope expression.
-          * `score_label` (`pulumi.Input[str]`) - Score label.
-          * `system_generated_entities` (`pulumi.Input[dict]`) - System generated entities.
-          * `tenant_id` (`pulumi.Input[str]`) - The hub name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return HubPrediction(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

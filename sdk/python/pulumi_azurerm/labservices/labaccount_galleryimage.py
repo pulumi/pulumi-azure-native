@@ -113,7 +113,7 @@ class LabaccountGalleryimage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabaccountGalleryimage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,49 +121,11 @@ class LabaccountGalleryimage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The gallery image properties
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `author` (`pulumi.Input[str]`) - The author of the gallery image.
-          * `created_date` (`pulumi.Input[str]`) - The creation date of the gallery image.
-          * `description` (`pulumi.Input[str]`) - The description of the gallery image.
-          * `icon` (`pulumi.Input[str]`) - The icon of the gallery image.
-          * `image_reference` (`pulumi.Input[dict]`) - The image reference of the gallery image.
-            * `offer` (`pulumi.Input[str]`) - The offer of the gallery image.
-            * `os_type` (`pulumi.Input[str]`) - The OS type of the gallery image.
-            * `publisher` (`pulumi.Input[str]`) - The publisher of the gallery image.
-            * `sku` (`pulumi.Input[str]`) - The SKU of the gallery image.
-            * `version` (`pulumi.Input[str]`) - The version of the gallery image.
-
-          * `is_enabled` (`pulumi.Input[bool]`) - Indicates whether this gallery image is enabled.
-          * `is_override` (`pulumi.Input[bool]`) - Indicates whether this gallery has been overridden for this lab account
-          * `is_plan_authorized` (`pulumi.Input[bool]`) - Indicates if the plan has been authorized for programmatic deployment.
-          * `latest_operation_result` (`pulumi.Input[dict]`) - The details of the latest operation. ex: status, error
-            * `error_code` (`pulumi.Input[str]`) - Error code on failure.
-            * `error_message` (`pulumi.Input[str]`) - The error message.
-            * `http_method` (`pulumi.Input[str]`) - The HttpMethod - PUT/POST/DELETE for the operation.
-            * `operation_url` (`pulumi.Input[str]`) - The URL to use to check long-running operation status
-            * `request_uri` (`pulumi.Input[str]`) - Request URI of the operation.
-            * `status` (`pulumi.Input[str]`) - The current status of the operation.
-
-          * `plan_id` (`pulumi.Input[str]`) - The third party plan that applies to this image
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabaccountGalleryimage(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

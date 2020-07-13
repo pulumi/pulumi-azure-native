@@ -97,7 +97,7 @@ class VirtualHubHubRouteTable(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VirtualHubHubRouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,32 +105,11 @@ class VirtualHubHubRouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[dict] properties: Properties of the RouteTable resource.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `associated_connections` (`pulumi.Input[list]`) - List of all connections associated with this route table.
-          * `labels` (`pulumi.Input[list]`) - List of labels associated with this route table.
-          * `propagating_connections` (`pulumi.Input[list]`) - List of all connections that advertise to this route table.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the RouteTable resource.
-          * `routes` (`pulumi.Input[list]`) - List of all routes.
-            * `destination_type` (`pulumi.Input[str]`) - The type of destinations (eg: CIDR, ResourceId, Service).
-            * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-            * `name` (`pulumi.Input[str]`) - The name of the Route that is unique within a RouteTable. This name can be used to access this route.
-            * `next_hop` (`pulumi.Input[str]`) - NextHop resource ID.
-            * `next_hop_type` (`pulumi.Input[str]`) - The type of next hop (eg: ResourceId).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return VirtualHubHubRouteTable(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -106,7 +106,7 @@ class MediaServiceStreamingLocator(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaServiceStreamingLocator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -114,42 +114,11 @@ class MediaServiceStreamingLocator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Properties of the Streaming Locator.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `alternative_media_id` (`pulumi.Input[str]`) - Alternative Media ID of this Streaming Locator
-          * `asset_name` (`pulumi.Input[str]`) - Asset Name
-          * `content_keys` (`pulumi.Input[list]`) - The ContentKeys used by this Streaming Locator.
-            * `id` (`pulumi.Input[str]`) - ID of Content Key
-            * `label_reference_in_streaming_policy` (`pulumi.Input[str]`) - Label of Content Key as specified in the Streaming Policy
-            * `policy_name` (`pulumi.Input[str]`) - ContentKeyPolicy used by Content Key
-            * `tracks` (`pulumi.Input[list]`) - Tracks which use this Content Key
-              * `track_selections` (`pulumi.Input[list]`) - TrackSelections is a track property condition list which can specify track(s)
-                * `operation` (`pulumi.Input[str]`) - Track property condition operation
-                * `property` (`pulumi.Input[str]`) - Track property type
-                * `value` (`pulumi.Input[str]`) - Track property value
-
-            * `type` (`pulumi.Input[str]`) - Encryption type of Content Key
-            * `value` (`pulumi.Input[str]`) - Value of Content Key
-
-          * `created` (`pulumi.Input[str]`) - The creation time of the Streaming Locator.
-          * `default_content_key_policy_name` (`pulumi.Input[str]`) - Name of the default ContentKeyPolicy used by this Streaming Locator.
-          * `end_time` (`pulumi.Input[str]`) - The end time of the Streaming Locator.
-          * `filters` (`pulumi.Input[list]`) - A list of asset or account filters which apply to this streaming locator
-          * `start_time` (`pulumi.Input[str]`) - The start time of the Streaming Locator.
-          * `streaming_locator_id` (`pulumi.Input[str]`) - The StreamingLocatorId of the Streaming Locator.
-          * `streaming_policy_name` (`pulumi.Input[str]`) - Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MediaServiceStreamingLocator(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

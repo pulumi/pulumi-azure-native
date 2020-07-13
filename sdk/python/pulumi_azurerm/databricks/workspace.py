@@ -169,7 +169,7 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -177,73 +177,11 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The workspace properties.
-        :param pulumi.Input[dict] sku: The SKU of the resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `authorizations` (`pulumi.Input[list]`) - The workspace provider authorizations.
-            * `principal_id` (`pulumi.Input[str]`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
-            * `role_definition_id` (`pulumi.Input[str]`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
-
-          * `created_by` (`pulumi.Input[dict]`) - Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-            * `application_id` (`pulumi.Input[str]`) - The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
-            * `oid` (`pulumi.Input[str]`) - The Object ID that created the workspace.
-            * `puid` (`pulumi.Input[str]`) - The Personal Object ID corresponding to the object ID above
-
-          * `created_date_time` (`pulumi.Input[str]`) - Specifies the date and time when the workspace is created.
-          * `managed_resource_group_id` (`pulumi.Input[str]`) - The managed resource group Id.
-          * `parameters` (`pulumi.Input[dict]`) - The workspace's custom parameters.
-            * `custom_private_subnet_name` (`pulumi.Input[dict]`) - The name of the Private Subnet within the Virtual Network
-              * `type` (`pulumi.Input[str]`) - The type of variable that this is
-              * `value` (`pulumi.Input[str]`) - The value which should be used for this field.
-
-            * `custom_public_subnet_name` (`pulumi.Input[dict]`) - The name of a Public Subnet within the Virtual Network
-            * `custom_virtual_network_id` (`pulumi.Input[dict]`) - The ID of a Virtual Network where this Databricks Cluster should be created
-            * `enable_no_public_ip` (`pulumi.Input[dict]`) - Should the Public IP be Disabled?
-              * `type` (`pulumi.Input[str]`) - The type of variable that this is
-              * `value` (`pulumi.Input[bool]`) - The value which should be used for this field.
-
-            * `encryption` (`pulumi.Input[dict]`) - Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
-              * `type` (`pulumi.Input[str]`) - The type of variable that this is
-              * `value` (`pulumi.Input[dict]`) - The value which should be used for this field.
-                * `key_name` (`pulumi.Input[str]`) - The name of KeyVault key.
-                * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
-                * `keyvaulturi` (`pulumi.Input[str]`) - The Uri of KeyVault.
-                * `keyversion` (`pulumi.Input[str]`) - The version of KeyVault key.
-
-            * `prepare_encryption` (`pulumi.Input[dict]`) - Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The workspace provisioning state.
-          * `storage_account_identity` (`pulumi.Input[dict]`) - The details of Managed Identity of Storage Account
-            * `principal_id` (`pulumi.Input[str]`) - The objectId of the Managed Identity that is linked to the Managed Storage account.
-            * `tenant_id` (`pulumi.Input[str]`) - The tenant Id where the Managed Identity is created.
-            * `type` (`pulumi.Input[str]`) - The type of Identity created. It can be either SystemAssigned or UserAssigned.
-
-          * `ui_definition_uri` (`pulumi.Input[str]`) - The blob URI where the UI definition file is located.
-          * `updated_by` (`pulumi.Input[dict]`) - Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-          * `workspace_id` (`pulumi.Input[str]`) - The unique identifier of the databricks workspace in databricks control plane.
-          * `workspace_url` (`pulumi.Input[str]`) - The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The SKU name.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

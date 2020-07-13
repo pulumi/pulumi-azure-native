@@ -147,7 +147,7 @@ class P2svpnGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing P2svpnGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -155,60 +155,11 @@ class P2svpnGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the P2SVpnGateway.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `custom_dns_servers` (`pulumi.Input[list]`) - List of all customer specified DNS servers IP addresses.
-          * `p2_s_connection_configurations` (`pulumi.Input[list]`) - List of all p2s connection configurations of the gateway.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the P2S connection configuration.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the P2SConnectionConfiguration resource.
-              * `routing_configuration` (`pulumi.Input[dict]`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
-                * `associated_route_table` (`pulumi.Input[dict]`) - The resource id RouteTable associated with this RoutingConfiguration.
-                  * `id` (`pulumi.Input[str]`) - Resource ID.
-
-                * `propagated_route_tables` (`pulumi.Input[dict]`) - The list of RouteTables to advertise the routes to.
-                  * `ids` (`pulumi.Input[list]`) - The list of resource ids of all the RouteTables.
-                  * `labels` (`pulumi.Input[list]`) - The list of labels.
-
-                * `vnet_routes` (`pulumi.Input[dict]`) - List of routes that control routing from VirtualHub into a virtual network connection.
-                  * `static_routes` (`pulumi.Input[list]`) - List of all Static Routes.
-                    * `address_prefixes` (`pulumi.Input[list]`) - List of all address prefixes.
-                    * `name` (`pulumi.Input[str]`) - The name of the StaticRoute that is unique within a VnetRoute.
-                    * `next_hop_ip_address` (`pulumi.Input[str]`) - The ip address of the next hop.
-
-              * `vpn_client_address_pool` (`pulumi.Input[dict]`) - The reference to the address space resource which represents Address space for P2S VpnClient.
-                * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the P2S VPN gateway resource.
-          * `virtual_hub` (`pulumi.Input[dict]`) - The VirtualHub to which the gateway belongs.
-          * `vpn_client_connection_health` (`pulumi.Input[dict]`) - All P2S VPN clients' connection health status.
-            * `allocated_ip_addresses` (`pulumi.Input[list]`) - List of allocated ip addresses to the connected p2s vpn clients.
-            * `total_egress_bytes_transferred` (`pulumi.Input[float]`) - Total of the Egress Bytes Transferred in this connection.
-            * `total_ingress_bytes_transferred` (`pulumi.Input[float]`) - Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-            * `vpn_client_connections_count` (`pulumi.Input[float]`) - The total of p2s vpn clients connected at this time to this P2SVpnGateway.
-
-          * `vpn_gateway_scale_unit` (`pulumi.Input[float]`) - The scale unit for this p2s vpn gateway.
-          * `vpn_server_configuration` (`pulumi.Input[dict]`) - The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return P2svpnGateway(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

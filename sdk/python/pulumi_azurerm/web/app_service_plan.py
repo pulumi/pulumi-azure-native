@@ -169,7 +169,7 @@ class AppServicePlan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServicePlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -177,72 +177,11 @@ class AppServicePlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: AppServicePlan resource specific properties
-        :param pulumi.Input[dict] sku: Description of a SKU for a scalable resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `free_offer_expiration_time` (`pulumi.Input[str]`) - The time when the server farm free offer expires.
-          * `geo_region` (`pulumi.Input[str]`) - Geographical location for the App Service plan.
-          * `hosting_environment_profile` (`pulumi.Input[dict]`) - Specification for the App Service Environment to use for the App Service plan.
-            * `id` (`pulumi.Input[str]`) - Resource ID of the App Service Environment.
-            * `name` (`pulumi.Input[str]`) - Name of the App Service Environment.
-            * `type` (`pulumi.Input[str]`) - Resource type of the App Service Environment.
-
-          * `hyper_v` (`pulumi.Input[bool]`) - If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-          * `is_spot` (`pulumi.Input[bool]`) - If <code>true</code>, this App Service Plan owns spot instances.
-          * `is_xenon` (`pulumi.Input[bool]`) - Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-          * `maximum_elastic_worker_count` (`pulumi.Input[float]`) - Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
-          * `maximum_number_of_workers` (`pulumi.Input[float]`) - Maximum number of instances that can be assigned to this App Service plan.
-          * `number_of_sites` (`pulumi.Input[float]`) - Number of apps assigned to this App Service plan.
-          * `per_site_scaling` (`pulumi.Input[bool]`) - If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-            If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the App Service Environment.
-          * `reserved` (`pulumi.Input[bool]`) - If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-          * `resource_group` (`pulumi.Input[str]`) - Resource group of the App Service plan.
-          * `spot_expiration_time` (`pulumi.Input[str]`) - The time when the server farm expires. Valid only if it is a spot server farm.
-          * `status` (`pulumi.Input[str]`) - App Service plan status.
-          * `subscription` (`pulumi.Input[str]`) - App Service plan subscription.
-          * `target_worker_count` (`pulumi.Input[float]`) - Scaling worker count.
-          * `target_worker_size_id` (`pulumi.Input[float]`) - Scaling worker size ID.
-          * `worker_tier_name` (`pulumi.Input[str]`) - Target worker tier assigned to the App Service plan.
-
-        The **sku** object supports the following:
-
-          * `capabilities` (`pulumi.Input[list]`) - Capabilities of the SKU, e.g., is traffic manager enabled?
-            * `name` (`pulumi.Input[str]`) - Name of the SKU capability.
-            * `reason` (`pulumi.Input[str]`) - Reason of the SKU capability.
-            * `value` (`pulumi.Input[str]`) - Value of the SKU capability.
-
-          * `capacity` (`pulumi.Input[float]`) - Current number of instances assigned to the resource.
-          * `family` (`pulumi.Input[str]`) - Family code of the resource SKU.
-          * `locations` (`pulumi.Input[list]`) - Locations of the SKU.
-          * `name` (`pulumi.Input[str]`) - Name of the resource SKU.
-          * `size` (`pulumi.Input[str]`) - Size specifier of the resource SKU.
-          * `sku_capacity` (`pulumi.Input[dict]`) - Min, max, and default scale values of the SKU.
-            * `default` (`pulumi.Input[float]`) - Default number of workers for this App Service plan SKU.
-            * `maximum` (`pulumi.Input[float]`) - Maximum number of workers for this App Service plan SKU.
-            * `minimum` (`pulumi.Input[float]`) - Minimum number of workers for this App Service plan SKU.
-            * `scale_type` (`pulumi.Input[str]`) - Available scale configurations for an App Service plan.
-
-          * `tier` (`pulumi.Input[str]`) - Service tier of the resource SKU.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

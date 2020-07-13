@@ -16,11 +16,10 @@ export class ResourceGroup extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResourceGroupState, opts?: pulumi.CustomResourceOptions): ResourceGroup {
-        return new ResourceGroup(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ResourceGroup {
+        return new ResourceGroup(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,32 +68,20 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ResourceGroupArgs | ResourceGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ResourceGroupState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["managedBy"] = state ? state.managedBy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ResourceGroupArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["location"] = args ? args.location : undefined;
+        inputs["managedBy"] = args ? args.managedBy : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -104,36 +91,6 @@ export class ResourceGroup extends pulumi.CustomResource {
         }
         super(ResourceGroup.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Resource group information.
- */
-export interface ResourceGroupState {
-    /**
-     * The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * The ID of the resource that manages this resource group.
-     */
-    readonly managedBy?: pulumi.Input<string>;
-    /**
-     * The name of the resource group.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The resource group properties.
-     */
-    readonly properties: pulumi.Input<inputs.core.ResourceGroupPropertiesResponse>;
-    /**
-     * The tags attached to the resource group.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource group.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

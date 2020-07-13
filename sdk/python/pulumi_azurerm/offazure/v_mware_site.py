@@ -113,7 +113,7 @@ class VMwareSite(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VMwareSite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -121,42 +121,11 @@ class VMwareSite(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: eTag for concurrency control.
-        :param pulumi.Input[str] location: Azure location in which Sites is created.
-        :param pulumi.Input[str] name: Name of the VMware site.
-        :param pulumi.Input[dict] properties: Nested properties of VMWare site.
-        :param pulumi.Input[str] type: Type of resource. Type = Microsoft.OffAzure/VMWareSites.
-
-        The **properties** object supports the following:
-
-          * `agent_details` (`pulumi.Input[dict]`) - On-premises agent details.
-            * `id` (`pulumi.Input[str]`) - ID of the agent.
-            * `key_vault_id` (`pulumi.Input[str]`) - Key vault ARM Id.
-            * `key_vault_uri` (`pulumi.Input[str]`) - Key vault URI.
-            * `last_heart_beat_utc` (`pulumi.Input[str]`) - Last heartbeat time of the agent in UTC.
-            * `version` (`pulumi.Input[str]`) - Version of the agent.
-
-          * `appliance_name` (`pulumi.Input[str]`) - Appliance Name.
-          * `discovery_solution_id` (`pulumi.Input[str]`) - ARM ID of migration hub solution for SDS.
-          * `service_endpoint` (`pulumi.Input[str]`) - Service endpoint.
-          * `service_principal_identity_details` (`pulumi.Input[dict]`) - Service principal identity details used by agent for communication to the service.
-            * `aad_authority` (`pulumi.Input[str]`) - AAD Authority URL which was used to request the token for the service principal.
-            * `application_id` (`pulumi.Input[str]`) - Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-            * `audience` (`pulumi.Input[str]`) - Intended audience for the service principal.
-            * `object_id` (`pulumi.Input[str]`) - Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-            * `raw_cert_data` (`pulumi.Input[str]`) - Raw certificate data for building certificate expiry flows.
-            * `tenant_id` (`pulumi.Input[str]`) - Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return VMwareSite(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

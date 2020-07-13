@@ -116,7 +116,7 @@ class ComponentFavorite(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, category=None, config=None, favorite_id=None, favorite_type=None, is_generated_from_template=None, name=None, source_type=None, tags=None, time_modified=None, user_id=None, version=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ComponentFavorite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -124,33 +124,11 @@ class ComponentFavorite(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] category: Favorite category, as defined by the user at creation time.
-        :param pulumi.Input[str] config: Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-        :param pulumi.Input[str] favorite_id: Internally assigned unique id of the favorite definition.
-        :param pulumi.Input[str] favorite_type: Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        :param pulumi.Input[bool] is_generated_from_template: Flag denoting wether or not this favorite was generated from a template.
-        :param pulumi.Input[str] name: The user-defined name of the favorite.
-        :param pulumi.Input[str] source_type: The source of the favorite definition.
-        :param pulumi.Input[list] tags: A list of 0 or more tags that are associated with this favorite definition
-        :param pulumi.Input[str] time_modified: Date and time in UTC of the last modification that was made to this favorite definition.
-        :param pulumi.Input[str] user_id: Unique user id of the specific user that owns this favorite.
-        :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["category"] = category
-        __props__["config"] = config
-        __props__["favorite_id"] = favorite_id
-        __props__["favorite_type"] = favorite_type
-        __props__["is_generated_from_template"] = is_generated_from_template
-        __props__["name"] = name
-        __props__["source_type"] = source_type
-        __props__["tags"] = tags
-        __props__["time_modified"] = time_modified
-        __props__["user_id"] = user_id
-        __props__["version"] = version
         return ComponentFavorite(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.ApiManagement
         {
         }
 
-        private ServiceProduct(string name, Input<string> id, ServiceProductState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement:ServiceProduct", name, state, MakeResourceOptions(options, id))
+        private ServiceProduct(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:apimanagement:ServiceProduct", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.ApiManagement
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ServiceProduct Get(string name, Input<string> id, ServiceProductState? state = null, CustomResourceOptions? options = null)
+        public static ServiceProduct Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ServiceProduct(name, id, state, options);
+            return new ServiceProduct(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.ApiManagement
         public Input<string> ServiceName { get; set; } = null!;
 
         public ServiceProductArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceProductState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Product entity contract properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ProductContractPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type for API Management resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServiceProductState()
         {
         }
     }

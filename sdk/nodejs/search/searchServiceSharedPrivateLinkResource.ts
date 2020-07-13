@@ -16,11 +16,10 @@ export class SearchServiceSharedPrivateLinkResource extends pulumi.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SearchServiceSharedPrivateLinkResourceState, opts?: pulumi.CustomResourceOptions): SearchServiceSharedPrivateLinkResource {
-        return new SearchServiceSharedPrivateLinkResource(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SearchServiceSharedPrivateLinkResource {
+        return new SearchServiceSharedPrivateLinkResource(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class SearchServiceSharedPrivateLinkResource extends pulumi.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SearchServiceSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SearchServiceSharedPrivateLinkResourceArgs | SearchServiceSharedPrivateLinkResourceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SearchServiceSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SearchServiceSharedPrivateLinkResourceState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as SearchServiceSharedPrivateLinkResourceArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -76,12 +67,11 @@ export class SearchServiceSharedPrivateLinkResource extends pulumi.CustomResourc
             if (!args || args.searchServiceName === undefined) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -91,24 +81,6 @@ export class SearchServiceSharedPrivateLinkResource extends pulumi.CustomResourc
         }
         super(SearchServiceSharedPrivateLinkResource.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
- */
-export interface SearchServiceSharedPrivateLinkResourceState {
-    /**
-     * The name of the shared private link resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-     */
-    readonly properties: pulumi.Input<inputs.search.SharedPrivateLinkResourcePropertiesResponse>;
-    /**
-     * The resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

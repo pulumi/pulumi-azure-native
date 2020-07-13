@@ -86,7 +86,7 @@ class MediaServiceContentKeyPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaServiceContentKeyPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,30 +94,11 @@ class MediaServiceContentKeyPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The properties of the Content Key Policy.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `created` (`pulumi.Input[str]`) - The creation date of the Policy
-          * `description` (`pulumi.Input[str]`) - A description for the Policy.
-          * `last_modified` (`pulumi.Input[str]`) - The last modified date of the Policy
-          * `options` (`pulumi.Input[list]`) - The Key Policy options.
-            * `configuration` (`pulumi.Input[dict]`) - The key delivery configuration.
-            * `name` (`pulumi.Input[str]`) - The Policy Option description.
-            * `policy_option_id` (`pulumi.Input[str]`) - The legacy Policy Option ID.
-            * `restriction` (`pulumi.Input[dict]`) - The requirements that must be met to deliver keys with this configuration
-
-          * `policy_id` (`pulumi.Input[str]`) - The legacy Policy ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MediaServiceContentKeyPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

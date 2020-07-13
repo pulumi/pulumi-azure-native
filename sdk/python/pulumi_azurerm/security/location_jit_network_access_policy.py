@@ -104,7 +104,7 @@ class LocationJitNetworkAccessPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LocationJitNetworkAccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,49 +112,11 @@ class LocationJitNetworkAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of the resource
-        :param pulumi.Input[str] location: Location where the resource is stored
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the Just-in-Time policy.
-          * `requests` (`pulumi.Input[list]`)
-            * `justification` (`pulumi.Input[str]`) - The justification for making the initiate request
-            * `requestor` (`pulumi.Input[str]`) - The identity of the person who made the request
-            * `start_time_utc` (`pulumi.Input[str]`) - The start time of the request in UTC
-            * `virtual_machines` (`pulumi.Input[list]`)
-              * `id` (`pulumi.Input[str]`) - Resource ID of the virtual machine that is linked to this policy
-              * `ports` (`pulumi.Input[list]`) - The ports that were opened for the virtual machine
-                * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-                * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-                * `end_time_utc` (`pulumi.Input[str]`) - The date & time at which the request ends in UTC
-                * `mapped_port` (`pulumi.Input[float]`) - The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-                * `number` (`pulumi.Input[dict]`)
-                * `status` (`pulumi.Input[str]`) - The status of the port
-                * `status_reason` (`pulumi.Input[str]`) - A description of why the `status` has its value
-
-          * `virtual_machines` (`pulumi.Input[list]`) - Configurations for Microsoft.Compute/virtualMachines resource type.
-            * `id` (`pulumi.Input[str]`) - Resource ID of the virtual machine that is linked to this policy
-            * `ports` (`pulumi.Input[list]`) - Port configurations for the virtual machine
-              * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-              * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-              * `max_request_access_duration` (`pulumi.Input[str]`) - Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-              * `number` (`pulumi.Input[dict]`)
-              * `protocol` (`pulumi.Input[str]`)
-
-            * `public_ip_address` (`pulumi.Input[str]`) - Public IP address of the Azure Firewall that is linked to this policy, if applicable
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return LocationJitNetworkAccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

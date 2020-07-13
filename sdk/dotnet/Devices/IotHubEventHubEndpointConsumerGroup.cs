@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.Devices
         {
         }
 
-        private IotHubEventHubEndpointConsumerGroup(string name, Input<string> id, IotHubEventHubEndpointConsumerGroupState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:devices:IotHubEventHubEndpointConsumerGroup", name, state, MakeResourceOptions(options, id))
+        private IotHubEventHubEndpointConsumerGroup(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:devices:IotHubEventHubEndpointConsumerGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.Devices
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static IotHubEventHubEndpointConsumerGroup Get(string name, Input<string> id, IotHubEventHubEndpointConsumerGroupState? state = null, CustomResourceOptions? options = null)
+        public static IotHubEventHubEndpointConsumerGroup Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new IotHubEventHubEndpointConsumerGroup(name, id, state, options);
+            return new IotHubEventHubEndpointConsumerGroup(name, id, options);
         }
     }
 
@@ -109,43 +108,6 @@ namespace Pulumi.AzureRM.Devices
         public Input<string> ResourceName { get; set; } = null!;
 
         public IotHubEventHubEndpointConsumerGroupArgs()
-        {
-        }
-    }
-
-    public sealed class IotHubEventHubEndpointConsumerGroupState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The etag.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The Event Hub-compatible consumer group name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("properties", required: true)]
-        private InputMap<string>? _properties;
-
-        /// <summary>
-        /// The tags.
-        /// </summary>
-        public InputMap<string> Properties
-        {
-            get => _properties ?? (_properties = new InputMap<string>());
-            set => _properties = value;
-        }
-
-        /// <summary>
-        /// the resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public IotHubEventHubEndpointConsumerGroupState()
         {
         }
     }

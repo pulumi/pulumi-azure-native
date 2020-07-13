@@ -126,7 +126,7 @@ class StorageAccountManagementPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageAccountManagementPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,48 +134,11 @@ class StorageAccountManagementPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Returns the Storage Account Data Policies Rules.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `last_modified_time` (`pulumi.Input[str]`) - Returns the date and time the ManagementPolicies was last modified.
-          * `policy` (`pulumi.Input[dict]`) - The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-            * `rules` (`pulumi.Input[list]`) - The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-              * `definition` (`pulumi.Input[dict]`) - An object that defines the Lifecycle rule.
-                * `actions` (`pulumi.Input[dict]`) - An object that defines the action set.
-                  * `base_blob` (`pulumi.Input[dict]`) - The management policy action for base blob
-                    * `delete` (`pulumi.Input[dict]`) - The function to delete the blob
-                      * `days_after_modification_greater_than` (`pulumi.Input[float]`) - Value indicating the age in days after last modification
-
-                    * `tier_to_archive` (`pulumi.Input[dict]`) - The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-                    * `tier_to_cool` (`pulumi.Input[dict]`) - The function to tier blobs to cool storage. Support blobs currently at Hot tier
-
-                  * `snapshot` (`pulumi.Input[dict]`) - The management policy action for snapshot
-                    * `delete` (`pulumi.Input[dict]`) - The function to delete the blob snapshot
-                      * `days_after_creation_greater_than` (`pulumi.Input[float]`) - Value indicating the age in days after creation
-
-                * `filters` (`pulumi.Input[dict]`) - An object that defines the filter set.
-                  * `blob_index_match` (`pulumi.Input[list]`) - An array of blob index tag based filters, there can be at most 10 tag filters
-                    * `name` (`pulumi.Input[str]`) - This is the filter tag name, it can have 1 - 128 characters
-                    * `op` (`pulumi.Input[str]`) - This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
-                    * `value` (`pulumi.Input[str]`) - This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
-
-                  * `blob_types` (`pulumi.Input[list]`) - An array of predefined enum values. Only blockBlob is supported.
-                  * `prefix_match` (`pulumi.Input[list]`) - An array of strings for prefixes to be match.
-
-              * `enabled` (`pulumi.Input[bool]`) - Rule is enabled if set to true.
-              * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-              * `type` (`pulumi.Input[str]`) - The valid value is Lifecycle
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StorageAccountManagementPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

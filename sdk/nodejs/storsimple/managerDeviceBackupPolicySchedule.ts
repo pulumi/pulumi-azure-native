@@ -16,11 +16,10 @@ export class ManagerDeviceBackupPolicySchedule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ManagerDeviceBackupPolicyScheduleState, opts?: pulumi.CustomResourceOptions): ManagerDeviceBackupPolicySchedule {
-        return new ManagerDeviceBackupPolicySchedule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagerDeviceBackupPolicySchedule {
+        return new ManagerDeviceBackupPolicySchedule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class ManagerDeviceBackupPolicySchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManagerDeviceBackupPolicyScheduleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManagerDeviceBackupPolicyScheduleArgs | ManagerDeviceBackupPolicyScheduleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ManagerDeviceBackupPolicyScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ManagerDeviceBackupPolicyScheduleState | undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ManagerDeviceBackupPolicyScheduleArgs | undefined;
             if (!args || args.backupPolicyName === undefined) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
@@ -90,15 +80,14 @@ export class ManagerDeviceBackupPolicySchedule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
+        inputs["deviceName"] = args ? args.deviceName : undefined;
+        inputs["kind"] = args ? args.kind : undefined;
+        inputs["managerName"] = args ? args.managerName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -108,28 +97,6 @@ export class ManagerDeviceBackupPolicySchedule extends pulumi.CustomResource {
         }
         super(ManagerDeviceBackupPolicySchedule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The backup schedule.
- */
-export interface ManagerDeviceBackupPolicyScheduleState {
-    /**
-     * The Kind of the object. Currently only Series8000 is supported
-     */
-    readonly kind?: pulumi.Input<string>;
-    /**
-     * The name of the object.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the backup schedule.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.BackupSchedulePropertiesResponse>;
-    /**
-     * The hierarchical type of the object.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

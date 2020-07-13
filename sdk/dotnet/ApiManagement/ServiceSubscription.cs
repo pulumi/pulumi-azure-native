@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.ApiManagement
         {
         }
 
-        private ServiceSubscription(string name, Input<string> id, ServiceSubscriptionState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:apimanagement:ServiceSubscription", name, state, MakeResourceOptions(options, id))
+        private ServiceSubscription(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:apimanagement:ServiceSubscription", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.ApiManagement
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ServiceSubscription Get(string name, Input<string> id, ServiceSubscriptionState? state = null, CustomResourceOptions? options = null)
+        public static ServiceSubscription Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ServiceSubscription(name, id, state, options);
+            return new ServiceSubscription(name, id, options);
         }
     }
 
@@ -111,31 +110,6 @@ namespace Pulumi.AzureRM.ApiManagement
         public Input<string> ServiceName { get; set; } = null!;
 
         public ServiceSubscriptionArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceSubscriptionState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription contract properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SubscriptionContractPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type for API Management resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServiceSubscriptionState()
         {
         }
     }

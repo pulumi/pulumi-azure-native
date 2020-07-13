@@ -78,7 +78,7 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceDisasterRecoveryConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -86,25 +86,11 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `alternate_name` (`pulumi.Input[str]`) - Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-          * `partner_namespace` (`pulumi.Input[str]`) - ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-          * `pending_replication_operations_count` (`pulumi.Input[float]`) - Number of entities pending to be replicated.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
-          * `role` (`pulumi.Input[str]`) - role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceDisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

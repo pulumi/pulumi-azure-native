@@ -83,7 +83,7 @@ class ServiceGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,26 +91,11 @@ class ServiceGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Gateway details.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Gateway description
-          * `location_data` (`pulumi.Input[dict]`) - Gateway location.
-            * `city` (`pulumi.Input[str]`) - The city or locality where the resource is located.
-            * `country_or_region` (`pulumi.Input[str]`) - The country or region where the resource is located.
-            * `district` (`pulumi.Input[str]`) - The district, state, or province where the resource is located.
-            * `name` (`pulumi.Input[str]`) - A canonical name for the geographic or physical location.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceGateway(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

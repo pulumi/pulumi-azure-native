@@ -95,7 +95,7 @@ class AutomationAccountNodeConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountNodeConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -103,28 +103,11 @@ class AutomationAccountNodeConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the configuration properties.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `configuration` (`pulumi.Input[dict]`) - Gets or sets the configuration of the node.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Dsc configuration.
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets or sets creation time.
-          * `increment_node_configuration_build` (`pulumi.Input[bool]`) - If a new build version of NodeConfiguration is required.
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time.
-          * `node_count` (`pulumi.Input[float]`) - Number of nodes with this node configuration assigned
-          * `source` (`pulumi.Input[str]`) - Source of node configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AutomationAccountNodeConfiguration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

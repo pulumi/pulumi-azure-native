@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.DBforMariaDB
         {
         }
 
-        private ServerDatabase(string name, Input<string> id, ServerDatabaseState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb:ServerDatabase", name, state, MakeResourceOptions(options, id))
+        private ServerDatabase(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:dbformariadb:ServerDatabase", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.DBforMariaDB
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ServerDatabase Get(string name, Input<string> id, ServerDatabaseState? state = null, CustomResourceOptions? options = null)
+        public static ServerDatabase Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ServerDatabase(name, id, state, options);
+            return new ServerDatabase(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.DBforMariaDB
         public Input<string> ServerName { get; set; } = null!;
 
         public ServerDatabaseArgs()
-        {
-        }
-    }
-
-    public sealed class ServerDatabaseState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a database.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DatabasePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServerDatabaseState()
         {
         }
     }

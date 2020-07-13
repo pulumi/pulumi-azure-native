@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.DataShare
         {
         }
 
-        private AccountShareSynchronizationSetting(string name, Input<string> id, AccountShareSynchronizationSettingState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:datashare:AccountShareSynchronizationSetting", name, state, MakeResourceOptions(options, id))
+        private AccountShareSynchronizationSetting(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:datashare:AccountShareSynchronizationSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.DataShare
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static AccountShareSynchronizationSetting Get(string name, Input<string> id, AccountShareSynchronizationSettingState? state = null, CustomResourceOptions? options = null)
+        public static AccountShareSynchronizationSetting Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new AccountShareSynchronizationSetting(name, id, state, options);
+            return new AccountShareSynchronizationSetting(name, id, options);
         }
     }
 
@@ -109,31 +108,6 @@ namespace Pulumi.AzureRM.DataShare
         public Input<string> ShareName { get; set; } = null!;
 
         public AccountShareSynchronizationSettingArgs()
-        {
-        }
-    }
-
-    public sealed class AccountShareSynchronizationSettingState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Kind of synchronization
-        /// </summary>
-        [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the azure resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the azure resource
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public AccountShareSynchronizationSettingState()
         {
         }
     }

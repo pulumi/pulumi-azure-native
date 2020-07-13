@@ -147,7 +147,7 @@ class HubRelationship(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HubRelationship resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -155,65 +155,11 @@ class HubRelationship(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The definition of Relationship.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `cardinality` (`pulumi.Input[str]`) - The Relationship Cardinality.
-          * `description` (`pulumi.Input[dict]`) - Localized descriptions for the Relationship.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the Relationship.
-          * `expiry_date_time_utc` (`pulumi.Input[str]`) - The expiry date time in UTC.
-          * `fields` (`pulumi.Input[list]`) - The properties of the Relationship.
-            * `array_value_separator` (`pulumi.Input[str]`) - Array value separator for properties with isArray set.
-            * `data_source_precedence_rules` (`pulumi.Input[list]`) - This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
-              * `data_source` (`pulumi.Input[dict]`) - Data Source is a way for us to know the source of instances. A single type can have data coming in from multiple places. In activities we use this to determine precedence rules.
-                * `data_source_reference_id` (`pulumi.Input[str]`) - The data source reference id.
-                * `data_source_type` (`pulumi.Input[str]`) - The data source type.
-                * `id` (`pulumi.Input[float]`) - The data source ID.
-                * `name` (`pulumi.Input[str]`) - The data source name
-                * `status` (`pulumi.Input[str]`) - The data source status.
-
-              * `precedence` (`pulumi.Input[float]`) - the precedence value.
-
-            * `enum_valid_values` (`pulumi.Input[list]`) - Describes valid values for an enum property.
-              * `localized_value_names` (`pulumi.Input[dict]`) - Localized names of the enum member.
-              * `value` (`pulumi.Input[float]`) - The integer value of the enum member.
-
-            * `field_name` (`pulumi.Input[str]`) - Name of the property.
-            * `field_type` (`pulumi.Input[str]`) - Type of the property.
-            * `is_array` (`pulumi.Input[bool]`) - Indicates if the property is actually an array of the fieldType above on the data api.
-            * `is_available_in_graph` (`pulumi.Input[bool]`) - Whether property is available in graph or not.
-            * `is_enum` (`pulumi.Input[bool]`) - Indicates if the property is an enum.
-            * `is_flag_enum` (`pulumi.Input[bool]`) - Indicates if the property is an flag enum.
-            * `is_image` (`pulumi.Input[bool]`) - Whether the property is an Image.
-            * `is_localized_string` (`pulumi.Input[bool]`) - Whether the property is a localized string.
-            * `is_name` (`pulumi.Input[bool]`) - Whether the property is a name or a part of name.
-            * `is_required` (`pulumi.Input[bool]`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-            * `max_length` (`pulumi.Input[float]`) - Max length of string. Used only if type is string.
-            * `property_id` (`pulumi.Input[str]`) - The ID associated with the property.
-            * `schema_item_prop_link` (`pulumi.Input[str]`) - URL encoded schema.org item prop link for the property.
-
-          * `lookup_mappings` (`pulumi.Input[list]`) - Optional property to be used to map fields in profile to their strong ids in related profile.
-            * `field_mappings` (`pulumi.Input[list]`) - Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
-              * `profile_field_name` (`pulumi.Input[str]`) - Specifies the fieldName in profile.
-              * `related_profile_key_property` (`pulumi.Input[str]`) - Specifies the KeyProperty (from StrongId) of the related profile.
-
-          * `profile_type` (`pulumi.Input[str]`) - Profile type.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state.
-          * `related_profile_type` (`pulumi.Input[str]`) - Related profile being referenced.
-          * `relationship_guid_id` (`pulumi.Input[str]`) - The relationship guid id.
-          * `relationship_name` (`pulumi.Input[str]`) - The Relationship name.
-          * `tenant_id` (`pulumi.Input[str]`) - The hub name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return HubRelationship(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -95,7 +95,7 @@ class StorageAccountObjectReplicationPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageAccountObjectReplicationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -103,33 +103,11 @@ class StorageAccountObjectReplicationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Returns the Storage Account Object Replication Policy.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `destination_account` (`pulumi.Input[str]`) - Required. Destination account name.
-          * `enabled_time` (`pulumi.Input[str]`) - Indicates when the policy is enabled on the source account.
-          * `policy_id` (`pulumi.Input[str]`) - A unique id for object replication policy.
-          * `rules` (`pulumi.Input[list]`) - The storage account object replication rules.
-            * `destination_container` (`pulumi.Input[str]`) - Required. Destination container name.
-            * `filters` (`pulumi.Input[dict]`) - Optional. An object that defines the filter set.
-              * `min_creation_time` (`pulumi.Input[str]`) - Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-              * `prefix_match` (`pulumi.Input[list]`) - Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
-
-            * `rule_id` (`pulumi.Input[str]`) - Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-            * `source_container` (`pulumi.Input[str]`) - Required. Source container name.
-
-          * `source_account` (`pulumi.Input[str]`) - Required. Source account name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StorageAccountObjectReplicationPolicy(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -117,7 +117,7 @@ class Factory(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Factory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,46 +125,11 @@ class Factory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: Etag identifies change in the resource.
-        :param pulumi.Input[dict] identity: Managed service identity of the factory.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: Properties of the factory.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal id of the identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The client tenant id of the identity.
-          * `type` (`pulumi.Input[str]`) - The identity type. Currently the only supported type is 'SystemAssigned'.
-
-        The **properties** object supports the following:
-
-          * `create_time` (`pulumi.Input[str]`) - Time the factory was created in ISO8601 format.
-          * `global_parameters` (`pulumi.Input[dict]`) - List of parameters for factory.
-          * `provisioning_state` (`pulumi.Input[str]`) - Factory provisioning state, example Succeeded.
-          * `repo_configuration` (`pulumi.Input[dict]`) - Git repo information of the factory.
-            * `account_name` (`pulumi.Input[str]`) - Account name.
-            * `collaboration_branch` (`pulumi.Input[str]`) - Collaboration branch.
-            * `last_commit_id` (`pulumi.Input[str]`) - Last commit id.
-            * `repository_name` (`pulumi.Input[str]`) - Repository name.
-            * `root_folder` (`pulumi.Input[str]`) - Root folder.
-            * `type` (`pulumi.Input[str]`) - Type of repo configuration.
-
-          * `version` (`pulumi.Input[str]`) - Version of the factory.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Factory(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

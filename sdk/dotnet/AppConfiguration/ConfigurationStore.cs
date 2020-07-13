@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.AppConfiguration
         {
         }
 
-        private ConfigurationStore(string name, Input<string> id, ConfigurationStoreState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:appconfiguration:ConfigurationStore", name, state, MakeResourceOptions(options, id))
+        private ConfigurationStore(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:appconfiguration:ConfigurationStore", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -92,11 +92,10 @@ namespace Pulumi.AzureRM.AppConfiguration
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ConfigurationStore Get(string name, Input<string> id, ConfigurationStoreState? state = null, CustomResourceOptions? options = null)
+        public static ConfigurationStore Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ConfigurationStore(name, id, state, options);
+            return new ConfigurationStore(name, id, options);
         }
     }
 
@@ -151,61 +150,6 @@ namespace Pulumi.AzureRM.AppConfiguration
         }
 
         public ConfigurationStoreArgs()
-        {
-        }
-    }
-
-    public sealed class ConfigurationStoreState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The managed identity information, if configured.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ResourceIdentityResponseGetArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// The location of the resource. This cannot be changed after the resource is created.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a configuration store.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ConfigurationStorePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The sku of the configuration store.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags of the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ConfigurationStoreState()
         {
         }
     }

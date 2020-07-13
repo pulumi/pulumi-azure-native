@@ -125,7 +125,7 @@ class DataBoxEdgeDeviceShare(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataBoxEdgeDeviceShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -133,49 +133,11 @@ class DataBoxEdgeDeviceShare(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The object name.
-        :param pulumi.Input[dict] properties: The share properties.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `access_protocol` (`pulumi.Input[str]`) - Access protocol to be used by the share.
-          * `azure_container_info` (`pulumi.Input[dict]`) - Azure container mapping for the share.
-            * `container_name` (`pulumi.Input[str]`) - Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-            * `data_format` (`pulumi.Input[str]`) - Storage format used for the file represented by the share.
-            * `storage_account_credential_id` (`pulumi.Input[str]`) - ID of the storage account credential used to access storage.
-
-          * `client_access_rights` (`pulumi.Input[list]`) - List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-            * `access_permission` (`pulumi.Input[str]`) - Type of access to be allowed for the client.
-            * `client` (`pulumi.Input[str]`) - IP of the client.
-
-          * `data_policy` (`pulumi.Input[str]`) - Data policy of the share.
-          * `description` (`pulumi.Input[str]`) - Description for the share.
-          * `monitoring_status` (`pulumi.Input[str]`) - Current monitoring status of the share.
-          * `refresh_details` (`pulumi.Input[dict]`) - Details of the refresh job on this share.
-            * `error_manifest_file` (`pulumi.Input[str]`) - Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-            * `in_progress_refresh_job_id` (`pulumi.Input[str]`) - If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-            * `last_completed_refresh_job_time_in_utc` (`pulumi.Input[str]`) - Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-            * `last_job` (`pulumi.Input[str]`) - Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-
-          * `share_mappings` (`pulumi.Input[list]`) - Share mount point to the role.
-            * `mount_point` (`pulumi.Input[str]`) - Mount point for the share.
-            * `role_id` (`pulumi.Input[str]`) - ID of the role to which share is mounted.
-            * `role_type` (`pulumi.Input[str]`) - Role type.
-            * `share_id` (`pulumi.Input[str]`) - ID of the share mounted to the role VM.
-
-          * `share_status` (`pulumi.Input[str]`) - Current status of the share.
-          * `user_access_rights` (`pulumi.Input[list]`) - Mapping of users and corresponding access rights on the share (required for SMB protocol).
-            * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed for the user.
-            * `user_id` (`pulumi.Input[str]`) - User ID (already existing in the device).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataBoxEdgeDeviceShare(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

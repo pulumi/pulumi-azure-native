@@ -76,7 +76,7 @@ class WorkspaceProviderAlertRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, kind=None, name=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing WorkspaceProviderAlertRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -84,19 +84,11 @@ class WorkspaceProviderAlertRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] kind: The alert rule kind
-        :param pulumi.Input[str] name: Azure resource name
-        :param pulumi.Input[str] type: Azure resource type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["type"] = type
         return WorkspaceProviderAlertRule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

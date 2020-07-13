@@ -88,7 +88,7 @@ class StreamingjobInput(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StreamingjobInput resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -96,31 +96,11 @@ class StreamingjobInput(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `diagnostics` (`pulumi.Input[dict]`) - Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-            * `conditions` (`pulumi.Input[list]`) - A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
-              * `code` (`pulumi.Input[str]`) - The opaque diagnostic code.
-              * `message` (`pulumi.Input[str]`) - The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
-              * `since` (`pulumi.Input[str]`) - The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
-
-          * `etag` (`pulumi.Input[str]`) - The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-          * `serialization` (`pulumi.Input[dict]`) - Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-            * `type` (`pulumi.Input[str]`) - Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-
-          * `type` (`pulumi.Input[str]`) - Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StreamingjobInput(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

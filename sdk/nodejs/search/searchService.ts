@@ -16,11 +16,10 @@ export class SearchService extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SearchServiceState, opts?: pulumi.CustomResourceOptions): SearchService {
-        return new SearchService(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SearchService {
+        return new SearchService(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,35 +72,22 @@ export class SearchService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SearchServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: SearchServiceArgs | SearchServiceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SearchServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as SearchServiceState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as SearchServiceArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["identity"] = args ? args.identity : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -111,40 +97,6 @@ export class SearchService extends pulumi.CustomResource {
         }
         super(SearchService.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Describes an Azure Cognitive Search service and its current state.
- */
-export interface SearchServiceState {
-    /**
-     * The identity of the resource.
-     */
-    readonly identity?: pulumi.Input<inputs.search.IdentityResponse>;
-    /**
-     * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the resource.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the Search service.
-     */
-    readonly properties: pulumi.Input<inputs.search.SearchServicePropertiesResponse>;
-    /**
-     * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-     */
-    readonly sku?: pulumi.Input<inputs.search.SkuResponse>;
-    /**
-     * Tags to help categorize the resource in the Azure portal.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

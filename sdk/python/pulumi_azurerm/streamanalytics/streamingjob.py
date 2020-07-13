@@ -182,7 +182,7 @@ class Streamingjob(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Streamingjob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -190,90 +190,11 @@ class Streamingjob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `compatibility_level` (`pulumi.Input[str]`) - Controls certain runtime behaviors of the streaming job.
-          * `created_date` (`pulumi.Input[str]`) - Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
-          * `data_locale` (`pulumi.Input[str]`) - The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
-          * `etag` (`pulumi.Input[str]`) - The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-          * `events_late_arrival_max_delay_in_seconds` (`pulumi.Input[float]`) - The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
-          * `events_out_of_order_max_delay_in_seconds` (`pulumi.Input[float]`) - The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
-          * `events_out_of_order_policy` (`pulumi.Input[str]`) - Indicates the policy to apply to events that arrive out of order in the input event stream.
-          * `functions` (`pulumi.Input[list]`) - A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Resource name
-            * `properties` (`pulumi.Input[dict]`) - The properties that are associated with a function.
-              * `etag` (`pulumi.Input[str]`) - The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-              * `type` (`pulumi.Input[str]`) - Indicates the type of function.
-
-            * `type` (`pulumi.Input[str]`) - Resource type
-
-          * `inputs` (`pulumi.Input[list]`) - A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Resource name
-            * `properties` (`pulumi.Input[dict]`) - The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-              * `diagnostics` (`pulumi.Input[dict]`) - Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-                * `conditions` (`pulumi.Input[list]`) - A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
-                  * `code` (`pulumi.Input[str]`) - The opaque diagnostic code.
-                  * `message` (`pulumi.Input[str]`) - The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
-                  * `since` (`pulumi.Input[str]`) - The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
-
-              * `etag` (`pulumi.Input[str]`) - The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-              * `serialization` (`pulumi.Input[dict]`) - Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-                * `type` (`pulumi.Input[str]`) - Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-
-              * `type` (`pulumi.Input[str]`) - Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
-
-            * `type` (`pulumi.Input[str]`) - Resource type
-
-          * `job_id` (`pulumi.Input[str]`) - A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
-          * `job_state` (`pulumi.Input[str]`) - Describes the state of the streaming job.
-          * `last_output_event_time` (`pulumi.Input[str]`) - Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
-          * `output_error_policy` (`pulumi.Input[str]`) - Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
-          * `output_start_mode` (`pulumi.Input[str]`) - This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
-          * `output_start_time` (`pulumi.Input[str]`) - Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
-          * `outputs` (`pulumi.Input[list]`) - A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Resource name
-            * `properties` (`pulumi.Input[dict]`) - The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-              * `datasource` (`pulumi.Input[dict]`) - Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-                * `type` (`pulumi.Input[str]`) - Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-
-              * `diagnostics` (`pulumi.Input[dict]`) - Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-              * `etag` (`pulumi.Input[str]`) - The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-              * `serialization` (`pulumi.Input[dict]`) - Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-
-            * `type` (`pulumi.Input[str]`) - Resource type
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Describes the provisioning status of the streaming job.
-          * `sku` (`pulumi.Input[dict]`) - Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-            * `name` (`pulumi.Input[str]`) - The name of the SKU. Required on PUT (CreateOrReplace) requests.
-
-          * `transformation` (`pulumi.Input[dict]`) - Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Resource name
-            * `properties` (`pulumi.Input[dict]`) - The properties that are associated with a transformation. Required on PUT (CreateOrReplace) requests.
-              * `etag` (`pulumi.Input[str]`) - The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-              * `query` (`pulumi.Input[str]`) - Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-              * `streaming_units` (`pulumi.Input[float]`) - Specifies the number of streaming units that the streaming job uses.
-
-            * `type` (`pulumi.Input[str]`) - Resource type
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Streamingjob(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

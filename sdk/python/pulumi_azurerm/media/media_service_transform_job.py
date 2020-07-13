@@ -108,7 +108,7 @@ class MediaServiceTransformJob(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing MediaServiceTransformJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -116,46 +116,11 @@ class MediaServiceTransformJob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The resource properties.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `correlation_data` (`pulumi.Input[dict]`) - Customer provided key, value pairs that will be returned in Job and JobOutput state events.
-          * `created` (`pulumi.Input[str]`) - The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-          * `description` (`pulumi.Input[str]`) - Optional customer supplied description of the Job.
-          * `end_time` (`pulumi.Input[str]`) - The UTC date and time at which this Job finished processing.
-          * `input` (`pulumi.Input[dict]`) - The inputs for the Job.
-          * `last_modified` (`pulumi.Input[str]`) - The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-          * `outputs` (`pulumi.Input[list]`) - The outputs for the Job.
-            * `end_time` (`pulumi.Input[str]`) - The UTC date and time at which this Job Output finished processing.
-            * `error` (`pulumi.Input[dict]`) - If the JobOutput is in the Error state, it contains the details of the error.
-              * `category` (`pulumi.Input[str]`) - Helps with categorization of errors.
-              * `code` (`pulumi.Input[str]`) - Error code describing the error.
-              * `details` (`pulumi.Input[list]`) - An array of details about specific errors that led to this reported error.
-                * `code` (`pulumi.Input[str]`) - Code describing the error detail.
-                * `message` (`pulumi.Input[str]`) - A human-readable representation of the error.
-
-              * `message` (`pulumi.Input[str]`) - A human-readable language-dependent representation of the error.
-              * `retry` (`pulumi.Input[str]`) - Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
-
-            * `label` (`pulumi.Input[str]`) - A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
-            * `progress` (`pulumi.Input[float]`) - If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
-            * `start_time` (`pulumi.Input[str]`) - The UTC date and time at which this Job Output began processing.
-            * `state` (`pulumi.Input[str]`) - Describes the state of the JobOutput.
-
-          * `priority` (`pulumi.Input[str]`) - Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-          * `start_time` (`pulumi.Input[str]`) - The UTC date and time at which this Job began processing.
-          * `state` (`pulumi.Input[str]`) - The current state of the job.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return MediaServiceTransformJob(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

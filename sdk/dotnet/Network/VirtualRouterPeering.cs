@@ -51,8 +51,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private VirtualRouterPeering(string name, Input<string> id, VirtualRouterPeeringState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:VirtualRouterPeering", name, state, MakeResourceOptions(options, id))
+        private VirtualRouterPeering(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:VirtualRouterPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,11 +74,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static VirtualRouterPeering Get(string name, Input<string> id, VirtualRouterPeeringState? state = null, CustomResourceOptions? options = null)
+        public static VirtualRouterPeering Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new VirtualRouterPeering(name, id, state, options);
+            return new VirtualRouterPeering(name, id, options);
         }
     }
 
@@ -121,37 +120,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string> VirtualRouterName { get; set; } = null!;
 
         public VirtualRouterPeeringArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualRouterPeeringState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the virtual router peering that is unique within a virtual router.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The properties of the Virtual Router Peering.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualRouterPeeringPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Peering type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public VirtualRouterPeeringState()
         {
         }
     }

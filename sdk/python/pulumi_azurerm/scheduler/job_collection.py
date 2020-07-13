@@ -102,7 +102,7 @@ class JobCollection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing JobCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -110,35 +110,11 @@ class JobCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Gets or sets the storage account location.
-        :param pulumi.Input[str] name: Gets or sets the job collection resource name.
-        :param pulumi.Input[dict] properties: Gets or sets the job collection properties.
-        :param pulumi.Input[dict] tags: Gets or sets the tags.
-        :param pulumi.Input[str] type: Gets the job collection resource type.
-
-        The **properties** object supports the following:
-
-          * `quota` (`pulumi.Input[dict]`) - Gets or sets the job collection quota.
-            * `max_job_count` (`pulumi.Input[float]`) - Gets or set the maximum job count.
-            * `max_job_occurrence` (`pulumi.Input[float]`) - Gets or sets the maximum job occurrence.
-            * `max_recurrence` (`pulumi.Input[dict]`) - Gets or set the maximum recurrence.
-              * `frequency` (`pulumi.Input[str]`) - Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-              * `interval` (`pulumi.Input[float]`) - Gets or sets the interval between retries.
-
-          * `sku` (`pulumi.Input[dict]`) - Gets or sets the SKU.
-            * `name` (`pulumi.Input[str]`) - Gets or set the SKU.
-
-          * `state` (`pulumi.Input[str]`) - Gets or sets the state.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return JobCollection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

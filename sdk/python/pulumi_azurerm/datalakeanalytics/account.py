@@ -170,7 +170,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -178,78 +178,11 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: The properties defined by Data Lake Analytics all properties are specific to each resource provider.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `account_id` (`pulumi.Input[str]`) - The unique identifier associated with this Data Lake Analytics account.
-          * `compute_policies` (`pulumi.Input[list]`) - The list of compute policies associated with this account.
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-            * `name` (`pulumi.Input[str]`) - The resource name.
-            * `properties` (`pulumi.Input[dict]`) - The compute policy properties.
-              * `max_degree_of_parallelism_per_job` (`pulumi.Input[float]`) - The maximum degree of parallelism per job this user can use to submit jobs.
-              * `min_priority_per_job` (`pulumi.Input[float]`) - The minimum priority per job this user can use to submit jobs.
-              * `object_id` (`pulumi.Input[str]`) - The AAD object identifier for the entity to create a policy for.
-              * `object_type` (`pulumi.Input[str]`) - The type of AAD object the object identifier refers to.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `creation_time` (`pulumi.Input[str]`) - The account creation time.
-          * `current_tier` (`pulumi.Input[str]`) - The commitment tier in use for the current month.
-          * `data_lake_store_accounts` (`pulumi.Input[list]`) - The list of Data Lake Store accounts associated with this account.
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-            * `name` (`pulumi.Input[str]`) - The resource name.
-            * `properties` (`pulumi.Input[dict]`) - The Data Lake Store account properties.
-              * `suffix` (`pulumi.Input[str]`) - The optional suffix for the Data Lake Store account.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `default_data_lake_store_account` (`pulumi.Input[str]`) - The default Data Lake Store account associated with this account.
-          * `endpoint` (`pulumi.Input[str]`) - The full CName endpoint for this account.
-          * `firewall_allow_azure_ips` (`pulumi.Input[str]`) - The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-          * `firewall_rules` (`pulumi.Input[list]`) - The list of firewall rules associated with this account.
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-            * `name` (`pulumi.Input[str]`) - The resource name.
-            * `properties` (`pulumi.Input[dict]`) - The firewall rule properties.
-              * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-              * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `firewall_state` (`pulumi.Input[str]`) - The current state of the IP address firewall for this account.
-          * `last_modified_time` (`pulumi.Input[str]`) - The account last modified time.
-          * `max_degree_of_parallelism` (`pulumi.Input[float]`) - The maximum supported degree of parallelism for this account.
-          * `max_degree_of_parallelism_per_job` (`pulumi.Input[float]`) - The maximum supported degree of parallelism per job for this account.
-          * `max_job_count` (`pulumi.Input[float]`) - The maximum supported jobs running under the account at the same time.
-          * `min_priority_per_job` (`pulumi.Input[float]`) - The minimum supported priority per job for this account.
-          * `new_tier` (`pulumi.Input[str]`) - The commitment tier for the next month.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the Data Lake Analytics account.
-          * `query_store_retention` (`pulumi.Input[float]`) - The number of days that job metadata is retained.
-          * `state` (`pulumi.Input[str]`) - The state of the Data Lake Analytics account.
-          * `storage_accounts` (`pulumi.Input[list]`) - The list of Azure Blob Storage accounts associated with this account.
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-            * `name` (`pulumi.Input[str]`) - The resource name.
-            * `properties` (`pulumi.Input[dict]`) - The Azure Storage account properties.
-              * `suffix` (`pulumi.Input[str]`) - The optional suffix for the storage account.
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
-
-          * `system_max_degree_of_parallelism` (`pulumi.Input[float]`) - The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
-          * `system_max_job_count` (`pulumi.Input[float]`) - The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Account(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

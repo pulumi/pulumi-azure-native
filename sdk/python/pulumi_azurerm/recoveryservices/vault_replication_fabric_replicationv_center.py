@@ -125,7 +125,7 @@ class VaultReplicationFabricReplicationvCenter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VaultReplicationFabricReplicationvCenter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -133,62 +133,11 @@ class VaultReplicationFabricReplicationvCenter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[dict] properties: VCenter related data.
-        :param pulumi.Input[str] type: Resource Type
-
-        The **properties** object supports the following:
-
-          * `discovery_status` (`pulumi.Input[str]`) - The VCenter discovery status.
-          * `fabric_arm_resource_name` (`pulumi.Input[str]`) - The ARM resource name of the fabric containing this VCenter.
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly name of the vCenter.
-          * `health_errors` (`pulumi.Input[list]`) - The health errors for this VCenter.
-            * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-            * `customer_resolvability` (`pulumi.Input[str]`) - Value indicating whether the health error is customer resolvable.
-            * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-            * `error_category` (`pulumi.Input[str]`) - Category of error.
-            * `error_code` (`pulumi.Input[str]`) - Error code.
-            * `error_id` (`pulumi.Input[str]`) - The health error unique id.
-            * `error_level` (`pulumi.Input[str]`) - Level of error.
-            * `error_message` (`pulumi.Input[str]`) - Error message.
-            * `error_source` (`pulumi.Input[str]`) - Source of error.
-            * `error_type` (`pulumi.Input[str]`) - Type of error.
-            * `inner_health_errors` (`pulumi.Input[list]`) - The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-              * `creation_time_utc` (`pulumi.Input[str]`) - Error creation time (UTC)
-              * `entity_id` (`pulumi.Input[str]`) - ID of the entity.
-              * `error_category` (`pulumi.Input[str]`) - Category of error.
-              * `error_code` (`pulumi.Input[str]`) - Error code.
-              * `error_level` (`pulumi.Input[str]`) - Level of error.
-              * `error_message` (`pulumi.Input[str]`) - Error message.
-              * `error_source` (`pulumi.Input[str]`) - Source of error.
-              * `error_type` (`pulumi.Input[str]`) - Type of error.
-              * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-              * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-              * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-              * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-            * `possible_causes` (`pulumi.Input[str]`) - Possible causes of error.
-            * `recommended_action` (`pulumi.Input[str]`) - Recommended action to resolve error.
-            * `recovery_provider_error_message` (`pulumi.Input[str]`) - DRA error message.
-            * `summary_message` (`pulumi.Input[str]`) - Summary message of the entity.
-
-          * `infrastructure_id` (`pulumi.Input[str]`) - The infrastructure Id of vCenter.
-          * `internal_id` (`pulumi.Input[str]`) - VCenter internal ID.
-          * `ip_address` (`pulumi.Input[str]`) - The IP address of the vCenter.
-          * `last_heartbeat` (`pulumi.Input[str]`) - The time when the last heartbeat was received by vCenter.
-          * `port` (`pulumi.Input[str]`) - The port number for discovery.
-          * `process_server_id` (`pulumi.Input[str]`) - The process server Id.
-          * `run_as_account_id` (`pulumi.Input[str]`) - The account Id which has privileges to discover the vCenter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return VaultReplicationFabricReplicationvCenter(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

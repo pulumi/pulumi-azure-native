@@ -122,7 +122,7 @@ class HubRoleAssignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing HubRoleAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -130,47 +130,11 @@ class HubRoleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: The Role Assignment definition.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `assignment_name` (`pulumi.Input[str]`) - The name of the metadata object.
-          * `conflation_policies` (`pulumi.Input[dict]`) - Widget types set for the assignment.
-            * `elements` (`pulumi.Input[list]`) - The elements included in the set.
-            * `exceptions` (`pulumi.Input[list]`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-
-          * `connectors` (`pulumi.Input[dict]`) - Connectors set for the assignment.
-          * `description` (`pulumi.Input[dict]`) - Localized description for the metadata.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display names for the metadata.
-          * `interactions` (`pulumi.Input[dict]`) - Interactions set for the assignment.
-          * `kpis` (`pulumi.Input[dict]`) - Kpis set for the assignment.
-          * `links` (`pulumi.Input[dict]`) - Links set for the assignment.
-          * `principals` (`pulumi.Input[list]`) - The principals being assigned to.
-            * `principal_id` (`pulumi.Input[str]`) - The principal id being assigned to.
-            * `principal_metadata` (`pulumi.Input[dict]`) - Other metadata for the principal.
-            * `principal_type` (`pulumi.Input[str]`) - The Type of the principal ID.
-
-          * `profiles` (`pulumi.Input[dict]`) - Profiles set for the assignment.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state.
-          * `relationship_links` (`pulumi.Input[dict]`) - The Role assignments set for the relationship links.
-          * `relationships` (`pulumi.Input[dict]`) - The Role assignments set for the relationships.
-          * `role` (`pulumi.Input[str]`) - Type of roles.
-          * `role_assignments` (`pulumi.Input[dict]`) - The Role assignments set for the assignment.
-          * `sas_policies` (`pulumi.Input[dict]`) - Sas Policies set for the assignment.
-          * `segments` (`pulumi.Input[dict]`) - The Role assignments set for the assignment.
-          * `tenant_id` (`pulumi.Input[str]`) - The hub name.
-          * `views` (`pulumi.Input[dict]`) - Views set for the assignment.
-          * `widget_types` (`pulumi.Input[dict]`) - Widget types set for the assignment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return HubRoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

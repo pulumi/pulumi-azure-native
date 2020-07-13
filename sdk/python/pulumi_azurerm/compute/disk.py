@@ -198,7 +198,7 @@ class Disk(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, managed_by=None, managed_by_extended=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Disk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -206,86 +206,11 @@ class Disk(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] managed_by: A relative URI containing the ID of the VM that has the disk attached.
-        :param pulumi.Input[list] managed_by_extended: List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Disk resource properties.
-        :param pulumi.Input[dict] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-        :param pulumi.Input[list] zones: The Logical zone list for Disk.
-
-        The **properties** object supports the following:
-
-          * `creation_data` (`pulumi.Input[dict]`) - Disk source information. CreationData information cannot be changed after the disk has been created.
-            * `create_option` (`pulumi.Input[str]`) - This enumerates the possible sources of a disk's creation.
-            * `gallery_image_reference` (`pulumi.Input[dict]`) - Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
-              * `id` (`pulumi.Input[str]`) - A relative uri containing either a Platform Image Repository or user image reference.
-              * `lun` (`pulumi.Input[float]`) - If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-
-            * `image_reference` (`pulumi.Input[dict]`) - Disk source information.
-            * `source_resource_id` (`pulumi.Input[str]`) - If createOption is Copy, this is the ARM id of the source snapshot or disk.
-            * `source_unique_id` (`pulumi.Input[str]`) - If this field is set, this is the unique id identifying the source of this resource.
-            * `source_uri` (`pulumi.Input[str]`) - If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-            * `storage_account_id` (`pulumi.Input[str]`) - Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-            * `upload_size_bytes` (`pulumi.Input[float]`) - If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-
-          * `disk_access_id` (`pulumi.Input[str]`) - ARM id of the DiskAccess resource for using private endpoints on disks.
-          * `disk_iops_read_only` (`pulumi.Input[float]`) - The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-          * `disk_iops_read_write` (`pulumi.Input[float]`) - The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-          * `disk_m_bps_read_only` (`pulumi.Input[float]`) - The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-          * `disk_m_bps_read_write` (`pulumi.Input[float]`) - The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-          * `disk_size_bytes` (`pulumi.Input[float]`) - The size of the disk in bytes. This field is read only.
-          * `disk_size_gb` (`pulumi.Input[float]`) - If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-          * `disk_state` (`pulumi.Input[str]`) - The state of the disk.
-          * `encryption` (`pulumi.Input[dict]`) - Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-            * `disk_encryption_set_id` (`pulumi.Input[str]`) - ResourceId of the disk encryption set to use for enabling encryption at rest.
-            * `type` (`pulumi.Input[str]`) - The type of key used to encrypt the data of the disk.
-
-          * `encryption_settings_collection` (`pulumi.Input[dict]`) - Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-            * `enabled` (`pulumi.Input[bool]`) - Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-            * `encryption_settings` (`pulumi.Input[list]`) - A collection of encryption settings, one for each disk volume.
-              * `disk_encryption_key` (`pulumi.Input[dict]`) - Key Vault Secret Url and vault id of the disk encryption key
-                * `secret_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-                * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
-                  * `id` (`pulumi.Input[str]`) - Resource Id
-
-              * `key_encryption_key` (`pulumi.Input[dict]`) - Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-                * `key_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-                * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
-
-            * `encryption_settings_version` (`pulumi.Input[str]`) - Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
-
-          * `hyper_v_generation` (`pulumi.Input[str]`) - The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-          * `max_shares` (`pulumi.Input[float]`) - The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-          * `network_access_policy` (`pulumi.Input[str]`) - Policy for accessing the disk via network.
-          * `os_type` (`pulumi.Input[str]`) - The Operating System type.
-          * `provisioning_state` (`pulumi.Input[str]`) - The disk provisioning state.
-          * `share_info` (`pulumi.Input[list]`) - Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
-            * `vm_uri` (`pulumi.Input[str]`) - A relative URI containing the ID of the VM that has the disk attached.
-
-          * `time_created` (`pulumi.Input[str]`) - The time when the disk was created.
-          * `unique_id` (`pulumi.Input[str]`) - Unique Guid identifying the resource.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The sku name.
-          * `tier` (`pulumi.Input[str]`) - The sku tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["managed_by"] = managed_by
-        __props__["managed_by_extended"] = managed_by_extended
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["zones"] = zones
         return Disk(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

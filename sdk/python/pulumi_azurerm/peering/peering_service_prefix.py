@@ -86,7 +86,7 @@ class PeeringServicePrefix(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing PeeringServicePrefix resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,33 +94,11 @@ class PeeringServicePrefix(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: Gets or sets the peering prefix properties.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `error_message` (`pulumi.Input[str]`) - The error message for validation state
-          * `events` (`pulumi.Input[list]`) - The list of events for peering service prefix
-            * `event_description` (`pulumi.Input[str]`) - The description of the event associated with a prefix.
-            * `event_level` (`pulumi.Input[str]`) - The level of the event associated with a prefix.
-            * `event_summary` (`pulumi.Input[str]`) - The summary of the event associated with a prefix.
-            * `event_timestamp` (`pulumi.Input[str]`) - The timestamp of the event associated with a prefix.
-            * `event_type` (`pulumi.Input[str]`) - The type of the event associated with a prefix.
-
-          * `learned_type` (`pulumi.Input[str]`) - The prefix learned type
-          * `peering_service_prefix_key` (`pulumi.Input[str]`) - The peering service prefix key
-          * `prefix` (`pulumi.Input[str]`) - The prefix from which your traffic originates.
-          * `prefix_validation_state` (`pulumi.Input[str]`) - The prefix validation state
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return PeeringServicePrefix(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

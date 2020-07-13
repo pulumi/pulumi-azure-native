@@ -77,7 +77,7 @@ class WorkspaceCollection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing WorkspaceCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,26 +85,11 @@ class WorkspaceCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Azure location
-        :param pulumi.Input[str] name: Workspace collection name
-        :param pulumi.Input[dict] properties: Properties
-        :param pulumi.Input[str] type: Resource type
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - SKU name
-          * `tier` (`pulumi.Input[str]`) - SKU tier
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return WorkspaceCollection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

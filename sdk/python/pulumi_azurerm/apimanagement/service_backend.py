@@ -137,7 +137,7 @@ class ServiceBackend(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServiceBackend resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -145,53 +145,11 @@ class ServiceBackend(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Backend entity contract properties.
-        :param pulumi.Input[str] type: Resource type for API Management resource.
-
-        The **properties** object supports the following:
-
-          * `credentials` (`pulumi.Input[dict]`) - Backend Credentials Contract Properties
-            * `authorization` (`pulumi.Input[dict]`) - Authorization header authentication
-              * `parameter` (`pulumi.Input[str]`) - Authentication Parameter value.
-              * `scheme` (`pulumi.Input[str]`) - Authentication Scheme name.
-
-            * `certificate` (`pulumi.Input[list]`) - List of Client Certificate Thumbprint.
-            * `header` (`pulumi.Input[dict]`) - Header Parameter description.
-            * `query` (`pulumi.Input[dict]`) - Query Parameter description.
-
-          * `description` (`pulumi.Input[str]`) - Backend Description.
-          * `properties` (`pulumi.Input[dict]`) - Backend Properties contract
-            * `service_fabric_cluster` (`pulumi.Input[dict]`) - Backend Service Fabric Cluster Properties
-              * `client_certificatethumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint for the management endpoint.
-              * `management_endpoints` (`pulumi.Input[list]`) - The cluster management endpoint.
-              * `max_partition_resolution_retries` (`pulumi.Input[float]`) - Maximum number of retries while attempting resolve the partition.
-              * `server_certificate_thumbprints` (`pulumi.Input[list]`) - Thumbprints of certificates cluster management service uses for tls communication
-              * `server_x509_names` (`pulumi.Input[list]`) - Server X509 Certificate Names Collection
-                * `issuer_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint for the Issuer of the Certificate.
-                * `name` (`pulumi.Input[str]`) - Common Name of the Certificate.
-
-          * `protocol` (`pulumi.Input[str]`) - Backend communication protocol.
-          * `proxy` (`pulumi.Input[dict]`) - Backend Proxy Contract Properties
-            * `password` (`pulumi.Input[str]`) - Password to connect to the WebProxy Server
-            * `url` (`pulumi.Input[str]`) - WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-            * `username` (`pulumi.Input[str]`) - Username to connect to the WebProxy server
-
-          * `resource_id` (`pulumi.Input[str]`) - Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
-          * `title` (`pulumi.Input[str]`) - Backend Title.
-          * `tls` (`pulumi.Input[dict]`) - Backend TLS Properties
-            * `validate_certificate_chain` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
-            * `validate_certificate_name` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-
-          * `url` (`pulumi.Input[str]`) - Runtime Url of the Backend.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServiceBackend(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

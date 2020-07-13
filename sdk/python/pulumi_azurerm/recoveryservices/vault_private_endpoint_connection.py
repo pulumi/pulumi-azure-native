@@ -107,7 +107,7 @@ class VaultPrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VaultPrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,35 +115,11 @@ class VaultPrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: Optional ETag.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name associated with the resource.
-        :param pulumi.Input[dict] properties: PrivateEndpointConnectionResource properties
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - Gets or sets private endpoint associated with the private endpoint connection
-            * `id` (`pulumi.Input[str]`) - Gets or sets id
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Gets or sets private link service connection state
-            * `action_required` (`pulumi.Input[str]`) - Gets or sets actions required
-            * `description` (`pulumi.Input[str]`) - Gets or sets description
-            * `status` (`pulumi.Input[str]`) - Gets or sets the status
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets provisioning state of the private endpoint connection
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return VaultPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

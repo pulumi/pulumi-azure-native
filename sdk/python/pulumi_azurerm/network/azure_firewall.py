@@ -271,7 +271,7 @@ class AzureFirewall(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None, zones=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AzureFirewall resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -279,124 +279,11 @@ class AzureFirewall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the azure firewall.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-        :param pulumi.Input[list] zones: A list of availability zones denoting where the resource needs to come from.
-
-        The **properties** object supports the following:
-
-          * `additional_properties` (`pulumi.Input[dict]`) - The additional properties used to further config this azure firewall.
-          * `application_rule_collections` (`pulumi.Input[list]`) - Collection of application rule collections used by Azure Firewall.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the azure firewall application rule collection.
-              * `action` (`pulumi.Input[dict]`) - The action type of a rule collection.
-                * `type` (`pulumi.Input[str]`) - The type of action.
-
-              * `priority` (`pulumi.Input[float]`) - Priority of the application rule collection resource.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the application rule collection resource.
-              * `rules` (`pulumi.Input[list]`) - Collection of rules used by a application rule collection.
-                * `description` (`pulumi.Input[str]`) - Description of the rule.
-                * `fqdn_tags` (`pulumi.Input[list]`) - List of FQDN Tags for this rule.
-                * `name` (`pulumi.Input[str]`) - Name of the application rule.
-                * `protocols` (`pulumi.Input[list]`) - Array of ApplicationRuleProtocols.
-                  * `port` (`pulumi.Input[float]`) - Port number for the protocol, cannot be greater than 64000. This field is optional.
-                  * `protocol_type` (`pulumi.Input[str]`) - Protocol type.
-
-                * `source_addresses` (`pulumi.Input[list]`) - List of source IP addresses for this rule.
-                * `source_ip_groups` (`pulumi.Input[list]`) - List of source IpGroups for this rule.
-                * `target_fqdns` (`pulumi.Input[list]`) - List of FQDNs for this rule.
-
-          * `firewall_policy` (`pulumi.Input[dict]`) - The firewallPolicy associated with this azure firewall.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `hub_ip_addresses` (`pulumi.Input[dict]`) - IP addresses associated with AzureFirewall.
-            * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address associated with azure firewall.
-            * `public_i_ps` (`pulumi.Input[dict]`) - Public IP addresses associated with azure firewall.
-              * `addresses` (`pulumi.Input[list]`) - The number of Public IP addresses associated with azure firewall.
-                * `address` (`pulumi.Input[str]`) - Public IP Address value.
-
-              * `count` (`pulumi.Input[float]`) - Private IP Address associated with azure firewall.
-
-          * `ip_configurations` (`pulumi.Input[list]`) - IP configuration of the Azure Firewall resource.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the azure firewall IP configuration.
-              * `private_ip_address` (`pulumi.Input[str]`) - The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the Azure firewall IP configuration resource.
-              * `public_ip_address` (`pulumi.Input[dict]`) - Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
-              * `subnet` (`pulumi.Input[dict]`) - Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
-
-            * `type` (`pulumi.Input[str]`) - Type of the resource.
-
-          * `ip_groups` (`pulumi.Input[dict]`) - IpGroups associated with AzureFirewall.
-          * `management_ip_configuration` (`pulumi.Input[dict]`) - IP configuration of the Azure Firewall used for management traffic.
-          * `nat_rule_collections` (`pulumi.Input[list]`) - Collection of NAT rule collections used by Azure Firewall.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the azure firewall NAT rule collection.
-              * `action` (`pulumi.Input[dict]`) - The action type of a NAT rule collection.
-                * `type` (`pulumi.Input[str]`) - The type of action.
-
-              * `priority` (`pulumi.Input[float]`) - Priority of the NAT rule collection resource.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the NAT rule collection resource.
-              * `rules` (`pulumi.Input[list]`) - Collection of rules used by a NAT rule collection.
-                * `description` (`pulumi.Input[str]`) - Description of the rule.
-                * `destination_addresses` (`pulumi.Input[list]`) - List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
-                * `destination_ports` (`pulumi.Input[list]`) - List of destination ports.
-                * `name` (`pulumi.Input[str]`) - Name of the NAT rule.
-                * `protocols` (`pulumi.Input[list]`) - Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
-                * `source_addresses` (`pulumi.Input[list]`) - List of source IP addresses for this rule.
-                * `source_ip_groups` (`pulumi.Input[list]`) - List of source IpGroups for this rule.
-                * `translated_address` (`pulumi.Input[str]`) - The translated address for this NAT rule.
-                * `translated_fqdn` (`pulumi.Input[str]`) - The translated FQDN for this NAT rule.
-                * `translated_port` (`pulumi.Input[str]`) - The translated port for this NAT rule.
-
-          * `network_rule_collections` (`pulumi.Input[list]`) - Collection of network rule collections used by Azure Firewall.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the azure firewall network rule collection.
-              * `action` (`pulumi.Input[dict]`) - The action type of a rule collection.
-              * `priority` (`pulumi.Input[float]`) - Priority of the network rule collection resource.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the network rule collection resource.
-              * `rules` (`pulumi.Input[list]`) - Collection of rules used by a network rule collection.
-                * `description` (`pulumi.Input[str]`) - Description of the rule.
-                * `destination_addresses` (`pulumi.Input[list]`) - List of destination IP addresses.
-                * `destination_fqdns` (`pulumi.Input[list]`) - List of destination FQDNs.
-                * `destination_ip_groups` (`pulumi.Input[list]`) - List of destination IpGroups for this rule.
-                * `destination_ports` (`pulumi.Input[list]`) - List of destination ports.
-                * `name` (`pulumi.Input[str]`) - Name of the network rule.
-                * `protocols` (`pulumi.Input[list]`) - Array of AzureFirewallNetworkRuleProtocols.
-                * `source_addresses` (`pulumi.Input[list]`) - List of source IP addresses for this rule.
-                * `source_ip_groups` (`pulumi.Input[list]`) - List of source IpGroups for this rule.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the Azure firewall resource.
-          * `sku` (`pulumi.Input[dict]`) - The Azure Firewall Resource SKU.
-            * `name` (`pulumi.Input[str]`) - Name of an Azure Firewall SKU.
-            * `tier` (`pulumi.Input[str]`) - Tier of an Azure Firewall.
-
-          * `threat_intel_mode` (`pulumi.Input[str]`) - The operation mode for Threat Intelligence.
-          * `virtual_hub` (`pulumi.Input[dict]`) - The virtualHub to which the firewall belongs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["zones"] = zones
         return AzureFirewall(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

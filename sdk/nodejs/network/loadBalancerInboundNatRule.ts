@@ -16,11 +16,10 @@ export class LoadBalancerInboundNatRule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LoadBalancerInboundNatRuleState, opts?: pulumi.CustomResourceOptions): LoadBalancerInboundNatRule {
-        return new LoadBalancerInboundNatRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LoadBalancerInboundNatRule {
+        return new LoadBalancerInboundNatRule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class LoadBalancerInboundNatRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LoadBalancerInboundNatRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LoadBalancerInboundNatRuleArgs | LoadBalancerInboundNatRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: LoadBalancerInboundNatRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as LoadBalancerInboundNatRuleState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as LoadBalancerInboundNatRuleArgs | undefined;
             if (!args || args.inboundNatRuleName === undefined) {
                 throw new Error("Missing required property 'inboundNatRuleName'");
             }
@@ -81,15 +71,14 @@ export class LoadBalancerInboundNatRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["id"] = args ? args.id : undefined;
+        inputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
+        inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -99,28 +88,6 @@ export class LoadBalancerInboundNatRule extends pulumi.CustomResource {
         }
         super(LoadBalancerInboundNatRule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Inbound NAT rule of the load balancer.
- */
-export interface LoadBalancerInboundNatRuleState {
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: pulumi.Input<string>;
-    /**
-     * The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
-     * Properties of load balancer inbound nat rule.
-     */
-    readonly properties: pulumi.Input<inputs.network.InboundNatRulePropertiesFormatResponse>;
-    /**
-     * Type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

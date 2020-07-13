@@ -92,7 +92,7 @@ class AppServiceSiteextension(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AppServiceSiteextension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -100,42 +100,11 @@ class AppServiceSiteextension(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Resource Name.
-        :param pulumi.Input[dict] properties: SiteExtensionInfo resource specific properties
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `authors` (`pulumi.Input[list]`) - List of authors.
-          * `comment` (`pulumi.Input[str]`) - Site Extension comment.
-          * `description` (`pulumi.Input[str]`) - Detailed description.
-          * `download_count` (`pulumi.Input[float]`) - Count of downloads.
-          * `extension_id` (`pulumi.Input[str]`) - Site extension ID.
-          * `extension_type` (`pulumi.Input[str]`) - Site extension type.
-          * `extension_url` (`pulumi.Input[str]`) - Extension URL.
-          * `feed_url` (`pulumi.Input[str]`) - Feed URL.
-          * `icon_url` (`pulumi.Input[str]`) - Icon URL.
-          * `installed_date_time` (`pulumi.Input[str]`) - Installed timestamp.
-          * `installer_command_line_params` (`pulumi.Input[str]`) - Installer command line parameters.
-          * `license_url` (`pulumi.Input[str]`) - License URL.
-          * `local_is_latest_version` (`pulumi.Input[bool]`) - <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-          * `local_path` (`pulumi.Input[str]`) - Local path.
-          * `project_url` (`pulumi.Input[str]`) - Project URL.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state.
-          * `published_date_time` (`pulumi.Input[str]`) - Published timestamp.
-          * `summary` (`pulumi.Input[str]`) - Summary description.
-          * `title` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`) - Version information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AppServiceSiteextension(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -123,7 +123,7 @@ class NamespaceTopicSubscriptionRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceTopicSubscriptionRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -131,42 +131,11 @@ class NamespaceTopicSubscriptionRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Properties of Rule resource
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `action` (`pulumi.Input[dict]`) - Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-            * `compatibility_level` (`pulumi.Input[float]`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-            * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
-            * `sql_expression` (`pulumi.Input[str]`) - SQL expression. e.g. MyProperty='ABC'
-
-          * `correlation_filter` (`pulumi.Input[dict]`) - Properties of correlationFilter
-            * `content_type` (`pulumi.Input[str]`) - Content type of the message.
-            * `correlation_id` (`pulumi.Input[str]`) - Identifier of the correlation.
-            * `label` (`pulumi.Input[str]`) - Application specific label.
-            * `message_id` (`pulumi.Input[str]`) - Identifier of the message.
-            * `properties` (`pulumi.Input[dict]`) - dictionary object for custom filters
-            * `reply_to` (`pulumi.Input[str]`) - Address of the queue to reply to.
-            * `reply_to_session_id` (`pulumi.Input[str]`) - Session identifier to reply to.
-            * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
-            * `session_id` (`pulumi.Input[str]`) - Session identifier.
-            * `to` (`pulumi.Input[str]`) - Address to send to.
-
-          * `filter_type` (`pulumi.Input[str]`) - Filter type that is evaluated against a BrokeredMessage.
-          * `sql_filter` (`pulumi.Input[dict]`) - Properties of sqlFilter
-            * `compatibility_level` (`pulumi.Input[float]`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-            * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
-            * `sql_expression` (`pulumi.Input[str]`) - The SQL expression. e.g. MyProperty='ABC'
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceTopicSubscriptionRule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

@@ -94,7 +94,7 @@ class StorageAccountFileServiceShare(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageAccountFileServiceShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -102,35 +102,11 @@ class StorageAccountFileServiceShare(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: Resource Etag.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Properties of the file share.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `access_tier` (`pulumi.Input[str]`) - Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
-          * `access_tier_change_time` (`pulumi.Input[str]`) - Indicates the last modification time for share access tier.
-          * `access_tier_status` (`pulumi.Input[str]`) - Indicates if there is a pending transition for access tier.
-          * `deleted` (`pulumi.Input[bool]`) - Indicates whether the share was deleted.
-          * `deleted_time` (`pulumi.Input[str]`) - The deleted time if the share was deleted.
-          * `enabled_protocols` (`pulumi.Input[str]`) - The authentication protocol that is used for the file share. Can only be specified when creating a share.
-          * `last_modified_time` (`pulumi.Input[str]`) - Returns the date and time the share was last modified.
-          * `metadata` (`pulumi.Input[dict]`) - A name-value pair to associate with the share as metadata.
-          * `remaining_retention_days` (`pulumi.Input[float]`) - Remaining retention days for share that was soft deleted.
-          * `root_squash` (`pulumi.Input[str]`) - The property is for NFS share only. The default is NoRootSquash.
-          * `share_quota` (`pulumi.Input[float]`) - The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
-          * `share_usage_bytes` (`pulumi.Input[float]`) - The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
-          * `version` (`pulumi.Input[str]`) - The version of the share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return StorageAccountFileServiceShare(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

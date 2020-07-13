@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.AnalysisServices
         {
         }
 
-        private Server(string name, Input<string> id, ServerState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:analysisservices:Server", name, state, MakeResourceOptions(options, id))
+        private Server(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:analysisservices:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.AnalysisServices
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Server Get(string name, Input<string> id, ServerState? state = null, CustomResourceOptions? options = null)
+        public static Server Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Server(name, id, state, options);
+            return new Server(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.AnalysisServices
         }
 
         public ServerArgs()
-        {
-        }
-    }
-
-    public sealed class ServerState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Location of the Analysis Services resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Analysis Services resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the provision operation request.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AnalysisServicesServerPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of the Analysis Services resource.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.ResourceSkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pairs of additional resource provisioning properties.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the Analysis Services resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServerState()
         {
         }
     }

@@ -98,7 +98,7 @@ class VirtualNetworkVirtualNetworkPeering(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VirtualNetworkVirtualNetworkPeering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -106,32 +106,11 @@ class VirtualNetworkVirtualNetworkPeering(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[dict] properties: Properties of the virtual network peering.
-
-        The **properties** object supports the following:
-
-          * `allow_forwarded_traffic` (`pulumi.Input[bool]`) - Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-          * `allow_gateway_transit` (`pulumi.Input[bool]`) - If gateway links can be used in remote virtual networking to link to this virtual network.
-          * `allow_virtual_network_access` (`pulumi.Input[bool]`) - Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-          * `peering_state` (`pulumi.Input[str]`) - The status of the virtual network peering.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual network peering resource.
-          * `remote_address_space` (`pulumi.Input[dict]`) - The reference to the remote virtual network address space.
-            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-          * `remote_virtual_network` (`pulumi.Input[dict]`) - The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `use_remote_gateways` (`pulumi.Input[bool]`) - If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
         return VirtualNetworkVirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

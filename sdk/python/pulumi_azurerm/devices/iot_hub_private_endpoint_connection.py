@@ -85,7 +85,7 @@ class IotHubPrivateEndpointConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing IotHubPrivateEndpointConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -93,27 +93,11 @@ class IotHubPrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The resource name.
-        :param pulumi.Input[dict] properties: The properties of a private endpoint connection
-        :param pulumi.Input[str] type: The resource type.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint` (`pulumi.Input[dict]`) - The private endpoint property of a private endpoint connection
-            * `id` (`pulumi.Input[str]`) - The resource identifier.
-
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - The current state of a private endpoint connection
-            * `actions_required` (`pulumi.Input[str]`) - Actions required for a private endpoint connection
-            * `description` (`pulumi.Input[str]`) - The description for the current state of a private endpoint connection
-            * `status` (`pulumi.Input[str]`) - The status of a private endpoint connection
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return IotHubPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

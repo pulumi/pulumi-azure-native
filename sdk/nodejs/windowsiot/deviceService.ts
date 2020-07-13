@@ -16,11 +16,10 @@ export class DeviceService extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DeviceServiceState, opts?: pulumi.CustomResourceOptions): DeviceService {
-        return new DeviceService(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeviceService {
+        return new DeviceService(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -69,37 +68,25 @@ export class DeviceService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DeviceServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DeviceServiceArgs | DeviceServiceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DeviceServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as DeviceServiceState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as DeviceServiceArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["adminDomainName"] = args ? args.adminDomainName : undefined;
-            inputs["billingDomainName"] = args ? args.billingDomainName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["quantity"] = args ? args.quantity : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["adminDomainName"] = args ? args.adminDomainName : undefined;
+        inputs["billingDomainName"] = args ? args.billingDomainName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["notes"] = args ? args.notes : undefined;
+        inputs["quantity"] = args ? args.quantity : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["etag"] = undefined /*out*/;
+        inputs["location"] = undefined /*out*/;
+        inputs["properties"] = undefined /*out*/;
+        inputs["tags"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -109,36 +96,6 @@ export class DeviceService extends pulumi.CustomResource {
         }
         super(DeviceService.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The description of the Windows IoT Device Service.
- */
-export interface DeviceServiceState {
-    /**
-     * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * The Azure Region where the resource lives
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * The name of the resource
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The properties of a Windows IoT Device Service.
-     */
-    readonly properties: pulumi.Input<inputs.windowsiot.DeviceServicePropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the resource.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

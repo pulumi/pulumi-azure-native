@@ -75,7 +75,7 @@ class ServerAdministrator(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ServerAdministrator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -83,24 +83,11 @@ class ServerAdministrator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Properties of the server AAD administrator.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `administrator_type` (`pulumi.Input[str]`) - The type of administrator.
-          * `login` (`pulumi.Input[str]`) - The server administrator login account name.
-          * `sid` (`pulumi.Input[str]`) - The server administrator Sid (Secure ID).
-          * `tenant_id` (`pulumi.Input[str]`) - The server Active Directory Administrator tenant id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return ServerAdministrator(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

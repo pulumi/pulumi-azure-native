@@ -174,7 +174,7 @@ class ApplicationDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, managed_by=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing ApplicationDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -182,70 +182,11 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: The managed application definition properties.
-        :param pulumi.Input[dict] sku: The SKU of the resource.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `artifacts` (`pulumi.Input[list]`) - The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-            * `name` (`pulumi.Input[str]`) - The managed application definition artifact name.
-            * `type` (`pulumi.Input[str]`) - The managed application definition artifact type.
-            * `uri` (`pulumi.Input[str]`) - The managed application definition artifact blob uri.
-
-          * `authorizations` (`pulumi.Input[list]`) - The managed application provider authorizations.
-            * `principal_id` (`pulumi.Input[str]`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
-            * `role_definition_id` (`pulumi.Input[str]`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-
-          * `create_ui_definition` (`pulumi.Input[dict]`) - The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-          * `deployment_policy` (`pulumi.Input[dict]`) - The managed application deployment policy.
-            * `deployment_mode` (`pulumi.Input[str]`) - The managed application deployment mode.
-
-          * `description` (`pulumi.Input[str]`) - The managed application definition description.
-          * `display_name` (`pulumi.Input[str]`) - The managed application definition display name.
-          * `is_enabled` (`pulumi.Input[bool]`) - A value indicating whether the package is enabled or not.
-          * `lock_level` (`pulumi.Input[str]`) - The managed application lock level.
-          * `locking_policy` (`pulumi.Input[dict]`) - The managed application locking policy.
-            * `allowed_actions` (`pulumi.Input[list]`) - The deny assignment excluded actions.
-
-          * `main_template` (`pulumi.Input[dict]`) - The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-          * `management_policy` (`pulumi.Input[dict]`) - The managed application management policy that determines publisher's access to the managed resource group.
-            * `mode` (`pulumi.Input[str]`) - The managed application management mode.
-
-          * `notification_policy` (`pulumi.Input[dict]`) - The managed application notification policy.
-            * `notification_endpoints` (`pulumi.Input[list]`) - The managed application notification endpoint.
-              * `uri` (`pulumi.Input[str]`) - The managed application notification endpoint uri.
-
-          * `package_file_uri` (`pulumi.Input[str]`) - The managed application definition package file Uri. Use this element
-          * `policies` (`pulumi.Input[list]`) - The managed application provider policies.
-            * `name` (`pulumi.Input[str]`) - The policy name
-            * `parameters` (`pulumi.Input[str]`) - The policy parameters.
-            * `policy_definition_id` (`pulumi.Input[str]`) - The policy definition Id.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The SKU capacity.
-          * `family` (`pulumi.Input[str]`) - The SKU family.
-          * `model` (`pulumi.Input[str]`) - The SKU model.
-          * `name` (`pulumi.Input[str]`) - The SKU name.
-          * `size` (`pulumi.Input[str]`) - The SKU size.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["managed_by"] = managed_by
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return ApplicationDefinition(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

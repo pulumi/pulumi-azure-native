@@ -86,7 +86,7 @@ class DataBoxEdgeDeviceStorageAccountContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataBoxEdgeDeviceStorageAccountContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,28 +94,11 @@ class DataBoxEdgeDeviceStorageAccountContainer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The object name.
-        :param pulumi.Input[dict] properties: The container properties.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `container_status` (`pulumi.Input[str]`) - Current status of the container.
-          * `created_date_time` (`pulumi.Input[str]`) - The UTC time when container got created.
-          * `data_format` (`pulumi.Input[str]`) - DataFormat for Container
-          * `refresh_details` (`pulumi.Input[dict]`) - Details of the refresh job on this container.
-            * `error_manifest_file` (`pulumi.Input[str]`) - Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-            * `in_progress_refresh_job_id` (`pulumi.Input[str]`) - If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-            * `last_completed_refresh_job_time_in_utc` (`pulumi.Input[str]`) - Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
-            * `last_job` (`pulumi.Input[str]`) - Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataBoxEdgeDeviceStorageAccountContainer(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

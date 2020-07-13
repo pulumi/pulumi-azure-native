@@ -97,7 +97,7 @@ class DataBoxEdgeDeviceStorageAccountCredential(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DataBoxEdgeDeviceStorageAccountCredential resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,32 +105,11 @@ class DataBoxEdgeDeviceStorageAccountCredential(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The object name.
-        :param pulumi.Input[dict] properties: The storage account credential properties.
-        :param pulumi.Input[str] type: The hierarchical type of the object.
-
-        The **properties** object supports the following:
-
-          * `account_key` (`pulumi.Input[dict]`) - Encrypted storage key.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-            * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-            * `value` (`pulumi.Input[str]`) - The value of the secret.
-
-          * `account_type` (`pulumi.Input[str]`) - Type of storage accessed on the storage account.
-          * `alias` (`pulumi.Input[str]`) - Alias for the storage account.
-          * `blob_domain_name` (`pulumi.Input[str]`) - Blob end point for private clouds.
-          * `connection_string` (`pulumi.Input[str]`) - Connection string for the storage account. Use this string if username and account key are not specified.
-          * `ssl_status` (`pulumi.Input[str]`) - Signifies whether SSL needs to be enabled or not.
-          * `storage_account_id` (`pulumi.Input[str]`) - Id of the storage account.
-          * `user_name` (`pulumi.Input[str]`) - Username for the storage account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return DataBoxEdgeDeviceStorageAccountCredential(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

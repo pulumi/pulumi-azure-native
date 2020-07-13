@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.DataBox
         {
         }
 
-        private Job(string name, Input<string> id, JobState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:databox:Job", name, state, MakeResourceOptions(options, id))
+        private Job(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:databox:Job", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.DataBox
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Job Get(string name, Input<string> id, JobState? state = null, CustomResourceOptions? options = null)
+        public static Job Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Job(name, id, state, options);
+            return new Job(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.DataBox
         }
 
         public JobArgs()
-        {
-        }
-    }
-
-    public sealed class JobState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the object.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of a job.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JobPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The sku type.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Type of the object.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public JobState()
         {
         }
     }

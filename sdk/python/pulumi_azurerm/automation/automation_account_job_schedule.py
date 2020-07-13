@@ -88,7 +88,7 @@ class AutomationAccountJobSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountJobSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -96,28 +96,11 @@ class AutomationAccountJobSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Gets the name of the variable.
-        :param pulumi.Input[dict] properties: Gets or sets the properties of the job schedule.
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `job_schedule_id` (`pulumi.Input[str]`) - Gets or sets the id of job schedule.
-          * `parameters` (`pulumi.Input[dict]`) - Gets or sets the parameters of the job schedule.
-          * `run_on` (`pulumi.Input[str]`) - Gets or sets the hybrid worker group that the scheduled job should run on.
-          * `runbook` (`pulumi.Input[dict]`) - Gets or sets the runbook.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
-
-          * `schedule` (`pulumi.Input[dict]`) - Gets or sets the schedule.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Schedule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AutomationAccountJobSchedule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

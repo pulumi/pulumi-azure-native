@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.DBforMariaDB
         {
         }
 
-        private ServerFirewallRule(string name, Input<string> id, ServerFirewallRuleState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:dbformariadb:ServerFirewallRule", name, state, MakeResourceOptions(options, id))
+        private ServerFirewallRule(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:dbformariadb:ServerFirewallRule", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.DBforMariaDB
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ServerFirewallRule Get(string name, Input<string> id, ServerFirewallRuleState? state = null, CustomResourceOptions? options = null)
+        public static ServerFirewallRule Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new ServerFirewallRule(name, id, state, options);
+            return new ServerFirewallRule(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.DBforMariaDB
         public Input<string> ServerName { get; set; } = null!;
 
         public ServerFirewallRuleArgs()
-        {
-        }
-    }
-
-    public sealed class ServerFirewallRuleState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a firewall rule.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FirewallRulePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ServerFirewallRuleState()
         {
         }
     }

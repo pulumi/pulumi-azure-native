@@ -112,7 +112,7 @@ class AutomationAccountSchedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AutomationAccountSchedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -120,41 +120,11 @@ class AutomationAccountSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Gets or sets the properties of the schedule.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `advanced_schedule` (`pulumi.Input[dict]`) - Gets or sets the advanced schedule.
-            * `month_days` (`pulumi.Input[list]`) - Days of the month that the job should execute on. Must be between 1 and 31.
-            * `monthly_occurrences` (`pulumi.Input[list]`) - Occurrences of days within a month.
-              * `day` (`pulumi.Input[str]`) - Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-              * `occurrence` (`pulumi.Input[float]`) - Occurrence of the week within the month. Must be between 1 and 5
-
-            * `week_days` (`pulumi.Input[list]`) - Days of the week that the job should execute on.
-
-          * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time.
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `expiry_time` (`pulumi.Input[str]`) - Gets or sets the end time of the schedule.
-          * `expiry_time_offset_minutes` (`pulumi.Input[float]`) - Gets or sets the expiry time's offset in minutes.
-          * `frequency` (`pulumi.Input[str]`) - Gets or sets the frequency of the schedule.
-          * `interval` (`pulumi.Input[dict]`) - Gets or sets the interval of the schedule.
-          * `is_enabled` (`pulumi.Input[bool]`) - Gets or sets a value indicating whether this schedule is enabled.
-          * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time.
-          * `next_run` (`pulumi.Input[str]`) - Gets or sets the next run time of the schedule.
-          * `next_run_offset_minutes` (`pulumi.Input[float]`) - Gets or sets the next run time's offset in minutes.
-          * `start_time` (`pulumi.Input[str]`) - Gets or sets the start time of the schedule.
-          * `start_time_offset_minutes` (`pulumi.Input[float]`) - Gets the start time's offset in minutes.
-          * `time_zone` (`pulumi.Input[str]`) - Gets or sets the time zone of the schedule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return AutomationAccountSchedule(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

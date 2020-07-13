@@ -69,8 +69,8 @@ namespace Pulumi.AzureRM.DataBoxEdge
         {
         }
 
-        private DataBoxEdgeDevice(string name, Input<string> id, DataBoxEdgeDeviceState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:databoxedge:DataBoxEdgeDevice", name, state, MakeResourceOptions(options, id))
+        private DataBoxEdgeDevice(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:databoxedge:DataBoxEdgeDevice", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -92,11 +92,10 @@ namespace Pulumi.AzureRM.DataBoxEdge
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DataBoxEdgeDevice Get(string name, Input<string> id, DataBoxEdgeDeviceState? state = null, CustomResourceOptions? options = null)
+        public static DataBoxEdgeDevice Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DataBoxEdgeDevice(name, id, state, options);
+            return new DataBoxEdgeDevice(name, id, options);
         }
     }
 
@@ -151,61 +150,6 @@ namespace Pulumi.AzureRM.DataBoxEdge
         }
 
         public DataBoxEdgeDeviceArgs()
-        {
-        }
-    }
-
-    public sealed class DataBoxEdgeDeviceState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The etag for the devices.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The object name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the Data Box Edge/Gateway device.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DataBoxEdgeDevicePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU type.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuResponseGetArgs>? Sku { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The hierarchical type of the object.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DataBoxEdgeDeviceState()
         {
         }
     }

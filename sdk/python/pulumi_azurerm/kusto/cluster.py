@@ -172,7 +172,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -180,74 +180,11 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] identity: The identity of the cluster, if configured.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: The cluster properties.
-        :param pulumi.Input[dict] sku: The SKU of the cluster.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-        :param pulumi.Input[dict] zones: The availability zones of the cluster.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal ID of resource identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant ID of resource.
-          * `type` (`pulumi.Input[str]`) - The identity type.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `data_ingestion_uri` (`pulumi.Input[str]`) - The cluster data ingestion URI.
-          * `enable_disk_encryption` (`pulumi.Input[bool]`) - A boolean value that indicates if the cluster's disks are encrypted.
-          * `enable_double_encryption` (`pulumi.Input[bool]`) - A boolean value that indicates if double encryption is enabled.
-          * `enable_purge` (`pulumi.Input[bool]`) - A boolean value that indicates if the purge operations are enabled.
-          * `enable_streaming_ingest` (`pulumi.Input[bool]`) - A boolean value that indicates if the streaming ingest is enabled.
-          * `key_vault_properties` (`pulumi.Input[dict]`) - KeyVault properties for the cluster encryption.
-            * `key_name` (`pulumi.Input[str]`) - The name of the key vault key.
-            * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of the key vault.
-            * `key_version` (`pulumi.Input[str]`) - The version of the key vault key.
-
-          * `language_extensions` (`pulumi.Input[dict]`) - List of the cluster's language extensions.
-            * `value` (`pulumi.Input[list]`) - The list of language extensions.
-              * `language_extension_name` (`pulumi.Input[str]`) - The language extension name.
-
-          * `optimized_autoscale` (`pulumi.Input[dict]`) - Optimized auto scale definition.
-            * `is_enabled` (`pulumi.Input[bool]`) - A boolean value that indicate if the optimized autoscale feature is enabled or not.
-            * `maximum` (`pulumi.Input[float]`) - Maximum allowed instances count.
-            * `minimum` (`pulumi.Input[float]`) - Minimum allowed instances count.
-            * `version` (`pulumi.Input[float]`) - The version of the template defined, for instance 1.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioned state of the resource.
-          * `state` (`pulumi.Input[str]`) - The state of the resource.
-          * `state_reason` (`pulumi.Input[str]`) - The reason for the cluster's current state.
-          * `trusted_external_tenants` (`pulumi.Input[list]`) - The cluster's external tenants.
-            * `value` (`pulumi.Input[str]`) - GUID representing an external tenant.
-
-          * `uri` (`pulumi.Input[str]`) - The cluster URI.
-          * `virtual_network_configuration` (`pulumi.Input[dict]`) - Virtual network definition.
-            * `data_management_public_ip_id` (`pulumi.Input[str]`) - Data management's service public IP address resource id.
-            * `engine_public_ip_id` (`pulumi.Input[str]`) - Engine service's public IP address resource id.
-            * `subnet_id` (`pulumi.Input[str]`) - The subnet resource id.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - The number of instances of the cluster.
-          * `name` (`pulumi.Input[str]`) - SKU name.
-          * `tier` (`pulumi.Input[str]`) - SKU tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["zones"] = zones
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

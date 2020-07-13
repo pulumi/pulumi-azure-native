@@ -82,7 +82,7 @@ class BatchAccountApplication(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing BatchAccountApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,25 +90,11 @@ class BatchAccountApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The ETag of the resource, used for concurrency statements.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties associated with the Application.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `allow_updates` (`pulumi.Input[bool]`) - A value indicating whether packages within the application may be overwritten using the same version string.
-          * `default_version` (`pulumi.Input[str]`) - The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-          * `display_name` (`pulumi.Input[str]`) - The display name for the application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return BatchAccountApplication(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

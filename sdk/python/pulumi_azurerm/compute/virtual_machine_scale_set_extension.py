@@ -90,7 +90,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VirtualMachineScaleSetExtension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -98,29 +98,11 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the extension.
-        :param pulumi.Input[dict] properties: Describes the properties of a Virtual Machine Scale Set Extension.
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-          * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-          * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-          * `provision_after_extensions` (`pulumi.Input[list]`) - Collection of extension names after which this extension needs to be provisioned.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-          * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
-          * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
-          * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return VirtualMachineScaleSetExtension(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

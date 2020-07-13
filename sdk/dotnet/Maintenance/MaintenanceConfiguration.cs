@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Maintenance
         {
         }
 
-        private MaintenanceConfiguration(string name, Input<string> id, MaintenanceConfigurationState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:maintenance:MaintenanceConfiguration", name, state, MakeResourceOptions(options, id))
+        private MaintenanceConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:maintenance:MaintenanceConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.Maintenance
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static MaintenanceConfiguration Get(string name, Input<string> id, MaintenanceConfigurationState? state = null, CustomResourceOptions? options = null)
+        public static MaintenanceConfiguration Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new MaintenanceConfiguration(name, id, state, options);
+            return new MaintenanceConfiguration(name, id, options);
         }
     }
 
@@ -127,49 +126,6 @@ namespace Pulumi.AzureRM.Maintenance
         }
 
         public MaintenanceConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class MaintenanceConfigurationState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Gets or sets location of the resource
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets properties of the resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.MaintenanceConfigurationPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Gets or sets tags of the resource
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Type of the resource
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public MaintenanceConfigurationState()
         {
         }
     }

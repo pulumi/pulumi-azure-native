@@ -91,7 +91,7 @@ class Registration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Registration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,29 +99,11 @@ class Registration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] etag: The entity tag used for optimistic concurrency when modifying the resource.
-        :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[str] name: Name of the resource.
-        :param pulumi.Input[dict] properties: Registration resource.
-        :param pulumi.Input[dict] tags: Custom tags for the resource.
-        :param pulumi.Input[str] type: Type of Resource.
-
-        The **properties** object supports the following:
-
-          * `billing_model` (`pulumi.Input[str]`) - Specifies the billing mode for the Azure Stack registration.
-          * `cloud_id` (`pulumi.Input[str]`) - The identifier of the registered Azure Stack.
-          * `object_id` (`pulumi.Input[str]`) - The object identifier associated with the Azure Stack connecting to Azure.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["etag"] = etag
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Registration(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

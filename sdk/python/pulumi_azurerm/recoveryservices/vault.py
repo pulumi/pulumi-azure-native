@@ -138,7 +138,7 @@ class Vault(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, e_tag=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -146,66 +146,11 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: Optional ETag.
-        :param pulumi.Input[dict] identity: Identity for the resource.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name associated with the resource.
-        :param pulumi.Input[dict] properties: Properties of the vault.
-        :param pulumi.Input[dict] sku: Identifies the unique system identifier for each Azure resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal ID of resource identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant ID of resource.
-          * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **properties** object supports the following:
-
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of private endpoint connection.
-            * `id` (`pulumi.Input[str]`) - Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
-            * `properties` (`pulumi.Input[dict]`) - Private Endpoint Connection Response Properties.
-              * `private_endpoint` (`pulumi.Input[dict]`) - Gets or sets private endpoint associated with the private endpoint connection
-                * `id` (`pulumi.Input[str]`) - Gets or sets id
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Gets or sets private link service connection state
-                * `action_required` (`pulumi.Input[str]`) - Gets or sets actions required
-                * `description` (`pulumi.Input[str]`) - Gets or sets description
-                * `status` (`pulumi.Input[str]`) - Gets or sets the status
-
-              * `provisioning_state` (`pulumi.Input[str]`) - Gets or sets provisioning state of the private endpoint connection
-
-          * `private_endpoint_state_for_backup` (`pulumi.Input[str]`) - Private endpoint state for backup.
-          * `private_endpoint_state_for_site_recovery` (`pulumi.Input[str]`) - Private endpoint state for site recovery.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning State.
-          * `upgrade_details` (`pulumi.Input[dict]`) - Details for upgrading vault.
-            * `end_time_utc` (`pulumi.Input[str]`) - UTC time at which the upgrade operation has ended.
-            * `last_updated_time_utc` (`pulumi.Input[str]`) - UTC time at which the upgrade operation status was last updated.
-            * `message` (`pulumi.Input[str]`) - Message to the user containing information about the upgrade operation.
-            * `operation_id` (`pulumi.Input[str]`) - ID of the vault upgrade operation.
-            * `previous_resource_id` (`pulumi.Input[str]`) - Resource ID of the vault before the upgrade.
-            * `start_time_utc` (`pulumi.Input[str]`) - UTC time at which the upgrade operation has started.
-            * `status` (`pulumi.Input[str]`) - Status of the vault upgrade operation.
-            * `trigger_type` (`pulumi.Input[str]`) - The way the vault upgrade was triggered.
-            * `upgraded_resource_id` (`pulumi.Input[str]`) - Resource ID of the upgraded vault.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The Sku name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["e_tag"] = e_tag
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Vault(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

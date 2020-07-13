@@ -104,7 +104,7 @@ class StorageSyncService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing StorageSyncService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,46 +112,11 @@ class StorageSyncService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[dict] properties: Storage Sync Service properties.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-        The **properties** object supports the following:
-
-          * `incoming_traffic_policy` (`pulumi.Input[str]`) - Incoming Traffic Policy
-          * `last_operation_name` (`pulumi.Input[str]`) - Resource Last Operation Name
-          * `last_workflow_id` (`pulumi.Input[str]`) - StorageSyncService lastWorkflowId
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of private endpoint connection associated with the specified storage sync service
-            * `id` (`pulumi.Input[str]`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-            * `name` (`pulumi.Input[str]`) - The name of the resource
-            * `properties` (`pulumi.Input[dict]`) - Resource properties.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
-                * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint
-
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-                * `actions_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-                * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-                * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the private endpoint connection resource.
-
-            * `type` (`pulumi.Input[str]`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - StorageSyncService Provisioning State
-          * `storage_sync_service_status` (`pulumi.Input[float]`) - Storage Sync service status.
-          * `storage_sync_service_uid` (`pulumi.Input[str]`) - Storage Sync service Uid
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return StorageSyncService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

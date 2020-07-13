@@ -86,7 +86,7 @@ class DedicatedCloudService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing DedicatedCloudService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,28 +94,11 @@ class DedicatedCloudService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Azure region
-        :param pulumi.Input[str] name: {dedicatedCloudServiceName}
-        :param pulumi.Input[dict] properties: The properties of Dedicated Node Service
-        :param pulumi.Input[dict] tags: The list of tags
-        :param pulumi.Input[str] type: {resourceProviderNamespace}/{resourceType}
-
-        The **properties** object supports the following:
-
-          * `gateway_subnet` (`pulumi.Input[str]`) - gateway Subnet for the account. It will collect the subnet address and always treat it as /28
-          * `is_account_onboarded` (`pulumi.Input[str]`) - indicates whether account onboarded or not in a given region
-          * `nodes` (`pulumi.Input[float]`) - total nodes purchased
-          * `service_url` (`pulumi.Input[str]`) - link to a service management web portal
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return DedicatedCloudService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

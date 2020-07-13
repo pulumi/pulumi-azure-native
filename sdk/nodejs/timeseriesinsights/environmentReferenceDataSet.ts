@@ -16,11 +16,10 @@ export class EnvironmentReferenceDataSet extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EnvironmentReferenceDataSetState, opts?: pulumi.CustomResourceOptions): EnvironmentReferenceDataSet {
-        return new EnvironmentReferenceDataSet(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EnvironmentReferenceDataSet {
+        return new EnvironmentReferenceDataSet(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -65,18 +64,8 @@ export class EnvironmentReferenceDataSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EnvironmentReferenceDataSetArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EnvironmentReferenceDataSetArgs | EnvironmentReferenceDataSetState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: EnvironmentReferenceDataSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as EnvironmentReferenceDataSetState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as EnvironmentReferenceDataSetArgs | undefined;
             if (!args || args.environmentName === undefined) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -92,14 +81,13 @@ export class EnvironmentReferenceDataSet extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["environmentName"] = args ? args.environmentName : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -109,32 +97,6 @@ export class EnvironmentReferenceDataSet extends pulumi.CustomResource {
         }
         super(EnvironmentReferenceDataSet.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
- */
-export interface EnvironmentReferenceDataSetState {
-    /**
-     * Resource location
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * Resource name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the reference data set.
-     */
-    readonly properties: pulumi.Input<inputs.timeseriesinsights.ReferenceDataSetResourcePropertiesResponse>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

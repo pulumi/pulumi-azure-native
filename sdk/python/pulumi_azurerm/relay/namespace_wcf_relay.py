@@ -83,7 +83,7 @@ class NamespaceWcfRelay(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, properties=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing NamespaceWcfRelay resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,28 +91,11 @@ class NamespaceWcfRelay(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Properties of the WCF relay.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `created_at` (`pulumi.Input[str]`) - The time the WCF relay was created.
-          * `is_dynamic` (`pulumi.Input[bool]`) - Returns true if the relay is dynamic; otherwise, false.
-          * `listener_count` (`pulumi.Input[float]`) - The number of listeners for this relay. Note that min :1 and max:25 are supported.
-          * `relay_type` (`pulumi.Input[str]`) - WCF relay type.
-          * `requires_client_authorization` (`pulumi.Input[bool]`) - Returns true if client authorization is needed for this relay; otherwise, false.
-          * `requires_transport_security` (`pulumi.Input[bool]`) - Returns true if transport security is needed for this relay; otherwise, false.
-          * `updated_at` (`pulumi.Input[str]`) - The time the namespace was updated.
-          * `user_metadata` (`pulumi.Input[str]`) - The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["type"] = type
         return NamespaceWcfRelay(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

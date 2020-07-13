@@ -154,7 +154,7 @@ class Registry(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -162,65 +162,11 @@ class Registry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the container registry.
-        :param pulumi.Input[dict] sku: The SKU of the container registry.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `admin_user_enabled` (`pulumi.Input[bool]`) - The value that indicates whether the admin user is enabled.
-          * `creation_date` (`pulumi.Input[str]`) - The creation date of the container registry in ISO8601 format.
-          * `login_server` (`pulumi.Input[str]`) - The URL that can be used to log into the container registry.
-          * `network_rule_set` (`pulumi.Input[dict]`) - The network rule set for a container registry.
-            * `default_action` (`pulumi.Input[str]`) - The default action of allow or deny when no other rules match.
-            * `ip_rules` (`pulumi.Input[list]`) - The IP ACL rules.
-              * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
-              * `value` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-
-            * `virtual_network_rules` (`pulumi.Input[list]`) - The virtual network rules.
-              * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
-              * `id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-
-          * `policies` (`pulumi.Input[dict]`) - The policies for a container registry.
-            * `quarantine_policy` (`pulumi.Input[dict]`) - The quarantine policy for a container registry.
-              * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
-
-            * `retention_policy` (`pulumi.Input[dict]`) - The retention policy for a container registry.
-              * `days` (`pulumi.Input[float]`) - The number of days to retain an untagged manifest after which it gets purged.
-              * `last_updated_time` (`pulumi.Input[str]`) - The timestamp when the policy was last updated.
-              * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
-
-            * `trust_policy` (`pulumi.Input[dict]`) - The content trust policy for a container registry.
-              * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
-              * `type` (`pulumi.Input[str]`) - The type of trust policy.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the container registry at the time the operation was called.
-          * `status` (`pulumi.Input[dict]`) - The status of the container registry at the time the operation was called.
-            * `display_status` (`pulumi.Input[str]`) - The short label for the status.
-            * `message` (`pulumi.Input[str]`) - The detailed message for the status, including alerts and error messages.
-            * `timestamp` (`pulumi.Input[str]`) - The timestamp when the status was changed to the current value.
-
-          * `storage_account` (`pulumi.Input[dict]`) - The properties of the storage account for the container registry. Only applicable to Classic SKU.
-            * `id` (`pulumi.Input[str]`) - The resource ID of the storage account.
-
-        The **sku** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - The SKU name of the container registry. Required for registry creation.
-          * `tier` (`pulumi.Input[str]`) - The SKU tier based on the SKU name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Registry(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

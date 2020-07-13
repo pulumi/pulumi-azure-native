@@ -16,11 +16,10 @@ export class ProvisioningService extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProvisioningServiceState, opts?: pulumi.CustomResourceOptions): ProvisioningService {
-        return new ProvisioningService(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProvisioningService {
+        return new ProvisioningService(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -73,20 +72,8 @@ export class ProvisioningService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProvisioningServiceArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProvisioningServiceArgs | ProvisioningServiceState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProvisioningServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as ProvisioningServiceState | undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as ProvisioningServiceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -102,15 +89,14 @@ export class ProvisioningService extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["etag"] = args ? args.etag : undefined;
+        inputs["location"] = args ? args.location : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["sku"] = args ? args.sku : undefined;
+        inputs["tags"] = args ? args.tags : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -120,40 +106,6 @@ export class ProvisioningService extends pulumi.CustomResource {
         }
         super(ProvisioningService.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * The description of the provisioning service.
- */
-export interface ProvisioningServiceState {
-    /**
-     * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-     */
-    readonly etag?: pulumi.Input<string>;
-    /**
-     * The resource location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
-     * The resource name.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * Service specific properties for a provisioning service
-     */
-    readonly properties: pulumi.Input<inputs.devices.IotDpsPropertiesDescriptionResponse>;
-    /**
-     * Sku info for a provisioning Service.
-     */
-    readonly sku: pulumi.Input<inputs.devices.IotDpsSkuInfoResponse>;
-    /**
-     * The resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The resource type.
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

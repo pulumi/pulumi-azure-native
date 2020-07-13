@@ -177,7 +177,7 @@ class Deployment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -185,101 +185,11 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: the location of the deployment.
-        :param pulumi.Input[str] name: The name of the deployment.
-        :param pulumi.Input[dict] properties: Deployment properties.
-        :param pulumi.Input[dict] tags: Deployment tags
-        :param pulumi.Input[str] type: The type of the deployment.
-
-        The **properties** object supports the following:
-
-          * `correlation_id` (`pulumi.Input[str]`) - The correlation ID of the deployment.
-          * `debug_setting` (`pulumi.Input[dict]`) - The debug setting of the deployment.
-            * `detail_level` (`pulumi.Input[str]`) - Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
-
-          * `dependencies` (`pulumi.Input[list]`) - The list of deployment dependencies.
-            * `depends_on` (`pulumi.Input[list]`) - The list of dependencies.
-              * `id` (`pulumi.Input[str]`) - The ID of the dependency.
-              * `resource_name` (`pulumi.Input[str]`) - The dependency resource name.
-              * `resource_type` (`pulumi.Input[str]`) - The dependency resource type.
-
-            * `id` (`pulumi.Input[str]`) - The ID of the dependency.
-            * `resource_name` (`pulumi.Input[str]`) - The dependency resource name.
-            * `resource_type` (`pulumi.Input[str]`) - The dependency resource type.
-
-          * `duration` (`pulumi.Input[str]`) - The duration of the template deployment.
-          * `error` (`pulumi.Input[dict]`) - The deployment error.
-            * `additional_info` (`pulumi.Input[list]`) - The error additional info.
-              * `info` (`pulumi.Input[dict]`) - The additional info.
-              * `type` (`pulumi.Input[str]`) - The additional info type.
-
-            * `code` (`pulumi.Input[str]`) - The error code.
-            * `details` (`pulumi.Input[list]`) - The error details.
-            * `message` (`pulumi.Input[str]`) - The error message.
-            * `target` (`pulumi.Input[str]`) - The error target.
-
-          * `mode` (`pulumi.Input[str]`) - The deployment mode. Possible values are Incremental and Complete.
-          * `on_error_deployment` (`pulumi.Input[dict]`) - The deployment on error behavior.
-            * `deployment_name` (`pulumi.Input[str]`) - The deployment to be used on error case.
-            * `provisioning_state` (`pulumi.Input[str]`) - The state of the provisioning for the on error deployment.
-            * `type` (`pulumi.Input[str]`) - The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-
-          * `output_resources` (`pulumi.Input[list]`) - Array of provisioned resources.
-            * `id` (`pulumi.Input[str]`) - The fully qualified resource Id.
-
-          * `outputs` (`pulumi.Input[dict]`) - Key/value pairs that represent deployment output.
-          * `parameters` (`pulumi.Input[dict]`) - Deployment parameters. 
-          * `parameters_link` (`pulumi.Input[dict]`) - The URI referencing the parameters. 
-            * `content_version` (`pulumi.Input[str]`) - If included, must match the ContentVersion in the template.
-            * `uri` (`pulumi.Input[str]`) - The URI of the parameters file.
-
-          * `providers` (`pulumi.Input[list]`) - The list of resource providers needed for the deployment.
-            * `id` (`pulumi.Input[str]`) - The provider ID.
-            * `namespace` (`pulumi.Input[str]`) - The namespace of the resource provider.
-            * `registration_policy` (`pulumi.Input[str]`) - The registration policy of the resource provider.
-            * `registration_state` (`pulumi.Input[str]`) - The registration state of the resource provider.
-            * `resource_types` (`pulumi.Input[list]`) - The collection of provider resource types.
-              * `aliases` (`pulumi.Input[list]`) - The aliases that are supported by this resource type.
-                * `default_path` (`pulumi.Input[str]`) - The default path for an alias.
-                * `default_pattern` (`pulumi.Input[dict]`) - The default pattern for an alias.
-                  * `phrase` (`pulumi.Input[str]`) - The alias pattern phrase.
-                  * `type` (`pulumi.Input[str]`) - The type of alias pattern
-                  * `variable` (`pulumi.Input[str]`) - The alias pattern variable.
-
-                * `name` (`pulumi.Input[str]`) - The alias name.
-                * `paths` (`pulumi.Input[list]`) - The paths for an alias.
-                  * `api_versions` (`pulumi.Input[list]`) - The API versions.
-                  * `path` (`pulumi.Input[str]`) - The path of an alias.
-                  * `pattern` (`pulumi.Input[dict]`) - The pattern for an alias path.
-
-                * `type` (`pulumi.Input[str]`) - The type of the alias.
-
-              * `api_versions` (`pulumi.Input[list]`) - The API version.
-              * `capabilities` (`pulumi.Input[str]`) - The additional capabilities offered by this resource type.
-              * `locations` (`pulumi.Input[list]`) - The collection of locations where this resource type can be created.
-              * `properties` (`pulumi.Input[dict]`) - The properties.
-              * `resource_type` (`pulumi.Input[str]`) - The resource type.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Denotes the state of provisioning.
-          * `template_hash` (`pulumi.Input[str]`) - The hash produced for the template.
-          * `template_link` (`pulumi.Input[dict]`) - The URI referencing the template.
-            * `content_version` (`pulumi.Input[str]`) - If included, must match the ContentVersion in the template.
-            * `id` (`pulumi.Input[str]`) - The resource id of a Template Spec. Use either the id or uri property, but not both.
-            * `relative_path` (`pulumi.Input[str]`) - Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
-            * `uri` (`pulumi.Input[str]`) - The URI of the template to deploy. Use either the uri or id property, but not both.
-
-          * `timestamp` (`pulumi.Input[str]`) - The timestamp of the template deployment.
-          * `validated_resources` (`pulumi.Input[list]`) - Array of validated resources.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

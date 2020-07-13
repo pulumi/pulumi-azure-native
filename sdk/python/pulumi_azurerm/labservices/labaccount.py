@@ -105,7 +105,7 @@ class Labaccount(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Labaccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,47 +113,11 @@ class Labaccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `enabled_region_selection` (`pulumi.Input[bool]`) - Represents if region selection is enabled
-          * `latest_operation_result` (`pulumi.Input[dict]`) - The details of the latest operation. ex: status, error
-            * `error_code` (`pulumi.Input[str]`) - Error code on failure.
-            * `error_message` (`pulumi.Input[str]`) - The error message.
-            * `http_method` (`pulumi.Input[str]`) - The HttpMethod - PUT/POST/DELETE for the operation.
-            * `operation_url` (`pulumi.Input[str]`) - The URL to use to check long-running operation status
-            * `request_uri` (`pulumi.Input[str]`) - Request URI of the operation.
-            * `status` (`pulumi.Input[str]`) - The current status of the operation.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `size_configuration` (`pulumi.Input[dict]`) - Represents the size configuration under the lab account
-            * `environment_sizes` (`pulumi.Input[list]`) - Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
-              * `max_price` (`pulumi.Input[float]`) - The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
-              * `min_memory` (`pulumi.Input[float]`) - The amount of memory available (in GB). This is the minimum amount of memory within this tier.
-              * `min_number_of_cores` (`pulumi.Input[float]`) - The number of cores a VM of this size has. This is the minimum number of cores within this tier.
-              * `name` (`pulumi.Input[str]`) - The size category
-              * `vm_sizes` (`pulumi.Input[list]`) - Represents a set of compute sizes that can serve this given size type
-                * `compute_size` (`pulumi.Input[str]`) - Represents the actual compute size, e.g. Standard_A2_v2.
-                * `memory` (`pulumi.Input[float]`) - The amount of memory available (in GB).
-                * `number_of_cores` (`pulumi.Input[float]`) - The number of cores a VM of this size has.
-                * `price` (`pulumi.Input[float]`) - The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
-
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Labaccount(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

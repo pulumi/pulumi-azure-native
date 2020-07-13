@@ -115,7 +115,7 @@ class AvailabilitySet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing AvailabilitySet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -123,45 +123,11 @@ class AvailabilitySet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: The instance view of a resource.
-        :param pulumi.Input[dict] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `platform_fault_domain_count` (`pulumi.Input[float]`) - Fault Domain count.
-          * `platform_update_domain_count` (`pulumi.Input[float]`) - Update Domain count.
-          * `proximity_placement_group` (`pulumi.Input[dict]`) - Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-
-          * `statuses` (`pulumi.Input[list]`) - The resource status information.
-            * `code` (`pulumi.Input[str]`) - The status code.
-            * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
-            * `level` (`pulumi.Input[str]`) - The level code.
-            * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
-            * `time` (`pulumi.Input[str]`) - The time of the status.
-
-          * `virtual_machines` (`pulumi.Input[list]`) - A list of references to all virtual machines in the availability set.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Specifies the number of virtual machines in the scale set.
-          * `name` (`pulumi.Input[str]`) - The sku name.
-          * `tier` (`pulumi.Input[str]`) - Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
         return AvailabilitySet(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

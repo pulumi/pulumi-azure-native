@@ -16,11 +16,10 @@ export class VaultReplicationFabricReplicationNetworkReplicationNetworkMapping e
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VaultReplicationFabricReplicationNetworkReplicationNetworkMappingState, opts?: pulumi.CustomResourceOptions): VaultReplicationFabricReplicationNetworkReplicationNetworkMapping {
-        return new VaultReplicationFabricReplicationNetworkReplicationNetworkMapping(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VaultReplicationFabricReplicationNetworkReplicationNetworkMapping {
+        return new VaultReplicationFabricReplicationNetworkReplicationNetworkMapping(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -61,17 +60,8 @@ export class VaultReplicationFabricReplicationNetworkReplicationNetworkMapping e
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VaultReplicationFabricReplicationNetworkReplicationNetworkMappingArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VaultReplicationFabricReplicationNetworkReplicationNetworkMappingArgs | VaultReplicationFabricReplicationNetworkReplicationNetworkMappingState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VaultReplicationFabricReplicationNetworkReplicationNetworkMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as VaultReplicationFabricReplicationNetworkReplicationNetworkMappingState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as VaultReplicationFabricReplicationNetworkReplicationNetworkMappingArgs | undefined;
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
@@ -87,15 +77,14 @@ export class VaultReplicationFabricReplicationNetworkReplicationNetworkMapping e
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkName"] = args ? args.networkName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["fabricName"] = args ? args.fabricName : undefined;
+        inputs["name"] = args ? args.name : undefined;
+        inputs["networkName"] = args ? args.networkName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["resourceName"] = args ? args.resourceName : undefined;
+        inputs["location"] = undefined /*out*/;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -105,28 +94,6 @@ export class VaultReplicationFabricReplicationNetworkReplicationNetworkMapping e
         }
         super(VaultReplicationFabricReplicationNetworkReplicationNetworkMapping.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
- */
-export interface VaultReplicationFabricReplicationNetworkReplicationNetworkMappingState {
-    /**
-     * Resource Location
-     */
-    readonly location?: pulumi.Input<string>;
-    /**
-     * Resource Name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * The Network Mapping Properties.
-     */
-    readonly properties: pulumi.Input<inputs.recoveryservices.NetworkMappingPropertiesResponse>;
-    /**
-     * Resource Type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

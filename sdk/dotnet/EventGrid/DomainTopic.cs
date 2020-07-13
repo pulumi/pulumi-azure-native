@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.EventGrid
         {
         }
 
-        private DomainTopic(string name, Input<string> id, DomainTopicState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:eventgrid:DomainTopic", name, state, MakeResourceOptions(options, id))
+        private DomainTopic(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:eventgrid:DomainTopic", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.EventGrid
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DomainTopic Get(string name, Input<string> id, DomainTopicState? state = null, CustomResourceOptions? options = null)
+        public static DomainTopic Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DomainTopic(name, id, state, options);
+            return new DomainTopic(name, id, options);
         }
     }
 
@@ -97,31 +96,6 @@ namespace Pulumi.AzureRM.EventGrid
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public DomainTopicArgs()
-        {
-        }
-    }
-
-    public sealed class DomainTopicState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the resource.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the Domain Topic.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DomainTopicPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DomainTopicState()
         {
         }
     }

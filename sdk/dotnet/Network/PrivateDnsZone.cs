@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private PrivateDnsZone(string name, Input<string> id, PrivateDnsZoneState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:PrivateDnsZone", name, state, MakeResourceOptions(options, id))
+        private PrivateDnsZone(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:PrivateDnsZone", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PrivateDnsZone Get(string name, Input<string> id, PrivateDnsZoneState? state = null, CustomResourceOptions? options = null)
+        public static PrivateDnsZone Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PrivateDnsZone(name, id, state, options);
+            return new PrivateDnsZone(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.Network
         }
 
         public PrivateDnsZoneArgs()
-        {
-        }
-    }
-
-    public sealed class PrivateDnsZoneState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ETag of the zone.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
-        /// The Azure Region where the resource lives
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the Private DNS zone.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PrivateZonePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public PrivateDnsZoneState()
         {
         }
     }

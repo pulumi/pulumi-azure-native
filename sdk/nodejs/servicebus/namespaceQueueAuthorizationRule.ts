@@ -16,11 +16,10 @@ export class NamespaceQueueAuthorizationRule extends pulumi.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamespaceQueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): NamespaceQueueAuthorizationRule {
-        return new NamespaceQueueAuthorizationRule(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamespaceQueueAuthorizationRule {
+        return new NamespaceQueueAuthorizationRule(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
@@ -57,16 +56,8 @@ export class NamespaceQueueAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NamespaceQueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NamespaceQueueAuthorizationRuleArgs | NamespaceQueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: NamespaceQueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
-            const state = argsOrState as NamespaceQueueAuthorizationRuleState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["type"] = state ? state.type : undefined;
-        } else {
-            const args = argsOrState as NamespaceQueueAuthorizationRuleArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -79,13 +70,12 @@ export class NamespaceQueueAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["queueName"] = args ? args.queueName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
-        }
+        inputs["name"] = args ? args.name : undefined;
+        inputs["namespaceName"] = args ? args.namespaceName : undefined;
+        inputs["properties"] = args ? args.properties : undefined;
+        inputs["queueName"] = args ? args.queueName : undefined;
+        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+        inputs["type"] = undefined /*out*/;
         if (!opts) {
             opts = {}
         }
@@ -95,24 +85,6 @@ export class NamespaceQueueAuthorizationRule extends pulumi.CustomResource {
         }
         super(NamespaceQueueAuthorizationRule.__pulumiType, name, inputs, opts);
     }
-}
-
-/**
- * Description of a namespace authorization rule.
- */
-export interface NamespaceQueueAuthorizationRuleState {
-    /**
-     * Resource name
-     */
-    readonly name: pulumi.Input<string>;
-    /**
-     * AuthorizationRule properties.
-     */
-    readonly properties: pulumi.Input<inputs.servicebus.SBAuthorizationRuleResponseProperties>;
-    /**
-     * Resource type
-     */
-    readonly type: pulumi.Input<string>;
 }
 
 /**

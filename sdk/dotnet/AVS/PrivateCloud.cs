@@ -63,8 +63,8 @@ namespace Pulumi.AzureRM.AVS
         {
         }
 
-        private PrivateCloud(string name, Input<string> id, PrivateCloudState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:avs:PrivateCloud", name, state, MakeResourceOptions(options, id))
+        private PrivateCloud(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:avs:PrivateCloud", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -86,11 +86,10 @@ namespace Pulumi.AzureRM.AVS
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PrivateCloud Get(string name, Input<string> id, PrivateCloudState? state = null, CustomResourceOptions? options = null)
+        public static PrivateCloud Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PrivateCloud(name, id, state, options);
+            return new PrivateCloud(name, id, options);
         }
     }
 
@@ -139,55 +138,6 @@ namespace Pulumi.AzureRM.AVS
         }
 
         public PrivateCloudArgs()
-        {
-        }
-    }
-
-    public sealed class PrivateCloudState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource location
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a private cloud resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PrivateCloudPropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// The private cloud SKU
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.SkuResponseGetArgs> Sku { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public PrivateCloudState()
         {
         }
     }

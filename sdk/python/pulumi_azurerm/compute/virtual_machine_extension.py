@@ -126,7 +126,7 @@ class VirtualMachineExtension(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing VirtualMachineExtension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,45 +134,11 @@ class VirtualMachineExtension(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[dict] properties: Describes the properties of a Virtual Machine Extension.
-        :param pulumi.Input[dict] tags: Resource tags
-        :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-          * `force_update_tag` (`pulumi.Input[str]`) - How the extension handler should be forced to update even if the extension configuration has not changed.
-          * `instance_view` (`pulumi.Input[dict]`) - The virtual machine extension instance view.
-            * `name` (`pulumi.Input[str]`) - The virtual machine extension name.
-            * `statuses` (`pulumi.Input[list]`) - The resource status information.
-              * `code` (`pulumi.Input[str]`) - The status code.
-              * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
-              * `level` (`pulumi.Input[str]`) - The level code.
-              * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
-              * `time` (`pulumi.Input[str]`) - The time of the status.
-
-            * `substatuses` (`pulumi.Input[list]`) - The resource status information.
-            * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-            * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
-
-          * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-          * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
-          * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
-          * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return VirtualMachineExtension(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

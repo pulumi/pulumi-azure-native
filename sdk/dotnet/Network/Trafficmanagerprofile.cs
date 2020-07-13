@@ -57,8 +57,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private Trafficmanagerprofile(string name, Input<string> id, TrafficmanagerprofileState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:Trafficmanagerprofile", name, state, MakeResourceOptions(options, id))
+        private Trafficmanagerprofile(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:Trafficmanagerprofile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,11 +80,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Trafficmanagerprofile Get(string name, Input<string> id, TrafficmanagerprofileState? state = null, CustomResourceOptions? options = null)
+        public static Trafficmanagerprofile Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Trafficmanagerprofile(name, id, state, options);
+            return new Trafficmanagerprofile(name, id, options);
         }
     }
 
@@ -145,49 +144,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Type { get; set; }
 
         public TrafficmanagerprofileArgs()
-        {
-        }
-    }
-
-    public sealed class TrafficmanagerprofileState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Azure Region where the resource lives
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The properties of the Traffic Manager profile.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ProfilePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public TrafficmanagerprofileState()
         {
         }
     }

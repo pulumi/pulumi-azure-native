@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.Network
         {
         }
 
-        private FrontDoorRulesEngine(string name, Input<string> id, FrontDoorRulesEngineState? state = null, CustomResourceOptions? options = null)
-            : base("azurerm:network:FrontDoorRulesEngine", name, state, MakeResourceOptions(options, id))
+        private FrontDoorRulesEngine(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:FrontDoorRulesEngine", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -68,11 +68,10 @@ namespace Pulumi.AzureRM.Network
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static FrontDoorRulesEngine Get(string name, Input<string> id, FrontDoorRulesEngineState? state = null, CustomResourceOptions? options = null)
+        public static FrontDoorRulesEngine Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new FrontDoorRulesEngine(name, id, state, options);
+            return new FrontDoorRulesEngine(name, id, options);
         }
     }
 
@@ -103,31 +102,6 @@ namespace Pulumi.AzureRM.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         public FrontDoorRulesEngineArgs()
-        {
-        }
-    }
-
-    public sealed class FrontDoorRulesEngineState : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the Rules Engine Configuration.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RulesEnginePropertiesResponseGetArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FrontDoorRulesEngineState()
         {
         }
     }

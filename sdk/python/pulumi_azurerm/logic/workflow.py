@@ -146,7 +146,7 @@ class Workflow(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Workflow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,63 +154,11 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] name: Gets the resource name.
-        :param pulumi.Input[dict] properties: The workflow properties.
-        :param pulumi.Input[dict] tags: The resource tags.
-        :param pulumi.Input[str] type: Gets the resource type.
-
-        The **properties** object supports the following:
-
-          * `access_control` (`pulumi.Input[dict]`) - The access control configuration.
-            * `actions` (`pulumi.Input[dict]`) - The access control configuration for workflow actions.
-              * `allowed_caller_ip_addresses` (`pulumi.Input[list]`) - The allowed caller IP address ranges.
-                * `address_range` (`pulumi.Input[str]`) - The IP address range.
-
-              * `open_authentication_policies` (`pulumi.Input[dict]`) - The authentication policies for workflow.
-                * `policies` (`pulumi.Input[dict]`) - Open authentication policies.
-
-            * `contents` (`pulumi.Input[dict]`) - The access control configuration for accessing workflow run contents.
-            * `triggers` (`pulumi.Input[dict]`) - The access control configuration for invoking workflow triggers.
-            * `workflow_management` (`pulumi.Input[dict]`) - The access control configuration for workflow management.
-
-          * `access_endpoint` (`pulumi.Input[str]`) - Gets the access endpoint.
-          * `changed_time` (`pulumi.Input[str]`) - Gets the changed time.
-          * `created_time` (`pulumi.Input[str]`) - Gets the created time.
-          * `definition` (`pulumi.Input[dict]`) - The definition.
-          * `endpoints_configuration` (`pulumi.Input[dict]`) - The endpoints configuration.
-            * `connector` (`pulumi.Input[dict]`) - The connector endpoints.
-              * `access_endpoint_ip_addresses` (`pulumi.Input[list]`) - The access endpoint ip address.
-                * `address` (`pulumi.Input[str]`) - The address.
-
-              * `outgoing_ip_addresses` (`pulumi.Input[list]`) - The outgoing ip address.
-
-            * `workflow` (`pulumi.Input[dict]`) - The workflow endpoints.
-
-          * `integration_account` (`pulumi.Input[dict]`) - The integration account.
-            * `id` (`pulumi.Input[str]`) - The resource id.
-            * `name` (`pulumi.Input[str]`) - Gets the resource name.
-            * `type` (`pulumi.Input[str]`) - Gets the resource type.
-
-          * `integration_service_environment` (`pulumi.Input[dict]`) - The integration service environment.
-          * `parameters` (`pulumi.Input[dict]`) - The parameters.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state.
-          * `sku` (`pulumi.Input[dict]`) - The sku.
-            * `name` (`pulumi.Input[str]`) - The name.
-            * `plan` (`pulumi.Input[dict]`) - The reference to plan.
-
-          * `state` (`pulumi.Input[str]`) - The state.
-          * `version` (`pulumi.Input[str]`) - Gets the version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

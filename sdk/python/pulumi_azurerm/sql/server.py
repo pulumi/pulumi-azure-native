@@ -96,7 +96,7 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -104,33 +104,11 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of sql server.  This is metadata used for the Azure portal experience.
-        :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[dict] properties: Represents the properties of the resource.
-        :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] type: Resource type.
-
-        The **properties** object supports the following:
-
-          * `administrator_login` (`pulumi.Input[str]`) - Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
-          * `administrator_login_password` (`pulumi.Input[str]`) - The administrator login password (required for server creation).
-          * `external_administrator_login` (`pulumi.Input[str]`) - The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
-          * `external_administrator_sid` (`pulumi.Input[str]`) - The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
-          * `fully_qualified_domain_name` (`pulumi.Input[str]`) - The fully qualified domain name of the server.
-          * `state` (`pulumi.Input[str]`) - The state of the server.
-          * `version` (`pulumi.Input[str]`) - The version of the server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return Server(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

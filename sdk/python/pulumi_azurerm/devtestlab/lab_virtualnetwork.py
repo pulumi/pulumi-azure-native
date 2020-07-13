@@ -127,7 +127,7 @@ class LabVirtualnetwork(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, properties=None, tags=None, type=None):
+    def get(resource_name, id, opts=None):
         """
         Get an existing LabVirtualnetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,50 +135,11 @@ class LabVirtualnetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] name: The name of the resource.
-        :param pulumi.Input[dict] properties: The properties of the resource.
-        :param pulumi.Input[dict] tags: The tags of the resource.
-        :param pulumi.Input[str] type: The type of the resource.
-
-        The **properties** object supports the following:
-
-          * `allowed_subnets` (`pulumi.Input[list]`) - The allowed subnets of the virtual network.
-            * `allow_public_ip` (`pulumi.Input[str]`) - The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-            * `lab_subnet_name` (`pulumi.Input[str]`) - The name of the subnet as seen in the lab.
-            * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
-
-          * `created_date` (`pulumi.Input[str]`) - The creation date of the virtual network.
-          * `description` (`pulumi.Input[str]`) - The description of the virtual network.
-          * `external_provider_resource_id` (`pulumi.Input[str]`) - The Microsoft.Network resource identifier of the virtual network.
-          * `external_subnets` (`pulumi.Input[list]`) - The external subnet properties.
-            * `id` (`pulumi.Input[str]`) - Gets or sets the identifier.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `subnet_overrides` (`pulumi.Input[list]`) - The subnet overrides of the virtual network.
-            * `lab_subnet_name` (`pulumi.Input[str]`) - The name given to the subnet within the lab.
-            * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
-            * `shared_public_ip_address_configuration` (`pulumi.Input[dict]`) - Properties that virtual machines on this subnet will share.
-              * `allowed_ports` (`pulumi.Input[list]`) - Backend ports that virtual machines on this subnet are allowed to expose
-                * `backend_port` (`pulumi.Input[float]`) - Backend port of the target virtual machine.
-                * `transport_protocol` (`pulumi.Input[str]`) - Protocol type of the port.
-
-            * `use_in_vm_creation_permission` (`pulumi.Input[str]`) - Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-            * `use_public_ip_address_permission` (`pulumi.Input[str]`) - Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-            * `virtual_network_pool_name` (`pulumi.Input[str]`) - The virtual network pool associated with this subnet.
-
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["tags"] = tags
-        __props__["type"] = type
         return LabVirtualnetwork(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
