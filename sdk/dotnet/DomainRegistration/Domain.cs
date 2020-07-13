@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DomainRegistration
         /// Domain resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DomainResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.DomainResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

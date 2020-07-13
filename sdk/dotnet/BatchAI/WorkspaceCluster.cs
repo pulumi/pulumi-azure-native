@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.BatchAI
         /// The properties associated with the Cluster.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -21,7 +21,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.AccessPolicyResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AccessPolicyResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

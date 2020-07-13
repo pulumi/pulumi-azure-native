@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the configuration properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DscConfigurationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DscConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

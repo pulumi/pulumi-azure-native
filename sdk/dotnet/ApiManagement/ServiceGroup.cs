@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Group entity contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GroupContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GroupContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

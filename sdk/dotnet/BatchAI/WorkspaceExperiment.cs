@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.BatchAI
         /// The properties associated with the experiment.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExperimentPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExperimentPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

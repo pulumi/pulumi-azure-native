@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceFabric
         /// Describes the managed identities for an Azure resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// It will be deprecated in New API, resource location depends on the parent resource.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ServiceFabric
         /// The application resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

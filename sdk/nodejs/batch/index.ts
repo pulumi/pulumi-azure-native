@@ -7,3 +7,8 @@ export * from "./batchAccountApplication";
 export * from "./batchAccountApplicationVersion";
 export * from "./batchAccountCertificate";
 export * from "./batchAccountPool";
+export * from "./getBatchAccount";
+export * from "./getBatchAccountApplication";
+export * from "./getBatchAccountApplicationVersion";
+export * from "./getBatchAccountCertificate";
+export * from "./getBatchAccountPool";

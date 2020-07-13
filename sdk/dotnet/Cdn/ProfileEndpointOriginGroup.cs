@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Cdn
         /// The JSON object that contains the properties of the origin group.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OriginGroupPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OriginGroupPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

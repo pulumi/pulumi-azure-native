@@ -6,3 +6,7 @@ export * from "./account";
 export * from "./accountFirewallRule";
 export * from "./accountTrustedIdProvider";
 export * from "./accountVirtualNetworkRule";
+export * from "./getAccount";
+export * from "./getAccountFirewallRule";
+export * from "./getAccountTrustedIdProvider";
+export * from "./getAccountVirtualNetworkRule";

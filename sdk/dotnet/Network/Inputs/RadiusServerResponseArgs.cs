@@ -13,25 +13,25 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// Radius Server Settings.
     /// </summary>
-    public sealed class RadiusServerResponseArgs : Pulumi.ResourceArgs
+    public sealed class RadiusServerResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The address of this radius server.
         /// </summary>
         [Input("radiusServerAddress", required: true)]
-        public Input<string> RadiusServerAddress { get; set; } = null!;
+        public string RadiusServerAddress { get; set; } = null!;
 
         /// <summary>
         /// The initial score assigned to this radius server.
         /// </summary>
         [Input("radiusServerScore")]
-        public Input<int>? RadiusServerScore { get; set; }
+        public int? RadiusServerScore { get; set; }
 
         /// <summary>
         /// The secret used for this radius server.
         /// </summary>
         [Input("radiusServerSecret")]
-        public Input<string>? RadiusServerSecret { get; set; }
+        public string? RadiusServerSecret { get; set; }
 
         public RadiusServerResponseArgs()
         {

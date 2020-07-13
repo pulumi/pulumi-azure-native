@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.AzureStack
         /// Registration resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RegistrationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RegistrationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Custom tags for the resource.

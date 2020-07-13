@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the Rules Engine Configuration.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RulesEnginePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RulesEnginePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

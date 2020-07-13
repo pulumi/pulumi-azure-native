@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .certificate_order import *
 from .certificate_order_certificate import *
+from .get_certificate_order import *
+from .get_certificate_order_certificate import *

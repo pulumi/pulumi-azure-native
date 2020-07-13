@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataLakeStore
         /// The virtual network rule properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualNetworkRulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkRulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

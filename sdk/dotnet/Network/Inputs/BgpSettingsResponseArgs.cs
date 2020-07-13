@@ -13,29 +13,29 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// BGP settings details.
     /// </summary>
-    public sealed class BgpSettingsResponseArgs : Pulumi.ResourceArgs
+    public sealed class BgpSettingsResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The BGP speaker's ASN.
         /// </summary>
         [Input("asn")]
-        public Input<int>? Asn { get; set; }
+        public int? Asn { get; set; }
 
         /// <summary>
         /// The BGP peering address and BGP identifier of this BGP speaker.
         /// </summary>
         [Input("bgpPeeringAddress")]
-        public Input<string>? BgpPeeringAddress { get; set; }
+        public string? BgpPeeringAddress { get; set; }
 
         [Input("bgpPeeringAddresses")]
-        private InputList<Inputs.IPConfigurationBgpPeeringAddressResponseArgs>? _bgpPeeringAddresses;
+        private List<Inputs.IPConfigurationBgpPeeringAddressResponseArgs>? _bgpPeeringAddresses;
 
         /// <summary>
         /// BGP peering address with IP configuration ID for virtual network gateway.
         /// </summary>
-        public InputList<Inputs.IPConfigurationBgpPeeringAddressResponseArgs> BgpPeeringAddresses
+        public List<Inputs.IPConfigurationBgpPeeringAddressResponseArgs> BgpPeeringAddresses
         {
-            get => _bgpPeeringAddresses ?? (_bgpPeeringAddresses = new InputList<Inputs.IPConfigurationBgpPeeringAddressResponseArgs>());
+            get => _bgpPeeringAddresses ?? (_bgpPeeringAddresses = new List<Inputs.IPConfigurationBgpPeeringAddressResponseArgs>());
             set => _bgpPeeringAddresses = value;
         }
 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// The weight added to routes learned from this BGP speaker.
         /// </summary>
         [Input("peerWeight")]
-        public Input<int>? PeerWeight { get; set; }
+        public int? PeerWeight { get; set; }
 
         public BgpSettingsResponseArgs()
         {

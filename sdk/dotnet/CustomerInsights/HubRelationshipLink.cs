@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// The definition of relationship link.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RelationshipLinkDefinitionResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RelationshipLinkDefinitionResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

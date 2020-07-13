@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Email Template entity contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EmailTemplateContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.EmailTemplateContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

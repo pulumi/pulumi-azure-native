@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DBforMariaDB
         /// Resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

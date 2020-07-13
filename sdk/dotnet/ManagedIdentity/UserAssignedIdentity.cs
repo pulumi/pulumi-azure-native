@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ManagedIdentity
         /// The properties associated with the identity.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.UserAssignedIdentityPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.UserAssignedIdentityPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getVault";
+export * from "./getVaultBackupPolicy";
+export * from "./getVaultPrivateEndpointConnection";
+export * from "./getVaultReplicationFabric";
+export * from "./getVaultReplicationFabricReplicationNetworkReplicationNetworkMapping";
+export * from "./getVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem";
+export * from "./getVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItem";
+export * from "./getVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMapping";
+export * from "./getVaultReplicationFabricReplicationRecoveryServicesProvider";
+export * from "./getVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMapping";
+export * from "./getVaultReplicationFabricReplicationvCenter";
+export * from "./getVaultReplicationPolicy";
+export * from "./getVaultReplicationRecoveryPlan";
 export * from "./vault";
 export * from "./vaultBackupPolicy";
 export * from "./vaultPrivateEndpointConnection";

@@ -13,31 +13,31 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// VPN client revoked certificate of virtual network gateway.
     /// </summary>
-    public sealed class VpnClientRevokedCertificateResponseArgs : Pulumi.ResourceArgs
+    public sealed class VpnClientRevokedCertificateResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
+        public string Etag { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
-        public Input<string>? Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Properties of the vpn client revoked certificate.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.VpnClientRevokedCertificatePropertiesFormatResponseArgs>? Properties { get; set; }
+        public Inputs.VpnClientRevokedCertificatePropertiesFormatResponseArgs? Properties { get; set; }
 
         public VpnClientRevokedCertificateResponseArgs()
         {

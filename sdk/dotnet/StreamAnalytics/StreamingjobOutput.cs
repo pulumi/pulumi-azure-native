@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StreamAnalytics
         /// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OutputPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OutputPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

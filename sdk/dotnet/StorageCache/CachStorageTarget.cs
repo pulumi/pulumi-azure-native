@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorageCache
         /// StorageTarget properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StorageTargetPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StorageTargetPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget

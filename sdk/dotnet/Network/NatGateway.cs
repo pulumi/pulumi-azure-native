@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Network
         /// Nat Gateway properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NatGatewayPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.NatGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The nat gateway SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.NatGatewaySkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.NatGatewaySkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ContainerService
         /// The identity of the managed cluster, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedClusterIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedClusterIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.ContainerService
         /// Properties of a managed cluster.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagedClusterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagedClusterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The managed cluster SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ManagedClusterSKUResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.ManagedClusterSKUResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

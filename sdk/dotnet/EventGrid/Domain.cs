@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.EventGrid
         /// Properties of the domain.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DomainPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DomainPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the resource.

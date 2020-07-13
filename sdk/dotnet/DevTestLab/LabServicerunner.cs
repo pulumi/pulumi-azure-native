@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DevTestLab
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityPropertiesResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.

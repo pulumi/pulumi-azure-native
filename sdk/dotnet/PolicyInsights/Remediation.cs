@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.PolicyInsights
         /// Properties for the remediation.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RemediationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RemediationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the remediation.

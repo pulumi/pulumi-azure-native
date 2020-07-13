@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the watcher properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WatcherPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WatcherPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

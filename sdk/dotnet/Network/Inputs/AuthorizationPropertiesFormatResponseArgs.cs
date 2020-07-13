@@ -13,25 +13,25 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// Properties of ExpressRouteCircuitAuthorization.
     /// </summary>
-    public sealed class AuthorizationPropertiesFormatResponseArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationPropertiesFormatResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The authorization key.
         /// </summary>
         [Input("authorizationKey")]
-        public Input<string>? AuthorizationKey { get; set; }
+        public string? AuthorizationKey { get; set; }
 
         /// <summary>
         /// The authorization use status.
         /// </summary>
         [Input("authorizationUseStatus")]
-        public Input<string>? AuthorizationUseStatus { get; set; }
+        public string? AuthorizationUseStatus { get; set; }
 
         /// <summary>
         /// The provisioning state of the authorization resource.
         /// </summary>
         [Input("provisioningState", required: true)]
-        public Input<string> ProvisioningState { get; set; } = null!;
+        public string ProvisioningState { get; set; } = null!;
 
         public AuthorizationPropertiesFormatResponseArgs()
         {

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DocumentDB
         /// Resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NotebookWorkspacePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.NotebookWorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of Azure resource.

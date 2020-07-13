@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties of the volume.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VolumePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VolumePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

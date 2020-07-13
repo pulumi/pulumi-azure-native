@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute
         /// Dedicated Host Group Properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DedicatedHostGroupPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DedicatedHostGroupPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

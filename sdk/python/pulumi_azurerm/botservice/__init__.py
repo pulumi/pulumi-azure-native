@@ -6,3 +6,6 @@
 from .bot_service import *
 from .bot_service_channel import *
 from .bot_service_connection import *
+from .get_bot_service import *
+from .get_bot_service_channel import *
+from .get_bot_service_connection import *

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties of access control record.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AccessControlRecordPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AccessControlRecordPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

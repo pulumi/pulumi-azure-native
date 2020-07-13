@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Batch
         /// The properties associated with the certificate.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CertificatePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.CertificatePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -108,8 +108,52 @@ func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureReque
 }
 
 // Invoke dynamically executes a built-in function in the provider.
-func (k *azurermProvider) Invoke(context.Context, *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
-	panic("Invoke not implemented")
+func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
+	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
+	glog.V(9).Infof("%s executing", label)
+
+	args, err := plugin.UnmarshalProperties(req.GetArgs(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.args", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	subscriptionId := k.config["subscriptionId"]
+	if subscriptionId == "" {
+		return nil, errors.New("Subscription ID is not found. Please configure azurerm:subscriptionId.")
+	}
+
+	res := k.resourceMap[req.Tok]
+
+	// Construct ARM REST API path from args.
+	id, _, _, err := k.prepareAzureRESTInputs(
+		res.Path,
+		res.GetParameters,
+		args.Mappable(),
+		map[string]interface{}{
+			"subscriptionId": subscriptionId,
+			"api-version":    res.ApiVersion,
+		},
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := k.azureGet(ctx, id, res.ApiVersion)
+	if err != nil {
+		return nil, fmt.Errorf("request failed %v", id)
+	}
+
+	// Serialize and return RPC outputs.
+	result, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(response),
+		plugin.MarshalOptions{Label: fmt.Sprintf("%s.response", label), KeepUnknowns: true, SkipNulls: true},
+	)
+	if err != nil {
+		return nil, err
+	}
+	return &rpc.InvokeResponse{Return: result}, nil
 }
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
@@ -186,7 +230,8 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 
 	// Construct ARM REST API body and query from intputs
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
-		res,
+		res.Path,
+		res.PutParameters,
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.subscriptionId,
@@ -264,7 +309,8 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 	res := k.resourceMap[string(urn.Type())]
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
-		res,
+		res.Path,
+		res.PutParameters,
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.subscriptionId,
@@ -459,7 +505,8 @@ func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion st
 	return outputs, nil
 }
 
-func (k *azurermProvider) prepareAzureRESTInputs(resource AzureApiResource, methodInputs, clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
+func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []AzureApiParameter, methodInputs,
+	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	locations := map[string]map[string]interface{}{
 		"client": clientInputs,
@@ -471,7 +518,7 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource AzureApiResource, meth
 		"path":  {},
 	}
 
-	for _, param := range resource.PutParameters {
+	for _, param := range parameters {
 		if param.Location == "body" {
 			for _, name := range param.RequiredProperties {
 				if _, has := methodInputs[name]; !has {
@@ -509,7 +556,7 @@ func (k *azurermProvider) prepareAzureRESTInputs(resource AzureApiResource, meth
 			}
 		}
 	}
-	id := resource.Path
+	id := path
 	for key, value := range params["path"] {
 		encodedVal := autorest.Encode("path", value.(string))
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)

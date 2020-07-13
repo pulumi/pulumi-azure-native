@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBoxEdge
         /// The container properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ContainerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ContainerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

@@ -13,17 +13,17 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// Parameters for VirtualHubRouteTableV2.
     /// </summary>
-    public sealed class VirtualHubRouteTableV2PropertiesResponseArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubRouteTableV2PropertiesResponseArgs : Pulumi.InvokeArgs
     {
         [Input("attachedConnections")]
-        private InputList<string>? _attachedConnections;
+        private List<string>? _attachedConnections;
 
         /// <summary>
         /// List of all connections attached to this route table v2.
         /// </summary>
-        public InputList<string> AttachedConnections
+        public List<string> AttachedConnections
         {
-            get => _attachedConnections ?? (_attachedConnections = new InputList<string>());
+            get => _attachedConnections ?? (_attachedConnections = new List<string>());
             set => _attachedConnections = value;
         }
 
@@ -31,17 +31,17 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// The provisioning state of the virtual hub route table v2 resource.
         /// </summary>
         [Input("provisioningState", required: true)]
-        public Input<string> ProvisioningState { get; set; } = null!;
+        public string ProvisioningState { get; set; } = null!;
 
         [Input("routes")]
-        private InputList<Inputs.VirtualHubRouteV2ResponseArgs>? _routes;
+        private List<Inputs.VirtualHubRouteV2ResponseArgs>? _routes;
 
         /// <summary>
         /// List of all routes.
         /// </summary>
-        public InputList<Inputs.VirtualHubRouteV2ResponseArgs> Routes
+        public List<Inputs.VirtualHubRouteV2ResponseArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRouteV2ResponseArgs>());
+            get => _routes ?? (_routes = new List<Inputs.VirtualHubRouteV2ResponseArgs>());
             set => _routes = value;
         }
 

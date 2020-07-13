@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AVS
         /// The properties of an HCX Enterprise Site resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.HcxEnterpriseSitePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.HcxEnterpriseSitePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

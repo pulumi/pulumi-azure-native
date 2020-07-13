@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Security
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.JitNetworkAccessPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.JitNetworkAccessPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

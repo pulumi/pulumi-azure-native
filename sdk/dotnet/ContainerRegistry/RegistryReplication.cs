@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ContainerRegistry
         /// The properties of the replication.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ReplicationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ReplicationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

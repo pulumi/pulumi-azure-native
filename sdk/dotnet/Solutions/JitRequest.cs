@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Solutions
         /// The JIT request properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.JitRequestPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.JitRequestPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

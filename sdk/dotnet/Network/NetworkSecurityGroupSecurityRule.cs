@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the security rule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SecurityRulePropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SecurityRulePropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

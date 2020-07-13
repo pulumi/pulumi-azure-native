@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ServiceFabric
         /// The application type name properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationTypeResourcePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationTypeResourcePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.EncryptionSetIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.EncryptionSetIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.Compute
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.EncryptionSetPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.EncryptionSetPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Web
         /// Certificate resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CertificateResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.CertificateResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

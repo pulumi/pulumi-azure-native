@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.IoTCentral
         /// The common properties of an IoT Central application.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AppPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AppPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// A valid instance SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AppSkuInfoResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.AppSkuInfoResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AVS
         /// The properties of an ExpressRoute Circuit Authorization resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExpressRouteAuthorizationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteAuthorizationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the express route connection.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExpressRouteConnectionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

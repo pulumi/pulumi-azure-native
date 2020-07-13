@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the virtual network gateway connection.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

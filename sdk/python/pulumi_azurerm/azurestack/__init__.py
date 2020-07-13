@@ -3,5 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_registration import *
+from .get_registration_customer_subscription import *
 from .registration import *
 from .registration_customer_subscription import *

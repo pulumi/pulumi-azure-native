@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute
         /// Describes the properties of a Shared Image Gallery.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GalleryPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GalleryPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

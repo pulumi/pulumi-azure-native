@@ -4,4 +4,7 @@
 // Export members:
 export * from "./domain";
 export * from "./domainTopic";
+export * from "./getDomain";
+export * from "./getDomainTopic";
+export * from "./getTopic";
 export * from "./topic";

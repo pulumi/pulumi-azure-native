@@ -2,5 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getVault";
+export * from "./getVaultPrivateEndpointConnection";
 export * from "./vault";
 export * from "./vaultPrivateEndpointConnection";

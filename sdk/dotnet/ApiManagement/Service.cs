@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Managed service identity of the Api Management service.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ApiManagementServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ApiManagementServiceIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Properties of the API Management service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApiManagementServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApiManagementServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// SKU properties of the API Management service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ApiManagementServiceSkuPropertiesResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.ApiManagementServiceSkuPropertiesResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

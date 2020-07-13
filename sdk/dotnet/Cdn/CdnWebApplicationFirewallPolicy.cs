@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Cdn
         /// Properties of the web application firewall policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CdnWebApplicationFirewallPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.CdnWebApplicationFirewallPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory
         /// Dataset properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DatasetResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DatasetResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

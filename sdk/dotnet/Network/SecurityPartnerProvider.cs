@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the Security Partner Provider.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SecurityPartnerProviderPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SecurityPartnerProviderPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

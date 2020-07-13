@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Media
         /// The Live Event properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LiveEventPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.LiveEventPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

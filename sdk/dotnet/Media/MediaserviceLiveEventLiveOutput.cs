@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Media
         /// The Live Output properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LiveOutputPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.LiveOutputPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

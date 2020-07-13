@@ -4,6 +4,11 @@
 
 # Export this package's modules as members:
 from .container_service import *
+from .get_container_service import *
+from .get_managed_cluster import *
+from .get_managed_cluster_agent_pool import *
+from .get_managed_cluster_private_endpoint_connection import *
+from .get_open_shift_managed_cluster import *
 from .managed_cluster import *
 from .managed_cluster_agent_pool import *
 from .managed_cluster_private_endpoint_connection import *

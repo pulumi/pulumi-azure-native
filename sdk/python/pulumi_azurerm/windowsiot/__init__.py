@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .device_service import *
+from .get_device_service import *

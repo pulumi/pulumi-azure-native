@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Kusto
         /// The properties of the attached database configuration.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AttachedDatabaseConfigurationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AttachedDatabaseConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

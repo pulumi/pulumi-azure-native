@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.StorageCache
         /// The identity of the cache, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.CacheIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.CacheIdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Region name string.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.StorageCache
         /// Properties of the Cache.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CacheResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.CacheResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.CacheResponseProperties?> Sku { get; private set; } = null!;
+        public Output<Outputs.CacheResponsePropertiesResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// ARM tags as name/value pairs.

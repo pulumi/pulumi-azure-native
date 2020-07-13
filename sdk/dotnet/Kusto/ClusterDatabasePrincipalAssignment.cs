@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Kusto
         /// The database principal.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DatabasePrincipalPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DatabasePrincipalPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

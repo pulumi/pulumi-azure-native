@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// Chap properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ChapPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ChapPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.

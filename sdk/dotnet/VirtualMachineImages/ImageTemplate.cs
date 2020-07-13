@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages
         /// The identity of the image template, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ImageTemplateIdentityResponse> Identity { get; private set; } = null!;
+        public Output<Outputs.ImageTemplateIdentityResponseResult> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages
         /// The properties of the image template
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ImageTemplatePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ImageTemplatePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

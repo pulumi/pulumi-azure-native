@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the network interface.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NetworkInterfacePropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfacePropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

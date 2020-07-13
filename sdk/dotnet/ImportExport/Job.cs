@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ImportExport
         /// Specifies the job properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.JobDetailsResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.JobDetailsResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the tags that are assigned to the job.

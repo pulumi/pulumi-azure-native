@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// SwiftVirtualNetwork resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SwiftVirtualNetworkResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.SwiftVirtualNetworkResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

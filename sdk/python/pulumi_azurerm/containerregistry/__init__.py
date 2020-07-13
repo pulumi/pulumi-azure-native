@@ -3,6 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_registry import *
+from .get_registry_replication import *
+from .get_registry_task import *
+from .get_registry_webhook import *
 from .registry import *
 from .registry_replication import *
 from .registry_task import *

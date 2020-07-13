@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the Virtual Network Tap configuration.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NetworkInterfaceTapConfigurationPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfaceTapConfigurationPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Sub Resource type.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Compute
         /// Describes the properties of a Virtual Machine Scale Set Extension.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualMachineScaleSetExtensionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetExtensionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

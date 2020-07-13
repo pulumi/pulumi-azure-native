@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// HybridConnection resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.HybridConnectionResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.HybridConnectionResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

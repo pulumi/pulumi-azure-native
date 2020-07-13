@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.RecoveryServices
         /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProtectionPolicyResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ProtectionPolicyResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

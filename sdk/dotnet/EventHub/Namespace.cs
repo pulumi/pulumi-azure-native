@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.EventHub
         /// Namespace properties supplied for create namespace operation.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EHNamespaceResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.EHNamespaceResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Properties of sku resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

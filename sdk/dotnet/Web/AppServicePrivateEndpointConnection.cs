@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// Core resource properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RemotePrivateEndpointConnectionResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RemotePrivateEndpointConnectionResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

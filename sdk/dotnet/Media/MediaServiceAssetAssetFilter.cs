@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Media
         /// The Media Filter properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MediaFilterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.MediaFilterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

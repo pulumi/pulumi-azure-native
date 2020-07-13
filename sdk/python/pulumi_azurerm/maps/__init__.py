@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .account import *
+from .get_account import *

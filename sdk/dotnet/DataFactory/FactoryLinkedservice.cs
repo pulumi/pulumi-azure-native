@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory
         /// Properties of linked service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LinkedServiceResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.LinkedServiceResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

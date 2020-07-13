@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the P2SVpnServer configuration.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VpnServerConfigurationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VpnServerConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

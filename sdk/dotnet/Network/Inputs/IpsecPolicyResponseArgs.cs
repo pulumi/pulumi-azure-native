@@ -13,55 +13,55 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// An IPSec Policy configuration for a virtual network gateway connection.
     /// </summary>
-    public sealed class IpsecPolicyResponseArgs : Pulumi.ResourceArgs
+    public sealed class IpsecPolicyResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The DH Group used in IKE Phase 1 for initial SA.
         /// </summary>
         [Input("dhGroup", required: true)]
-        public Input<string> DhGroup { get; set; } = null!;
+        public string DhGroup { get; set; } = null!;
 
         /// <summary>
         /// The IKE encryption algorithm (IKE phase 2).
         /// </summary>
         [Input("ikeEncryption", required: true)]
-        public Input<string> IkeEncryption { get; set; } = null!;
+        public string IkeEncryption { get; set; } = null!;
 
         /// <summary>
         /// The IKE integrity algorithm (IKE phase 2).
         /// </summary>
         [Input("ikeIntegrity", required: true)]
-        public Input<string> IkeIntegrity { get; set; } = null!;
+        public string IkeIntegrity { get; set; } = null!;
 
         /// <summary>
         /// The IPSec encryption algorithm (IKE phase 1).
         /// </summary>
         [Input("ipsecEncryption", required: true)]
-        public Input<string> IpsecEncryption { get; set; } = null!;
+        public string IpsecEncryption { get; set; } = null!;
 
         /// <summary>
         /// The IPSec integrity algorithm (IKE phase 1).
         /// </summary>
         [Input("ipsecIntegrity", required: true)]
-        public Input<string> IpsecIntegrity { get; set; } = null!;
+        public string IpsecIntegrity { get; set; } = null!;
 
         /// <summary>
         /// The Pfs Group used in IKE Phase 2 for new child SA.
         /// </summary>
         [Input("pfsGroup", required: true)]
-        public Input<string> PfsGroup { get; set; } = null!;
+        public string PfsGroup { get; set; } = null!;
 
         /// <summary>
         /// The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
         /// </summary>
         [Input("saDataSizeKilobytes", required: true)]
-        public Input<int> SaDataSizeKilobytes { get; set; } = null!;
+        public int SaDataSizeKilobytes { get; set; }
 
         /// <summary>
         /// The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
         /// </summary>
         [Input("saLifeTimeSeconds", required: true)]
-        public Input<int> SaLifeTimeSeconds { get; set; } = null!;
+        public int SaLifeTimeSeconds { get; set; }
 
         public IpsecPolicyResponseArgs()
         {

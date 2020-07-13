@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Media
         /// The resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AssetPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AssetPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

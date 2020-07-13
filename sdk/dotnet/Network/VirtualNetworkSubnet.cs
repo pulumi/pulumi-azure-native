@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the subnet.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SubnetPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SubnetPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

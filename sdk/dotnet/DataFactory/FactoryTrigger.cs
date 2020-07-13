@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory
         /// Properties of the trigger.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.TriggerResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.TriggerResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

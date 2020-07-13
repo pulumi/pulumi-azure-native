@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DomainRegistration
         /// DomainOwnershipIdentifier resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DomainOwnershipIdentifierResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.DomainOwnershipIdentifierResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

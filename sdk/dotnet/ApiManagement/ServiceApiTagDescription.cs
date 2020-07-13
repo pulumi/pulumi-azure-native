@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// TagDescription entity contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.TagDescriptionContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.TagDescriptionContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

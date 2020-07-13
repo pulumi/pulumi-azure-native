@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DataLakeStore
         /// The Key Vault encryption identity, if any.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.EncryptionIdentityResponse> Identity { get; private set; } = null!;
+        public Output<Outputs.EncryptionIdentityResponseResult> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DataLakeStore
         /// The Data Lake Store account properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DataLakeStoreAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DataLakeStoreAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

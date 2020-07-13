@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the private endpoint.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

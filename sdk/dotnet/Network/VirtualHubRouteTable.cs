@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the virtual hub route table v2.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualHubRouteTableV2PropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualHubRouteTableV2PropertiesResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

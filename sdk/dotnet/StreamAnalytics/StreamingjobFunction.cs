@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StreamAnalytics
         /// The properties that are associated with a function.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FunctionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FunctionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

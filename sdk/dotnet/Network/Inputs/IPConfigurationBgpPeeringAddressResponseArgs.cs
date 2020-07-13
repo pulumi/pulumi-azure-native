@@ -13,29 +13,29 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// Properties of IPConfigurationBgpPeeringAddress.
     /// </summary>
-    public sealed class IPConfigurationBgpPeeringAddressResponseArgs : Pulumi.ResourceArgs
+    public sealed class IPConfigurationBgpPeeringAddressResponseArgs : Pulumi.InvokeArgs
     {
         [Input("customBgpIpAddresses")]
-        private InputList<string>? _customBgpIpAddresses;
+        private List<string>? _customBgpIpAddresses;
 
         /// <summary>
         /// The list of custom BGP peering addresses which belong to IP configuration.
         /// </summary>
-        public InputList<string> CustomBgpIpAddresses
+        public List<string> CustomBgpIpAddresses
         {
-            get => _customBgpIpAddresses ?? (_customBgpIpAddresses = new InputList<string>());
+            get => _customBgpIpAddresses ?? (_customBgpIpAddresses = new List<string>());
             set => _customBgpIpAddresses = value;
         }
 
         [Input("defaultBgpIpAddresses", required: true)]
-        private InputList<string>? _defaultBgpIpAddresses;
+        private List<string>? _defaultBgpIpAddresses;
 
         /// <summary>
         /// The list of default BGP peering addresses which belong to IP configuration.
         /// </summary>
-        public InputList<string> DefaultBgpIpAddresses
+        public List<string> DefaultBgpIpAddresses
         {
-            get => _defaultBgpIpAddresses ?? (_defaultBgpIpAddresses = new InputList<string>());
+            get => _defaultBgpIpAddresses ?? (_defaultBgpIpAddresses = new List<string>());
             set => _defaultBgpIpAddresses = value;
         }
 
@@ -43,17 +43,17 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// The ID of IP configuration which belongs to gateway.
         /// </summary>
         [Input("ipconfigurationId")]
-        public Input<string>? IpconfigurationId { get; set; }
+        public string? IpconfigurationId { get; set; }
 
         [Input("tunnelIpAddresses", required: true)]
-        private InputList<string>? _tunnelIpAddresses;
+        private List<string>? _tunnelIpAddresses;
 
         /// <summary>
         /// The list of tunnel public IP addresses which belong to IP configuration.
         /// </summary>
-        public InputList<string> TunnelIpAddresses
+        public List<string> TunnelIpAddresses
         {
-            get => _tunnelIpAddresses ?? (_tunnelIpAddresses = new InputList<string>());
+            get => _tunnelIpAddresses ?? (_tunnelIpAddresses = new List<string>());
             set => _tunnelIpAddresses = value;
         }
 

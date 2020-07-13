@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.SignalRService
         /// Settings used to provision or configure the resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SignalRPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SignalRPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The billing information of the resource.(e.g. Free, Standard)
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.

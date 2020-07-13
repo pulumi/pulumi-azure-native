@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.EventGrid
         /// Properties of the topic.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.TopicPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.TopicPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the resource.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBoxEdge
         /// The share properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SharePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SharePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

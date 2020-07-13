@@ -2,6 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getLab";
+export * from "./getLabArtifactsource";
+export * from "./getLabCustomimage";
+export * from "./getLabFormula";
+export * from "./getLabNotificationchannel";
+export * from "./getLabPolicysetPolicy";
+export * from "./getLabSchedule";
+export * from "./getLabServicerunner";
+export * from "./getLabUser";
+export * from "./getLabUserDisk";
+export * from "./getLabUserEnvironment";
+export * from "./getLabUserSecret";
+export * from "./getLabUserServicefabric";
+export * from "./getLabUserServicefabricSchedule";
+export * from "./getLabVirtualmachine";
+export * from "./getLabVirtualmachineSchedule";
+export * from "./getLabVirtualnetwork";
+export * from "./getSchedule";
 export * from "./lab";
 export * from "./labArtifactsource";
 export * from "./labCustomimage";

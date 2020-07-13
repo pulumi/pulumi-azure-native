@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataLakeAnalytics
         /// The properties defined by Data Lake Analytics all properties are specific to each resource provider.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DataLakeAnalyticsAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DataLakeAnalyticsAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

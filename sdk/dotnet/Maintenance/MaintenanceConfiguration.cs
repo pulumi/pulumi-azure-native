@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Maintenance
         /// Gets or sets properties of the resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MaintenanceConfigurationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.MaintenanceConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets tags of the resource

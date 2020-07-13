@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FileSharePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FileSharePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.

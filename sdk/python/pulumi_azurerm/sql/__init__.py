@@ -3,6 +3,13 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_server import *
+from .get_server_administrator import *
+from .get_server_communication_link import *
+from .get_server_database import *
+from .get_server_disaster_recovery_configuration import *
+from .get_server_elastic_pool import *
+from .get_server_firewall_rule import *
 from .server import *
 from .server_administrator import *
 from .server_communication_link import *

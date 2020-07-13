@@ -13,13 +13,13 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// Reference to another subresource.
     /// </summary>
-    public sealed class SubResourceResponseArgs : Pulumi.ResourceArgs
+    public sealed class SubResourceResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
-        public Input<string>? Id { get; set; }
+        public string? Id { get; set; }
 
         public SubResourceResponseArgs()
         {

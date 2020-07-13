@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the route table.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RouteTablePropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RouteTablePropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

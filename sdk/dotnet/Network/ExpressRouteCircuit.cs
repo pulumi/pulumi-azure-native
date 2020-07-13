@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the express route circuit.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ExpressRouteCircuitSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

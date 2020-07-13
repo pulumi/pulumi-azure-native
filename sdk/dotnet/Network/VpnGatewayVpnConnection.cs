@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the VPN connection.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VpnConnectionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VpnConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

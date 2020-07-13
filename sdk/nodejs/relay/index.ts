@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getNamespace";
+export * from "./getNamespaceAuthorizationRule";
+export * from "./getNamespaceHybridConnection";
+export * from "./getNamespaceHybridConnectionAuthorizationRule";
+export * from "./getNamespaceWcfRelay";
+export * from "./getNamespaceWcfRelayAuthorizationRule";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./namespaceHybridConnection";

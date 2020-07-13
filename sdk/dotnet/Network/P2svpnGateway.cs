@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the P2SVpnGateway.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.P2SVpnGatewayPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.P2SVpnGatewayPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

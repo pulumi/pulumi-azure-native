@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RecoveryServices
         /// The custom data.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProtectionContainerMappingPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ProtectionContainerMappingPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource Type

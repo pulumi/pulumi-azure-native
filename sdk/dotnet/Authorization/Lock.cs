@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Authorization
         /// The properties of the lock.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagementLockPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagementLockPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.

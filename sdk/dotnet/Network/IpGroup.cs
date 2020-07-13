@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the IpGroups.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IpGroupPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IpGroupPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

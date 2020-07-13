@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Sql
         /// The properties representing the resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DisasterRecoveryConfigurationPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DisasterRecoveryConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

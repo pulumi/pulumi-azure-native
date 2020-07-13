@@ -3,6 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_namespace import *
+from .get_namespace_authorization_rule import *
+from .get_namespace_notification_hub import *
+from .get_namespace_notification_hub_authorization_rule import *
 from .namespace import *
 from .namespace_authorization_rule import *
 from .namespace_notification_hub import *

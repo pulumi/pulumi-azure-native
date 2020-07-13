@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataShare
         /// Properties on the share
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SharePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SharePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource

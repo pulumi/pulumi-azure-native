@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorageSync
         /// RegisteredServer properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RegisteredServerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RegisteredServerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

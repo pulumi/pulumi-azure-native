@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.WindowsIoT
         /// The properties of a Windows IoT Device Service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DeviceServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DeviceServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

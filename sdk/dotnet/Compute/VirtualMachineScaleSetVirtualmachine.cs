@@ -36,25 +36,25 @@ namespace Pulumi.AzureRM.Compute
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Describes the properties of a virtual machine scale set virtual machine.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualMachineScaleSetVMPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetVMPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine child extension resources.
         /// </summary>
         [Output("resources")]
-        public Output<ImmutableArray<Outputs.VirtualMachineExtensionResponse>> Resources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualMachineExtensionResponseResult>> Resources { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Compute
         /// The instance view of a resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AvailabilitySetPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AvailabilitySetPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

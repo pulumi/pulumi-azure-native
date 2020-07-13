@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// The properties of a Profile
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProfilePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ProfilePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -3,6 +3,12 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_iot_hub import *
+from .get_iot_hub_certificate import *
+from .get_iot_hub_event_hub_endpoint_consumer_group import *
+from .get_iot_hub_private_endpoint_connection import *
+from .get_provisioning_service import *
+from .get_provisioning_service_certificate import *
 from .iot_hub import *
 from .iot_hub_certificate import *
 from .iot_hub_event_hub_endpoint_consumer_group import *

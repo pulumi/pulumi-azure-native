@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DataShare
         /// Identity Info on the Account
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponseResult> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Location of the azure resource.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DataShare
         /// Properties on the account
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Tags on the azure resource.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBoxEdge
         /// The properties of the bandwidth schedule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BandwidthSchedulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BandwidthSchedulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

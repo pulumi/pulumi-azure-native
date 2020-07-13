@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.EventHub
         /// Single item in List or Get Consumer group operation
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConsumerGroupResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.ConsumerGroupResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getWorkspaceProviderAlertRule";
+export * from "./getWorkspaceProviderAlertRuleAction";
+export * from "./getWorkspaceProviderBookmark";
+export * from "./getWorkspaceProviderDataConnector";
+export * from "./getWorkspaceProviderIncident";
+export * from "./getWorkspaceSavedSearch";
+export * from "./getWorkspaceStorageInsightConfig";
 export * from "./workspaceProviderAlertRule";
 export * from "./workspaceProviderAlertRuleAction";
 export * from "./workspaceProviderBookmark";

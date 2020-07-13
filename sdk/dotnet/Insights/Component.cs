@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Insights
         /// Properties that define an Application Insights component resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationInsightsComponentPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationInsightsComponentPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

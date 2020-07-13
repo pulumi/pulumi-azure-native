@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Network
         /// Public IP address properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PublicIPAddressPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PublicIPAddressPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PublicIPAddressSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.PublicIPAddressSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

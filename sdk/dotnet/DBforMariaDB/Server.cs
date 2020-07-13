@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.DBforMariaDB
         /// Properties of the server.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServerPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ServerPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Application-specific metadata in the form of key-value pairs.

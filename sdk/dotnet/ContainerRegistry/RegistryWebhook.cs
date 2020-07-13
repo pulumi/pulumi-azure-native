@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ContainerRegistry
         /// The properties of the webhook.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WebhookPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WebhookPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

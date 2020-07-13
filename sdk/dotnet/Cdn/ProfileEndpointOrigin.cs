@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Cdn
         /// The JSON object that contains the properties of the origin.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OriginPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OriginPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

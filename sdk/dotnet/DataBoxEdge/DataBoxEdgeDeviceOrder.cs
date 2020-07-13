@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBoxEdge
         /// The order properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OrderPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OrderPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

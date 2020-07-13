@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the Front Door Load Balancer
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FrontDoorPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.FrontDoorPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

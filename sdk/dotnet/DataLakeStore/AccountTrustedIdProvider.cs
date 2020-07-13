@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataLakeStore
         /// The trusted identity provider properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.TrustedIdProviderPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.TrustedIdProviderPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

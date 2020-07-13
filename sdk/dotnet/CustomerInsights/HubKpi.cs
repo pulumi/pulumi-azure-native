@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// Defines the KPI Threshold limits.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.KpiDefinitionResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.KpiDefinitionResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

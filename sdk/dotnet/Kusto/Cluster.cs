@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Kusto
         /// The identity of the cluster, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Kusto
         /// The cluster properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the cluster.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AzureSkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.AzureSkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Kusto
         /// The availability zones of the cluster.
         /// </summary>
         [Output("zones")]
-        public Output<Outputs.ZonesResponse?> Zones { get; private set; } = null!;
+        public Output<Outputs.ZonesResponseResult?> Zones { get; private set; } = null!;
 
 
         /// <summary>

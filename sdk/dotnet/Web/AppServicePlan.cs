@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Web
         /// AppServicePlan resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AppServicePlanResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.AppServicePlanResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Description of a SKU for a scalable resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuDescriptionResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuDescriptionResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

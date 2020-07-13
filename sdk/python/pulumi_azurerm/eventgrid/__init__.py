@@ -5,4 +5,7 @@
 # Export this package's modules as members:
 from .domain import *
 from .domain_topic import *
+from .get_domain import *
+from .get_domain_topic import *
+from .get_topic import *
 from .topic import *

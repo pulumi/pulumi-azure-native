@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Databricks
         /// The workspace properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WorkspacePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

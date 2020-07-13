@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.MachineLearning
         /// The properties of the machine learning workspace.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WorkspacePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

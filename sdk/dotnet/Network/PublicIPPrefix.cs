@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Network
         /// Public IP prefix properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PublicIPPrefixPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PublicIPPrefixPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The public IP prefix SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PublicIPPrefixSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.PublicIPPrefixSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

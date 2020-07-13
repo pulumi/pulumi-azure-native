@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Compute
         /// Properties of the dedicated host.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DedicatedHostPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DedicatedHostPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

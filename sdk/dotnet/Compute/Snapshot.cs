@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Compute
         /// Snapshot resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SnapshotPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SnapshotPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SnapshotSkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SnapshotSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

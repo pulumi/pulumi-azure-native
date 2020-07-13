@@ -13,47 +13,47 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// VpnClientConfiguration for P2S client.
     /// </summary>
-    public sealed class VpnClientConfigurationResponseArgs : Pulumi.ResourceArgs
+    public sealed class VpnClientConfigurationResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
         /// </summary>
         [Input("aadAudience")]
-        public Input<string>? AadAudience { get; set; }
+        public string? AadAudience { get; set; }
 
         /// <summary>
         /// The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
         /// </summary>
         [Input("aadIssuer")]
-        public Input<string>? AadIssuer { get; set; }
+        public string? AadIssuer { get; set; }
 
         /// <summary>
         /// The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
         /// </summary>
         [Input("aadTenant")]
-        public Input<string>? AadTenant { get; set; }
+        public string? AadTenant { get; set; }
 
         /// <summary>
         /// The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
         /// </summary>
         [Input("radiusServerAddress")]
-        public Input<string>? RadiusServerAddress { get; set; }
+        public string? RadiusServerAddress { get; set; }
 
         /// <summary>
         /// The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
         /// </summary>
         [Input("radiusServerSecret")]
-        public Input<string>? RadiusServerSecret { get; set; }
+        public string? RadiusServerSecret { get; set; }
 
         [Input("radiusServers")]
-        private InputList<Inputs.RadiusServerResponseArgs>? _radiusServers;
+        private List<Inputs.RadiusServerResponseArgs>? _radiusServers;
 
         /// <summary>
         /// The radiusServers property for multiple radius server configuration.
         /// </summary>
-        public InputList<Inputs.RadiusServerResponseArgs> RadiusServers
+        public List<Inputs.RadiusServerResponseArgs> RadiusServers
         {
-            get => _radiusServers ?? (_radiusServers = new InputList<Inputs.RadiusServerResponseArgs>());
+            get => _radiusServers ?? (_radiusServers = new List<Inputs.RadiusServerResponseArgs>());
             set => _radiusServers = value;
         }
 
@@ -61,53 +61,53 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// The reference to the address space resource which represents Address space for P2S VpnClient.
         /// </summary>
         [Input("vpnClientAddressPool")]
-        public Input<Inputs.AddressSpaceResponseArgs>? VpnClientAddressPool { get; set; }
+        public Inputs.AddressSpaceResponseArgs? VpnClientAddressPool { get; set; }
 
         [Input("vpnClientIpsecPolicies")]
-        private InputList<Inputs.IpsecPolicyResponseArgs>? _vpnClientIpsecPolicies;
+        private List<Inputs.IpsecPolicyResponseArgs>? _vpnClientIpsecPolicies;
 
         /// <summary>
         /// VpnClientIpsecPolicies for virtual network gateway P2S client.
         /// </summary>
-        public InputList<Inputs.IpsecPolicyResponseArgs> VpnClientIpsecPolicies
+        public List<Inputs.IpsecPolicyResponseArgs> VpnClientIpsecPolicies
         {
-            get => _vpnClientIpsecPolicies ?? (_vpnClientIpsecPolicies = new InputList<Inputs.IpsecPolicyResponseArgs>());
+            get => _vpnClientIpsecPolicies ?? (_vpnClientIpsecPolicies = new List<Inputs.IpsecPolicyResponseArgs>());
             set => _vpnClientIpsecPolicies = value;
         }
 
         [Input("vpnClientProtocols")]
-        private InputList<string>? _vpnClientProtocols;
+        private List<string>? _vpnClientProtocols;
 
         /// <summary>
         /// VpnClientProtocols for Virtual network gateway.
         /// </summary>
-        public InputList<string> VpnClientProtocols
+        public List<string> VpnClientProtocols
         {
-            get => _vpnClientProtocols ?? (_vpnClientProtocols = new InputList<string>());
+            get => _vpnClientProtocols ?? (_vpnClientProtocols = new List<string>());
             set => _vpnClientProtocols = value;
         }
 
         [Input("vpnClientRevokedCertificates")]
-        private InputList<Inputs.VpnClientRevokedCertificateResponseArgs>? _vpnClientRevokedCertificates;
+        private List<Inputs.VpnClientRevokedCertificateResponseArgs>? _vpnClientRevokedCertificates;
 
         /// <summary>
         /// VpnClientRevokedCertificate for Virtual network gateway.
         /// </summary>
-        public InputList<Inputs.VpnClientRevokedCertificateResponseArgs> VpnClientRevokedCertificates
+        public List<Inputs.VpnClientRevokedCertificateResponseArgs> VpnClientRevokedCertificates
         {
-            get => _vpnClientRevokedCertificates ?? (_vpnClientRevokedCertificates = new InputList<Inputs.VpnClientRevokedCertificateResponseArgs>());
+            get => _vpnClientRevokedCertificates ?? (_vpnClientRevokedCertificates = new List<Inputs.VpnClientRevokedCertificateResponseArgs>());
             set => _vpnClientRevokedCertificates = value;
         }
 
         [Input("vpnClientRootCertificates")]
-        private InputList<Inputs.VpnClientRootCertificateResponseArgs>? _vpnClientRootCertificates;
+        private List<Inputs.VpnClientRootCertificateResponseArgs>? _vpnClientRootCertificates;
 
         /// <summary>
         /// VpnClientRootCertificate for virtual network gateway.
         /// </summary>
-        public InputList<Inputs.VpnClientRootCertificateResponseArgs> VpnClientRootCertificates
+        public List<Inputs.VpnClientRootCertificateResponseArgs> VpnClientRootCertificates
         {
-            get => _vpnClientRootCertificates ?? (_vpnClientRootCertificates = new InputList<Inputs.VpnClientRootCertificateResponseArgs>());
+            get => _vpnClientRootCertificates ?? (_vpnClientRootCertificates = new List<Inputs.VpnClientRootCertificateResponseArgs>());
             set => _vpnClientRootCertificates = value;
         }
 

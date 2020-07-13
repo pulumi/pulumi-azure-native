@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./capacity";
+export * from "./getCapacity";

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the express route circuit peering.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

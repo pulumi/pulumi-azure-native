@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of load balancer backend address pool.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BackendAddressPoolPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BackendAddressPoolPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

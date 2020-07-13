@@ -7,3 +7,8 @@ export * from "./clusterApplication";
 export * from "./clusterApplicationService";
 export * from "./clusterApplicationType";
 export * from "./clusterApplicationTypeVersion";
+export * from "./getCluster";
+export * from "./getClusterApplication";
+export * from "./getClusterApplicationService";
+export * from "./getClusterApplicationType";
+export * from "./getClusterApplicationTypeVersion";

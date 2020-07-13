@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Compute
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.DiskAccessPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DiskAccessPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

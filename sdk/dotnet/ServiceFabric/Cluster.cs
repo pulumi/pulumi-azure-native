@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ServiceFabric
         /// The cluster resource properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

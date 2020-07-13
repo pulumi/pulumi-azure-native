@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Relay
         /// Description of Relay namespace
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RelayNamespacePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RelayNamespacePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// SKU of the namespace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

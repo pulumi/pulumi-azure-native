@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// VnetInfo resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VnetInfoResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.VnetInfoResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

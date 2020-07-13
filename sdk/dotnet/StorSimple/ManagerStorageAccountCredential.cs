@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The storage account credential properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StorageAccountCredentialPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StorageAccountCredentialPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

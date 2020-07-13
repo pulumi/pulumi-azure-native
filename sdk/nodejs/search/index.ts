@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getSearchService";
+export * from "./getSearchServicePrivateEndpointConnection";
+export * from "./getSearchServiceSharedPrivateLinkResource";
 export * from "./searchService";
 export * from "./searchServicePrivateEndpointConnection";
 export * from "./searchServiceSharedPrivateLinkResource";

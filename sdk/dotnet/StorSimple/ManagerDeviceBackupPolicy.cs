@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The properties of the backup policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BackupPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.BackupPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

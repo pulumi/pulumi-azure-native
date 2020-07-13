@@ -13,37 +13,37 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// Properties of VirtualNetworkGatewayIPConfiguration.
     /// </summary>
-    public sealed class VirtualNetworkGatewayIPConfigurationPropertiesFormatResponseArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayIPConfigurationPropertiesFormatResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Private IP Address for this gateway.
         /// </summary>
         [Input("privateIPAddress", required: true)]
-        public Input<string> PrivateIPAddress { get; set; } = null!;
+        public string PrivateIPAddress { get; set; } = null!;
 
         /// <summary>
         /// The private IP address allocation method.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public Input<string>? PrivateIPAllocationMethod { get; set; }
+        public string? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The provisioning state of the virtual network gateway IP configuration resource.
         /// </summary>
         [Input("provisioningState", required: true)]
-        public Input<string> ProvisioningState { get; set; } = null!;
+        public string ProvisioningState { get; set; } = null!;
 
         /// <summary>
         /// The reference to the public IP resource.
         /// </summary>
         [Input("publicIPAddress")]
-        public Input<Inputs.SubResourceResponseArgs>? PublicIPAddress { get; set; }
+        public Inputs.SubResourceResponseArgs? PublicIPAddress { get; set; }
 
         /// <summary>
         /// The reference to the subnet resource.
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.SubResourceResponseArgs>? Subnet { get; set; }
+        public Inputs.SubResourceResponseArgs? Subnet { get; set; }
 
         public VirtualNetworkGatewayIPConfigurationPropertiesFormatResponseArgs()
         {

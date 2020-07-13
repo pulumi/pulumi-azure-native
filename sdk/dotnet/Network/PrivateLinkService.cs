@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the private link service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateLinkServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

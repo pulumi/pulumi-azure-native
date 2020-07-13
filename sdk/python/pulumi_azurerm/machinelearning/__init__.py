@@ -3,5 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_web_service import *
+from .get_workspace import *
 from .web_service import *
 from .workspace import *

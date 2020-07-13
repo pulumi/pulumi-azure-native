@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus
         /// Properties required to the Create Migration Configuration
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MigrationConfigPropertiesResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.MigrationConfigPropertiesResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

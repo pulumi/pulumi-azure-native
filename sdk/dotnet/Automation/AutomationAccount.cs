@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the automation account properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AutomationAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AutomationAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Cache
         /// redis cache firewall rule properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RedisFirewallRulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RedisFirewallRulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.DataBoxEdge
         /// The properties of the Data Box Edge/Gateway device.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DataBoxEdgeDevicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DataBoxEdgeDevicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU type.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Databricks
         /// List of properties for vNet Peering
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// type of the virtual network peering resource

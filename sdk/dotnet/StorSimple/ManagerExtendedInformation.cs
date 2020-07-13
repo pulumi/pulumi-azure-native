@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.StorSimple
         /// The extended info properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagerExtendedInfoPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagerExtendedInfoPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

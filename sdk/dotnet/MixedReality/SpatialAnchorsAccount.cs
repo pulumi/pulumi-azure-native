@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.MixedReality
         /// Property bag.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MixedRealityAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.MixedRealityAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

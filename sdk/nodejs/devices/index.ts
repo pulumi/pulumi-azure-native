@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getIotHub";
+export * from "./getIotHubCertificate";
+export * from "./getIotHubEventHubEndpointConsumerGroup";
+export * from "./getIotHubPrivateEndpointConnection";
+export * from "./getProvisioningService";
+export * from "./getProvisioningServiceCertificate";
 export * from "./iotHub";
 export * from "./iotHubCertificate";
 export * from "./iotHubEventHubEndpointConsumerGroup";

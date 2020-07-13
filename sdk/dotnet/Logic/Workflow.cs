@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic
         /// The workflow properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WorkflowPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WorkflowPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

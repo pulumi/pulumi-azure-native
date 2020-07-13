@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.NotificationHubs
         /// Properties of the NotificationHub.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NotificationHubPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.NotificationHubPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

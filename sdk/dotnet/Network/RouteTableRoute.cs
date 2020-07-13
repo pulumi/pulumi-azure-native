@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the route.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RoutePropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RoutePropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

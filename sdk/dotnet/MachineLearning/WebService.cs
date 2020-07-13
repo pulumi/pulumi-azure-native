@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.MachineLearning
         /// Contains the property payload that describes the web service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WebServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WebServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Storage
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Gets the Kind.
@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Storage
         /// Properties of the storage account.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StorageAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StorageAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets the SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

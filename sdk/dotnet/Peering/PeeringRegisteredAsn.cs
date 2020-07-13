@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Peering
         /// The properties that define a registered ASN.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PeeringRegisteredAsnPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PeeringRegisteredAsnPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

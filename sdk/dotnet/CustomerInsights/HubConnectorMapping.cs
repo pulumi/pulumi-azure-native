@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// The connector mapping definition.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConnectorMappingResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ConnectorMappingResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// FunctionEnvelope resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FunctionEnvelopeResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.FunctionEnvelopeResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

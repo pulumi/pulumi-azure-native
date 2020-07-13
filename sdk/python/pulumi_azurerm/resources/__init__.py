@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .deployment import *
+from .get_deployment import *

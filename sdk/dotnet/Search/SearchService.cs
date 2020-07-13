@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Search
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Search
         /// Properties of the Search service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SearchServicePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SearchServicePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags to help categorize the resource in the Azure portal.

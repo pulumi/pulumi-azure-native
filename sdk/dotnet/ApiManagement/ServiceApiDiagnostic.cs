@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Diagnostic entity contract properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DiagnosticContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DiagnosticContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

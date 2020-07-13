@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DBforPostgreSQL
         /// The properties of a database.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DatabasePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DatabasePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

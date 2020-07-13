@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.LabServices
         /// These are the properties for the user registered under a lab.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.UserPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.UserPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

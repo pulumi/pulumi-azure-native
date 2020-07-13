@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the DDoS protection plan.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DdosProtectionPlanPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DdosProtectionPlanPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

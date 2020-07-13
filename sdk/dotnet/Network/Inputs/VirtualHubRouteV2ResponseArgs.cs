@@ -13,23 +13,23 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// VirtualHubRouteTableV2 route.
     /// </summary>
-    public sealed class VirtualHubRouteV2ResponseArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHubRouteV2ResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of destinations.
         /// </summary>
         [Input("destinationType")]
-        public Input<string>? DestinationType { get; set; }
+        public string? DestinationType { get; set; }
 
         [Input("destinations")]
-        private InputList<string>? _destinations;
+        private List<string>? _destinations;
 
         /// <summary>
         /// List of all destinations.
         /// </summary>
-        public InputList<string> Destinations
+        public List<string> Destinations
         {
-            get => _destinations ?? (_destinations = new InputList<string>());
+            get => _destinations ?? (_destinations = new List<string>());
             set => _destinations = value;
         }
 
@@ -37,17 +37,17 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// The type of next hops.
         /// </summary>
         [Input("nextHopType")]
-        public Input<string>? NextHopType { get; set; }
+        public string? NextHopType { get; set; }
 
         [Input("nextHops")]
-        private InputList<string>? _nextHops;
+        private List<string>? _nextHops;
 
         /// <summary>
         /// NextHops ip address.
         /// </summary>
-        public InputList<string> NextHops
+        public List<string> NextHops
         {
-            get => _nextHops ?? (_nextHops = new InputList<string>());
+            get => _nextHops ?? (_nextHops = new List<string>());
             set => _nextHops = value;
         }
 

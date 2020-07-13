@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getNamespace";
+export * from "./getNamespaceAuthorizationRule";
+export * from "./getNamespaceDisasterRecoveryConfig";
+export * from "./getNamespaceMigrationConfiguration";
+export * from "./getNamespaceQueue";
+export * from "./getNamespaceQueueAuthorizationRule";
+export * from "./getNamespaceTopic";
+export * from "./getNamespaceTopicAuthorizationRule";
+export * from "./getNamespaceTopicSubscription";
+export * from "./getNamespaceTopicSubscriptionRule";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./namespaceDisasterRecoveryConfig";

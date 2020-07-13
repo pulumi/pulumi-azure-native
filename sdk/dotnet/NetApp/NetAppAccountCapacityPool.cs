@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.NetApp
         /// Capacity pool properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PoolPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PoolPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.ResourceTagsResponse?> Tags { get; private set; } = null!;
+        public Output<Outputs.ResourceTagsResponseResult?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

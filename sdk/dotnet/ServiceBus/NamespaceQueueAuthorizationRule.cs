@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus
         /// AuthorizationRule properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SBAuthorizationRuleResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.SBAuthorizationRuleResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

@@ -7,3 +7,7 @@ from .environment import *
 from .environment_access_policy import *
 from .environment_event_source import *
 from .environment_reference_data_set import *
+from .get_environment import *
+from .get_environment_access_policy import *
+from .get_environment_event_source import *
+from .get_environment_reference_data_set import *

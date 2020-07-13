@@ -4,3 +4,5 @@
 // Export members:
 export * from "./account";
 export * from "./accountPrivateEndpointConnection";
+export * from "./getAccount";
+export * from "./getAccountPrivateEndpointConnection";

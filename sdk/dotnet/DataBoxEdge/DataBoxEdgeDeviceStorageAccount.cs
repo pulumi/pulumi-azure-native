@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBoxEdge
         /// The Storage Account properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StorageAccountPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StorageAccountPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

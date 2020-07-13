@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the express route cross connection peering.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ExpressRouteCrossConnectionPeeringPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCrossConnectionPeeringPropertiesResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

@@ -8,3 +8,8 @@ from .assessment_project_group import *
 from .assessment_project_group_assessment import *
 from .assessment_project_hypervcollector import *
 from .assessment_project_vmwarecollector import *
+from .get_assessment_project import *
+from .get_assessment_project_group import *
+from .get_assessment_project_group_assessment import *
+from .get_assessment_project_hypervcollector import *
+from .get_assessment_project_vmwarecollector import *

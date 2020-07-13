@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.HybridCompute
         /// Properties of the Guest configuration assignment.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.GuestConfigurationAssignmentPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GuestConfigurationAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -5,3 +5,6 @@
 export * from "./dataManager";
 export * from "./dataManagerDataServiceJobDefinition";
 export * from "./dataManagerDataStore";
+export * from "./getDataManager";
+export * from "./getDataManagerDataServiceJobDefinition";
+export * from "./getDataManagerDataStore";

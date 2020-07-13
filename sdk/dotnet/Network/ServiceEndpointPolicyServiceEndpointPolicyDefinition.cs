@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the service endpoint policy definition.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServiceEndpointPolicyDefinitionPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ServiceEndpointPolicyDefinitionPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
 
         /// <summary>

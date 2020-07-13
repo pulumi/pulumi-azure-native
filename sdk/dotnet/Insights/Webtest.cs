@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Insights
         /// Metadata describing a web test for an Azure resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.WebTestPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.WebTestPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

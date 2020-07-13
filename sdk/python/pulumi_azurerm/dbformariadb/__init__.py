@@ -3,6 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_server import *
+from .get_server_database import *
+from .get_server_firewall_rule import *
+from .get_server_private_endpoint_connection import *
+from .get_server_virtual_network_rule import *
 from .server import *
 from .server_database import *
 from .server_firewall_rule import *

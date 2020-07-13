@@ -13,25 +13,25 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The resource reference.
     /// </summary>
-    public sealed class ResourceReferenceResponseArgs : Pulumi.ResourceArgs
+    public sealed class ResourceReferenceResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource id.
         /// </summary>
         [Input("id")]
-        public Input<string>? Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Gets the resource name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// Gets the resource type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public string Type { get; set; } = null!;
 
         public ResourceReferenceResponseArgs()
         {

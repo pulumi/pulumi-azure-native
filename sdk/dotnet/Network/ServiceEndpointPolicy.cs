@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the service end point policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServiceEndpointPolicyPropertiesFormatResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ServiceEndpointPolicyPropertiesFormatResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

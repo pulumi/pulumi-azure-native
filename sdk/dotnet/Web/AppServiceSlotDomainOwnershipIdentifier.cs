@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// Identifier resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IdentifierResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.IdentifierResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

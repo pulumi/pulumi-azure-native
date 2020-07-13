@@ -13,41 +13,41 @@ namespace Pulumi.AzureRM.Compute.Inputs
     /// <summary>
     /// Describes the properties of a Virtual Machine Scale Set Extension.
     /// </summary>
-    public sealed class VirtualMachineScaleSetExtensionPropertiesResponseArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineScaleSetExtensionPropertiesResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
-        public Input<bool>? AutoUpgradeMinorVersion { get; set; }
+        public bool? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
         /// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         /// </summary>
         [Input("forceUpdateTag")]
-        public Input<string>? ForceUpdateTag { get; set; }
+        public string? ForceUpdateTag { get; set; }
 
         [Input("protectedSettings")]
-        private InputMap<string>? _protectedSettings;
+        private Dictionary<string, string>? _protectedSettings;
 
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        public InputMap<string> ProtectedSettings
+        public Dictionary<string, string> ProtectedSettings
         {
-            get => _protectedSettings ?? (_protectedSettings = new InputMap<string>());
+            get => _protectedSettings ?? (_protectedSettings = new Dictionary<string, string>());
             set => _protectedSettings = value;
         }
 
         [Input("provisionAfterExtensions")]
-        private InputList<string>? _provisionAfterExtensions;
+        private List<string>? _provisionAfterExtensions;
 
         /// <summary>
         /// Collection of extension names after which this extension needs to be provisioned.
         /// </summary>
-        public InputList<string> ProvisionAfterExtensions
+        public List<string> ProvisionAfterExtensions
         {
-            get => _provisionAfterExtensions ?? (_provisionAfterExtensions = new InputList<string>());
+            get => _provisionAfterExtensions ?? (_provisionAfterExtensions = new List<string>());
             set => _provisionAfterExtensions = value;
         }
 
@@ -55,23 +55,23 @@ namespace Pulumi.AzureRM.Compute.Inputs
         /// The provisioning state, which only appears in the response.
         /// </summary>
         [Input("provisioningState", required: true)]
-        public Input<string> ProvisioningState { get; set; } = null!;
+        public string ProvisioningState { get; set; } = null!;
 
         /// <summary>
         /// The name of the extension handler publisher.
         /// </summary>
         [Input("publisher")]
-        public Input<string>? Publisher { get; set; }
+        public string? Publisher { get; set; }
 
         [Input("settings")]
-        private InputMap<string>? _settings;
+        private Dictionary<string, string>? _settings;
 
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public InputMap<string> Settings
+        public Dictionary<string, string> Settings
         {
-            get => _settings ?? (_settings = new InputMap<string>());
+            get => _settings ?? (_settings = new Dictionary<string, string>());
             set => _settings = value;
         }
 
@@ -79,13 +79,13 @@ namespace Pulumi.AzureRM.Compute.Inputs
         /// Specifies the type of the extension; an example is "CustomScriptExtension".
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Specifies the version of the script handler.
         /// </summary>
         [Input("typeHandlerVersion")]
-        public Input<string>? TypeHandlerVersion { get; set; }
+        public string? TypeHandlerVersion { get; set; }
 
         public VirtualMachineScaleSetExtensionPropertiesResponseArgs()
         {

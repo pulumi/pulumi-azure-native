@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the interface endpoint.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.InterfaceEndpointPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.InterfaceEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

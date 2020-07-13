@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// The properties of the Virtual Appliance Sites.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualApplianceSitePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualApplianceSitePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Site type.

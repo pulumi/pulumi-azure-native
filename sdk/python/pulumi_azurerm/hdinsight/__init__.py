@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .cluster import *
 from .cluster_application import *
+from .get_cluster import *
+from .get_cluster_application import *

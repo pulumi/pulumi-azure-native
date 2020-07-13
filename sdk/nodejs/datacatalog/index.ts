@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./catalog";
+export * from "./getCatalog";

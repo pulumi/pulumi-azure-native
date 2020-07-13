@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus
         /// Properties of subscriptions resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SBSubscriptionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SBSubscriptionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

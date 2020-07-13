@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Media
         /// Properties of the Streaming Locator.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StreamingLocatorPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.StreamingLocatorPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

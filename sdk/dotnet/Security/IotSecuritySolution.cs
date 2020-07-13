@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Security
         /// Security Solution data
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IoTSecuritySolutionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IoTSecuritySolutionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

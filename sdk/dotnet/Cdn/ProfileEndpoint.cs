@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Cdn
         /// The JSON object that contains the properties required to create an endpoint.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.EndpointPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.EndpointPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

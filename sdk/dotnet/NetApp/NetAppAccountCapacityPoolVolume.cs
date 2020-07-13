@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.NetApp
         /// Volume properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VolumePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VolumePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.ResourceTagsResponse?> Tags { get; private set; } = null!;
+        public Output<Outputs.ResourceTagsResponseResult?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

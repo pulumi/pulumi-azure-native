@@ -13,19 +13,19 @@ namespace Pulumi.AzureRM.Network.Inputs
     /// <summary>
     /// Properties of SSL certificates of application gateway.
     /// </summary>
-    public sealed class VpnClientRootCertificatePropertiesFormatResponseArgs : Pulumi.ResourceArgs
+    public sealed class VpnClientRootCertificatePropertiesFormatResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The provisioning state of the VPN client root certificate resource.
         /// </summary>
         [Input("provisioningState", required: true)]
-        public Input<string> ProvisioningState { get; set; } = null!;
+        public string ProvisioningState { get; set; } = null!;
 
         /// <summary>
         /// The certificate public data.
         /// </summary>
         [Input("publicCertData", required: true)]
-        public Input<string> PublicCertData { get; set; } = null!;
+        public string PublicCertData { get; set; } = null!;
 
         public VpnClientRootCertificatePropertiesFormatResponseArgs()
         {

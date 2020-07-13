@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.ContainerService
         /// Define the resource plan as required by ARM for billing purposes
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PurchasePlanResponse?> Plan { get; private set; } = null!;
+        public Output<Outputs.PurchasePlanResponseResult?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Properties of a OpenShift managed cluster.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.OpenShiftManagedClusterPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.OpenShiftManagedClusterPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

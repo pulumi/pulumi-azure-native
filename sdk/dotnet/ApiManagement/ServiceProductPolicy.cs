@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Properties of the Policy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PolicyContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PolicyContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

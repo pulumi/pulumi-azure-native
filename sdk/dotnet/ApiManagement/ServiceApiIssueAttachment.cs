@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement
         /// Properties of the Issue Attachment.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IssueAttachmentContractPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.IssueAttachmentContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

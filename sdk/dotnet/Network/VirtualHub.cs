@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the virtual hub.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VirtualHubPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.VirtualHubPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the module properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ModulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ModulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

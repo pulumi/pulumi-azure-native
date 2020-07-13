@@ -13,13 +13,13 @@ namespace Pulumi.AzureRM.Logic.Inputs
     /// <summary>
     /// The integration service environment access endpoint.
     /// </summary>
-    public sealed class IntegrationServiceEnvironmentAccessEndpointResponseArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationServiceEnvironmentAccessEndpointResponseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The access endpoint type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public string? Type { get; set; }
 
         public IntegrationServiceEnvironmentAccessEndpointResponseArgs()
         {

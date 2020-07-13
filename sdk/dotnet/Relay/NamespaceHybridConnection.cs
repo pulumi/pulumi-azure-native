@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Relay
         /// Properties of the HybridConnection.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.HybridConnectionResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.HybridConnectionResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

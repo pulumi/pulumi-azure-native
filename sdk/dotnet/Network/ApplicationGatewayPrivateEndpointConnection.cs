@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network
         /// Properties of the application gateway private endpoint connection.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationGatewayPrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewayPrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights
         /// The prediction definition.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PredictionResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PredictionResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory
         /// Properties of the pipeline.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PipelineResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.PipelineResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

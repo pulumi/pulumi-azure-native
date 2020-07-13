@@ -5,3 +5,5 @@
 # Export this package's modules as members:
 from .configuration_store import *
 from .configuration_store_private_endpoint_connection import *
+from .get_configuration_store import *
+from .get_configuration_store_private_endpoint_connection import *

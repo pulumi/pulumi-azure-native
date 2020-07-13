@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web
         /// SiteSourceControl resource specific properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SiteSourceControlResponseProperties> Properties { get; private set; } = null!;
+        public Output<Outputs.SiteSourceControlResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

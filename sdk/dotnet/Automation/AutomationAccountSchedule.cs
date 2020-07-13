@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Automation
         /// Gets or sets the properties of the schedule.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SchedulePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SchedulePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

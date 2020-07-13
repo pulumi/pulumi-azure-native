@@ -2,5 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getRegistration";
+export * from "./getRegistrationCustomerSubscription";
 export * from "./registration";
 export * from "./registrationCustomerSubscription";

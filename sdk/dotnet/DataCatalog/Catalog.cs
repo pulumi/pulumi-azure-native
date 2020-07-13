@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DataCatalog
         /// Azure Data Catalog properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ADCCatalogPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.ADCCatalogPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
