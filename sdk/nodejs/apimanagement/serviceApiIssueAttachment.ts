@@ -56,8 +56,12 @@ export class ServiceApiIssueAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServiceApiIssueAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServiceApiIssueAttachmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ServiceApiIssueAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as ServiceApiIssueAttachmentArgs | undefined;
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
@@ -73,13 +77,14 @@ export class ServiceApiIssueAttachment extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
-        inputs["apiId"] = args ? args.apiId : undefined;
-        inputs["issueId"] = args ? args.issueId : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["serviceName"] = args ? args.serviceName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["issueId"] = args ? args.issueId : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

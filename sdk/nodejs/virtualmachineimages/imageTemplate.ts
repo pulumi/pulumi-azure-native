@@ -68,8 +68,12 @@ export class ImageTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ImageTemplateArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ImageTemplateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ImageTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as ImageTemplateArgs | undefined;
             if (!args || args.identity === undefined) {
                 throw new Error("Missing required property 'identity'");
             }
@@ -82,13 +86,14 @@ export class ImageTemplate extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-        inputs["identity"] = args ? args.identity : undefined;
-        inputs["location"] = args ? args.location : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["tags"] = args ? args.tags : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

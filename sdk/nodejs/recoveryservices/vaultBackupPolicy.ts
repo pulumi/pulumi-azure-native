@@ -68,8 +68,12 @@ export class VaultBackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultBackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VaultBackupPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VaultBackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as VaultBackupPolicyArgs | undefined;
             if (!args || args.policyName === undefined) {
                 throw new Error("Missing required property 'policyName'");
             }
@@ -79,16 +83,17 @@ export class VaultBackupPolicy extends pulumi.CustomResource {
             if (!args || args.vaultName === undefined) {
                 throw new Error("Missing required property 'vaultName'");
             }
-        inputs["eTag"] = args ? args.eTag : undefined;
-        inputs["id"] = args ? args.id : undefined;
-        inputs["location"] = args ? args.location : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["policyName"] = args ? args.policyName : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["tags"] = args ? args.tags : undefined;
-        inputs["type"] = args ? args.type : undefined;
-        inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["policyName"] = args ? args.policyName : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["vaultName"] = args ? args.vaultName : undefined;
+        }
         if (!opts) {
             opts = {}
         }

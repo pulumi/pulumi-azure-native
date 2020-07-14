@@ -72,23 +72,28 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as LoadBalancerArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-        inputs["id"] = args ? args.id : undefined;
-        inputs["location"] = args ? args.location : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["sku"] = args ? args.sku : undefined;
-        inputs["tags"] = args ? args.tags : undefined;
-        inputs["etag"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

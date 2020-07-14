@@ -64,8 +64,12 @@ export class DatabaseAccountSqlDatabaseContainerStoredProcedure extends pulumi.C
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DatabaseAccountSqlDatabaseContainerStoredProcedureArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatabaseAccountSqlDatabaseContainerStoredProcedureArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DatabaseAccountSqlDatabaseContainerStoredProcedureArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as DatabaseAccountSqlDatabaseContainerStoredProcedureArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -84,15 +88,16 @@ export class DatabaseAccountSqlDatabaseContainerStoredProcedure extends pulumi.C
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-        inputs["accountName"] = args ? args.accountName : undefined;
-        inputs["containerName"] = args ? args.containerName : undefined;
-        inputs["databaseName"] = args ? args.databaseName : undefined;
-        inputs["location"] = args ? args.location : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["tags"] = args ? args.tags : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["containerName"] = args ? args.containerName : undefined;
+            inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

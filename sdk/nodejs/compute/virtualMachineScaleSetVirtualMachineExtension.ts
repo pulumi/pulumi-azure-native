@@ -64,8 +64,12 @@ export class VirtualMachineScaleSetVirtualMachineExtension extends pulumi.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VirtualMachineScaleSetVirtualMachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualMachineScaleSetVirtualMachineExtensionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VirtualMachineScaleSetVirtualMachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as VirtualMachineScaleSetVirtualMachineExtensionArgs | undefined;
             if (!args || args.instanceId === undefined) {
                 throw new Error("Missing required property 'instanceId'");
             }
@@ -81,14 +85,15 @@ export class VirtualMachineScaleSetVirtualMachineExtension extends pulumi.Custom
             if (!args || args.vmScaleSetName === undefined) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-        inputs["instanceId"] = args ? args.instanceId : undefined;
-        inputs["location"] = args ? args.location : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["tags"] = args ? args.tags : undefined;
-        inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["instanceId"] = args ? args.instanceId : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

@@ -68,8 +68,12 @@ export class VaultPrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VaultPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VaultPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as VaultPrivateEndpointConnectionArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -79,14 +83,15 @@ export class VaultPrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.vaultName === undefined) {
                 throw new Error("Missing required property 'vaultName'");
             }
-        inputs["eTag"] = args ? args.eTag : undefined;
-        inputs["location"] = args ? args.location : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["tags"] = args ? args.tags : undefined;
-        inputs["vaultName"] = args ? args.vaultName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["vaultName"] = args ? args.vaultName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

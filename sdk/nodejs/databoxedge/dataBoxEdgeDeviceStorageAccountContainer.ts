@@ -56,8 +56,12 @@ export class DataBoxEdgeDeviceStorageAccountContainer extends pulumi.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataBoxEdgeDeviceStorageAccountContainerArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataBoxEdgeDeviceStorageAccountContainerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DataBoxEdgeDeviceStorageAccountContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as DataBoxEdgeDeviceStorageAccountContainerArgs | undefined;
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -73,12 +77,13 @@ export class DataBoxEdgeDeviceStorageAccountContainer extends pulumi.CustomResou
             if (!args || args.storageAccountName === undefined) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-        inputs["deviceName"] = args ? args.deviceName : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

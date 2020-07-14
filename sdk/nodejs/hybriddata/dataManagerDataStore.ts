@@ -56,8 +56,12 @@ export class DataManagerDataStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataManagerDataStoreArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataManagerDataStoreArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DataManagerDataStoreArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as DataManagerDataStoreArgs | undefined;
             if (!args || args.dataManagerName === undefined) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
@@ -70,11 +74,12 @@ export class DataManagerDataStore extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-        inputs["dataManagerName"] = args ? args.dataManagerName : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["dataManagerName"] = args ? args.dataManagerName : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

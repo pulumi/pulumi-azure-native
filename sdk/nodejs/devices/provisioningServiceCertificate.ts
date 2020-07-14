@@ -60,8 +60,12 @@ export class ProvisioningServiceCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProvisioningServiceCertificateArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProvisioningServiceCertificateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ProvisioningServiceCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as ProvisioningServiceCertificateArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,13 +75,14 @@ export class ProvisioningServiceCertificate extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-        inputs["certificate"] = args ? args.certificate : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["etag"] = undefined /*out*/;
-        inputs["properties"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["certificate"] = args ? args.certificate : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

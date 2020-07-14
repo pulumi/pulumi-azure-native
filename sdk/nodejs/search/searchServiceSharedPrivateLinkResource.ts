@@ -56,8 +56,12 @@ export class SearchServiceSharedPrivateLinkResource extends pulumi.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SearchServiceSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SearchServiceSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SearchServiceSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as SearchServiceSharedPrivateLinkResourceArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -67,11 +71,12 @@ export class SearchServiceSharedPrivateLinkResource extends pulumi.CustomResourc
             if (!args || args.searchServiceName === undefined) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

@@ -60,8 +60,12 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as VirtualRouterPeeringArgs | undefined;
             if (!args || args.peeringName === undefined) {
                 throw new Error("Missing required property 'peeringName'");
             }
@@ -71,14 +75,15 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
             if (!args || args.virtualRouterName === undefined) {
                 throw new Error("Missing required property 'virtualRouterName'");
             }
-        inputs["id"] = args ? args.id : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["peeringName"] = args ? args.peeringName : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
-        inputs["etag"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["peeringName"] = args ? args.peeringName : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

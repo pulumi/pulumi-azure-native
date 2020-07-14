@@ -86,8 +86,12 @@ export class ComponentFavorite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ComponentFavoriteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ComponentFavoriteArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ComponentFavoriteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as ComponentFavoriteArgs | undefined;
             if (!args || args.favoriteId === undefined) {
                 throw new Error("Missing required property 'favoriteId'");
             }
@@ -97,20 +101,21 @@ export class ComponentFavorite extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-        inputs["Category"] = args ? args.Category : undefined;
-        inputs["Config"] = args ? args.Config : undefined;
-        inputs["FavoriteType"] = args ? args.FavoriteType : undefined;
-        inputs["IsGeneratedFromTemplate"] = args ? args.IsGeneratedFromTemplate : undefined;
-        inputs["Name"] = args ? args.Name : undefined;
-        inputs["SourceType"] = args ? args.SourceType : undefined;
-        inputs["Tags"] = args ? args.Tags : undefined;
-        inputs["Version"] = args ? args.Version : undefined;
-        inputs["favoriteId"] = args ? args.favoriteId : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["resourceName"] = args ? args.resourceName : undefined;
-        inputs["FavoriteId"] = undefined /*out*/;
-        inputs["TimeModified"] = undefined /*out*/;
-        inputs["UserId"] = undefined /*out*/;
+            inputs["Category"] = args ? args.Category : undefined;
+            inputs["Config"] = args ? args.Config : undefined;
+            inputs["FavoriteType"] = args ? args.FavoriteType : undefined;
+            inputs["IsGeneratedFromTemplate"] = args ? args.IsGeneratedFromTemplate : undefined;
+            inputs["Name"] = args ? args.Name : undefined;
+            inputs["SourceType"] = args ? args.SourceType : undefined;
+            inputs["Tags"] = args ? args.Tags : undefined;
+            inputs["Version"] = args ? args.Version : undefined;
+            inputs["favoriteId"] = args ? args.favoriteId : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["FavoriteId"] = undefined /*out*/;
+            inputs["TimeModified"] = undefined /*out*/;
+            inputs["UserId"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

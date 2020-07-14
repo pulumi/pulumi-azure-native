@@ -60,8 +60,12 @@ export class VaultReplicationFabricReplicationStorageClassificationReplicationSt
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingArgs | undefined;
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
@@ -77,14 +81,15 @@ export class VaultReplicationFabricReplicationStorageClassificationReplicationSt
             if (!args || args.storageClassificationName === undefined) {
                 throw new Error("Missing required property 'storageClassificationName'");
             }
-        inputs["fabricName"] = args ? args.fabricName : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["resourceName"] = args ? args.resourceName : undefined;
-        inputs["storageClassificationName"] = args ? args.storageClassificationName : undefined;
-        inputs["location"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["fabricName"] = args ? args.fabricName : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["storageClassificationName"] = args ? args.storageClassificationName : undefined;
+            inputs["location"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

@@ -56,8 +56,12 @@ export class StreamingjobInput extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: StreamingjobInputArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: StreamingjobInputArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: StreamingjobInputArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as StreamingjobInputArgs | undefined;
             if (!args || args.inputName === undefined) {
                 throw new Error("Missing required property 'inputName'");
             }
@@ -67,12 +71,13 @@ export class StreamingjobInput extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-        inputs["inputName"] = args ? args.inputName : undefined;
-        inputs["jobName"] = args ? args.jobName : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["inputName"] = args ? args.inputName : undefined;
+            inputs["jobName"] = args ? args.jobName : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

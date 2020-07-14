@@ -60,8 +60,12 @@ export class VaultReplicationFabricReplicationProtectionContainerReplicationMigr
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemArgs | undefined;
             if (!args || args.fabricName === undefined) {
                 throw new Error("Missing required property 'fabricName'");
             }
@@ -80,14 +84,15 @@ export class VaultReplicationFabricReplicationProtectionContainerReplicationMigr
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-        inputs["fabricName"] = args ? args.fabricName : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["resourceName"] = args ? args.resourceName : undefined;
-        inputs["location"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["fabricName"] = args ? args.fabricName : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["location"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

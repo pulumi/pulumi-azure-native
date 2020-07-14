@@ -60,8 +60,12 @@ export class NetAppAccountCapacityPoolVolumeSnapshot extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NetAppAccountCapacityPoolVolumeSnapshotArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetAppAccountCapacityPoolVolumeSnapshotArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NetAppAccountCapacityPoolVolumeSnapshotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as NetAppAccountCapacityPoolVolumeSnapshotArgs | undefined;
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
@@ -80,14 +84,15 @@ export class NetAppAccountCapacityPoolVolumeSnapshot extends pulumi.CustomResour
             if (!args || args.volumeName === undefined) {
                 throw new Error("Missing required property 'volumeName'");
             }
-        inputs["accountName"] = args ? args.accountName : undefined;
-        inputs["location"] = args ? args.location : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["poolName"] = args ? args.poolName : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["volumeName"] = args ? args.volumeName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["location"] = args ? args.location : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["poolName"] = args ? args.poolName : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["volumeName"] = args ? args.volumeName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

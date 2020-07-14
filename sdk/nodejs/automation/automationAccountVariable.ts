@@ -56,8 +56,12 @@ export class AutomationAccountVariable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AutomationAccountVariableArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AutomationAccountVariableArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AutomationAccountVariableArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as AutomationAccountVariableArgs | undefined;
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
@@ -73,12 +77,13 @@ export class AutomationAccountVariable extends pulumi.CustomResource {
             if (!args || args.variableName === undefined) {
                 throw new Error("Missing required property 'variableName'");
             }
-        inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["variableName"] = args ? args.variableName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["variableName"] = args ? args.variableName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

@@ -60,8 +60,12 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as FirewallPolicyRuleCollectionGroupArgs | undefined;
             if (!args || args.firewallPolicyName === undefined) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
@@ -71,14 +75,15 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             if (!args || args.ruleCollectionGroupName === undefined) {
                 throw new Error("Missing required property 'ruleCollectionGroupName'");
             }
-        inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-        inputs["id"] = args ? args.id : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
-        inputs["etag"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

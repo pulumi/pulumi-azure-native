@@ -60,8 +60,12 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as PrivateLinkServicePrivateEndpointConnectionArgs | undefined;
             if (!args || args.peConnectionName === undefined) {
                 throw new Error("Missing required property 'peConnectionName'");
             }
@@ -71,14 +75,15 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
-        inputs["id"] = args ? args.id : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["peConnectionName"] = args ? args.peConnectionName : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["serviceName"] = args ? args.serviceName : undefined;
-        inputs["etag"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["peConnectionName"] = args ? args.peConnectionName : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

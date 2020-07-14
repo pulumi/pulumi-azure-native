@@ -60,8 +60,12 @@ export class AppServiceHybridConnectionNamespaceRelay extends pulumi.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AppServiceHybridConnectionNamespaceRelayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AppServiceHybridConnectionNamespaceRelayArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AppServiceHybridConnectionNamespaceRelayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as AppServiceHybridConnectionNamespaceRelayArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -74,13 +78,14 @@ export class AppServiceHybridConnectionNamespaceRelay extends pulumi.CustomResou
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-        inputs["kind"] = args ? args.kind : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["namespaceName"] = args ? args.namespaceName : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["relayName"] = args ? args.relayName : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["kind"] = args ? args.kind : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["relayName"] = args ? args.relayName : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

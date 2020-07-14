@@ -60,8 +60,12 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AppServiceSlotDeploymentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AppServiceSlotDeploymentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AppServiceSlotDeploymentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as AppServiceSlotDeploymentArgs | undefined;
             if (!args || args.id === undefined) {
                 throw new Error("Missing required property 'id'");
             }
@@ -74,13 +78,14 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-        inputs["id"] = args ? args.id : undefined;
-        inputs["kind"] = args ? args.kind : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["slot"] = args ? args.slot : undefined;
-        inputs["type"] = undefined /*out*/;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["kind"] = args ? args.kind : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["slot"] = args ? args.slot : undefined;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }

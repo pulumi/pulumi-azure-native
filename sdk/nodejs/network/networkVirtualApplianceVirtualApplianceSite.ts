@@ -60,8 +60,12 @@ export class NetworkVirtualApplianceVirtualApplianceSite extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NetworkVirtualApplianceVirtualApplianceSiteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: NetworkVirtualApplianceVirtualApplianceSiteArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NetworkVirtualApplianceVirtualApplianceSiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        if (!(opts && opts.id)) {
+            const args = argsOrState as NetworkVirtualApplianceVirtualApplianceSiteArgs | undefined;
             if (!args || args.networkVirtualApplianceName === undefined) {
                 throw new Error("Missing required property 'networkVirtualApplianceName'");
             }
@@ -71,14 +75,15 @@ export class NetworkVirtualApplianceVirtualApplianceSite extends pulumi.CustomRe
             if (!args || args.siteName === undefined) {
                 throw new Error("Missing required property 'siteName'");
             }
-        inputs["id"] = args ? args.id : undefined;
-        inputs["name"] = args ? args.name : undefined;
-        inputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
-        inputs["properties"] = args ? args.properties : undefined;
-        inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-        inputs["siteName"] = args ? args.siteName : undefined;
-        inputs["etag"] = undefined /*out*/;
-        inputs["type"] = undefined /*out*/;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["name"] = args ? args.name : undefined;
+            inputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["siteName"] = args ? args.siteName : undefined;
+            inputs["etag"] = undefined /*out*/;
+            inputs["type"] = undefined /*out*/;
+        }
         if (!opts) {
             opts = {}
         }
