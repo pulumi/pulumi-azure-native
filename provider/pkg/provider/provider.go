@@ -119,12 +119,10 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 		return nil, err
 	}
 
-	subscriptionId := k.config["subscriptionId"]
-	if subscriptionId == "" {
-		return nil, errors.New("Subscription ID is not found. Please configure azurerm:subscriptionId.")
+	res, ok := k.resourceMap[req.Tok]
+	if !ok {
+		return nil, errors.Errorf("Resource type %s not found", req.Tok)
 	}
-
-	res := k.resourceMap[req.Tok]
 
 	// Construct ARM REST API path from args.
 	id, _, _, err := k.prepareAzureRESTInputs(
@@ -132,7 +130,7 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 		res.GetParameters,
 		args.Mappable(),
 		map[string]interface{}{
-			"subscriptionId": subscriptionId,
+			"subscriptionId": k.subscriptionId,
 			"api-version":    res.ApiVersion,
 		},
 	)
@@ -279,7 +277,13 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
-	res := k.resourceMap[string(urn.Type())]
+
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
+	}
+
 	outputs, err := k.azureGet(ctx, id, res.ApiVersion)
 	if err != nil {
 		return nil, err
@@ -306,7 +310,11 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 		return nil, err
 	}
 
-	res := k.resourceMap[string(urn.Type())]
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
+	}
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
@@ -345,8 +353,12 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
-	resource := k.resourceMap[string(urn.Type())]
-	err := k.azureDelete(ctx, id, resource.ApiVersion)
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
+	}
+	err := k.azureDelete(ctx, id, res.ApiVersion)
 	if err != nil {
 		return nil, err
 	}

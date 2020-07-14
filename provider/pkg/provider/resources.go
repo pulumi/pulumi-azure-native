@@ -83,12 +83,11 @@ func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error
 				continue
 			}
 
-			mod, resourceName := ResourceQualifiedName(key)
+			provider, resourceName := ResourceQualifiedName(key)
 			if resourceName == "" {
 				continue
 			}
-
-			providerTypeName := fmt.Sprintf("azurerm:%s:%s", mod, resourceName)
+			module := strings.ToLower(provider)
 
 			path := spec.Swagger.Paths.Paths[key]
 			if path.Put == nil {
@@ -113,7 +112,16 @@ func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error
 				GetParameters: gets,
 				PutParameters: puts,
 			}
-			result[providerTypeName] = r
+			resourceTypeName := fmt.Sprintf("azurerm:%s:%s", module, resourceName)
+			result[resourceTypeName] = r
+
+			f := AzureApiResource{
+				ApiVersion:    spec.Info.Version,
+				Path:          key,
+				GetParameters: gets,
+			}
+			functionTypeName := fmt.Sprintf("azurerm:%s:get%s", module, resourceName)
+			result[functionTypeName] = f
 		}
 	}
 
