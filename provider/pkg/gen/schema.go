@@ -16,7 +16,7 @@ import (
 )
 
 // PulumiSchema will generate a Pulumi schema for the given swagger specs.
-func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
+func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.AzureApiMetadata, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azurerm",
 		Version:     "0.1.0", // TODO
@@ -33,6 +33,10 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]json.RawMessage{},
 	}
+	metadata := provider.AzureApiMetadata{
+		Resources: map[string]provider.AzureApiResource{},
+		Invokes: map[string]provider.AzureApiInvoke{},
+	}
 
 	csharpNamespaces := map[string]string{
 		"azurerm": "AzureRM",
@@ -46,20 +50,22 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 		}
 		sort.Strings(paths)
 
+		apigen := apiGenerator{}
+
 		for _, key := range paths {
 			path := swagger.Paths.Paths[key]
 			if path.Put == nil || path.Get == nil || path.Delete == nil {
 				continue
 			}
 
-			provider, typeName := provider.ResourceQualifiedName(key)
+			prov, typeName := provider.ResourceQualifiedName(key)
 			if typeName == "" {
 				continue
 			}
 
-			module := strings.ToLower(provider)
+			module := strings.ToLower(prov)
 			resourceTok := fmt.Sprintf(`%s:%s:%s`, pkg.Name, module, typeName)
-			csharpNamespaces[module] = provider
+			csharpNamespaces[module] = prov
 
 			// Generate the resource.
 			gen := moduleGenerator{
@@ -133,6 +139,26 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 				},
 			}
 			pkg.Functions[functionTok] = functionSpec
+
+			api, err := apigen.buildApiMethods(swagger, key, &path)
+			if err != nil {
+				return nil, nil, err
+			}
+
+			r := provider.AzureApiResource{
+				ApiVersion:    swagger.Info.Version,
+				Path:          key,
+				GetParameters: api["get"],
+				PutParameters: api["put"],
+			}
+			metadata.Resources[resourceTok] = r
+
+			f := provider.AzureApiInvoke{
+				ApiVersion:    swagger.Info.Version,
+				Path:          key,
+				GetParameters: api["get"],
+			}
+			metadata.Invokes[functionTok] = f
 		}
 	}
 
@@ -157,7 +183,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, error) {
 		"namespaces":             csharpNamespaces,
 	})
 
-	return &pkg, nil
+	return &pkg, &metadata, nil
 }
 
 type moduleGenerator struct {

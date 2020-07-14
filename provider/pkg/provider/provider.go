@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2020, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import (
 	"fmt"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
-	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/rpcutil/rpcerror"
@@ -64,7 +63,6 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 	client := autorest.NewClientWithUserAgent("pulumi")
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
-
 
 	var resourceMap *AzureApiMetadata
 	err := json.Unmarshal(azureApiResources, &resourceMap)
@@ -574,36 +572,6 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
 	}
 	return id, params["body"], params["query"], nil
-}
-
-// resolveProperties returns the slice of schema's property names and the slice of schema's required properties.
-func (k *azurermProvider) resolveProperties(schema openapi.Schema) ([]string, []string, error) {
-	var properties []string
-	var required []string
-
-	for k, _ := range schema.Properties {
-		properties = append(properties, k)
-	}
-	for _, k := range schema.Required {
-		required = append(required, k)
-	}
-
-	for _, s := range schema.AllOf {
-		allOfSchema, err := schema.ResolveSchema(&s)
-		if err != nil {
-			return nil, nil, err
-		}
-
-		ps, rs, err := k.resolveProperties(*allOfSchema)
-		if err != nil {
-			return nil, nil, err
-		}
-
-		properties = append(properties, ps...)
-		required = append(required, rs...)
-	}
-
-	return properties, required, nil
 }
 
 func (k *azurermProvider) setLoggingContext(ctx context.Context) {

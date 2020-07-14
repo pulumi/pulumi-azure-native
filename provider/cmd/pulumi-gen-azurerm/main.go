@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azurerm/pkg/gen"
 	"github.com/pulumi/pulumi-azurerm/pkg/openapi"
@@ -13,6 +14,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
+	"io/ioutil"
 	"os"
 	"path"
 	"strings"
@@ -36,7 +38,7 @@ func main() {
 		specs = append(specs, spec)
 	}
 
-	pkgSpec, err := gen.PulumiSchema(specs)
+	pkgSpec, meta, err := gen.PulumiSchema(specs)
 	if err != nil {
 		panic(err)
 	}
@@ -48,7 +50,7 @@ func main() {
 			err = emitSchema(pkgSpec, outdir)
 			if err == nil {
 				// Also, emit the resource metadata for the provider.
-				err = provider.GenerateResourceMap(specs)
+				err = emitMetadata(meta, outdir)
 			}
 		default:
 			err = emitPackage(pkgSpec, language, outdir)
@@ -68,6 +70,27 @@ func emitSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	}
 
 	return emitFile(outDir, "schema.json", schemaJSON)
+}
+
+func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
+	raw, err := json.Marshal(metadata)
+	if err != nil {
+		return err
+	}
+
+	formatted, err := json.MarshalIndent(metadata, "", "    ")
+	if err != nil {
+		return errors.Wrap(err, "marshaling Pulumi schema")
+	}
+
+	err = ioutil.WriteFile("./provider/pkg/provider/metadata.go", []byte(fmt.Sprintf(`package provider
+var azureApiResources = %#v
+`, raw)), 0600)
+	if err != nil {
+		return err
+	}
+
+	return emitFile(outDir, "metadata.json", formatted)
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
