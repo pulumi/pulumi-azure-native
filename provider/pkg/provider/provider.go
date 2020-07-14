@@ -528,6 +528,8 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 		"path":  {},
 	}
 
+	nameParam := nameParameter(path)
+
 	for _, param := range parameters {
 		if param.Location == "body" {
 			for _, name := range param.RequiredProperties {
@@ -552,7 +554,7 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 					val, has = clientInputs[param.Name]
 				}
 			}
-			if !has && param.IsResourceName {
+			if !has && param.Name == nameParam {
 				// Use the universal 'name' parameter in place of a resource-specific name like `accountName`.
 				// We should find a better way to do so when we start using the Pulumi schema in the provider.
 				val, has = methodInputs["name"]
@@ -626,4 +628,16 @@ func (k *azurermProvider) getAuthorizationToken(authConfig *authentication.Confi
 
 	sender := sender.BuildSender("AzureRM")
 	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
+}
+
+// nameParameter parses the given URL path to find the name of the last template parameter.
+func nameParameter(path string) string {
+	parts := strings.Split(path, "/")
+	for i := len(parts) - 1; i >= 0; i-- {
+		part := parts[i]
+		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
+			return part[1 : len(part)-1]
+		}
+	}
+	return ""
 }

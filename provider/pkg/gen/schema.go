@@ -35,7 +35,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	}
 	metadata := provider.AzureApiMetadata{
 		Resources: map[string]provider.AzureApiResource{},
-		Invokes: map[string]provider.AzureApiInvoke{},
+		Invokes:   map[string]provider.AzureApiInvoke{},
 	}
 
 	csharpNamespaces := map[string]string{
@@ -43,6 +43,8 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	}
 
 	for _, swagger := range swaggers {
+		gen := packageGenerator{pkg: &pkg, metadata: &metadata, swagger: swagger}
+
 		// Sort paths to make codegen deterministic.
 		var paths []string
 		for key, _ := range swagger.Paths.Paths {
@@ -50,115 +52,16 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 		}
 		sort.Strings(paths)
 
-		apigen := apiGenerator{}
-
 		for _, key := range paths {
 			path := swagger.Paths.Paths[key]
-			if path.Put == nil || path.Get == nil || path.Delete == nil {
-				continue
+
+			prov, _ := provider.ResourceQualifiedName(key)
+			if prov != "" {
+				module := strings.ToLower(prov)
+				csharpNamespaces[module] = prov
 			}
 
-			prov, typeName := provider.ResourceQualifiedName(key)
-			if typeName == "" {
-				continue
-			}
-
-			module := strings.ToLower(prov)
-			resourceTok := fmt.Sprintf(`%s:%s:%s`, pkg.Name, module, typeName)
-			csharpNamespaces[module] = prov
-
-			// Generate the resource.
-			gen := moduleGenerator{
-				pkg:           &pkg,
-				module:        module,
-				resourceToken: resourceTok,
-				visitedTypes:  make(map[string]bool),
-			}
-
-			resourceRequest, err := gen.genMethodParameters(path.Put.Parameters, swagger.ReferenceContext)
-			if err != nil {
-				log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
-				continue
-			}
-
-			resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, swagger.ReferenceContext)
-			if err != nil {
-				log.Printf("failed to generate '%s': response type: %s", resourceTok, err.Error())
-				continue
-			}
-
-			err = gen.normalizeName(key, resourceRequest, resourceResponse)
-			if err != nil {
-				log.Printf("failed to assign name for '%s'", resourceTok, err.Error())
-				continue
-			}
-
-			objectSpec := pschema.ObjectTypeSpec{
-				Description: resourceResponse.description,
-				Type:        "object",
-				Properties:  resourceResponse.all,
-				Required:    resourceResponse.required.SortedValues(),
-			}
-			pkg.Types[resourceTok] = objectSpec
-
-			resourceSpec := pschema.ResourceSpec{
-				ObjectTypeSpec:  objectSpec,
-				InputProperties: resourceRequest.all,
-				RequiredInputs:  resourceRequest.required.SortedValues(),
-			}
-			pkg.Resources[resourceTok] = resourceSpec
-
-			// Generate the function to get this resource.
-			functionTok := fmt.Sprintf(`%s:%s:get%s`, pkg.Name, module, typeName)
-
-			requestFunction, err := gen.genMethodParameters(path.Get.Parameters, swagger.ReferenceContext)
-			if err != nil {
-				log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
-				continue
-			}
-			responseFunction, err := gen.genResponse(path.Get.Responses.StatusCodeResponses, swagger.ReferenceContext)
-			if err != nil {
-				log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
-				continue
-			}
-
-			gen.normalizeName(key, requestFunction, responseFunction)
-
-			functionSpec := pschema.FunctionSpec{
-				Inputs: &pschema.ObjectTypeSpec{
-					Description: requestFunction.description,
-					Type:        "object",
-					Properties:  requestFunction.all,
-					Required:    requestFunction.required.SortedValues(),
-				},
-				Outputs: &pschema.ObjectTypeSpec{
-					Description: responseFunction.description,
-					Type:        "object",
-					Properties:  responseFunction.all,
-					Required:    responseFunction.required.SortedValues(),
-				},
-			}
-			pkg.Functions[functionTok] = functionSpec
-
-			api, err := apigen.buildApiMethods(swagger, key, &path)
-			if err != nil {
-				return nil, nil, err
-			}
-
-			r := provider.AzureApiResource{
-				ApiVersion:    swagger.Info.Version,
-				Path:          key,
-				GetParameters: api["get"],
-				PutParameters: api["put"],
-			}
-			metadata.Resources[resourceTok] = r
-
-			f := provider.AzureApiInvoke{
-				ApiVersion:    swagger.Info.Version,
-				Path:          key,
-				GetParameters: api["get"],
-			}
-			metadata.Invokes[functionTok] = f
+			gen.genResources(key, &path)
 		}
 	}
 
@@ -180,10 +83,118 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 			"Pulumi":                       "2.*",
 			"System.Collections.Immutable": "1.6.0",
 		},
-		"namespaces":             csharpNamespaces,
+		"namespaces": csharpNamespaces,
 	})
 
 	return &pkg, &metadata, nil
+}
+
+type packageGenerator struct {
+	pkg      *pschema.PackageSpec
+	swagger  *openapi.Spec
+	metadata *provider.AzureApiMetadata
+}
+
+func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
+	if path.Put == nil || path.Get == nil || path.Delete == nil {
+		return
+	}
+
+	prov, typeName := provider.ResourceQualifiedName(key)
+	if typeName == "" {
+		return
+	}
+
+	module := strings.ToLower(prov)
+	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
+
+	// Generate the resource.
+	gen := moduleGenerator{
+		pkg:           g.pkg,
+		module:        module,
+		resourceToken: resourceTok,
+		visitedTypes:  make(map[string]bool),
+	}
+
+	resourceRequest, err := gen.genMethodParameters(path.Put.Parameters, g.swagger.ReferenceContext)
+	if err != nil {
+		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
+		return
+	}
+
+	resourceResponse, err := gen.genResponse(path.Put.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
+	if err != nil {
+		log.Printf("failed to generate '%s': response type: %s", resourceTok, err.Error())
+		return
+	}
+
+	err = gen.normalizeName(key, resourceRequest, resourceResponse)
+	if err != nil {
+		log.Printf("failed to assign name for '%s'", resourceTok, err.Error())
+		return
+	}
+
+	objectSpec := pschema.ObjectTypeSpec{
+		Description: resourceResponse.description,
+		Type:        "object",
+		Properties:  resourceResponse.all,
+		Required:    resourceResponse.required.SortedValues(),
+	}
+	g.pkg.Types[resourceTok] = objectSpec
+
+	resourceSpec := pschema.ResourceSpec{
+		ObjectTypeSpec:  objectSpec,
+		InputProperties: resourceRequest.all,
+		RequiredInputs:  resourceRequest.required.SortedValues(),
+	}
+	g.pkg.Resources[resourceTok] = resourceSpec
+
+	// Generate the function to get this resource.
+	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
+
+	requestFunction, err := gen.genMethodParameters(path.Get.Parameters, g.swagger.ReferenceContext)
+	if err != nil {
+		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
+		return
+	}
+	responseFunction, err := gen.genResponse(path.Get.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
+	if err != nil {
+		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
+		return
+	}
+
+	gen.normalizeName(key, requestFunction, responseFunction)
+
+	functionSpec := pschema.FunctionSpec{
+		Inputs: &pschema.ObjectTypeSpec{
+			Description: requestFunction.description,
+			Type:        "object",
+			Properties:  requestFunction.all,
+			Required:    requestFunction.required.SortedValues(),
+		},
+		Outputs: &pschema.ObjectTypeSpec{
+			Description: responseFunction.description,
+			Type:        "object",
+			Properties:  responseFunction.all,
+			Required:    responseFunction.required.SortedValues(),
+		},
+	}
+	g.pkg.Functions[functionTok] = functionSpec
+
+	r := provider.AzureApiResource{
+		ApiVersion:    g.swagger.Info.Version,
+		Path:          key,
+		GetParameters: requestFunction.metadata,
+		PutParameters: resourceRequest.metadata,
+	}
+	g.metadata.Resources[resourceTok] = r
+
+	f := provider.AzureApiInvoke{
+		ApiVersion:    g.swagger.Info.Version,
+		Path:          key,
+		GetParameters: requestFunction.metadata,
+	}
+	g.metadata.Invokes[functionTok] = f
 }
 
 type moduleGenerator struct {
@@ -207,10 +218,10 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 	}
 
 	parts := strings.Split(path, "/")
-	for i := len(parts)-1; i >= 0; i-- {
+	for i := len(parts) - 1; i >= 0; i-- {
 		part := parts[i]
 		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
-			name := part[1:len(part)-1]
+			name := part[1 : len(part)-1]
 			if nameProp, ok := requestProperties.all[name]; ok {
 				// We expect names to be always a required string.
 				if nameProp.Type != "string" {
@@ -243,12 +254,15 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			return nil, err
 		}
 
+		var bodyProperties []string
+		var bodyRequiredProperties []string
+
 		switch {
 		case param.Name == "subscriptionId":
 		case !isLegalIdentifier(param.Name): // If-Match, Accept-Header, x-ms-foobar, ...
 			// TODO: Find a more principled criteria to skip those.
 
-		// The body parameter is flattened, so that all its properties become the properties of the type.
+			// The body parameter is flattened, so that all its properties become the properties of the type.
 		case param.In == "body":
 			if param.Schema == nil {
 				return nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
@@ -266,6 +280,14 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 
 			result.merge(props)
 
+			for k, _ := range props.all {
+				bodyProperties = append(bodyProperties, k)
+			}
+			sort.Strings(bodyProperties)
+			for _, k := range props.required.SortedValues() {
+				bodyRequiredProperties = append(bodyRequiredProperties, k)
+			}
+
 		default:
 			propertySpec := pschema.PropertySpec{
 				Description: param.Description,
@@ -278,6 +300,17 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 				result.required.Add(param.Name)
 			}
 		}
+
+		location, _ := param.Extensions.GetString("x-ms-parameter-location")
+		p := provider.AzureApiParameter{
+			Name:               param.Name,
+			Location:           param.In,
+			Source:             location,
+			IsRequired:         param.Required,
+			Properties:         bodyProperties,
+			RequiredProperties: bodyRequiredProperties,
+		}
+		result.metadata = append(result.metadata, p)
 	}
 
 	return result, nil
@@ -493,6 +526,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 type propertyBag struct {
 	description string
 	all         map[string]pschema.PropertySpec
+	metadata    []provider.AzureApiParameter
 	required    codegen.StringSet
 }
 

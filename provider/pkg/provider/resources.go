@@ -30,9 +30,7 @@ type AzureApiParameter struct {
 	// Source defines the value source: "method" (resource arguments) or "client" (provider configuration).
 	Source string `json:"source,omitempty"`
 	// Requires is true for mandatory parameters.
-	IsRequired bool `json:"isRequired,omitempty"`
-	// IsResourceName is true for parameters that contain resource name (e.g. `accountName`).
-	IsResourceName bool `json:"isResourceName,omitempty"`
+	IsRequired bool `json:"required,omitempty"`
 	// Properties contains the names of properties for a body-placed parameter.
 	Properties []string `json:"properties,omitempty"`
 	// RequiredProperties contains the names of required properties for a body-placed parameter.
