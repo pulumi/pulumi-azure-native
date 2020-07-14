@@ -55,7 +55,7 @@ type azurermProvider struct {
 	version        string
 	subscriptionId string
 	client         autorest.Client
-	resourceMap    map[string]AzureApiResource
+	resourceMap    *AzureApiMetadata
 	config         map[string]string
 }
 
@@ -66,7 +66,7 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 	client.PollingDuration = 120 * time.Minute
 
 
-	var resourceMap map[string]AzureApiResource
+	var resourceMap *AzureApiMetadata
 	err := json.Unmarshal(azureApiResources, &resourceMap)
 	if err != nil {
 		return nil, errors.Wrap(err, "unmarshalling resource map")
@@ -119,7 +119,7 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 		return nil, err
 	}
 
-	res, ok := k.resourceMap[req.Tok]
+	res, ok := k.resourceMap.Invokes[req.Tok]
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", req.Tok)
 	}
@@ -221,7 +221,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap[resourceKey]
+	res, ok := k.resourceMap.Resources[resourceKey]
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
@@ -279,7 +279,7 @@ func (k *azurermProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.
 	id := req.GetId()
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap[resourceKey]
+	res, ok := k.resourceMap.Resources[resourceKey]
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
@@ -311,7 +311,7 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap[resourceKey]
+	res, ok := k.resourceMap.Resources[resourceKey]
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
@@ -354,7 +354,7 @@ func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*
 	glog.V(9).Infof("%s executing", label)
 	id := req.GetId()
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap[resourceKey]
+	res, ok := k.resourceMap.Resources[resourceKey]
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}

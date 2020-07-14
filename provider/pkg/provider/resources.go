@@ -53,6 +53,11 @@ type AzureApiResource struct {
 	PutParameters []AzureApiParameter
 }
 
+type AzureApiMetadata struct {
+	Resources map[string]AzureApiResource
+	Invokes   map[string]AzureApiResource
+}
+
 func GenerateResourceMap(specs []*openapi.Spec) error {
 	resourceMap, err := buildResourceMap(specs)
 	if err != nil {
@@ -74,8 +79,9 @@ var azureApiResources = %#v
 	return nil
 }
 
-func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error) {
-	result := map[string]AzureApiResource{}
+func buildResourceMap(specs []*openapi.Spec) (*AzureApiMetadata, error) {
+	resources := map[string]AzureApiResource{}
+	invokes := map[string]AzureApiResource{}
 
 	for _, spec := range specs {
 		for key, path := range spec.Paths.Paths {
@@ -113,7 +119,7 @@ func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error
 				PutParameters: puts,
 			}
 			resourceTypeName := fmt.Sprintf("azurerm:%s:%s", module, resourceName)
-			result[resourceTypeName] = r
+			resources[resourceTypeName] = r
 
 			f := AzureApiResource{
 				ApiVersion:    spec.Info.Version,
@@ -121,11 +127,11 @@ func buildResourceMap(specs []*openapi.Spec) (map[string]AzureApiResource, error
 				GetParameters: gets,
 			}
 			functionTypeName := fmt.Sprintf("azurerm:%s:get%s", module, resourceName)
-			result[functionTypeName] = f
+			invokes[functionTypeName] = f
 		}
 	}
 
-	return result, nil
+	return &AzureApiMetadata{Resources: resources, Invokes: invokes}, nil
 }
 
 func buildParameters(spec *openapi.Spec, parameters []spec.Parameter, nameParam string) ([]AzureApiParameter, error) {
@@ -201,7 +207,7 @@ func resolveProperties(schema openapi.Schema) ([]string, []string, error) {
 // nameParameter parses the given URL path to find the name of the last template parameter.
 func nameParameter(path string) string {
 	parts := strings.Split(path, "/")
-	for i := len(parts)-1; i >= 0; i-- {
+	for i := len(parts) - 1; i >= 0; i-- {
 		part := parts[i]
 		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
 			return part[1 : len(part)-1]
@@ -213,6 +219,7 @@ func nameParameter(path string) string {
 // blessedVersions contains the preferred versions per resource provider. If a resource provider is not specified,
 // the latest stable version is used.
 var blessedVersions map[string]string
+
 func init() {
 	blessedVersions = map[string]string{
 		"Microsoft.Cdn": "2020-03-31", // the later version throws runtime errors
