@@ -11,8 +11,8 @@ require (
 	github.com/golang/protobuf v1.3.5
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.6.1
-	github.com/pulumi/pulumi/sdk/v2 v2.6.1
+	github.com/pulumi/pulumi/pkg/v2 v2.6.2-0.20200715231137-1a10e06588f6
+	github.com/pulumi/pulumi/sdk/v2 v2.6.2-0.20200715231137-1a10e06588f6
 	google.golang.org/grpc v1.28.0
 )
 
