@@ -11,6 +11,7 @@ export * from "./getStorageAccountObjectReplicationPolicy";
 export * from "./getStorageAccountPrivateEndpointConnection";
 export * from "./getStorageAccountQueueServiceQueue";
 export * from "./getStorageAccountTableServiceTable";
+export * from "./listStorageAccountKeys";
 export * from "./storageAccount";
 export * from "./storageAccountBlobServiceContainer";
 export * from "./storageAccountBlobServiceContainerImmutabilityPolicy";

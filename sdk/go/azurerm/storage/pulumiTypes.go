@@ -12362,6 +12362,124 @@ func (o StorageAccountInternetEndpointsResponsePtrOutput) Web() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// An access key for the storage account.
+type StorageAccountKeyResponse struct {
+	// Name of the key.
+	KeyName string `pulumi:"keyName"`
+	// Permissions for the key -- read-only or full permissions.
+	Permissions string `pulumi:"permissions"`
+	// Base 64-encoded value of the key.
+	Value string `pulumi:"value"`
+}
+
+// StorageAccountKeyResponseInput is an input type that accepts StorageAccountKeyResponseArgs and StorageAccountKeyResponseOutput values.
+// You can construct a concrete instance of `StorageAccountKeyResponseInput` via:
+//
+//          StorageAccountKeyResponseArgs{...}
+type StorageAccountKeyResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput
+	ToStorageAccountKeyResponseOutputWithContext(context.Context) StorageAccountKeyResponseOutput
+}
+
+// An access key for the storage account.
+type StorageAccountKeyResponseArgs struct {
+	// Name of the key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// Permissions for the key -- read-only or full permissions.
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	// Base 64-encoded value of the key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StorageAccountKeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (i StorageAccountKeyResponseArgs) ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput {
+	return i.ToStorageAccountKeyResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountKeyResponseArgs) ToStorageAccountKeyResponseOutputWithContext(ctx context.Context) StorageAccountKeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyResponseOutput)
+}
+
+// StorageAccountKeyResponseArrayInput is an input type that accepts StorageAccountKeyResponseArray and StorageAccountKeyResponseArrayOutput values.
+// You can construct a concrete instance of `StorageAccountKeyResponseArrayInput` via:
+//
+//          StorageAccountKeyResponseArray{ StorageAccountKeyResponseArgs{...} }
+type StorageAccountKeyResponseArrayInput interface {
+	pulumi.Input
+
+	ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput
+	ToStorageAccountKeyResponseArrayOutputWithContext(context.Context) StorageAccountKeyResponseArrayOutput
+}
+
+type StorageAccountKeyResponseArray []StorageAccountKeyResponseInput
+
+func (StorageAccountKeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (i StorageAccountKeyResponseArray) ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput {
+	return i.ToStorageAccountKeyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StorageAccountKeyResponseArray) ToStorageAccountKeyResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyResponseArrayOutput)
+}
+
+// An access key for the storage account.
+type StorageAccountKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithContext(ctx context.Context) StorageAccountKeyResponseOutput {
+	return o
+}
+
+// Name of the key.
+func (o StorageAccountKeyResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Permissions for the key -- read-only or full permissions.
+func (o StorageAccountKeyResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// Base 64-encoded value of the key.
+func (o StorageAccountKeyResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StorageAccountKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountKeyResponse)(nil)).Elem()
+}
+
+func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountKeyResponse {
+		return vs[0].([]StorageAccountKeyResponse)[vs[1].(int)]
+	}).(StorageAccountKeyResponseOutput)
+}
+
 // The Get Storage Account ManagementPolicies operation response.
 type StorageAccountManagementPolicyType struct {
 	// The name of the resource
@@ -15028,6 +15146,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountFileServiceShareTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountManagementPolicyTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponsePtrOutput{})

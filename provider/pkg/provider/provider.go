@@ -122,10 +122,15 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 		return nil, errors.Errorf("Resource type %s not found", req.Tok)
 	}
 
+	parameters := res.GetParameters
+	if parameters == nil {
+		parameters = res.PostParameters
+	}
+
 	// Construct ARM REST API path from args.
-	id, _, _, err := k.prepareAzureRESTInputs(
+	id, body, query, err := k.prepareAzureRESTInputs(
 		res.Path,
-		res.GetParameters,
+		parameters,
 		args.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.subscriptionId,
@@ -136,9 +141,17 @@ func (k *azurermProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*
 		return nil, err
 	}
 
-	response, err := k.azureGet(ctx, id, res.ApiVersion)
+	var response map[string]interface{}
+	if res.GetParameters != nil {
+		response, err = k.azureGet(ctx, id, res.ApiVersion)
+	} else if res.PostParameters != nil {
+		response, err = k.azurePost(ctx, id, body, query)
+	} else {
+		return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
+	}
+
 	if err != nil {
-		return nil, fmt.Errorf("request failed %v", id)
+		return nil, errors.Wrapf(err, "request failed %v", id)
 	}
 
 	// Serialize and return RPC outputs.
@@ -507,6 +520,45 @@ func (k *azurermProvider) azureGet(ctx context.Context, id string, apiVersion st
 		resp,
 		k.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
+		autorest.ByUnmarshallingJSON(&outputs),
+		autorest.ByClosing())
+	if err != nil {
+		return nil, err
+	}
+	return outputs, nil
+}
+
+func (k *azurermProvider) azurePost(
+	ctx context.Context,
+	id string,
+	bodyProps map[string]interface{},
+	queryParameters map[string]interface{}) (map[string]interface{}, error) {
+
+	preparer := autorest.CreatePreparer(
+		autorest.AsContentType("application/json; charset=utf-8"),
+		autorest.AsPost(),
+		autorest.WithBaseURL(DefaultBaseURI),
+		autorest.WithPath(id),
+		autorest.WithJSON(bodyProps),
+		autorest.WithQueryParameters(queryParameters))
+	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
+	if err != nil {
+		return nil, err
+	}
+	var resp *http.Response
+	resp, err = autorest.SendWithSender(
+		k.client,
+		prepReq,
+		azure.DoRetryWithRegistration(k.client),
+	)
+	if err != nil {
+		return nil, err
+	}
+	var outputs map[string]interface{}
+	err = autorest.Respond(
+		resp,
+		k.client.ByInspecting(),
+		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {

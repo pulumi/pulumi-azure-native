@@ -7,6 +7,7 @@ from .get_redis import *
 from .get_redis_firewall_rule import *
 from .get_redis_linked_server import *
 from .get_redis_patch_schedule import *
+from .list_redis_keys import *
 from .redis import *
 from .redis_firewall_rule import *
 from .redis_linked_server import *

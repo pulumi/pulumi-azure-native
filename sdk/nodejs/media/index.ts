@@ -15,6 +15,7 @@ export * from "./getMediaserviceLiveEvent";
 export * from "./getMediaserviceLiveEventLiveOutput";
 export * from "./getMediaservicePrivateEndpointConnection";
 export * from "./getMediaserviceStreamingEndpoint";
+export * from "./listMediaserviceKeys";
 export * from "./mediaServiceAccountFilter";
 export * from "./mediaServiceAsset";
 export * from "./mediaServiceAssetAssetFilter";

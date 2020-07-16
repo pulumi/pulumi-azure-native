@@ -41,6 +41,7 @@ from .get_service_subscription import *
 from .get_service_tag import *
 from .get_service_template import *
 from .get_service_user import *
+from .list_service_gateway_keys import *
 from .service import *
 from .service_api import *
 from .service_api_diagnostic import *

@@ -10,6 +10,7 @@ from .get_workspace_provider_data_connector import *
 from .get_workspace_provider_incident import *
 from .get_workspace_saved_search import *
 from .get_workspace_storage_insight_config import *
+from .list_workspace_keys import *
 from .workspace_provider_alert_rule import *
 from .workspace_provider_alert_rule_action import *
 from .workspace_provider_bookmark import *

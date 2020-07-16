@@ -40,6 +40,7 @@ export * from "./getServiceSubscription";
 export * from "./getServiceTag";
 export * from "./getServiceTemplate";
 export * from "./getServiceUser";
+export * from "./listServiceGatewayKeys";
 export * from "./service";
 export * from "./serviceApi";
 export * from "./serviceApiDiagnostic";

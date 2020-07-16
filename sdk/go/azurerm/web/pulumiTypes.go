@@ -12160,6 +12160,70 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// HybridConnectionKey resource specific properties
+type HybridConnectionKeyResponseProperties struct {
+	// The name of the send key.
+	SendKeyName string `pulumi:"sendKeyName"`
+	// The value of the send key.
+	SendKeyValue string `pulumi:"sendKeyValue"`
+}
+
+// HybridConnectionKeyResponsePropertiesInput is an input type that accepts HybridConnectionKeyResponsePropertiesArgs and HybridConnectionKeyResponsePropertiesOutput values.
+// You can construct a concrete instance of `HybridConnectionKeyResponsePropertiesInput` via:
+//
+//          HybridConnectionKeyResponsePropertiesArgs{...}
+type HybridConnectionKeyResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToHybridConnectionKeyResponsePropertiesOutput() HybridConnectionKeyResponsePropertiesOutput
+	ToHybridConnectionKeyResponsePropertiesOutputWithContext(context.Context) HybridConnectionKeyResponsePropertiesOutput
+}
+
+// HybridConnectionKey resource specific properties
+type HybridConnectionKeyResponsePropertiesArgs struct {
+	// The name of the send key.
+	SendKeyName pulumi.StringInput `pulumi:"sendKeyName"`
+	// The value of the send key.
+	SendKeyValue pulumi.StringInput `pulumi:"sendKeyValue"`
+}
+
+func (HybridConnectionKeyResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionKeyResponseProperties)(nil)).Elem()
+}
+
+func (i HybridConnectionKeyResponsePropertiesArgs) ToHybridConnectionKeyResponsePropertiesOutput() HybridConnectionKeyResponsePropertiesOutput {
+	return i.ToHybridConnectionKeyResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionKeyResponsePropertiesArgs) ToHybridConnectionKeyResponsePropertiesOutputWithContext(ctx context.Context) HybridConnectionKeyResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionKeyResponsePropertiesOutput)
+}
+
+// HybridConnectionKey resource specific properties
+type HybridConnectionKeyResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionKeyResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionKeyResponseProperties)(nil)).Elem()
+}
+
+func (o HybridConnectionKeyResponsePropertiesOutput) ToHybridConnectionKeyResponsePropertiesOutput() HybridConnectionKeyResponsePropertiesOutput {
+	return o
+}
+
+func (o HybridConnectionKeyResponsePropertiesOutput) ToHybridConnectionKeyResponsePropertiesOutputWithContext(ctx context.Context) HybridConnectionKeyResponsePropertiesOutput {
+	return o
+}
+
+// The name of the send key.
+func (o HybridConnectionKeyResponsePropertiesOutput) SendKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionKeyResponseProperties) string { return v.SendKeyName }).(pulumi.StringOutput)
+}
+
+// The value of the send key.
+func (o HybridConnectionKeyResponsePropertiesOutput) SendKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionKeyResponseProperties) string { return v.SendKeyValue }).(pulumi.StringOutput)
+}
+
 // HybridConnection resource specific properties
 type HybridConnectionProperties struct {
 	// The hostname of the endpoint.
@@ -28276,6 +28340,7 @@ func init() {
 	pulumi.RegisterOutputType(HostingEnvironmentProfilePtrOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(HybridConnectionKeyResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(HybridConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(HybridConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionResponsePropertiesOutput{})

@@ -6,6 +6,7 @@ export * from "./getRedis";
 export * from "./getRedisFirewallRule";
 export * from "./getRedisLinkedServer";
 export * from "./getRedisPatchSchedule";
+export * from "./listRedisKeys";
 export * from "./redis";
 export * from "./redisFirewallRule";
 export * from "./redisLinkedServer";

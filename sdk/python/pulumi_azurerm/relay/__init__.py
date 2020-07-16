@@ -9,6 +9,9 @@ from .get_namespace_hybrid_connection import *
 from .get_namespace_hybrid_connection_authorization_rule import *
 from .get_namespace_wcf_relay import *
 from .get_namespace_wcf_relay_authorization_rule import *
+from .list_namespace_authorization_rule_keys import *
+from .list_namespace_hybrid_connection_authorization_rule_keys import *
+from .list_namespace_wcf_relay_authorization_rule_keys import *
 from .namespace import *
 from .namespace_authorization_rule import *
 from .namespace_hybrid_connection import *

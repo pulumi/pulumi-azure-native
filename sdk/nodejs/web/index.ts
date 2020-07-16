@@ -65,4 +65,5 @@ export * from "./getCertificate";
 export * from "./getHostingEnvironment";
 export * from "./getStaticSite";
 export * from "./hostingEnvironment";
+export * from "./listAppServicePlanHybridConnectionNamespaceRelayKeys";
 export * from "./staticSite";

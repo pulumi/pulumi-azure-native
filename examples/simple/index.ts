@@ -163,3 +163,8 @@ const storageAccount = new azurerm.storage.StorageAccount("sa", {
 });
 
 export const existingRg = azurerm.core.getResourceGroup({ name: "Azure-Account-Cleanup" });
+
+const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(([resourceGroupName, accountName]) => 
+    azurerm.storage.listStorageAccountKeys({ resourceGroupName, accountName }));
+
+export const primaryStorageKey = storageAccountKeys.keys[0].value;

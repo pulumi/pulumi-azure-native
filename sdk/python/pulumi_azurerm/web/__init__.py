@@ -66,4 +66,5 @@ from .get_certificate import *
 from .get_hosting_environment import *
 from .get_static_site import *
 from .hosting_environment import *
+from .list_app_service_plan_hybrid_connection_namespace_relay_keys import *
 from .static_site import *

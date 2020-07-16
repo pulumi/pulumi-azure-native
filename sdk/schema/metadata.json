@@ -39838,7 +39838,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:analysisservices:getServer": {
             "apiVersion": "2017-08-01",
@@ -39865,7 +39866,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getService": {
             "apiVersion": "2019-12-01",
@@ -39893,7 +39895,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApi": {
             "apiVersion": "2019-12-01",
@@ -39927,7 +39930,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiDiagnostic": {
             "apiVersion": "2019-12-01",
@@ -39967,7 +39971,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiIssue": {
             "apiVersion": "2019-12-01",
@@ -40011,7 +40016,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiIssueAttachment": {
             "apiVersion": "2019-12-01",
@@ -40057,7 +40063,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiIssueComment": {
             "apiVersion": "2019-12-01",
@@ -40103,7 +40110,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiOperation": {
             "apiVersion": "2019-12-01",
@@ -40143,7 +40151,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiOperationPolicy": {
             "apiVersion": "2019-12-01",
@@ -40194,7 +40203,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiOperationTag": {
             "apiVersion": "2019-12-01",
@@ -40240,7 +40250,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiPolicy": {
             "apiVersion": "2019-12-01",
@@ -40285,7 +40296,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiRelease": {
             "apiVersion": "2019-12-01",
@@ -40325,7 +40337,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiSchema": {
             "apiVersion": "2019-12-01",
@@ -40365,7 +40378,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiTag": {
             "apiVersion": "2019-12-01",
@@ -40405,7 +40419,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiTagDescription": {
             "apiVersion": "2019-12-01",
@@ -40445,7 +40460,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceApiVersionSet": {
             "apiVersion": "2019-12-01",
@@ -40479,7 +40495,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceAuthorizationServer": {
             "apiVersion": "2019-12-01",
@@ -40513,7 +40530,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceBackend": {
             "apiVersion": "2019-12-01",
@@ -40547,7 +40565,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceCach": {
             "apiVersion": "2019-12-01",
@@ -40581,7 +40600,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceCertificate": {
             "apiVersion": "2019-12-01",
@@ -40615,7 +40635,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceContentType": {
             "apiVersion": "2019-12-01",
@@ -40649,7 +40670,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceContentTypeContentItem": {
             "apiVersion": "2019-12-01",
@@ -40689,7 +40711,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceDiagnostic": {
             "apiVersion": "2019-12-01",
@@ -40723,7 +40746,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceGateway": {
             "apiVersion": "2019-12-01",
@@ -40757,7 +40781,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceGatewayHostnameConfiguration": {
             "apiVersion": "2019-12-01",
@@ -40797,7 +40822,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceGroup": {
             "apiVersion": "2019-12-01",
@@ -40831,7 +40857,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceIdentityProvider": {
             "apiVersion": "2019-12-01",
@@ -40865,7 +40892,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceLogger": {
             "apiVersion": "2019-12-01",
@@ -40899,7 +40927,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceNamedValue": {
             "apiVersion": "2019-12-01",
@@ -40933,7 +40962,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceOpenidConnectProvider": {
             "apiVersion": "2019-12-01",
@@ -40967,7 +40997,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServicePolicy": {
             "apiVersion": "2019-12-01",
@@ -41006,7 +41037,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceProduct": {
             "apiVersion": "2019-12-01",
@@ -41040,7 +41072,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceProductPolicy": {
             "apiVersion": "2019-12-01",
@@ -41085,7 +41118,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceProductTag": {
             "apiVersion": "2019-12-01",
@@ -41125,7 +41159,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceProperty": {
             "apiVersion": "2019-01-01",
@@ -41159,7 +41194,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceSubscription": {
             "apiVersion": "2019-12-01",
@@ -41193,7 +41229,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceTag": {
             "apiVersion": "2019-12-01",
@@ -41227,7 +41264,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceTemplate": {
             "apiVersion": "2019-12-01",
@@ -41261,7 +41299,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:apimanagement:getServiceUser": {
             "apiVersion": "2019-12-01",
@@ -41281,6 +41320,42 @@
                 },
                 {
                     "name": "userId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:apimanagement:listServiceGatewayKeys": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "gatewayId",
                     "location": "path",
                     "source": "method",
                     "required": true
@@ -41323,7 +41398,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:appconfiguration:getConfigurationStorePrivateEndpointConnection": {
             "apiVersion": "2020-06-01",
@@ -41356,7 +41432,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:authorization:getLock": {
             "apiVersion": "2016-09-01",
@@ -41382,7 +41459,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:authorization:getPolicyDefinition": {
             "apiVersion": "2019-09-01",
@@ -41404,7 +41482,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:authorization:getPolicySetDefinition": {
             "apiVersion": "2019-09-01",
@@ -41426,7 +41505,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccount": {
             "apiVersion": "2015-10-31",
@@ -41454,7 +41534,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountCertificate": {
             "apiVersion": "2015-10-31",
@@ -41487,7 +41568,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountConfiguration": {
             "apiVersion": "2015-10-31",
@@ -41520,7 +41602,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountConnection": {
             "apiVersion": "2015-10-31",
@@ -41553,7 +41636,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountConnectionType": {
             "apiVersion": "2015-10-31",
@@ -41586,7 +41670,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountCredential": {
             "apiVersion": "2015-10-31",
@@ -41619,7 +41704,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountJobSchedule": {
             "apiVersion": "2015-10-31",
@@ -41652,7 +41738,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountModule": {
             "apiVersion": "2015-10-31",
@@ -41685,7 +41772,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountNodeConfiguration": {
             "apiVersion": "2018-01-15",
@@ -41718,7 +41806,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountPython2Package": {
             "apiVersion": "2018-06-30",
@@ -41751,7 +41840,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountRunbook": {
             "apiVersion": "2018-06-30",
@@ -41784,7 +41874,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountSchedule": {
             "apiVersion": "2015-10-31",
@@ -41817,7 +41908,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountVariable": {
             "apiVersion": "2015-10-31",
@@ -41850,7 +41942,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountWatcher": {
             "apiVersion": "2015-10-31",
@@ -41883,7 +41976,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:automation:getAutomationAccountWebhook": {
             "apiVersion": "2015-10-31",
@@ -41904,6 +41998,36 @@
                 {
                     "name": "webhookName",
                     "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:automation:listAutomationAccountKeys": {
+            "apiVersion": "2015-10-31",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "automationAccountName",
+                    "location": "path",
+                    "source": "method",
                     "required": true
                 },
                 {
@@ -41944,7 +42068,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:avs:getPrivateCloudAuthorization": {
             "apiVersion": "2020-03-20",
@@ -41978,7 +42103,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:avs:getPrivateCloudCluster": {
             "apiVersion": "2020-03-20",
@@ -42012,7 +42138,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:avs:getPrivateCloudHcxEnterpriseSite": {
             "apiVersion": "2020-03-20",
@@ -42046,7 +42173,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:azurestack:getRegistration": {
             "apiVersion": "2017-06-01",
@@ -42074,7 +42202,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:azurestack:getRegistrationCustomerSubscription": {
             "apiVersion": "2017-06-01",
@@ -42108,7 +42237,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batch:getBatchAccount": {
             "apiVersion": "2020-05-01",
@@ -42136,7 +42266,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batch:getBatchAccountApplication": {
             "apiVersion": "2020-05-01",
@@ -42170,7 +42301,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batch:getBatchAccountApplicationVersion": {
             "apiVersion": "2020-05-01",
@@ -42210,7 +42342,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batch:getBatchAccountCertificate": {
             "apiVersion": "2020-05-01",
@@ -42244,7 +42377,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batch:getBatchAccountPool": {
             "apiVersion": "2020-05-01",
@@ -42264,6 +42398,36 @@
                 },
                 {
                     "name": "poolName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:batch:listBatchAccountKeys": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
                     "location": "path",
                     "source": "method",
                     "required": true
@@ -42306,7 +42470,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batchai:getWorkspaceCluster": {
             "apiVersion": "2018-05-01",
@@ -42340,7 +42505,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batchai:getWorkspaceExperiment": {
             "apiVersion": "2018-05-01",
@@ -42374,7 +42540,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batchai:getWorkspaceExperimentJob": {
             "apiVersion": "2018-05-01",
@@ -42414,7 +42581,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:batchai:getWorkspaceFileServer": {
             "apiVersion": "2018-05-01",
@@ -42448,7 +42616,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:botservice:getBotService": {
             "apiVersion": "2020-06-02",
@@ -42476,7 +42645,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:botservice:getBotServiceChannel": {
             "apiVersion": "2020-06-02",
@@ -42509,7 +42679,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:botservice:getBotServiceConnection": {
             "apiVersion": "2020-06-02",
@@ -42543,7 +42714,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cache:getRedis": {
             "apiVersion": "2018-03-01",
@@ -42569,7 +42741,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cache:getRedisFirewallRule": {
             "apiVersion": "2018-03-01",
@@ -42600,7 +42773,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cache:getRedisLinkedServer": {
             "apiVersion": "2018-03-01",
@@ -42631,7 +42805,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cache:getRedisPatchSchedule": {
             "apiVersion": "2018-03-01",
@@ -42649,6 +42824,34 @@
                 },
                 {
                     "name": "default",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:cache:listRedisKeys": {
+            "apiVersion": "2018-03-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{name}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "name",
                     "location": "path",
                     "required": true
                 },
@@ -42690,7 +42893,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cdn:getProfile": {
             "apiVersion": "2020-03-31",
@@ -42717,7 +42921,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cdn:getProfileEndpoint": {
             "apiVersion": "2020-03-31",
@@ -42749,7 +42954,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cdn:getProfileEndpointCustomDomain": {
             "apiVersion": "2020-03-31",
@@ -42786,7 +42992,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cdn:getProfileEndpointOrigin": {
             "apiVersion": "2020-03-31",
@@ -42823,7 +43030,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cdn:getProfileEndpointOriginGroup": {
             "apiVersion": "2020-03-31",
@@ -42860,7 +43068,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:certificateregistration:getCertificateOrder": {
             "apiVersion": "2019-08-01",
@@ -42887,7 +43096,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:certificateregistration:getCertificateOrderCertificate": {
             "apiVersion": "2019-08-01",
@@ -42919,7 +43129,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cognitiveservices:getAccount": {
             "apiVersion": "2017-04-18",
@@ -42947,7 +43158,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:cognitiveservices:getAccountPrivateEndpointConnection": {
             "apiVersion": "2017-04-18",
@@ -42981,6 +43193,36 @@
                     "source": "method",
                     "required": true
                 }
+            ],
+            "POST": null
+        },
+        "azurerm:cognitiveservices:listAccountKeys": {
+            "apiVersion": "2017-04-18",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
             ]
         },
         "azurerm:compute:getAvailabilitySet": {
@@ -43007,7 +43249,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getDisk": {
             "apiVersion": "2020-05-01",
@@ -43035,7 +43278,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getDiskAccess": {
             "apiVersion": "2020-05-01",
@@ -43063,7 +43307,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getDiskEncryptionSet": {
             "apiVersion": "2020-05-01",
@@ -43091,7 +43336,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getGallery": {
             "apiVersion": "2019-12-01",
@@ -43118,7 +43364,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getGalleryApplication": {
             "apiVersion": "2019-12-01",
@@ -43150,7 +43397,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getGalleryApplicationVersion": {
             "apiVersion": "2019-12-01",
@@ -43191,7 +43439,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getGalleryImage": {
             "apiVersion": "2019-12-01",
@@ -43223,7 +43472,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getGalleryImageVersion": {
             "apiVersion": "2019-12-01",
@@ -43264,7 +43514,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getHostGroup": {
             "apiVersion": "2020-06-01",
@@ -43294,7 +43545,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getHostGroupHost": {
             "apiVersion": "2020-06-01",
@@ -43329,7 +43581,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getImage": {
             "apiVersion": "2020-06-01",
@@ -43359,7 +43612,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getProximityPlacementGroup": {
             "apiVersion": "2020-06-01",
@@ -43389,7 +43643,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getSnapshot": {
             "apiVersion": "2020-05-01",
@@ -43417,7 +43672,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getSshPublicKey": {
             "apiVersion": "2020-06-01",
@@ -43443,7 +43699,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getVirtualMachine": {
             "apiVersion": "2020-06-01",
@@ -43473,7 +43730,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getVirtualMachineExtension": {
             "apiVersion": "2020-06-01",
@@ -43508,7 +43766,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getVirtualMachineProviderGuestConfigurationAssignment": {
             "apiVersion": "2020-06-25",
@@ -43541,7 +43800,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getVirtualMachineScaleSet": {
             "apiVersion": "2020-06-01",
@@ -43567,7 +43827,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getVirtualMachineScaleSetExtension": {
             "apiVersion": "2020-06-01",
@@ -43602,7 +43863,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getVirtualMachineScaleSetVirtualMachineExtension": {
             "apiVersion": "2020-06-01",
@@ -43642,7 +43904,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:compute:getVirtualMachineScaleSetVirtualmachine": {
             "apiVersion": "2020-06-01",
@@ -43677,7 +43940,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerinstance:getContainerGroup": {
             "apiVersion": "2019-12-01",
@@ -43707,7 +43971,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerregistry:getRegistry": {
             "apiVersion": "2019-05-01",
@@ -43735,7 +44000,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerregistry:getRegistryReplication": {
             "apiVersion": "2019-05-01",
@@ -43769,7 +44035,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerregistry:getRegistryTask": {
             "apiVersion": "2019-04-01",
@@ -43803,7 +44070,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerregistry:getRegistryWebhook": {
             "apiVersion": "2019-05-01",
@@ -43837,7 +44105,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerservice:getContainerService": {
             "apiVersion": "2017-07-01",
@@ -43866,7 +44135,8 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerservice:getManagedCluster": {
             "apiVersion": "2020-06-01",
@@ -43896,7 +44166,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerservice:getManagedClusterAgentPool": {
             "apiVersion": "2020-06-01",
@@ -43931,7 +44202,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerservice:getManagedClusterPrivateEndpointConnection": {
             "apiVersion": "2020-06-01",
@@ -43966,7 +44238,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:containerservice:getOpenShiftManagedCluster": {
             "apiVersion": "2019-04-30",
@@ -43994,7 +44267,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:core:getResourceGroup": {
             "apiVersion": "2020-06-01",
@@ -44015,7 +44289,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHub": {
             "apiVersion": "2017-04-26",
@@ -44041,7 +44316,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubConnector": {
             "apiVersion": "2017-04-26",
@@ -44072,7 +44348,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubConnectorMapping": {
             "apiVersion": "2017-04-26",
@@ -44108,7 +44385,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubKpi": {
             "apiVersion": "2017-04-26",
@@ -44139,7 +44417,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubLink": {
             "apiVersion": "2017-04-26",
@@ -44170,7 +44449,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubPrediction": {
             "apiVersion": "2017-04-26",
@@ -44201,7 +44481,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubProfile": {
             "apiVersion": "2017-04-26",
@@ -44236,7 +44517,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubRelationship": {
             "apiVersion": "2017-04-26",
@@ -44267,7 +44549,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubRelationshipLink": {
             "apiVersion": "2017-04-26",
@@ -44298,7 +44581,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubRoleAssignment": {
             "apiVersion": "2017-04-26",
@@ -44329,7 +44613,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:customerinsights:getHubView": {
             "apiVersion": "2017-04-26",
@@ -44365,7 +44650,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databox:getJob": {
             "apiVersion": "2019-09-01",
@@ -44397,7 +44683,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDevice": {
             "apiVersion": "2019-08-01",
@@ -44424,7 +44711,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceBandwidthSchedule": {
             "apiVersion": "2019-08-01",
@@ -44456,7 +44744,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceOrder": {
             "apiVersion": "2019-08-01",
@@ -44483,7 +44772,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceRole": {
             "apiVersion": "2019-08-01",
@@ -44515,7 +44805,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceShare": {
             "apiVersion": "2019-08-01",
@@ -44547,7 +44838,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceStorageAccount": {
             "apiVersion": "2019-08-01",
@@ -44579,7 +44871,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceStorageAccountContainer": {
             "apiVersion": "2019-08-01",
@@ -44616,7 +44909,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceStorageAccountCredential": {
             "apiVersion": "2019-08-01",
@@ -44648,7 +44942,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceTrigger": {
             "apiVersion": "2019-08-01",
@@ -44680,7 +44975,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databoxedge:getDataBoxEdgeDeviceUser": {
             "apiVersion": "2019-08-01",
@@ -44712,7 +45008,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databricks:getWorkspace": {
             "apiVersion": "2018-04-01",
@@ -44740,7 +45037,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:databricks:getWorkspaceVirtualNetworkPeering": {
             "apiVersion": "2018-04-01",
@@ -44774,7 +45072,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datacatalog:getCatalog": {
             "apiVersion": "2016-03-30",
@@ -44802,7 +45101,8 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datafactory:getFactory": {
             "apiVersion": "2018-06-01",
@@ -44834,7 +45134,8 @@
                     "name": "If-None-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datafactory:getFactoryDataflow": {
             "apiVersion": "2018-06-01",
@@ -44872,7 +45173,8 @@
                     "name": "If-None-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datafactory:getFactoryDataset": {
             "apiVersion": "2018-06-01",
@@ -44910,7 +45212,8 @@
                     "name": "If-None-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datafactory:getFactoryIntegrationRuntime": {
             "apiVersion": "2018-06-01",
@@ -44948,7 +45251,8 @@
                     "name": "If-None-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datafactory:getFactoryLinkedservice": {
             "apiVersion": "2018-06-01",
@@ -44986,7 +45290,8 @@
                     "name": "If-None-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datafactory:getFactoryPipeline": {
             "apiVersion": "2018-06-01",
@@ -45024,7 +45329,8 @@
                     "name": "If-None-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datafactory:getFactoryTrigger": {
             "apiVersion": "2018-06-01",
@@ -45062,7 +45368,8 @@
                     "name": "If-None-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datalakeanalytics:getAccount": {
             "apiVersion": "2016-11-01",
@@ -45090,7 +45397,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datalakeanalytics:getAccountComputePolicy": {
             "apiVersion": "2016-11-01",
@@ -45123,7 +45431,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datalakeanalytics:getAccountFirewallRule": {
             "apiVersion": "2016-11-01",
@@ -45156,7 +45465,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datalakestore:getAccount": {
             "apiVersion": "2016-11-01",
@@ -45184,7 +45494,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datalakestore:getAccountFirewallRule": {
             "apiVersion": "2016-11-01",
@@ -45217,7 +45528,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datalakestore:getAccountTrustedIdProvider": {
             "apiVersion": "2016-11-01",
@@ -45250,7 +45562,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datalakestore:getAccountVirtualNetworkRule": {
             "apiVersion": "2016-11-01",
@@ -45283,7 +45596,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccount": {
             "apiVersion": "2019-11-01",
@@ -45311,7 +45625,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccountShare": {
             "apiVersion": "2019-11-01",
@@ -45344,7 +45659,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccountShareDataSet": {
             "apiVersion": "2019-11-01",
@@ -45382,7 +45698,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccountShareInvitation": {
             "apiVersion": "2019-11-01",
@@ -45420,7 +45737,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccountShareSubscription": {
             "apiVersion": "2019-11-01",
@@ -45453,7 +45771,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccountShareSubscriptionDataSetMapping": {
             "apiVersion": "2019-11-01",
@@ -45491,7 +45810,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccountShareSubscriptionTrigger": {
             "apiVersion": "2019-11-01",
@@ -45529,7 +45849,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:datashare:getAccountShareSynchronizationSetting": {
             "apiVersion": "2019-11-01",
@@ -45567,7 +45888,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformariadb:getServer": {
             "apiVersion": "2018-06-01",
@@ -45595,7 +45917,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformariadb:getServerDatabase": {
             "apiVersion": "2018-06-01",
@@ -45629,7 +45952,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformariadb:getServerFirewallRule": {
             "apiVersion": "2018-06-01",
@@ -45663,7 +45987,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformariadb:getServerPrivateEndpointConnection": {
             "apiVersion": "2018-06-01",
@@ -45696,7 +46021,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformariadb:getServerVirtualNetworkRule": {
             "apiVersion": "2018-06-01",
@@ -45730,7 +46056,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformysql:getServer": {
             "apiVersion": "2017-12-01",
@@ -45758,7 +46085,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformysql:getServerAdministrator": {
             "apiVersion": "2017-12-01",
@@ -45786,7 +46114,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformysql:getServerDatabase": {
             "apiVersion": "2017-12-01",
@@ -45820,7 +46149,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformysql:getServerFirewallRule": {
             "apiVersion": "2017-12-01",
@@ -45854,7 +46184,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformysql:getServerKey": {
             "apiVersion": "2020-01-01",
@@ -45887,7 +46218,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformysql:getServerPrivateEndpointConnection": {
             "apiVersion": "2018-06-01",
@@ -45920,7 +46252,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbformysql:getServerVirtualNetworkRule": {
             "apiVersion": "2017-12-01",
@@ -45954,7 +46287,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbforpostgresql:getServer": {
             "apiVersion": "2017-12-01",
@@ -45982,7 +46316,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbforpostgresql:getServerAdministrator": {
             "apiVersion": "2017-12-01",
@@ -46010,7 +46345,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbforpostgresql:getServerDatabase": {
             "apiVersion": "2017-12-01",
@@ -46044,7 +46380,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbforpostgresql:getServerFirewallRule": {
             "apiVersion": "2017-12-01",
@@ -46078,7 +46415,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbforpostgresql:getServerKey": {
             "apiVersion": "2020-01-01",
@@ -46111,7 +46449,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbforpostgresql:getServerPrivateEndpointConnection": {
             "apiVersion": "2018-06-01",
@@ -46144,7 +46483,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:dbforpostgresql:getServerVirtualNetworkRule": {
             "apiVersion": "2017-12-01",
@@ -46178,7 +46518,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devices:getIotHub": {
             "apiVersion": "2020-04-01",
@@ -46206,7 +46547,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devices:getIotHubCertificate": {
             "apiVersion": "2020-04-01",
@@ -46240,7 +46582,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devices:getIotHubEventHubEndpointConsumerGroup": {
             "apiVersion": "2020-04-01",
@@ -46278,7 +46621,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devices:getIotHubPrivateEndpointConnection": {
             "apiVersion": "2020-04-01",
@@ -46312,7 +46656,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devices:getProvisioningService": {
             "apiVersion": "2020-01-01",
@@ -46338,7 +46683,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devices:getProvisioningServiceCertificate": {
             "apiVersion": "2020-01-01",
@@ -46373,7 +46719,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devspaces:getController": {
             "apiVersion": "2019-04-01",
@@ -46401,7 +46748,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLab": {
             "apiVersion": "2018-09-15",
@@ -46432,7 +46780,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabArtifactsource": {
             "apiVersion": "2018-09-15",
@@ -46468,7 +46817,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabCustomimage": {
             "apiVersion": "2018-09-15",
@@ -46504,7 +46854,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabFormula": {
             "apiVersion": "2018-09-15",
@@ -46540,7 +46891,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabNotificationchannel": {
             "apiVersion": "2018-09-15",
@@ -46576,7 +46928,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabPolicysetPolicy": {
             "apiVersion": "2018-09-15",
@@ -46617,7 +46970,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabSchedule": {
             "apiVersion": "2018-09-15",
@@ -46653,7 +47007,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabServicerunner": {
             "apiVersion": "2018-09-15",
@@ -46685,7 +47040,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabUser": {
             "apiVersion": "2018-09-15",
@@ -46721,7 +47077,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabUserDisk": {
             "apiVersion": "2018-09-15",
@@ -46762,7 +47119,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabUserEnvironment": {
             "apiVersion": "2018-09-15",
@@ -46803,7 +47161,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabUserSecret": {
             "apiVersion": "2018-09-15",
@@ -46844,7 +47203,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabUserServicefabric": {
             "apiVersion": "2018-09-15",
@@ -46885,7 +47245,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabUserServicefabricSchedule": {
             "apiVersion": "2018-09-15",
@@ -46931,7 +47292,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabVirtualmachine": {
             "apiVersion": "2018-09-15",
@@ -46967,7 +47329,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabVirtualmachineSchedule": {
             "apiVersion": "2018-09-15",
@@ -47008,7 +47371,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getLabVirtualnetwork": {
             "apiVersion": "2018-09-15",
@@ -47044,7 +47408,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:devtestlab:getSchedule": {
             "apiVersion": "2018-09-15",
@@ -47075,7 +47440,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccount": {
             "apiVersion": "2020-04-01",
@@ -47103,7 +47469,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountCassandraKeyspace": {
             "apiVersion": "2020-04-01",
@@ -47137,7 +47504,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountCassandraKeyspaceTable": {
             "apiVersion": "2020-04-01",
@@ -47177,7 +47545,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountGremlinDatabase": {
             "apiVersion": "2020-04-01",
@@ -47211,7 +47580,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountGremlinDatabaseGraph": {
             "apiVersion": "2020-04-01",
@@ -47251,7 +47621,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountMongodbDatabase": {
             "apiVersion": "2020-04-01",
@@ -47285,7 +47656,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountMongodbDatabaseCollection": {
             "apiVersion": "2020-04-01",
@@ -47325,7 +47697,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountNotebookWorkspace": {
             "apiVersion": "2020-04-01",
@@ -47359,7 +47732,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountSqlDatabase": {
             "apiVersion": "2020-04-01",
@@ -47393,7 +47767,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountSqlDatabaseContainer": {
             "apiVersion": "2020-04-01",
@@ -47433,7 +47808,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountSqlDatabaseContainerStoredProcedure": {
             "apiVersion": "2020-04-01",
@@ -47479,7 +47855,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountSqlDatabaseContainerTrigger": {
             "apiVersion": "2020-04-01",
@@ -47525,7 +47902,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountSqlDatabaseContainerUserDefinedFunction": {
             "apiVersion": "2020-04-01",
@@ -47571,7 +47949,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:documentdb:getDatabaseAccountTable": {
             "apiVersion": "2020-04-01",
@@ -47596,6 +47975,36 @@
                 },
                 {
                     "name": "tableName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:documentdb:listDatabaseAccountKeys": {
+            "apiVersion": "2020-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
                     "location": "path",
                     "source": "method",
                     "required": true
@@ -47632,7 +48041,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:domainregistration:getDomainDomainOwnershipIdentifier": {
             "apiVersion": "2019-08-01",
@@ -47664,7 +48074,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventgrid:getDomain": {
             "apiVersion": "2020-06-01",
@@ -47690,7 +48101,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventgrid:getDomainTopic": {
             "apiVersion": "2020-06-01",
@@ -47721,12 +48133,68 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventgrid:getTopic": {
             "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}",
             "GET": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "topicName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:eventgrid:listDomainKeys": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "domainName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:eventgrid:listTopicKeys": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}/listKeys",
+            "GET": null,
+            "POST": [
                 {
                     "name": "subscriptionId",
                     "location": "path",
@@ -47775,7 +48243,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventhub:getNamespaceAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -47809,7 +48278,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventhub:getNamespaceDisasterRecoveryConfig": {
             "apiVersion": "2017-04-01",
@@ -47843,7 +48313,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventhub:getNamespaceEventhub": {
             "apiVersion": "2017-04-01",
@@ -47877,7 +48348,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventhub:getNamespaceEventhubAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -47917,7 +48389,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:eventhub:getNamespaceEventhubConsumergroup": {
             "apiVersion": "2017-04-01",
@@ -47943,6 +48416,124 @@
                 },
                 {
                     "name": "consumerGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:eventhub:listNamespaceAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/authorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:eventhub:listNamespaceDisasterRecoveryConfigAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/authorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "alias",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:eventhub:listNamespaceEventhubAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "eventHubName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
                     "location": "path",
                     "source": "method",
                     "required": true
@@ -47985,7 +48576,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:hdinsight:getClusterApplication": {
             "apiVersion": "2018-06-01-preview",
@@ -48019,7 +48611,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:healthcareapis:getService": {
             "apiVersion": "2019-09-16",
@@ -48047,7 +48640,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:hybridcompute:getMachine": {
             "apiVersion": "2019-12-12",
@@ -48077,7 +48671,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:hybridcompute:getMachineExtension": {
             "apiVersion": "2019-12-12",
@@ -48108,7 +48703,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:hybridcompute:getMachineProviderGuestConfigurationAssignment": {
             "apiVersion": "2020-06-25",
@@ -48141,7 +48737,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:hybriddata:getDataManager": {
             "apiVersion": "2019-06-01",
@@ -48169,7 +48766,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:hybriddata:getDataManagerDataServiceJobDefinition": {
             "apiVersion": "2019-06-01",
@@ -48207,7 +48805,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:hybriddata:getDataManagerDataStore": {
             "apiVersion": "2019-06-01",
@@ -48240,7 +48839,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:importexport:getJob": {
             "apiVersion": "2016-11-01",
@@ -48272,7 +48872,8 @@
                     "location": "header",
                     "source": "client"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:insights:getComponent": {
             "apiVersion": "2015-05-01",
@@ -48300,7 +48901,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:insights:getComponentExportconfiguration": {
             "apiVersion": "2015-05-01",
@@ -48334,7 +48936,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:insights:getComponentFavorite": {
             "apiVersion": "2015-05-01",
@@ -48368,7 +48971,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:insights:getMetricAlert": {
             "apiVersion": "2018-03-01",
@@ -48396,7 +49000,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:insights:getWebtest": {
             "apiVersion": "2015-05-01",
@@ -48424,7 +49029,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:iotcentral:getIoTApp": {
             "apiVersion": "2018-09-01",
@@ -48452,7 +49058,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:keyvault:getVault": {
             "apiVersion": "2019-09-01",
@@ -48478,7 +49085,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:keyvault:getVaultPrivateEndpointConnection": {
             "apiVersion": "2019-09-01",
@@ -48512,7 +49120,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:kusto:getCluster": {
             "apiVersion": "2020-06-14",
@@ -48540,7 +49149,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:kusto:getClusterAttachedDatabaseConfiguration": {
             "apiVersion": "2020-06-14",
@@ -48574,7 +49184,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:kusto:getClusterDatabase": {
             "apiVersion": "2020-06-14",
@@ -48608,7 +49219,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:kusto:getClusterDatabaseDataConnection": {
             "apiVersion": "2020-06-14",
@@ -48648,7 +49260,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:kusto:getClusterDatabasePrincipalAssignment": {
             "apiVersion": "2020-06-14",
@@ -48688,7 +49301,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:kusto:getClusterPrincipalAssignment": {
             "apiVersion": "2020-06-14",
@@ -48722,7 +49336,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:labservices:getLabaccount": {
             "apiVersion": "2018-10-15",
@@ -48753,7 +49368,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:labservices:getLabaccountGalleryimage": {
             "apiVersion": "2018-10-15",
@@ -48789,7 +49405,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:labservices:getLabaccountLab": {
             "apiVersion": "2018-10-15",
@@ -48825,7 +49442,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:labservices:getLabaccountLabEnvironmentsetting": {
             "apiVersion": "2018-10-15",
@@ -48866,7 +49484,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:labservices:getLabaccountLabEnvironmentsettingEnvironment": {
             "apiVersion": "2018-10-15",
@@ -48912,7 +49531,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:labservices:getLabaccountLabUser": {
             "apiVersion": "2018-10-15",
@@ -48953,7 +49573,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccount": {
             "apiVersion": "2019-05-01",
@@ -48979,7 +49600,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountAgreement": {
             "apiVersion": "2019-05-01",
@@ -49010,7 +49632,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountAssembly": {
             "apiVersion": "2019-05-01",
@@ -49041,7 +49664,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountBatchConfiguration": {
             "apiVersion": "2019-05-01",
@@ -49072,7 +49696,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountCertificate": {
             "apiVersion": "2019-05-01",
@@ -49103,7 +49728,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountMap": {
             "apiVersion": "2019-05-01",
@@ -49134,7 +49760,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountPartner": {
             "apiVersion": "2019-05-01",
@@ -49165,7 +49792,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountSchema": {
             "apiVersion": "2019-05-01",
@@ -49196,7 +49824,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationAccountSession": {
             "apiVersion": "2019-05-01",
@@ -49227,7 +49856,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationServiceEnvironment": {
             "apiVersion": "2019-05-01",
@@ -49253,7 +49883,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getIntegrationServiceEnvironmentManagedApi": {
             "apiVersion": "2019-05-01",
@@ -49284,7 +49915,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:logic:getWorkflow": {
             "apiVersion": "2019-05-01",
@@ -49310,7 +49942,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:machinelearning:getWebService": {
             "apiVersion": "2017-01-01",
@@ -49342,7 +49975,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:machinelearning:getWorkspace": {
             "apiVersion": "2019-10-01",
@@ -49370,7 +50004,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:machinelearningservices:getWorkspace": {
             "apiVersion": "2020-06-01",
@@ -49398,7 +50033,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:machinelearningservices:getWorkspaceCompute": {
             "apiVersion": "2020-06-01",
@@ -49432,7 +50068,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:machinelearningservices:getWorkspaceConnection": {
             "apiVersion": "2020-06-01",
@@ -49466,7 +50103,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:machinelearningservices:getWorkspacePrivateEndpointConnection": {
             "apiVersion": "2020-06-01",
@@ -49500,6 +50138,71 @@
                     "location": "query",
                     "required": true
                 }
+            ],
+            "POST": null
+        },
+        "azurerm:machinelearningservices:listWorkspaceComputeKeys": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "computeName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:machinelearningservices:listWorkspaceKeys": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
             ]
         },
         "azurerm:maintenance:getMaintenanceConfiguration": {
@@ -49526,7 +50229,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:managedidentity:getUserAssignedIdentity": {
             "apiVersion": "2018-11-30",
@@ -49554,12 +50258,43 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:maps:getAccount": {
             "apiVersion": "2018-05-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName}",
             "GET": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:maps:listAccountKeys": {
+            "apiVersion": "2018-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName}/listKeys",
+            "GET": null,
+            "POST": [
                 {
                     "name": "api-version",
                     "location": "query",
@@ -49615,7 +50350,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaServiceAsset": {
             "apiVersion": "2020-05-01",
@@ -49648,7 +50384,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaServiceAssetAssetFilter": {
             "apiVersion": "2020-05-01",
@@ -49686,7 +50423,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaServiceContentKeyPolicy": {
             "apiVersion": "2020-05-01",
@@ -49719,7 +50457,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaServiceStreamingLocator": {
             "apiVersion": "2020-05-01",
@@ -49752,7 +50491,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaServiceStreamingPolicy": {
             "apiVersion": "2020-05-01",
@@ -49785,7 +50525,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaServiceTransform": {
             "apiVersion": "2020-05-01",
@@ -49818,7 +50559,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaServiceTransformJob": {
             "apiVersion": "2020-05-01",
@@ -49856,7 +50598,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaservice": {
             "apiVersion": "2020-05-01",
@@ -49883,7 +50626,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaserviceLiveEvent": {
             "apiVersion": "2020-05-01",
@@ -49917,7 +50661,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaserviceLiveEventLiveOutput": {
             "apiVersion": "2020-05-01",
@@ -49957,7 +50702,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaservicePrivateEndpointConnection": {
             "apiVersion": "2020-05-01",
@@ -49989,7 +50735,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:media:getMediaserviceStreamingEndpoint": {
             "apiVersion": "2020-05-01",
@@ -50021,6 +50768,36 @@
                 {
                     "name": "api-version",
                     "location": "query",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:media:listMediaserviceKeys": {
+            "apiVersion": "2015-10-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaservices/{mediaServiceName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "mediaServiceName",
+                    "location": "path",
+                    "source": "method",
                     "required": true
                 }
             ]
@@ -50055,7 +50832,8 @@
                     "name": "Accept-Language",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:migrate:getAssessmentProjectGroup": {
             "apiVersion": "2019-10-01",
@@ -50093,7 +50871,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:migrate:getAssessmentProjectGroupAssessment": {
             "apiVersion": "2019-10-01",
@@ -50137,7 +50916,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:migrate:getAssessmentProjectHypervcollector": {
             "apiVersion": "2019-10-01",
@@ -50175,7 +50955,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:migrate:getAssessmentProjectVmwarecollector": {
             "apiVersion": "2019-10-01",
@@ -50213,12 +50994,43 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:mixedreality:getSpatialAnchorsAccount": {
             "apiVersion": "2020-05-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MixedReality/spatialAnchorsAccounts/{accountName}",
             "GET": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:mixedreality:listSpatialAnchorsAccountKeys": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MixedReality/spatialAnchorsAccounts/{accountName}/listKeys",
+            "GET": null,
+            "POST": [
                 {
                     "name": "subscriptionId",
                     "location": "path",
@@ -50269,7 +51081,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:netapp:getNetAppAccountCapacityPool": {
             "apiVersion": "2019-11-01",
@@ -50303,7 +51116,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:netapp:getNetAppAccountCapacityPoolVolume": {
             "apiVersion": "2019-11-01",
@@ -50343,7 +51157,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:netapp:getNetAppAccountCapacityPoolVolumeSnapshot": {
             "apiVersion": "2019-11-01",
@@ -50389,7 +51204,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getApplicationGateway": {
             "apiVersion": "2020-05-01",
@@ -50415,7 +51231,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getApplicationGatewayPrivateEndpointConnection": {
             "apiVersion": "2020-05-01",
@@ -50446,7 +51263,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getApplicationGatewayWebApplicationFirewallPolicy": {
             "apiVersion": "2020-04-01",
@@ -50472,7 +51290,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getApplicationSecurityGroup": {
             "apiVersion": "2020-05-01",
@@ -50498,7 +51317,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getAzureFirewall": {
             "apiVersion": "2020-05-01",
@@ -50524,7 +51344,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getBastionHost": {
             "apiVersion": "2020-05-01",
@@ -50552,7 +51373,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getConnection": {
             "apiVersion": "2020-05-01",
@@ -50578,7 +51400,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getDdosCustomPolicy": {
             "apiVersion": "2020-05-01",
@@ -50604,7 +51427,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getDdosProtectionPlan": {
             "apiVersion": "2020-05-01",
@@ -50630,7 +51454,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getDnsZone": {
             "apiVersion": "2018-05-01",
@@ -50656,7 +51481,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRouteCircuit": {
             "apiVersion": "2020-05-01",
@@ -50682,7 +51508,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRouteCircuitAuthorization": {
             "apiVersion": "2020-05-01",
@@ -50713,7 +51540,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRouteCircuitPeering": {
             "apiVersion": "2020-05-01",
@@ -50744,7 +51572,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRouteCircuitPeeringConnection": {
             "apiVersion": "2020-05-01",
@@ -50780,7 +51609,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRouteCrossConnectionPeering": {
             "apiVersion": "2020-05-01",
@@ -50811,7 +51641,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRouteGateway": {
             "apiVersion": "2020-05-01",
@@ -50837,7 +51668,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRouteGatewayExpressRouteConnection": {
             "apiVersion": "2020-05-01",
@@ -50868,7 +51700,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getExpressRoutePort": {
             "apiVersion": "2020-05-01",
@@ -50894,7 +51727,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getFirewallPolicy": {
             "apiVersion": "2020-05-01",
@@ -50924,7 +51758,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getFirewallPolicyRuleCollectionGroup": {
             "apiVersion": "2020-05-01",
@@ -50955,7 +51790,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getFrontDoor": {
             "apiVersion": "2020-05-01",
@@ -50983,7 +51819,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getFrontDoorRulesEngine": {
             "apiVersion": "2020-05-01",
@@ -51017,7 +51854,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getInterfaceEndpoint": {
             "apiVersion": "2019-02-01",
@@ -51047,7 +51885,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getIpAllocation": {
             "apiVersion": "2020-05-01",
@@ -51077,7 +51916,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getIpGroup": {
             "apiVersion": "2020-05-01",
@@ -51107,7 +51947,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getLoadBalancer": {
             "apiVersion": "2020-05-01",
@@ -51137,7 +51978,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getLoadBalancerBackendAddressPool": {
             "apiVersion": "2020-05-01",
@@ -51168,7 +52010,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getLoadBalancerInboundNatRule": {
             "apiVersion": "2020-05-01",
@@ -51203,7 +52046,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getLocalNetworkGateway": {
             "apiVersion": "2020-05-01",
@@ -51229,7 +52073,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNatGateway": {
             "apiVersion": "2020-05-01",
@@ -51259,7 +52104,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkExperimentProfile": {
             "apiVersion": "2019-11-01",
@@ -51287,7 +52133,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkExperimentProfileExperiment": {
             "apiVersion": "2019-11-01",
@@ -51321,7 +52168,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkInterface": {
             "apiVersion": "2020-05-01",
@@ -51351,7 +52199,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkInterfaceTapConfiguration": {
             "apiVersion": "2020-05-01",
@@ -51382,7 +52231,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkProfile": {
             "apiVersion": "2020-05-01",
@@ -51412,7 +52262,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkSecurityGroup": {
             "apiVersion": "2020-05-01",
@@ -51442,7 +52293,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkSecurityGroupSecurityRule": {
             "apiVersion": "2020-05-01",
@@ -51473,7 +52325,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkVirtualAppliance": {
             "apiVersion": "2020-05-01",
@@ -51503,7 +52356,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkVirtualApplianceVirtualApplianceSite": {
             "apiVersion": "2020-05-01",
@@ -51534,7 +52388,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkWatcher": {
             "apiVersion": "2020-05-01",
@@ -51560,7 +52415,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkWatcherConnectionMonitor": {
             "apiVersion": "2020-05-01",
@@ -51591,7 +52447,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkWatcherFlowLog": {
             "apiVersion": "2020-05-01",
@@ -51622,7 +52479,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getNetworkWatcherPacketCapture": {
             "apiVersion": "2020-05-01",
@@ -51653,7 +52511,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getP2svpnGateway": {
             "apiVersion": "2020-05-01",
@@ -51679,7 +52538,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPrivateDnsZone": {
             "apiVersion": "2018-09-01",
@@ -51705,7 +52565,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPrivateDnsZoneVirtualNetworkLink": {
             "apiVersion": "2018-09-01",
@@ -51736,7 +52597,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPrivateEndpoint": {
             "apiVersion": "2020-05-01",
@@ -51766,7 +52628,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPrivateEndpointPrivateDnsZoneGroup": {
             "apiVersion": "2020-05-01",
@@ -51797,7 +52660,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPrivateLinkService": {
             "apiVersion": "2020-05-01",
@@ -51827,7 +52691,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPrivateLinkServicePrivateEndpointConnection": {
             "apiVersion": "2020-05-01",
@@ -51862,7 +52727,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPublicIPAddress": {
             "apiVersion": "2020-05-01",
@@ -51892,7 +52758,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getPublicIPPrefix": {
             "apiVersion": "2020-05-01",
@@ -51922,7 +52789,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getRouteFilter": {
             "apiVersion": "2020-05-01",
@@ -51952,7 +52820,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getRouteFilterRouteFilterRule": {
             "apiVersion": "2020-05-01",
@@ -51983,7 +52852,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getRouteTable": {
             "apiVersion": "2020-05-01",
@@ -52013,7 +52883,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getRouteTableRoute": {
             "apiVersion": "2020-05-01",
@@ -52044,7 +52915,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getSecurityPartnerProvider": {
             "apiVersion": "2020-05-01",
@@ -52070,7 +52942,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getServiceEndpointPolicy": {
             "apiVersion": "2020-05-01",
@@ -52100,7 +52973,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getServiceEndpointPolicyServiceEndpointPolicyDefinition": {
             "apiVersion": "2020-05-01",
@@ -52131,7 +53005,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getTrafficmanagerprofile": {
             "apiVersion": "2018-04-01",
@@ -52157,7 +53032,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualHub": {
             "apiVersion": "2020-05-01",
@@ -52183,7 +53059,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualHubBgpConnection": {
             "apiVersion": "2020-05-01",
@@ -52214,7 +53091,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualHubHubRouteTable": {
             "apiVersion": "2020-05-01",
@@ -52245,7 +53123,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualHubHubVirtualNetworkConnection": {
             "apiVersion": "2020-05-01",
@@ -52276,7 +53155,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualHubIpConfiguration": {
             "apiVersion": "2020-05-01",
@@ -52307,7 +53187,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualHubRouteTable": {
             "apiVersion": "2020-05-01",
@@ -52338,7 +53219,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualNetwork": {
             "apiVersion": "2020-05-01",
@@ -52368,7 +53250,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualNetworkGateway": {
             "apiVersion": "2020-05-01",
@@ -52394,7 +53277,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualNetworkSubnet": {
             "apiVersion": "2020-05-01",
@@ -52429,7 +53313,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualNetworkTap": {
             "apiVersion": "2020-05-01",
@@ -52455,7 +53340,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualNetworkVirtualNetworkPeering": {
             "apiVersion": "2020-05-01",
@@ -52486,7 +53372,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualRouter": {
             "apiVersion": "2020-05-01",
@@ -52516,7 +53403,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualRouterPeering": {
             "apiVersion": "2020-05-01",
@@ -52547,7 +53435,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVirtualWan": {
             "apiVersion": "2020-05-01",
@@ -52573,7 +53462,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVpnGateway": {
             "apiVersion": "2020-05-01",
@@ -52599,7 +53489,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVpnGatewayVpnConnection": {
             "apiVersion": "2020-05-01",
@@ -52630,7 +53521,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVpnServerConfiguration": {
             "apiVersion": "2020-05-01",
@@ -52656,7 +53548,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:network:getVpnSite": {
             "apiVersion": "2020-05-01",
@@ -52682,7 +53575,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:notificationhubs:getNamespace": {
             "apiVersion": "2017-04-01",
@@ -52708,7 +53602,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:notificationhubs:getNamespaceAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -52739,7 +53634,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:notificationhubs:getNamespaceNotificationHub": {
             "apiVersion": "2017-04-01",
@@ -52770,12 +53666,83 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:notificationhubs:getNamespaceNotificationHubAuthorizationRule": {
             "apiVersion": "2017-04-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}/AuthorizationRules/{authorizationRuleName}",
             "GET": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "notificationHubName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:notificationhubs:listNamespaceAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:notificationhubs:listNamespaceNotificationHubAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName}/AuthorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
                 {
                     "name": "resourceGroupName",
                     "location": "path",
@@ -52832,7 +53799,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:offazure:getVMwareSite": {
             "apiVersion": "2020-01-01",
@@ -52858,7 +53826,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:operationalinsights:getWorkspaceProviderAlertRule": {
             "apiVersion": "2020-01-01",
@@ -52892,7 +53861,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:operationalinsights:getWorkspaceProviderAlertRuleAction": {
             "apiVersion": "2020-01-01",
@@ -52932,7 +53902,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:operationalinsights:getWorkspaceProviderBookmark": {
             "apiVersion": "2020-01-01",
@@ -52966,7 +53937,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:operationalinsights:getWorkspaceProviderDataConnector": {
             "apiVersion": "2020-01-01",
@@ -53000,7 +53972,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:operationalinsights:getWorkspaceProviderIncident": {
             "apiVersion": "2020-01-01",
@@ -53034,7 +54007,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:operationalinsights:getWorkspaceSavedSearch": {
             "apiVersion": "2015-03-20",
@@ -53067,7 +54041,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:operationalinsights:getWorkspaceStorageInsightConfig": {
             "apiVersion": "2015-03-20",
@@ -53100,6 +54075,36 @@
                     "location": "path",
                     "required": true
                 }
+            ],
+            "POST": null
+        },
+        "azurerm:operationalinsights:listWorkspaceKeys": {
+            "apiVersion": "2015-03-20",
+            "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
             ]
         },
         "azurerm:peering:getPeering": {
@@ -53126,7 +54131,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:peering:getPeeringRegisteredAsn": {
             "apiVersion": "2020-04-01",
@@ -53157,7 +54163,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:peering:getPeeringRegisteredPrefix": {
             "apiVersion": "2020-04-01",
@@ -53188,7 +54195,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:peering:getPeeringService": {
             "apiVersion": "2020-04-01",
@@ -53214,7 +54222,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:peering:getPeeringServicePrefix": {
             "apiVersion": "2020-04-01",
@@ -53249,7 +54258,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:policyinsights:getRemediation": {
             "apiVersion": "2019-07-01",
@@ -53278,12 +54288,41 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:powerbi:getWorkspaceCollection": {
             "apiVersion": "2016-01-29",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName}",
             "GET": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workspaceCollectionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:powerbi:listWorkspaceCollectionKeys": {
+            "apiVersion": "2016-01-29",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName}/listKeys",
+            "GET": null,
+            "POST": [
                 {
                     "name": "subscriptionId",
                     "location": "path",
@@ -53331,7 +54370,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVault": {
             "apiVersion": "2016-06-01",
@@ -53359,7 +54399,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultBackupPolicy": {
             "apiVersion": "2016-06-01",
@@ -53392,7 +54433,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultPrivateEndpointConnection": {
             "apiVersion": "2020-02-02",
@@ -53425,7 +54467,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabric": {
             "apiVersion": "2018-07-10",
@@ -53458,7 +54501,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabricReplicationNetworkReplicationNetworkMapping": {
             "apiVersion": "2018-07-10",
@@ -53501,7 +54545,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem": {
             "apiVersion": "2018-07-10",
@@ -53544,7 +54589,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItem": {
             "apiVersion": "2018-07-10",
@@ -53587,7 +54633,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMapping": {
             "apiVersion": "2018-07-10",
@@ -53630,7 +54677,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabricReplicationRecoveryServicesProvider": {
             "apiVersion": "2018-07-10",
@@ -53668,7 +54716,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMapping": {
             "apiVersion": "2018-07-10",
@@ -53711,7 +54760,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationFabricReplicationvCenter": {
             "apiVersion": "2018-07-10",
@@ -53749,7 +54799,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationPolicy": {
             "apiVersion": "2018-07-10",
@@ -53782,7 +54833,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:recoveryservices:getVaultReplicationRecoveryPlan": {
             "apiVersion": "2018-07-10",
@@ -53815,7 +54867,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:redhatopenshift:getOpenShiftCluster": {
             "apiVersion": "2020-04-30",
@@ -53842,7 +54895,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:relay:getNamespace": {
             "apiVersion": "2017-04-01",
@@ -53870,7 +54924,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:relay:getNamespaceAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -53904,7 +54959,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:relay:getNamespaceHybridConnection": {
             "apiVersion": "2017-04-01",
@@ -53938,7 +54994,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:relay:getNamespaceHybridConnectionAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -53978,7 +55035,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:relay:getNamespaceWcfRelay": {
             "apiVersion": "2017-04-01",
@@ -54012,12 +55070,131 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:relay:getNamespaceWcfRelayAuthorizationRule": {
             "apiVersion": "2017-04-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}/authorizationRules/{authorizationRuleName}",
             "GET": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "relayName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:relay:listNamespaceAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/authorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:relay:listNamespaceHybridConnectionAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/hybridConnections/{hybridConnectionName}/authorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "hybridConnectionName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:relay:listNamespaceWcfRelayAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}/authorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
                 {
                     "name": "resourceGroupName",
                     "location": "path",
@@ -54079,7 +55256,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:scheduler:getJobCollection": {
             "apiVersion": "2016-03-01",
@@ -54105,7 +55283,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:scheduler:getJobCollectionJob": {
             "apiVersion": "2016-03-01",
@@ -54136,7 +55315,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:search:getSearchService": {
             "apiVersion": "2020-03-13",
@@ -54169,7 +55349,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:search:getSearchServicePrivateEndpointConnection": {
             "apiVersion": "2020-03-13",
@@ -54208,7 +55389,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:search:getSearchServiceSharedPrivateLinkResource": {
             "apiVersion": "2020-03-13",
@@ -54247,7 +55429,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:security:getIotSecuritySolution": {
             "apiVersion": "2019-08-01",
@@ -54275,7 +55458,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:security:getLocationJitNetworkAccessPolicy": {
             "apiVersion": "2020-01-01",
@@ -54309,7 +55493,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespace": {
             "apiVersion": "2017-04-01",
@@ -54337,7 +55522,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -54371,7 +55557,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceDisasterRecoveryConfig": {
             "apiVersion": "2017-04-01",
@@ -54405,7 +55592,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceMigrationConfiguration": {
             "apiVersion": "2017-04-01",
@@ -54439,7 +55627,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceQueue": {
             "apiVersion": "2017-04-01",
@@ -54473,7 +55662,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceQueueAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -54513,7 +55703,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceTopic": {
             "apiVersion": "2017-04-01",
@@ -54547,7 +55738,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceTopicAuthorizationRule": {
             "apiVersion": "2017-04-01",
@@ -54587,7 +55779,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceTopicSubscription": {
             "apiVersion": "2017-04-01",
@@ -54627,7 +55820,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicebus:getNamespaceTopicSubscriptionRule": {
             "apiVersion": "2017-04-01",
@@ -54673,6 +55867,83 @@
                     "location": "path",
                     "required": true
                 }
+            ],
+            "POST": null
+        },
+        "azurerm:servicebus:listNamespaceAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:servicebus:listNamespaceDisasterRecoveryConfigAuthorizationRuleKeys": {
+            "apiVersion": "2017-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/disasterRecoveryConfigs/{alias}/AuthorizationRules/{authorizationRuleName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "alias",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authorizationRuleName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
             ]
         },
         "azurerm:servicefabric:getCluster": {
@@ -54703,7 +55974,8 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicefabric:getClusterApplication": {
             "apiVersion": "2020-03-01",
@@ -54739,7 +56011,8 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicefabric:getClusterApplicationService": {
             "apiVersion": "2020-03-01",
@@ -54781,7 +56054,8 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicefabric:getClusterApplicationType": {
             "apiVersion": "2020-03-01",
@@ -54817,7 +56091,8 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:servicefabric:getClusterApplicationTypeVersion": {
             "apiVersion": "2020-03-01",
@@ -54859,7 +56134,8 @@
                     "source": "client",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:signalrservice:getSignalR": {
             "apiVersion": "2020-05-01",
@@ -54887,7 +56163,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:signalrservice:getSignalRPrivateEndpointConnection": {
             "apiVersion": "2020-05-01",
@@ -54898,6 +56175,36 @@
                     "location": "path",
                     "required": true
                 },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:signalrservice:listSignalRKeys": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{resourceName}/listKeys",
+            "GET": null,
+            "POST": [
                 {
                     "name": "api-version",
                     "location": "query",
@@ -54946,7 +56253,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:solutions:getApplicationDefinition": {
             "apiVersion": "2019-07-01",
@@ -54972,7 +56280,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:solutions:getJitRequest": {
             "apiVersion": "2019-07-01",
@@ -54998,7 +56307,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:sql:getServer": {
             "apiVersion": "2014-04-01",
@@ -55028,7 +56338,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:sql:getServerAdministrator": {
             "apiVersion": "2014-04-01",
@@ -55064,7 +56375,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:sql:getServerCommunicationLink": {
             "apiVersion": "2014-04-01",
@@ -55099,7 +56411,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:sql:getServerDatabase": {
             "apiVersion": "2014-04-01",
@@ -55139,7 +56452,8 @@
                     "location": "query",
                     "source": "method"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:sql:getServerDisasterRecoveryConfiguration": {
             "apiVersion": "2014-04-01",
@@ -55174,7 +56488,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:sql:getServerElasticPool": {
             "apiVersion": "2014-04-01",
@@ -55209,7 +56524,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:sql:getServerFirewallRule": {
             "apiVersion": "2014-04-01",
@@ -55244,7 +56560,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccount": {
             "apiVersion": "2019-06-01",
@@ -55276,7 +56593,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountBlobServiceContainer": {
             "apiVersion": "2019-06-01",
@@ -55310,7 +56628,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountBlobServiceContainerImmutabilityPolicy": {
             "apiVersion": "2019-06-01",
@@ -55354,7 +56673,8 @@
                     "name": "If-Match",
                     "location": "header"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountFileServiceShare": {
             "apiVersion": "2019-06-01",
@@ -55392,7 +56712,8 @@
                     "name": "$expand",
                     "location": "query"
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountManagementPolicy": {
             "apiVersion": "2019-06-01",
@@ -55426,7 +56747,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountObjectReplicationPolicy": {
             "apiVersion": "2019-06-01",
@@ -55460,7 +56782,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountPrivateEndpointConnection": {
             "apiVersion": "2019-06-01",
@@ -55494,7 +56817,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountQueueServiceQueue": {
             "apiVersion": "2019-06-01",
@@ -55528,7 +56852,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storage:getStorageAccountTableServiceTable": {
             "apiVersion": "2019-06-01",
@@ -55562,6 +56887,40 @@
                     "source": "method",
                     "required": true
                 }
+            ],
+            "POST": null
+        },
+        "azurerm:storage:listStorageAccountKeys": {
+            "apiVersion": "2019-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "$expand",
+                    "location": "query"
+                }
             ]
         },
         "azurerm:storagecache:getCach": {
@@ -55588,7 +56947,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storagecache:getCachStorageTarget": {
             "apiVersion": "2020-03-01",
@@ -55619,7 +56979,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storagesync:getStorageSyncService": {
             "apiVersion": "2020-03-01",
@@ -55646,7 +57007,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storagesync:getStorageSyncServicePrivateEndpointConnection": {
             "apiVersion": "2020-03-01",
@@ -55680,7 +57042,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storagesync:getStorageSyncServiceRegisteredServer": {
             "apiVersion": "2020-03-01",
@@ -55712,7 +57075,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storagesync:getStorageSyncServiceSyncGroup": {
             "apiVersion": "2020-03-01",
@@ -55744,7 +57108,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storagesync:getStorageSyncServiceSyncGroupCloudEndpoint": {
             "apiVersion": "2020-03-01",
@@ -55781,7 +57146,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storagesync:getStorageSyncServiceSyncGroupServerEndpoint": {
             "apiVersion": "2020-03-01",
@@ -55818,7 +57184,8 @@
                     "location": "path",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManager": {
             "apiVersion": "2017-06-01",
@@ -55846,7 +57213,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerAccessControlRecord": {
             "apiVersion": "2017-06-01",
@@ -55879,7 +57247,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerBandwidthSetting": {
             "apiVersion": "2017-06-01",
@@ -55912,7 +57281,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceBackupPolicy": {
             "apiVersion": "2017-06-01",
@@ -55951,7 +57321,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceBackupPolicySchedule": {
             "apiVersion": "2017-06-01",
@@ -55995,7 +57366,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceBackupScheduleGroup": {
             "apiVersion": "2016-10-01",
@@ -56033,7 +57405,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceChapSetting": {
             "apiVersion": "2016-10-01",
@@ -56071,7 +57444,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceFileserver": {
             "apiVersion": "2016-10-01",
@@ -56109,7 +57483,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceFileserverShare": {
             "apiVersion": "2016-10-01",
@@ -56152,7 +57527,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceIscsiserver": {
             "apiVersion": "2016-10-01",
@@ -56190,7 +57566,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceIscsiserverDisk": {
             "apiVersion": "2016-10-01",
@@ -56233,7 +57610,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceVolumeContainer": {
             "apiVersion": "2017-06-01",
@@ -56272,7 +57650,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerDeviceVolumeContainerVolume": {
             "apiVersion": "2017-06-01",
@@ -56316,7 +57695,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerExtendedInformation": {
             "apiVersion": "2017-06-01",
@@ -56344,7 +57724,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerStorageAccountCredential": {
             "apiVersion": "2017-06-01",
@@ -56377,7 +57758,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:storsimple:getManagerStorageDomain": {
             "apiVersion": "2016-10-01",
@@ -56410,7 +57792,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:streamanalytics:getStreamingjob": {
             "apiVersion": "2016-03-01",
@@ -56442,7 +57825,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:streamanalytics:getStreamingjobFunction": {
             "apiVersion": "2016-03-01",
@@ -56476,7 +57860,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:streamanalytics:getStreamingjobInput": {
             "apiVersion": "2016-03-01",
@@ -56510,7 +57895,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:streamanalytics:getStreamingjobOutput": {
             "apiVersion": "2016-03-01",
@@ -56544,7 +57930,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:timeseriesinsights:getEnvironment": {
             "apiVersion": "2020-05-15",
@@ -56577,7 +57964,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:timeseriesinsights:getEnvironmentAccessPolicy": {
             "apiVersion": "2020-05-15",
@@ -56611,7 +57999,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:timeseriesinsights:getEnvironmentEventSource": {
             "apiVersion": "2020-05-15",
@@ -56645,7 +58034,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:timeseriesinsights:getEnvironmentReferenceDataSet": {
             "apiVersion": "2020-05-15",
@@ -56679,7 +58069,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:virtualmachineimages:getImageTemplate": {
             "apiVersion": "2020-02-14",
@@ -56707,7 +58098,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:vmwarecloudsimple:getDedicatedCloudNode": {
             "apiVersion": "2019-04-01",
@@ -56734,7 +58126,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:vmwarecloudsimple:getDedicatedCloudService": {
             "apiVersion": "2019-04-01",
@@ -56761,7 +58154,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:vmwarecloudsimple:getVirtualMachine": {
             "apiVersion": "2019-04-01",
@@ -56788,7 +58182,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppService": {
             "apiVersion": "2019-08-01",
@@ -56815,7 +58210,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceDeployment": {
             "apiVersion": "2019-08-01",
@@ -56847,7 +58243,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceDomainOwnershipIdentifier": {
             "apiVersion": "2019-08-01",
@@ -56879,7 +58276,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceFunction": {
             "apiVersion": "2019-08-01",
@@ -56911,7 +58309,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceHostNameBinding": {
             "apiVersion": "2019-08-01",
@@ -56943,7 +58342,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceHybridConnectionNamespaceRelay": {
             "apiVersion": "2019-08-01",
@@ -56980,7 +58380,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceHybridconnection": {
             "apiVersion": "2019-08-01",
@@ -57012,7 +58413,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceNetworkConfig": {
             "apiVersion": "2019-08-01",
@@ -57039,7 +58441,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServicePlan": {
             "apiVersion": "2019-08-01",
@@ -57066,7 +58469,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServicePlanVirtualNetworkConnectionRoute": {
             "apiVersion": "2019-08-01",
@@ -57103,7 +58507,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServicePremieraddon": {
             "apiVersion": "2019-08-01",
@@ -57135,7 +58540,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServicePrivateEndpointConnection": {
             "apiVersion": "2019-08-01",
@@ -57167,7 +58573,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServicePublicCertificate": {
             "apiVersion": "2019-08-01",
@@ -57199,7 +58606,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSiteextension": {
             "apiVersion": "2019-08-01",
@@ -57231,7 +58639,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlot": {
             "apiVersion": "2019-08-01",
@@ -57263,7 +58672,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotDeployment": {
             "apiVersion": "2019-08-01",
@@ -57300,7 +58710,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotDomainOwnershipIdentifier": {
             "apiVersion": "2019-08-01",
@@ -57337,7 +58748,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotFunction": {
             "apiVersion": "2019-08-01",
@@ -57374,7 +58786,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotHostNameBinding": {
             "apiVersion": "2019-08-01",
@@ -57411,7 +58824,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotHybridConnectionNamespaceRelay": {
             "apiVersion": "2019-08-01",
@@ -57453,7 +58867,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotHybridconnection": {
             "apiVersion": "2019-08-01",
@@ -57490,7 +58905,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotNetworkConfig": {
             "apiVersion": "2019-08-01",
@@ -57522,7 +58938,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotPremieraddon": {
             "apiVersion": "2019-08-01",
@@ -57559,7 +58976,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotPublicCertificate": {
             "apiVersion": "2019-08-01",
@@ -57596,7 +59014,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotSiteextension": {
             "apiVersion": "2019-08-01",
@@ -57633,7 +59052,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotSourcecontrol": {
             "apiVersion": "2019-08-01",
@@ -57665,7 +59085,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSlotVirtualNetworkConnection": {
             "apiVersion": "2019-08-01",
@@ -57702,7 +59123,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceSourcecontrol": {
             "apiVersion": "2019-08-01",
@@ -57729,7 +59151,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getAppServiceVirtualNetworkConnection": {
             "apiVersion": "2019-08-01",
@@ -57761,7 +59184,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getCertificate": {
             "apiVersion": "2019-08-01",
@@ -57788,7 +59212,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getHostingEnvironment": {
             "apiVersion": "2019-08-01",
@@ -57815,7 +59240,8 @@
                     "location": "query",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         },
         "azurerm:web:getStaticSite": {
             "apiVersion": "2019-08-01",
@@ -57829,6 +59255,45 @@
                 },
                 {
                     "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:web:listAppServicePlanHybridConnectionNamespaceRelayKeys": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "namespaceName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "relayName",
                     "location": "path",
                     "required": true
                 },
@@ -57870,7 +59335,8 @@
                     "source": "method",
                     "required": true
                 }
-            ]
+            ],
+            "POST": null
         }
     }
 }

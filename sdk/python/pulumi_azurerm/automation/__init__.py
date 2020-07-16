@@ -33,3 +33,4 @@ from .get_automation_account_schedule import *
 from .get_automation_account_variable import *
 from .get_automation_account_watcher import *
 from .get_automation_account_webhook import *
+from .list_automation_account_keys import *

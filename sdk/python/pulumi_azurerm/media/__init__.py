@@ -16,6 +16,7 @@ from .get_mediaservice_live_event import *
 from .get_mediaservice_live_event_live_output import *
 from .get_mediaservice_private_endpoint_connection import *
 from .get_mediaservice_streaming_endpoint import *
+from .list_mediaservice_keys import *
 from .media_service_account_filter import *
 from .media_service_asset import *
 from .media_service_asset_asset_filter import *

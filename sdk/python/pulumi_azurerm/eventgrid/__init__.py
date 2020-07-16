@@ -8,4 +8,6 @@ from .domain_topic import *
 from .get_domain import *
 from .get_domain_topic import *
 from .get_topic import *
+from .list_domain_keys import *
+from .list_topic_keys import *
 from .topic import *

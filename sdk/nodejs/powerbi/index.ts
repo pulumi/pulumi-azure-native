@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./getWorkspaceCollection";
+export * from "./listWorkspaceCollectionKeys";
 export * from "./workspaceCollection";

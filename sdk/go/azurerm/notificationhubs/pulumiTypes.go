@@ -5457,6 +5457,162 @@ func (o SharedAccessAuthorizationRulePropertiesResponseArrayOutput) Index(i pulu
 	}).(SharedAccessAuthorizationRulePropertiesResponseOutput)
 }
 
+// Description of a Namespace AuthorizationRules.
+type SharedAccessAuthorizationRuleResourceResponse struct {
+	// Resource Id
+	Id string `pulumi:"id"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties of the Namespace AuthorizationRule.
+	Properties *SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The sku of the created namespace
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// SharedAccessAuthorizationRuleResourceResponseInput is an input type that accepts SharedAccessAuthorizationRuleResourceResponseArgs and SharedAccessAuthorizationRuleResourceResponseOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRuleResourceResponseInput` via:
+//
+//          SharedAccessAuthorizationRuleResourceResponseArgs{...}
+type SharedAccessAuthorizationRuleResourceResponseInput interface {
+	pulumi.Input
+
+	ToSharedAccessAuthorizationRuleResourceResponseOutput() SharedAccessAuthorizationRuleResourceResponseOutput
+	ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceResponseOutput
+}
+
+// Description of a Namespace AuthorizationRules.
+type SharedAccessAuthorizationRuleResourceResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Resource location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Namespace AuthorizationRule.
+	Properties SharedAccessAuthorizationRulePropertiesResponsePtrInput `pulumi:"properties"`
+	// The sku of the created namespace
+	Sku SkuResponsePtrInput `pulumi:"sku"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SharedAccessAuthorizationRuleResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+}
+
+func (i SharedAccessAuthorizationRuleResourceResponseArgs) ToSharedAccessAuthorizationRuleResourceResponseOutput() SharedAccessAuthorizationRuleResourceResponseOutput {
+	return i.ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(context.Background())
+}
+
+func (i SharedAccessAuthorizationRuleResourceResponseArgs) ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceResponseOutput)
+}
+
+// SharedAccessAuthorizationRuleResourceResponseArrayInput is an input type that accepts SharedAccessAuthorizationRuleResourceResponseArray and SharedAccessAuthorizationRuleResourceResponseArrayOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRuleResourceResponseArrayInput` via:
+//
+//          SharedAccessAuthorizationRuleResourceResponseArray{ SharedAccessAuthorizationRuleResourceResponseArgs{...} }
+type SharedAccessAuthorizationRuleResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharedAccessAuthorizationRuleResourceResponseArrayOutput() SharedAccessAuthorizationRuleResourceResponseArrayOutput
+	ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceResponseArrayOutput
+}
+
+type SharedAccessAuthorizationRuleResourceResponseArray []SharedAccessAuthorizationRuleResourceResponseInput
+
+func (SharedAccessAuthorizationRuleResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+}
+
+func (i SharedAccessAuthorizationRuleResourceResponseArray) ToSharedAccessAuthorizationRuleResourceResponseArrayOutput() SharedAccessAuthorizationRuleResourceResponseArrayOutput {
+	return i.ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharedAccessAuthorizationRuleResourceResponseArray) ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceResponseArrayOutput)
+}
+
+// Description of a Namespace AuthorizationRules.
+type SharedAccessAuthorizationRuleResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessAuthorizationRuleResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+}
+
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) ToSharedAccessAuthorizationRuleResourceResponseOutput() SharedAccessAuthorizationRuleResourceResponseOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseOutput {
+	return o
+}
+
+// Resource Id
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Namespace AuthorizationRule.
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Properties() SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *SharedAccessAuthorizationRulePropertiesResponse {
+		return v.Properties
+	}).(SharedAccessAuthorizationRulePropertiesResponsePtrOutput)
+}
+
+// The sku of the created namespace
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SharedAccessAuthorizationRuleResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessAuthorizationRuleResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+}
+
+func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) ToSharedAccessAuthorizationRuleResourceResponseArrayOutput() SharedAccessAuthorizationRuleResourceResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessAuthorizationRuleResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessAuthorizationRuleResourceResponse {
+		return vs[0].([]SharedAccessAuthorizationRuleResourceResponse)[vs[1].(int)]
+	}).(SharedAccessAuthorizationRuleResourceResponseOutput)
+}
+
 // The Sku description for a namespace
 type Sku struct {
 	// The capacity of the resource
@@ -6548,6 +6704,8 @@ func init() {
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceResponseOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

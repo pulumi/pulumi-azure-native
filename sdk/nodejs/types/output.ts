@@ -2585,6 +2585,24 @@ export namespace automation {
     }
 
     /**
+     * Automation key which is used to register a DSC Node
+     */
+    export interface KeyResponse {
+        /**
+         * Automation key name.
+         */
+        KeyName: string;
+        /**
+         * Automation key permissions.
+         */
+        Permissions: string;
+        /**
+         * Value of the Automation Key used for registration.
+         */
+        Value: string;
+    }
+
+    /**
      * Definition of the module error info type.
      */
     export interface ModuleErrorInfoResponse {
@@ -25369,6 +25387,11 @@ export namespace machinelearningservices {
         error: outputs.machinelearningservices.ErrorResponseResponse;
     }
 
+    export interface NotebookListCredentialsResultResponse {
+        primaryAccessKey?: string;
+        secondaryAccessKey?: string;
+    }
+
     export interface NotebookPreparationErrorResponse {
         errorMessage?: string;
         statusCode?: number;
@@ -25384,6 +25407,11 @@ export namespace machinelearningservices {
          * the data plane resourceId that used to initialize notebook component
          */
         resourceId?: string;
+    }
+
+    export interface PasswordResponse {
+        name: string;
+        value: string;
     }
 
     /**
@@ -25468,6 +25496,12 @@ export namespace machinelearningservices {
          * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
          */
         status?: string;
+    }
+
+    export interface RegistryListCredentialsResultResponse {
+        location: string;
+        passwords?: outputs.machinelearningservices.PasswordResponse[];
+        username: string;
     }
 
     /**
@@ -36790,6 +36824,40 @@ export namespace notificationhubs {
     }
 
     /**
+     * Description of a Namespace AuthorizationRules.
+     */
+    export interface SharedAccessAuthorizationRuleResourceResponse {
+        /**
+         * Resource Id
+         */
+        id: string;
+        /**
+         * Resource location
+         */
+        location?: string;
+        /**
+         * Resource name
+         */
+        name: string;
+        /**
+         * Properties of the Namespace AuthorizationRule.
+         */
+        properties?: outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse;
+        /**
+         * The sku of the created namespace
+         */
+        sku?: outputs.notificationhubs.SkuResponse;
+        /**
+         * Resource tags
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type
+         */
+        type: string;
+    }
+
+    /**
      * The Sku description for a namespace
      */
     export interface SkuResponse {
@@ -43626,6 +43694,24 @@ export namespace storage {
     }
 
     /**
+     * An access key for the storage account.
+     */
+    export interface StorageAccountKeyResponse {
+        /**
+         * Name of the key.
+         */
+        keyName: string;
+        /**
+         * Permissions for the key -- read-only or full permissions.
+         */
+        permissions: string;
+        /**
+         * Base 64-encoded value of the key.
+         */
+        value: string;
+    }
+
+    /**
      * The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object via a microsoft routing endpoint.
      */
     export interface StorageAccountMicrosoftEndpointsResponse {
@@ -47006,6 +47092,20 @@ export namespace web {
          * Resource type of the App Service Environment.
          */
         type: string;
+    }
+
+    /**
+     * HybridConnectionKey resource specific properties
+     */
+    export interface HybridConnectionKeyResponseProperties {
+        /**
+         * The name of the send key.
+         */
+        sendKeyName: string;
+        /**
+         * The value of the send key.
+         */
+        sendKeyValue: string;
     }
 
     /**

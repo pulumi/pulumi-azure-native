@@ -12,6 +12,8 @@ export * from "./getNamespaceTopic";
 export * from "./getNamespaceTopicAuthorizationRule";
 export * from "./getNamespaceTopicSubscription";
 export * from "./getNamespaceTopicSubscriptionRule";
+export * from "./listNamespaceAuthorizationRuleKeys";
+export * from "./listNamespaceDisasterRecoveryConfigAuthorizationRuleKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./namespaceDisasterRecoveryConfig";
