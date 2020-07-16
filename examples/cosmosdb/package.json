@@ -1,0 +1,17 @@
+{
+    "name": "arm-cosmosdb",
+    "version": "0.1.0",
+    "devDependencies": {
+        "@types/node": "latest"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "latest",
+        "@types/node": "^10.3.3",
+        "@types/mocha": "^5.2.7",
+        "mocha": "^7.0.0",
+        "ts-node": "^8.6.2"
+    },
+    "peerDependencies": {
+        "@pulumi/azurerm": "latest"
+    }
+}
