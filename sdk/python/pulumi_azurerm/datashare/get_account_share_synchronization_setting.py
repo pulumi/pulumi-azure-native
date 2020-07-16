@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetAccountShareSynchronizationSettingResult:
@@ -62,7 +62,7 @@ def get_account_share_synchronization_setting(account_name=None, name=None, reso
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:datashare:getAccountShareSynchronizationSetting', __args__, opts=opts).value
 
     return AwaitableGetAccountShareSynchronizationSettingResult(

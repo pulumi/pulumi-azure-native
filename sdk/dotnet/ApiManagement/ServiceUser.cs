@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.ApiManagement
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Send an Email notification to the User.
+        /// </summary>
+        [Input("notify")]
+        public Input<bool>? Notify { get; set; }
+
+        /// <summary>
         /// User entity create contract properties.
         /// </summary>
         [Input("properties")]

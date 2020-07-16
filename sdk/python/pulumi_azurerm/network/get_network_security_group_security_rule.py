@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetNetworkSecurityGroupSecurityRuleResult:
@@ -60,7 +60,7 @@ def get_network_security_group_security_rule(name=None, network_security_group_n
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getNetworkSecurityGroupSecurityRule', __args__, opts=opts).value
 
     return AwaitableGetNetworkSecurityGroupSecurityRuleResult(

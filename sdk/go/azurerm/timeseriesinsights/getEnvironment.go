@@ -25,14 +25,14 @@ type LookupEnvironmentArgs struct {
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 type LookupEnvironmentResult struct {
+	// The kind of the environment.
+	Kind string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the environment.
-	Properties EnvironmentResourcePropertiesResponse `pulumi:"properties"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku *SkuResponse `pulumi:"sku"`
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

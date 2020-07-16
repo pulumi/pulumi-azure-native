@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetServiceApiIssueCommentResult:
@@ -64,7 +64,7 @@ def get_service_api_issue_comment(api_id=None, issue_id=None, name=None, resourc
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement:getServiceApiIssueComment', __args__, opts=opts).value
 
     return AwaitableGetServiceApiIssueCommentResult(

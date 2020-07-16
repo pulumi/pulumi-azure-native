@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetApplicationGatewayWebApplicationFirewallPolicyResult:
@@ -79,7 +79,7 @@ def get_application_gateway_web_application_firewall_policy(name=None, resource_
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getApplicationGatewayWebApplicationFirewallPolicy', __args__, opts=opts).value
 
     return AwaitableGetApplicationGatewayWebApplicationFirewallPolicyResult(

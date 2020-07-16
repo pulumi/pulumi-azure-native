@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetBotServiceConnectionResult:
@@ -95,7 +95,7 @@ def get_bot_service_connection(name=None, resource_group_name=None, resource_nam
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:botservice:getBotServiceConnection', __args__, opts=opts).value
 
     return AwaitableGetBotServiceConnectionResult(

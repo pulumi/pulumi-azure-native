@@ -6,14 +6,20 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetEnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, kind=None, location=None, name=None, sku=None, tags=None, type=None):
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        __self__.kind = kind
+        """
+        The kind of the environment.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +32,11 @@ class GetEnvironmentResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties of the environment.
-        """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
-        The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+        The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,9 +58,9 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         if False:
             yield self
         return GetEnvironmentResult(
+            kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -79,13 +79,13 @@ def get_environment(name=None, resource_group_name=None, opts=None):
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:timeseriesinsights:getEnvironment', __args__, opts=opts).value
 
     return AwaitableGetEnvironmentResult(
+        kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

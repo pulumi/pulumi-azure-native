@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetVirtualMachineProviderGuestConfigurationAssignmentResult:
@@ -67,7 +67,7 @@ def get_virtual_machine_provider_guest_configuration_assignment(name=None, resou
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:compute:getVirtualMachineProviderGuestConfigurationAssignment', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineProviderGuestConfigurationAssignmentResult(

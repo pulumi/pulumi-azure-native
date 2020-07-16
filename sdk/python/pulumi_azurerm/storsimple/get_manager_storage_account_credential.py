@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetManagerStorageAccountCredentialResult:
@@ -67,7 +67,7 @@ def get_manager_storage_account_credential(manager_name=None, name=None, resourc
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple:getManagerStorageAccountCredential', __args__, opts=opts).value
 
     return AwaitableGetManagerStorageAccountCredentialResult(

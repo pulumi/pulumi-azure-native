@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class ServiceSubscription(pulumi.CustomResource):
@@ -35,12 +35,13 @@ class ServiceSubscription(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, notify=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_type=None, name=None, notify=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Subscription details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_type: Determines the type of application which send the create user request. Default is legacy publisher portal.
         :param pulumi.Input[str] name: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input[bool] notify: Notify change in Subscription State. 
                 - If false, do not send any email notification for change of state of subscription 
@@ -70,12 +71,13 @@ class ServiceSubscription(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['app_type'] = app_type
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
@@ -111,7 +113,7 @@ class ServiceSubscription(pulumi.CustomResource):
         return ServiceSubscription(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

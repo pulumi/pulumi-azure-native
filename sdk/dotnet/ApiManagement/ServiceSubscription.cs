@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.ApiManagement
     public sealed class ServiceSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines the type of application which send the create user request. Default is legacy publisher portal.
+        /// </summary>
+        [Input("appType")]
+        public Input<string>? AppType { get; set; }
+
+        /// <summary>
         /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         /// </summary>
         [Input("name", required: true)]

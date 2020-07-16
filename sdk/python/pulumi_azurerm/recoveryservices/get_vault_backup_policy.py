@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetVaultBackupPolicyResult:
@@ -81,7 +81,7 @@ def get_vault_backup_policy(name=None, resource_group_name=None, vault_name=None
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:recoveryservices:getVaultBackupPolicy', __args__, opts=opts).value
 
     return AwaitableGetVaultBackupPolicyResult(

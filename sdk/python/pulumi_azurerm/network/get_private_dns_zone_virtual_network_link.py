@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetPrivateDnsZoneVirtualNetworkLinkResult:
@@ -81,7 +81,7 @@ def get_private_dns_zone_virtual_network_link(name=None, private_zone_name=None,
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getPrivateDnsZoneVirtualNetworkLink', __args__, opts=opts).value
 
     return AwaitableGetPrivateDnsZoneVirtualNetworkLinkResult(

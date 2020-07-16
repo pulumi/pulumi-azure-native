@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetMediaServiceAssetAssetFilterResult:
@@ -62,7 +62,7 @@ def get_media_service_asset_asset_filter(account_name=None, asset_name=None, nam
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:media:getMediaServiceAssetAssetFilter', __args__, opts=opts).value
 
     return AwaitableGetMediaServiceAssetAssetFilterResult(

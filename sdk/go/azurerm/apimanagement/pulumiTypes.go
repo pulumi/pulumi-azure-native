@@ -9801,6 +9801,325 @@ func (o CertificateInformationResponsePtrOutput) Thumbprint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ContentItemContractPropertiesResponse struct {
+}
+
+// ContentItemContractPropertiesResponseInput is an input type that accepts ContentItemContractPropertiesResponseArgs and ContentItemContractPropertiesResponseOutput values.
+// You can construct a concrete instance of `ContentItemContractPropertiesResponseInput` via:
+//
+//          ContentItemContractPropertiesResponseArgs{...}
+type ContentItemContractPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToContentItemContractPropertiesResponseOutput() ContentItemContractPropertiesResponseOutput
+	ToContentItemContractPropertiesResponseOutputWithContext(context.Context) ContentItemContractPropertiesResponseOutput
+}
+
+type ContentItemContractPropertiesResponseArgs struct {
+}
+
+func (ContentItemContractPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentItemContractPropertiesResponse)(nil)).Elem()
+}
+
+func (i ContentItemContractPropertiesResponseArgs) ToContentItemContractPropertiesResponseOutput() ContentItemContractPropertiesResponseOutput {
+	return i.ToContentItemContractPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ContentItemContractPropertiesResponseArgs) ToContentItemContractPropertiesResponseOutputWithContext(ctx context.Context) ContentItemContractPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentItemContractPropertiesResponseOutput)
+}
+
+func (i ContentItemContractPropertiesResponseArgs) ToContentItemContractPropertiesResponsePtrOutput() ContentItemContractPropertiesResponsePtrOutput {
+	return i.ToContentItemContractPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentItemContractPropertiesResponseArgs) ToContentItemContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentItemContractPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentItemContractPropertiesResponseOutput).ToContentItemContractPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ContentItemContractPropertiesResponsePtrInput is an input type that accepts ContentItemContractPropertiesResponseArgs, ContentItemContractPropertiesResponsePtr and ContentItemContractPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ContentItemContractPropertiesResponsePtrInput` via:
+//
+//          ContentItemContractPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentItemContractPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentItemContractPropertiesResponsePtrOutput() ContentItemContractPropertiesResponsePtrOutput
+	ToContentItemContractPropertiesResponsePtrOutputWithContext(context.Context) ContentItemContractPropertiesResponsePtrOutput
+}
+
+type contentItemContractPropertiesResponsePtrType ContentItemContractPropertiesResponseArgs
+
+func ContentItemContractPropertiesResponsePtr(v *ContentItemContractPropertiesResponseArgs) ContentItemContractPropertiesResponsePtrInput {
+	return (*contentItemContractPropertiesResponsePtrType)(v)
+}
+
+func (*contentItemContractPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentItemContractPropertiesResponse)(nil)).Elem()
+}
+
+func (i *contentItemContractPropertiesResponsePtrType) ToContentItemContractPropertiesResponsePtrOutput() ContentItemContractPropertiesResponsePtrOutput {
+	return i.ToContentItemContractPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentItemContractPropertiesResponsePtrType) ToContentItemContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentItemContractPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentItemContractPropertiesResponsePtrOutput)
+}
+
+type ContentItemContractPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentItemContractPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentItemContractPropertiesResponse)(nil)).Elem()
+}
+
+func (o ContentItemContractPropertiesResponseOutput) ToContentItemContractPropertiesResponseOutput() ContentItemContractPropertiesResponseOutput {
+	return o
+}
+
+func (o ContentItemContractPropertiesResponseOutput) ToContentItemContractPropertiesResponseOutputWithContext(ctx context.Context) ContentItemContractPropertiesResponseOutput {
+	return o
+}
+
+func (o ContentItemContractPropertiesResponseOutput) ToContentItemContractPropertiesResponsePtrOutput() ContentItemContractPropertiesResponsePtrOutput {
+	return o.ToContentItemContractPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentItemContractPropertiesResponseOutput) ToContentItemContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentItemContractPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ContentItemContractPropertiesResponse) *ContentItemContractPropertiesResponse {
+		return &v
+	}).(ContentItemContractPropertiesResponsePtrOutput)
+}
+
+type ContentItemContractPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentItemContractPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentItemContractPropertiesResponse)(nil)).Elem()
+}
+
+func (o ContentItemContractPropertiesResponsePtrOutput) ToContentItemContractPropertiesResponsePtrOutput() ContentItemContractPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ContentItemContractPropertiesResponsePtrOutput) ToContentItemContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentItemContractPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ContentItemContractPropertiesResponsePtrOutput) Elem() ContentItemContractPropertiesResponseOutput {
+	return o.ApplyT(func(v *ContentItemContractPropertiesResponse) ContentItemContractPropertiesResponse { return *v }).(ContentItemContractPropertiesResponseOutput)
+}
+
+type ContentTypeContractPropertiesResponse struct {
+	// Content type description.
+	Description *string `pulumi:"description"`
+	// Content type identifier
+	Id *string `pulumi:"id"`
+	// Content type name. Must be 1 to 250 characters long.
+	Name *string `pulumi:"name"`
+	// Content type schema.
+	Schema map[string]string `pulumi:"schema"`
+	// Content type version.
+	Version *string `pulumi:"version"`
+}
+
+// ContentTypeContractPropertiesResponseInput is an input type that accepts ContentTypeContractPropertiesResponseArgs and ContentTypeContractPropertiesResponseOutput values.
+// You can construct a concrete instance of `ContentTypeContractPropertiesResponseInput` via:
+//
+//          ContentTypeContractPropertiesResponseArgs{...}
+type ContentTypeContractPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToContentTypeContractPropertiesResponseOutput() ContentTypeContractPropertiesResponseOutput
+	ToContentTypeContractPropertiesResponseOutputWithContext(context.Context) ContentTypeContractPropertiesResponseOutput
+}
+
+type ContentTypeContractPropertiesResponseArgs struct {
+	// Content type description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Content type identifier
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Content type name. Must be 1 to 250 characters long.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Content type schema.
+	Schema pulumi.StringMapInput `pulumi:"schema"`
+	// Content type version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ContentTypeContractPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentTypeContractPropertiesResponse)(nil)).Elem()
+}
+
+func (i ContentTypeContractPropertiesResponseArgs) ToContentTypeContractPropertiesResponseOutput() ContentTypeContractPropertiesResponseOutput {
+	return i.ToContentTypeContractPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ContentTypeContractPropertiesResponseArgs) ToContentTypeContractPropertiesResponseOutputWithContext(ctx context.Context) ContentTypeContractPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentTypeContractPropertiesResponseOutput)
+}
+
+func (i ContentTypeContractPropertiesResponseArgs) ToContentTypeContractPropertiesResponsePtrOutput() ContentTypeContractPropertiesResponsePtrOutput {
+	return i.ToContentTypeContractPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentTypeContractPropertiesResponseArgs) ToContentTypeContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentTypeContractPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentTypeContractPropertiesResponseOutput).ToContentTypeContractPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ContentTypeContractPropertiesResponsePtrInput is an input type that accepts ContentTypeContractPropertiesResponseArgs, ContentTypeContractPropertiesResponsePtr and ContentTypeContractPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ContentTypeContractPropertiesResponsePtrInput` via:
+//
+//          ContentTypeContractPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentTypeContractPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentTypeContractPropertiesResponsePtrOutput() ContentTypeContractPropertiesResponsePtrOutput
+	ToContentTypeContractPropertiesResponsePtrOutputWithContext(context.Context) ContentTypeContractPropertiesResponsePtrOutput
+}
+
+type contentTypeContractPropertiesResponsePtrType ContentTypeContractPropertiesResponseArgs
+
+func ContentTypeContractPropertiesResponsePtr(v *ContentTypeContractPropertiesResponseArgs) ContentTypeContractPropertiesResponsePtrInput {
+	return (*contentTypeContractPropertiesResponsePtrType)(v)
+}
+
+func (*contentTypeContractPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentTypeContractPropertiesResponse)(nil)).Elem()
+}
+
+func (i *contentTypeContractPropertiesResponsePtrType) ToContentTypeContractPropertiesResponsePtrOutput() ContentTypeContractPropertiesResponsePtrOutput {
+	return i.ToContentTypeContractPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentTypeContractPropertiesResponsePtrType) ToContentTypeContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentTypeContractPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentTypeContractPropertiesResponsePtrOutput)
+}
+
+type ContentTypeContractPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentTypeContractPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentTypeContractPropertiesResponse)(nil)).Elem()
+}
+
+func (o ContentTypeContractPropertiesResponseOutput) ToContentTypeContractPropertiesResponseOutput() ContentTypeContractPropertiesResponseOutput {
+	return o
+}
+
+func (o ContentTypeContractPropertiesResponseOutput) ToContentTypeContractPropertiesResponseOutputWithContext(ctx context.Context) ContentTypeContractPropertiesResponseOutput {
+	return o
+}
+
+func (o ContentTypeContractPropertiesResponseOutput) ToContentTypeContractPropertiesResponsePtrOutput() ContentTypeContractPropertiesResponsePtrOutput {
+	return o.ToContentTypeContractPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentTypeContractPropertiesResponseOutput) ToContentTypeContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentTypeContractPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) *ContentTypeContractPropertiesResponse {
+		return &v
+	}).(ContentTypeContractPropertiesResponsePtrOutput)
+}
+
+// Content type description.
+func (o ContentTypeContractPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Content type identifier
+func (o ContentTypeContractPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Content type name. Must be 1 to 250 characters long.
+func (o ContentTypeContractPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Content type schema.
+func (o ContentTypeContractPropertiesResponseOutput) Schema() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) map[string]string { return v.Schema }).(pulumi.StringMapOutput)
+}
+
+// Content type version.
+func (o ContentTypeContractPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ContentTypeContractPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentTypeContractPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentTypeContractPropertiesResponse)(nil)).Elem()
+}
+
+func (o ContentTypeContractPropertiesResponsePtrOutput) ToContentTypeContractPropertiesResponsePtrOutput() ContentTypeContractPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ContentTypeContractPropertiesResponsePtrOutput) ToContentTypeContractPropertiesResponsePtrOutputWithContext(ctx context.Context) ContentTypeContractPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ContentTypeContractPropertiesResponsePtrOutput) Elem() ContentTypeContractPropertiesResponseOutput {
+	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) ContentTypeContractPropertiesResponse { return *v }).(ContentTypeContractPropertiesResponseOutput)
+}
+
+// Content type description.
+func (o ContentTypeContractPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Content type identifier
+func (o ContentTypeContractPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Content type name. Must be 1 to 250 characters long.
+func (o ContentTypeContractPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Content type schema.
+func (o ContentTypeContractPropertiesResponsePtrOutput) Schema() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringMapOutput)
+}
+
+// Content type version.
+func (o ContentTypeContractPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 // Diagnostic Entity Properties
 type DiagnosticContractProperties struct {
 	// Specifies for what type of messages sampling settings should not apply.
@@ -22312,6 +22631,152 @@ func (o ServiceCertificateTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCertificateType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Content type contract details.
+type ServiceContentTypeType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the content type.
+	Properties ContentTypeContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ServiceContentTypeTypeInput is an input type that accepts ServiceContentTypeTypeArgs and ServiceContentTypeTypeOutput values.
+// You can construct a concrete instance of `ServiceContentTypeTypeInput` via:
+//
+//          ServiceContentTypeTypeArgs{...}
+type ServiceContentTypeTypeInput interface {
+	pulumi.Input
+
+	ToServiceContentTypeTypeOutput() ServiceContentTypeTypeOutput
+	ToServiceContentTypeTypeOutputWithContext(context.Context) ServiceContentTypeTypeOutput
+}
+
+// Content type contract details.
+type ServiceContentTypeTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the content type.
+	Properties ContentTypeContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceContentTypeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceContentTypeType)(nil)).Elem()
+}
+
+func (i ServiceContentTypeTypeArgs) ToServiceContentTypeTypeOutput() ServiceContentTypeTypeOutput {
+	return i.ToServiceContentTypeTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceContentTypeTypeArgs) ToServiceContentTypeTypeOutputWithContext(ctx context.Context) ServiceContentTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceContentTypeTypeOutput)
+}
+
+// Content type contract details.
+type ServiceContentTypeTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceContentTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceContentTypeType)(nil)).Elem()
+}
+
+func (o ServiceContentTypeTypeOutput) ToServiceContentTypeTypeOutput() ServiceContentTypeTypeOutput {
+	return o
+}
+
+func (o ServiceContentTypeTypeOutput) ToServiceContentTypeTypeOutputWithContext(ctx context.Context) ServiceContentTypeTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ServiceContentTypeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceContentTypeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the content type.
+func (o ServiceContentTypeTypeOutput) Properties() ContentTypeContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ServiceContentTypeType) ContentTypeContractPropertiesResponse { return v.Properties }).(ContentTypeContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ServiceContentTypeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceContentTypeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Content type contract details.
+type ServiceContentTypeContentItemType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the content item.
+	Properties ContentItemContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ServiceContentTypeContentItemTypeInput is an input type that accepts ServiceContentTypeContentItemTypeArgs and ServiceContentTypeContentItemTypeOutput values.
+// You can construct a concrete instance of `ServiceContentTypeContentItemTypeInput` via:
+//
+//          ServiceContentTypeContentItemTypeArgs{...}
+type ServiceContentTypeContentItemTypeInput interface {
+	pulumi.Input
+
+	ToServiceContentTypeContentItemTypeOutput() ServiceContentTypeContentItemTypeOutput
+	ToServiceContentTypeContentItemTypeOutputWithContext(context.Context) ServiceContentTypeContentItemTypeOutput
+}
+
+// Content type contract details.
+type ServiceContentTypeContentItemTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the content item.
+	Properties ContentItemContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceContentTypeContentItemTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceContentTypeContentItemType)(nil)).Elem()
+}
+
+func (i ServiceContentTypeContentItemTypeArgs) ToServiceContentTypeContentItemTypeOutput() ServiceContentTypeContentItemTypeOutput {
+	return i.ToServiceContentTypeContentItemTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceContentTypeContentItemTypeArgs) ToServiceContentTypeContentItemTypeOutputWithContext(ctx context.Context) ServiceContentTypeContentItemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceContentTypeContentItemTypeOutput)
+}
+
+// Content type contract details.
+type ServiceContentTypeContentItemTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceContentTypeContentItemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceContentTypeContentItemType)(nil)).Elem()
+}
+
+func (o ServiceContentTypeContentItemTypeOutput) ToServiceContentTypeContentItemTypeOutput() ServiceContentTypeContentItemTypeOutput {
+	return o
+}
+
+func (o ServiceContentTypeContentItemTypeOutput) ToServiceContentTypeContentItemTypeOutputWithContext(ctx context.Context) ServiceContentTypeContentItemTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ServiceContentTypeContentItemTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceContentTypeContentItemType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the content item.
+func (o ServiceContentTypeContentItemTypeOutput) Properties() ContentItemContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ServiceContentTypeContentItemType) ContentItemContractPropertiesResponse { return v.Properties }).(ContentItemContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ServiceContentTypeContentItemTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceContentTypeContentItemType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Diagnostic details.
 type ServiceDiagnosticType struct {
 	// Resource name.
@@ -25612,7 +26077,7 @@ func (o UserContractPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput 
 
 // Parameters supplied to the Create User operation.
 type UserCreateParameterProperties struct {
-	// Determines the type of application which send the create user request. Default is old publisher portal.
+	// Determines the type of application which send the create user request. Default is legacy portal.
 	AppType *string `pulumi:"appType"`
 	// Determines the type of confirmation e-mail that will be sent to the newly created user.
 	Confirmation *string `pulumi:"confirmation"`
@@ -25645,7 +26110,7 @@ type UserCreateParameterPropertiesInput interface {
 
 // Parameters supplied to the Create User operation.
 type UserCreateParameterPropertiesArgs struct {
-	// Determines the type of application which send the create user request. Default is old publisher portal.
+	// Determines the type of application which send the create user request. Default is legacy portal.
 	AppType pulumi.StringPtrInput `pulumi:"appType"`
 	// Determines the type of confirmation e-mail that will be sent to the newly created user.
 	Confirmation pulumi.StringPtrInput `pulumi:"confirmation"`
@@ -25743,7 +26208,7 @@ func (o UserCreateParameterPropertiesOutput) ToUserCreateParameterPropertiesPtrO
 	}).(UserCreateParameterPropertiesPtrOutput)
 }
 
-// Determines the type of application which send the create user request. Default is old publisher portal.
+// Determines the type of application which send the create user request. Default is legacy portal.
 func (o UserCreateParameterPropertiesOutput) AppType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserCreateParameterProperties) *string { return v.AppType }).(pulumi.StringPtrOutput)
 }
@@ -25806,7 +26271,7 @@ func (o UserCreateParameterPropertiesPtrOutput) Elem() UserCreateParameterProper
 	return o.ApplyT(func(v *UserCreateParameterProperties) UserCreateParameterProperties { return *v }).(UserCreateParameterPropertiesOutput)
 }
 
-// Determines the type of application which send the create user request. Default is old publisher portal.
+// Determines the type of application which send the create user request. Default is legacy portal.
 func (o UserCreateParameterPropertiesPtrOutput) AppType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserCreateParameterProperties) *string {
 		if v == nil {
@@ -26733,6 +27198,10 @@ func init() {
 	pulumi.RegisterOutputType(CertificateInformationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponseOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContentItemContractPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ContentItemContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContentTypeContractPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ContentTypeContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticContractPropertiesOutput{})
 	pulumi.RegisterOutputType(DiagnosticContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticContractPropertiesResponseOutput{})
@@ -26873,6 +27342,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceBackendTypeOutput{})
 	pulumi.RegisterOutputType(ServiceCachTypeOutput{})
 	pulumi.RegisterOutputType(ServiceCertificateTypeOutput{})
+	pulumi.RegisterOutputType(ServiceContentTypeTypeOutput{})
+	pulumi.RegisterOutputType(ServiceContentTypeContentItemTypeOutput{})
 	pulumi.RegisterOutputType(ServiceDiagnosticTypeOutput{})
 	pulumi.RegisterOutputType(ServiceGatewayTypeOutput{})
 	pulumi.RegisterOutputType(ServiceGatewayHostnameConfigurationTypeOutput{})

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetPrivateCloudAuthorizationResult:
@@ -60,7 +60,7 @@ def get_private_cloud_authorization(name=None, private_cloud_name=None, resource
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:avs:getPrivateCloudAuthorization', __args__, opts=opts).value
 
     return AwaitableGetPrivateCloudAuthorizationResult(

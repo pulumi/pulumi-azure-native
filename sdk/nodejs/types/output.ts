@@ -997,6 +997,32 @@ export namespace apimanagement {
         thumbprint: string;
     }
 
+    export interface ContentItemContractPropertiesResponse {
+    }
+
+    export interface ContentTypeContractPropertiesResponse {
+        /**
+         * Content type description.
+         */
+        description?: string;
+        /**
+         * Content type identifier
+         */
+        id?: string;
+        /**
+         * Content type name. Must be 1 to 250 characters long.
+         */
+        name?: string;
+        /**
+         * Content type schema.
+         */
+        schema?: {[key: string]: string};
+        /**
+         * Content type version.
+         */
+        version?: string;
+    }
+
     /**
      * Diagnostic Entity Properties
      */
@@ -45558,96 +45584,6 @@ export namespace timeseriesinsights {
     }
 
     /**
-     * Properties of the environment.
-     */
-    export interface EnvironmentResourcePropertiesResponse {
-        /**
-         * The time the resource was created.
-         */
-        creationTime: string;
-        /**
-         * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-         */
-        dataAccessFqdn: string;
-        /**
-         * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-         */
-        dataAccessId: string;
-        /**
-         * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-         */
-        dataRetentionTime: string;
-        /**
-         * The list of partition keys according to which the data in the environment will be ordered.
-         */
-        partitionKeyProperties?: outputs.timeseriesinsights.PartitionKeyPropertyResponse[];
-        /**
-         * Provisioning state of the resource.
-         */
-        provisioningState?: string;
-        /**
-         * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-         */
-        status?: outputs.timeseriesinsights.EnvironmentStatusResponse;
-        /**
-         * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-         */
-        storageLimitExceededBehavior?: string;
-    }
-
-    /**
-     * An object that contains the details about an environment's state.
-     */
-    export interface EnvironmentStateDetailsResponse {
-        /**
-         * Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-         */
-        code?: string;
-        /**
-         * A message that describes the state in detail.
-         */
-        message?: string;
-    }
-
-    /**
-     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-     */
-    export interface EnvironmentStatusResponse {
-        /**
-         * An object that represents the status of ingress on an environment.
-         */
-        ingress?: outputs.timeseriesinsights.IngressEnvironmentStatusResponse;
-    }
-
-    /**
-     * An object that represents the status of ingress on an environment.
-     */
-    export interface IngressEnvironmentStatusResponse {
-        /**
-         * This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-         */
-        state?: string;
-        /**
-         * An object that contains the details about an environment's state.
-         */
-        stateDetails?: outputs.timeseriesinsights.EnvironmentStateDetailsResponse;
-    }
-
-    /**
-     * The structure of the property that a partition key can have. An environment can have multiple such properties.
-     */
-    export interface PartitionKeyPropertyResponse {
-        /**
-         * The name of the property.
-         */
-        name?: string;
-        /**
-         * The type of the property.
-         */
-        type?: string;
-    }
-
-    /**
      * A key property for the reference data set. A reference data set can have multiple key properties.
      */
     export interface ReferenceDataSetKeyPropertyResponse {
@@ -45684,11 +45620,11 @@ export namespace timeseriesinsights {
     }
 
     /**
-     * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+     * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     export interface SkuResponse {
         /**
-         * The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+         * The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
          */
         capacity: number;
         /**

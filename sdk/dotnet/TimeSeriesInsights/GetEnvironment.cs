@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
     public sealed class GetEnvironmentResult
     {
         /// <summary>
+        /// The kind of the environment.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,13 +52,9 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the environment.
+        /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
-        public readonly Outputs.EnvironmentResourcePropertiesResponseResult Properties;
-        /// <summary>
-        /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-        /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponseResult Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,21 +66,21 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
 
         [OutputConstructor]
         private GetEnvironmentResult(
+            string kind,
+
             string location,
 
             string name,
 
-            Outputs.EnvironmentResourcePropertiesResponseResult properties,
-
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
             Sku = sku;
             Tags = tags;
             Type = type;

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetVirtualMachineScaleSetVirtualMachineExtensionResult:
@@ -76,7 +76,7 @@ def get_virtual_machine_scale_set_virtual_machine_extension(instance_id=None, na
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:compute:getVirtualMachineScaleSetVirtualMachineExtension', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineScaleSetVirtualMachineExtensionResult(

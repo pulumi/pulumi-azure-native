@@ -83,6 +83,8 @@ func (ServiceUserState) ElementType() reflect.Type {
 type serviceUserArgs struct {
 	// User identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
+	// Send an Email notification to the User.
+	Notify *bool `pulumi:"notify"`
 	// User entity create contract properties.
 	Properties *UserCreateParameterProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -95,6 +97,8 @@ type serviceUserArgs struct {
 type ServiceUserArgs struct {
 	// User identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
+	// Send an Email notification to the User.
+	Notify pulumi.BoolPtrInput
 	// User entity create contract properties.
 	Properties UserCreateParameterPropertiesPtrInput
 	// The name of the resource group.

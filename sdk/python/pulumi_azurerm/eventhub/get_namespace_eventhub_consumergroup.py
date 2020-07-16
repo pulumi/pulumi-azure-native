@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetNamespaceEventhubConsumergroupResult:
@@ -62,7 +62,7 @@ def get_namespace_eventhub_consumergroup(event_hub_name=None, name=None, namespa
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:eventhub:getNamespaceEventhubConsumergroup', __args__, opts=opts).value
 
     return AwaitableGetNamespaceEventhubConsumergroupResult(

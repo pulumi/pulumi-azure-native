@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetIntegrationServiceEnvironmentManagedApiResult:
@@ -74,7 +74,7 @@ def get_integration_service_environment_managed_api(integration_service_environm
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:logic:getIntegrationServiceEnvironmentManagedApi', __args__, opts=opts).value
 
     return AwaitableGetIntegrationServiceEnvironmentManagedApiResult(

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetRegistrationCustomerSubscriptionResult:
@@ -67,7 +67,7 @@ def get_registration_customer_subscription(name=None, registration_name=None, re
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:azurestack:getRegistrationCustomerSubscription', __args__, opts=opts).value
 
     return AwaitableGetRegistrationCustomerSubscriptionResult(

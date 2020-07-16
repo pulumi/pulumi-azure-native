@@ -1763,6 +1763,146 @@
                 }
             ]
         },
+        "azurerm:apimanagement:ServiceContentType": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}",
+            "GET": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentTypeId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "PUT": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentTypeId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:ServiceContentTypeContentItem": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}/contentItems/{contentItemId}",
+            "GET": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentTypeId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentItemId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "PUT": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentTypeId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentItemId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:apimanagement:ServiceDiagnostic": {
             "apiVersion": "2019-12-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}",
@@ -2871,6 +3011,11 @@
                     "name": "subscriptionId",
                     "location": "path",
                     "required": true
+                },
+                {
+                    "name": "appType",
+                    "location": "query",
+                    "source": "method"
                 }
             ]
         },
@@ -3087,6 +3232,10 @@
                     "properties": [
                         "properties"
                     ]
+                },
+                {
+                    "name": "notify",
+                    "location": "query"
                 },
                 {
                     "name": "If-Match",
@@ -36731,7 +36880,7 @@
             ]
         },
         "azurerm:timeseriesinsights:Environment": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}",
             "GET": [
                 {
@@ -36789,21 +36938,21 @@
                     "location": "body",
                     "required": true,
                     "properties": [
+                        "kind",
                         "location",
-                        "properties",
                         "sku",
                         "tags"
                     ],
                     "requiredProperties": [
+                        "kind",
                         "location",
-                        "properties",
                         "sku"
                     ]
                 }
             ]
         },
         "azurerm:timeseriesinsights:EnvironmentAccessPolicy": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies/{accessPolicyName}",
             "GET": [
                 {
@@ -36877,7 +37026,7 @@
             ]
         },
         "azurerm:timeseriesinsights:EnvironmentEventSource": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName}",
             "GET": [
                 {
@@ -36943,6 +37092,7 @@
                     "required": true,
                     "properties": [
                         "kind",
+                        "localTimestamp",
                         "location",
                         "tags"
                     ],
@@ -36954,7 +37104,7 @@
             ]
         },
         "azurerm:timeseriesinsights:EnvironmentReferenceDataSet": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/referenceDataSets/{referenceDataSetName}",
             "GET": [
                 {
@@ -40451,6 +40601,80 @@
                 },
                 {
                     "name": "certificateId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:getServiceContentType": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}",
+            "GET": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentTypeId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:getServiceContentTypeContentItem": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}/contentItems/{contentItemId}",
+            "GET": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentTypeId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "contentItemId",
                     "location": "path",
                     "source": "method",
                     "required": true
@@ -56323,7 +56547,7 @@
             ]
         },
         "azurerm:timeseriesinsights:getEnvironment": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}",
             "GET": [
                 {
@@ -56356,7 +56580,7 @@
             ]
         },
         "azurerm:timeseriesinsights:getEnvironmentAccessPolicy": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies/{accessPolicyName}",
             "GET": [
                 {
@@ -56390,7 +56614,7 @@
             ]
         },
         "azurerm:timeseriesinsights:getEnvironmentEventSource": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName}",
             "GET": [
                 {
@@ -56424,7 +56648,7 @@
             ]
         },
         "azurerm:timeseriesinsights:getEnvironmentReferenceDataSet": {
-            "apiVersion": "2017-11-15",
+            "apiVersion": "2020-05-15",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/referenceDataSets/{referenceDataSetName}",
             "GET": [
                 {

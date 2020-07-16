@@ -11,12 +11,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.Inputs
 {
 
     /// <summary>
-    /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+    /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
     /// </summary>
     public sealed class SkuArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+        /// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;

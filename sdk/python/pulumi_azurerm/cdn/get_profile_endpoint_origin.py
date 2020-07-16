@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetProfileEndpointOriginResult:
@@ -76,7 +76,7 @@ def get_profile_endpoint_origin(endpoint_name=None, name=None, profile_name=None
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:cdn:getProfileEndpointOrigin', __args__, opts=opts).value
 
     return AwaitableGetProfileEndpointOriginResult(

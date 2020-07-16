@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetServiceProductTagResult:
@@ -62,7 +62,7 @@ def get_service_product_tag(name=None, product_id=None, resource_group_name=None
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement:getServiceProductTag', __args__, opts=opts).value
 
     return AwaitableGetServiceProductTagResult(

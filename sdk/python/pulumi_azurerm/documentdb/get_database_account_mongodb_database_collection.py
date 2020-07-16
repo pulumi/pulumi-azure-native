@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetDatabaseAccountMongodbDatabaseCollectionResult:
@@ -76,7 +76,7 @@ def get_database_account_mongodb_database_collection(account_name=None, database
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb:getDatabaseAccountMongodbDatabaseCollection', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountMongodbDatabaseCollectionResult(

@@ -71,6 +71,7 @@ export class ServiceSubscription extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["appType"] = args ? args.appType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notify"] = args ? args.notify : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -93,6 +94,10 @@ export class ServiceSubscription extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceSubscription resource.
  */
 export interface ServiceSubscriptionArgs {
+    /**
+     * Determines the type of application which send the create user request. Default is legacy publisher portal.
+     */
+    readonly appType?: pulumi.Input<string>;
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */

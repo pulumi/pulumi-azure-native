@@ -350,14 +350,14 @@ func (o AccessPolicyResourcePropertiesResponsePtrOutput) Roles() pulumi.StringAr
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 type EnvironmentType struct {
+	// The kind of the environment.
+	Kind string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the environment.
-	Properties EnvironmentResourcePropertiesResponse `pulumi:"properties"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku *SkuResponse `pulumi:"sku"`
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+	Sku SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -377,14 +377,14 @@ type EnvironmentTypeInput interface {
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 type EnvironmentTypeArgs struct {
+	// The kind of the environment.
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Resource location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the environment.
-	Properties EnvironmentResourcePropertiesResponseInput `pulumi:"properties"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+	Sku SkuResponseInput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
@@ -418,6 +418,11 @@ func (o EnvironmentTypeOutput) ToEnvironmentTypeOutputWithContext(ctx context.Co
 	return o
 }
 
+// The kind of the environment.
+func (o EnvironmentTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
 // Resource location
 func (o EnvironmentTypeOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentType) string { return v.Location }).(pulumi.StringOutput)
@@ -428,14 +433,9 @@ func (o EnvironmentTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of the environment.
-func (o EnvironmentTypeOutput) Properties() EnvironmentResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v EnvironmentType) EnvironmentResourcePropertiesResponse { return v.Properties }).(EnvironmentResourcePropertiesResponseOutput)
-}
-
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-func (o EnvironmentTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+func (o EnvironmentTypeOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v EnvironmentType) SkuResponse { return v.Sku }).(SkuResponseOutput)
 }
 
 // Resource tags
@@ -516,178 +516,6 @@ func (o EnvironmentAccessPolicyTypeOutput) Properties() AccessPolicyResourceProp
 // Resource type
 func (o EnvironmentAccessPolicyTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentAccessPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Properties used to create an environment.
-type EnvironmentCreationProperties struct {
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime string `pulumi:"dataRetentionTime"`
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties []PartitionKeyProperty `pulumi:"partitionKeyProperties"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
-}
-
-// EnvironmentCreationPropertiesInput is an input type that accepts EnvironmentCreationPropertiesArgs and EnvironmentCreationPropertiesOutput values.
-// You can construct a concrete instance of `EnvironmentCreationPropertiesInput` via:
-//
-//          EnvironmentCreationPropertiesArgs{...}
-type EnvironmentCreationPropertiesInput interface {
-	pulumi.Input
-
-	ToEnvironmentCreationPropertiesOutput() EnvironmentCreationPropertiesOutput
-	ToEnvironmentCreationPropertiesOutputWithContext(context.Context) EnvironmentCreationPropertiesOutput
-}
-
-// Properties used to create an environment.
-type EnvironmentCreationPropertiesArgs struct {
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime pulumi.StringInput `pulumi:"dataRetentionTime"`
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties PartitionKeyPropertyArrayInput `pulumi:"partitionKeyProperties"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior pulumi.StringPtrInput `pulumi:"storageLimitExceededBehavior"`
-}
-
-func (EnvironmentCreationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentCreationProperties)(nil)).Elem()
-}
-
-func (i EnvironmentCreationPropertiesArgs) ToEnvironmentCreationPropertiesOutput() EnvironmentCreationPropertiesOutput {
-	return i.ToEnvironmentCreationPropertiesOutputWithContext(context.Background())
-}
-
-func (i EnvironmentCreationPropertiesArgs) ToEnvironmentCreationPropertiesOutputWithContext(ctx context.Context) EnvironmentCreationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCreationPropertiesOutput)
-}
-
-func (i EnvironmentCreationPropertiesArgs) ToEnvironmentCreationPropertiesPtrOutput() EnvironmentCreationPropertiesPtrOutput {
-	return i.ToEnvironmentCreationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentCreationPropertiesArgs) ToEnvironmentCreationPropertiesPtrOutputWithContext(ctx context.Context) EnvironmentCreationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCreationPropertiesOutput).ToEnvironmentCreationPropertiesPtrOutputWithContext(ctx)
-}
-
-// EnvironmentCreationPropertiesPtrInput is an input type that accepts EnvironmentCreationPropertiesArgs, EnvironmentCreationPropertiesPtr and EnvironmentCreationPropertiesPtrOutput values.
-// You can construct a concrete instance of `EnvironmentCreationPropertiesPtrInput` via:
-//
-//          EnvironmentCreationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type EnvironmentCreationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentCreationPropertiesPtrOutput() EnvironmentCreationPropertiesPtrOutput
-	ToEnvironmentCreationPropertiesPtrOutputWithContext(context.Context) EnvironmentCreationPropertiesPtrOutput
-}
-
-type environmentCreationPropertiesPtrType EnvironmentCreationPropertiesArgs
-
-func EnvironmentCreationPropertiesPtr(v *EnvironmentCreationPropertiesArgs) EnvironmentCreationPropertiesPtrInput {
-	return (*environmentCreationPropertiesPtrType)(v)
-}
-
-func (*environmentCreationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentCreationProperties)(nil)).Elem()
-}
-
-func (i *environmentCreationPropertiesPtrType) ToEnvironmentCreationPropertiesPtrOutput() EnvironmentCreationPropertiesPtrOutput {
-	return i.ToEnvironmentCreationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *environmentCreationPropertiesPtrType) ToEnvironmentCreationPropertiesPtrOutputWithContext(ctx context.Context) EnvironmentCreationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCreationPropertiesPtrOutput)
-}
-
-// Properties used to create an environment.
-type EnvironmentCreationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentCreationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentCreationProperties)(nil)).Elem()
-}
-
-func (o EnvironmentCreationPropertiesOutput) ToEnvironmentCreationPropertiesOutput() EnvironmentCreationPropertiesOutput {
-	return o
-}
-
-func (o EnvironmentCreationPropertiesOutput) ToEnvironmentCreationPropertiesOutputWithContext(ctx context.Context) EnvironmentCreationPropertiesOutput {
-	return o
-}
-
-func (o EnvironmentCreationPropertiesOutput) ToEnvironmentCreationPropertiesPtrOutput() EnvironmentCreationPropertiesPtrOutput {
-	return o.ToEnvironmentCreationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentCreationPropertiesOutput) ToEnvironmentCreationPropertiesPtrOutputWithContext(ctx context.Context) EnvironmentCreationPropertiesPtrOutput {
-	return o.ApplyT(func(v EnvironmentCreationProperties) *EnvironmentCreationProperties {
-		return &v
-	}).(EnvironmentCreationPropertiesPtrOutput)
-}
-
-// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-func (o EnvironmentCreationPropertiesOutput) DataRetentionTime() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentCreationProperties) string { return v.DataRetentionTime }).(pulumi.StringOutput)
-}
-
-// The list of partition keys according to which the data in the environment will be ordered.
-func (o EnvironmentCreationPropertiesOutput) PartitionKeyProperties() PartitionKeyPropertyArrayOutput {
-	return o.ApplyT(func(v EnvironmentCreationProperties) []PartitionKeyProperty { return v.PartitionKeyProperties }).(PartitionKeyPropertyArrayOutput)
-}
-
-// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-func (o EnvironmentCreationPropertiesOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentCreationProperties) *string { return v.StorageLimitExceededBehavior }).(pulumi.StringPtrOutput)
-}
-
-type EnvironmentCreationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentCreationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentCreationProperties)(nil)).Elem()
-}
-
-func (o EnvironmentCreationPropertiesPtrOutput) ToEnvironmentCreationPropertiesPtrOutput() EnvironmentCreationPropertiesPtrOutput {
-	return o
-}
-
-func (o EnvironmentCreationPropertiesPtrOutput) ToEnvironmentCreationPropertiesPtrOutputWithContext(ctx context.Context) EnvironmentCreationPropertiesPtrOutput {
-	return o
-}
-
-func (o EnvironmentCreationPropertiesPtrOutput) Elem() EnvironmentCreationPropertiesOutput {
-	return o.ApplyT(func(v *EnvironmentCreationProperties) EnvironmentCreationProperties { return *v }).(EnvironmentCreationPropertiesOutput)
-}
-
-// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-func (o EnvironmentCreationPropertiesPtrOutput) DataRetentionTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentCreationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataRetentionTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of partition keys according to which the data in the environment will be ordered.
-func (o EnvironmentCreationPropertiesPtrOutput) PartitionKeyProperties() PartitionKeyPropertyArrayOutput {
-	return o.ApplyT(func(v *EnvironmentCreationProperties) []PartitionKeyProperty {
-		if v == nil {
-			return nil
-		}
-		return v.PartitionKeyProperties
-	}).(PartitionKeyPropertyArrayOutput)
-}
-
-// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-func (o EnvironmentCreationPropertiesPtrOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentCreationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageLimitExceededBehavior
-	}).(pulumi.StringPtrOutput)
 }
 
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
@@ -874,931 +702,291 @@ func (o EnvironmentReferenceDataSetTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentReferenceDataSetType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Properties of the environment.
-type EnvironmentResourcePropertiesResponse struct {
-	// The time the resource was created.
-	CreationTime string `pulumi:"creationTime"`
-	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessFqdn string `pulumi:"dataAccessFqdn"`
-	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessId string `pulumi:"dataAccessId"`
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime string `pulumi:"dataRetentionTime"`
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties []PartitionKeyPropertyResponse `pulumi:"partitionKeyProperties"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status *EnvironmentStatusResponse `pulumi:"status"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+type LocalTimestamp struct {
+	// An enum that represents the format of the local timestamp property that needs to be set.
+	Format *string `pulumi:"format"`
+	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	TimeZoneOffset *LocalTimestampProperties `pulumi:"timeZoneOffset"`
 }
 
-// EnvironmentResourcePropertiesResponseInput is an input type that accepts EnvironmentResourcePropertiesResponseArgs and EnvironmentResourcePropertiesResponseOutput values.
-// You can construct a concrete instance of `EnvironmentResourcePropertiesResponseInput` via:
+// LocalTimestampInput is an input type that accepts LocalTimestampArgs and LocalTimestampOutput values.
+// You can construct a concrete instance of `LocalTimestampInput` via:
 //
-//          EnvironmentResourcePropertiesResponseArgs{...}
-type EnvironmentResourcePropertiesResponseInput interface {
+//          LocalTimestampArgs{...}
+type LocalTimestampInput interface {
 	pulumi.Input
 
-	ToEnvironmentResourcePropertiesResponseOutput() EnvironmentResourcePropertiesResponseOutput
-	ToEnvironmentResourcePropertiesResponseOutputWithContext(context.Context) EnvironmentResourcePropertiesResponseOutput
+	ToLocalTimestampOutput() LocalTimestampOutput
+	ToLocalTimestampOutputWithContext(context.Context) LocalTimestampOutput
 }
 
-// Properties of the environment.
-type EnvironmentResourcePropertiesResponseArgs struct {
-	// The time the resource was created.
-	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessFqdn pulumi.StringInput `pulumi:"dataAccessFqdn"`
-	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessId pulumi.StringInput `pulumi:"dataAccessId"`
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime pulumi.StringInput `pulumi:"dataRetentionTime"`
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties PartitionKeyPropertyResponseArrayInput `pulumi:"partitionKeyProperties"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status EnvironmentStatusResponsePtrInput `pulumi:"status"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior pulumi.StringPtrInput `pulumi:"storageLimitExceededBehavior"`
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+type LocalTimestampArgs struct {
+	// An enum that represents the format of the local timestamp property that needs to be set.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+	TimeZoneOffset LocalTimestampPropertiesPtrInput `pulumi:"timeZoneOffset"`
 }
 
-func (EnvironmentResourcePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentResourcePropertiesResponse)(nil)).Elem()
+func (LocalTimestampArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestamp)(nil)).Elem()
 }
 
-func (i EnvironmentResourcePropertiesResponseArgs) ToEnvironmentResourcePropertiesResponseOutput() EnvironmentResourcePropertiesResponseOutput {
-	return i.ToEnvironmentResourcePropertiesResponseOutputWithContext(context.Background())
+func (i LocalTimestampArgs) ToLocalTimestampOutput() LocalTimestampOutput {
+	return i.ToLocalTimestampOutputWithContext(context.Background())
 }
 
-func (i EnvironmentResourcePropertiesResponseArgs) ToEnvironmentResourcePropertiesResponseOutputWithContext(ctx context.Context) EnvironmentResourcePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentResourcePropertiesResponseOutput)
+func (i LocalTimestampArgs) ToLocalTimestampOutputWithContext(ctx context.Context) LocalTimestampOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampOutput)
 }
 
-func (i EnvironmentResourcePropertiesResponseArgs) ToEnvironmentResourcePropertiesResponsePtrOutput() EnvironmentResourcePropertiesResponsePtrOutput {
-	return i.ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(context.Background())
+func (i LocalTimestampArgs) ToLocalTimestampPtrOutput() LocalTimestampPtrOutput {
+	return i.ToLocalTimestampPtrOutputWithContext(context.Background())
 }
 
-func (i EnvironmentResourcePropertiesResponseArgs) ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentResourcePropertiesResponseOutput).ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(ctx)
+func (i LocalTimestampArgs) ToLocalTimestampPtrOutputWithContext(ctx context.Context) LocalTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampOutput).ToLocalTimestampPtrOutputWithContext(ctx)
 }
 
-// EnvironmentResourcePropertiesResponsePtrInput is an input type that accepts EnvironmentResourcePropertiesResponseArgs, EnvironmentResourcePropertiesResponsePtr and EnvironmentResourcePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `EnvironmentResourcePropertiesResponsePtrInput` via:
+// LocalTimestampPtrInput is an input type that accepts LocalTimestampArgs, LocalTimestampPtr and LocalTimestampPtrOutput values.
+// You can construct a concrete instance of `LocalTimestampPtrInput` via:
 //
-//          EnvironmentResourcePropertiesResponseArgs{...}
+//          LocalTimestampArgs{...}
 //
 //  or:
 //
 //          nil
-type EnvironmentResourcePropertiesResponsePtrInput interface {
+type LocalTimestampPtrInput interface {
 	pulumi.Input
 
-	ToEnvironmentResourcePropertiesResponsePtrOutput() EnvironmentResourcePropertiesResponsePtrOutput
-	ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(context.Context) EnvironmentResourcePropertiesResponsePtrOutput
+	ToLocalTimestampPtrOutput() LocalTimestampPtrOutput
+	ToLocalTimestampPtrOutputWithContext(context.Context) LocalTimestampPtrOutput
 }
 
-type environmentResourcePropertiesResponsePtrType EnvironmentResourcePropertiesResponseArgs
+type localTimestampPtrType LocalTimestampArgs
 
-func EnvironmentResourcePropertiesResponsePtr(v *EnvironmentResourcePropertiesResponseArgs) EnvironmentResourcePropertiesResponsePtrInput {
-	return (*environmentResourcePropertiesResponsePtrType)(v)
+func LocalTimestampPtr(v *LocalTimestampArgs) LocalTimestampPtrInput {
+	return (*localTimestampPtrType)(v)
 }
 
-func (*environmentResourcePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentResourcePropertiesResponse)(nil)).Elem()
+func (*localTimestampPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestamp)(nil)).Elem()
 }
 
-func (i *environmentResourcePropertiesResponsePtrType) ToEnvironmentResourcePropertiesResponsePtrOutput() EnvironmentResourcePropertiesResponsePtrOutput {
-	return i.ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(context.Background())
+func (i *localTimestampPtrType) ToLocalTimestampPtrOutput() LocalTimestampPtrOutput {
+	return i.ToLocalTimestampPtrOutputWithContext(context.Background())
 }
 
-func (i *environmentResourcePropertiesResponsePtrType) ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentResourcePropertiesResponsePtrOutput)
+func (i *localTimestampPtrType) ToLocalTimestampPtrOutputWithContext(ctx context.Context) LocalTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampPtrOutput)
 }
 
-// Properties of the environment.
-type EnvironmentResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+type LocalTimestampOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentResourcePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentResourcePropertiesResponse)(nil)).Elem()
+func (LocalTimestampOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestamp)(nil)).Elem()
 }
 
-func (o EnvironmentResourcePropertiesResponseOutput) ToEnvironmentResourcePropertiesResponseOutput() EnvironmentResourcePropertiesResponseOutput {
+func (o LocalTimestampOutput) ToLocalTimestampOutput() LocalTimestampOutput {
 	return o
 }
 
-func (o EnvironmentResourcePropertiesResponseOutput) ToEnvironmentResourcePropertiesResponseOutputWithContext(ctx context.Context) EnvironmentResourcePropertiesResponseOutput {
+func (o LocalTimestampOutput) ToLocalTimestampOutputWithContext(ctx context.Context) LocalTimestampOutput {
 	return o
 }
 
-func (o EnvironmentResourcePropertiesResponseOutput) ToEnvironmentResourcePropertiesResponsePtrOutput() EnvironmentResourcePropertiesResponsePtrOutput {
-	return o.ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(context.Background())
+func (o LocalTimestampOutput) ToLocalTimestampPtrOutput() LocalTimestampPtrOutput {
+	return o.ToLocalTimestampPtrOutputWithContext(context.Background())
 }
 
-func (o EnvironmentResourcePropertiesResponseOutput) ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) *EnvironmentResourcePropertiesResponse {
+func (o LocalTimestampOutput) ToLocalTimestampPtrOutputWithContext(ctx context.Context) LocalTimestampPtrOutput {
+	return o.ApplyT(func(v LocalTimestamp) *LocalTimestamp {
 		return &v
-	}).(EnvironmentResourcePropertiesResponsePtrOutput)
+	}).(LocalTimestampPtrOutput)
 }
 
-// The time the resource was created.
-func (o EnvironmentResourcePropertiesResponseOutput) CreationTime() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) string { return v.CreationTime }).(pulumi.StringOutput)
+// An enum that represents the format of the local timestamp property that needs to be set.
+func (o LocalTimestampOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalTimestamp) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-func (o EnvironmentResourcePropertiesResponseOutput) DataAccessFqdn() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) string { return v.DataAccessFqdn }).(pulumi.StringOutput)
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+func (o LocalTimestampOutput) TimeZoneOffset() LocalTimestampPropertiesPtrOutput {
+	return o.ApplyT(func(v LocalTimestamp) *LocalTimestampProperties { return v.TimeZoneOffset }).(LocalTimestampPropertiesPtrOutput)
 }
 
-// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-func (o EnvironmentResourcePropertiesResponseOutput) DataAccessId() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) string { return v.DataAccessId }).(pulumi.StringOutput)
+type LocalTimestampPtrOutput struct{ *pulumi.OutputState }
+
+func (LocalTimestampPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestamp)(nil)).Elem()
 }
 
-// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-func (o EnvironmentResourcePropertiesResponseOutput) DataRetentionTime() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) string { return v.DataRetentionTime }).(pulumi.StringOutput)
-}
-
-// The list of partition keys according to which the data in the environment will be ordered.
-func (o EnvironmentResourcePropertiesResponseOutput) PartitionKeyProperties() PartitionKeyPropertyResponseArrayOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) []PartitionKeyPropertyResponse {
-		return v.PartitionKeyProperties
-	}).(PartitionKeyPropertyResponseArrayOutput)
-}
-
-// Provisioning state of the resource.
-func (o EnvironmentResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-func (o EnvironmentResourcePropertiesResponseOutput) Status() EnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) *EnvironmentStatusResponse { return v.Status }).(EnvironmentStatusResponsePtrOutput)
-}
-
-// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-func (o EnvironmentResourcePropertiesResponseOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentResourcePropertiesResponse) *string { return v.StorageLimitExceededBehavior }).(pulumi.StringPtrOutput)
-}
-
-type EnvironmentResourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentResourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o EnvironmentResourcePropertiesResponsePtrOutput) ToEnvironmentResourcePropertiesResponsePtrOutput() EnvironmentResourcePropertiesResponsePtrOutput {
+func (o LocalTimestampPtrOutput) ToLocalTimestampPtrOutput() LocalTimestampPtrOutput {
 	return o
 }
 
-func (o EnvironmentResourcePropertiesResponsePtrOutput) ToEnvironmentResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentResourcePropertiesResponsePtrOutput {
+func (o LocalTimestampPtrOutput) ToLocalTimestampPtrOutputWithContext(ctx context.Context) LocalTimestampPtrOutput {
 	return o
 }
 
-func (o EnvironmentResourcePropertiesResponsePtrOutput) Elem() EnvironmentResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) EnvironmentResourcePropertiesResponse { return *v }).(EnvironmentResourcePropertiesResponseOutput)
+func (o LocalTimestampPtrOutput) Elem() LocalTimestampOutput {
+	return o.ApplyT(func(v *LocalTimestamp) LocalTimestamp { return *v }).(LocalTimestampOutput)
 }
 
-// The time the resource was created.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) *string {
+// An enum that represents the format of the local timestamp property that needs to be set.
+func (o LocalTimestampPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalTimestamp) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.CreationTime
+		return v.Format
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) DataAccessFqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) *string {
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+func (o LocalTimestampPtrOutput) TimeZoneOffset() LocalTimestampPropertiesPtrOutput {
+	return o.ApplyT(func(v *LocalTimestamp) *LocalTimestampProperties {
 		if v == nil {
 			return nil
 		}
-		return &v.DataAccessFqdn
-	}).(pulumi.StringPtrOutput)
+		return v.TimeZoneOffset
+	}).(LocalTimestampPropertiesPtrOutput)
 }
 
-// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) DataAccessId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataAccessId
-	}).(pulumi.StringPtrOutput)
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+type LocalTimestampProperties struct {
+	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+	PropertyName *string `pulumi:"propertyName"`
 }
 
-// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) DataRetentionTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataRetentionTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of partition keys according to which the data in the environment will be ordered.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) PartitionKeyProperties() PartitionKeyPropertyResponseArrayOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) []PartitionKeyPropertyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PartitionKeyProperties
-	}).(PartitionKeyPropertyResponseArrayOutput)
-}
-
-// Provisioning state of the resource.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) Status() EnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) *EnvironmentStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(EnvironmentStatusResponsePtrOutput)
-}
-
-// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-func (o EnvironmentResourcePropertiesResponsePtrOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageLimitExceededBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// An object that contains the details about an environment's state.
-type EnvironmentStateDetailsResponse struct {
-	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-	Code *string `pulumi:"code"`
-	// A message that describes the state in detail.
-	Message *string `pulumi:"message"`
-}
-
-// EnvironmentStateDetailsResponseInput is an input type that accepts EnvironmentStateDetailsResponseArgs and EnvironmentStateDetailsResponseOutput values.
-// You can construct a concrete instance of `EnvironmentStateDetailsResponseInput` via:
+// LocalTimestampPropertiesInput is an input type that accepts LocalTimestampPropertiesArgs and LocalTimestampPropertiesOutput values.
+// You can construct a concrete instance of `LocalTimestampPropertiesInput` via:
 //
-//          EnvironmentStateDetailsResponseArgs{...}
-type EnvironmentStateDetailsResponseInput interface {
+//          LocalTimestampPropertiesArgs{...}
+type LocalTimestampPropertiesInput interface {
 	pulumi.Input
 
-	ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput
-	ToEnvironmentStateDetailsResponseOutputWithContext(context.Context) EnvironmentStateDetailsResponseOutput
+	ToLocalTimestampPropertiesOutput() LocalTimestampPropertiesOutput
+	ToLocalTimestampPropertiesOutputWithContext(context.Context) LocalTimestampPropertiesOutput
 }
 
-// An object that contains the details about an environment's state.
-type EnvironmentStateDetailsResponseArgs struct {
-	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// A message that describes the state in detail.
-	Message pulumi.StringPtrInput `pulumi:"message"`
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+type LocalTimestampPropertiesArgs struct {
+	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
 }
 
-func (EnvironmentStateDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentStateDetailsResponse)(nil)).Elem()
+func (LocalTimestampPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampProperties)(nil)).Elem()
 }
 
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput {
-	return i.ToEnvironmentStateDetailsResponseOutputWithContext(context.Background())
+func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesOutput() LocalTimestampPropertiesOutput {
+	return i.ToLocalTimestampPropertiesOutputWithContext(context.Background())
 }
 
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponseOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponseOutput)
+func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesOutputWithContext(ctx context.Context) LocalTimestampPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampPropertiesOutput)
 }
 
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
-	return i.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
+func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
+	return i.ToLocalTimestampPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i EnvironmentStateDetailsResponseArgs) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponseOutput).ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx)
+func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampPropertiesOutput).ToLocalTimestampPropertiesPtrOutputWithContext(ctx)
 }
 
-// EnvironmentStateDetailsResponsePtrInput is an input type that accepts EnvironmentStateDetailsResponseArgs, EnvironmentStateDetailsResponsePtr and EnvironmentStateDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `EnvironmentStateDetailsResponsePtrInput` via:
+// LocalTimestampPropertiesPtrInput is an input type that accepts LocalTimestampPropertiesArgs, LocalTimestampPropertiesPtr and LocalTimestampPropertiesPtrOutput values.
+// You can construct a concrete instance of `LocalTimestampPropertiesPtrInput` via:
 //
-//          EnvironmentStateDetailsResponseArgs{...}
+//          LocalTimestampPropertiesArgs{...}
 //
 //  or:
 //
 //          nil
-type EnvironmentStateDetailsResponsePtrInput interface {
+type LocalTimestampPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput
-	ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Context) EnvironmentStateDetailsResponsePtrOutput
+	ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput
+	ToLocalTimestampPropertiesPtrOutputWithContext(context.Context) LocalTimestampPropertiesPtrOutput
 }
 
-type environmentStateDetailsResponsePtrType EnvironmentStateDetailsResponseArgs
+type localTimestampPropertiesPtrType LocalTimestampPropertiesArgs
 
-func EnvironmentStateDetailsResponsePtr(v *EnvironmentStateDetailsResponseArgs) EnvironmentStateDetailsResponsePtrInput {
-	return (*environmentStateDetailsResponsePtrType)(v)
+func LocalTimestampPropertiesPtr(v *LocalTimestampPropertiesArgs) LocalTimestampPropertiesPtrInput {
+	return (*localTimestampPropertiesPtrType)(v)
 }
 
-func (*environmentStateDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStateDetailsResponse)(nil)).Elem()
+func (*localTimestampPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampProperties)(nil)).Elem()
 }
 
-func (i *environmentStateDetailsResponsePtrType) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
-	return i.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
+func (i *localTimestampPropertiesPtrType) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
+	return i.ToLocalTimestampPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *environmentStateDetailsResponsePtrType) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsResponsePtrOutput)
+func (i *localTimestampPropertiesPtrType) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampPropertiesPtrOutput)
 }
 
-// An object that contains the details about an environment's state.
-type EnvironmentStateDetailsResponseOutput struct{ *pulumi.OutputState }
+// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+type LocalTimestampPropertiesOutput struct{ *pulumi.OutputState }
 
-func (EnvironmentStateDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentStateDetailsResponse)(nil)).Elem()
+func (LocalTimestampPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampProperties)(nil)).Elem()
 }
 
-func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponseOutput() EnvironmentStateDetailsResponseOutput {
+func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesOutput() LocalTimestampPropertiesOutput {
 	return o
 }
 
-func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponseOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponseOutput {
+func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesOutputWithContext(ctx context.Context) LocalTimestampPropertiesOutput {
 	return o
 }
 
-func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
-	return o.ToEnvironmentStateDetailsResponsePtrOutputWithContext(context.Background())
+func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
+	return o.ToLocalTimestampPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
+func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
+	return o.ApplyT(func(v LocalTimestampProperties) *LocalTimestampProperties {
 		return &v
-	}).(EnvironmentStateDetailsResponsePtrOutput)
+	}).(LocalTimestampPropertiesPtrOutput)
 }
 
-// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-func (o EnvironmentStateDetailsResponseOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+func (o LocalTimestampPropertiesOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalTimestampProperties) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
 }
 
-// A message that describes the state in detail.
-func (o EnvironmentStateDetailsResponseOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+type LocalTimestampPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LocalTimestampPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampProperties)(nil)).Elem()
 }
 
-type EnvironmentStateDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentStateDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStateDetailsResponse)(nil)).Elem()
-}
-
-func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsResponsePtrOutput() EnvironmentStateDetailsResponsePtrOutput {
+func (o LocalTimestampPropertiesPtrOutput) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
 	return o
 }
 
-func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
+func (o LocalTimestampPropertiesPtrOutput) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
 	return o
 }
 
-func (o EnvironmentStateDetailsResponsePtrOutput) Elem() EnvironmentStateDetailsResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse { return *v }).(EnvironmentStateDetailsResponseOutput)
+func (o LocalTimestampPropertiesPtrOutput) Elem() LocalTimestampPropertiesOutput {
+	return o.ApplyT(func(v *LocalTimestampProperties) LocalTimestampProperties { return *v }).(LocalTimestampPropertiesOutput)
 }
 
-// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-func (o EnvironmentStateDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
+// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+func (o LocalTimestampPropertiesPtrOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalTimestampProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Code
+		return v.PropertyName
 	}).(pulumi.StringPtrOutput)
-}
-
-// A message that describes the state in detail.
-func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-type EnvironmentStatusResponse struct {
-	// An object that represents the status of ingress on an environment.
-	Ingress *IngressEnvironmentStatusResponse `pulumi:"ingress"`
-}
-
-// EnvironmentStatusResponseInput is an input type that accepts EnvironmentStatusResponseArgs and EnvironmentStatusResponseOutput values.
-// You can construct a concrete instance of `EnvironmentStatusResponseInput` via:
-//
-//          EnvironmentStatusResponseArgs{...}
-type EnvironmentStatusResponseInput interface {
-	pulumi.Input
-
-	ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput
-	ToEnvironmentStatusResponseOutputWithContext(context.Context) EnvironmentStatusResponseOutput
-}
-
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-type EnvironmentStatusResponseArgs struct {
-	// An object that represents the status of ingress on an environment.
-	Ingress IngressEnvironmentStatusResponsePtrInput `pulumi:"ingress"`
-}
-
-func (EnvironmentStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput {
-	return i.ToEnvironmentStatusResponseOutputWithContext(context.Background())
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponseOutputWithContext(ctx context.Context) EnvironmentStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponseOutput)
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return i.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentStatusResponseArgs) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponseOutput).ToEnvironmentStatusResponsePtrOutputWithContext(ctx)
-}
-
-// EnvironmentStatusResponsePtrInput is an input type that accepts EnvironmentStatusResponseArgs, EnvironmentStatusResponsePtr and EnvironmentStatusResponsePtrOutput values.
-// You can construct a concrete instance of `EnvironmentStatusResponsePtrInput` via:
-//
-//          EnvironmentStatusResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EnvironmentStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput
-	ToEnvironmentStatusResponsePtrOutputWithContext(context.Context) EnvironmentStatusResponsePtrOutput
-}
-
-type environmentStatusResponsePtrType EnvironmentStatusResponseArgs
-
-func EnvironmentStatusResponsePtr(v *EnvironmentStatusResponseArgs) EnvironmentStatusResponsePtrInput {
-	return (*environmentStatusResponsePtrType)(v)
-}
-
-func (*environmentStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i *environmentStatusResponsePtrType) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return i.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *environmentStatusResponsePtrType) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusResponsePtrOutput)
-}
-
-// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-type EnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentStatusResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponseOutput() EnvironmentStatusResponseOutput {
-	return o
-}
-
-func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponseOutputWithContext(ctx context.Context) EnvironmentStatusResponseOutput {
-	return o
-}
-
-func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return o.ToEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStatusResponse) *EnvironmentStatusResponse {
-		return &v
-	}).(EnvironmentStatusResponsePtrOutput)
-}
-
-// An object that represents the status of ingress on an environment.
-func (o EnvironmentStatusResponseOutput) Ingress() IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStatusResponse) *IngressEnvironmentStatusResponse { return v.Ingress }).(IngressEnvironmentStatusResponsePtrOutput)
-}
-
-type EnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutput() EnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentStatusResponsePtrOutput) Elem() EnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse { return *v }).(EnvironmentStatusResponseOutput)
-}
-
-// An object that represents the status of ingress on an environment.
-func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Ingress
-	}).(IngressEnvironmentStatusResponsePtrOutput)
-}
-
-// An object that represents the status of ingress on an environment.
-type IngressEnvironmentStatusResponse struct {
-	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-	State *string `pulumi:"state"`
-	// An object that contains the details about an environment's state.
-	StateDetails *EnvironmentStateDetailsResponse `pulumi:"stateDetails"`
-}
-
-// IngressEnvironmentStatusResponseInput is an input type that accepts IngressEnvironmentStatusResponseArgs and IngressEnvironmentStatusResponseOutput values.
-// You can construct a concrete instance of `IngressEnvironmentStatusResponseInput` via:
-//
-//          IngressEnvironmentStatusResponseArgs{...}
-type IngressEnvironmentStatusResponseInput interface {
-	pulumi.Input
-
-	ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput
-	ToIngressEnvironmentStatusResponseOutputWithContext(context.Context) IngressEnvironmentStatusResponseOutput
-}
-
-// An object that represents the status of ingress on an environment.
-type IngressEnvironmentStatusResponseArgs struct {
-	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// An object that contains the details about an environment's state.
-	StateDetails EnvironmentStateDetailsResponsePtrInput `pulumi:"stateDetails"`
-}
-
-func (IngressEnvironmentStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IngressEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput {
-	return i.ToIngressEnvironmentStatusResponseOutputWithContext(context.Background())
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponseOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponseOutput)
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return i.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IngressEnvironmentStatusResponseArgs) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponseOutput).ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx)
-}
-
-// IngressEnvironmentStatusResponsePtrInput is an input type that accepts IngressEnvironmentStatusResponseArgs, IngressEnvironmentStatusResponsePtr and IngressEnvironmentStatusResponsePtrOutput values.
-// You can construct a concrete instance of `IngressEnvironmentStatusResponsePtrInput` via:
-//
-//          IngressEnvironmentStatusResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IngressEnvironmentStatusResponsePtrInput interface {
-	pulumi.Input
-
-	ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput
-	ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Context) IngressEnvironmentStatusResponsePtrOutput
-}
-
-type ingressEnvironmentStatusResponsePtrType IngressEnvironmentStatusResponseArgs
-
-func IngressEnvironmentStatusResponsePtr(v *IngressEnvironmentStatusResponseArgs) IngressEnvironmentStatusResponsePtrInput {
-	return (*ingressEnvironmentStatusResponsePtrType)(v)
-}
-
-func (*ingressEnvironmentStatusResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IngressEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (i *ingressEnvironmentStatusResponsePtrType) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return i.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *ingressEnvironmentStatusResponsePtrType) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusResponsePtrOutput)
-}
-
-// An object that represents the status of ingress on an environment.
-type IngressEnvironmentStatusResponseOutput struct{ *pulumi.OutputState }
-
-func (IngressEnvironmentStatusResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IngressEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponseOutput() IngressEnvironmentStatusResponseOutput {
-	return o
-}
-
-func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponseOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponseOutput {
-	return o
-}
-
-func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return o.ToIngressEnvironmentStatusResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
-		return &v
-	}).(IngressEnvironmentStatusResponsePtrOutput)
-}
-
-// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-func (o IngressEnvironmentStatusResponseOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-// An object that contains the details about an environment's state.
-func (o IngressEnvironmentStatusResponseOutput) StateDetails() EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *EnvironmentStateDetailsResponse { return v.StateDetails }).(EnvironmentStateDetailsResponsePtrOutput)
-}
-
-type IngressEnvironmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (IngressEnvironmentStatusResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IngressEnvironmentStatusResponse)(nil)).Elem()
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusResponsePtrOutput() IngressEnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return o
-}
-
-func (o IngressEnvironmentStatusResponsePtrOutput) Elem() IngressEnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse { return *v }).(IngressEnvironmentStatusResponseOutput)
-}
-
-// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-func (o IngressEnvironmentStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// An object that contains the details about an environment's state.
-func (o IngressEnvironmentStatusResponsePtrOutput) StateDetails() EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) *EnvironmentStateDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StateDetails
-	}).(EnvironmentStateDetailsResponsePtrOutput)
-}
-
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
-type PartitionKeyProperty struct {
-	// The name of the property.
-	Name *string `pulumi:"name"`
-	// The type of the property.
-	Type *string `pulumi:"type"`
-}
-
-// PartitionKeyPropertyInput is an input type that accepts PartitionKeyPropertyArgs and PartitionKeyPropertyOutput values.
-// You can construct a concrete instance of `PartitionKeyPropertyInput` via:
-//
-//          PartitionKeyPropertyArgs{...}
-type PartitionKeyPropertyInput interface {
-	pulumi.Input
-
-	ToPartitionKeyPropertyOutput() PartitionKeyPropertyOutput
-	ToPartitionKeyPropertyOutputWithContext(context.Context) PartitionKeyPropertyOutput
-}
-
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
-type PartitionKeyPropertyArgs struct {
-	// The name of the property.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the property.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (PartitionKeyPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionKeyProperty)(nil)).Elem()
-}
-
-func (i PartitionKeyPropertyArgs) ToPartitionKeyPropertyOutput() PartitionKeyPropertyOutput {
-	return i.ToPartitionKeyPropertyOutputWithContext(context.Background())
-}
-
-func (i PartitionKeyPropertyArgs) ToPartitionKeyPropertyOutputWithContext(ctx context.Context) PartitionKeyPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyOutput)
-}
-
-// PartitionKeyPropertyArrayInput is an input type that accepts PartitionKeyPropertyArray and PartitionKeyPropertyArrayOutput values.
-// You can construct a concrete instance of `PartitionKeyPropertyArrayInput` via:
-//
-//          PartitionKeyPropertyArray{ PartitionKeyPropertyArgs{...} }
-type PartitionKeyPropertyArrayInput interface {
-	pulumi.Input
-
-	ToPartitionKeyPropertyArrayOutput() PartitionKeyPropertyArrayOutput
-	ToPartitionKeyPropertyArrayOutputWithContext(context.Context) PartitionKeyPropertyArrayOutput
-}
-
-type PartitionKeyPropertyArray []PartitionKeyPropertyInput
-
-func (PartitionKeyPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartitionKeyProperty)(nil)).Elem()
-}
-
-func (i PartitionKeyPropertyArray) ToPartitionKeyPropertyArrayOutput() PartitionKeyPropertyArrayOutput {
-	return i.ToPartitionKeyPropertyArrayOutputWithContext(context.Background())
-}
-
-func (i PartitionKeyPropertyArray) ToPartitionKeyPropertyArrayOutputWithContext(ctx context.Context) PartitionKeyPropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyArrayOutput)
-}
-
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
-type PartitionKeyPropertyOutput struct{ *pulumi.OutputState }
-
-func (PartitionKeyPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionKeyProperty)(nil)).Elem()
-}
-
-func (o PartitionKeyPropertyOutput) ToPartitionKeyPropertyOutput() PartitionKeyPropertyOutput {
-	return o
-}
-
-func (o PartitionKeyPropertyOutput) ToPartitionKeyPropertyOutputWithContext(ctx context.Context) PartitionKeyPropertyOutput {
-	return o
-}
-
-// The name of the property.
-func (o PartitionKeyPropertyOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PartitionKeyProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The type of the property.
-func (o PartitionKeyPropertyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PartitionKeyProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type PartitionKeyPropertyArrayOutput struct{ *pulumi.OutputState }
-
-func (PartitionKeyPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartitionKeyProperty)(nil)).Elem()
-}
-
-func (o PartitionKeyPropertyArrayOutput) ToPartitionKeyPropertyArrayOutput() PartitionKeyPropertyArrayOutput {
-	return o
-}
-
-func (o PartitionKeyPropertyArrayOutput) ToPartitionKeyPropertyArrayOutputWithContext(ctx context.Context) PartitionKeyPropertyArrayOutput {
-	return o
-}
-
-func (o PartitionKeyPropertyArrayOutput) Index(i pulumi.IntInput) PartitionKeyPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionKeyProperty {
-		return vs[0].([]PartitionKeyProperty)[vs[1].(int)]
-	}).(PartitionKeyPropertyOutput)
-}
-
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
-type PartitionKeyPropertyResponse struct {
-	// The name of the property.
-	Name *string `pulumi:"name"`
-	// The type of the property.
-	Type *string `pulumi:"type"`
-}
-
-// PartitionKeyPropertyResponseInput is an input type that accepts PartitionKeyPropertyResponseArgs and PartitionKeyPropertyResponseOutput values.
-// You can construct a concrete instance of `PartitionKeyPropertyResponseInput` via:
-//
-//          PartitionKeyPropertyResponseArgs{...}
-type PartitionKeyPropertyResponseInput interface {
-	pulumi.Input
-
-	ToPartitionKeyPropertyResponseOutput() PartitionKeyPropertyResponseOutput
-	ToPartitionKeyPropertyResponseOutputWithContext(context.Context) PartitionKeyPropertyResponseOutput
-}
-
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
-type PartitionKeyPropertyResponseArgs struct {
-	// The name of the property.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the property.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (PartitionKeyPropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionKeyPropertyResponse)(nil)).Elem()
-}
-
-func (i PartitionKeyPropertyResponseArgs) ToPartitionKeyPropertyResponseOutput() PartitionKeyPropertyResponseOutput {
-	return i.ToPartitionKeyPropertyResponseOutputWithContext(context.Background())
-}
-
-func (i PartitionKeyPropertyResponseArgs) ToPartitionKeyPropertyResponseOutputWithContext(ctx context.Context) PartitionKeyPropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyResponseOutput)
-}
-
-// PartitionKeyPropertyResponseArrayInput is an input type that accepts PartitionKeyPropertyResponseArray and PartitionKeyPropertyResponseArrayOutput values.
-// You can construct a concrete instance of `PartitionKeyPropertyResponseArrayInput` via:
-//
-//          PartitionKeyPropertyResponseArray{ PartitionKeyPropertyResponseArgs{...} }
-type PartitionKeyPropertyResponseArrayInput interface {
-	pulumi.Input
-
-	ToPartitionKeyPropertyResponseArrayOutput() PartitionKeyPropertyResponseArrayOutput
-	ToPartitionKeyPropertyResponseArrayOutputWithContext(context.Context) PartitionKeyPropertyResponseArrayOutput
-}
-
-type PartitionKeyPropertyResponseArray []PartitionKeyPropertyResponseInput
-
-func (PartitionKeyPropertyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartitionKeyPropertyResponse)(nil)).Elem()
-}
-
-func (i PartitionKeyPropertyResponseArray) ToPartitionKeyPropertyResponseArrayOutput() PartitionKeyPropertyResponseArrayOutput {
-	return i.ToPartitionKeyPropertyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PartitionKeyPropertyResponseArray) ToPartitionKeyPropertyResponseArrayOutputWithContext(ctx context.Context) PartitionKeyPropertyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyResponseArrayOutput)
-}
-
-// The structure of the property that a partition key can have. An environment can have multiple such properties.
-type PartitionKeyPropertyResponseOutput struct{ *pulumi.OutputState }
-
-func (PartitionKeyPropertyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartitionKeyPropertyResponse)(nil)).Elem()
-}
-
-func (o PartitionKeyPropertyResponseOutput) ToPartitionKeyPropertyResponseOutput() PartitionKeyPropertyResponseOutput {
-	return o
-}
-
-func (o PartitionKeyPropertyResponseOutput) ToPartitionKeyPropertyResponseOutputWithContext(ctx context.Context) PartitionKeyPropertyResponseOutput {
-	return o
-}
-
-// The name of the property.
-func (o PartitionKeyPropertyResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PartitionKeyPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The type of the property.
-func (o PartitionKeyPropertyResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PartitionKeyPropertyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type PartitionKeyPropertyResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (PartitionKeyPropertyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PartitionKeyPropertyResponse)(nil)).Elem()
-}
-
-func (o PartitionKeyPropertyResponseArrayOutput) ToPartitionKeyPropertyResponseArrayOutput() PartitionKeyPropertyResponseArrayOutput {
-	return o
-}
-
-func (o PartitionKeyPropertyResponseArrayOutput) ToPartitionKeyPropertyResponseArrayOutputWithContext(ctx context.Context) PartitionKeyPropertyResponseArrayOutput {
-	return o
-}
-
-func (o PartitionKeyPropertyResponseArrayOutput) Index(i pulumi.IntInput) PartitionKeyPropertyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionKeyPropertyResponse {
-		return vs[0].([]PartitionKeyPropertyResponse)[vs[1].(int)]
-	}).(PartitionKeyPropertyResponseOutput)
 }
 
 // Properties used to create a reference data set.
@@ -2367,9 +1555,9 @@ func (o ReferenceDataSetResourcePropertiesResponsePtrOutput) ProvisioningState()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 type Sku struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 	Capacity int `pulumi:"capacity"`
 	// The name of this SKU.
 	Name string `pulumi:"name"`
@@ -2386,9 +1574,9 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 type SkuArgs struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of this SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2447,7 +1635,7 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2472,7 +1660,7 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 	}).(SkuPtrOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -2500,7 +1688,7 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -2520,9 +1708,9 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 type SkuResponse struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 	Capacity int `pulumi:"capacity"`
 	// The name of this SKU.
 	Name string `pulumi:"name"`
@@ -2539,9 +1727,9 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 type SkuResponseArgs struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of this SKU.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2600,7 +1788,7 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2625,7 +1813,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context
 	}).(SkuResponsePtrOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -2653,7 +1841,7 @@ func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
 	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -2680,22 +1868,12 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentAccessPolicyTypeOutput{})
-	pulumi.RegisterOutputType(EnvironmentCreationPropertiesOutput{})
-	pulumi.RegisterOutputType(EnvironmentCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentEventSourceTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentReferenceDataSetTypeOutput{})
-	pulumi.RegisterOutputType(EnvironmentResourcePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(EnvironmentResourcePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentStateDetailsResponseOutput{})
-	pulumi.RegisterOutputType(EnvironmentStateDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentStatusResponseOutput{})
-	pulumi.RegisterOutputType(EnvironmentStatusResponsePtrOutput{})
-	pulumi.RegisterOutputType(IngressEnvironmentStatusResponseOutput{})
-	pulumi.RegisterOutputType(IngressEnvironmentStatusResponsePtrOutput{})
-	pulumi.RegisterOutputType(PartitionKeyPropertyOutput{})
-	pulumi.RegisterOutputType(PartitionKeyPropertyArrayOutput{})
-	pulumi.RegisterOutputType(PartitionKeyPropertyResponseOutput{})
-	pulumi.RegisterOutputType(PartitionKeyPropertyResponseArrayOutput{})
+	pulumi.RegisterOutputType(LocalTimestampOutput{})
+	pulumi.RegisterOutputType(LocalTimestampPtrOutput{})
+	pulumi.RegisterOutputType(LocalTimestampPropertiesOutput{})
+	pulumi.RegisterOutputType(LocalTimestampPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})

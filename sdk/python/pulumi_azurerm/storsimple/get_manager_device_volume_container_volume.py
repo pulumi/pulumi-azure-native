@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetManagerDeviceVolumeContainerVolumeResult:
@@ -71,7 +71,7 @@ def get_manager_device_volume_container_volume(device_name=None, manager_name=No
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple:getManagerDeviceVolumeContainerVolume', __args__, opts=opts).value
 
     return AwaitableGetManagerDeviceVolumeContainerVolumeResult(

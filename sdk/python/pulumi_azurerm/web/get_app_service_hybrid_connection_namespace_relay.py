@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetAppServiceHybridConnectionNamespaceRelayResult:
@@ -69,7 +69,7 @@ def get_app_service_hybrid_connection_namespace_relay(name=None, namespace_name=
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:web:getAppServiceHybridConnectionNamespaceRelay', __args__, opts=opts).value
 
     return AwaitableGetAppServiceHybridConnectionNamespaceRelayResult(

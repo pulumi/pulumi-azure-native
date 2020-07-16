@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetVirtualHubRouteTableResult:
@@ -60,7 +60,7 @@ def get_virtual_hub_route_table(name=None, resource_group_name=None, virtual_hub
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getVirtualHubRouteTable', __args__, opts=opts).value
 
     return AwaitableGetVirtualHubRouteTableResult(

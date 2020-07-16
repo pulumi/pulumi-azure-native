@@ -22,6 +22,8 @@ from .get_service_authorization_server import *
 from .get_service_backend import *
 from .get_service_cach import *
 from .get_service_certificate import *
+from .get_service_content_type import *
+from .get_service_content_type_content_item import *
 from .get_service_diagnostic import *
 from .get_service_gateway import *
 from .get_service_gateway_hostname_configuration import *
@@ -58,6 +60,8 @@ from .service_authorization_server import *
 from .service_backend import *
 from .service_cach import *
 from .service_certificate import *
+from .service_content_type import *
+from .service_content_type_content_item import *
 from .service_diagnostic import *
 from .service_gateway import *
 from .service_gateway_hostname_configuration import *

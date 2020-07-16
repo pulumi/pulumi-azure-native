@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetStorageSyncServiceSyncGroupServerEndpointResult:
@@ -62,7 +62,7 @@ def get_storage_sync_service_sync_group_server_endpoint(name=None, resource_grou
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:storagesync:getStorageSyncServiceSyncGroupServerEndpoint', __args__, opts=opts).value
 
     return AwaitableGetStorageSyncServiceSyncGroupServerEndpointResult(

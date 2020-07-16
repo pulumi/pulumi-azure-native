@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetRouteTableRouteResult:
@@ -60,7 +60,7 @@ def get_route_table_route(name=None, resource_group_name=None, route_table_name=
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getRouteTableRoute', __args__, opts=opts).value
 
     return AwaitableGetRouteTableRouteResult(

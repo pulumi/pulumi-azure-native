@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetLabUserServicefabricScheduleResult:
@@ -78,7 +78,7 @@ def get_lab_user_servicefabric_schedule(lab_name=None, name=None, resource_group
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab:getLabUserServicefabricSchedule', __args__, opts=opts).value
 
     return AwaitableGetLabUserServicefabricScheduleResult(

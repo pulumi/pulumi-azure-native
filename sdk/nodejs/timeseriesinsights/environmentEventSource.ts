@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,6 +87,7 @@ export class EnvironmentEventSource extends pulumi.CustomResource {
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["localTimestamp"] = args ? args.localTimestamp : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -114,6 +117,10 @@ export interface EnvironmentEventSourceArgs {
      * The kind of the event source.
      */
     readonly kind: pulumi.Input<string>;
+    /**
+     * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+     */
+    readonly localTimestamp?: pulumi.Input<inputs.timeseriesinsights.LocalTimestamp>;
     /**
      * The location of the resource.
      */

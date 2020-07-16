@@ -103,6 +103,8 @@ type environmentEventSourceArgs struct {
 	EnvironmentName string `pulumi:"environmentName"`
 	// The kind of the event source.
 	Kind string `pulumi:"kind"`
+	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+	LocalTimestamp *LocalTimestamp `pulumi:"localTimestamp"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the event source.
@@ -119,6 +121,8 @@ type EnvironmentEventSourceArgs struct {
 	EnvironmentName pulumi.StringInput
 	// The kind of the event source.
 	Kind pulumi.StringInput
+	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+	LocalTimestamp LocalTimestampPtrInput
 	// The location of the resource.
 	Location pulumi.StringInput
 	// Name of the event source.

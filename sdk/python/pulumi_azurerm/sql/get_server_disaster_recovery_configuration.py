@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetServerDisasterRecoveryConfigurationResult:
@@ -67,7 +67,7 @@ def get_server_disaster_recovery_configuration(name=None, resource_group_name=No
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:sql:getServerDisasterRecoveryConfiguration', __args__, opts=opts).value
 
     return AwaitableGetServerDisasterRecoveryConfigurationResult(

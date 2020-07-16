@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetNetAppAccountCapacityPoolVolumeResult:
@@ -76,7 +76,7 @@ def get_net_app_account_capacity_pool_volume(account_name=None, name=None, pool_
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:netapp:getNetAppAccountCapacityPoolVolume', __args__, opts=opts).value
 
     return AwaitableGetNetAppAccountCapacityPoolVolumeResult(

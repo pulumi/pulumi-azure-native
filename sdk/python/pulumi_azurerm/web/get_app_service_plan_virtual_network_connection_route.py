@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetAppServicePlanVirtualNetworkConnectionRouteResult:
@@ -39,7 +39,7 @@ def get_app_service_plan_virtual_network_connection_route(name=None, resource_gr
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:web:getAppServicePlanVirtualNetworkConnectionRoute', __args__, opts=opts).value
 
     return AwaitableGetAppServicePlanVirtualNetworkConnectionRouteResult(

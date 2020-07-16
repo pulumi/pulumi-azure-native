@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class ServiceUser(pulumi.CustomResource):
@@ -39,20 +39,21 @@ class ServiceUser(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, notify=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         User details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: User identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[bool] notify: Send an Email notification to the User.
         :param pulumi.Input[dict] properties: User entity create contract properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
 
         The **properties** object supports the following:
 
-          * `app_type` (`pulumi.Input[str]`) - Determines the type of application which send the create user request. Default is old publisher portal.
+          * `app_type` (`pulumi.Input[str]`) - Determines the type of application which send the create user request. Default is legacy portal.
           * `confirmation` (`pulumi.Input[str]`) - Determines the type of confirmation e-mail that will be sent to the newly created user.
           * `email` (`pulumi.Input[str]`) - Email address. Must not be empty and must be unique within the service instance.
           * `first_name` (`pulumi.Input[str]`) - First name.
@@ -76,7 +77,7 @@ class ServiceUser(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -85,6 +86,7 @@ class ServiceUser(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['notify'] = notify
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -116,7 +118,7 @@ class ServiceUser(pulumi.CustomResource):
         return ServiceUser(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

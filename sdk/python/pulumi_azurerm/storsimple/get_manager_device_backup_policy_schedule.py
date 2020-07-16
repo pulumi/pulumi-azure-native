@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetManagerDeviceBackupPolicyScheduleResult:
@@ -71,7 +71,7 @@ def get_manager_device_backup_policy_schedule(backup_policy_name=None, device_na
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple:getManagerDeviceBackupPolicySchedule', __args__, opts=opts).value
 
     return AwaitableGetManagerDeviceBackupPolicyScheduleResult(

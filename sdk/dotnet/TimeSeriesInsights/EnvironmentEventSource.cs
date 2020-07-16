@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
+        /// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        /// </summary>
+        [Input("localTimestamp")]
+        public Input<Inputs.LocalTimestampArgs>? LocalTimestamp { get; set; }
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location", required: true)]

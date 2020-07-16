@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetVaultReplicationFabricReplicationRecoveryServicesProviderResult:
@@ -69,7 +69,7 @@ def get_vault_replication_fabric_replication_recovery_services_provider(fabric_n
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:recoveryservices:getVaultReplicationFabricReplicationRecoveryServicesProvider', __args__, opts=opts).value
 
     return AwaitableGetVaultReplicationFabricReplicationRecoveryServicesProviderResult(

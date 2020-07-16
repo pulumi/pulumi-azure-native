@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetServerAdministratorResult:
@@ -60,7 +60,7 @@ def get_server_administrator(name=None, resource_group_name=None, server_name=No
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:sql:getServerAdministrator', __args__, opts=opts).value
 
     return AwaitableGetServerAdministratorResult(

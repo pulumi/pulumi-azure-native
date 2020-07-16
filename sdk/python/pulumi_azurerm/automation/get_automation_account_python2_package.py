@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetAutomationAccountPython2PackageResult:
@@ -81,7 +81,7 @@ def get_automation_account_python2_package(automation_account_name=None, name=No
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:automation:getAutomationAccountPython2Package', __args__, opts=opts).value
 
     return AwaitableGetAutomationAccountPython2PackageResult(

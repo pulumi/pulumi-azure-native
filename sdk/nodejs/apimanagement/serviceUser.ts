@@ -72,6 +72,7 @@ export class ServiceUser extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["name"] = args ? args.name : undefined;
+            inputs["notify"] = args ? args.notify : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -96,6 +97,10 @@ export interface ServiceUserArgs {
      * User identifier. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * Send an Email notification to the User.
+     */
+    readonly notify?: pulumi.Input<boolean>;
     /**
      * User entity create contract properties.
      */

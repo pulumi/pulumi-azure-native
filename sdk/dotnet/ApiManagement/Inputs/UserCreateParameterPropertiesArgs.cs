@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ApiManagement.Inputs
     public sealed class UserCreateParameterPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the type of application which send the create user request. Default is old publisher portal.
+        /// Determines the type of application which send the create user request. Default is legacy portal.
         /// </summary>
         [Input("appType")]
         public Input<string>? AppType { get; set; }

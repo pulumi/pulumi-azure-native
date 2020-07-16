@@ -81,6 +81,8 @@ func (ServiceSubscriptionState) ElementType() reflect.Type {
 }
 
 type serviceSubscriptionArgs struct {
+	// Determines the type of application which send the create user request. Default is legacy publisher portal.
+	AppType *string `pulumi:"appType"`
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Name string `pulumi:"name"`
 	// Notify change in Subscription State.
@@ -97,6 +99,8 @@ type serviceSubscriptionArgs struct {
 
 // The set of arguments for constructing a ServiceSubscription resource.
 type ServiceSubscriptionArgs struct {
+	// Determines the type of application which send the create user request. Default is legacy publisher portal.
+	AppType pulumi.StringPtrInput
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Name pulumi.StringInput
 	// Notify change in Subscription State.

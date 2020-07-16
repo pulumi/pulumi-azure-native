@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetNamespaceHybridConnectionAuthorizationRuleResult:
@@ -62,7 +62,7 @@ def get_namespace_hybrid_connection_authorization_rule(hybrid_connection_name=No
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:relay:getNamespaceHybridConnectionAuthorizationRule', __args__, opts=opts).value
 
     return AwaitableGetNamespaceHybridConnectionAuthorizationRuleResult(

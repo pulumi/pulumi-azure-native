@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetAppServiceHostNameBindingResult:
@@ -67,7 +67,7 @@ def get_app_service_host_name_binding(host_name=None, name=None, resource_group_
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:web:getAppServiceHostNameBinding', __args__, opts=opts).value
 
     return AwaitableGetAppServiceHostNameBindingResult(

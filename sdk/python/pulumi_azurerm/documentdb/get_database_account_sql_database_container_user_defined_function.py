@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetDatabaseAccountSqlDatabaseContainerUserDefinedFunctionResult:
@@ -78,7 +78,7 @@ def get_database_account_sql_database_container_user_defined_function(account_na
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb:getDatabaseAccountSqlDatabaseContainerUserDefinedFunction', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountSqlDatabaseContainerUserDefinedFunctionResult(

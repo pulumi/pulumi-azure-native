@@ -36,6 +36,10 @@ export interface GetEnvironmentArgs {
  */
 export interface GetEnvironmentResult {
     /**
+     * The kind of the environment.
+     */
+    readonly kind: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,13 +48,9 @@ export interface GetEnvironmentResult {
      */
     readonly name: string;
     /**
-     * Properties of the environment.
+     * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    readonly properties: outputs.timeseriesinsights.EnvironmentResourcePropertiesResponse;
-    /**
-     * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-     */
-    readonly sku?: outputs.timeseriesinsights.SkuResponse;
+    readonly sku: outputs.timeseriesinsights.SkuResponse;
     /**
      * Resource tags
      */

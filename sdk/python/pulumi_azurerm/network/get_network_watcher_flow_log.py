@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetNetworkWatcherFlowLogResult:
@@ -81,7 +81,7 @@ def get_network_watcher_flow_log(name=None, network_watcher_name=None, resource_
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getNetworkWatcherFlowLog', __args__, opts=opts).value
 
     return AwaitableGetNetworkWatcherFlowLogResult(

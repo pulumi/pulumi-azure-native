@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetClusterDatabasePrincipalAssignmentResult:
@@ -62,7 +62,7 @@ def get_cluster_database_principal_assignment(cluster_name=None, database_name=N
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:kusto:getClusterDatabasePrincipalAssignment', __args__, opts=opts).value
 
     return AwaitableGetClusterDatabasePrincipalAssignmentResult(

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetLocationJitNetworkAccessPolicyResult:
@@ -68,7 +68,7 @@ def get_location_jit_network_access_policy(asc_location=None, name=None, resourc
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:security:getLocationJitNetworkAccessPolicy', __args__, opts=opts).value
 
     return AwaitableGetLocationJitNetworkAccessPolicyResult(

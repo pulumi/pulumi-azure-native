@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class EnvironmentEventSource(pulumi.CustomResource):
@@ -30,7 +30,7 @@ class EnvironmentEventSource(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, environment_name=None, kind=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, environment_name=None, kind=None, local_timestamp=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 
@@ -38,10 +38,17 @@ class EnvironmentEventSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[str] kind: The kind of the event source.
+        :param pulumi.Input[dict] local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: Name of the event source.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[dict] tags: Key-value pairs of additional properties for the resource.
+
+        The **local_timestamp** object supports the following:
+
+          * `format` (`pulumi.Input[str]`) - An enum that represents the format of the local timestamp property that needs to be set.
+          * `time_zone_offset` (`pulumi.Input[dict]`) - An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+            * `property_name` (`pulumi.Input[str]`) - The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -54,7 +61,7 @@ class EnvironmentEventSource(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -66,6 +73,7 @@ class EnvironmentEventSource(pulumi.CustomResource):
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
+            __props__['local_timestamp'] = local_timestamp
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -100,7 +108,7 @@ class EnvironmentEventSource(pulumi.CustomResource):
         return EnvironmentEventSource(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

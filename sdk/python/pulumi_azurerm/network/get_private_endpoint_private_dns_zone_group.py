@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetPrivateEndpointPrivateDnsZoneGroupResult:
@@ -60,7 +60,7 @@ def get_private_endpoint_private_dns_zone_group(name=None, private_endpoint_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getPrivateEndpointPrivateDnsZoneGroup', __args__, opts=opts).value
 
     return AwaitableGetPrivateEndpointPrivateDnsZoneGroupResult(

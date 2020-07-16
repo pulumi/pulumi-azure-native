@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The kind of the environment.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,16 +33,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the environment.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EnvironmentResourcePropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+        /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The kind of the environment.
+        /// </summary>
+        [Input("kind", required: true)]
+        public Input<string> Kind { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location", required: true)]
@@ -108,19 +114,13 @@ namespace Pulumi.AzureRM.TimeSeriesInsights
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties used to create an environment.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.EnvironmentCreationPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+        /// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;

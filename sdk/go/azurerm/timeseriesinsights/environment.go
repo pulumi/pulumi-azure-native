@@ -14,14 +14,14 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
+	// The kind of the environment.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the environment.
-	Properties EnvironmentResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+	Sku SkuResponseOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -31,14 +31,14 @@ type Environment struct {
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
+	if args == nil || args.Kind == nil {
+		return nil, errors.New("missing required argument 'Kind'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -71,13 +71,13 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
+	// The kind of the environment.
+	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the environment.
-	Properties *EnvironmentResourcePropertiesResponse `pulumi:"properties"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
@@ -86,13 +86,13 @@ type environmentState struct {
 }
 
 type EnvironmentState struct {
+	// The kind of the environment.
+	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the environment.
-	Properties EnvironmentResourcePropertiesResponsePtrInput
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 	Sku SkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
@@ -105,15 +105,15 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
+	// The kind of the environment.
+	Kind string `pulumi:"kind"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the environment
 	Name string `pulumi:"name"`
-	// Properties used to create an environment.
-	Properties EnvironmentCreationProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 	Sku Sku `pulumi:"sku"`
 	// Key-value pairs of additional properties for the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -121,15 +121,15 @@ type environmentArgs struct {
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
+	// The kind of the environment.
+	Kind pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringInput
 	// Name of the environment
 	Name pulumi.StringInput
-	// Properties used to create an environment.
-	Properties EnvironmentCreationPropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
 	Sku SkuInput
 	// Key-value pairs of additional properties for the resource.
 	Tags pulumi.StringMapInput

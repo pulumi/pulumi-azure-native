@@ -6,10 +6,14 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class Environment(pulumi.CustomResource):
+    kind: pulumi.Output[str]
+    """
+    The kind of the environment.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,31 +22,10 @@ class Environment(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the environment.
-      * `creation_time` (`str`) - The time the resource was created.
-      * `data_access_fqdn` (`str`) - The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-      * `data_access_id` (`str`) - An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-      * `data_retention_time` (`str`) - ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-      * `partition_key_properties` (`list`) - The list of partition keys according to which the data in the environment will be ordered.
-        * `name` (`str`) - The name of the property.
-        * `type` (`str`) - The type of the property.
-
-      * `provisioning_state` (`str`) - Provisioning state of the resource.
-      * `status` (`dict`) - An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-        * `ingress` (`dict`) - An object that represents the status of ingress on an environment.
-          * `state` (`str`) - This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
-          * `state_details` (`dict`) - An object that contains the details about an environment's state.
-            * `code` (`str`) - Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
-            * `message` (`str`) - A message that describes the state in detail.
-
-      * `storage_limit_exceeded_behavior` (`str`) - The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-    """
     sku: pulumi.Output[dict]
     """
-    The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-      * `capacity` (`float`) - The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+    The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+      * `capacity` (`float`) - The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
       * `name` (`str`) - The name of this SKU.
     """
     tags: pulumi.Output[dict]
@@ -53,31 +36,22 @@ class Environment(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] kind: The kind of the environment.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: Name of the environment
-        :param pulumi.Input[dict] properties: Properties used to create an environment.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[dict] sku: The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+        :param pulumi.Input[dict] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         :param pulumi.Input[dict] tags: Key-value pairs of additional properties for the resource.
-
-        The **properties** object supports the following:
-
-          * `data_retention_time` (`pulumi.Input[str]`) - ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-          * `partition_key_properties` (`pulumi.Input[list]`) - The list of partition keys according to which the data in the environment will be ordered.
-            * `name` (`pulumi.Input[str]`) - The name of the property.
-            * `type` (`pulumi.Input[str]`) - The type of the property.
-
-          * `storage_limit_exceeded_behavior` (`pulumi.Input[str]`) - The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`) - The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+          * `capacity` (`pulumi.Input[float]`) - The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
           * `name` (`pulumi.Input[str]`) - The name of this SKU.
         """
         if __name__ is not None:
@@ -91,21 +65,21 @@ class Environment(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if kind is None:
+                raise TypeError("Missing required property 'kind'")
+            __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -137,7 +111,7 @@ class Environment(pulumi.CustomResource):
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop

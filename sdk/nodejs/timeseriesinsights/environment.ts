@@ -37,6 +37,10 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
+     * The kind of the environment.
+     */
+    public readonly kind!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +49,9 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the environment.
+     * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    public readonly properties!: pulumi.Output<outputs.timeseriesinsights.EnvironmentResourcePropertiesResponse>;
-    /**
-     * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-     */
-    public readonly sku!: pulumi.Output<outputs.timeseriesinsights.SkuResponse | undefined>;
+    public readonly sku!: pulumi.Output<outputs.timeseriesinsights.SkuResponse>;
     /**
      * Resource tags
      */
@@ -74,14 +74,14 @@ export class Environment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EnvironmentArgs | undefined;
+            if (!args || args.kind === undefined) {
+                throw new Error("Missing required property 'kind'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -89,9 +89,9 @@ export class Environment extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -113,6 +113,10 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
+     * The kind of the environment.
+     */
+    readonly kind: pulumi.Input<string>;
+    /**
      * The location of the resource.
      */
     readonly location: pulumi.Input<string>;
@@ -121,15 +125,11 @@ export interface EnvironmentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties used to create an environment.
-     */
-    readonly properties: pulumi.Input<inputs.timeseriesinsights.EnvironmentCreationProperties>;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+     * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     readonly sku: pulumi.Input<inputs.timeseriesinsights.Sku>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.Outputs
     public sealed class SkuResponseResult
     {
         /// <summary>
-        /// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+        /// The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
         /// </summary>
         public readonly int Capacity;
         /// <summary>

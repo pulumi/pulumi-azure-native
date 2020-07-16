@@ -1599,7 +1599,7 @@ export namespace apimanagement {
      */
     export interface UserCreateParameterProperties {
         /**
-         * Determines the type of application which send the create user request. Default is old publisher portal.
+         * Determines the type of application which send the create user request. Default is legacy portal.
          */
         appType?: pulumi.Input<string>;
         /**
@@ -35158,35 +35158,27 @@ export namespace timeseriesinsights {
     }
 
     /**
-     * Properties used to create an environment.
+     * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
      */
-    export interface EnvironmentCreationProperties {
+    export interface LocalTimestamp {
         /**
-         * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+         * An enum that represents the format of the local timestamp property that needs to be set.
          */
-        dataRetentionTime: pulumi.Input<string>;
+        format?: pulumi.Input<string>;
         /**
-         * The list of partition keys according to which the data in the environment will be ordered.
+         * An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
          */
-        partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.PartitionKeyProperty>[]>;
-        /**
-         * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-         */
-        storageLimitExceededBehavior?: pulumi.Input<string>;
+        timeZoneOffset?: pulumi.Input<inputs.timeseriesinsights.LocalTimestampProperties>;
     }
 
     /**
-     * The structure of the property that a partition key can have. An environment can have multiple such properties.
+     * An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
      */
-    export interface PartitionKeyProperty {
+    export interface LocalTimestampProperties {
         /**
-         * The name of the property.
+         * The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
          */
-        name?: pulumi.Input<string>;
-        /**
-         * The type of the property.
-         */
-        type?: pulumi.Input<string>;
+        propertyName?: pulumi.Input<string>;
     }
 
     /**
@@ -35218,11 +35210,11 @@ export namespace timeseriesinsights {
     }
 
     /**
-     * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+     * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
     export interface Sku {
         /**
-         * The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+         * The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
          */
         capacity: pulumi.Input<number>;
         /**

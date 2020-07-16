@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetStorageAccountObjectReplicationPolicyResult:
@@ -60,7 +60,7 @@ def get_storage_account_object_replication_policy(account_name=None, name=None, 
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:storage:getStorageAccountObjectReplicationPolicy', __args__, opts=opts).value
 
     return AwaitableGetStorageAccountObjectReplicationPolicyResult(

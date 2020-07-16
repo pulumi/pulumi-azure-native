@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 
 class GetLoadBalancerInboundNatRuleResult:
@@ -67,7 +67,7 @@ def get_load_balancer_inbound_nat_rule(load_balancer_name=None, name=None, resou
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azurerm:network:getLoadBalancerInboundNatRule', __args__, opts=opts).value
 
     return AwaitableGetLoadBalancerInboundNatRuleResult(
