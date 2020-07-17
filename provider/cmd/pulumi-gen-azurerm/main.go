@@ -96,7 +96,7 @@ var azureApiResources = %#v
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
 	toolDescription := "the Pulumi SDK Generator"
 	extraFiles := map[string][]byte{}
-	switch language{
+	switch language {
 	case "nodejs":
 		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles)
 	case "python":

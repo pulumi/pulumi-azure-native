@@ -52,10 +52,6 @@ namespace Pulumi.AzureRM.Cdn
     public sealed class GetProfileEndpointOriginResult
     {
         /// <summary>
-        /// Resource location.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -64,30 +60,20 @@ namespace Pulumi.AzureRM.Cdn
         /// </summary>
         public readonly Outputs.OriginPropertiesResponseResult Properties;
         /// <summary>
-        /// Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetProfileEndpointOriginResult(
-            string location,
-
             string name,
 
             Outputs.OriginPropertiesResponseResult properties,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type)
         {
-            Location = location;
             Name = name;
             Properties = properties;
-            Tags = tags;
             Type = type;
         }
     }

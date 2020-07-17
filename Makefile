@@ -20,7 +20,8 @@ update_specs::
 	if [ ! -d "azure-rest-api-specs" ]; then git clone https://github.com/Azure/azure-rest-api-specs; fi
 	cd azure-rest-api-specs && git pull
 
-build::
+build:: generate
+	cd provider; VERSION=${VERSION} $(GO) generate cmd/${PROVIDER}/main.go
 	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
 
 builddebug:
