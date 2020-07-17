@@ -15,6 +15,8 @@ CURL            ?= curl
 ensure::
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
+
+update_specs::
 	if [ ! -d "azure-rest-api-specs" ]; then git clone https://github.com/Azure/azure-rest-api-specs; fi
 	cd azure-rest-api-specs && git pull
 
