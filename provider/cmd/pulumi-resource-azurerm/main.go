@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:generate go run ./generate.go ../../../sdk/schema/schema.json
-
 package main
 
 import (
