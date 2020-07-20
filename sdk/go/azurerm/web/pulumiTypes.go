@@ -6770,6 +6770,1144 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 	}).(StatusCodesBasedTriggerResponseArrayOutput)
 }
 
+// Backup description.
+type BackupItemResponse struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// BackupItem resource specific properties
+	Properties *BackupItemResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// BackupItemResponseInput is an input type that accepts BackupItemResponseArgs and BackupItemResponseOutput values.
+// You can construct a concrete instance of `BackupItemResponseInput` via:
+//
+//          BackupItemResponseArgs{...}
+type BackupItemResponseInput interface {
+	pulumi.Input
+
+	ToBackupItemResponseOutput() BackupItemResponseOutput
+	ToBackupItemResponseOutputWithContext(context.Context) BackupItemResponseOutput
+}
+
+// Backup description.
+type BackupItemResponseArgs struct {
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// BackupItem resource specific properties
+	Properties BackupItemResponsePropertiesPtrInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BackupItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupItemResponse)(nil)).Elem()
+}
+
+func (i BackupItemResponseArgs) ToBackupItemResponseOutput() BackupItemResponseOutput {
+	return i.ToBackupItemResponseOutputWithContext(context.Background())
+}
+
+func (i BackupItemResponseArgs) ToBackupItemResponseOutputWithContext(ctx context.Context) BackupItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupItemResponseOutput)
+}
+
+// BackupItemResponseArrayInput is an input type that accepts BackupItemResponseArray and BackupItemResponseArrayOutput values.
+// You can construct a concrete instance of `BackupItemResponseArrayInput` via:
+//
+//          BackupItemResponseArray{ BackupItemResponseArgs{...} }
+type BackupItemResponseArrayInput interface {
+	pulumi.Input
+
+	ToBackupItemResponseArrayOutput() BackupItemResponseArrayOutput
+	ToBackupItemResponseArrayOutputWithContext(context.Context) BackupItemResponseArrayOutput
+}
+
+type BackupItemResponseArray []BackupItemResponseInput
+
+func (BackupItemResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupItemResponse)(nil)).Elem()
+}
+
+func (i BackupItemResponseArray) ToBackupItemResponseArrayOutput() BackupItemResponseArrayOutput {
+	return i.ToBackupItemResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BackupItemResponseArray) ToBackupItemResponseArrayOutputWithContext(ctx context.Context) BackupItemResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupItemResponseArrayOutput)
+}
+
+// Backup description.
+type BackupItemResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupItemResponse)(nil)).Elem()
+}
+
+func (o BackupItemResponseOutput) ToBackupItemResponseOutput() BackupItemResponseOutput {
+	return o
+}
+
+func (o BackupItemResponseOutput) ToBackupItemResponseOutputWithContext(ctx context.Context) BackupItemResponseOutput {
+	return o
+}
+
+// Resource Id.
+func (o BackupItemResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o BackupItemResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupItemResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o BackupItemResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// BackupItem resource specific properties
+func (o BackupItemResponseOutput) Properties() BackupItemResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v BackupItemResponse) *BackupItemResponseProperties { return v.Properties }).(BackupItemResponsePropertiesPtrOutput)
+}
+
+// Resource type.
+func (o BackupItemResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type BackupItemResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupItemResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupItemResponse)(nil)).Elem()
+}
+
+func (o BackupItemResponseArrayOutput) ToBackupItemResponseArrayOutput() BackupItemResponseArrayOutput {
+	return o
+}
+
+func (o BackupItemResponseArrayOutput) ToBackupItemResponseArrayOutputWithContext(ctx context.Context) BackupItemResponseArrayOutput {
+	return o
+}
+
+func (o BackupItemResponseArrayOutput) Index(i pulumi.IntInput) BackupItemResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupItemResponse {
+		return vs[0].([]BackupItemResponse)[vs[1].(int)]
+	}).(BackupItemResponseOutput)
+}
+
+// BackupItem resource specific properties
+type BackupItemResponseProperties struct {
+	// Name of the blob which contains data for this backup.
+	BlobName string `pulumi:"blobName"`
+	// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+	CorrelationId string `pulumi:"correlationId"`
+	// Timestamp of the backup creation.
+	Created string `pulumi:"created"`
+	// List of databases included in the backup.
+	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
+	// Timestamp when this backup finished.
+	FinishedTimeStamp string `pulumi:"finishedTimeStamp"`
+	// Id of the backup.
+	Id int `pulumi:"id"`
+	// Timestamp of a last restore operation which used this backup.
+	LastRestoreTimeStamp string `pulumi:"lastRestoreTimeStamp"`
+	// Details regarding this backup. Might contain an error message.
+	Log string `pulumi:"log"`
+	// Name of this backup.
+	Name string `pulumi:"name"`
+	// True if this backup has been created due to a schedule being triggered.
+	Scheduled bool `pulumi:"scheduled"`
+	// Size of the backup in bytes.
+	SizeInBytes int `pulumi:"sizeInBytes"`
+	// Backup status.
+	Status string `pulumi:"status"`
+	// SAS URL for the storage account container which contains this backup.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+	// Size of the original web app which has been backed up.
+	WebsiteSizeInBytes int `pulumi:"websiteSizeInBytes"`
+}
+
+// BackupItemResponsePropertiesInput is an input type that accepts BackupItemResponsePropertiesArgs and BackupItemResponsePropertiesOutput values.
+// You can construct a concrete instance of `BackupItemResponsePropertiesInput` via:
+//
+//          BackupItemResponsePropertiesArgs{...}
+type BackupItemResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToBackupItemResponsePropertiesOutput() BackupItemResponsePropertiesOutput
+	ToBackupItemResponsePropertiesOutputWithContext(context.Context) BackupItemResponsePropertiesOutput
+}
+
+// BackupItem resource specific properties
+type BackupItemResponsePropertiesArgs struct {
+	// Name of the blob which contains data for this backup.
+	BlobName pulumi.StringInput `pulumi:"blobName"`
+	// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+	CorrelationId pulumi.StringInput `pulumi:"correlationId"`
+	// Timestamp of the backup creation.
+	Created pulumi.StringInput `pulumi:"created"`
+	// List of databases included in the backup.
+	Databases DatabaseBackupSettingResponseArrayInput `pulumi:"databases"`
+	// Timestamp when this backup finished.
+	FinishedTimeStamp pulumi.StringInput `pulumi:"finishedTimeStamp"`
+	// Id of the backup.
+	Id pulumi.IntInput `pulumi:"id"`
+	// Timestamp of a last restore operation which used this backup.
+	LastRestoreTimeStamp pulumi.StringInput `pulumi:"lastRestoreTimeStamp"`
+	// Details regarding this backup. Might contain an error message.
+	Log pulumi.StringInput `pulumi:"log"`
+	// Name of this backup.
+	Name pulumi.StringInput `pulumi:"name"`
+	// True if this backup has been created due to a schedule being triggered.
+	Scheduled pulumi.BoolInput `pulumi:"scheduled"`
+	// Size of the backup in bytes.
+	SizeInBytes pulumi.IntInput `pulumi:"sizeInBytes"`
+	// Backup status.
+	Status pulumi.StringInput `pulumi:"status"`
+	// SAS URL for the storage account container which contains this backup.
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+	// Size of the original web app which has been backed up.
+	WebsiteSizeInBytes pulumi.IntInput `pulumi:"websiteSizeInBytes"`
+}
+
+func (BackupItemResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupItemResponseProperties)(nil)).Elem()
+}
+
+func (i BackupItemResponsePropertiesArgs) ToBackupItemResponsePropertiesOutput() BackupItemResponsePropertiesOutput {
+	return i.ToBackupItemResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i BackupItemResponsePropertiesArgs) ToBackupItemResponsePropertiesOutputWithContext(ctx context.Context) BackupItemResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupItemResponsePropertiesOutput)
+}
+
+func (i BackupItemResponsePropertiesArgs) ToBackupItemResponsePropertiesPtrOutput() BackupItemResponsePropertiesPtrOutput {
+	return i.ToBackupItemResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BackupItemResponsePropertiesArgs) ToBackupItemResponsePropertiesPtrOutputWithContext(ctx context.Context) BackupItemResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupItemResponsePropertiesOutput).ToBackupItemResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// BackupItemResponsePropertiesPtrInput is an input type that accepts BackupItemResponsePropertiesArgs, BackupItemResponsePropertiesPtr and BackupItemResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `BackupItemResponsePropertiesPtrInput` via:
+//
+//          BackupItemResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupItemResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBackupItemResponsePropertiesPtrOutput() BackupItemResponsePropertiesPtrOutput
+	ToBackupItemResponsePropertiesPtrOutputWithContext(context.Context) BackupItemResponsePropertiesPtrOutput
+}
+
+type backupItemResponsePropertiesPtrType BackupItemResponsePropertiesArgs
+
+func BackupItemResponsePropertiesPtr(v *BackupItemResponsePropertiesArgs) BackupItemResponsePropertiesPtrInput {
+	return (*backupItemResponsePropertiesPtrType)(v)
+}
+
+func (*backupItemResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupItemResponseProperties)(nil)).Elem()
+}
+
+func (i *backupItemResponsePropertiesPtrType) ToBackupItemResponsePropertiesPtrOutput() BackupItemResponsePropertiesPtrOutput {
+	return i.ToBackupItemResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *backupItemResponsePropertiesPtrType) ToBackupItemResponsePropertiesPtrOutputWithContext(ctx context.Context) BackupItemResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupItemResponsePropertiesPtrOutput)
+}
+
+// BackupItem resource specific properties
+type BackupItemResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (BackupItemResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupItemResponseProperties)(nil)).Elem()
+}
+
+func (o BackupItemResponsePropertiesOutput) ToBackupItemResponsePropertiesOutput() BackupItemResponsePropertiesOutput {
+	return o
+}
+
+func (o BackupItemResponsePropertiesOutput) ToBackupItemResponsePropertiesOutputWithContext(ctx context.Context) BackupItemResponsePropertiesOutput {
+	return o
+}
+
+func (o BackupItemResponsePropertiesOutput) ToBackupItemResponsePropertiesPtrOutput() BackupItemResponsePropertiesPtrOutput {
+	return o.ToBackupItemResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BackupItemResponsePropertiesOutput) ToBackupItemResponsePropertiesPtrOutputWithContext(ctx context.Context) BackupItemResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) *BackupItemResponseProperties {
+		return &v
+	}).(BackupItemResponsePropertiesPtrOutput)
+}
+
+// Name of the blob which contains data for this backup.
+func (o BackupItemResponsePropertiesOutput) BlobName() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.BlobName }).(pulumi.StringOutput)
+}
+
+// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+func (o BackupItemResponsePropertiesOutput) CorrelationId() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.CorrelationId }).(pulumi.StringOutput)
+}
+
+// Timestamp of the backup creation.
+func (o BackupItemResponsePropertiesOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// List of databases included in the backup.
+func (o BackupItemResponsePropertiesOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) []DatabaseBackupSettingResponse { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// Timestamp when this backup finished.
+func (o BackupItemResponsePropertiesOutput) FinishedTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.FinishedTimeStamp }).(pulumi.StringOutput)
+}
+
+// Id of the backup.
+func (o BackupItemResponsePropertiesOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// Timestamp of a last restore operation which used this backup.
+func (o BackupItemResponsePropertiesOutput) LastRestoreTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.LastRestoreTimeStamp }).(pulumi.StringOutput)
+}
+
+// Details regarding this backup. Might contain an error message.
+func (o BackupItemResponsePropertiesOutput) Log() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.Log }).(pulumi.StringOutput)
+}
+
+// Name of this backup.
+func (o BackupItemResponsePropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// True if this backup has been created due to a schedule being triggered.
+func (o BackupItemResponsePropertiesOutput) Scheduled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) bool { return v.Scheduled }).(pulumi.BoolOutput)
+}
+
+// Size of the backup in bytes.
+func (o BackupItemResponsePropertiesOutput) SizeInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) int { return v.SizeInBytes }).(pulumi.IntOutput)
+}
+
+// Backup status.
+func (o BackupItemResponsePropertiesOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// SAS URL for the storage account container which contains this backup.
+func (o BackupItemResponsePropertiesOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+// Size of the original web app which has been backed up.
+func (o BackupItemResponsePropertiesOutput) WebsiteSizeInBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupItemResponseProperties) int { return v.WebsiteSizeInBytes }).(pulumi.IntOutput)
+}
+
+type BackupItemResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupItemResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupItemResponseProperties)(nil)).Elem()
+}
+
+func (o BackupItemResponsePropertiesPtrOutput) ToBackupItemResponsePropertiesPtrOutput() BackupItemResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o BackupItemResponsePropertiesPtrOutput) ToBackupItemResponsePropertiesPtrOutputWithContext(ctx context.Context) BackupItemResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o BackupItemResponsePropertiesPtrOutput) Elem() BackupItemResponsePropertiesOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) BackupItemResponseProperties { return *v }).(BackupItemResponsePropertiesOutput)
+}
+
+// Name of the blob which contains data for this backup.
+func (o BackupItemResponsePropertiesPtrOutput) BlobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BlobName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+func (o BackupItemResponsePropertiesPtrOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CorrelationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the backup creation.
+func (o BackupItemResponsePropertiesPtrOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Created
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of databases included in the backup.
+func (o BackupItemResponsePropertiesPtrOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) []DatabaseBackupSettingResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Databases
+	}).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// Timestamp when this backup finished.
+func (o BackupItemResponsePropertiesPtrOutput) FinishedTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FinishedTimeStamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id of the backup.
+func (o BackupItemResponsePropertiesPtrOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timestamp of a last restore operation which used this backup.
+func (o BackupItemResponsePropertiesPtrOutput) LastRestoreTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastRestoreTimeStamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details regarding this backup. Might contain an error message.
+func (o BackupItemResponsePropertiesPtrOutput) Log() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Log
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of this backup.
+func (o BackupItemResponsePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if this backup has been created due to a schedule being triggered.
+func (o BackupItemResponsePropertiesPtrOutput) Scheduled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Scheduled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Size of the backup in bytes.
+func (o BackupItemResponsePropertiesPtrOutput) SizeInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SizeInBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Backup status.
+func (o BackupItemResponsePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// SAS URL for the storage account container which contains this backup.
+func (o BackupItemResponsePropertiesPtrOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the original web app which has been backed up.
+func (o BackupItemResponsePropertiesPtrOutput) WebsiteSizeInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupItemResponseProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WebsiteSizeInBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// BackupRequest resource specific properties
+type BackupRequestProperties struct {
+	// Name of the backup.
+	BackupName *string `pulumi:"backupName"`
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
+	// Databases included in the backup.
+	Databases []DatabaseBackupSetting `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled *bool `pulumi:"enabled"`
+	// SAS URL to the container.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+}
+
+// BackupRequestPropertiesInput is an input type that accepts BackupRequestPropertiesArgs and BackupRequestPropertiesOutput values.
+// You can construct a concrete instance of `BackupRequestPropertiesInput` via:
+//
+//          BackupRequestPropertiesArgs{...}
+type BackupRequestPropertiesInput interface {
+	pulumi.Input
+
+	ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput
+	ToBackupRequestPropertiesOutputWithContext(context.Context) BackupRequestPropertiesOutput
+}
+
+// BackupRequest resource specific properties
+type BackupRequestPropertiesArgs struct {
+	// Name of the backup.
+	BackupName pulumi.StringPtrInput `pulumi:"backupName"`
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule BackupSchedulePtrInput `pulumi:"backupSchedule"`
+	// Databases included in the backup.
+	Databases DatabaseBackupSettingArrayInput `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// SAS URL to the container.
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+}
+
+func (BackupRequestPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupRequestProperties)(nil)).Elem()
+}
+
+func (i BackupRequestPropertiesArgs) ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput {
+	return i.ToBackupRequestPropertiesOutputWithContext(context.Background())
+}
+
+func (i BackupRequestPropertiesArgs) ToBackupRequestPropertiesOutputWithContext(ctx context.Context) BackupRequestPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupRequestPropertiesOutput)
+}
+
+// BackupRequest resource specific properties
+type BackupRequestPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BackupRequestPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupRequestProperties)(nil)).Elem()
+}
+
+func (o BackupRequestPropertiesOutput) ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput {
+	return o
+}
+
+func (o BackupRequestPropertiesOutput) ToBackupRequestPropertiesOutputWithContext(ctx context.Context) BackupRequestPropertiesOutput {
+	return o
+}
+
+// Name of the backup.
+func (o BackupRequestPropertiesOutput) BackupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupRequestProperties) *string { return v.BackupName }).(pulumi.StringPtrOutput)
+}
+
+// Schedule for the backup if it is executed periodically.
+func (o BackupRequestPropertiesOutput) BackupSchedule() BackupSchedulePtrOutput {
+	return o.ApplyT(func(v BackupRequestProperties) *BackupSchedule { return v.BackupSchedule }).(BackupSchedulePtrOutput)
+}
+
+// Databases included in the backup.
+func (o BackupRequestPropertiesOutput) Databases() DatabaseBackupSettingArrayOutput {
+	return o.ApplyT(func(v BackupRequestProperties) []DatabaseBackupSetting { return v.Databases }).(DatabaseBackupSettingArrayOutput)
+}
+
+// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+func (o BackupRequestPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupRequestProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// SAS URL to the container.
+func (o BackupRequestPropertiesOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupRequestProperties) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+// BackupRequest resource specific properties
+type BackupRequestResponseProperties struct {
+	// Name of the backup.
+	BackupName *string `pulumi:"backupName"`
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
+	// Databases included in the backup.
+	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled *bool `pulumi:"enabled"`
+	// SAS URL to the container.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+}
+
+// BackupRequestResponsePropertiesInput is an input type that accepts BackupRequestResponsePropertiesArgs and BackupRequestResponsePropertiesOutput values.
+// You can construct a concrete instance of `BackupRequestResponsePropertiesInput` via:
+//
+//          BackupRequestResponsePropertiesArgs{...}
+type BackupRequestResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToBackupRequestResponsePropertiesOutput() BackupRequestResponsePropertiesOutput
+	ToBackupRequestResponsePropertiesOutputWithContext(context.Context) BackupRequestResponsePropertiesOutput
+}
+
+// BackupRequest resource specific properties
+type BackupRequestResponsePropertiesArgs struct {
+	// Name of the backup.
+	BackupName pulumi.StringPtrInput `pulumi:"backupName"`
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule BackupScheduleResponsePtrInput `pulumi:"backupSchedule"`
+	// Databases included in the backup.
+	Databases DatabaseBackupSettingResponseArrayInput `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// SAS URL to the container.
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+}
+
+func (BackupRequestResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupRequestResponseProperties)(nil)).Elem()
+}
+
+func (i BackupRequestResponsePropertiesArgs) ToBackupRequestResponsePropertiesOutput() BackupRequestResponsePropertiesOutput {
+	return i.ToBackupRequestResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i BackupRequestResponsePropertiesArgs) ToBackupRequestResponsePropertiesOutputWithContext(ctx context.Context) BackupRequestResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupRequestResponsePropertiesOutput)
+}
+
+// BackupRequest resource specific properties
+type BackupRequestResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (BackupRequestResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupRequestResponseProperties)(nil)).Elem()
+}
+
+func (o BackupRequestResponsePropertiesOutput) ToBackupRequestResponsePropertiesOutput() BackupRequestResponsePropertiesOutput {
+	return o
+}
+
+func (o BackupRequestResponsePropertiesOutput) ToBackupRequestResponsePropertiesOutputWithContext(ctx context.Context) BackupRequestResponsePropertiesOutput {
+	return o
+}
+
+// Name of the backup.
+func (o BackupRequestResponsePropertiesOutput) BackupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupRequestResponseProperties) *string { return v.BackupName }).(pulumi.StringPtrOutput)
+}
+
+// Schedule for the backup if it is executed periodically.
+func (o BackupRequestResponsePropertiesOutput) BackupSchedule() BackupScheduleResponsePtrOutput {
+	return o.ApplyT(func(v BackupRequestResponseProperties) *BackupScheduleResponse { return v.BackupSchedule }).(BackupScheduleResponsePtrOutput)
+}
+
+// Databases included in the backup.
+func (o BackupRequestResponsePropertiesOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v BackupRequestResponseProperties) []DatabaseBackupSettingResponse { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+func (o BackupRequestResponsePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupRequestResponseProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// SAS URL to the container.
+func (o BackupRequestResponsePropertiesOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupRequestResponseProperties) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+type BackupSchedule struct {
+	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+	FrequencyInterval int `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+	FrequencyUnit string `pulumi:"frequencyUnit"`
+	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
+	// After how many days backups should be deleted.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// When the schedule should start working.
+	StartTime *string `pulumi:"startTime"`
+}
+
+// BackupScheduleInput is an input type that accepts BackupScheduleArgs and BackupScheduleOutput values.
+// You can construct a concrete instance of `BackupScheduleInput` via:
+//
+//          BackupScheduleArgs{...}
+type BackupScheduleInput interface {
+	pulumi.Input
+
+	ToBackupScheduleOutput() BackupScheduleOutput
+	ToBackupScheduleOutputWithContext(context.Context) BackupScheduleOutput
+}
+
+// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+type BackupScheduleArgs struct {
+	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
+	// After how many days backups should be deleted.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// When the schedule should start working.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (BackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSchedule)(nil)).Elem()
+}
+
+func (i BackupScheduleArgs) ToBackupScheduleOutput() BackupScheduleOutput {
+	return i.ToBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleArgs) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
+}
+
+func (i BackupScheduleArgs) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleArgs) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput).ToBackupSchedulePtrOutputWithContext(ctx)
+}
+
+// BackupSchedulePtrInput is an input type that accepts BackupScheduleArgs, BackupSchedulePtr and BackupSchedulePtrOutput values.
+// You can construct a concrete instance of `BackupSchedulePtrInput` via:
+//
+//          BackupScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupSchedulePtrInput interface {
+	pulumi.Input
+
+	ToBackupSchedulePtrOutput() BackupSchedulePtrOutput
+	ToBackupSchedulePtrOutputWithContext(context.Context) BackupSchedulePtrOutput
+}
+
+type backupSchedulePtrType BackupScheduleArgs
+
+func BackupSchedulePtr(v *BackupScheduleArgs) BackupSchedulePtrInput {
+	return (*backupSchedulePtrType)(v)
+}
+
+func (*backupSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
+}
+
+func (i *backupSchedulePtrType) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupSchedulePtrType) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupSchedulePtrOutput)
+}
+
+// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+type BackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSchedule)(nil)).Elem()
+}
+
+func (o BackupScheduleOutput) ToBackupScheduleOutput() BackupScheduleOutput {
+	return o
+}
+
+func (o BackupScheduleOutput) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
+	return o
+}
+
+func (o BackupScheduleOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return o.ToBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupScheduleOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return o.ApplyT(func(v BackupSchedule) *BackupSchedule {
+		return &v
+	}).(BackupSchedulePtrOutput)
+}
+
+// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+func (o BackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupSchedule) int { return v.FrequencyInterval }).(pulumi.IntOutput)
+}
+
+// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+func (o BackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
+}
+
+// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+func (o BackupScheduleOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
+	return o.ApplyT(func(v BackupSchedule) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
+}
+
+// After how many days backups should be deleted.
+func (o BackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupSchedule) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// When the schedule should start working.
+func (o BackupScheduleOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type BackupSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
+}
+
+func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
+	return o
+}
+
+func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
+	return o
+}
+
+func (o BackupSchedulePtrOutput) Elem() BackupScheduleOutput {
+	return o.ApplyT(func(v *BackupSchedule) BackupSchedule { return *v }).(BackupScheduleOutput)
+}
+
+// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+func (o BackupSchedulePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.KeepAtLeastOneBackup
+	}).(pulumi.BoolPtrOutput)
+}
+
+// After how many days backups should be deleted.
+func (o BackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// When the schedule should start working.
+func (o BackupSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+type BackupScheduleResponse struct {
+	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+	FrequencyInterval int `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+	FrequencyUnit string `pulumi:"frequencyUnit"`
+	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
+	// Last time when this schedule was triggered.
+	LastExecutionTime string `pulumi:"lastExecutionTime"`
+	// After how many days backups should be deleted.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// When the schedule should start working.
+	StartTime *string `pulumi:"startTime"`
+}
+
+// BackupScheduleResponseInput is an input type that accepts BackupScheduleResponseArgs and BackupScheduleResponseOutput values.
+// You can construct a concrete instance of `BackupScheduleResponseInput` via:
+//
+//          BackupScheduleResponseArgs{...}
+type BackupScheduleResponseInput interface {
+	pulumi.Input
+
+	ToBackupScheduleResponseOutput() BackupScheduleResponseOutput
+	ToBackupScheduleResponseOutputWithContext(context.Context) BackupScheduleResponseOutput
+}
+
+// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+type BackupScheduleResponseArgs struct {
+	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
+	// Last time when this schedule was triggered.
+	LastExecutionTime pulumi.StringInput `pulumi:"lastExecutionTime"`
+	// After how many days backups should be deleted.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// When the schedule should start working.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (BackupScheduleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleResponse)(nil)).Elem()
+}
+
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponseOutput() BackupScheduleResponseOutput {
+	return i.ToBackupScheduleResponseOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponseOutputWithContext(ctx context.Context) BackupScheduleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponseOutput)
+}
+
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return i.ToBackupScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponseOutput).ToBackupScheduleResponsePtrOutputWithContext(ctx)
+}
+
+// BackupScheduleResponsePtrInput is an input type that accepts BackupScheduleResponseArgs, BackupScheduleResponsePtr and BackupScheduleResponsePtrOutput values.
+// You can construct a concrete instance of `BackupScheduleResponsePtrInput` via:
+//
+//          BackupScheduleResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupScheduleResponsePtrInput interface {
+	pulumi.Input
+
+	ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput
+	ToBackupScheduleResponsePtrOutputWithContext(context.Context) BackupScheduleResponsePtrOutput
+}
+
+type backupScheduleResponsePtrType BackupScheduleResponseArgs
+
+func BackupScheduleResponsePtr(v *BackupScheduleResponseArgs) BackupScheduleResponsePtrInput {
+	return (*backupScheduleResponsePtrType)(v)
+}
+
+func (*backupScheduleResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupScheduleResponse)(nil)).Elem()
+}
+
+func (i *backupScheduleResponsePtrType) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return i.ToBackupScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *backupScheduleResponsePtrType) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponsePtrOutput)
+}
+
+// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+type BackupScheduleResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleResponse)(nil)).Elem()
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponseOutput() BackupScheduleResponseOutput {
+	return o
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponseOutputWithContext(ctx context.Context) BackupScheduleResponseOutput {
+	return o
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return o.ToBackupScheduleResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) *BackupScheduleResponse {
+		return &v
+	}).(BackupScheduleResponsePtrOutput)
+}
+
+// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+func (o BackupScheduleResponseOutput) FrequencyInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) int { return v.FrequencyInterval }).(pulumi.IntOutput)
+}
+
+// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+func (o BackupScheduleResponseOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) string { return v.FrequencyUnit }).(pulumi.StringOutput)
+}
+
+// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+func (o BackupScheduleResponseOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
+}
+
+// Last time when this schedule was triggered.
+func (o BackupScheduleResponseOutput) LastExecutionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) string { return v.LastExecutionTime }).(pulumi.StringOutput)
+}
+
+// After how many days backups should be deleted.
+func (o BackupScheduleResponseOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// When the schedule should start working.
+func (o BackupScheduleResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type BackupScheduleResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupScheduleResponse)(nil)).Elem()
+}
+
+func (o BackupScheduleResponsePtrOutput) ToBackupScheduleResponsePtrOutput() BackupScheduleResponsePtrOutput {
+	return o
+}
+
+func (o BackupScheduleResponsePtrOutput) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
+	return o
+}
+
+func (o BackupScheduleResponsePtrOutput) Elem() BackupScheduleResponseOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse { return *v }).(BackupScheduleResponseOutput)
+}
+
+// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+func (o BackupScheduleResponsePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+func (o BackupScheduleResponsePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FrequencyUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+func (o BackupScheduleResponsePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.KeepAtLeastOneBackup
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Last time when this schedule was triggered.
+func (o BackupScheduleResponsePtrOutput) LastExecutionTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastExecutionTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// After how many days backups should be deleted.
+func (o BackupScheduleResponsePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// When the schedule should start working.
+func (o BackupScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes the capabilities/features allowed for a specific SKU.
 type Capability struct {
 	// Name of the SKU capability.
@@ -9105,6 +10243,260 @@ func (o CorsSettingsResponsePtrOutput) SupportCredentials() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Database backup settings.
+type DatabaseBackupSetting struct {
+	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+	ConnectionString *string `pulumi:"connectionString"`
+	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+	// This is used during restore with overwrite connection strings options.
+	ConnectionStringName *string `pulumi:"connectionStringName"`
+	// Database type (e.g. SqlAzure / MySql).
+	DatabaseType string  `pulumi:"databaseType"`
+	Name         *string `pulumi:"name"`
+}
+
+// DatabaseBackupSettingInput is an input type that accepts DatabaseBackupSettingArgs and DatabaseBackupSettingOutput values.
+// You can construct a concrete instance of `DatabaseBackupSettingInput` via:
+//
+//          DatabaseBackupSettingArgs{...}
+type DatabaseBackupSettingInput interface {
+	pulumi.Input
+
+	ToDatabaseBackupSettingOutput() DatabaseBackupSettingOutput
+	ToDatabaseBackupSettingOutputWithContext(context.Context) DatabaseBackupSettingOutput
+}
+
+// Database backup settings.
+type DatabaseBackupSettingArgs struct {
+	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+	// This is used during restore with overwrite connection strings options.
+	ConnectionStringName pulumi.StringPtrInput `pulumi:"connectionStringName"`
+	// Database type (e.g. SqlAzure / MySql).
+	DatabaseType pulumi.StringInput    `pulumi:"databaseType"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DatabaseBackupSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseBackupSetting)(nil)).Elem()
+}
+
+func (i DatabaseBackupSettingArgs) ToDatabaseBackupSettingOutput() DatabaseBackupSettingOutput {
+	return i.ToDatabaseBackupSettingOutputWithContext(context.Background())
+}
+
+func (i DatabaseBackupSettingArgs) ToDatabaseBackupSettingOutputWithContext(ctx context.Context) DatabaseBackupSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupSettingOutput)
+}
+
+// DatabaseBackupSettingArrayInput is an input type that accepts DatabaseBackupSettingArray and DatabaseBackupSettingArrayOutput values.
+// You can construct a concrete instance of `DatabaseBackupSettingArrayInput` via:
+//
+//          DatabaseBackupSettingArray{ DatabaseBackupSettingArgs{...} }
+type DatabaseBackupSettingArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseBackupSettingArrayOutput() DatabaseBackupSettingArrayOutput
+	ToDatabaseBackupSettingArrayOutputWithContext(context.Context) DatabaseBackupSettingArrayOutput
+}
+
+type DatabaseBackupSettingArray []DatabaseBackupSettingInput
+
+func (DatabaseBackupSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseBackupSetting)(nil)).Elem()
+}
+
+func (i DatabaseBackupSettingArray) ToDatabaseBackupSettingArrayOutput() DatabaseBackupSettingArrayOutput {
+	return i.ToDatabaseBackupSettingArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseBackupSettingArray) ToDatabaseBackupSettingArrayOutputWithContext(ctx context.Context) DatabaseBackupSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupSettingArrayOutput)
+}
+
+// Database backup settings.
+type DatabaseBackupSettingOutput struct{ *pulumi.OutputState }
+
+func (DatabaseBackupSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseBackupSetting)(nil)).Elem()
+}
+
+func (o DatabaseBackupSettingOutput) ToDatabaseBackupSettingOutput() DatabaseBackupSettingOutput {
+	return o
+}
+
+func (o DatabaseBackupSettingOutput) ToDatabaseBackupSettingOutputWithContext(ctx context.Context) DatabaseBackupSettingOutput {
+	return o
+}
+
+// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+func (o DatabaseBackupSettingOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseBackupSetting) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+// This is used during restore with overwrite connection strings options.
+func (o DatabaseBackupSettingOutput) ConnectionStringName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseBackupSetting) *string { return v.ConnectionStringName }).(pulumi.StringPtrOutput)
+}
+
+// Database type (e.g. SqlAzure / MySql).
+func (o DatabaseBackupSettingOutput) DatabaseType() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseBackupSetting) string { return v.DatabaseType }).(pulumi.StringOutput)
+}
+
+func (o DatabaseBackupSettingOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseBackupSetting) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseBackupSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseBackupSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseBackupSetting)(nil)).Elem()
+}
+
+func (o DatabaseBackupSettingArrayOutput) ToDatabaseBackupSettingArrayOutput() DatabaseBackupSettingArrayOutput {
+	return o
+}
+
+func (o DatabaseBackupSettingArrayOutput) ToDatabaseBackupSettingArrayOutputWithContext(ctx context.Context) DatabaseBackupSettingArrayOutput {
+	return o
+}
+
+func (o DatabaseBackupSettingArrayOutput) Index(i pulumi.IntInput) DatabaseBackupSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseBackupSetting {
+		return vs[0].([]DatabaseBackupSetting)[vs[1].(int)]
+	}).(DatabaseBackupSettingOutput)
+}
+
+// Database backup settings.
+type DatabaseBackupSettingResponse struct {
+	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+	ConnectionString *string `pulumi:"connectionString"`
+	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+	// This is used during restore with overwrite connection strings options.
+	ConnectionStringName *string `pulumi:"connectionStringName"`
+	// Database type (e.g. SqlAzure / MySql).
+	DatabaseType string  `pulumi:"databaseType"`
+	Name         *string `pulumi:"name"`
+}
+
+// DatabaseBackupSettingResponseInput is an input type that accepts DatabaseBackupSettingResponseArgs and DatabaseBackupSettingResponseOutput values.
+// You can construct a concrete instance of `DatabaseBackupSettingResponseInput` via:
+//
+//          DatabaseBackupSettingResponseArgs{...}
+type DatabaseBackupSettingResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseBackupSettingResponseOutput() DatabaseBackupSettingResponseOutput
+	ToDatabaseBackupSettingResponseOutputWithContext(context.Context) DatabaseBackupSettingResponseOutput
+}
+
+// Database backup settings.
+type DatabaseBackupSettingResponseArgs struct {
+	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+	// This is used during restore with overwrite connection strings options.
+	ConnectionStringName pulumi.StringPtrInput `pulumi:"connectionStringName"`
+	// Database type (e.g. SqlAzure / MySql).
+	DatabaseType pulumi.StringInput    `pulumi:"databaseType"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DatabaseBackupSettingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseBackupSettingResponse)(nil)).Elem()
+}
+
+func (i DatabaseBackupSettingResponseArgs) ToDatabaseBackupSettingResponseOutput() DatabaseBackupSettingResponseOutput {
+	return i.ToDatabaseBackupSettingResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseBackupSettingResponseArgs) ToDatabaseBackupSettingResponseOutputWithContext(ctx context.Context) DatabaseBackupSettingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupSettingResponseOutput)
+}
+
+// DatabaseBackupSettingResponseArrayInput is an input type that accepts DatabaseBackupSettingResponseArray and DatabaseBackupSettingResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseBackupSettingResponseArrayInput` via:
+//
+//          DatabaseBackupSettingResponseArray{ DatabaseBackupSettingResponseArgs{...} }
+type DatabaseBackupSettingResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseBackupSettingResponseArrayOutput() DatabaseBackupSettingResponseArrayOutput
+	ToDatabaseBackupSettingResponseArrayOutputWithContext(context.Context) DatabaseBackupSettingResponseArrayOutput
+}
+
+type DatabaseBackupSettingResponseArray []DatabaseBackupSettingResponseInput
+
+func (DatabaseBackupSettingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseBackupSettingResponse)(nil)).Elem()
+}
+
+func (i DatabaseBackupSettingResponseArray) ToDatabaseBackupSettingResponseArrayOutput() DatabaseBackupSettingResponseArrayOutput {
+	return i.ToDatabaseBackupSettingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseBackupSettingResponseArray) ToDatabaseBackupSettingResponseArrayOutputWithContext(ctx context.Context) DatabaseBackupSettingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// Database backup settings.
+type DatabaseBackupSettingResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseBackupSettingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseBackupSettingResponse)(nil)).Elem()
+}
+
+func (o DatabaseBackupSettingResponseOutput) ToDatabaseBackupSettingResponseOutput() DatabaseBackupSettingResponseOutput {
+	return o
+}
+
+func (o DatabaseBackupSettingResponseOutput) ToDatabaseBackupSettingResponseOutputWithContext(ctx context.Context) DatabaseBackupSettingResponseOutput {
+	return o
+}
+
+// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+func (o DatabaseBackupSettingResponseOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseBackupSettingResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+// This is used during restore with overwrite connection strings options.
+func (o DatabaseBackupSettingResponseOutput) ConnectionStringName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseBackupSettingResponse) *string { return v.ConnectionStringName }).(pulumi.StringPtrOutput)
+}
+
+// Database type (e.g. SqlAzure / MySql).
+func (o DatabaseBackupSettingResponseOutput) DatabaseType() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseBackupSettingResponse) string { return v.DatabaseType }).(pulumi.StringOutput)
+}
+
+func (o DatabaseBackupSettingResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseBackupSettingResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseBackupSettingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseBackupSettingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseBackupSettingResponse)(nil)).Elem()
+}
+
+func (o DatabaseBackupSettingResponseArrayOutput) ToDatabaseBackupSettingResponseArrayOutput() DatabaseBackupSettingResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseBackupSettingResponseArrayOutput) ToDatabaseBackupSettingResponseArrayOutputWithContext(ctx context.Context) DatabaseBackupSettingResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseBackupSettingResponseArrayOutput) Index(i pulumi.IntInput) DatabaseBackupSettingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseBackupSettingResponse {
+		return vs[0].([]DatabaseBackupSettingResponse)[vs[1].(int)]
+	}).(DatabaseBackupSettingResponseOutput)
+}
+
 // Deployment resource specific properties
 type DeploymentProperties struct {
 	// True if deployment is currently active, false if completed and null if not started.
@@ -10667,6 +12059,70 @@ func (o FunctionEnvelopeResponsePropertiesPtrOutput) Test_data_href() pulumi.Str
 		}
 		return v.Test_data_href
 	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionSecrets resource specific properties
+type FunctionSecretsResponseProperties struct {
+	// Secret key.
+	Key *string `pulumi:"key"`
+	// Trigger URL.
+	Trigger_url *string `pulumi:"trigger_url"`
+}
+
+// FunctionSecretsResponsePropertiesInput is an input type that accepts FunctionSecretsResponsePropertiesArgs and FunctionSecretsResponsePropertiesOutput values.
+// You can construct a concrete instance of `FunctionSecretsResponsePropertiesInput` via:
+//
+//          FunctionSecretsResponsePropertiesArgs{...}
+type FunctionSecretsResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToFunctionSecretsResponsePropertiesOutput() FunctionSecretsResponsePropertiesOutput
+	ToFunctionSecretsResponsePropertiesOutputWithContext(context.Context) FunctionSecretsResponsePropertiesOutput
+}
+
+// FunctionSecrets resource specific properties
+type FunctionSecretsResponsePropertiesArgs struct {
+	// Secret key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Trigger URL.
+	Trigger_url pulumi.StringPtrInput `pulumi:"trigger_url"`
+}
+
+func (FunctionSecretsResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSecretsResponseProperties)(nil)).Elem()
+}
+
+func (i FunctionSecretsResponsePropertiesArgs) ToFunctionSecretsResponsePropertiesOutput() FunctionSecretsResponsePropertiesOutput {
+	return i.ToFunctionSecretsResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i FunctionSecretsResponsePropertiesArgs) ToFunctionSecretsResponsePropertiesOutputWithContext(ctx context.Context) FunctionSecretsResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSecretsResponsePropertiesOutput)
+}
+
+// FunctionSecrets resource specific properties
+type FunctionSecretsResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FunctionSecretsResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSecretsResponseProperties)(nil)).Elem()
+}
+
+func (o FunctionSecretsResponsePropertiesOutput) ToFunctionSecretsResponsePropertiesOutput() FunctionSecretsResponsePropertiesOutput {
+	return o
+}
+
+func (o FunctionSecretsResponsePropertiesOutput) ToFunctionSecretsResponsePropertiesOutputWithContext(ctx context.Context) FunctionSecretsResponsePropertiesOutput {
+	return o
+}
+
+// Secret key.
+func (o FunctionSecretsResponsePropertiesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionSecretsResponseProperties) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Trigger URL.
+func (o FunctionSecretsResponsePropertiesOutput) Trigger_url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionSecretsResponseProperties) *string { return v.Trigger_url }).(pulumi.StringPtrOutput)
 }
 
 // The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
@@ -17482,6 +18938,403 @@ func (o RequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringPtrOu
 		}
 		return v.TimeInterval
 	}).(pulumi.StringPtrOutput)
+}
+
+// SiteAuthSettings resource specific properties
+type SiteAuthSettingsResponseProperties struct {
+	// Login parameters to send to the OpenID Connect authorization endpoint when
+	// a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams []string `pulumi:"additionalLoginParams"`
+	// Allowed audience values to consider when validating JWTs issued by
+	// Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
+	// allowed audience, regardless of this setting.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+	// This is an advanced setting typically only needed by Windows Store application backends.
+	// Note that URLs within the current domain are always implicitly allowed.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The Client ID of this relying party application, known as the client_id.
+	// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+	// other 3rd party OpenID Connect providers.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientId *string `pulumi:"clientId"`
+	// The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
+	// This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
+	// Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientSecret *string `pulumi:"clientSecret"`
+	// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+	// a replacement for the Client Secret. It is also optional.
+	ClientSecretCertificateThumbprint *string `pulumi:"clientSecretCertificateThumbprint"`
+	// The default authentication provider to use when multiple providers are configured.
+	// This setting is only needed if multiple providers are configured and the unauthenticated client
+	// action is set to "RedirectToLoginPage".
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+	Enabled *bool `pulumi:"enabled"`
+	// The App ID of the Facebook app used for login.
+	// This setting is required for enabling Facebook Login.
+	// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+	FacebookAppId *string `pulumi:"facebookAppId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	// This setting is required for enabling Facebook Login.
+	// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+	FacebookAppSecret *string `pulumi:"facebookAppSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
+	// This setting is optional.
+	// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+	FacebookOAuthScopes []string `pulumi:"facebookOAuthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	// This setting is required for enabling Google Sign-In.
+	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+	GoogleClientId *string `pulumi:"googleClientId"`
+	// The client secret associated with the Google web application.
+	// This setting is required for enabling Google Sign-In.
+	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+	GoogleClientSecret *string `pulumi:"googleClientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
+	// This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
+	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+	GoogleOAuthScopes []string `pulumi:"googleOAuthScopes"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	// This URI is a case-sensitive identifier for the token issuer.
+	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+	Issuer *string `pulumi:"issuer"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	// This setting is required for enabling Microsoft Account authentication.
+	// Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+	MicrosoftAccountClientId *string `pulumi:"microsoftAccountClientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	// This setting is required for enabling Microsoft Account authentication.
+	// Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+	MicrosoftAccountClientSecret *string `pulumi:"microsoftAccountClientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	// This setting is optional. If not specified, "wl.basic" is used as the default scope.
+	// Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	MicrosoftAccountOAuthScopes []string `pulumi:"microsoftAccountOAuthScopes"`
+	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to
+	// call the token refresh API. The default is 72 hours.
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+	//  The default is <code>false</code>.
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	TwitterConsumerKey *string `pulumi:"twitterConsumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	TwitterConsumerSecret *string `pulumi:"twitterConsumerSecret"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
+	// Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
+	ValidateIssuer *bool `pulumi:"validateIssuer"`
+}
+
+// SiteAuthSettingsResponsePropertiesInput is an input type that accepts SiteAuthSettingsResponsePropertiesArgs and SiteAuthSettingsResponsePropertiesOutput values.
+// You can construct a concrete instance of `SiteAuthSettingsResponsePropertiesInput` via:
+//
+//          SiteAuthSettingsResponsePropertiesArgs{...}
+type SiteAuthSettingsResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToSiteAuthSettingsResponsePropertiesOutput() SiteAuthSettingsResponsePropertiesOutput
+	ToSiteAuthSettingsResponsePropertiesOutputWithContext(context.Context) SiteAuthSettingsResponsePropertiesOutput
+}
+
+// SiteAuthSettings resource specific properties
+type SiteAuthSettingsResponsePropertiesArgs struct {
+	// Login parameters to send to the OpenID Connect authorization endpoint when
+	// a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams pulumi.StringArrayInput `pulumi:"additionalLoginParams"`
+	// Allowed audience values to consider when validating JWTs issued by
+	// Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
+	// allowed audience, regardless of this setting.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+	// This is an advanced setting typically only needed by Windows Store application backends.
+	// Note that URLs within the current domain are always implicitly allowed.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The Client ID of this relying party application, known as the client_id.
+	// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+	// other 3rd party OpenID Connect providers.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
+	// This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
+	// Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
+	// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+	// a replacement for the Client Secret. It is also optional.
+	ClientSecretCertificateThumbprint pulumi.StringPtrInput `pulumi:"clientSecretCertificateThumbprint"`
+	// The default authentication provider to use when multiple providers are configured.
+	// This setting is only needed if multiple providers are configured and the unauthenticated client
+	// action is set to "RedirectToLoginPage".
+	DefaultProvider pulumi.StringPtrInput `pulumi:"defaultProvider"`
+	// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The App ID of the Facebook app used for login.
+	// This setting is required for enabling Facebook Login.
+	// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+	FacebookAppId pulumi.StringPtrInput `pulumi:"facebookAppId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	// This setting is required for enabling Facebook Login.
+	// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+	FacebookAppSecret pulumi.StringPtrInput `pulumi:"facebookAppSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
+	// This setting is optional.
+	// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+	FacebookOAuthScopes pulumi.StringArrayInput `pulumi:"facebookOAuthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	// This setting is required for enabling Google Sign-In.
+	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+	GoogleClientId pulumi.StringPtrInput `pulumi:"googleClientId"`
+	// The client secret associated with the Google web application.
+	// This setting is required for enabling Google Sign-In.
+	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+	GoogleClientSecret pulumi.StringPtrInput `pulumi:"googleClientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
+	// This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
+	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+	GoogleOAuthScopes pulumi.StringArrayInput `pulumi:"googleOAuthScopes"`
+	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	// This URI is a case-sensitive identifier for the token issuer.
+	// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	// This setting is required for enabling Microsoft Account authentication.
+	// Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+	MicrosoftAccountClientId pulumi.StringPtrInput `pulumi:"microsoftAccountClientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	// This setting is required for enabling Microsoft Account authentication.
+	// Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+	MicrosoftAccountClientSecret pulumi.StringPtrInput `pulumi:"microsoftAccountClientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+	// This setting is optional. If not specified, "wl.basic" is used as the default scope.
+	// Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	MicrosoftAccountOAuthScopes pulumi.StringArrayInput `pulumi:"microsoftAccountOAuthScopes"`
+	// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+	// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to
+	// call the token refresh API. The default is 72 hours.
+	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
+	// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+	//  The default is <code>false</code>.
+	TokenStoreEnabled pulumi.BoolPtrInput `pulumi:"tokenStoreEnabled"`
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	TwitterConsumerKey pulumi.StringPtrInput `pulumi:"twitterConsumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	// This setting is required for enabling Twitter Sign-In.
+	// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+	TwitterConsumerSecret pulumi.StringPtrInput `pulumi:"twitterConsumerSecret"`
+	// The action to take when an unauthenticated client attempts to access the app.
+	UnauthenticatedClientAction pulumi.StringPtrInput `pulumi:"unauthenticatedClientAction"`
+	// Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
+	ValidateIssuer pulumi.BoolPtrInput `pulumi:"validateIssuer"`
+}
+
+func (SiteAuthSettingsResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteAuthSettingsResponseProperties)(nil)).Elem()
+}
+
+func (i SiteAuthSettingsResponsePropertiesArgs) ToSiteAuthSettingsResponsePropertiesOutput() SiteAuthSettingsResponsePropertiesOutput {
+	return i.ToSiteAuthSettingsResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i SiteAuthSettingsResponsePropertiesArgs) ToSiteAuthSettingsResponsePropertiesOutputWithContext(ctx context.Context) SiteAuthSettingsResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteAuthSettingsResponsePropertiesOutput)
+}
+
+// SiteAuthSettings resource specific properties
+type SiteAuthSettingsResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (SiteAuthSettingsResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteAuthSettingsResponseProperties)(nil)).Elem()
+}
+
+func (o SiteAuthSettingsResponsePropertiesOutput) ToSiteAuthSettingsResponsePropertiesOutput() SiteAuthSettingsResponsePropertiesOutput {
+	return o
+}
+
+func (o SiteAuthSettingsResponsePropertiesOutput) ToSiteAuthSettingsResponsePropertiesOutputWithContext(ctx context.Context) SiteAuthSettingsResponsePropertiesOutput {
+	return o
+}
+
+// Login parameters to send to the OpenID Connect authorization endpoint when
+// a user logs in. Each parameter must be in the form "key=value".
+func (o SiteAuthSettingsResponsePropertiesOutput) AdditionalLoginParams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) []string { return v.AdditionalLoginParams }).(pulumi.StringArrayOutput)
+}
+
+// Allowed audience values to consider when validating JWTs issued by
+// Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
+// allowed audience, regardless of this setting.
+func (o SiteAuthSettingsResponsePropertiesOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+// This is an advanced setting typically only needed by Windows Store application backends.
+// Note that URLs within the current domain are always implicitly allowed.
+func (o SiteAuthSettingsResponsePropertiesOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The Client ID of this relying party application, known as the client_id.
+// This setting is required for enabling OpenID Connection authentication with Azure Active Directory or
+// other 3rd party OpenID Connect providers.
+// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+func (o SiteAuthSettingsResponsePropertiesOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
+// This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
+// Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
+// More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+func (o SiteAuthSettingsResponsePropertiesOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+// a replacement for the Client Secret. It is also optional.
+func (o SiteAuthSettingsResponsePropertiesOutput) ClientSecretCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.ClientSecretCertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The default authentication provider to use when multiple providers are configured.
+// This setting is only needed if multiple providers are configured and the unauthenticated client
+// action is set to "RedirectToLoginPage".
+func (o SiteAuthSettingsResponsePropertiesOutput) DefaultProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
+}
+
+// <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+func (o SiteAuthSettingsResponsePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The App ID of the Facebook app used for login.
+// This setting is required for enabling Facebook Login.
+// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+func (o SiteAuthSettingsResponsePropertiesOutput) FacebookAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.FacebookAppId }).(pulumi.StringPtrOutput)
+}
+
+// The App Secret of the Facebook app used for Facebook Login.
+// This setting is required for enabling Facebook Login.
+// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+func (o SiteAuthSettingsResponsePropertiesOutput) FacebookAppSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.FacebookAppSecret }).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
+// This setting is optional.
+// Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+func (o SiteAuthSettingsResponsePropertiesOutput) FacebookOAuthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) []string { return v.FacebookOAuthScopes }).(pulumi.StringArrayOutput)
+}
+
+// The OpenID Connect Client ID for the Google web application.
+// This setting is required for enabling Google Sign-In.
+// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+func (o SiteAuthSettingsResponsePropertiesOutput) GoogleClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.GoogleClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret associated with the Google web application.
+// This setting is required for enabling Google Sign-In.
+// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+func (o SiteAuthSettingsResponsePropertiesOutput) GoogleClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.GoogleClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
+// This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
+// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+func (o SiteAuthSettingsResponsePropertiesOutput) GoogleOAuthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) []string { return v.GoogleOAuthScopes }).(pulumi.StringArrayOutput)
+}
+
+// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+// This URI is a case-sensitive identifier for the token issuer.
+// More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+func (o SiteAuthSettingsResponsePropertiesOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+// This setting is required for enabling Microsoft Account authentication.
+// Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+func (o SiteAuthSettingsResponsePropertiesOutput) MicrosoftAccountClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.MicrosoftAccountClientId }).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 client secret that was created for the app used for authentication.
+// This setting is required for enabling Microsoft Account authentication.
+// Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+func (o SiteAuthSettingsResponsePropertiesOutput) MicrosoftAccountClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.MicrosoftAccountClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+// This setting is optional. If not specified, "wl.basic" is used as the default scope.
+// Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
+func (o SiteAuthSettingsResponsePropertiesOutput) MicrosoftAccountOAuthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) []string { return v.MicrosoftAccountOAuthScopes }).(pulumi.StringArrayOutput)
+}
+
+// The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+// The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+func (o SiteAuthSettingsResponsePropertiesOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to
+// call the token refresh API. The default is 72 hours.
+func (o SiteAuthSettingsResponsePropertiesOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
+}
+
+// <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+//  The default is <code>false</code>.
+func (o SiteAuthSettingsResponsePropertiesOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+// This setting is required for enabling Twitter Sign-In.
+// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+func (o SiteAuthSettingsResponsePropertiesOutput) TwitterConsumerKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.TwitterConsumerKey }).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+// This setting is required for enabling Twitter Sign-In.
+// Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+func (o SiteAuthSettingsResponsePropertiesOutput) TwitterConsumerSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.TwitterConsumerSecret }).(pulumi.StringPtrOutput)
+}
+
+// The action to take when an unauthenticated client attempts to access the app.
+func (o SiteAuthSettingsResponsePropertiesOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
+}
+
+// Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
+func (o SiteAuthSettingsResponsePropertiesOutput) ValidateIssuer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteAuthSettingsResponseProperties) *bool { return v.ValidateIssuer }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration of an App Service app.
@@ -25311,6 +27164,337 @@ func (o StaticSiteResponsePtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Static Site User ARM resource.
+type StaticSiteUserARMResourceResponse struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// StaticSiteUserARMResource resource specific properties
+	Properties *StaticSiteUserARMResourceResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// StaticSiteUserARMResourceResponseInput is an input type that accepts StaticSiteUserARMResourceResponseArgs and StaticSiteUserARMResourceResponseOutput values.
+// You can construct a concrete instance of `StaticSiteUserARMResourceResponseInput` via:
+//
+//          StaticSiteUserARMResourceResponseArgs{...}
+type StaticSiteUserARMResourceResponseInput interface {
+	pulumi.Input
+
+	ToStaticSiteUserARMResourceResponseOutput() StaticSiteUserARMResourceResponseOutput
+	ToStaticSiteUserARMResourceResponseOutputWithContext(context.Context) StaticSiteUserARMResourceResponseOutput
+}
+
+// Static Site User ARM resource.
+type StaticSiteUserARMResourceResponseArgs struct {
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// StaticSiteUserARMResource resource specific properties
+	Properties StaticSiteUserARMResourceResponsePropertiesPtrInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StaticSiteUserARMResourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteUserARMResourceResponse)(nil)).Elem()
+}
+
+func (i StaticSiteUserARMResourceResponseArgs) ToStaticSiteUserARMResourceResponseOutput() StaticSiteUserARMResourceResponseOutput {
+	return i.ToStaticSiteUserARMResourceResponseOutputWithContext(context.Background())
+}
+
+func (i StaticSiteUserARMResourceResponseArgs) ToStaticSiteUserARMResourceResponseOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserARMResourceResponseOutput)
+}
+
+// StaticSiteUserARMResourceResponseArrayInput is an input type that accepts StaticSiteUserARMResourceResponseArray and StaticSiteUserARMResourceResponseArrayOutput values.
+// You can construct a concrete instance of `StaticSiteUserARMResourceResponseArrayInput` via:
+//
+//          StaticSiteUserARMResourceResponseArray{ StaticSiteUserARMResourceResponseArgs{...} }
+type StaticSiteUserARMResourceResponseArrayInput interface {
+	pulumi.Input
+
+	ToStaticSiteUserARMResourceResponseArrayOutput() StaticSiteUserARMResourceResponseArrayOutput
+	ToStaticSiteUserARMResourceResponseArrayOutputWithContext(context.Context) StaticSiteUserARMResourceResponseArrayOutput
+}
+
+type StaticSiteUserARMResourceResponseArray []StaticSiteUserARMResourceResponseInput
+
+func (StaticSiteUserARMResourceResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticSiteUserARMResourceResponse)(nil)).Elem()
+}
+
+func (i StaticSiteUserARMResourceResponseArray) ToStaticSiteUserARMResourceResponseArrayOutput() StaticSiteUserARMResourceResponseArrayOutput {
+	return i.ToStaticSiteUserARMResourceResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StaticSiteUserARMResourceResponseArray) ToStaticSiteUserARMResourceResponseArrayOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserARMResourceResponseArrayOutput)
+}
+
+// Static Site User ARM resource.
+type StaticSiteUserARMResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserARMResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteUserARMResourceResponse)(nil)).Elem()
+}
+
+func (o StaticSiteUserARMResourceResponseOutput) ToStaticSiteUserARMResourceResponseOutput() StaticSiteUserARMResourceResponseOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponseOutput) ToStaticSiteUserARMResourceResponseOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponseOutput {
+	return o
+}
+
+// Resource Id.
+func (o StaticSiteUserARMResourceResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o StaticSiteUserARMResourceResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o StaticSiteUserARMResourceResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// StaticSiteUserARMResource resource specific properties
+func (o StaticSiteUserARMResourceResponseOutput) Properties() StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *StaticSiteUserARMResourceResponseProperties {
+		return v.Properties
+	}).(StaticSiteUserARMResourceResponsePropertiesPtrOutput)
+}
+
+// Resource type.
+func (o StaticSiteUserARMResourceResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StaticSiteUserARMResourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserARMResourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StaticSiteUserARMResourceResponse)(nil)).Elem()
+}
+
+func (o StaticSiteUserARMResourceResponseArrayOutput) ToStaticSiteUserARMResourceResponseArrayOutput() StaticSiteUserARMResourceResponseArrayOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponseArrayOutput) ToStaticSiteUserARMResourceResponseArrayOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponseArrayOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponseArrayOutput) Index(i pulumi.IntInput) StaticSiteUserARMResourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticSiteUserARMResourceResponse {
+		return vs[0].([]StaticSiteUserARMResourceResponse)[vs[1].(int)]
+	}).(StaticSiteUserARMResourceResponseOutput)
+}
+
+// StaticSiteUserARMResource resource specific properties
+type StaticSiteUserARMResourceResponseProperties struct {
+	// The display name for the static site user.
+	DisplayName string `pulumi:"displayName"`
+	// The identity provider for the static site user.
+	Provider string `pulumi:"provider"`
+	// The roles for the static site user, in free-form string format
+	Roles *string `pulumi:"roles"`
+	// The user id for the static site user.
+	UserId string `pulumi:"userId"`
+}
+
+// StaticSiteUserARMResourceResponsePropertiesInput is an input type that accepts StaticSiteUserARMResourceResponsePropertiesArgs and StaticSiteUserARMResourceResponsePropertiesOutput values.
+// You can construct a concrete instance of `StaticSiteUserARMResourceResponsePropertiesInput` via:
+//
+//          StaticSiteUserARMResourceResponsePropertiesArgs{...}
+type StaticSiteUserARMResourceResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToStaticSiteUserARMResourceResponsePropertiesOutput() StaticSiteUserARMResourceResponsePropertiesOutput
+	ToStaticSiteUserARMResourceResponsePropertiesOutputWithContext(context.Context) StaticSiteUserARMResourceResponsePropertiesOutput
+}
+
+// StaticSiteUserARMResource resource specific properties
+type StaticSiteUserARMResourceResponsePropertiesArgs struct {
+	// The display name for the static site user.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The identity provider for the static site user.
+	Provider pulumi.StringInput `pulumi:"provider"`
+	// The roles for the static site user, in free-form string format
+	Roles pulumi.StringPtrInput `pulumi:"roles"`
+	// The user id for the static site user.
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (StaticSiteUserARMResourceResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteUserARMResourceResponseProperties)(nil)).Elem()
+}
+
+func (i StaticSiteUserARMResourceResponsePropertiesArgs) ToStaticSiteUserARMResourceResponsePropertiesOutput() StaticSiteUserARMResourceResponsePropertiesOutput {
+	return i.ToStaticSiteUserARMResourceResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i StaticSiteUserARMResourceResponsePropertiesArgs) ToStaticSiteUserARMResourceResponsePropertiesOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserARMResourceResponsePropertiesOutput)
+}
+
+func (i StaticSiteUserARMResourceResponsePropertiesArgs) ToStaticSiteUserARMResourceResponsePropertiesPtrOutput() StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return i.ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StaticSiteUserARMResourceResponsePropertiesArgs) ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserARMResourceResponsePropertiesOutput).ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// StaticSiteUserARMResourceResponsePropertiesPtrInput is an input type that accepts StaticSiteUserARMResourceResponsePropertiesArgs, StaticSiteUserARMResourceResponsePropertiesPtr and StaticSiteUserARMResourceResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `StaticSiteUserARMResourceResponsePropertiesPtrInput` via:
+//
+//          StaticSiteUserARMResourceResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type StaticSiteUserARMResourceResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStaticSiteUserARMResourceResponsePropertiesPtrOutput() StaticSiteUserARMResourceResponsePropertiesPtrOutput
+	ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(context.Context) StaticSiteUserARMResourceResponsePropertiesPtrOutput
+}
+
+type staticSiteUserARMResourceResponsePropertiesPtrType StaticSiteUserARMResourceResponsePropertiesArgs
+
+func StaticSiteUserARMResourceResponsePropertiesPtr(v *StaticSiteUserARMResourceResponsePropertiesArgs) StaticSiteUserARMResourceResponsePropertiesPtrInput {
+	return (*staticSiteUserARMResourceResponsePropertiesPtrType)(v)
+}
+
+func (*staticSiteUserARMResourceResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteUserARMResourceResponseProperties)(nil)).Elem()
+}
+
+func (i *staticSiteUserARMResourceResponsePropertiesPtrType) ToStaticSiteUserARMResourceResponsePropertiesPtrOutput() StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return i.ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *staticSiteUserARMResourceResponsePropertiesPtrType) ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserARMResourceResponsePropertiesPtrOutput)
+}
+
+// StaticSiteUserARMResource resource specific properties
+type StaticSiteUserARMResourceResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserARMResourceResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StaticSiteUserARMResourceResponseProperties)(nil)).Elem()
+}
+
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) ToStaticSiteUserARMResourceResponsePropertiesOutput() StaticSiteUserARMResourceResponsePropertiesOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) ToStaticSiteUserARMResourceResponsePropertiesOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponsePropertiesOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) ToStaticSiteUserARMResourceResponsePropertiesPtrOutput() StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return o.ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponseProperties) *StaticSiteUserARMResourceResponseProperties {
+		return &v
+	}).(StaticSiteUserARMResourceResponsePropertiesPtrOutput)
+}
+
+// The display name for the static site user.
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponseProperties) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The identity provider for the static site user.
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponseProperties) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+// The roles for the static site user, in free-form string format
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) Roles() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponseProperties) *string { return v.Roles }).(pulumi.StringPtrOutput)
+}
+
+// The user id for the static site user.
+func (o StaticSiteUserARMResourceResponsePropertiesOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v StaticSiteUserARMResourceResponseProperties) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+type StaticSiteUserARMResourceResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StaticSiteUserARMResourceResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StaticSiteUserARMResourceResponseProperties)(nil)).Elem()
+}
+
+func (o StaticSiteUserARMResourceResponsePropertiesPtrOutput) ToStaticSiteUserARMResourceResponsePropertiesPtrOutput() StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponsePropertiesPtrOutput) ToStaticSiteUserARMResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) StaticSiteUserARMResourceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o StaticSiteUserARMResourceResponsePropertiesPtrOutput) Elem() StaticSiteUserARMResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *StaticSiteUserARMResourceResponseProperties) StaticSiteUserARMResourceResponseProperties {
+		return *v
+	}).(StaticSiteUserARMResourceResponsePropertiesOutput)
+}
+
+// The display name for the static site user.
+func (o StaticSiteUserARMResourceResponsePropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserARMResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity provider for the static site user.
+func (o StaticSiteUserARMResourceResponsePropertiesPtrOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserARMResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Provider
+	}).(pulumi.StringPtrOutput)
+}
+
+// The roles for the static site user, in free-form string format
+func (o StaticSiteUserARMResourceResponsePropertiesPtrOutput) Roles() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserARMResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user id for the static site user.
+func (o StaticSiteUserARMResourceResponsePropertiesPtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserARMResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Trigger based on status code.
 type StatusCodesBasedTrigger struct {
 	// Request Count.
@@ -25887,6 +28071,97 @@ func (o SwiftVirtualNetworkResponsePropertiesPtrOutput) SwiftSupported() pulumi.
 		}
 		return v.SwiftSupported
 	}).(pulumi.BoolPtrOutput)
+}
+
+// User resource specific properties
+type UserResponseProperties struct {
+	// Password used for publishing.
+	PublishingPassword *string `pulumi:"publishingPassword"`
+	// Password hash used for publishing.
+	PublishingPasswordHash *string `pulumi:"publishingPasswordHash"`
+	// Password hash salt used for publishing.
+	PublishingPasswordHashSalt *string `pulumi:"publishingPasswordHashSalt"`
+	// Username used for publishing.
+	PublishingUserName string `pulumi:"publishingUserName"`
+	// Url of SCM site.
+	ScmUri *string `pulumi:"scmUri"`
+}
+
+// UserResponsePropertiesInput is an input type that accepts UserResponsePropertiesArgs and UserResponsePropertiesOutput values.
+// You can construct a concrete instance of `UserResponsePropertiesInput` via:
+//
+//          UserResponsePropertiesArgs{...}
+type UserResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToUserResponsePropertiesOutput() UserResponsePropertiesOutput
+	ToUserResponsePropertiesOutputWithContext(context.Context) UserResponsePropertiesOutput
+}
+
+// User resource specific properties
+type UserResponsePropertiesArgs struct {
+	// Password used for publishing.
+	PublishingPassword pulumi.StringPtrInput `pulumi:"publishingPassword"`
+	// Password hash used for publishing.
+	PublishingPasswordHash pulumi.StringPtrInput `pulumi:"publishingPasswordHash"`
+	// Password hash salt used for publishing.
+	PublishingPasswordHashSalt pulumi.StringPtrInput `pulumi:"publishingPasswordHashSalt"`
+	// Username used for publishing.
+	PublishingUserName pulumi.StringInput `pulumi:"publishingUserName"`
+	// Url of SCM site.
+	ScmUri pulumi.StringPtrInput `pulumi:"scmUri"`
+}
+
+func (UserResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserResponseProperties)(nil)).Elem()
+}
+
+func (i UserResponsePropertiesArgs) ToUserResponsePropertiesOutput() UserResponsePropertiesOutput {
+	return i.ToUserResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i UserResponsePropertiesArgs) ToUserResponsePropertiesOutputWithContext(ctx context.Context) UserResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserResponsePropertiesOutput)
+}
+
+// User resource specific properties
+type UserResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (UserResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserResponseProperties)(nil)).Elem()
+}
+
+func (o UserResponsePropertiesOutput) ToUserResponsePropertiesOutput() UserResponsePropertiesOutput {
+	return o
+}
+
+func (o UserResponsePropertiesOutput) ToUserResponsePropertiesOutputWithContext(ctx context.Context) UserResponsePropertiesOutput {
+	return o
+}
+
+// Password used for publishing.
+func (o UserResponsePropertiesOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserResponseProperties) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
+}
+
+// Password hash used for publishing.
+func (o UserResponsePropertiesOutput) PublishingPasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserResponseProperties) *string { return v.PublishingPasswordHash }).(pulumi.StringPtrOutput)
+}
+
+// Password hash salt used for publishing.
+func (o UserResponsePropertiesOutput) PublishingPasswordHashSalt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserResponseProperties) *string { return v.PublishingPasswordHashSalt }).(pulumi.StringPtrOutput)
+}
+
+// Username used for publishing.
+func (o UserResponsePropertiesOutput) PublishingUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserResponseProperties) string { return v.PublishingUserName }).(pulumi.StringOutput)
+}
+
+// Url of SCM site.
+func (o UserResponsePropertiesOutput) ScmUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserResponseProperties) *string { return v.ScmUri }).(pulumi.StringPtrOutput)
 }
 
 // Virtual application in an app.
@@ -28290,6 +30565,16 @@ func init() {
 	pulumi.RegisterOutputType(AutoHealTriggersPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponseOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponsePtrOutput{})
+	pulumi.RegisterOutputType(BackupItemResponseOutput{})
+	pulumi.RegisterOutputType(BackupItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(BackupItemResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(BackupItemResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BackupRequestPropertiesOutput{})
+	pulumi.RegisterOutputType(BackupRequestResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(BackupScheduleOutput{})
+	pulumi.RegisterOutputType(BackupSchedulePtrOutput{})
+	pulumi.RegisterOutputType(BackupScheduleResponseOutput{})
+	pulumi.RegisterOutputType(BackupScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(CapabilityOutput{})
 	pulumi.RegisterOutputType(CapabilityArrayOutput{})
 	pulumi.RegisterOutputType(CapabilityResponseOutput{})
@@ -28311,6 +30596,10 @@ func init() {
 	pulumi.RegisterOutputType(CorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatabaseBackupSettingOutput{})
+	pulumi.RegisterOutputType(DatabaseBackupSettingArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseBackupSettingResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseBackupSettingResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentResponsePropertiesOutput{})
@@ -28323,6 +30612,7 @@ func init() {
 	pulumi.RegisterOutputType(FunctionEnvelopePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvelopeResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(FunctionEnvelopeResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FunctionSecretsResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(HandlerMappingOutput{})
 	pulumi.RegisterOutputType(HandlerMappingArrayOutput{})
 	pulumi.RegisterOutputType(HandlerMappingResponseOutput{})
@@ -28401,6 +30691,7 @@ func init() {
 	pulumi.RegisterOutputType(RequestsBasedTriggerPtrOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerResponseOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerResponsePtrOutput{})
+	pulumi.RegisterOutputType(SiteAuthSettingsResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SiteConfigOutput{})
 	pulumi.RegisterOutputType(SiteConfigPtrOutput{})
 	pulumi.RegisterOutputType(SiteConfigResponseOutput{})
@@ -28449,6 +30740,10 @@ func init() {
 	pulumi.RegisterOutputType(StaticSiteDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(StaticSiteResponseOutput{})
 	pulumi.RegisterOutputType(StaticSiteResponsePtrOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponseOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(StaticSiteUserARMResourceResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerArrayOutput{})
 	pulumi.RegisterOutputType(StatusCodesBasedTriggerResponseOutput{})
@@ -28457,6 +30752,7 @@ func init() {
 	pulumi.RegisterOutputType(SwiftVirtualNetworkPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SwiftVirtualNetworkResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SwiftVirtualNetworkResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(VirtualApplicationOutput{})
 	pulumi.RegisterOutputType(VirtualApplicationArrayOutput{})
 	pulumi.RegisterOutputType(VirtualApplicationResponseOutput{})

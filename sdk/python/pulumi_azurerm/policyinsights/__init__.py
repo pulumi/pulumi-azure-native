@@ -4,4 +4,5 @@
 
 # Export this package's modules as members:
 from .get_remediation import *
+from .list_remediation_deployments import *
 from .remediation import *

@@ -30,4 +30,6 @@ export * from "./getDatabaseAccountSqlDatabaseContainerStoredProcedure";
 export * from "./getDatabaseAccountSqlDatabaseContainerTrigger";
 export * from "./getDatabaseAccountSqlDatabaseContainerUserDefinedFunction";
 export * from "./getDatabaseAccountTable";
+export * from "./listDatabaseAccountConnectionStrings";
 export * from "./listDatabaseAccountKeys";
+export * from "./listDatabaseAccountNotebookWorkspaceConnectionInfo";

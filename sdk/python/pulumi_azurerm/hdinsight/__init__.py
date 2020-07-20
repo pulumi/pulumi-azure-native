@@ -7,3 +7,4 @@ from .cluster import *
 from .cluster_application import *
 from .get_cluster import *
 from .get_cluster_application import *
+from .list_cluster_hosts import *

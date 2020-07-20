@@ -13,5 +13,9 @@ from .iot_hub import *
 from .iot_hub_certificate import *
 from .iot_hub_event_hub_endpoint_consumer_group import *
 from .iot_hub_private_endpoint_connection import *
+from .list_iot_hub_iot_hub_key_keys import *
+from .list_iot_hub_keys import *
+from .list_provisioning_service_key_keys import *
+from .list_provisioning_service_keys import *
 from .provisioning_service import *
 from .provisioning_service_certificate import *

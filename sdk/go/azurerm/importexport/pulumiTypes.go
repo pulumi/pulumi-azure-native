@@ -10,6 +10,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// BitLocker recovery key or password to the specified drive
+type DriveBitLockerKeyResponse struct {
+	// BitLocker recovery key or password
+	BitLockerKey *string `pulumi:"bitLockerKey"`
+	// Drive ID
+	DriveId *string `pulumi:"driveId"`
+}
+
+// DriveBitLockerKeyResponseInput is an input type that accepts DriveBitLockerKeyResponseArgs and DriveBitLockerKeyResponseOutput values.
+// You can construct a concrete instance of `DriveBitLockerKeyResponseInput` via:
+//
+//          DriveBitLockerKeyResponseArgs{...}
+type DriveBitLockerKeyResponseInput interface {
+	pulumi.Input
+
+	ToDriveBitLockerKeyResponseOutput() DriveBitLockerKeyResponseOutput
+	ToDriveBitLockerKeyResponseOutputWithContext(context.Context) DriveBitLockerKeyResponseOutput
+}
+
+// BitLocker recovery key or password to the specified drive
+type DriveBitLockerKeyResponseArgs struct {
+	// BitLocker recovery key or password
+	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
+	// Drive ID
+	DriveId pulumi.StringPtrInput `pulumi:"driveId"`
+}
+
+func (DriveBitLockerKeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DriveBitLockerKeyResponse)(nil)).Elem()
+}
+
+func (i DriveBitLockerKeyResponseArgs) ToDriveBitLockerKeyResponseOutput() DriveBitLockerKeyResponseOutput {
+	return i.ToDriveBitLockerKeyResponseOutputWithContext(context.Background())
+}
+
+func (i DriveBitLockerKeyResponseArgs) ToDriveBitLockerKeyResponseOutputWithContext(ctx context.Context) DriveBitLockerKeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DriveBitLockerKeyResponseOutput)
+}
+
+// DriveBitLockerKeyResponseArrayInput is an input type that accepts DriveBitLockerKeyResponseArray and DriveBitLockerKeyResponseArrayOutput values.
+// You can construct a concrete instance of `DriveBitLockerKeyResponseArrayInput` via:
+//
+//          DriveBitLockerKeyResponseArray{ DriveBitLockerKeyResponseArgs{...} }
+type DriveBitLockerKeyResponseArrayInput interface {
+	pulumi.Input
+
+	ToDriveBitLockerKeyResponseArrayOutput() DriveBitLockerKeyResponseArrayOutput
+	ToDriveBitLockerKeyResponseArrayOutputWithContext(context.Context) DriveBitLockerKeyResponseArrayOutput
+}
+
+type DriveBitLockerKeyResponseArray []DriveBitLockerKeyResponseInput
+
+func (DriveBitLockerKeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DriveBitLockerKeyResponse)(nil)).Elem()
+}
+
+func (i DriveBitLockerKeyResponseArray) ToDriveBitLockerKeyResponseArrayOutput() DriveBitLockerKeyResponseArrayOutput {
+	return i.ToDriveBitLockerKeyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DriveBitLockerKeyResponseArray) ToDriveBitLockerKeyResponseArrayOutputWithContext(ctx context.Context) DriveBitLockerKeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DriveBitLockerKeyResponseArrayOutput)
+}
+
+// BitLocker recovery key or password to the specified drive
+type DriveBitLockerKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (DriveBitLockerKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DriveBitLockerKeyResponse)(nil)).Elem()
+}
+
+func (o DriveBitLockerKeyResponseOutput) ToDriveBitLockerKeyResponseOutput() DriveBitLockerKeyResponseOutput {
+	return o
+}
+
+func (o DriveBitLockerKeyResponseOutput) ToDriveBitLockerKeyResponseOutputWithContext(ctx context.Context) DriveBitLockerKeyResponseOutput {
+	return o
+}
+
+// BitLocker recovery key or password
+func (o DriveBitLockerKeyResponseOutput) BitLockerKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DriveBitLockerKeyResponse) *string { return v.BitLockerKey }).(pulumi.StringPtrOutput)
+}
+
+// Drive ID
+func (o DriveBitLockerKeyResponseOutput) DriveId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DriveBitLockerKeyResponse) *string { return v.DriveId }).(pulumi.StringPtrOutput)
+}
+
+type DriveBitLockerKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DriveBitLockerKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DriveBitLockerKeyResponse)(nil)).Elem()
+}
+
+func (o DriveBitLockerKeyResponseArrayOutput) ToDriveBitLockerKeyResponseArrayOutput() DriveBitLockerKeyResponseArrayOutput {
+	return o
+}
+
+func (o DriveBitLockerKeyResponseArrayOutput) ToDriveBitLockerKeyResponseArrayOutputWithContext(ctx context.Context) DriveBitLockerKeyResponseArrayOutput {
+	return o
+}
+
+func (o DriveBitLockerKeyResponseArrayOutput) Index(i pulumi.IntInput) DriveBitLockerKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DriveBitLockerKeyResponse {
+		return vs[0].([]DriveBitLockerKeyResponse)[vs[1].(int)]
+	}).(DriveBitLockerKeyResponseOutput)
+}
+
 // Provides information about the drive's status
 type DriveStatus struct {
 	// The BitLocker key used to encrypt the drive.
@@ -3782,6 +3891,8 @@ func (o ShippingInformationResponsePtrOutput) StreetAddress2() pulumi.StringPtrO
 }
 
 func init() {
+	pulumi.RegisterOutputType(DriveBitLockerKeyResponseOutput{})
+	pulumi.RegisterOutputType(DriveBitLockerKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(DriveStatusOutput{})
 	pulumi.RegisterOutputType(DriveStatusArrayOutput{})
 	pulumi.RegisterOutputType(DriveStatusResponseOutput{})

@@ -18,3 +18,8 @@ export * from "./getAccountShareSubscription";
 export * from "./getAccountShareSubscriptionDataSetMapping";
 export * from "./getAccountShareSubscriptionTrigger";
 export * from "./getAccountShareSynchronizationSetting";
+export * from "./listAccountShareSubscriptionSourceShareSynchronizationSettings";
+export * from "./listAccountShareSubscriptionSynchronizationDetails";
+export * from "./listAccountShareSubscriptionSynchronizations";
+export * from "./listAccountShareSynchronizationDetails";
+export * from "./listAccountShareSynchronizations";

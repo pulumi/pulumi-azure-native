@@ -6,3 +6,4 @@ export * from "./configurationStore";
 export * from "./configurationStorePrivateEndpointConnection";
 export * from "./getConfigurationStore";
 export * from "./getConfigurationStorePrivateEndpointConnection";
+export * from "./listConfigurationStoreKeyValue";

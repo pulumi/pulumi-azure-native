@@ -7,6 +7,7 @@ export * from "./getWorkspaceCompute";
 export * from "./getWorkspaceConnection";
 export * from "./getWorkspacePrivateEndpointConnection";
 export * from "./listWorkspaceComputeKeys";
+export * from "./listWorkspaceComputeNodes";
 export * from "./listWorkspaceKeys";
 export * from "./workspace";
 export * from "./workspaceCompute";

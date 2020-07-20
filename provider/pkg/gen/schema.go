@@ -62,7 +62,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 			}
 
 			gen.genResources(key, &path)
-			gen.genListKeys(key, &path)
+			gen.genListFunctions(key, &path)
 		}
 	}
 
@@ -198,13 +198,19 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	g.metadata.Invokes[functionTok] = f
 }
 
-// genListKeys defines functions for listKeys POST endpoints.
-func (g *packageGenerator) genListKeys(key string, path *spec.PathItem) {
-	if path.Post == nil || !strings.HasSuffix(key, "/listKeys") {
+// genListFunctions defines functions for list* (listKeys, listSecrets, etc.) POST endpoints.
+func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
+	if path.Post == nil || !strings.Contains(key, "/list") {
 		return
 	}
 
-	baseUrl := strings.TrimSuffix(key, "/listKeys")
+	parts := strings.Split(key, "/")
+	listOperation := parts[len(parts)-1]
+	if !strings.HasPrefix(listOperation, "list") {
+		return
+	}
+
+	baseUrl := strings.TrimSuffix(key, "/" + listOperation)
 	prov, typeName := provider.ResourceQualifiedName(baseUrl)
 	if typeName == "" {
 		return
@@ -220,7 +226,8 @@ func (g *packageGenerator) genListKeys(key string, path *spec.PathItem) {
 	}
 
 	// Generate the function to get this resource.
-	functionTok := fmt.Sprintf(`%s:%s:list%sKeys`, g.pkg.Name, module, typeName)
+	subject := strings.Title(strings.TrimPrefix(listOperation, "list"))
+	functionTok := fmt.Sprintf(`%s:%s:list%s%s`, g.pkg.Name, module, typeName, subject)
 
 	request, err := gen.genMethodParameters(path.Post.Parameters, g.swagger.ReferenceContext)
 	if err != nil {

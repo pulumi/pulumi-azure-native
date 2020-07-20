@@ -10,6 +10,151 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Compute node information related to a AmlCompute.
+type AmlComputeNodeInformationResponse struct {
+	// ID of the compute node.
+	NodeId string `pulumi:"nodeId"`
+	// State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
+	NodeState string `pulumi:"nodeState"`
+	// SSH port number of the node.
+	Port float64 `pulumi:"port"`
+	// Private IP address of the compute node.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// Public IP address of the compute node.
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+	// ID of the Experiment running on the node, if any else null.
+	RunId string `pulumi:"runId"`
+}
+
+// AmlComputeNodeInformationResponseInput is an input type that accepts AmlComputeNodeInformationResponseArgs and AmlComputeNodeInformationResponseOutput values.
+// You can construct a concrete instance of `AmlComputeNodeInformationResponseInput` via:
+//
+//          AmlComputeNodeInformationResponseArgs{...}
+type AmlComputeNodeInformationResponseInput interface {
+	pulumi.Input
+
+	ToAmlComputeNodeInformationResponseOutput() AmlComputeNodeInformationResponseOutput
+	ToAmlComputeNodeInformationResponseOutputWithContext(context.Context) AmlComputeNodeInformationResponseOutput
+}
+
+// Compute node information related to a AmlCompute.
+type AmlComputeNodeInformationResponseArgs struct {
+	// ID of the compute node.
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
+	NodeState pulumi.StringInput `pulumi:"nodeState"`
+	// SSH port number of the node.
+	Port pulumi.Float64Input `pulumi:"port"`
+	// Private IP address of the compute node.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// Public IP address of the compute node.
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+	// ID of the Experiment running on the node, if any else null.
+	RunId pulumi.StringInput `pulumi:"runId"`
+}
+
+func (AmlComputeNodeInformationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (i AmlComputeNodeInformationResponseArgs) ToAmlComputeNodeInformationResponseOutput() AmlComputeNodeInformationResponseOutput {
+	return i.ToAmlComputeNodeInformationResponseOutputWithContext(context.Background())
+}
+
+func (i AmlComputeNodeInformationResponseArgs) ToAmlComputeNodeInformationResponseOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmlComputeNodeInformationResponseOutput)
+}
+
+// AmlComputeNodeInformationResponseArrayInput is an input type that accepts AmlComputeNodeInformationResponseArray and AmlComputeNodeInformationResponseArrayOutput values.
+// You can construct a concrete instance of `AmlComputeNodeInformationResponseArrayInput` via:
+//
+//          AmlComputeNodeInformationResponseArray{ AmlComputeNodeInformationResponseArgs{...} }
+type AmlComputeNodeInformationResponseArrayInput interface {
+	pulumi.Input
+
+	ToAmlComputeNodeInformationResponseArrayOutput() AmlComputeNodeInformationResponseArrayOutput
+	ToAmlComputeNodeInformationResponseArrayOutputWithContext(context.Context) AmlComputeNodeInformationResponseArrayOutput
+}
+
+type AmlComputeNodeInformationResponseArray []AmlComputeNodeInformationResponseInput
+
+func (AmlComputeNodeInformationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (i AmlComputeNodeInformationResponseArray) ToAmlComputeNodeInformationResponseArrayOutput() AmlComputeNodeInformationResponseArrayOutput {
+	return i.ToAmlComputeNodeInformationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AmlComputeNodeInformationResponseArray) ToAmlComputeNodeInformationResponseArrayOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AmlComputeNodeInformationResponseArrayOutput)
+}
+
+// Compute node information related to a AmlCompute.
+type AmlComputeNodeInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (AmlComputeNodeInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (o AmlComputeNodeInformationResponseOutput) ToAmlComputeNodeInformationResponseOutput() AmlComputeNodeInformationResponseOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseOutput) ToAmlComputeNodeInformationResponseOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseOutput {
+	return o
+}
+
+// ID of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
+func (o AmlComputeNodeInformationResponseOutput) NodeState() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.NodeState }).(pulumi.StringOutput)
+}
+
+// SSH port number of the node.
+func (o AmlComputeNodeInformationResponseOutput) Port() pulumi.Float64Output {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) float64 { return v.Port }).(pulumi.Float64Output)
+}
+
+// Private IP address of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Public IP address of the compute node.
+func (o AmlComputeNodeInformationResponseOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+// ID of the Experiment running on the node, if any else null.
+func (o AmlComputeNodeInformationResponseOutput) RunId() pulumi.StringOutput {
+	return o.ApplyT(func(v AmlComputeNodeInformationResponse) string { return v.RunId }).(pulumi.StringOutput)
+}
+
+type AmlComputeNodeInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AmlComputeNodeInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AmlComputeNodeInformationResponse)(nil)).Elem()
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) ToAmlComputeNodeInformationResponseArrayOutput() AmlComputeNodeInformationResponseArrayOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) ToAmlComputeNodeInformationResponseArrayOutputWithContext(ctx context.Context) AmlComputeNodeInformationResponseArrayOutput {
+	return o
+}
+
+func (o AmlComputeNodeInformationResponseArrayOutput) Index(i pulumi.IntInput) AmlComputeNodeInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AmlComputeNodeInformationResponse {
+		return vs[0].([]AmlComputeNodeInformationResponse)[vs[1].(int)]
+	}).(AmlComputeNodeInformationResponseOutput)
+}
+
 // Machine Learning compute object.
 type Compute struct {
 	// Location for the underlying compute
@@ -6351,6 +6496,8 @@ func (o WorkspacePropertiesResponsePtrOutput) WorkspaceId() pulumi.StringPtrOutp
 }
 
 func init() {
+	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseOutput{})
+	pulumi.RegisterOutputType(AmlComputeNodeInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ComputeOutput{})
 	pulumi.RegisterOutputType(ComputePtrOutput{})
 	pulumi.RegisterOutputType(ComputeResponseOutput{})

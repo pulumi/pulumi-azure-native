@@ -5,5 +5,6 @@
 # Export this package's modules as members:
 from .get_registration import *
 from .get_registration_customer_subscription import *
+from .list_registration_product_details import *
 from .registration import *
 from .registration_customer_subscription import *

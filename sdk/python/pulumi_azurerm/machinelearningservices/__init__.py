@@ -8,6 +8,7 @@ from .get_workspace_compute import *
 from .get_workspace_connection import *
 from .get_workspace_private_endpoint_connection import *
 from .list_workspace_compute_keys import *
+from .list_workspace_compute_nodes import *
 from .list_workspace_keys import *
 from .workspace import *
 from .workspace_compute import *

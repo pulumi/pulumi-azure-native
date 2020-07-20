@@ -5,3 +5,4 @@
 # Export this package's modules as members:
 from .controller import *
 from .get_controller import *
+from .list_controller_connection_details import *

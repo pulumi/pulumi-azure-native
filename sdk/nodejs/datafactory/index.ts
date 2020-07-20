@@ -16,3 +16,4 @@ export * from "./getFactoryIntegrationRuntime";
 export * from "./getFactoryLinkedservice";
 export * from "./getFactoryPipeline";
 export * from "./getFactoryTrigger";
+export * from "./listFactoryIntegrationRuntimeAuthKeys";

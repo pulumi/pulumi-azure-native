@@ -8,3 +8,5 @@ export * from "./botServiceConnection";
 export * from "./getBotService";
 export * from "./getBotServiceChannel";
 export * from "./getBotServiceConnection";
+export * from "./listBotServiceChannelChannelWithKeys";
+export * from "./listBotServiceConnectionWithSecrets";

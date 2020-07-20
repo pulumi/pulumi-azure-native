@@ -1404,6 +1404,169 @@ func (o AssetPropertiesResponsePtrOutput) StorageEncryptionFormat() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties of the Streaming Locator.
+type AssetStreamingLocatorResponse struct {
+	// Asset Name.
+	AssetName string `pulumi:"assetName"`
+	// The creation time of the Streaming Locator.
+	Created string `pulumi:"created"`
+	// Name of the default ContentKeyPolicy used by this Streaming Locator.
+	DefaultContentKeyPolicyName string `pulumi:"defaultContentKeyPolicyName"`
+	// The end time of the Streaming Locator.
+	EndTime string `pulumi:"endTime"`
+	// Streaming Locator name.
+	Name string `pulumi:"name"`
+	// The start time of the Streaming Locator.
+	StartTime string `pulumi:"startTime"`
+	// StreamingLocatorId of the Streaming Locator.
+	StreamingLocatorId string `pulumi:"streamingLocatorId"`
+	// Name of the Streaming Policy used by this Streaming Locator.
+	StreamingPolicyName string `pulumi:"streamingPolicyName"`
+}
+
+// AssetStreamingLocatorResponseInput is an input type that accepts AssetStreamingLocatorResponseArgs and AssetStreamingLocatorResponseOutput values.
+// You can construct a concrete instance of `AssetStreamingLocatorResponseInput` via:
+//
+//          AssetStreamingLocatorResponseArgs{...}
+type AssetStreamingLocatorResponseInput interface {
+	pulumi.Input
+
+	ToAssetStreamingLocatorResponseOutput() AssetStreamingLocatorResponseOutput
+	ToAssetStreamingLocatorResponseOutputWithContext(context.Context) AssetStreamingLocatorResponseOutput
+}
+
+// Properties of the Streaming Locator.
+type AssetStreamingLocatorResponseArgs struct {
+	// Asset Name.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// The creation time of the Streaming Locator.
+	Created pulumi.StringInput `pulumi:"created"`
+	// Name of the default ContentKeyPolicy used by this Streaming Locator.
+	DefaultContentKeyPolicyName pulumi.StringInput `pulumi:"defaultContentKeyPolicyName"`
+	// The end time of the Streaming Locator.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// Streaming Locator name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The start time of the Streaming Locator.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// StreamingLocatorId of the Streaming Locator.
+	StreamingLocatorId pulumi.StringInput `pulumi:"streamingLocatorId"`
+	// Name of the Streaming Policy used by this Streaming Locator.
+	StreamingPolicyName pulumi.StringInput `pulumi:"streamingPolicyName"`
+}
+
+func (AssetStreamingLocatorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetStreamingLocatorResponse)(nil)).Elem()
+}
+
+func (i AssetStreamingLocatorResponseArgs) ToAssetStreamingLocatorResponseOutput() AssetStreamingLocatorResponseOutput {
+	return i.ToAssetStreamingLocatorResponseOutputWithContext(context.Background())
+}
+
+func (i AssetStreamingLocatorResponseArgs) ToAssetStreamingLocatorResponseOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetStreamingLocatorResponseOutput)
+}
+
+// AssetStreamingLocatorResponseArrayInput is an input type that accepts AssetStreamingLocatorResponseArray and AssetStreamingLocatorResponseArrayOutput values.
+// You can construct a concrete instance of `AssetStreamingLocatorResponseArrayInput` via:
+//
+//          AssetStreamingLocatorResponseArray{ AssetStreamingLocatorResponseArgs{...} }
+type AssetStreamingLocatorResponseArrayInput interface {
+	pulumi.Input
+
+	ToAssetStreamingLocatorResponseArrayOutput() AssetStreamingLocatorResponseArrayOutput
+	ToAssetStreamingLocatorResponseArrayOutputWithContext(context.Context) AssetStreamingLocatorResponseArrayOutput
+}
+
+type AssetStreamingLocatorResponseArray []AssetStreamingLocatorResponseInput
+
+func (AssetStreamingLocatorResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetStreamingLocatorResponse)(nil)).Elem()
+}
+
+func (i AssetStreamingLocatorResponseArray) ToAssetStreamingLocatorResponseArrayOutput() AssetStreamingLocatorResponseArrayOutput {
+	return i.ToAssetStreamingLocatorResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AssetStreamingLocatorResponseArray) ToAssetStreamingLocatorResponseArrayOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetStreamingLocatorResponseArrayOutput)
+}
+
+// Properties of the Streaming Locator.
+type AssetStreamingLocatorResponseOutput struct{ *pulumi.OutputState }
+
+func (AssetStreamingLocatorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetStreamingLocatorResponse)(nil)).Elem()
+}
+
+func (o AssetStreamingLocatorResponseOutput) ToAssetStreamingLocatorResponseOutput() AssetStreamingLocatorResponseOutput {
+	return o
+}
+
+func (o AssetStreamingLocatorResponseOutput) ToAssetStreamingLocatorResponseOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseOutput {
+	return o
+}
+
+// Asset Name.
+func (o AssetStreamingLocatorResponseOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// The creation time of the Streaming Locator.
+func (o AssetStreamingLocatorResponseOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// Name of the default ContentKeyPolicy used by this Streaming Locator.
+func (o AssetStreamingLocatorResponseOutput) DefaultContentKeyPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.DefaultContentKeyPolicyName }).(pulumi.StringOutput)
+}
+
+// The end time of the Streaming Locator.
+func (o AssetStreamingLocatorResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// Streaming Locator name.
+func (o AssetStreamingLocatorResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start time of the Streaming Locator.
+func (o AssetStreamingLocatorResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// StreamingLocatorId of the Streaming Locator.
+func (o AssetStreamingLocatorResponseOutput) StreamingLocatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.StreamingLocatorId }).(pulumi.StringOutput)
+}
+
+// Name of the Streaming Policy used by this Streaming Locator.
+func (o AssetStreamingLocatorResponseOutput) StreamingPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.StreamingPolicyName }).(pulumi.StringOutput)
+}
+
+type AssetStreamingLocatorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetStreamingLocatorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetStreamingLocatorResponse)(nil)).Elem()
+}
+
+func (o AssetStreamingLocatorResponseArrayOutput) ToAssetStreamingLocatorResponseArrayOutput() AssetStreamingLocatorResponseArrayOutput {
+	return o
+}
+
+func (o AssetStreamingLocatorResponseArrayOutput) ToAssetStreamingLocatorResponseArrayOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseArrayOutput {
+	return o
+}
+
+func (o AssetStreamingLocatorResponseArrayOutput) Index(i pulumi.IntInput) AssetStreamingLocatorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetStreamingLocatorResponse {
+		return vs[0].([]AssetStreamingLocatorResponse)[vs[1].(int)]
+	}).(AssetStreamingLocatorResponseOutput)
+}
+
 // Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
 type CbcsDrmConfiguration struct {
 	// FairPlay configurations
@@ -4223,6 +4386,254 @@ func (o DefaultKeyResponsePtrOutput) PolicyName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataCollectionPolicyResponse struct {
+	// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+	DataCollectionFrequency *string `pulumi:"dataCollectionFrequency"`
+	// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+	DataReportingFrequency *string `pulumi:"dataReportingFrequency"`
+	// Details of Event Hub where the usage will be reported.
+	EventHubDetails *EdgeUsageDataEventHubResponse `pulumi:"eventHubDetails"`
+	// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+	MaxAllowedUnreportedUsageDuration *string `pulumi:"maxAllowedUnreportedUsageDuration"`
+}
+
+// EdgeUsageDataCollectionPolicyResponseInput is an input type that accepts EdgeUsageDataCollectionPolicyResponseArgs and EdgeUsageDataCollectionPolicyResponseOutput values.
+// You can construct a concrete instance of `EdgeUsageDataCollectionPolicyResponseInput` via:
+//
+//          EdgeUsageDataCollectionPolicyResponseArgs{...}
+type EdgeUsageDataCollectionPolicyResponseInput interface {
+	pulumi.Input
+
+	ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput
+	ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(context.Context) EdgeUsageDataCollectionPolicyResponseOutput
+}
+
+type EdgeUsageDataCollectionPolicyResponseArgs struct {
+	// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+	DataCollectionFrequency pulumi.StringPtrInput `pulumi:"dataCollectionFrequency"`
+	// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+	DataReportingFrequency pulumi.StringPtrInput `pulumi:"dataReportingFrequency"`
+	// Details of Event Hub where the usage will be reported.
+	EventHubDetails EdgeUsageDataEventHubResponsePtrInput `pulumi:"eventHubDetails"`
+	// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+	MaxAllowedUnreportedUsageDuration pulumi.StringPtrInput `pulumi:"maxAllowedUnreportedUsageDuration"`
+}
+
+func (EdgeUsageDataCollectionPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (i EdgeUsageDataCollectionPolicyResponseArgs) ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput {
+	return i.ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i EdgeUsageDataCollectionPolicyResponseArgs) ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataCollectionPolicyResponseOutput)
+}
+
+type EdgeUsageDataCollectionPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataCollectionPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponseOutput {
+	return o
+}
+
+// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataCollectionFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) DataReportingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataReportingFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Details of Event Hub where the usage will be reported.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse { return v.EventHubDetails }).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.MaxAllowedUnreportedUsageDuration }).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataEventHubResponse struct {
+	// Name of the Event Hub where usage will be reported.
+	Name *string `pulumi:"name"`
+	// Namespace of the Event Hub where usage will be reported.
+	Namespace *string `pulumi:"namespace"`
+	// SAS token needed to interact with Event Hub.
+	Token *string `pulumi:"token"`
+}
+
+// EdgeUsageDataEventHubResponseInput is an input type that accepts EdgeUsageDataEventHubResponseArgs and EdgeUsageDataEventHubResponseOutput values.
+// You can construct a concrete instance of `EdgeUsageDataEventHubResponseInput` via:
+//
+//          EdgeUsageDataEventHubResponseArgs{...}
+type EdgeUsageDataEventHubResponseInput interface {
+	pulumi.Input
+
+	ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput
+	ToEdgeUsageDataEventHubResponseOutputWithContext(context.Context) EdgeUsageDataEventHubResponseOutput
+}
+
+type EdgeUsageDataEventHubResponseArgs struct {
+	// Name of the Event Hub where usage will be reported.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Namespace of the Event Hub where usage will be reported.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// SAS token needed to interact with Event Hub.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (EdgeUsageDataEventHubResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput {
+	return i.ToEdgeUsageDataEventHubResponseOutputWithContext(context.Background())
+}
+
+func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubResponseOutput)
+}
+
+func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
+	return i.ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubResponseOutput).ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx)
+}
+
+// EdgeUsageDataEventHubResponsePtrInput is an input type that accepts EdgeUsageDataEventHubResponseArgs, EdgeUsageDataEventHubResponsePtr and EdgeUsageDataEventHubResponsePtrOutput values.
+// You can construct a concrete instance of `EdgeUsageDataEventHubResponsePtrInput` via:
+//
+//          EdgeUsageDataEventHubResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdgeUsageDataEventHubResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput
+	ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Context) EdgeUsageDataEventHubResponsePtrOutput
+}
+
+type edgeUsageDataEventHubResponsePtrType EdgeUsageDataEventHubResponseArgs
+
+func EdgeUsageDataEventHubResponsePtr(v *EdgeUsageDataEventHubResponseArgs) EdgeUsageDataEventHubResponsePtrInput {
+	return (*edgeUsageDataEventHubResponsePtrType)(v)
+}
+
+func (*edgeUsageDataEventHubResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (i *edgeUsageDataEventHubResponsePtrType) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
+	return i.ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edgeUsageDataEventHubResponsePtrType) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+type EdgeUsageDataEventHubResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataEventHubResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponseOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
+		return &v
+	}).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+// Name of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// SAS token needed to interact with Event Hub.
+func (o EdgeUsageDataEventHubResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataEventHubResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataEventHubResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) Elem() EdgeUsageDataEventHubResponseOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse { return *v }).(EdgeUsageDataEventHubResponseOutput)
+}
+
+// Name of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// SAS token needed to interact with Event Hub.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16917,6 +17328,124 @@ func (o StreamingLocatorPropertiesResponsePtrOutput) StreamingPolicyName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Class of paths for streaming
+type StreamingPathResponse struct {
+	// Encryption scheme
+	EncryptionScheme string `pulumi:"encryptionScheme"`
+	// Streaming paths for each protocol and encryptionScheme pair
+	Paths []string `pulumi:"paths"`
+	// Streaming protocol
+	StreamingProtocol string `pulumi:"streamingProtocol"`
+}
+
+// StreamingPathResponseInput is an input type that accepts StreamingPathResponseArgs and StreamingPathResponseOutput values.
+// You can construct a concrete instance of `StreamingPathResponseInput` via:
+//
+//          StreamingPathResponseArgs{...}
+type StreamingPathResponseInput interface {
+	pulumi.Input
+
+	ToStreamingPathResponseOutput() StreamingPathResponseOutput
+	ToStreamingPathResponseOutputWithContext(context.Context) StreamingPathResponseOutput
+}
+
+// Class of paths for streaming
+type StreamingPathResponseArgs struct {
+	// Encryption scheme
+	EncryptionScheme pulumi.StringInput `pulumi:"encryptionScheme"`
+	// Streaming paths for each protocol and encryptionScheme pair
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+	// Streaming protocol
+	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+}
+
+func (StreamingPathResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPathResponse)(nil)).Elem()
+}
+
+func (i StreamingPathResponseArgs) ToStreamingPathResponseOutput() StreamingPathResponseOutput {
+	return i.ToStreamingPathResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingPathResponseArgs) ToStreamingPathResponseOutputWithContext(ctx context.Context) StreamingPathResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPathResponseOutput)
+}
+
+// StreamingPathResponseArrayInput is an input type that accepts StreamingPathResponseArray and StreamingPathResponseArrayOutput values.
+// You can construct a concrete instance of `StreamingPathResponseArrayInput` via:
+//
+//          StreamingPathResponseArray{ StreamingPathResponseArgs{...} }
+type StreamingPathResponseArrayInput interface {
+	pulumi.Input
+
+	ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput
+	ToStreamingPathResponseArrayOutputWithContext(context.Context) StreamingPathResponseArrayOutput
+}
+
+type StreamingPathResponseArray []StreamingPathResponseInput
+
+func (StreamingPathResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPathResponse)(nil)).Elem()
+}
+
+func (i StreamingPathResponseArray) ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput {
+	return i.ToStreamingPathResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingPathResponseArray) ToStreamingPathResponseArrayOutputWithContext(ctx context.Context) StreamingPathResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPathResponseArrayOutput)
+}
+
+// Class of paths for streaming
+type StreamingPathResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPathResponse)(nil)).Elem()
+}
+
+func (o StreamingPathResponseOutput) ToStreamingPathResponseOutput() StreamingPathResponseOutput {
+	return o
+}
+
+func (o StreamingPathResponseOutput) ToStreamingPathResponseOutputWithContext(ctx context.Context) StreamingPathResponseOutput {
+	return o
+}
+
+// Encryption scheme
+func (o StreamingPathResponseOutput) EncryptionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathResponse) string { return v.EncryptionScheme }).(pulumi.StringOutput)
+}
+
+// Streaming paths for each protocol and encryptionScheme pair
+func (o StreamingPathResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingPathResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// Streaming protocol
+func (o StreamingPathResponseOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
+}
+
+type StreamingPathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingPathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPathResponse)(nil)).Elem()
+}
+
+func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutputWithContext(ctx context.Context) StreamingPathResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPathResponseArrayOutput) Index(i pulumi.IntInput) StreamingPathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPathResponse {
+		return vs[0].([]StreamingPathResponse)[vs[1].(int)]
+	}).(StreamingPathResponseOutput)
+}
+
 // Class to specify properties of content key
 type StreamingPolicyContentKey struct {
 	// Label can be used to specify Content Key when creating a Streaming Locator
@@ -19827,6 +20356,8 @@ func init() {
 	pulumi.RegisterOutputType(AssetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AssetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AssetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(AssetStreamingLocatorResponseOutput{})
+	pulumi.RegisterOutputType(AssetStreamingLocatorResponseArrayOutput{})
 	pulumi.RegisterOutputType(CbcsDrmConfigurationOutput{})
 	pulumi.RegisterOutputType(CbcsDrmConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CbcsDrmConfigurationResponseOutput{})
@@ -19863,6 +20394,9 @@ func init() {
 	pulumi.RegisterOutputType(DefaultKeyPtrOutput{})
 	pulumi.RegisterOutputType(DefaultKeyResponseOutput{})
 	pulumi.RegisterOutputType(DefaultKeyResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsResponseOutput{})
@@ -20015,6 +20549,8 @@ func init() {
 	pulumi.RegisterOutputType(StreamingLocatorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(StreamingPathResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyResponseOutput{})

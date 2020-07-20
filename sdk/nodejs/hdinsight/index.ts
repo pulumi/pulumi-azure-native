@@ -6,3 +6,4 @@ export * from "./cluster";
 export * from "./clusterApplication";
 export * from "./getCluster";
 export * from "./getClusterApplication";
+export * from "./listClusterHosts";

@@ -8,6 +8,9 @@ from .get_workspace_cluster import *
 from .get_workspace_experiment import *
 from .get_workspace_experiment_job import *
 from .get_workspace_file_server import *
+from .list_workspace_cluster_remote_login_information import *
+from .list_workspace_experiment_job_output_files import *
+from .list_workspace_experiment_job_remote_login_information import *
 from .workspace import *
 from .workspace_cluster import *
 from .workspace_experiment import *

@@ -4,4 +4,5 @@
 
 # Export this package's modules as members:
 from .get_server import *
+from .list_server_gateway_status import *
 from .server import *

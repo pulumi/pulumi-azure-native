@@ -39869,6 +39869,34 @@
             ],
             "POST": null
         },
+        "azurerm:analysisservices:listServerGatewayStatus": {
+            "apiVersion": "2017-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}/listGatewayStatus",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serverName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:apimanagement:getService": {
             "apiVersion": "2019-12-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}",
@@ -41337,6 +41365,41 @@
             ],
             "POST": null
         },
+        "azurerm:apimanagement:listServiceAuthorizationServerSecrets": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid}/listSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "authsid",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:apimanagement:listServiceGatewayKeys": {
             "apiVersion": "2019-12-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listKeys",
@@ -41368,6 +41431,210 @@
                 {
                     "name": "subscriptionId",
                     "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:listServiceIdentityProviderSecrets": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/identityProviders/{identityProviderName}/listSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "identityProviderName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:listServiceNamedValueValue": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/namedValues/{namedValueId}/listValue",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "namedValueId",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:listServiceOpenidConnectProviderSecrets": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/openidConnectProviders/{opid}/listSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "opid",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:listServicePortalsettingSecrets": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/portalsettings/delegation/listSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:listServiceSubscriptionSecrets": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/listSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "sid",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:apimanagement:listServiceTenantSecrets": {
+            "apiVersion": "2019-12-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tenant/{accessName}/listSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "serviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "accessName",
+                    "location": "path",
+                    "source": "method",
                     "required": true
                 }
             ]
@@ -41434,6 +41701,47 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:appconfiguration:listConfigurationStoreKeyValue": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName}/listKeyValue",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "configStoreName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "listKeyValueParameters",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "key",
+                        "label"
+                    ],
+                    "requiredProperties": [
+                        "key"
+                    ]
+                }
+            ]
         },
         "azurerm:authorization:getLock": {
             "apiVersion": "2016-09-01",
@@ -42176,6 +42484,35 @@
             ],
             "POST": null
         },
+        "azurerm:avs:listPrivateCloudAdminCredentials": {
+            "apiVersion": "2020-03-20",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "privateCloudName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:azurestack:getRegistration": {
             "apiVersion": "2017-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}",
@@ -42239,6 +42576,41 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:azurestack:listRegistrationProductDetails": {
+            "apiVersion": "2017-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/products/{productName}/listDetails",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroup",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "registrationName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "productName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
         },
         "azurerm:batch:getBatchAccount": {
             "apiVersion": "2020-05-01",
@@ -42619,6 +42991,144 @@
             ],
             "POST": null
         },
+        "azurerm:batchai:listWorkspaceClusterRemoteLoginInformation": {
+            "apiVersion": "2018-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BatchAI/workspaces/{workspaceName}/clusters/{clusterName}/listRemoteLoginInformation",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "clusterName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:batchai:listWorkspaceExperimentJobOutputFiles": {
+            "apiVersion": "2018-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BatchAI/workspaces/{workspaceName}/experiments/{experimentName}/jobs/{jobName}/listOutputFiles",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "experimentName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "jobName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "outputdirectoryid",
+                    "location": "query",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "directory",
+                    "location": "query",
+                    "source": "method"
+                },
+                {
+                    "name": "linkexpiryinminutes",
+                    "location": "query",
+                    "source": "method"
+                },
+                {
+                    "name": "maxresults",
+                    "location": "query",
+                    "source": "method"
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:batchai:listWorkspaceExperimentJobRemoteLoginInformation": {
+            "apiVersion": "2018-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BatchAI/workspaces/{workspaceName}/experiments/{experimentName}/jobs/{jobName}/listRemoteLoginInformation",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "experimentName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "jobName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:botservice:getBotService": {
             "apiVersion": "2020-06-02",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}",
@@ -42716,6 +43226,76 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:botservice:listBotServiceChannelChannelWithKeys": {
+            "apiVersion": "2020-06-02",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/channels/{channelName}/listChannelWithKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "channelName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:botservice:listBotServiceConnectionWithSecrets": {
+            "apiVersion": "2020-06-02",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/Connections/{connectionName}/listWithSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "connectionName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
         },
         "azurerm:cache:getRedis": {
             "apiVersion": "2018-03-01",
@@ -44108,6 +44688,168 @@
             ],
             "POST": null
         },
+        "azurerm:containerregistry:listRegistryBuildSourceUploadUrl": {
+            "apiVersion": "2019-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/listBuildSourceUploadUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "registryName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:containerregistry:listRegistryCredentials": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/listCredentials",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "registryName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:containerregistry:listRegistryRunLogSasUrl": {
+            "apiVersion": "2019-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/runs/{runId}/listLogSasUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "registryName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "runId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:containerregistry:listRegistryTaskDetails": {
+            "apiVersion": "2019-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/tasks/{taskName}/listDetails",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "registryName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "taskName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:containerregistry:listRegistryWebhookEvents": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/webhooks/{webhookName}/listEvents",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "registryName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "webhookName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:containerservice:getContainerService": {
             "apiVersion": "2017-07-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/containerServices/{containerServiceName}",
@@ -44269,6 +45011,135 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:containerservice:listManagedClusterAccessProfileCredential": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/accessProfiles/{roleName}/listCredential",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "roleName",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:containerservice:listManagedClusterClusterAdminCredential": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterAdminCredential",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:containerservice:listManagedClusterClusterMonitoringUserCredential": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterMonitoringUserCredential",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:containerservice:listManagedClusterClusterUserCredential": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterUserCredential",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "source": "client",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
         },
         "azurerm:core:getResourceGroup": {
             "apiVersion": "2020-06-01",
@@ -44685,6 +45556,35 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:databox:listJobCredentials": {
+            "apiVersion": "2019-09-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBox/jobs/{jobName}/listCredentials",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "jobName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
         },
         "azurerm:databoxedge:getDataBoxEdgeDevice": {
             "apiVersion": "2019-08-01",
@@ -45371,6 +46271,41 @@
             ],
             "POST": null
         },
+        "azurerm:datafactory:listFactoryIntegrationRuntimeAuthKeys": {
+            "apiVersion": "2018-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/listAuthKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "factoryName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "integrationRuntimeName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:datalakeanalytics:getAccount": {
             "apiVersion": "2016-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}",
@@ -45467,6 +46402,45 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:datalakeanalytics:listAccountStorageAccountContainerSasTokens": {
+            "apiVersion": "2016-11-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/storageAccounts/{storageAccountName}/containers/{containerName}/listSasTokens",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "storageAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "containerName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
         },
         "azurerm:datalakestore:getAccount": {
             "apiVersion": "2016-11-01",
@@ -45890,6 +46864,223 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:datashare:listAccountShareSubscriptionSourceShareSynchronizationSettings": {
+            "apiVersion": "2019-11-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/listSourceShareSynchronizationSettings",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "shareSubscriptionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "$skipToken",
+                    "location": "query"
+                }
+            ]
+        },
+        "azurerm:datashare:listAccountShareSubscriptionSynchronizationDetails": {
+            "apiVersion": "2019-11-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/listSynchronizationDetails",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "shareSubscriptionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "shareSubscriptionSynchronization",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "synchronizationId"
+                    ],
+                    "requiredProperties": [
+                        "synchronizationId"
+                    ]
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "$skipToken",
+                    "location": "query"
+                }
+            ]
+        },
+        "azurerm:datashare:listAccountShareSubscriptionSynchronizations": {
+            "apiVersion": "2019-11-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/listSynchronizations",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "shareSubscriptionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "$skipToken",
+                    "location": "query"
+                }
+            ]
+        },
+        "azurerm:datashare:listAccountShareSynchronizationDetails": {
+            "apiVersion": "2019-11-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/listSynchronizationDetails",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "shareName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "shareSynchronization",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "consumerEmail",
+                        "consumerName",
+                        "consumerTenantName",
+                        "durationMs",
+                        "endTime",
+                        "message",
+                        "startTime",
+                        "status",
+                        "synchronizationId"
+                    ]
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "$skipToken",
+                    "location": "query"
+                }
+            ]
+        },
+        "azurerm:datashare:listAccountShareSynchronizations": {
+            "apiVersion": "2019-11-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/listSynchronizations",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "shareName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "$skipToken",
+                    "location": "query"
+                }
+            ]
         },
         "azurerm:dbformariadb:getServer": {
             "apiVersion": "2018-06-01",
@@ -46722,6 +47913,128 @@
             ],
             "POST": null
         },
+        "azurerm:devices:listIotHubIotHubKeyKeys": {
+            "apiVersion": "2020-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/IotHubKeys/{keyName}/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "keyName",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:devices:listIotHubKeys": {
+            "apiVersion": "2020-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:devices:listProvisioningServiceKeyKeys": {
+            "apiVersion": "2020-01-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/keys/{keyName}/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "provisioningServiceName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "keyName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:devices:listProvisioningServiceKeys": {
+            "apiVersion": "2020-01-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "provisioningServiceName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:devspaces:getController": {
             "apiVersion": "2019-04-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevSpaces/controllers/{name}",
@@ -46750,6 +48063,46 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:devspaces:listControllerConnectionDetails": {
+            "apiVersion": "2019-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevSpaces/controllers/{name}/listConnectionDetails",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "listConnectionDetailsParameters",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "targetContainerHostResourceId"
+                    ],
+                    "requiredProperties": [
+                        "targetContainerHostResourceId"
+                    ]
+                }
+            ]
         },
         "azurerm:devtestlab:getLab": {
             "apiVersion": "2018-09-15",
@@ -47443,6 +48796,138 @@
             ],
             "POST": null
         },
+        "azurerm:devtestlab:listLabScheduleApplicable": {
+            "apiVersion": "2018-09-15",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/schedules/{name}/listApplicable",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "labName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:devtestlab:listLabUserServicefabricApplicableSchedules": {
+            "apiVersion": "2018-09-15",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{name}/listApplicableSchedules",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "labName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "userName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:devtestlab:listLabVhds": {
+            "apiVersion": "2018-09-15",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name}/listVhds",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:devtestlab:listLabVirtualmachineApplicableSchedules": {
+            "apiVersion": "2018-09-15",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/listApplicableSchedules",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "labName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:documentdb:getDatabaseAccount": {
             "apiVersion": "2020-04-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}",
@@ -47987,6 +49472,35 @@
             ],
             "POST": null
         },
+        "azurerm:documentdb:listDatabaseAccountConnectionStrings": {
+            "apiVersion": "2020-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listConnectionStrings",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:documentdb:listDatabaseAccountKeys": {
             "apiVersion": "2020-04-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys",
@@ -48012,6 +49526,41 @@
                 {
                     "name": "api-version",
                     "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:documentdb:listDatabaseAccountNotebookWorkspaceConnectionInfo": {
+            "apiVersion": "2020-04-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/notebookWorkspaces/{notebookWorkspaceName}/listConnectionInfo",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "notebookWorkspaceName",
+                    "location": "path",
+                    "source": "method",
                     "required": true
                 }
             ]
@@ -48614,6 +50163,35 @@
             ],
             "POST": null
         },
+        "azurerm:hdinsight:listClusterHosts": {
+            "apiVersion": "2018-06-01-preview",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "clusterName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:healthcareapis:getService": {
             "apiVersion": "2019-09-16",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/services/{resourceName}",
@@ -48874,6 +50452,39 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:importexport:listJobBitLockerKeys": {
+            "apiVersion": "2016-11-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ImportExport/jobs/{jobName}/listBitLockerKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "jobName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header",
+                    "source": "client"
+                }
+            ]
         },
         "azurerm:insights:getComponent": {
             "apiVersion": "2015-05-01",
@@ -49338,6 +50949,99 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:kusto:listClusterDatabasePrincipals": {
+            "apiVersion": "2020-06-14",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/listPrincipals",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "clusterName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "databaseName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:kusto:listClusterFollowerDatabases": {
+            "apiVersion": "2020-06-14",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/listFollowerDatabases",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "clusterName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:kusto:listClusterLanguageExtensions": {
+            "apiVersion": "2020-06-14",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/listLanguageExtensions",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "clusterName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
         },
         "azurerm:labservices:getLabaccount": {
             "apiVersion": "2018-10-15",
@@ -49945,6 +51649,496 @@
             ],
             "POST": null
         },
+        "azurerm:logic:listIntegrationAccountAgreementContentCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/agreements/{agreementName}/listContentCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "integrationAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "agreementName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "listContentCallbackUrl",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "keyType",
+                        "notAfter"
+                    ]
+                }
+            ]
+        },
+        "azurerm:logic:listIntegrationAccountAssemblyContentCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/assemblies/{assemblyArtifactName}/listContentCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "integrationAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "assemblyArtifactName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:logic:listIntegrationAccountCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/listCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "integrationAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "parameters",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "keyType",
+                        "notAfter"
+                    ]
+                }
+            ]
+        },
+        "azurerm:logic:listIntegrationAccountKeyVaultKeys": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/listKeyVaultKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "integrationAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "listKeyVaultKeys",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "keyVault",
+                        "skipToken"
+                    ],
+                    "requiredProperties": [
+                        "keyVault"
+                    ]
+                }
+            ]
+        },
+        "azurerm:logic:listIntegrationAccountMapContentCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName}/listContentCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "integrationAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "mapName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "listContentCallbackUrl",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "keyType",
+                        "notAfter"
+                    ]
+                }
+            ]
+        },
+        "azurerm:logic:listIntegrationAccountPartnerContentCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/partners/{partnerName}/listContentCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "integrationAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "partnerName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "listContentCallbackUrl",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "keyType",
+                        "notAfter"
+                    ]
+                }
+            ]
+        },
+        "azurerm:logic:listIntegrationAccountSchemaContentCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/schemas/{schemaName}/listContentCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "integrationAccountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "schemaName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "listContentCallbackUrl",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "keyType",
+                        "notAfter"
+                    ]
+                }
+            ]
+        },
+        "azurerm:logic:listWorkflowCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/listCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workflowName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "listCallbackUrl",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "keyType",
+                        "notAfter"
+                    ]
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:logic:listWorkflowRunActionExpressionTraces": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/listExpressionTraces",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workflowName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "runName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "actionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:logic:listWorkflowRunActionRepetitionExpressionTraces": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}/repetitions/{repetitionName}/listExpressionTraces",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workflowName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "runName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "actionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "repetitionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:logic:listWorkflowSwagger": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/listSwagger",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workflowName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:logic:listWorkflowTriggerCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workflowName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "triggerName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:logic:listWorkflowVersionTriggerCallbackUrl": {
+            "apiVersion": "2019-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/versions/{versionId}/triggers/{triggerName}/listCallbackUrl",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workflowName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "versionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "triggerName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "parameters",
+                    "location": "body",
+                    "properties": [
+                        "keyType",
+                        "notAfter"
+                    ]
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:machinelearning:getWebService": {
             "apiVersion": "2017-01-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/webServices/{webServiceName}",
@@ -50006,6 +52200,35 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:machinelearning:listWorkspaceWorkspaceKeys": {
+            "apiVersion": "2019-10-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/workspaces/{workspaceName}/listWorkspaceKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                }
+            ]
         },
         "azurerm:machinelearningservices:getWorkspace": {
             "apiVersion": "2020-06-01",
@@ -50144,6 +52367,41 @@
         "azurerm:machinelearningservices:listWorkspaceComputeKeys": {
             "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}/listKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "workspaceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "computeName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:machinelearningservices:listWorkspaceComputeNodes": {
+            "apiVersion": "2020-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}/listNodes",
             "GET": null,
             "POST": [
                 {
@@ -50772,6 +53030,187 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:media:listMediaServiceAssetContainerSas": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/listContainerSas",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "assetName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "parameters",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "expiryTime",
+                        "permissions"
+                    ]
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:media:listMediaServiceAssetStreamingLocators": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/listStreamingLocators",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "assetName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:media:listMediaServiceStreamingLocatorContentKeys": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/streamingLocators/{streamingLocatorName}/listContentKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "streamingLocatorName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:media:listMediaServiceStreamingLocatorPaths": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/streamingLocators/{streamingLocatorName}/listPaths",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "streamingLocatorName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:media:listMediaserviceEdgePolicies": {
+            "apiVersion": "2020-05-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaservices/{accountName}/listEdgePolicies",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "accountName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "parameters",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "deviceId"
+                    ]
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
         },
         "azurerm:media:listMediaserviceKeys": {
             "apiVersion": "2015-10-01",
@@ -54291,6 +56730,41 @@
             ],
             "POST": null
         },
+        "azurerm:policyinsights:listRemediationDeployments": {
+            "apiVersion": "2019-07-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/remediations/{remediationName}/listDeployments",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "remediationName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "$top",
+                    "location": "query",
+                    "source": "method"
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "source": "client",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:powerbi:getWorkspaceCollection": {
             "apiVersion": "2016-01-29",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName}",
@@ -54898,6 +57372,34 @@
             ],
             "POST": null
         },
+        "azurerm:redhatopenshift:listOpenShiftClusterCredentials": {
+            "apiVersion": "2020-04-30",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openShiftClusters/{resourceName}/listCredentials",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceName",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:relay:getNamespace": {
             "apiVersion": "2017-04-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}",
@@ -55431,6 +57933,74 @@
                 }
             ],
             "POST": null
+        },
+        "azurerm:search:listSearchServiceAdminKeys": {
+            "apiVersion": "2020-03-13",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/listAdminKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "searchServiceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "x-ms-client-request-id",
+                    "location": "header",
+                    "source": "method"
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:search:listSearchServiceQueryKeys": {
+            "apiVersion": "2020-03-13",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/listQueryKeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "searchServiceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "x-ms-client-request-id",
+                    "location": "header",
+                    "source": "method"
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                }
+            ]
         },
         "azurerm:security:getIotSecuritySolution": {
             "apiVersion": "2019-08-01",
@@ -57795,6 +60365,141 @@
             ],
             "POST": null
         },
+        "azurerm:storsimple:listManagerActivationKey": {
+            "apiVersion": "2017-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/listActivationKey",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "managerName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:storsimple:listManagerDeviceFailoverSets": {
+            "apiVersion": "2017-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{deviceName}/listFailoverSets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "deviceName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "managerName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:storsimple:listManagerDeviceFailoverTargets": {
+            "apiVersion": "2017-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/devices/{sourceDeviceName}/listFailoverTargets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "sourceDeviceName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "parameters",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "volumeContainers"
+                    ]
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "managerName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:storsimple:listManagerPublicEncryptionKey": {
+            "apiVersion": "2017-06-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}/listPublicEncryptionKey",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "managerName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:streamanalytics:getStreamingjob": {
             "apiVersion": "2016-03-01",
             "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobName}",
@@ -59271,6 +61976,198 @@
             ],
             "POST": null
         },
+        "azurerm:web:listAppServiceBackup": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}/list",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "backupId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "request",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "kind",
+                        "properties"
+                    ]
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceBackups": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/listbackups",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceConfig": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/pushsettings/list",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceFunctionKeys": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/functions/{functionName}/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "functionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceFunctionSecrets": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/functions/{functionName}/listsecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "functionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceHostKeys": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/host/default/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
         "azurerm:web:listAppServicePlanHybridConnectionNamespaceRelayKeys": {
             "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName}/listKeys",
@@ -59294,6 +62191,411 @@
                 },
                 {
                     "name": "relayName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSlotBackup": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/backups/{backupId}/list",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "backupId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "request",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "kind",
+                        "properties"
+                    ]
+                },
+                {
+                    "name": "slot",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSlotBackups": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/listbackups",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "slot",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSlotConfig": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/pushsettings/list",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "slot",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSlotFunctionKeys": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/functions/{functionName}/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "functionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "slot",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSlotFunctionSecrets": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/functions/{functionName}/listsecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "functionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "slot",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSlotHostKeys": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/host/default/listkeys",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "slot",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSlotSyncfunctiontriggerstatus": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/listsyncfunctiontriggerstatus",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "slot",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listAppServiceSyncfunctiontriggerstatus": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/listsyncfunctiontriggerstatus",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listStaticSiteAuthproviderUsers": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/authproviders/{authprovider}/listUsers",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "authprovider",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listStaticSiteBuildFunctionAppSettings": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/builds/{prId}/listFunctionAppSettings",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "prId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listStaticSiteFunctionAppSettings": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/listFunctionAppSettings",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                }
+            ]
+        },
+        "azurerm:web:listStaticSiteSecrets": {
+            "apiVersion": "2019-08-01",
+            "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/listSecrets",
+            "GET": null,
+            "POST": [
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "name",
                     "location": "path",
                     "required": true
                 },
