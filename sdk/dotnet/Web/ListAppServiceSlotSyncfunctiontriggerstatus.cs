@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web
     public sealed class ListAppServiceSlotSyncfunctiontriggerstatusArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the app.
+        /// Name of the deployment slot.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,12 +29,6 @@ namespace Pulumi.AzureRM.Web
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the deployment slot.
-        /// </summary>
-        [Input("slot", required: true)]
-        public string Slot { get; set; } = null!;
 
         public ListAppServiceSlotSyncfunctiontriggerstatusArgs()
         {

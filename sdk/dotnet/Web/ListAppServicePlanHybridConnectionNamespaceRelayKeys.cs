@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web
     public sealed class ListAppServicePlanHybridConnectionNamespaceRelayKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the App Service plan.
+        /// The name of the Service Bus relay.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,12 +29,6 @@ namespace Pulumi.AzureRM.Web
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Service Bus relay.
-        /// </summary>
-        [Input("relayName", required: true)]
-        public string RelayName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

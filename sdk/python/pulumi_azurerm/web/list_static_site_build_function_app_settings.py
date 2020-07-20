@@ -52,17 +52,15 @@ class AwaitableListStaticSiteBuildFunctionAppSettingsResult(ListStaticSiteBuildF
             type=self.type)
 
 
-def list_static_site_build_function_app_settings(name=None, pr_id=None, resource_group_name=None, opts=None):
+def list_static_site_build_function_app_settings(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the static site.
-    :param str pr_id: The stage site identifier.
+    :param str name: The stage site identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
     __args__['name'] = name
-    __args__['prId'] = pr_id
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

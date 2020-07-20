@@ -15,7 +15,6 @@ export function listAppServiceBackup(args: ListAppServiceBackupArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:listAppServiceBackup", {
-        "backupId": args.backupId,
         "kind": args.kind,
         "name": args.name,
         "properties": args.properties,
@@ -25,15 +24,11 @@ export function listAppServiceBackup(args: ListAppServiceBackupArgs, opts?: pulu
 
 export interface ListAppServiceBackupArgs {
     /**
-     * ID of backup.
-     */
-    readonly backupId: string;
-    /**
      * Kind of resource.
      */
     readonly kind?: string;
     /**
-     * Name of web app.
+     * ID of backup.
      */
     readonly name: string;
     /**

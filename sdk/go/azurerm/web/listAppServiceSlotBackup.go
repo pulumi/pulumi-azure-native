@@ -17,11 +17,9 @@ func ListAppServiceSlotBackup(ctx *pulumi.Context, args *ListAppServiceSlotBacku
 }
 
 type ListAppServiceSlotBackupArgs struct {
-	// ID of backup.
-	BackupId string `pulumi:"backupId"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of web app.
+	// ID of backup.
 	Name string `pulumi:"name"`
 	// BackupRequest resource specific properties
 	Properties *BackupRequestProperties `pulumi:"properties"`

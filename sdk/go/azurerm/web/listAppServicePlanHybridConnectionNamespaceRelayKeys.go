@@ -17,12 +17,10 @@ func ListAppServicePlanHybridConnectionNamespaceRelayKeys(ctx *pulumi.Context, a
 }
 
 type ListAppServicePlanHybridConnectionNamespaceRelayKeysArgs struct {
-	// Name of the App Service plan.
+	// The name of the Service Bus relay.
 	Name string `pulumi:"name"`
 	// The name of the Service Bus namespace.
 	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the Service Bus relay.
-	RelayName string `pulumi:"relayName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

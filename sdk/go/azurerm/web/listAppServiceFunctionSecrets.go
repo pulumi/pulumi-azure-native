@@ -18,8 +18,6 @@ func ListAppServiceFunctionSecrets(ctx *pulumi.Context, args *ListAppServiceFunc
 
 type ListAppServiceFunctionSecretsArgs struct {
 	// Function name.
-	FunctionName string `pulumi:"functionName"`
-	// Site name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

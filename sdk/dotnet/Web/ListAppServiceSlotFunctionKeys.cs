@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.Web
         /// <summary>
         /// Function name.
         /// </summary>
-        [Input("functionName", required: true)]
-        public string FunctionName { get; set; } = null!;
-
-        /// <summary>
-        /// Site name.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

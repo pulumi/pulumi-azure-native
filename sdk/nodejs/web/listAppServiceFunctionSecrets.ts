@@ -15,7 +15,6 @@ export function listAppServiceFunctionSecrets(args: ListAppServiceFunctionSecret
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:listAppServiceFunctionSecrets", {
-        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,10 +23,6 @@ export function listAppServiceFunctionSecrets(args: ListAppServiceFunctionSecret
 export interface ListAppServiceFunctionSecretsArgs {
     /**
      * Function name.
-     */
-    readonly functionName: string;
-    /**
-     * Site name.
      */
     readonly name: string;
     /**

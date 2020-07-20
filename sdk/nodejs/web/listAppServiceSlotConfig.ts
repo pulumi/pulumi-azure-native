@@ -17,23 +17,18 @@ export function listAppServiceSlotConfig(args: ListAppServiceSlotConfigArgs, opt
     return pulumi.runtime.invoke("azurerm:web:listAppServiceSlotConfig", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
     }, opts);
 }
 
 export interface ListAppServiceSlotConfigArgs {
     /**
-     * Name of web app.
+     * Name of web app slot. If not specified then will default to production slot.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
-    /**
-     * Name of web app slot. If not specified then will default to production slot.
-     */
-    readonly slot: string;
 }
 
 /**

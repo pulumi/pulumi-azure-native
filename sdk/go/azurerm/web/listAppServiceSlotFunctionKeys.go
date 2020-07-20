@@ -18,8 +18,6 @@ func ListAppServiceSlotFunctionKeys(ctx *pulumi.Context, args *ListAppServiceSlo
 
 type ListAppServiceSlotFunctionKeysArgs struct {
 	// Function name.
-	FunctionName string `pulumi:"functionName"`
-	// Site name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

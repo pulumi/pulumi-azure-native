@@ -15,7 +15,6 @@ export function listAppServiceSlotFunctionSecrets(args: ListAppServiceSlotFuncti
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:listAppServiceSlotFunctionSecrets", {
-        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -25,10 +24,6 @@ export function listAppServiceSlotFunctionSecrets(args: ListAppServiceSlotFuncti
 export interface ListAppServiceSlotFunctionSecretsArgs {
     /**
      * Function name.
-     */
-    readonly functionName: string;
-    /**
-     * Site name.
      */
     readonly name: string;
     /**

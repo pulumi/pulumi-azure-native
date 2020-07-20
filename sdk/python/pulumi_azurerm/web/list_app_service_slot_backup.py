@@ -52,13 +52,12 @@ class AwaitableListAppServiceSlotBackupResult(ListAppServiceSlotBackupResult):
             type=self.type)
 
 
-def list_app_service_slot_backup(backup_id=None, kind=None, name=None, properties=None, resource_group_name=None, slot=None, opts=None):
+def list_app_service_slot_backup(kind=None, name=None, properties=None, resource_group_name=None, slot=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str backup_id: ID of backup.
     :param str kind: Kind of resource.
-    :param str name: Name of web app.
+    :param str name: ID of backup.
     :param dict properties: BackupRequest resource specific properties
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of web app slot. If not specified then will default to production slot.
@@ -84,7 +83,6 @@ def list_app_service_slot_backup(backup_id=None, kind=None, name=None, propertie
       * `storage_account_url` (`str`) - SAS URL to the container.
     """
     __args__ = dict()
-    __args__['backupId'] = backup_id
     __args__['kind'] = kind
     __args__['name'] = name
     __args__['properties'] = properties

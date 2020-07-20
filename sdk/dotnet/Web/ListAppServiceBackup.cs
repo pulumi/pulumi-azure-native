@@ -19,19 +19,13 @@ namespace Pulumi.AzureRM.Web
     public sealed class ListAppServiceBackupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of backup.
-        /// </summary>
-        [Input("backupId", required: true)]
-        public string BackupId { get; set; } = null!;
-
-        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public string? Kind { get; set; }
 
         /// <summary>
-        /// Name of web app.
+        /// ID of backup.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
