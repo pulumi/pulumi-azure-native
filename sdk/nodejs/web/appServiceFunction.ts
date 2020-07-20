@@ -66,16 +66,12 @@ export class AppServiceFunction extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceFunctionArgs | undefined;
-            if (!args || args.functionName === undefined) {
-                throw new Error("Missing required property 'functionName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["functionName"] = args ? args.functionName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -98,15 +94,11 @@ export class AppServiceFunction extends pulumi.CustomResource {
  */
 export interface AppServiceFunctionArgs {
     /**
-     * Function name.
-     */
-    readonly functionName: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Site name.
+     * Function name.
      */
     readonly name: pulumi.Input<string>;
     /**

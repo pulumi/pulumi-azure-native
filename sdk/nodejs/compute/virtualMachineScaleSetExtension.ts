@@ -62,20 +62,19 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualMachineScaleSetExtensionArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.vmScaleSetName === undefined) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            if (!args || args.vmssExtensionName === undefined) {
-                throw new Error("Missing required property 'vmssExtensionName'");
-            }
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,9 +93,9 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
  */
 export interface VirtualMachineScaleSetExtensionArgs {
     /**
-     * The name of the extension.
+     * The name of the VM scale set extension.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Describes the properties of a Virtual Machine Scale Set Extension.
      */
@@ -109,8 +108,4 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * The name of the VM scale set where the extension should be create or updated.
      */
     readonly vmScaleSetName: pulumi.Input<string>;
-    /**
-     * The name of the VM scale set extension.
-     */
-    readonly vmssExtensionName: pulumi.Input<string>;
 }

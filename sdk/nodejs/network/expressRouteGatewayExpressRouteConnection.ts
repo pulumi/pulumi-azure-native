@@ -58,9 +58,6 @@ export class ExpressRouteGatewayExpressRouteConnection extends pulumi.CustomReso
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExpressRouteGatewayExpressRouteConnectionArgs | undefined;
-            if (!args || args.connectionName === undefined) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if (!args || args.expressRouteGatewayName === undefined) {
                 throw new Error("Missing required property 'expressRouteGatewayName'");
             }
@@ -70,7 +67,6 @@ export class ExpressRouteGatewayExpressRouteConnection extends pulumi.CustomReso
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -93,10 +89,6 @@ export class ExpressRouteGatewayExpressRouteConnection extends pulumi.CustomReso
  */
 export interface ExpressRouteGatewayExpressRouteConnectionArgs {
     /**
-     * The name of the connection subresource.
-     */
-    readonly connectionName: pulumi.Input<string>;
-    /**
      * The name of the ExpressRoute gateway.
      */
     readonly expressRouteGatewayName: pulumi.Input<string>;
@@ -105,7 +97,7 @@ export interface ExpressRouteGatewayExpressRouteConnectionArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource.
+     * The name of the connection subresource.
      */
     readonly name: pulumi.Input<string>;
     /**

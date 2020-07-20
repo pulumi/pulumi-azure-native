@@ -68,9 +68,6 @@ export class MachineExtension extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MachineExtensionArgs | undefined;
-            if (!args || args.extensionName === undefined) {
-                throw new Error("Missing required property 'extensionName'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -80,7 +77,6 @@ export class MachineExtension extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["extensionName"] = args ? args.extensionName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -104,15 +100,11 @@ export class MachineExtension extends pulumi.CustomResource {
  */
 export interface MachineExtensionArgs {
     /**
-     * The name of the machine extension.
-     */
-    readonly extensionName: pulumi.Input<string>;
-    /**
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the machine where the extension should be created or updated.
+     * The name of the machine extension.
      */
     readonly name: pulumi.Input<string>;
     /**

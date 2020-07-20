@@ -15,7 +15,6 @@ export function getAppServiceHybridconnection(args: GetAppServiceHybridconnectio
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceHybridconnection", {
-        "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,10 +23,6 @@ export function getAppServiceHybridconnection(args: GetAppServiceHybridconnectio
 export interface GetAppServiceHybridconnectionArgs {
     /**
      * Name of the hybrid connection.
-     */
-    readonly entityName: string;
-    /**
-     * Name of the app.
      */
     readonly name: string;
     /**

@@ -35,17 +35,16 @@ class AppServiceHybridConnectionNamespaceRelay(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, namespace_name=None, properties=None, relay_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: The name of the web app.
+        :param pulumi.Input[str] name: The relay name for this hybrid connection.
         :param pulumi.Input[str] namespace_name: The namespace for this hybrid connection.
         :param pulumi.Input[dict] properties: HybridConnection resource specific properties
-        :param pulumi.Input[str] relay_name: The relay name for this hybrid connection.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
 
         The **properties** object supports the following:
@@ -85,9 +84,6 @@ class AppServiceHybridConnectionNamespaceRelay(pulumi.CustomResource):
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['properties'] = properties
-            if relay_name is None:
-                raise TypeError("Missing required property 'relay_name'")
-            __props__['relay_name'] = relay_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

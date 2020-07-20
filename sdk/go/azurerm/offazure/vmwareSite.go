@@ -30,11 +30,11 @@ type VMwareSite struct {
 // NewVMwareSite registers a new resource with the given unique name, arguments, and options.
 func NewVMwareSite(ctx *pulumi.Context,
 	name string, args *VMwareSiteArgs, opts ...pulumi.ResourceOption) (*VMwareSite, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SiteName == nil {
-		return nil, errors.New("missing required argument 'SiteName'")
 	}
 	if args == nil {
 		args = &VMwareSiteArgs{}
@@ -97,15 +97,13 @@ type vmwareSiteArgs struct {
 	ETag *string `pulumi:"eTag"`
 	// Azure location in which Sites is created.
 	Location *string `pulumi:"location"`
-	// Name of the VMware site.
-	Name *string `pulumi:"name"`
+	// Site name.
+	Name string `pulumi:"name"`
 	// Nested properties of VMWare site.
 	Properties *SiteProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site name.
-	SiteName string            `pulumi:"siteName"`
-	Tags     map[string]string `pulumi:"tags"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VMwareSite resource.
@@ -114,15 +112,13 @@ type VMwareSiteArgs struct {
 	ETag pulumi.StringPtrInput
 	// Azure location in which Sites is created.
 	Location pulumi.StringPtrInput
-	// Name of the VMware site.
-	Name pulumi.StringPtrInput
+	// Site name.
+	Name pulumi.StringInput
 	// Nested properties of VMWare site.
 	Properties SitePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Site name.
-	SiteName pulumi.StringInput
-	Tags     pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (VMwareSiteArgs) ElementType() reflect.Type {

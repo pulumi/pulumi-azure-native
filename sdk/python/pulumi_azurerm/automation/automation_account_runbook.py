@@ -63,7 +63,7 @@ class AutomationAccountRunbook(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, location=None, name=None, properties=None, resource_group_name=None, runbook_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the runbook type.
 
@@ -71,10 +71,9 @@ class AutomationAccountRunbook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[str] name: Gets or sets the name of the resource.
+        :param pulumi.Input[str] name: The runbook name.
         :param pulumi.Input[dict] properties: Gets or sets runbook create or update properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[str] runbook_name: The runbook name.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
 
         The **properties** object supports the following:
@@ -122,6 +121,8 @@ class AutomationAccountRunbook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")
@@ -129,9 +130,6 @@ class AutomationAccountRunbook(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if runbook_name is None:
-                raise TypeError("Missing required property 'runbook_name'")
-            __props__['runbook_name'] = runbook_name
             __props__['tags'] = tags
             __props__['etag'] = None
             __props__['type'] = None

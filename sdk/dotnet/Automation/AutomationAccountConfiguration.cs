@@ -102,22 +102,16 @@ namespace Pulumi.AzureRM.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The create or update parameters for configuration.
-        /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
-
-        /// <summary>
         /// Gets or sets the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets or sets name of the resource.
+        /// The create or update parameters for configuration.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets configuration create or update properties.

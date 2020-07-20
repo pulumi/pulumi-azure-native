@@ -437,16 +437,15 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, application_gateway_name=None, connection_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_gateway_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Private Endpoint connection on an application gateway.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_gateway_name: The name of the application gateway.
-        :param pulumi.Input[str] connection_name: The name of the application gateway private endpoint connection.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: Name of the private endpoint connection on an application gateway.
+        :param pulumi.Input[str] name: The name of the application gateway private endpoint connection.
         :param pulumi.Input[dict] properties: Properties of the application gateway private endpoint connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
@@ -477,10 +476,9 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
             if application_gateway_name is None:
                 raise TypeError("Missing required property 'application_gateway_name'")
             __props__['application_gateway_name'] = application_gateway_name
-            if connection_name is None:
-                raise TypeError("Missing required property 'connection_name'")
-            __props__['connection_name'] = connection_name
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

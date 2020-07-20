@@ -34,17 +34,16 @@ class AppServicePlanVirtualNetworkConnectionRoute(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, route_name=None, vnet_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, vnet_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the App Service plan.
+        :param pulumi.Input[str] name: Name of the Virtual Network route.
         :param pulumi.Input[dict] properties: VnetRoute resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[str] route_name: Name of the Virtual Network route.
         :param pulumi.Input[str] vnet_name: Name of the Virtual Network.
 
         The **properties** object supports the following:
@@ -83,9 +82,6 @@ class AppServicePlanVirtualNetworkConnectionRoute(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None:
-                raise TypeError("Missing required property 'route_name'")
-            __props__['route_name'] = route_name
             if vnet_name is None:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name

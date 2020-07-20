@@ -78,22 +78,16 @@ namespace Pulumi.AzureRM.Network
     public sealed class VirtualHubHubVirtualNetworkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the HubVirtualNetworkConnection.
-        /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the HubVirtualNetworkConnection.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the hub virtual network connection.

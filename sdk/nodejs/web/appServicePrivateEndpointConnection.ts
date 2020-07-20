@@ -69,15 +69,11 @@ export class AppServicePrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.privateEndpointConnectionName === undefined) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["type"] = undefined /*out*/;
@@ -101,11 +97,7 @@ export interface AppServicePrivateEndpointConnectionArgs {
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
-    /**
-     * Name of the site.
-     */
     readonly name: pulumi.Input<string>;
-    readonly privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Core resource properties
      */

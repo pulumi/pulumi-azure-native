@@ -15,7 +15,6 @@ export function getAppServiceDeployment(args: GetAppServiceDeploymentArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceDeployment", {
-        "id": args.id,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,10 +23,6 @@ export function getAppServiceDeployment(args: GetAppServiceDeploymentArgs, opts?
 export interface GetAppServiceDeploymentArgs {
     /**
      * Deployment ID.
-     */
-    readonly id: string;
-    /**
-     * Name of the app.
      */
     readonly name: string;
     /**

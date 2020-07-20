@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the name of the variable.
+        /// The variable name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,12 +100,6 @@ namespace Pulumi.AzureRM.Automation
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The variable name.
-        /// </summary>
-        [Input("variableName", required: true)]
-        public Input<string> VariableName { get; set; } = null!;
 
         public AutomationAccountVariableArgs()
         {

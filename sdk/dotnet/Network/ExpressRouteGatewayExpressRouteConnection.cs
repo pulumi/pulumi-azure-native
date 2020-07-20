@@ -72,12 +72,6 @@ namespace Pulumi.AzureRM.Network
     public sealed class ExpressRouteGatewayExpressRouteConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection subresource.
-        /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the ExpressRoute gateway.
         /// </summary>
         [Input("expressRouteGatewayName", required: true)]
@@ -90,7 +84,7 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the connection subresource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

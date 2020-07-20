@@ -37,9 +37,6 @@ func NewAppServiceSlotPremieraddon(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.PremierAddOnName == nil {
-		return nil, errors.New("missing required argument 'PremierAddOnName'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -109,10 +106,8 @@ type appServiceSlotPremieraddonArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
-	// Name of the app.
-	Name string `pulumi:"name"`
 	// Add-on name.
-	PremierAddOnName string `pulumi:"premierAddOnName"`
+	Name string `pulumi:"name"`
 	// PremierAddOn resource specific properties
 	Properties *PremierAddOnProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
@@ -129,10 +124,8 @@ type AppServiceSlotPremieraddonArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
-	// Name of the app.
-	Name pulumi.StringInput
 	// Add-on name.
-	PremierAddOnName pulumi.StringInput
+	Name pulumi.StringInput
 	// PremierAddOn resource specific properties
 	Properties PremierAddOnPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.

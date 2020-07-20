@@ -52,20 +52,18 @@ class AwaitableGetAppServiceSlotVirtualNetworkConnectionResult(GetAppServiceSlot
             type=self.type)
 
 
-def get_app_service_slot_virtual_network_connection(name=None, resource_group_name=None, slot=None, vnet_name=None, opts=None):
+def get_app_service_slot_virtual_network_connection(name=None, resource_group_name=None, slot=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the app.
+    :param str name: Name of the virtual network.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
-    :param str vnet_name: Name of the virtual network.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    __args__['vnetName'] = vnet_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

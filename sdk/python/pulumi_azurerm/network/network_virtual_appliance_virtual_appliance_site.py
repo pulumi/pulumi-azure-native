@@ -34,18 +34,17 @@ class NetworkVirtualApplianceVirtualApplianceSite(pulumi.CustomResource):
     """
     Site type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, network_virtual_appliance_name=None, properties=None, resource_group_name=None, site_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, network_virtual_appliance_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual Appliance Site resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: Name of the virtual appliance site.
+        :param pulumi.Input[str] name: The name of the site.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of the Network Virtual Appliance.
         :param pulumi.Input[dict] properties: The properties of the Virtual Appliance Sites.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] site_name: The name of the site.
 
         The **properties** object supports the following:
 
@@ -74,6 +73,8 @@ class NetworkVirtualApplianceVirtualApplianceSite(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if network_virtual_appliance_name is None:
                 raise TypeError("Missing required property 'network_virtual_appliance_name'")
@@ -82,9 +83,6 @@ class NetworkVirtualApplianceVirtualApplianceSite(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if site_name is None:
-                raise TypeError("Missing required property 'site_name'")
-            __props__['site_name'] = site_name
             __props__['etag'] = None
             __props__['type'] = None
         super(NetworkVirtualApplianceVirtualApplianceSite, __self__).__init__(

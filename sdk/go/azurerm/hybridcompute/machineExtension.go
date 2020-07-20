@@ -29,9 +29,6 @@ type MachineExtension struct {
 // NewMachineExtension registers a new resource with the given unique name, arguments, and options.
 func NewMachineExtension(ctx *pulumi.Context,
 	name string, args *MachineExtensionArgs, opts ...pulumi.ResourceOption) (*MachineExtension, error) {
-	if args == nil || args.ExtensionName == nil {
-		return nil, errors.New("missing required argument 'ExtensionName'")
-	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -96,11 +93,9 @@ func (MachineExtensionState) ElementType() reflect.Type {
 }
 
 type machineExtensionArgs struct {
-	// The name of the machine extension.
-	ExtensionName string `pulumi:"extensionName"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// The name of the machine where the extension should be created or updated.
+	// The name of the machine extension.
 	Name string `pulumi:"name"`
 	// Describes Machine Extension Properties.
 	Properties map[string]string `pulumi:"properties"`
@@ -112,11 +107,9 @@ type machineExtensionArgs struct {
 
 // The set of arguments for constructing a MachineExtension resource.
 type MachineExtensionArgs struct {
-	// The name of the machine extension.
-	ExtensionName pulumi.StringInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
-	// The name of the machine where the extension should be created or updated.
+	// The name of the machine extension.
 	Name pulumi.StringInput
 	// Describes Machine Extension Properties.
 	Properties pulumi.StringMapInput

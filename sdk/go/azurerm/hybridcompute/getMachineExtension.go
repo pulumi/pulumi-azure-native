@@ -18,8 +18,6 @@ func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArg
 
 type LookupMachineExtensionArgs struct {
 	// The name of the machine extension.
-	ExtensionName string `pulumi:"extensionName"`
-	// The name of the machine containing the extension.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

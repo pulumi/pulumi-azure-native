@@ -52,17 +52,15 @@ class AwaitableGetAppServiceSlotDeploymentResult(GetAppServiceSlotDeploymentResu
             type=self.type)
 
 
-def get_app_service_slot_deployment(id=None, name=None, resource_group_name=None, slot=None, opts=None):
+def get_app_service_slot_deployment(name=None, resource_group_name=None, slot=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str id: Deployment ID.
-    :param str name: Name of the app.
+    :param str name: Deployment ID.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API gets a deployment for the production slot.
     """
     __args__ = dict()
-    __args__['id'] = id
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

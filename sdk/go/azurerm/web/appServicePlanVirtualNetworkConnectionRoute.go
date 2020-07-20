@@ -33,9 +33,6 @@ func NewAppServicePlanVirtualNetworkConnectionRoute(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.RouteName == nil {
-		return nil, errors.New("missing required argument 'RouteName'")
-	}
 	if args == nil || args.VnetName == nil {
 		return nil, errors.New("missing required argument 'VnetName'")
 	}
@@ -92,14 +89,12 @@ func (AppServicePlanVirtualNetworkConnectionRouteState) ElementType() reflect.Ty
 type appServicePlanVirtualNetworkConnectionRouteArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the App Service plan.
+	// Name of the Virtual Network route.
 	Name string `pulumi:"name"`
 	// VnetRoute resource specific properties
 	Properties *VnetRouteProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Virtual Network route.
-	RouteName string `pulumi:"routeName"`
 	// Name of the Virtual Network.
 	VnetName string `pulumi:"vnetName"`
 }
@@ -108,14 +103,12 @@ type appServicePlanVirtualNetworkConnectionRouteArgs struct {
 type AppServicePlanVirtualNetworkConnectionRouteArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the App Service plan.
+	// Name of the Virtual Network route.
 	Name pulumi.StringInput
 	// VnetRoute resource specific properties
 	Properties VnetRoutePropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
-	// Name of the Virtual Network route.
-	RouteName pulumi.StringInput
 	// Name of the Virtual Network.
 	VnetName pulumi.StringInput
 }

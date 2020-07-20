@@ -84,16 +84,10 @@ namespace Pulumi.AzureRM.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the node configuration.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The Dsc node configuration name.
         /// </summary>
-        [Input("nodeConfigurationName", required: true)]
-        public Input<string> NodeConfigurationName { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Node configuration properties

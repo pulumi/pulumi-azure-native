@@ -28,9 +28,6 @@ func NewAutomationAccountConnectionType(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.ConnectionTypeName == nil {
-		return nil, errors.New("missing required argument 'ConnectionTypeName'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -90,8 +87,6 @@ type automationAccountConnectionTypeArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The parameters supplied to the create or update connection type operation.
-	ConnectionTypeName string `pulumi:"connectionTypeName"`
-	// Gets or sets the name of the connection type.
 	Name string `pulumi:"name"`
 	// Gets or sets the value of the connection type.
 	Properties ConnectionTypeCreateOrUpdateProperties `pulumi:"properties"`
@@ -104,8 +99,6 @@ type AutomationAccountConnectionTypeArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
 	// The parameters supplied to the create or update connection type operation.
-	ConnectionTypeName pulumi.StringInput
-	// Gets or sets the name of the connection type.
 	Name pulumi.StringInput
 	// Gets or sets the value of the connection type.
 	Properties ConnectionTypeCreateOrUpdatePropertiesInput

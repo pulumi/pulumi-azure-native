@@ -87,16 +87,12 @@ export class AppServiceSlot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.slot === undefined) {
-                throw new Error("Missing required property 'slot'");
-            }
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = undefined /*out*/;
         }
@@ -128,7 +124,7 @@ export interface AppServiceSlotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -139,10 +135,6 @@ export interface AppServiceSlotArgs {
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-     */
-    readonly slot: pulumi.Input<string>;
     /**
      * Resource tags.
      */

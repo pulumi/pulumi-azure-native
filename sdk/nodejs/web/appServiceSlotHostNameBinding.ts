@@ -66,9 +66,6 @@ export class AppServiceSlotHostNameBinding extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceSlotHostNameBindingArgs | undefined;
-            if (!args || args.hostName === undefined) {
-                throw new Error("Missing required property 'hostName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -78,7 +75,6 @@ export class AppServiceSlotHostNameBinding extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["hostName"] = args ? args.hostName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -102,15 +98,11 @@ export class AppServiceSlotHostNameBinding extends pulumi.CustomResource {
  */
 export interface AppServiceSlotHostNameBindingArgs {
     /**
-     * Hostname in the hostname binding.
-     */
-    readonly hostName: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Hostname in the hostname binding.
      */
     readonly name: pulumi.Input<string>;
     /**

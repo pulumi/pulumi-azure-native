@@ -62,21 +62,20 @@ export class NetworkSecurityGroupSecurityRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkSecurityGroupSecurityRuleArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.networkSecurityGroupName === undefined) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.securityRuleName === undefined) {
-                throw new Error("Missing required property 'securityRuleName'");
-            }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityRuleName"] = args ? args.securityRuleName : undefined;
             inputs["etag"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,9 +98,9 @@ export interface NetworkSecurityGroupSecurityRuleArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the security rule.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The name of the network security group.
      */
@@ -114,8 +113,4 @@ export interface NetworkSecurityGroupSecurityRuleArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the security rule.
-     */
-    readonly securityRuleName: pulumi.Input<string>;
 }

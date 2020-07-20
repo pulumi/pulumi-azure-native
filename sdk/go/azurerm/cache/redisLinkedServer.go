@@ -25,9 +25,6 @@ type RedisLinkedServer struct {
 // NewRedisLinkedServer registers a new resource with the given unique name, arguments, and options.
 func NewRedisLinkedServer(ctx *pulumi.Context,
 	name string, args *RedisLinkedServerArgs, opts ...pulumi.ResourceOption) (*RedisLinkedServer, error) {
-	if args == nil || args.LinkedServerName == nil {
-		return nil, errors.New("missing required argument 'LinkedServerName'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -85,8 +82,6 @@ func (RedisLinkedServerState) ElementType() reflect.Type {
 
 type redisLinkedServerArgs struct {
 	// The name of the linked server that is being added to the Redis cache.
-	LinkedServerName string `pulumi:"linkedServerName"`
-	// The name of the Redis cache.
 	Name string `pulumi:"name"`
 	// Properties required to create a linked server.
 	Properties RedisLinkedServerCreateProperties `pulumi:"properties"`
@@ -97,8 +92,6 @@ type redisLinkedServerArgs struct {
 // The set of arguments for constructing a RedisLinkedServer resource.
 type RedisLinkedServerArgs struct {
 	// The name of the linked server that is being added to the Redis cache.
-	LinkedServerName pulumi.StringInput
-	// The name of the Redis cache.
 	Name pulumi.StringInput
 	// Properties required to create a linked server.
 	Properties RedisLinkedServerCreatePropertiesInput

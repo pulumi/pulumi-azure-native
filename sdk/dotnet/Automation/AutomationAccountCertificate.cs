@@ -86,12 +86,6 @@ namespace Pulumi.AzureRM.Automation
         /// <summary>
         /// The parameters supplied to the create or update certificate operation.
         /// </summary>
-        [Input("certificateName", required: true)]
-        public Input<string> CertificateName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the name of the certificate.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

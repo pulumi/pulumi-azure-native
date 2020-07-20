@@ -77,13 +77,12 @@ class MachineProviderGuestConfigurationAssignment(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, guest_configuration_assignment_name=None, location=None, machine_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, machine_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] guest_configuration_assignment_name: Name of the guest configuration assignment.
         :param pulumi.Input[str] location: Region where the VM is located.
         :param pulumi.Input[str] machine_name: The name of the ARC machine.
         :param pulumi.Input[str] name: Name of the guest configuration assignment.
@@ -136,13 +135,12 @@ class MachineProviderGuestConfigurationAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if guest_configuration_assignment_name is None:
-                raise TypeError("Missing required property 'guest_configuration_assignment_name'")
-            __props__['guest_configuration_assignment_name'] = guest_configuration_assignment_name
             __props__['location'] = location
             if machine_name is None:
                 raise TypeError("Missing required property 'machine_name'")
             __props__['machine_name'] = machine_name
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

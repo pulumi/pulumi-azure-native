@@ -26,17 +26,16 @@ class RouteTableRoute(pulumi.CustomResource):
       * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to.
       * `provisioning_state` (`str`) - The provisioning state of the route resource.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, route_name=None, route_table_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, route_table_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Route resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[dict] properties: Properties of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] route_name: The name of the route.
         :param pulumi.Input[str] route_table_name: The name of the route table.
 
         The **properties** object supports the following:
@@ -63,14 +62,13 @@ class RouteTableRoute(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None:
-                raise TypeError("Missing required property 'route_name'")
-            __props__['route_name'] = route_name
             if route_table_name is None:
                 raise TypeError("Missing required property 'route_table_name'")
             __props__['route_table_name'] = route_table_name

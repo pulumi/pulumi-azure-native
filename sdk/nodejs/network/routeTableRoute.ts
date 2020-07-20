@@ -62,11 +62,11 @@ export class RouteTableRoute extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RouteTableRouteArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.routeName === undefined) {
-                throw new Error("Missing required property 'routeName'");
             }
             if (!args || args.routeTableName === undefined) {
                 throw new Error("Missing required property 'routeTableName'");
@@ -75,7 +75,6 @@ export class RouteTableRoute extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeName"] = args ? args.routeName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["etag"] = undefined /*out*/;
         }
@@ -99,9 +98,9 @@ export interface RouteTableRouteArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the route.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the route.
      */
@@ -110,10 +109,6 @@ export interface RouteTableRouteArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the route.
-     */
-    readonly routeName: pulumi.Input<string>;
     /**
      * The name of the route table.
      */

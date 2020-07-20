@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Web
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of the App Service plan.
+        /// Name of the Virtual Network route.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -106,12 +106,6 @@ namespace Pulumi.AzureRM.Web
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Virtual Network route.
-        /// </summary>
-        [Input("routeName", required: true)]
-        public Input<string> RouteName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Virtual Network.

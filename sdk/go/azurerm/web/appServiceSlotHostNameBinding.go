@@ -27,9 +27,6 @@ type AppServiceSlotHostNameBinding struct {
 // NewAppServiceSlotHostNameBinding registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceSlotHostNameBinding(ctx *pulumi.Context,
 	name string, args *AppServiceSlotHostNameBindingArgs, opts ...pulumi.ResourceOption) (*AppServiceSlotHostNameBinding, error) {
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -90,11 +87,9 @@ func (AppServiceSlotHostNameBindingState) ElementType() reflect.Type {
 }
 
 type appServiceSlotHostNameBindingArgs struct {
-	// Hostname in the hostname binding.
-	HostName string `pulumi:"hostName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// Hostname in the hostname binding.
 	Name string `pulumi:"name"`
 	// HostNameBinding resource specific properties
 	Properties *HostNameBindingProperties `pulumi:"properties"`
@@ -106,11 +101,9 @@ type appServiceSlotHostNameBindingArgs struct {
 
 // The set of arguments for constructing a AppServiceSlotHostNameBinding resource.
 type AppServiceSlotHostNameBindingArgs struct {
-	// Hostname in the hostname binding.
-	HostName pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// Hostname in the hostname binding.
 	Name pulumi.StringInput
 	// HostNameBinding resource specific properties
 	Properties HostNameBindingPropertiesPtrInput

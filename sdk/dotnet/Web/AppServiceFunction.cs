@@ -84,19 +84,13 @@ namespace Pulumi.AzureRM.Web
     public sealed class AppServiceFunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Function name.
-        /// </summary>
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
-
-        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Site name.
+        /// Function name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

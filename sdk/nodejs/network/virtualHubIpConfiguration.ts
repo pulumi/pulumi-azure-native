@@ -66,8 +66,8 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualHubIpConfigurationArgs | undefined;
-            if (!args || args.ipConfigName === undefined) {
-                throw new Error("Missing required property 'ipConfigName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -76,7 +76,6 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["id"] = args ? args.id : undefined;
-            inputs["ipConfigName"] = args ? args.ipConfigName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -106,11 +105,7 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * The name of the ipconfig.
      */
-    readonly ipConfigName: pulumi.Input<string>;
-    /**
-     * Name of the Ip Configuration.
-     */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The properties of the Virtual Hub IPConfigurations.
      */

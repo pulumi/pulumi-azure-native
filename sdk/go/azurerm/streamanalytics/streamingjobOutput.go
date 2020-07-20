@@ -28,8 +28,8 @@ func NewStreamingjobOutput(ctx *pulumi.Context,
 	if args == nil || args.JobName == nil {
 		return nil, errors.New("missing required argument 'JobName'")
 	}
-	if args == nil || args.OutputName == nil {
-		return nil, errors.New("missing required argument 'OutputName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -83,10 +83,8 @@ func (StreamingjobOutputState) ElementType() reflect.Type {
 type streamingjobOutputArgs struct {
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// Resource name
-	Name *string `pulumi:"name"`
 	// The name of the output.
-	OutputName string `pulumi:"outputName"`
+	Name string `pulumi:"name"`
 	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
 	Properties *OutputProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -97,10 +95,8 @@ type streamingjobOutputArgs struct {
 type StreamingjobOutputArgs struct {
 	// The name of the streaming job.
 	JobName pulumi.StringInput
-	// Resource name
-	Name pulumi.StringPtrInput
 	// The name of the output.
-	OutputName pulumi.StringInput
+	Name pulumi.StringInput
 	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
 	Properties OutputPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

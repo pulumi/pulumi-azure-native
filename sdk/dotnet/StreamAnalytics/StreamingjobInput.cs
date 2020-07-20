@@ -78,22 +78,16 @@ namespace Pulumi.AzureRM.StreamAnalytics
     public sealed class StreamingjobInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the input.
-        /// </summary>
-        [Input("inputName", required: true)]
-        public Input<string> InputName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the streaming job.
         /// </summary>
         [Input("jobName", required: true)]
         public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the input.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.

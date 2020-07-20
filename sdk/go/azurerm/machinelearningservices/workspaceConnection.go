@@ -25,8 +25,8 @@ type WorkspaceConnection struct {
 // NewWorkspaceConnection registers a new resource with the given unique name, arguments, and options.
 func NewWorkspaceConnection(ctx *pulumi.Context,
 	name string, args *WorkspaceConnectionArgs, opts ...pulumi.ResourceOption) (*WorkspaceConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -82,9 +82,7 @@ func (WorkspaceConnectionState) ElementType() reflect.Type {
 
 type workspaceConnectionArgs struct {
 	// Friendly name of the workspace connection
-	ConnectionName string `pulumi:"connectionName"`
-	// Friendly name of the workspace connection
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Properties of workspace connection.
 	Properties *WorkspaceConnectionProps `pulumi:"properties"`
 	// Name of the resource group in which workspace is located.
@@ -96,9 +94,7 @@ type workspaceConnectionArgs struct {
 // The set of arguments for constructing a WorkspaceConnection resource.
 type WorkspaceConnectionArgs struct {
 	// Friendly name of the workspace connection
-	ConnectionName pulumi.StringInput
-	// Friendly name of the workspace connection
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Properties of workspace connection.
 	Properties WorkspaceConnectionPropsPtrInput
 	// Name of the resource group in which workspace is located.

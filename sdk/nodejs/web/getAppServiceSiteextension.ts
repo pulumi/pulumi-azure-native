@@ -17,23 +17,18 @@ export function getAppServiceSiteextension(args: GetAppServiceSiteextensionArgs,
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSiteextension", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "siteExtensionId": args.siteExtensionId,
     }, opts);
 }
 
 export interface GetAppServiceSiteextensionArgs {
     /**
-     * Site name.
+     * Site extension name.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
-    /**
-     * Site extension name.
-     */
-    readonly siteExtensionId: string;
 }
 
 /**

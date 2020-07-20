@@ -44,15 +44,14 @@ class AutomationAccount(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the automation account type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[str] name: Gets or sets name of the resource.
+        :param pulumi.Input[str] name: The name of the automation account.
         :param pulumi.Input[dict] properties: Gets or sets account create or update properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
@@ -81,10 +80,9 @@ class AutomationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
-                raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

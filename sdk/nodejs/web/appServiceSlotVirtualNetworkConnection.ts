@@ -75,15 +75,11 @@ export class AppServiceSlotVirtualNetworkConnection extends pulumi.CustomResourc
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            if (!args || args.vnetName === undefined) {
-                throw new Error("Missing required property 'vnetName'");
-            }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,7 +102,7 @@ export interface AppServiceSlotVirtualNetworkConnectionArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Name of an existing Virtual Network.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -121,8 +117,4 @@ export interface AppServiceSlotVirtualNetworkConnectionArgs {
      * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
      */
     readonly slot: pulumi.Input<string>;
-    /**
-     * Name of an existing Virtual Network.
-     */
-    readonly vnetName: pulumi.Input<string>;
 }

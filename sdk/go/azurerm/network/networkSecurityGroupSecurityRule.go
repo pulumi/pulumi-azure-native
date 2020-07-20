@@ -25,14 +25,14 @@ type NetworkSecurityGroupSecurityRule struct {
 // NewNetworkSecurityGroupSecurityRule registers a new resource with the given unique name, arguments, and options.
 func NewNetworkSecurityGroupSecurityRule(ctx *pulumi.Context,
 	name string, args *NetworkSecurityGroupSecurityRuleArgs, opts ...pulumi.ResourceOption) (*NetworkSecurityGroupSecurityRule, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.NetworkSecurityGroupName == nil {
 		return nil, errors.New("missing required argument 'NetworkSecurityGroupName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SecurityRuleName == nil {
-		return nil, errors.New("missing required argument 'SecurityRuleName'")
 	}
 	if args == nil {
 		args = &NetworkSecurityGroupSecurityRuleArgs{}
@@ -83,32 +83,28 @@ func (NetworkSecurityGroupSecurityRuleState) ElementType() reflect.Type {
 type networkSecurityGroupSecurityRuleArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the security rule.
+	Name string `pulumi:"name"`
 	// The name of the network security group.
 	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
 	// Properties of the security rule.
 	Properties *SecurityRulePropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the security rule.
-	SecurityRuleName string `pulumi:"securityRuleName"`
 }
 
 // The set of arguments for constructing a NetworkSecurityGroupSecurityRule resource.
 type NetworkSecurityGroupSecurityRuleArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the security rule.
+	Name pulumi.StringInput
 	// The name of the network security group.
 	NetworkSecurityGroupName pulumi.StringInput
 	// Properties of the security rule.
 	Properties SecurityRulePropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The name of the security rule.
-	SecurityRuleName pulumi.StringInput
 }
 
 func (NetworkSecurityGroupSecurityRuleArgs) ElementType() reflect.Type {

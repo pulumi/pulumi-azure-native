@@ -52,16 +52,14 @@ class AwaitableGetAppServiceHostNameBindingResult(GetAppServiceHostNameBindingRe
             type=self.type)
 
 
-def get_app_service_host_name_binding(host_name=None, name=None, resource_group_name=None, opts=None):
+def get_app_service_host_name_binding(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str host_name: Hostname in the hostname binding.
-    :param str name: Name of the app.
+    :param str name: Hostname in the hostname binding.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
-    __args__['hostName'] = host_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

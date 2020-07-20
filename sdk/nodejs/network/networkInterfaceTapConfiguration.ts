@@ -66,21 +66,20 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkInterfaceTapConfigurationArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.networkInterfaceName === undefined) {
                 throw new Error("Missing required property 'networkInterfaceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.tapConfigurationName === undefined) {
-                throw new Error("Missing required property 'tapConfigurationName'");
-            }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tapConfigurationName"] = args ? args.tapConfigurationName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -104,9 +103,9 @@ export interface NetworkInterfaceTapConfigurationArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the tap configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The name of the network interface.
      */
@@ -119,8 +118,4 @@ export interface NetworkInterfaceTapConfigurationArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the tap configuration.
-     */
-    readonly tapConfigurationName: pulumi.Input<string>;
 }

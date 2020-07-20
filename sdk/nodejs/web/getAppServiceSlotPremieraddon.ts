@@ -16,7 +16,6 @@ export function getAppServiceSlotPremieraddon(args: GetAppServiceSlotPremieraddo
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotPremieraddon", {
         "name": args.name,
-        "premierAddOnName": args.premierAddOnName,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
     }, opts);
@@ -24,13 +23,9 @@ export function getAppServiceSlotPremieraddon(args: GetAppServiceSlotPremieraddo
 
 export interface GetAppServiceSlotPremieraddonArgs {
     /**
-     * Name of the app.
-     */
-    readonly name: string;
-    /**
      * Add-on name.
      */
-    readonly premierAddOnName: string;
+    readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

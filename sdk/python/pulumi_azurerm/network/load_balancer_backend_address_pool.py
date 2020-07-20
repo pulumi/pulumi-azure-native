@@ -432,16 +432,15 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_address_pool_name=None, id=None, load_balancer_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, load_balancer_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Pool of backend IP addresses.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backend_address_pool_name: The name of the backend address pool.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
-        :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the backend address pool.
         :param pulumi.Input[dict] properties: Properties of load balancer backend address pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
@@ -471,13 +470,12 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backend_address_pool_name is None:
-                raise TypeError("Missing required property 'backend_address_pool_name'")
-            __props__['backend_address_pool_name'] = backend_address_pool_name
             __props__['id'] = id
             if load_balancer_name is None:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

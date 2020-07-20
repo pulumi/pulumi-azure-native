@@ -62,11 +62,11 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualHubRouteTableArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.routeTableName === undefined) {
-                throw new Error("Missing required property 'routeTableName'");
             }
             if (!args || args.virtualHubName === undefined) {
                 throw new Error("Missing required property 'virtualHubName'");
@@ -75,7 +75,6 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
         }
@@ -99,9 +98,9 @@ export interface VirtualHubRouteTableArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the VirtualHubRouteTableV2.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the virtual hub route table v2.
      */
@@ -110,10 +109,6 @@ export interface VirtualHubRouteTableArgs {
      * The resource group name of the VirtualHub.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the VirtualHubRouteTableV2.
-     */
-    readonly routeTableName: pulumi.Input<string>;
     /**
      * The name of the VirtualHub.
      */

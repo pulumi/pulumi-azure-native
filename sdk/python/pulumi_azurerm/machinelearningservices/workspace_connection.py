@@ -26,13 +26,12 @@ class WorkspaceConnection(pulumi.CustomResource):
     """
     Resource type of workspace connection.
     """
-    def __init__(__self__, resource_name, opts=None, connection_name=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Workspace connection.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input[str] name: Friendly name of the workspace connection
         :param pulumi.Input[dict] properties: Properties of workspace connection.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
@@ -62,9 +61,8 @@ class WorkspaceConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_name is None:
-                raise TypeError("Missing required property 'connection_name'")
-            __props__['connection_name'] = connection_name
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

@@ -17,12 +17,10 @@ func LookupAppServiceSiteextension(ctx *pulumi.Context, args *LookupAppServiceSi
 }
 
 type LookupAppServiceSiteextensionArgs struct {
-	// Site name.
+	// Site extension name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site extension name.
-	SiteExtensionId string `pulumi:"siteExtensionId"`
 }
 
 // Site Extension Information.

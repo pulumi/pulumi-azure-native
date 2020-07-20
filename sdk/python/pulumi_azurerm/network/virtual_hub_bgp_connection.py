@@ -30,15 +30,14 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
     """
     Connection type.
     """
-    def __init__(__self__, resource_name, opts=None, connection_name=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual Appliance Site resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_name: The name of the connection.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: Name of the connection.
+        :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[dict] properties: The properties of the Bgp connections.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
@@ -65,10 +64,9 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_name is None:
-                raise TypeError("Missing required property 'connection_name'")
-            __props__['connection_name'] = connection_name
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

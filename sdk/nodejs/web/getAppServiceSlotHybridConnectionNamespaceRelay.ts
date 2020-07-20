@@ -17,7 +17,6 @@ export function getAppServiceSlotHybridConnectionNamespaceRelay(args: GetAppServ
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotHybridConnectionNamespaceRelay", {
         "name": args.name,
         "namespaceName": args.namespaceName,
-        "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
     }, opts);
@@ -25,17 +24,13 @@ export function getAppServiceSlotHybridConnectionNamespaceRelay(args: GetAppServ
 
 export interface GetAppServiceSlotHybridConnectionNamespaceRelayArgs {
     /**
-     * The name of the web app.
+     * The relay name for this hybrid connection.
      */
     readonly name: string;
     /**
      * The namespace for this hybrid connection.
      */
     readonly namespaceName: string;
-    /**
-     * The relay name for this hybrid connection.
-     */
-    readonly relayName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -65,9 +65,6 @@ export class AutomationAccountConnection extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.connectionName === undefined) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -78,7 +75,6 @@ export class AutomationAccountConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -105,10 +101,6 @@ export interface AutomationAccountConnectionArgs {
     readonly automationAccountName: pulumi.Input<string>;
     /**
      * The parameters supplied to the create or update connection operation.
-     */
-    readonly connectionName: pulumi.Input<string>;
-    /**
-     * Gets or sets the name of the connection.
      */
     readonly name: pulumi.Input<string>;
     /**

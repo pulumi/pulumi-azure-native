@@ -17,24 +17,19 @@ export function getAppServiceHybridConnectionNamespaceRelay(args: GetAppServiceH
     return pulumi.runtime.invoke("azurerm:web:getAppServiceHybridConnectionNamespaceRelay", {
         "name": args.name,
         "namespaceName": args.namespaceName,
-        "relayName": args.relayName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetAppServiceHybridConnectionNamespaceRelayArgs {
     /**
-     * The name of the web app.
+     * The relay name for this hybrid connection.
      */
     readonly name: string;
     /**
      * The namespace for this hybrid connection.
      */
     readonly namespaceName: string;
-    /**
-     * The relay name for this hybrid connection.
-     */
-    readonly relayName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

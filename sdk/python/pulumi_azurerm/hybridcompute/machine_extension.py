@@ -30,15 +30,14 @@ class MachineExtension(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, extension_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Machine Extension.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the machine where the extension should be created or updated.
+        :param pulumi.Input[str] name: The name of the machine extension.
         :param pulumi.Input[dict] properties: Describes Machine Extension Properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
@@ -60,9 +59,6 @@ class MachineExtension(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if extension_name is None:
-                raise TypeError("Missing required property 'extension_name'")
-            __props__['extension_name'] = extension_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location

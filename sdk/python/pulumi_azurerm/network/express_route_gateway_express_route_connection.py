@@ -39,16 +39,15 @@ class ExpressRouteGatewayExpressRouteConnection(pulumi.CustomResource):
 
       * `routing_weight` (`float`) - The routing weight associated to the connection.
     """
-    def __init__(__self__, resource_name, opts=None, connection_name=None, express_route_gateway_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, express_route_gateway_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         ExpressRouteConnection resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_name: The name of the connection subresource.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource.
+        :param pulumi.Input[str] name: The name of the connection subresource.
         :param pulumi.Input[dict] properties: Properties of the express route connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
@@ -92,9 +91,6 @@ class ExpressRouteGatewayExpressRouteConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_name is None:
-                raise TypeError("Missing required property 'connection_name'")
-            __props__['connection_name'] = connection_name
             if express_route_gateway_name is None:
                 raise TypeError("Missing required property 'express_route_gateway_name'")
             __props__['express_route_gateway_name'] = express_route_gateway_name

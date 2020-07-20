@@ -74,14 +74,10 @@ export class AutomationAccountVariable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.variableName === undefined) {
-                throw new Error("Missing required property 'variableName'");
-            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["variableName"] = args ? args.variableName : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,7 +100,7 @@ export interface AutomationAccountVariableArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the name of the variable.
+     * The variable name.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -115,8 +111,4 @@ export interface AutomationAccountVariableArgs {
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The variable name.
-     */
-    readonly variableName: pulumi.Input<string>;
 }

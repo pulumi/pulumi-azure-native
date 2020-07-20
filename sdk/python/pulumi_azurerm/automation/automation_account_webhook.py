@@ -35,17 +35,16 @@ class AutomationAccountWebhook(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, webhook_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the webhook type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] name: Gets or sets the name of the webhook.
+        :param pulumi.Input[str] name: The webhook name.
         :param pulumi.Input[dict] properties: Gets or sets the properties of the webhook.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[str] webhook_name: The webhook name.
 
         The **properties** object supports the following:
 
@@ -87,9 +86,6 @@ class AutomationAccountWebhook(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if webhook_name is None:
-                raise TypeError("Missing required property 'webhook_name'")
-            __props__['webhook_name'] = webhook_name
             __props__['type'] = None
         super(AutomationAccountWebhook, __self__).__init__(
             'azurerm:automation:AutomationAccountWebhook',

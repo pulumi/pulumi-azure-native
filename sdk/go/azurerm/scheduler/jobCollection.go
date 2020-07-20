@@ -28,8 +28,8 @@ type JobCollection struct {
 // NewJobCollection registers a new resource with the given unique name, arguments, and options.
 func NewJobCollection(ctx *pulumi.Context,
 	name string, args *JobCollectionArgs, opts ...pulumi.ResourceOption) (*JobCollection, error) {
-	if args == nil || args.JobCollectionName == nil {
-		return nil, errors.New("missing required argument 'JobCollectionName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,12 +89,10 @@ func (JobCollectionState) ElementType() reflect.Type {
 }
 
 type jobCollectionArgs struct {
-	// The job collection name.
-	JobCollectionName string `pulumi:"jobCollectionName"`
 	// Gets or sets the storage account location.
 	Location *string `pulumi:"location"`
-	// Gets or sets the job collection resource name.
-	Name *string `pulumi:"name"`
+	// The job collection name.
+	Name string `pulumi:"name"`
 	// Gets or sets the job collection properties.
 	Properties *JobCollectionProperties `pulumi:"properties"`
 	// The resource group name.
@@ -105,12 +103,10 @@ type jobCollectionArgs struct {
 
 // The set of arguments for constructing a JobCollection resource.
 type JobCollectionArgs struct {
-	// The job collection name.
-	JobCollectionName pulumi.StringInput
 	// Gets or sets the storage account location.
 	Location pulumi.StringPtrInput
-	// Gets or sets the job collection resource name.
-	Name pulumi.StringPtrInput
+	// The job collection name.
+	Name pulumi.StringInput
 	// Gets or sets the job collection properties.
 	Properties JobCollectionPropertiesPtrInput
 	// The resource group name.

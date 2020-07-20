@@ -25,11 +25,11 @@ type StreamingjobFunction struct {
 // NewStreamingjobFunction registers a new resource with the given unique name, arguments, and options.
 func NewStreamingjobFunction(ctx *pulumi.Context,
 	name string, args *StreamingjobFunctionArgs, opts ...pulumi.ResourceOption) (*StreamingjobFunction, error) {
-	if args == nil || args.FunctionName == nil {
-		return nil, errors.New("missing required argument 'FunctionName'")
-	}
 	if args == nil || args.JobName == nil {
 		return nil, errors.New("missing required argument 'JobName'")
+	}
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -81,12 +81,10 @@ func (StreamingjobFunctionState) ElementType() reflect.Type {
 }
 
 type streamingjobFunctionArgs struct {
-	// The name of the function.
-	FunctionName string `pulumi:"functionName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// Resource name
-	Name *string `pulumi:"name"`
+	// The name of the function.
+	Name string `pulumi:"name"`
 	// The properties that are associated with a function.
 	Properties *FunctionProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -95,12 +93,10 @@ type streamingjobFunctionArgs struct {
 
 // The set of arguments for constructing a StreamingjobFunction resource.
 type StreamingjobFunctionArgs struct {
-	// The name of the function.
-	FunctionName pulumi.StringInput
 	// The name of the streaming job.
 	JobName pulumi.StringInput
-	// Resource name
-	Name pulumi.StringPtrInput
+	// The name of the function.
+	Name pulumi.StringInput
 	// The properties that are associated with a function.
 	Properties FunctionPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

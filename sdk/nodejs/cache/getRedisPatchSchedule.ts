@@ -15,7 +15,6 @@ export function getRedisPatchSchedule(args: GetRedisPatchScheduleArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:cache:getRedisPatchSchedule", {
-        "default": args.default,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,10 +23,6 @@ export function getRedisPatchSchedule(args: GetRedisPatchScheduleArgs, opts?: pu
 export interface GetRedisPatchScheduleArgs {
     /**
      * Default string modeled as parameter for auto generation to work correctly.
-     */
-    readonly default: string;
-    /**
-     * The name of the redis cache.
      */
     readonly name: string;
     /**

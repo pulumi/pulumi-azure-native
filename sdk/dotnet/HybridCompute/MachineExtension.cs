@@ -90,19 +90,13 @@ namespace Pulumi.AzureRM.HybridCompute
     public sealed class MachineExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the machine extension.
-        /// </summary>
-        [Input("extensionName", required: true)]
-        public Input<string> ExtensionName { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the machine where the extension should be created or updated.
+        /// The name of the machine extension.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

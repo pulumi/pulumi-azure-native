@@ -74,11 +74,11 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VpnServerConfigurationArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.vpnServerConfigurationName === undefined) {
-                throw new Error("Missing required property 'vpnServerConfigurationName'");
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -86,7 +86,6 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpnServerConfigurationName"] = args ? args.vpnServerConfigurationName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -114,9 +113,9 @@ export interface VpnServerConfigurationArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the VpnServerConfiguration being created or updated.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the P2SVpnServer configuration.
      */
@@ -129,8 +128,4 @@ export interface VpnServerConfigurationArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the VpnServerConfiguration being created or updated.
-     */
-    readonly vpnServerConfigurationName: pulumi.Input<string>;
 }

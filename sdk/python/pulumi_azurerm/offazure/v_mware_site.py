@@ -48,7 +48,7 @@ class VMwareSite(pulumi.CustomResource):
     """
     Type of resource. Type = Microsoft.OffAzure/VMWareSites.
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, location=None, name=None, properties=None, resource_group_name=None, site_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, e_tag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Site REST Resource.
 
@@ -56,10 +56,9 @@ class VMwareSite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag for concurrency control.
         :param pulumi.Input[str] location: Azure location in which Sites is created.
-        :param pulumi.Input[str] name: Name of the VMware site.
+        :param pulumi.Input[str] name: Site name.
         :param pulumi.Input[dict] properties: Nested properties of VMWare site.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] site_name: Site name.
 
         The **properties** object supports the following:
 
@@ -96,14 +95,13 @@ class VMwareSite(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if site_name is None:
-                raise TypeError("Missing required property 'site_name'")
-            __props__['site_name'] = site_name
             __props__['tags'] = tags
             __props__['type'] = None
         super(VMwareSite, __self__).__init__(

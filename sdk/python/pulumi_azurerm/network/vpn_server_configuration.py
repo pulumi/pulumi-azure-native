@@ -121,7 +121,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, vpn_server_configuration_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         VpnServerConfiguration Resource.
 
@@ -129,11 +129,10 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the VpnServerConfiguration being created or updated.
         :param pulumi.Input[dict] properties: Properties of the P2SVpnServer configuration.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnServerConfiguration.
         :param pulumi.Input[dict] tags: Resource tags.
-        :param pulumi.Input[str] vpn_server_configuration_name: The name of the VpnServerConfiguration being created or updated.
 
         The **properties** object supports the following:
 
@@ -198,15 +197,14 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if vpn_server_configuration_name is None:
-                raise TypeError("Missing required property 'vpn_server_configuration_name'")
-            __props__['vpn_server_configuration_name'] = vpn_server_configuration_name
             __props__['etag'] = None
             __props__['type'] = None
         super(VpnServerConfiguration, __self__).__init__(

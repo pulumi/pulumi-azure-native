@@ -66,17 +66,15 @@ class AwaitableGetAppServicePremieraddonResult(GetAppServicePremieraddonResult):
             type=self.type)
 
 
-def get_app_service_premieraddon(name=None, premier_add_on_name=None, resource_group_name=None, opts=None):
+def get_app_service_premieraddon(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the app.
-    :param str premier_add_on_name: Add-on name.
+    :param str name: Add-on name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
     __args__['name'] = name
-    __args__['premierAddOnName'] = premier_add_on_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

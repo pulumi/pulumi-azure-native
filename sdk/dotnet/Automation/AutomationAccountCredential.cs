@@ -86,12 +86,6 @@ namespace Pulumi.AzureRM.Automation
         /// <summary>
         /// The parameters supplied to the create or update credential operation.
         /// </summary>
-        [Input("credentialName", required: true)]
-        public Input<string> CredentialName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the name of the credential.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

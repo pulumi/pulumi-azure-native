@@ -37,9 +37,6 @@ func NewAutomationAccountWebhook(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.WebhookName == nil {
-		return nil, errors.New("missing required argument 'WebhookName'")
-	}
 	if args == nil {
 		args = &AutomationAccountWebhookArgs{}
 	}
@@ -89,28 +86,24 @@ func (AutomationAccountWebhookState) ElementType() reflect.Type {
 type automationAccountWebhookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the name of the webhook.
+	// The webhook name.
 	Name string `pulumi:"name"`
 	// Gets or sets the properties of the webhook.
 	Properties WebhookCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The webhook name.
-	WebhookName string `pulumi:"webhookName"`
 }
 
 // The set of arguments for constructing a AutomationAccountWebhook resource.
 type AutomationAccountWebhookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Gets or sets the name of the webhook.
+	// The webhook name.
 	Name pulumi.StringInput
 	// Gets or sets the properties of the webhook.
 	Properties WebhookCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
-	// The webhook name.
-	WebhookName pulumi.StringInput
 }
 
 func (AutomationAccountWebhookArgs) ElementType() reflect.Type {

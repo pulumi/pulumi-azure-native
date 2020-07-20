@@ -27,14 +27,14 @@ type RouteFilterRouteFilterRule struct {
 // NewRouteFilterRouteFilterRule registers a new resource with the given unique name, arguments, and options.
 func NewRouteFilterRouteFilterRule(ctx *pulumi.Context,
 	name string, args *RouteFilterRouteFilterRuleArgs, opts ...pulumi.ResourceOption) (*RouteFilterRouteFilterRule, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.RouteFilterName == nil {
 		return nil, errors.New("missing required argument 'RouteFilterName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
 	}
 	if args == nil {
 		args = &RouteFilterRouteFilterRuleArgs{}
@@ -91,16 +91,14 @@ type routeFilterRouteFilterRuleArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the route filter rule.
+	Name string `pulumi:"name"`
 	// Properties of the route filter rule.
 	Properties *RouteFilterRulePropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route filter.
 	RouteFilterName string `pulumi:"routeFilterName"`
-	// The name of the route filter rule.
-	RuleName string `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a RouteFilterRouteFilterRule resource.
@@ -109,16 +107,14 @@ type RouteFilterRouteFilterRuleArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the route filter rule.
+	Name pulumi.StringInput
 	// Properties of the route filter rule.
 	Properties RouteFilterRulePropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the route filter.
 	RouteFilterName pulumi.StringInput
-	// The name of the route filter rule.
-	RuleName pulumi.StringInput
 }
 
 func (RouteFilterRouteFilterRuleArgs) ElementType() reflect.Type {

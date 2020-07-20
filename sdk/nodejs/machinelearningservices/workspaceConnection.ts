@@ -62,8 +62,8 @@ export class WorkspaceConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WorkspaceConnectionArgs | undefined;
-            if (!args || args.connectionName === undefined) {
-                throw new Error("Missing required property 'connectionName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -71,7 +71,6 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -96,11 +95,7 @@ export interface WorkspaceConnectionArgs {
     /**
      * Friendly name of the workspace connection
      */
-    readonly connectionName: pulumi.Input<string>;
-    /**
-     * Friendly name of the workspace connection
-     */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of workspace connection.
      */

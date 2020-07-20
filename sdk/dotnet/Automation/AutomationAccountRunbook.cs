@@ -108,10 +108,10 @@ namespace Pulumi.AzureRM.Automation
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the resource.
+        /// The runbook name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets runbook create or update properties.
@@ -124,12 +124,6 @@ namespace Pulumi.AzureRM.Automation
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The runbook name.
-        /// </summary>
-        [Input("runbookName", required: true)]
-        public Input<string> RunbookName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

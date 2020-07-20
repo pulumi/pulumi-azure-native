@@ -66,16 +66,12 @@ export class AppServiceDeployment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceDeploymentArgs | undefined;
-            if (!args || args.id === undefined) {
-                throw new Error("Missing required property 'id'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -98,15 +94,11 @@ export class AppServiceDeployment extends pulumi.CustomResource {
  */
 export interface AppServiceDeploymentArgs {
     /**
-     * ID of an existing deployment.
-     */
-    readonly id: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * ID of an existing deployment.
      */
     readonly name: pulumi.Input<string>;
     /**

@@ -46,15 +46,14 @@ class AppServiceSlotSiteextension(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, site_extension_id=None, slot=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, slot=None, __props__=None, __name__=None, __opts__=None):
         """
         Site Extension Information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Site name.
+        :param pulumi.Input[str] name: Site extension name.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[str] site_extension_id: Site extension name.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API uses the production slot.
         """
         if __name__ is not None:
@@ -80,9 +79,6 @@ class AppServiceSlotSiteextension(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if site_extension_id is None:
-                raise TypeError("Missing required property 'site_extension_id'")
-            __props__['site_extension_id'] = site_extension_id
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot

@@ -28,8 +28,8 @@ func NewAutomationAccountNodeConfiguration(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.NodeConfigurationName == nil {
-		return nil, errors.New("missing required argument 'NodeConfigurationName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -83,10 +83,8 @@ func (AutomationAccountNodeConfigurationState) ElementType() reflect.Type {
 type automationAccountNodeConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Name of the node configuration.
-	Name *string `pulumi:"name"`
 	// The Dsc node configuration name.
-	NodeConfigurationName string `pulumi:"nodeConfigurationName"`
+	Name string `pulumi:"name"`
 	// Node configuration properties
 	Properties *DscNodeConfigurationCreateOrUpdateParametersProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
@@ -99,10 +97,8 @@ type automationAccountNodeConfigurationArgs struct {
 type AutomationAccountNodeConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Name of the node configuration.
-	Name pulumi.StringPtrInput
 	// The Dsc node configuration name.
-	NodeConfigurationName pulumi.StringInput
+	Name pulumi.StringInput
 	// Node configuration properties
 	Properties DscNodeConfigurationCreateOrUpdateParametersPropertiesPtrInput
 	// Name of an Azure Resource group.

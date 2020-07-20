@@ -40,15 +40,14 @@ class VirtualHubHubVirtualNetworkConnection(pulumi.CustomResource):
             * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
             * `next_hop_ip_address` (`str`) - The ip address of the next hop.
     """
-    def __init__(__self__, resource_name, opts=None, connection_name=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         HubVirtualNetworkConnection Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_name: The name of the HubVirtualNetworkConnection.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the HubVirtualNetworkConnection.
         :param pulumi.Input[dict] properties: Properties of the hub virtual network connection.
         :param pulumi.Input[str] resource_group_name: The resource group name of the HubVirtualNetworkConnection.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
@@ -90,10 +89,9 @@ class VirtualHubHubVirtualNetworkConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_name is None:
-                raise TypeError("Missing required property 'connection_name'")
-            __props__['connection_name'] = connection_name
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

@@ -62,21 +62,20 @@ export class VirtualNetworkVirtualNetworkPeering extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkVirtualNetworkPeeringArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.virtualNetworkName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            if (!args || args.virtualNetworkPeeringName === undefined) {
-                throw new Error("Missing required property 'virtualNetworkPeeringName'");
-            }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
             inputs["etag"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,9 +98,9 @@ export interface VirtualNetworkVirtualNetworkPeeringArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the peering.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the virtual network peering.
      */
@@ -114,8 +113,4 @@ export interface VirtualNetworkVirtualNetworkPeeringArgs {
      * The name of the virtual network.
      */
     readonly virtualNetworkName: pulumi.Input<string>;
-    /**
-     * The name of the peering.
-     */
-    readonly virtualNetworkPeeringName: pulumi.Input<string>;
 }

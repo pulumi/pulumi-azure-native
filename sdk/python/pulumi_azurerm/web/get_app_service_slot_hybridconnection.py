@@ -52,17 +52,15 @@ class AwaitableGetAppServiceSlotHybridconnectionResult(GetAppServiceSlotHybridco
             type=self.type)
 
 
-def get_app_service_slot_hybridconnection(entity_name=None, name=None, resource_group_name=None, slot=None, opts=None):
+def get_app_service_slot_hybridconnection(name=None, resource_group_name=None, slot=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str entity_name: Name of the hybrid connection.
-    :param str name: Name of the app.
+    :param str name: Name of the hybrid connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
     """
     __args__ = dict()
-    __args__['entityName'] = entity_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

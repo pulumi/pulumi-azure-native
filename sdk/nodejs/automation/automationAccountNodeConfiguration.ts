@@ -65,15 +65,14 @@ export class AutomationAccountNodeConfiguration extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.nodeConfigurationName === undefined) {
-                throw new Error("Missing required property 'nodeConfigurationName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["nodeConfigurationName"] = args ? args.nodeConfigurationName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -99,13 +98,9 @@ export interface AutomationAccountNodeConfigurationArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
-     * Name of the node configuration.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The Dsc node configuration name.
      */
-    readonly nodeConfigurationName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Node configuration properties
      */

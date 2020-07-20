@@ -27,8 +27,8 @@ type PrivateLinkServicePrivateEndpointConnection struct {
 // NewPrivateLinkServicePrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateLinkServicePrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateLinkServicePrivateEndpointConnection, error) {
-	if args == nil || args.PeConnectionName == nil {
-		return nil, errors.New("missing required argument 'PeConnectionName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,10 +89,8 @@ func (PrivateLinkServicePrivateEndpointConnectionState) ElementType() reflect.Ty
 type privateLinkServicePrivateEndpointConnectionArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
 	// The name of the private end point connection.
-	PeConnectionName string `pulumi:"peConnectionName"`
+	Name string `pulumi:"name"`
 	// Properties of the private end point connection.
 	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -105,10 +103,8 @@ type privateLinkServicePrivateEndpointConnectionArgs struct {
 type PrivateLinkServicePrivateEndpointConnectionArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
 	// The name of the private end point connection.
-	PeConnectionName pulumi.StringInput
+	Name pulumi.StringInput
 	// Properties of the private end point connection.
 	Properties PrivateEndpointConnectionPropertiesPtrInput
 	// The name of the resource group.

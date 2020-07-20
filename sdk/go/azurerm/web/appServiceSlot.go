@@ -42,9 +42,6 @@ func NewAppServiceSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
 		args = &AppServiceSlotArgs{}
 	}
@@ -114,14 +111,12 @@ type appServiceSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
-	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Name string `pulumi:"name"`
 	// Site resource specific properties
 	Properties *SiteProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot string `pulumi:"slot"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -134,14 +129,12 @@ type AppServiceSlotArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
-	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Name pulumi.StringInput
 	// Site resource specific properties
 	Properties SitePropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

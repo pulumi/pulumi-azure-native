@@ -33,9 +33,6 @@ func NewAppServiceSlotSourcecontrol(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
 		args = &AppServiceSlotSourcecontrolArgs{}
 	}
@@ -89,28 +86,24 @@ func (AppServiceSlotSourcecontrolState) ElementType() reflect.Type {
 type appServiceSlotSourcecontrolArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
 	Name string `pulumi:"name"`
 	// SiteSourceControl resource specific properties
 	Properties *SiteSourceControlProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
-	Slot string `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a AppServiceSlotSourcecontrol resource.
 type AppServiceSlotSourcecontrolArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
 	Name pulumi.StringInput
 	// SiteSourceControl resource specific properties
 	Properties SiteSourceControlPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
-	// Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
-	Slot pulumi.StringInput
 }
 
 func (AppServiceSlotSourcecontrolArgs) ElementType() reflect.Type {

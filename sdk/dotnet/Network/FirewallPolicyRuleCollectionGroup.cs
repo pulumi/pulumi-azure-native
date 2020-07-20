@@ -96,10 +96,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the FirewallPolicyRuleCollectionGroup.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties of the firewall policy rule collection group.
@@ -112,12 +112,6 @@ namespace Pulumi.AzureRM.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the FirewallPolicyRuleCollectionGroup.
-        /// </summary>
-        [Input("ruleCollectionGroupName", required: true)]
-        public Input<string> RuleCollectionGroupName { get; set; } = null!;
 
         public FirewallPolicyRuleCollectionGroupArgs()
         {

@@ -45,16 +45,14 @@ class AwaitableGetRedisPatchScheduleResult(GetRedisPatchScheduleResult):
             type=self.type)
 
 
-def get_redis_patch_schedule(default=None, name=None, resource_group_name=None, opts=None):
+def get_redis_patch_schedule(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str default: Default string modeled as parameter for auto generation to work correctly.
-    :param str name: The name of the redis cache.
+    :param str name: Default string modeled as parameter for auto generation to work correctly.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['default'] = default
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

@@ -65,15 +65,14 @@ export class StreamingjobOutput extends pulumi.CustomResource {
             if (!args || args.jobName === undefined) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if (!args || args.outputName === undefined) {
-                throw new Error("Missing required property 'outputName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["jobName"] = args ? args.jobName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["outputName"] = args ? args.outputName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["type"] = undefined /*out*/;
@@ -98,13 +97,9 @@ export interface StreamingjobOutputArgs {
      */
     readonly jobName: pulumi.Input<string>;
     /**
-     * Resource name
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The name of the output.
      */
-    readonly outputName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
      */

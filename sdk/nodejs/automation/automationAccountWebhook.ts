@@ -74,14 +74,10 @@ export class AutomationAccountWebhook extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.webhookName === undefined) {
-                throw new Error("Missing required property 'webhookName'");
-            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["webhookName"] = args ? args.webhookName : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,7 +100,7 @@ export interface AutomationAccountWebhookArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the name of the webhook.
+     * The webhook name.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -115,8 +111,4 @@ export interface AutomationAccountWebhookArgs {
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The webhook name.
-     */
-    readonly webhookName: pulumi.Input<string>;
 }

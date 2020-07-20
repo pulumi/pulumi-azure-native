@@ -31,8 +31,8 @@ type AutomationAccount struct {
 // NewAutomationAccount registers a new resource with the given unique name, arguments, and options.
 func NewAutomationAccount(ctx *pulumi.Context,
 	name string, args *AutomationAccountArgs, opts ...pulumi.ResourceOption) (*AutomationAccount, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,12 +96,10 @@ func (AutomationAccountState) ElementType() reflect.Type {
 }
 
 type automationAccountArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
-	// Gets or sets name of the resource.
-	Name *string `pulumi:"name"`
+	// The name of the automation account.
+	Name string `pulumi:"name"`
 	// Gets or sets account create or update properties.
 	Properties *AutomationAccountCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
@@ -112,12 +110,10 @@ type automationAccountArgs struct {
 
 // The set of arguments for constructing a AutomationAccount resource.
 type AutomationAccountArgs struct {
-	// The name of the automation account.
-	AutomationAccountName pulumi.StringInput
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
-	// Gets or sets name of the resource.
-	Name pulumi.StringPtrInput
+	// The name of the automation account.
+	Name pulumi.StringInput
 	// Gets or sets account create or update properties.
 	Properties AutomationAccountCreateOrUpdatePropertiesPtrInput
 	// Name of an Azure Resource group.

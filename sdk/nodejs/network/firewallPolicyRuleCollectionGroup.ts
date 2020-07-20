@@ -69,18 +69,17 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             if (!args || args.firewallPolicyName === undefined) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.ruleCollectionGroupName === undefined) {
-                throw new Error("Missing required property 'ruleCollectionGroupName'");
             }
             inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -108,9 +107,9 @@ export interface FirewallPolicyRuleCollectionGroupArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the FirewallPolicyRuleCollectionGroup.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The properties of the firewall policy rule collection group.
      */
@@ -119,8 +118,4 @@ export interface FirewallPolicyRuleCollectionGroupArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the FirewallPolicyRuleCollectionGroup.
-     */
-    readonly ruleCollectionGroupName: pulumi.Input<string>;
 }

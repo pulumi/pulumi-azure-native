@@ -26,17 +26,16 @@ class ServiceEndpointPolicyServiceEndpointPolicyDefinition(pulumi.CustomResource
       * `service` (`str`) - Service endpoint name.
       * `service_resources` (`list`) - A list of service resources.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, service_endpoint_policy_definition_name=None, service_endpoint_policy_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, service_endpoint_policy_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Service Endpoint policy definitions.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the service endpoint policy definition name.
         :param pulumi.Input[dict] properties: Properties of the service endpoint policy definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
         :param pulumi.Input[str] service_endpoint_policy_name: The name of the service endpoint policy.
 
         The **properties** object supports the following:
@@ -63,14 +62,13 @@ class ServiceEndpointPolicyServiceEndpointPolicyDefinition(pulumi.CustomResource
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_endpoint_policy_definition_name is None:
-                raise TypeError("Missing required property 'service_endpoint_policy_definition_name'")
-            __props__['service_endpoint_policy_definition_name'] = service_endpoint_policy_definition_name
             if service_endpoint_policy_name is None:
                 raise TypeError("Missing required property 'service_endpoint_policy_name'")
             __props__['service_endpoint_policy_name'] = service_endpoint_policy_name

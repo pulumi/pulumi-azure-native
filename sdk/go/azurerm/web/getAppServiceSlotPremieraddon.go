@@ -17,10 +17,8 @@ func LookupAppServiceSlotPremieraddon(ctx *pulumi.Context, args *LookupAppServic
 }
 
 type LookupAppServiceSlotPremieraddonArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
 	// Add-on name.
-	PremierAddOnName string `pulumi:"premierAddOnName"`
+	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API will get the named add-on for the production slot.

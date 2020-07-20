@@ -30,15 +30,14 @@ class AutomationAccountNodeConfiguration(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, node_configuration_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the dsc node configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] name: Name of the node configuration.
-        :param pulumi.Input[str] node_configuration_name: The Dsc node configuration name.
+        :param pulumi.Input[str] name: The Dsc node configuration name.
         :param pulumi.Input[dict] properties: Node configuration properties
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
@@ -78,10 +77,9 @@ class AutomationAccountNodeConfiguration(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if node_configuration_name is None:
-                raise TypeError("Missing required property 'node_configuration_name'")
-            __props__['node_configuration_name'] = node_configuration_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

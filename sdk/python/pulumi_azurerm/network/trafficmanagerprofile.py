@@ -74,7 +74,7 @@ class Trafficmanagerprofile(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, profile_name=None, properties=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing a Traffic Manager profile.
 
@@ -82,8 +82,7 @@ class Trafficmanagerprofile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[str] location: The Azure Region where the resource lives
-        :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
+        :param pulumi.Input[str] name: The name of the Traffic Manager profile.
         :param pulumi.Input[dict] properties: The properties of the Traffic Manager profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager profile.
         :param pulumi.Input[dict] tags: Resource tags.
@@ -154,10 +153,9 @@ class Trafficmanagerprofile(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if profile_name is None:
-                raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

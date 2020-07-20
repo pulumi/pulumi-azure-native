@@ -73,18 +73,16 @@ class AwaitableGetAppServiceSlotResult(GetAppServiceSlotResult):
             type=self.type)
 
 
-def get_app_service_slot(name=None, resource_group_name=None, slot=None, opts=None):
+def get_app_service_slot(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the app.
+    :param str name: Name of the deployment slot. By default, this API returns the production slot.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
-    :param str slot: Name of the deployment slot. By default, this API returns the production slot.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['slot'] = slot
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

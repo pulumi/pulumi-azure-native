@@ -74,14 +74,10 @@ export class AutomationAccountSchedule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scheduleName === undefined) {
-                throw new Error("Missing required property 'scheduleName'");
-            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scheduleName"] = args ? args.scheduleName : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,7 +100,7 @@ export interface AutomationAccountScheduleArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the name of the Schedule.
+     * The schedule name.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -115,8 +111,4 @@ export interface AutomationAccountScheduleArgs {
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The schedule name.
-     */
-    readonly scheduleName: pulumi.Input<string>;
 }

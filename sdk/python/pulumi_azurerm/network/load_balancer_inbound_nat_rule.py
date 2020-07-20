@@ -432,16 +432,15 @@ class LoadBalancerInboundNatRule(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, inbound_nat_rule_name=None, load_balancer_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, load_balancer_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Inbound NAT rule of the load balancer.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] inbound_nat_rule_name: The name of the inbound nat rule.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
-        :param pulumi.Input[str] name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the inbound nat rule.
         :param pulumi.Input[dict] properties: Properties of load balancer inbound nat rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
@@ -475,12 +474,11 @@ class LoadBalancerInboundNatRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if inbound_nat_rule_name is None:
-                raise TypeError("Missing required property 'inbound_nat_rule_name'")
-            __props__['inbound_nat_rule_name'] = inbound_nat_rule_name
             if load_balancer_name is None:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

@@ -429,17 +429,16 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
         * `provisioning_state` (`str`) - The provisioning state of the service endpoint resource.
         * `service` (`str`) - The type of the endpoint service.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, subnet_name=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Subnet in a virtual network resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the subnet.
         :param pulumi.Input[dict] properties: Properties of the subnet.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
 
         The **properties** object supports the following:
@@ -540,14 +539,13 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if subnet_name is None:
-                raise TypeError("Missing required property 'subnet_name'")
-            __props__['subnet_name'] = subnet_name
             if virtual_network_name is None:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name

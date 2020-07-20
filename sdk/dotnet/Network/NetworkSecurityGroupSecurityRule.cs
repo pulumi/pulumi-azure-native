@@ -84,10 +84,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the security rule.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the network security group.
@@ -106,12 +106,6 @@ namespace Pulumi.AzureRM.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the security rule.
-        /// </summary>
-        [Input("securityRuleName", required: true)]
-        public Input<string> SecurityRuleName { get; set; } = null!;
 
         public NetworkSecurityGroupSecurityRuleArgs()
         {

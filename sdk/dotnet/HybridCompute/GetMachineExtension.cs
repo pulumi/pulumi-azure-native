@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.HybridCompute
         /// <summary>
         /// The name of the machine extension.
         /// </summary>
-        [Input("extensionName", required: true)]
-        public string ExtensionName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the machine containing the extension.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

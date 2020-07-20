@@ -62,11 +62,11 @@ export class VirtualNetworkSubnet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkSubnetArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.subnetName === undefined) {
-                throw new Error("Missing required property 'subnetName'");
             }
             if (!args || args.virtualNetworkName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkName'");
@@ -75,7 +75,6 @@ export class VirtualNetworkSubnet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnetName"] = args ? args.subnetName : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["etag"] = undefined /*out*/;
         }
@@ -99,9 +98,9 @@ export interface VirtualNetworkSubnetArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the subnet.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the subnet.
      */
@@ -110,10 +109,6 @@ export interface VirtualNetworkSubnetArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the subnet.
-     */
-    readonly subnetName: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */

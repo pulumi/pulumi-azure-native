@@ -29,17 +29,16 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         * `next_hop_type` (`str`) - The type of next hops.
         * `next_hops` (`list`) - NextHops ip address.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, route_table_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualHubRouteTableV2 Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the VirtualHubRouteTableV2.
         :param pulumi.Input[dict] properties: Properties of the virtual hub route table v2.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
-        :param pulumi.Input[str] route_table_name: The name of the VirtualHubRouteTableV2.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
 
         The **properties** object supports the following:
@@ -69,14 +68,13 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_table_name is None:
-                raise TypeError("Missing required property 'route_table_name'")
-            __props__['route_table_name'] = route_table_name
             if virtual_hub_name is None:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name

@@ -37,9 +37,6 @@ func NewAutomationAccountSchedule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.ScheduleName == nil {
-		return nil, errors.New("missing required argument 'ScheduleName'")
-	}
 	if args == nil {
 		args = &AutomationAccountScheduleArgs{}
 	}
@@ -89,28 +86,24 @@ func (AutomationAccountScheduleState) ElementType() reflect.Type {
 type automationAccountScheduleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the name of the Schedule.
+	// The schedule name.
 	Name string `pulumi:"name"`
 	// Gets or sets the list of schedule properties.
 	Properties ScheduleCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The schedule name.
-	ScheduleName string `pulumi:"scheduleName"`
 }
 
 // The set of arguments for constructing a AutomationAccountSchedule resource.
 type AutomationAccountScheduleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Gets or sets the name of the Schedule.
+	// The schedule name.
 	Name pulumi.StringInput
 	// Gets or sets the list of schedule properties.
 	Properties ScheduleCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
-	// The schedule name.
-	ScheduleName pulumi.StringInput
 }
 
 func (AutomationAccountScheduleArgs) ElementType() reflect.Type {

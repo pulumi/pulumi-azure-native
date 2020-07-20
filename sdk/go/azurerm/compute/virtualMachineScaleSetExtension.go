@@ -25,14 +25,14 @@ type VirtualMachineScaleSetExtension struct {
 // NewVirtualMachineScaleSetExtension registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 	name string, args *VirtualMachineScaleSetExtensionArgs, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetExtension, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.VmScaleSetName == nil {
 		return nil, errors.New("missing required argument 'VmScaleSetName'")
-	}
-	if args == nil || args.VmssExtensionName == nil {
-		return nil, errors.New("missing required argument 'VmssExtensionName'")
 	}
 	if args == nil {
 		args = &VirtualMachineScaleSetExtensionArgs{}
@@ -81,30 +81,26 @@ func (VirtualMachineScaleSetExtensionState) ElementType() reflect.Type {
 }
 
 type virtualMachineScaleSetExtensionArgs struct {
-	// The name of the extension.
-	Name *string `pulumi:"name"`
+	// The name of the VM scale set extension.
+	Name string `pulumi:"name"`
 	// Describes the properties of a Virtual Machine Scale Set Extension.
 	Properties *VirtualMachineScaleSetExtensionProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VM scale set where the extension should be create or updated.
 	VmScaleSetName string `pulumi:"vmScaleSetName"`
-	// The name of the VM scale set extension.
-	VmssExtensionName string `pulumi:"vmssExtensionName"`
 }
 
 // The set of arguments for constructing a VirtualMachineScaleSetExtension resource.
 type VirtualMachineScaleSetExtensionArgs struct {
-	// The name of the extension.
-	Name pulumi.StringPtrInput
+	// The name of the VM scale set extension.
+	Name pulumi.StringInput
 	// Describes the properties of a Virtual Machine Scale Set Extension.
 	Properties VirtualMachineScaleSetExtensionPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the VM scale set where the extension should be create or updated.
 	VmScaleSetName pulumi.StringInput
-	// The name of the VM scale set extension.
-	VmssExtensionName pulumi.StringInput
 }
 
 func (VirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {

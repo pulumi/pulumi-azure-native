@@ -108,16 +108,10 @@ namespace Pulumi.AzureRM.Web
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of the app.
+        /// Add-on name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Add-on name.
-        /// </summary>
-        [Input("premierAddOnName", required: true)]
-        public Input<string> PremierAddOnName { get; set; } = null!;
 
         /// <summary>
         /// PremierAddOn resource specific properties

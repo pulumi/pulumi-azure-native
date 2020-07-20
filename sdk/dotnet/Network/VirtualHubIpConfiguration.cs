@@ -92,14 +92,8 @@ namespace Pulumi.AzureRM.Network
         /// <summary>
         /// The name of the ipconfig.
         /// </summary>
-        [Input("ipConfigName", required: true)]
-        public Input<string> IpConfigName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Ip Configuration.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties of the Virtual Hub IPConfigurations.

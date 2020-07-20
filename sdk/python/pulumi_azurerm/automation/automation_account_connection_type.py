@@ -27,15 +27,14 @@ class AutomationAccountConnectionType(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, connection_type_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the connection type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] connection_type_name: The parameters supplied to the create or update connection type operation.
-        :param pulumi.Input[str] name: Gets or sets the name of the connection type.
+        :param pulumi.Input[str] name: The parameters supplied to the create or update connection type operation.
         :param pulumi.Input[dict] properties: Gets or sets the value of the connection type.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
 
@@ -64,9 +63,6 @@ class AutomationAccountConnectionType(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if connection_type_name is None:
-                raise TypeError("Missing required property 'connection_type_name'")
-            __props__['connection_type_name'] = connection_type_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

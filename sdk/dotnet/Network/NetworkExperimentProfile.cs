@@ -108,16 +108,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Profile
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties of a Profile

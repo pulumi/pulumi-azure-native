@@ -52,16 +52,14 @@ class AwaitableGetAppServiceHybridconnectionResult(GetAppServiceHybridconnection
             type=self.type)
 
 
-def get_app_service_hybridconnection(entity_name=None, name=None, resource_group_name=None, opts=None):
+def get_app_service_hybridconnection(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str entity_name: Name of the hybrid connection.
-    :param str name: Name of the app.
+    :param str name: Name of the hybrid connection.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
-    __args__['entityName'] = entity_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

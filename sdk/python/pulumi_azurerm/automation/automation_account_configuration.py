@@ -52,16 +52,15 @@ class AutomationAccountConfiguration(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, configuration_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the configuration type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] configuration_name: The create or update parameters for configuration.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[str] name: Gets or sets name of the resource.
+        :param pulumi.Input[str] name: The create or update parameters for configuration.
         :param pulumi.Input[dict] properties: Gets or sets configuration create or update properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
@@ -101,10 +100,9 @@ class AutomationAccountConfiguration(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if configuration_name is None:
-                raise TypeError("Missing required property 'configuration_name'")
-            __props__['configuration_name'] = configuration_name
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if properties is None:
                 raise TypeError("Missing required property 'properties'")

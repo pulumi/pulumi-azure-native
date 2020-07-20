@@ -27,9 +27,6 @@ type AppServiceHybridconnection struct {
 // NewAppServiceHybridconnection registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceHybridconnection(ctx *pulumi.Context,
 	name string, args *AppServiceHybridconnectionArgs, opts ...pulumi.ResourceOption) (*AppServiceHybridconnection, error) {
-	if args == nil || args.EntityName == nil {
-		return nil, errors.New("missing required argument 'EntityName'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -87,11 +84,9 @@ func (AppServiceHybridconnectionState) ElementType() reflect.Type {
 }
 
 type appServiceHybridconnectionArgs struct {
-	// Name of the hybrid connection configuration.
-	EntityName string `pulumi:"entityName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// Name of the hybrid connection configuration.
 	Name string `pulumi:"name"`
 	// RelayServiceConnectionEntity resource specific properties
 	Properties *RelayServiceConnectionEntityProperties `pulumi:"properties"`
@@ -101,11 +96,9 @@ type appServiceHybridconnectionArgs struct {
 
 // The set of arguments for constructing a AppServiceHybridconnection resource.
 type AppServiceHybridconnectionArgs struct {
-	// Name of the hybrid connection configuration.
-	EntityName pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// Name of the hybrid connection configuration.
 	Name pulumi.StringInput
 	// RelayServiceConnectionEntity resource specific properties
 	Properties RelayServiceConnectionEntityPropertiesPtrInput

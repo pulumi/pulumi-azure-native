@@ -78,22 +78,16 @@ namespace Pulumi.AzureRM.StreamAnalytics
     public sealed class StreamingjobFunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the function.
-        /// </summary>
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the streaming job.
         /// </summary>
         [Input("jobName", required: true)]
         public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the function.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties that are associated with a function.

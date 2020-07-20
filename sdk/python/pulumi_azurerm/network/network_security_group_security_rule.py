@@ -49,18 +49,17 @@ class NetworkSecurityGroupSecurityRule(pulumi.CustomResource):
       * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
       * `source_port_ranges` (`list`) - The source port ranges.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, network_security_group_name=None, properties=None, resource_group_name=None, security_rule_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, network_security_group_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Network security rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the security rule.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[dict] properties: Properties of the security rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] security_rule_name: The name of the security rule.
 
         The **properties** object supports the following:
 
@@ -103,6 +102,8 @@ class NetworkSecurityGroupSecurityRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if network_security_group_name is None:
                 raise TypeError("Missing required property 'network_security_group_name'")
@@ -111,9 +112,6 @@ class NetworkSecurityGroupSecurityRule(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if security_rule_name is None:
-                raise TypeError("Missing required property 'security_rule_name'")
-            __props__['security_rule_name'] = security_rule_name
             __props__['etag'] = None
         super(NetworkSecurityGroupSecurityRule, __self__).__init__(
             'azurerm:network:NetworkSecurityGroupSecurityRule',

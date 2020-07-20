@@ -90,22 +90,16 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the inbound nat rule.
-        /// </summary>
-        [Input("inboundNatRuleName", required: true)]
-        public Input<string> InboundNatRuleName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the load balancer.
         /// </summary>
         [Input("loadBalancerName", required: true)]
         public Input<string> LoadBalancerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+        /// The name of the inbound nat rule.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of load balancer inbound nat rule.

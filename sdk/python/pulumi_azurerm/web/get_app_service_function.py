@@ -52,16 +52,14 @@ class AwaitableGetAppServiceFunctionResult(GetAppServiceFunctionResult):
             type=self.type)
 
 
-def get_app_service_function(function_name=None, name=None, resource_group_name=None, opts=None):
+def get_app_service_function(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str function_name: Function name.
-    :param str name: Site name.
+    :param str name: Function name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
-    __args__['functionName'] = function_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

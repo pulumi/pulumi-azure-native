@@ -71,18 +71,17 @@ export class VMwareSite extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VMwareSiteArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.siteName === undefined) {
-                throw new Error("Missing required property 'siteName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteName"] = args ? args.siteName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = undefined /*out*/;
         }
@@ -110,9 +109,9 @@ export interface VMwareSiteArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Name of the VMware site.
+     * Site name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Nested properties of VMWare site.
      */
@@ -121,9 +120,5 @@ export interface VMwareSiteArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Site name.
-     */
-    readonly siteName: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.Web
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+        /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -136,12 +136,6 @@ namespace Pulumi.AzureRM.Web
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-        /// </summary>
-        [Input("slot", required: true)]
-        public Input<string> Slot { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

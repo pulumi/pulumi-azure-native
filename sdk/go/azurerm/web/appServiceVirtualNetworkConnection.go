@@ -33,9 +33,6 @@ func NewAppServiceVirtualNetworkConnection(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.VnetName == nil {
-		return nil, errors.New("missing required argument 'VnetName'")
-	}
 	if args == nil {
 		args = &AppServiceVirtualNetworkConnectionArgs{}
 	}
@@ -89,28 +86,24 @@ func (AppServiceVirtualNetworkConnectionState) ElementType() reflect.Type {
 type appServiceVirtualNetworkConnectionArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// Name of an existing Virtual Network.
 	Name string `pulumi:"name"`
 	// VnetInfo resource specific properties
 	Properties *VnetInfoProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of an existing Virtual Network.
-	VnetName string `pulumi:"vnetName"`
 }
 
 // The set of arguments for constructing a AppServiceVirtualNetworkConnection resource.
 type AppServiceVirtualNetworkConnectionArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// Name of an existing Virtual Network.
 	Name pulumi.StringInput
 	// VnetInfo resource specific properties
 	Properties VnetInfoPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
-	// Name of an existing Virtual Network.
-	VnetName pulumi.StringInput
 }
 
 func (AppServiceVirtualNetworkConnectionArgs) ElementType() reflect.Type {

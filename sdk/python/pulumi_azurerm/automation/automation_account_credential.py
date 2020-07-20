@@ -26,15 +26,14 @@ class AutomationAccountCredential(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, credential_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the credential.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] credential_name: The parameters supplied to the create or update credential operation.
-        :param pulumi.Input[str] name: Gets or sets the name of the credential.
+        :param pulumi.Input[str] name: The parameters supplied to the create or update credential operation.
         :param pulumi.Input[dict] properties: Gets or sets the properties of the credential.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
 
@@ -64,9 +63,6 @@ class AutomationAccountCredential(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if credential_name is None:
-                raise TypeError("Missing required property 'credential_name'")
-            __props__['credential_name'] = credential_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

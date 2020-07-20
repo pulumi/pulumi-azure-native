@@ -80,16 +80,12 @@ export class AppServicePremieraddon extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.premierAddOnName === undefined) {
-                throw new Error("Missing required property 'premierAddOnName'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["premierAddOnName"] = args ? args.premierAddOnName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -119,13 +115,9 @@ export interface AppServicePremieraddonArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of the app.
-     */
-    readonly name: pulumi.Input<string>;
-    /**
      * Add-on name.
      */
-    readonly premierAddOnName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * PremierAddOn resource specific properties
      */

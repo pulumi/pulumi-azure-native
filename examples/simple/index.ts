@@ -75,7 +75,7 @@ const vnet = new azurerm.network.VirtualNetwork("vnet", {
 
 const subnet = new azurerm.network.VirtualNetworkSubnet("subnet2", {
     resourceGroupName: resourceGroup.name,
-    subnetName: "subnet2",
+    name: "subnet2",
     virtualNetworkName: vnet.name,
     properties: {
         addressPrefix: "10.1.1.0/24"

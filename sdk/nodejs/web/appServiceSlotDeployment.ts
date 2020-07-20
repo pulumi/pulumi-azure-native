@@ -66,9 +66,6 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceSlotDeploymentArgs | undefined;
-            if (!args || args.id === undefined) {
-                throw new Error("Missing required property 'id'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -78,7 +75,6 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -102,15 +98,11 @@ export class AppServiceSlotDeployment extends pulumi.CustomResource {
  */
 export interface AppServiceSlotDeploymentArgs {
     /**
-     * ID of an existing deployment.
-     */
-    readonly id: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * ID of an existing deployment.
      */
     readonly name: pulumi.Input<string>;
     /**

@@ -15,7 +15,6 @@ export function getAppServiceHostNameBinding(args: GetAppServiceHostNameBindingA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceHostNameBinding", {
-        "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,10 +23,6 @@ export function getAppServiceHostNameBinding(args: GetAppServiceHostNameBindingA
 export interface GetAppServiceHostNameBindingArgs {
     /**
      * Hostname in the hostname binding.
-     */
-    readonly hostName: string;
-    /**
-     * Name of the app.
      */
     readonly name: string;
     /**

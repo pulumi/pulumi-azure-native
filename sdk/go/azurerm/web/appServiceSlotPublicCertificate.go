@@ -30,9 +30,6 @@ func NewAppServiceSlotPublicCertificate(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.PublicCertificateName == nil {
-		return nil, errors.New("missing required argument 'PublicCertificateName'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -92,12 +89,10 @@ func (AppServiceSlotPublicCertificateState) ElementType() reflect.Type {
 type appServiceSlotPublicCertificateArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// Public certificate name.
 	Name string `pulumi:"name"`
 	// PublicCertificate resource specific properties
 	Properties *PublicCertificateProperties `pulumi:"properties"`
-	// Public certificate name.
-	PublicCertificateName string `pulumi:"publicCertificateName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
@@ -108,12 +103,10 @@ type appServiceSlotPublicCertificateArgs struct {
 type AppServiceSlotPublicCertificateArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// Public certificate name.
 	Name pulumi.StringInput
 	// PublicCertificate resource specific properties
 	Properties PublicCertificatePropertiesPtrInput
-	// Public certificate name.
-	PublicCertificateName pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.

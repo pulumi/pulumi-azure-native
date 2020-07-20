@@ -27,8 +27,8 @@ type VirtualHubBgpConnection struct {
 // NewVirtualHubBgpConnection registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 	name string, args *VirtualHubBgpConnectionArgs, opts ...pulumi.ResourceOption) (*VirtualHubBgpConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -87,12 +87,10 @@ func (VirtualHubBgpConnectionState) ElementType() reflect.Type {
 }
 
 type virtualHubBgpConnectionArgs struct {
-	// The name of the connection.
-	ConnectionName string `pulumi:"connectionName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// Name of the connection.
-	Name *string `pulumi:"name"`
+	// The name of the connection.
+	Name string `pulumi:"name"`
 	// The properties of the Bgp connections.
 	Properties *BgpConnectionProperties `pulumi:"properties"`
 	// The resource group name of the VirtualHub.
@@ -103,12 +101,10 @@ type virtualHubBgpConnectionArgs struct {
 
 // The set of arguments for constructing a VirtualHubBgpConnection resource.
 type VirtualHubBgpConnectionArgs struct {
-	// The name of the connection.
-	ConnectionName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// Name of the connection.
-	Name pulumi.StringPtrInput
+	// The name of the connection.
+	Name pulumi.StringInput
 	// The properties of the Bgp connections.
 	Properties BgpConnectionPropertiesPtrInput
 	// The resource group name of the VirtualHub.

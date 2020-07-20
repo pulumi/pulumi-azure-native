@@ -74,8 +74,8 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkExperimentProfileArgs | undefined;
-            if (!args || args.profileName === undefined) {
-                throw new Error("Missing required property 'profileName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -83,7 +83,6 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -113,13 +112,9 @@ export interface NetworkExperimentProfileArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Profile
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    readonly profileName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The properties of a Profile
      */

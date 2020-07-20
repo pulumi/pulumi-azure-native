@@ -90,16 +90,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the virtual router peering that is unique within a virtual router.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The name of the Virtual Router Peering.
         /// </summary>
-        [Input("peeringName", required: true)]
-        public Input<string> PeeringName { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties of the Virtual Router Peering.

@@ -84,19 +84,13 @@ namespace Pulumi.AzureRM.Web
     public sealed class AppServiceSlotHostNameBindingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Hostname in the hostname binding.
-        /// </summary>
-        [Input("hostName", required: true)]
-        public Input<string> HostName { get; set; } = null!;
-
-        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of the app.
+        /// Hostname in the hostname binding.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

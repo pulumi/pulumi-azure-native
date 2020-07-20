@@ -15,7 +15,6 @@ export function getAppServiceSlotDomainOwnershipIdentifier(args: GetAppServiceSl
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotDomainOwnershipIdentifier", {
-        "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -25,10 +24,6 @@ export function getAppServiceSlotDomainOwnershipIdentifier(args: GetAppServiceSl
 export interface GetAppServiceSlotDomainOwnershipIdentifierArgs {
     /**
      * Name of domain ownership identifier.
-     */
-    readonly domainOwnershipIdentifierName: string;
-    /**
-     * Name of the app.
      */
     readonly name: string;
     /**

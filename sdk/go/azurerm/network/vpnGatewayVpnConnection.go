@@ -25,11 +25,11 @@ type VpnGatewayVpnConnection struct {
 // NewVpnGatewayVpnConnection registers a new resource with the given unique name, arguments, and options.
 func NewVpnGatewayVpnConnection(ctx *pulumi.Context,
 	name string, args *VpnGatewayVpnConnectionArgs, opts ...pulumi.ResourceOption) (*VpnGatewayVpnConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
-	}
 	if args == nil || args.GatewayName == nil {
 		return nil, errors.New("missing required argument 'GatewayName'")
+	}
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -81,14 +81,12 @@ func (VpnGatewayVpnConnectionState) ElementType() reflect.Type {
 }
 
 type vpnGatewayVpnConnectionArgs struct {
-	// The name of the connection.
-	ConnectionName string `pulumi:"connectionName"`
 	// The name of the gateway.
 	GatewayName string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the connection.
+	Name string `pulumi:"name"`
 	// Properties of the VPN connection.
 	Properties *VpnConnectionProperties `pulumi:"properties"`
 	// The resource group name of the VpnGateway.
@@ -97,14 +95,12 @@ type vpnGatewayVpnConnectionArgs struct {
 
 // The set of arguments for constructing a VpnGatewayVpnConnection resource.
 type VpnGatewayVpnConnectionArgs struct {
-	// The name of the connection.
-	ConnectionName pulumi.StringInput
 	// The name of the gateway.
 	GatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the connection.
+	Name pulumi.StringInput
 	// Properties of the VPN connection.
 	Properties VpnConnectionPropertiesPtrInput
 	// The resource group name of the VpnGateway.

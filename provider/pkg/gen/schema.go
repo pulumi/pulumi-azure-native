@@ -212,11 +212,6 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 		return nil
 	}
 
-	// Do nothing if there's already a `name` property.
-	if _, ok := requestProperties.all["name"]; ok {
-		return nil
-	}
-
 	parts := strings.Split(path, "/")
 	for i := len(parts) - 1; i >= 0; i-- {
 		part := parts[i]

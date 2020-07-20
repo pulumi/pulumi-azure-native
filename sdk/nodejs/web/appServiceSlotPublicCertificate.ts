@@ -69,9 +69,6 @@ export class AppServiceSlotPublicCertificate extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.publicCertificateName === undefined) {
-                throw new Error("Missing required property 'publicCertificateName'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -81,7 +78,6 @@ export class AppServiceSlotPublicCertificate extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
-            inputs["publicCertificateName"] = args ? args.publicCertificateName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["type"] = undefined /*out*/;
@@ -106,17 +102,13 @@ export interface AppServiceSlotPublicCertificateArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Public certificate name.
      */
     readonly name: pulumi.Input<string>;
     /**
      * PublicCertificate resource specific properties
      */
     readonly properties?: pulumi.Input<inputs.web.PublicCertificateProperties>;
-    /**
-     * Public certificate name.
-     */
-    readonly publicCertificateName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

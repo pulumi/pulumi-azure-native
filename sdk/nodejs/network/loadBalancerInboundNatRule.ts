@@ -66,17 +66,16 @@ export class LoadBalancerInboundNatRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as LoadBalancerInboundNatRuleArgs | undefined;
-            if (!args || args.inboundNatRuleName === undefined) {
-                throw new Error("Missing required property 'inboundNatRuleName'");
-            }
             if (!args || args.loadBalancerName === undefined) {
                 throw new Error("Missing required property 'loadBalancerName'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
-            inputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -104,17 +103,13 @@ export interface LoadBalancerInboundNatRuleArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the inbound nat rule.
-     */
-    readonly inboundNatRuleName: pulumi.Input<string>;
-    /**
      * The name of the load balancer.
      */
     readonly loadBalancerName: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+     * The name of the inbound nat rule.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of load balancer inbound nat rule.
      */

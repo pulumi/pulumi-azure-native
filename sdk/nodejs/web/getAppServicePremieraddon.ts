@@ -16,20 +16,15 @@ export function getAppServicePremieraddon(args: GetAppServicePremieraddonArgs, o
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServicePremieraddon", {
         "name": args.name,
-        "premierAddOnName": args.premierAddOnName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetAppServicePremieraddonArgs {
     /**
-     * Name of the app.
-     */
-    readonly name: string;
-    /**
      * Add-on name.
      */
-    readonly premierAddOnName: string;
+    readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

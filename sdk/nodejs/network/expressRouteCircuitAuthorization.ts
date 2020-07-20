@@ -66,16 +66,15 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExpressRouteCircuitAuthorizationArgs | undefined;
-            if (!args || args.authorizationName === undefined) {
-                throw new Error("Missing required property 'authorizationName'");
-            }
             if (!args || args.circuitName === undefined) {
                 throw new Error("Missing required property 'circuitName'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationName"] = args ? args.authorizationName : undefined;
             inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -100,10 +99,6 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
  */
 export interface ExpressRouteCircuitAuthorizationArgs {
     /**
-     * The name of the authorization.
-     */
-    readonly authorizationName: pulumi.Input<string>;
-    /**
      * The name of the express route circuit.
      */
     readonly circuitName: pulumi.Input<string>;
@@ -112,9 +107,9 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the authorization.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the express route circuit authorization.
      */

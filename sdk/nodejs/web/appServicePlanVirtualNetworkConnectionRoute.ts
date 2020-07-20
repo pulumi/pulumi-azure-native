@@ -72,9 +72,6 @@ export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomRe
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.routeName === undefined) {
-                throw new Error("Missing required property 'routeName'");
-            }
             if (!args || args.vnetName === undefined) {
                 throw new Error("Missing required property 'vnetName'");
             }
@@ -82,7 +79,6 @@ export class AppServicePlanVirtualNetworkConnectionRoute extends pulumi.CustomRe
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeName"] = args ? args.routeName : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
             inputs["type"] = undefined /*out*/;
         }
@@ -106,7 +102,7 @@ export interface AppServicePlanVirtualNetworkConnectionRouteArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the App Service plan.
+     * Name of the Virtual Network route.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -117,10 +113,6 @@ export interface AppServicePlanVirtualNetworkConnectionRouteArgs {
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Name of the Virtual Network route.
-     */
-    readonly routeName: pulumi.Input<string>;
     /**
      * Name of the Virtual Network.
      */

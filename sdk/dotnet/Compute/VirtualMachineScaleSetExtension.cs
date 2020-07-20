@@ -78,10 +78,10 @@ namespace Pulumi.AzureRM.Compute
     public sealed class VirtualMachineScaleSetExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the extension.
+        /// The name of the VM scale set extension.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Describes the properties of a Virtual Machine Scale Set Extension.
@@ -100,12 +100,6 @@ namespace Pulumi.AzureRM.Compute
         /// </summary>
         [Input("vmScaleSetName", required: true)]
         public Input<string> VmScaleSetName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the VM scale set extension.
-        /// </summary>
-        [Input("vmssExtensionName", required: true)]
-        public Input<string> VmssExtensionName { get; set; } = null!;
 
         public VirtualMachineScaleSetExtensionArgs()
         {

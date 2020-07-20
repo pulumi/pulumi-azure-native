@@ -17,24 +17,19 @@ export function getAppServiceSlotSiteextension(args: GetAppServiceSlotSiteextens
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotSiteextension", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "siteExtensionId": args.siteExtensionId,
         "slot": args.slot,
     }, opts);
 }
 
 export interface GetAppServiceSlotSiteextensionArgs {
     /**
-     * Site name.
+     * Site extension name.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
-    /**
-     * Site extension name.
-     */
-    readonly siteExtensionId: string;
     /**
      * Name of the deployment slot. If a slot is not specified, the API uses the production slot.
      */

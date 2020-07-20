@@ -84,19 +84,13 @@ namespace Pulumi.AzureRM.Web
     public sealed class AppServiceSlotHybridconnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the hybrid connection configuration.
-        /// </summary>
-        [Input("entityName", required: true)]
-        public Input<string> EntityName { get; set; } = null!;
-
-        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of the app.
+        /// Name of the hybrid connection configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

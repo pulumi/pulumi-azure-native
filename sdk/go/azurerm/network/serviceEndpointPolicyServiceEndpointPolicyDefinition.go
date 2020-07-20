@@ -25,11 +25,11 @@ type ServiceEndpointPolicyServiceEndpointPolicyDefinition struct {
 // NewServiceEndpointPolicyServiceEndpointPolicyDefinition registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointPolicyServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 	name string, args *ServiceEndpointPolicyServiceEndpointPolicyDefinitionArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointPolicyServiceEndpointPolicyDefinition, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceEndpointPolicyDefinitionName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointPolicyDefinitionName'")
 	}
 	if args == nil || args.ServiceEndpointPolicyName == nil {
 		return nil, errors.New("missing required argument 'ServiceEndpointPolicyName'")
@@ -83,14 +83,12 @@ func (ServiceEndpointPolicyServiceEndpointPolicyDefinitionState) ElementType() r
 type serviceEndpointPolicyServiceEndpointPolicyDefinitionArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the service endpoint policy definition name.
+	Name string `pulumi:"name"`
 	// Properties of the service endpoint policy definition.
 	Properties *ServiceEndpointPolicyDefinitionPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service endpoint policy definition name.
-	ServiceEndpointPolicyDefinitionName string `pulumi:"serviceEndpointPolicyDefinitionName"`
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
 }
@@ -99,14 +97,12 @@ type serviceEndpointPolicyServiceEndpointPolicyDefinitionArgs struct {
 type ServiceEndpointPolicyServiceEndpointPolicyDefinitionArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the service endpoint policy definition name.
+	Name pulumi.StringInput
 	// Properties of the service endpoint policy definition.
 	Properties ServiceEndpointPolicyDefinitionPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The name of the service endpoint policy definition name.
-	ServiceEndpointPolicyDefinitionName pulumi.StringInput
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName pulumi.StringInput
 }

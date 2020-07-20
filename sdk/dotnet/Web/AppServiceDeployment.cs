@@ -84,19 +84,13 @@ namespace Pulumi.AzureRM.Web
     public sealed class AppServiceDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of an existing deployment.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of the app.
+        /// ID of an existing deployment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

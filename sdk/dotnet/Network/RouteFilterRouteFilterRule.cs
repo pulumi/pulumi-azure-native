@@ -96,10 +96,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the route filter rule.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the route filter rule.
@@ -118,12 +118,6 @@ namespace Pulumi.AzureRM.Network
         /// </summary>
         [Input("routeFilterName", required: true)]
         public Input<string> RouteFilterName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the route filter rule.
-        /// </summary>
-        [Input("ruleName", required: true)]
-        public Input<string> RuleName { get; set; } = null!;
 
         public RouteFilterRouteFilterRuleArgs()
         {

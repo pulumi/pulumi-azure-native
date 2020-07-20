@@ -23,9 +23,6 @@ type ExpressRouteGatewayExpressRouteConnection struct {
 // NewExpressRouteGatewayExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteGatewayExpressRouteConnection(ctx *pulumi.Context,
 	name string, args *ExpressRouteGatewayExpressRouteConnectionArgs, opts ...pulumi.ResourceOption) (*ExpressRouteGatewayExpressRouteConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
-	}
 	if args == nil || args.ExpressRouteGatewayName == nil {
 		return nil, errors.New("missing required argument 'ExpressRouteGatewayName'")
 	}
@@ -78,13 +75,11 @@ func (ExpressRouteGatewayExpressRouteConnectionState) ElementType() reflect.Type
 }
 
 type expressRouteGatewayExpressRouteConnectionArgs struct {
-	// The name of the connection subresource.
-	ConnectionName string `pulumi:"connectionName"`
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource.
+	// The name of the connection subresource.
 	Name string `pulumi:"name"`
 	// Properties of the express route connection.
 	Properties *ExpressRouteConnectionProperties `pulumi:"properties"`
@@ -94,13 +89,11 @@ type expressRouteGatewayExpressRouteConnectionArgs struct {
 
 // The set of arguments for constructing a ExpressRouteGatewayExpressRouteConnection resource.
 type ExpressRouteGatewayExpressRouteConnectionArgs struct {
-	// The name of the connection subresource.
-	ConnectionName pulumi.StringInput
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource.
+	// The name of the connection subresource.
 	Name pulumi.StringInput
 	// Properties of the express route connection.
 	Properties ExpressRouteConnectionPropertiesPtrInput

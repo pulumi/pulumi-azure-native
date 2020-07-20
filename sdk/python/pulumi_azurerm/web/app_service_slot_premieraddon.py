@@ -39,7 +39,7 @@ class AppServiceSlotPremieraddon(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, premier_add_on_name=None, properties=None, resource_group_name=None, slot=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, slot=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Premier add-on.
 
@@ -47,8 +47,7 @@ class AppServiceSlotPremieraddon(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Name of the app.
-        :param pulumi.Input[str] premier_add_on_name: Add-on name.
+        :param pulumi.Input[str] name: Add-on name.
         :param pulumi.Input[dict] properties: PremierAddOn resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
@@ -86,9 +85,6 @@ class AppServiceSlotPremieraddon(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if premier_add_on_name is None:
-                raise TypeError("Missing required property 'premier_add_on_name'")
-            __props__['premier_add_on_name'] = premier_add_on_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

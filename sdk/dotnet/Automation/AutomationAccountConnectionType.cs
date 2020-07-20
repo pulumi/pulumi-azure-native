@@ -86,12 +86,6 @@ namespace Pulumi.AzureRM.Automation
         /// <summary>
         /// The parameters supplied to the create or update connection type operation.
         /// </summary>
-        [Input("connectionTypeName", required: true)]
-        public Input<string> ConnectionTypeName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the name of the connection type.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

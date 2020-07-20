@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the name of the Schedule.
+        /// The schedule name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,12 +100,6 @@ namespace Pulumi.AzureRM.Automation
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The schedule name.
-        /// </summary>
-        [Input("scheduleName", required: true)]
-        public Input<string> ScheduleName { get; set; } = null!;
 
         public AutomationAccountScheduleArgs()
         {

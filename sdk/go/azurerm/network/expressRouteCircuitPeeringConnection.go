@@ -30,8 +30,8 @@ func NewExpressRouteCircuitPeeringConnection(ctx *pulumi.Context,
 	if args == nil || args.CircuitName == nil {
 		return nil, errors.New("missing required argument 'CircuitName'")
 	}
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.PeeringName == nil {
 		return nil, errors.New("missing required argument 'PeeringName'")
@@ -92,12 +92,10 @@ func (ExpressRouteCircuitPeeringConnectionState) ElementType() reflect.Type {
 type expressRouteCircuitPeeringConnectionArgs struct {
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
-	// The name of the express route circuit connection.
-	ConnectionName string `pulumi:"connectionName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the express route circuit connection.
+	Name string `pulumi:"name"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
 	// Properties of the express route circuit connection.
@@ -110,12 +108,10 @@ type expressRouteCircuitPeeringConnectionArgs struct {
 type ExpressRouteCircuitPeeringConnectionArgs struct {
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
-	// The name of the express route circuit connection.
-	ConnectionName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the express route circuit connection.
+	Name pulumi.StringInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
 	// Properties of the express route circuit connection.

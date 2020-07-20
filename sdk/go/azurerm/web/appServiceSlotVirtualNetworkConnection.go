@@ -36,9 +36,6 @@ func NewAppServiceSlotVirtualNetworkConnection(ctx *pulumi.Context,
 	if args == nil || args.Slot == nil {
 		return nil, errors.New("missing required argument 'Slot'")
 	}
-	if args == nil || args.VnetName == nil {
-		return nil, errors.New("missing required argument 'VnetName'")
-	}
 	if args == nil {
 		args = &AppServiceSlotVirtualNetworkConnectionArgs{}
 	}
@@ -92,7 +89,7 @@ func (AppServiceSlotVirtualNetworkConnectionState) ElementType() reflect.Type {
 type appServiceSlotVirtualNetworkConnectionArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// Name of an existing Virtual Network.
 	Name string `pulumi:"name"`
 	// VnetInfo resource specific properties
 	Properties *VnetInfoProperties `pulumi:"properties"`
@@ -100,15 +97,13 @@ type appServiceSlotVirtualNetworkConnectionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot string `pulumi:"slot"`
-	// Name of an existing Virtual Network.
-	VnetName string `pulumi:"vnetName"`
 }
 
 // The set of arguments for constructing a AppServiceSlotVirtualNetworkConnection resource.
 type AppServiceSlotVirtualNetworkConnectionArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// Name of an existing Virtual Network.
 	Name pulumi.StringInput
 	// VnetInfo resource specific properties
 	Properties VnetInfoPropertiesPtrInput
@@ -116,8 +111,6 @@ type AppServiceSlotVirtualNetworkConnectionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot pulumi.StringInput
-	// Name of an existing Virtual Network.
-	VnetName pulumi.StringInput
 }
 
 func (AppServiceSlotVirtualNetworkConnectionArgs) ElementType() reflect.Type {

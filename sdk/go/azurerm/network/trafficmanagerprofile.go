@@ -29,8 +29,8 @@ type Trafficmanagerprofile struct {
 // NewTrafficmanagerprofile registers a new resource with the given unique name, arguments, and options.
 func NewTrafficmanagerprofile(ctx *pulumi.Context,
 	name string, args *TrafficmanagerprofileArgs, opts ...pulumi.ResourceOption) (*Trafficmanagerprofile, error) {
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -94,10 +94,8 @@ type trafficmanagerprofileArgs struct {
 	Id *string `pulumi:"id"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
 	// The name of the Traffic Manager profile.
-	ProfileName string `pulumi:"profileName"`
+	Name string `pulumi:"name"`
 	// The properties of the Traffic Manager profile.
 	Properties *ProfileProperties `pulumi:"properties"`
 	// The name of the resource group containing the Traffic Manager profile.
@@ -114,10 +112,8 @@ type TrafficmanagerprofileArgs struct {
 	Id pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
 	// The name of the Traffic Manager profile.
-	ProfileName pulumi.StringInput
+	Name pulumi.StringInput
 	// The properties of the Traffic Manager profile.
 	Properties ProfilePropertiesPtrInput
 	// The name of the resource group containing the Traffic Manager profile.

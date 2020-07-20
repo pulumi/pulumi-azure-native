@@ -19,7 +19,7 @@ namespace Pulumi.AzureRM.Web
     public sealed class GetAppServiceHybridConnectionNamespaceRelayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the web app.
+        /// The relay name for this hybrid connection.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -29,12 +29,6 @@ namespace Pulumi.AzureRM.Web
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
-
-        /// <summary>
-        /// The relay name for this hybrid connection.
-        /// </summary>
-        [Input("relayName", required: true)]
-        public string RelayName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

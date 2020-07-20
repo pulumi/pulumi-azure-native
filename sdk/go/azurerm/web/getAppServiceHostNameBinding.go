@@ -18,8 +18,6 @@ func LookupAppServiceHostNameBinding(ctx *pulumi.Context, args *LookupAppService
 
 type LookupAppServiceHostNameBindingArgs struct {
 	// Hostname in the hostname binding.
-	HostName string `pulumi:"hostName"`
-	// Name of the app.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

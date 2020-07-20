@@ -77,8 +77,8 @@ export class AutomationAccountModule extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.moduleName === undefined) {
-                throw new Error("Missing required property 'moduleName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -88,7 +88,6 @@ export class AutomationAccountModule extends pulumi.CustomResource {
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["moduleName"] = args ? args.moduleName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -122,11 +121,7 @@ export interface AutomationAccountModuleArgs {
     /**
      * The name of module.
      */
-    readonly moduleName: pulumi.Input<string>;
-    /**
-     * Gets or sets name of the resource.
-     */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Gets or sets the module create properties.
      */

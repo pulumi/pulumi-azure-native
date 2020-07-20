@@ -26,14 +26,13 @@ class RedisPatchSchedule(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, default=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Response to put/get patch schedules for Redis cache.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
-        :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input[str] name: Default string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[dict] properties: List of patch schedules for a Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
@@ -61,9 +60,6 @@ class RedisPatchSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if default is None:
-                raise TypeError("Missing required property 'default'")
-            __props__['default'] = default
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

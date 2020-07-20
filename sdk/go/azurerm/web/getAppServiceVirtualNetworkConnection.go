@@ -17,12 +17,10 @@ func LookupAppServiceVirtualNetworkConnection(ctx *pulumi.Context, args *LookupA
 }
 
 type LookupAppServiceVirtualNetworkConnectionArgs struct {
-	// Name of the app.
+	// Name of the virtual network.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the virtual network.
-	VnetName string `pulumi:"vnetName"`
 }
 
 // Virtual Network information contract.

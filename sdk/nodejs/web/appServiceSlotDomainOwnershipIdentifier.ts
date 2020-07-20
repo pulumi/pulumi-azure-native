@@ -66,9 +66,6 @@ export class AppServiceSlotDomainOwnershipIdentifier extends pulumi.CustomResour
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceSlotDomainOwnershipIdentifierArgs | undefined;
-            if (!args || args.domainOwnershipIdentifierName === undefined) {
-                throw new Error("Missing required property 'domainOwnershipIdentifierName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -78,7 +75,6 @@ export class AppServiceSlotDomainOwnershipIdentifier extends pulumi.CustomResour
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -102,15 +98,11 @@ export class AppServiceSlotDomainOwnershipIdentifier extends pulumi.CustomResour
  */
 export interface AppServiceSlotDomainOwnershipIdentifierArgs {
     /**
-     * Name of domain ownership identifier.
-     */
-    readonly domainOwnershipIdentifierName: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Name of domain ownership identifier.
      */
     readonly name: pulumi.Input<string>;
     /**

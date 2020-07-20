@@ -110,14 +110,8 @@ namespace Pulumi.AzureRM.Automation
         /// <summary>
         /// The name of module.
         /// </summary>
-        [Input("moduleName", required: true)]
-        public Input<string> ModuleName { get; set; } = null!;
-
-        /// <summary>
-        /// Gets or sets name of the resource.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the module create properties.

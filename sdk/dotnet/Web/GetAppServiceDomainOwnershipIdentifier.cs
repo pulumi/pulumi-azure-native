@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.Web
         /// <summary>
         /// Name of domain ownership identifier.
         /// </summary>
-        [Input("domainOwnershipIdentifierName", required: true)]
-        public string DomainOwnershipIdentifierName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the app.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

@@ -66,16 +66,15 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as LoadBalancerBackendAddressPoolArgs | undefined;
-            if (!args || args.backendAddressPoolName === undefined) {
-                throw new Error("Missing required property 'backendAddressPoolName'");
-            }
             if (!args || args.loadBalancerName === undefined) {
                 throw new Error("Missing required property 'loadBalancerName'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["backendAddressPoolName"] = args ? args.backendAddressPoolName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -100,10 +99,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
  */
 export interface LoadBalancerBackendAddressPoolArgs {
     /**
-     * The name of the backend address pool.
-     */
-    readonly backendAddressPoolName: pulumi.Input<string>;
-    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -112,9 +107,9 @@ export interface LoadBalancerBackendAddressPoolArgs {
      */
     readonly loadBalancerName: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+     * The name of the backend address pool.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of load balancer backend address pool.
      */

@@ -15,7 +15,6 @@ export function getAppServiceFunction(args: GetAppServiceFunctionArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceFunction", {
-        "functionName": args.functionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,10 +23,6 @@ export function getAppServiceFunction(args: GetAppServiceFunctionArgs, opts?: pu
 export interface GetAppServiceFunctionArgs {
     /**
      * Function name.
-     */
-    readonly functionName: string;
-    /**
-     * Site name.
      */
     readonly name: string;
     /**

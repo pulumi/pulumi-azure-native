@@ -62,11 +62,11 @@ export class ServiceEndpointPolicyServiceEndpointPolicyDefinition extends pulumi
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServiceEndpointPolicyServiceEndpointPolicyDefinitionArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.serviceEndpointPolicyDefinitionName === undefined) {
-                throw new Error("Missing required property 'serviceEndpointPolicyDefinitionName'");
             }
             if (!args || args.serviceEndpointPolicyName === undefined) {
                 throw new Error("Missing required property 'serviceEndpointPolicyName'");
@@ -75,7 +75,6 @@ export class ServiceEndpointPolicyServiceEndpointPolicyDefinition extends pulumi
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceEndpointPolicyDefinitionName"] = args ? args.serviceEndpointPolicyDefinitionName : undefined;
             inputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             inputs["etag"] = undefined /*out*/;
         }
@@ -99,9 +98,9 @@ export interface ServiceEndpointPolicyServiceEndpointPolicyDefinitionArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the service endpoint policy definition name.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the service endpoint policy definition.
      */
@@ -110,10 +109,6 @@ export interface ServiceEndpointPolicyServiceEndpointPolicyDefinitionArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the service endpoint policy definition name.
-     */
-    readonly serviceEndpointPolicyDefinitionName: pulumi.Input<string>;
     /**
      * The name of the service endpoint policy.
      */

@@ -66,16 +66,12 @@ export class AppServiceDomainOwnershipIdentifier extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceDomainOwnershipIdentifierArgs | undefined;
-            if (!args || args.domainOwnershipIdentifierName === undefined) {
-                throw new Error("Missing required property 'domainOwnershipIdentifierName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -98,15 +94,11 @@ export class AppServiceDomainOwnershipIdentifier extends pulumi.CustomResource {
  */
 export interface AppServiceDomainOwnershipIdentifierArgs {
     /**
-     * Name of domain ownership identifier.
-     */
-    readonly domainOwnershipIdentifierName: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Name of domain ownership identifier.
      */
     readonly name: pulumi.Input<string>;
     /**

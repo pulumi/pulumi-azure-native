@@ -102,16 +102,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
-        [Input("profileName", required: true)]
-        public Input<string> ProfileName { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties of the Traffic Manager profile.

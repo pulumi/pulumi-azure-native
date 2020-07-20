@@ -27,9 +27,6 @@ type AppServiceSlotDomainOwnershipIdentifier struct {
 // NewAppServiceSlotDomainOwnershipIdentifier registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceSlotDomainOwnershipIdentifier(ctx *pulumi.Context,
 	name string, args *AppServiceSlotDomainOwnershipIdentifierArgs, opts ...pulumi.ResourceOption) (*AppServiceSlotDomainOwnershipIdentifier, error) {
-	if args == nil || args.DomainOwnershipIdentifierName == nil {
-		return nil, errors.New("missing required argument 'DomainOwnershipIdentifierName'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -90,11 +87,9 @@ func (AppServiceSlotDomainOwnershipIdentifierState) ElementType() reflect.Type {
 }
 
 type appServiceSlotDomainOwnershipIdentifierArgs struct {
-	// Name of domain ownership identifier.
-	DomainOwnershipIdentifierName string `pulumi:"domainOwnershipIdentifierName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// Name of domain ownership identifier.
 	Name string `pulumi:"name"`
 	// Identifier resource specific properties
 	Properties *IdentifierProperties `pulumi:"properties"`
@@ -106,11 +101,9 @@ type appServiceSlotDomainOwnershipIdentifierArgs struct {
 
 // The set of arguments for constructing a AppServiceSlotDomainOwnershipIdentifier resource.
 type AppServiceSlotDomainOwnershipIdentifierArgs struct {
-	// Name of domain ownership identifier.
-	DomainOwnershipIdentifierName pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// Name of domain ownership identifier.
 	Name pulumi.StringInput
 	// Identifier resource specific properties
 	Properties IdentifierPropertiesPtrInput

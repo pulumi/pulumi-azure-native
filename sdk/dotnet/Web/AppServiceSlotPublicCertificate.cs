@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Web
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Name of the app.
+        /// Public certificate name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -100,12 +100,6 @@ namespace Pulumi.AzureRM.Web
         /// </summary>
         [Input("properties")]
         public Input<Inputs.PublicCertificatePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
-        /// Public certificate name.
-        /// </summary>
-        [Input("publicCertificateName", required: true)]
-        public Input<string> PublicCertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

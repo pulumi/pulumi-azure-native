@@ -62,8 +62,8 @@ export class PrivateEndpointPrivateDnsZoneGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateEndpointPrivateDnsZoneGroupArgs | undefined;
-            if (!args || args.privateDnsZoneGroupName === undefined) {
-                throw new Error("Missing required property 'privateDnsZoneGroupName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.privateEndpointName === undefined) {
                 throw new Error("Missing required property 'privateEndpointName'");
@@ -73,7 +73,6 @@ export class PrivateEndpointPrivateDnsZoneGroup extends pulumi.CustomResource {
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["privateDnsZoneGroupName"] = args ? args.privateDnsZoneGroupName : undefined;
             inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -99,13 +98,9 @@ export interface PrivateEndpointPrivateDnsZoneGroupArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * Name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The name of the private dns zone group.
      */
-    readonly privateDnsZoneGroupName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The name of the private endpoint.
      */

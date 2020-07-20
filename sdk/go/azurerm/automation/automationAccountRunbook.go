@@ -34,14 +34,14 @@ func NewAutomationAccountRunbook(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RunbookName == nil {
-		return nil, errors.New("missing required argument 'RunbookName'")
 	}
 	if args == nil {
 		args = &AutomationAccountRunbookArgs{}
@@ -106,14 +106,12 @@ type automationAccountRunbookArgs struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
-	// Gets or sets the name of the resource.
-	Name *string `pulumi:"name"`
+	// The runbook name.
+	Name string `pulumi:"name"`
 	// Gets or sets runbook create or update properties.
 	Properties RunbookCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The runbook name.
-	RunbookName string `pulumi:"runbookName"`
 	// Gets or sets the tags attached to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,14 +122,12 @@ type AutomationAccountRunbookArgs struct {
 	AutomationAccountName pulumi.StringInput
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
-	// Gets or sets the name of the resource.
-	Name pulumi.StringPtrInput
+	// The runbook name.
+	Name pulumi.StringInput
 	// Gets or sets runbook create or update properties.
 	Properties RunbookCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
-	// The runbook name.
-	RunbookName pulumi.StringInput
 	// Gets or sets the tags attached to the resource.
 	Tags pulumi.StringMapInput
 }

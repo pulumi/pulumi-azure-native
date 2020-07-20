@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.Cache
         /// <summary>
         /// The name of the linked server.
         /// </summary>
-        [Input("linkedServerName", required: true)]
-        public string LinkedServerName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the redis cache.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

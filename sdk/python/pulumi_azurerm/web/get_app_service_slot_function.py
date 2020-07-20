@@ -52,17 +52,15 @@ class AwaitableGetAppServiceSlotFunctionResult(GetAppServiceSlotFunctionResult):
             type=self.type)
 
 
-def get_app_service_slot_function(function_name=None, name=None, resource_group_name=None, slot=None, opts=None):
+def get_app_service_slot_function(name=None, resource_group_name=None, slot=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str function_name: Function name.
-    :param str name: Site name.
+    :param str name: Function name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of the deployment slot.
     """
     __args__ = dict()
-    __args__['functionName'] = function_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot

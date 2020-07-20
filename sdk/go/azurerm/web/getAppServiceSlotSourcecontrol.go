@@ -17,12 +17,10 @@ func LookupAppServiceSlotSourcecontrol(ctx *pulumi.Context, args *LookupAppServi
 }
 
 type LookupAppServiceSlotSourcecontrolArgs struct {
-	// Name of the app.
+	// Name of the deployment slot. If a slot is not specified, the API will get the source control configuration for the production slot.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get the source control configuration for the production slot.
-	Slot string `pulumi:"slot"`
 }
 
 // Source control configuration for an app.

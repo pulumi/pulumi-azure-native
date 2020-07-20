@@ -77,8 +77,8 @@ export class AutomationAccountConfiguration extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.configurationName === undefined) {
-                throw new Error("Missing required property 'configurationName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.properties === undefined) {
                 throw new Error("Missing required property 'properties'");
@@ -87,7 +87,6 @@ export class AutomationAccountConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["configurationName"] = args ? args.configurationName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -116,17 +115,13 @@ export interface AutomationAccountConfigurationArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
-     * The create or update parameters for configuration.
-     */
-    readonly configurationName: pulumi.Input<string>;
-    /**
      * Gets or sets the location of the resource.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Gets or sets name of the resource.
+     * The create or update parameters for configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Gets or sets configuration create or update properties.
      */

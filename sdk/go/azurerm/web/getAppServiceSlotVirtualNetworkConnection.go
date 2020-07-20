@@ -17,14 +17,12 @@ func LookupAppServiceSlotVirtualNetworkConnection(ctx *pulumi.Context, args *Loo
 }
 
 type LookupAppServiceSlotVirtualNetworkConnectionArgs struct {
-	// Name of the app.
+	// Name of the virtual network.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
 	Slot string `pulumi:"slot"`
-	// Name of the virtual network.
-	VnetName string `pulumi:"vnetName"`
 }
 
 // Virtual Network information contract.

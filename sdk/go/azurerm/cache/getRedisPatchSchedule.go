@@ -18,8 +18,6 @@ func LookupRedisPatchSchedule(ctx *pulumi.Context, args *LookupRedisPatchSchedul
 
 type LookupRedisPatchScheduleArgs struct {
 	// Default string modeled as parameter for auto generation to work correctly.
-	Default string `pulumi:"default"`
-	// The name of the redis cache.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

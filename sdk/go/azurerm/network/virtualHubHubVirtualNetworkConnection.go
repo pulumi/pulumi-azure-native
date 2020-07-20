@@ -25,8 +25,8 @@ type VirtualHubHubVirtualNetworkConnection struct {
 // NewVirtualHubHubVirtualNetworkConnection registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHubHubVirtualNetworkConnection(ctx *pulumi.Context,
 	name string, args *VirtualHubHubVirtualNetworkConnectionArgs, opts ...pulumi.ResourceOption) (*VirtualHubHubVirtualNetworkConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -81,12 +81,10 @@ func (VirtualHubHubVirtualNetworkConnectionState) ElementType() reflect.Type {
 }
 
 type virtualHubHubVirtualNetworkConnectionArgs struct {
-	// The name of the HubVirtualNetworkConnection.
-	ConnectionName string `pulumi:"connectionName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the HubVirtualNetworkConnection.
+	Name string `pulumi:"name"`
 	// Properties of the hub virtual network connection.
 	Properties *HubVirtualNetworkConnectionProperties `pulumi:"properties"`
 	// The resource group name of the HubVirtualNetworkConnection.
@@ -97,12 +95,10 @@ type virtualHubHubVirtualNetworkConnectionArgs struct {
 
 // The set of arguments for constructing a VirtualHubHubVirtualNetworkConnection resource.
 type VirtualHubHubVirtualNetworkConnectionArgs struct {
-	// The name of the HubVirtualNetworkConnection.
-	ConnectionName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the HubVirtualNetworkConnection.
+	Name pulumi.StringInput
 	// Properties of the hub virtual network connection.
 	Properties HubVirtualNetworkConnectionPropertiesPtrInput
 	// The resource group name of the HubVirtualNetworkConnection.

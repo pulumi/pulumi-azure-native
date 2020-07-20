@@ -34,8 +34,8 @@ func NewAutomationAccountModule(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.ModuleName == nil {
-		return nil, errors.New("missing required argument 'ModuleName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -107,9 +107,7 @@ type automationAccountModuleArgs struct {
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of module.
-	ModuleName string `pulumi:"moduleName"`
-	// Gets or sets name of the resource.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Gets or sets the module create properties.
 	Properties ModuleCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
@@ -125,9 +123,7 @@ type AutomationAccountModuleArgs struct {
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of module.
-	ModuleName pulumi.StringInput
-	// Gets or sets name of the resource.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Gets or sets the module create properties.
 	Properties ModuleCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.

@@ -33,9 +33,6 @@ func NewAppServiceHybridConnectionNamespaceRelay(ctx *pulumi.Context,
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
-	if args == nil || args.RelayName == nil {
-		return nil, errors.New("missing required argument 'RelayName'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -92,14 +89,12 @@ func (AppServiceHybridConnectionNamespaceRelayState) ElementType() reflect.Type 
 type appServiceHybridConnectionNamespaceRelayArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// The name of the web app.
+	// The relay name for this hybrid connection.
 	Name string `pulumi:"name"`
 	// The namespace for this hybrid connection.
 	NamespaceName string `pulumi:"namespaceName"`
 	// HybridConnection resource specific properties
 	Properties *HybridConnectionProperties `pulumi:"properties"`
-	// The relay name for this hybrid connection.
-	RelayName string `pulumi:"relayName"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -108,14 +103,12 @@ type appServiceHybridConnectionNamespaceRelayArgs struct {
 type AppServiceHybridConnectionNamespaceRelayArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// The name of the web app.
+	// The relay name for this hybrid connection.
 	Name pulumi.StringInput
 	// The namespace for this hybrid connection.
 	NamespaceName pulumi.StringInput
 	// HybridConnection resource specific properties
 	Properties HybridConnectionPropertiesPtrInput
-	// The relay name for this hybrid connection.
-	RelayName pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 }

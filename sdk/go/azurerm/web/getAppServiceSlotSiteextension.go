@@ -17,12 +17,10 @@ func LookupAppServiceSlotSiteextension(ctx *pulumi.Context, args *LookupAppServi
 }
 
 type LookupAppServiceSlotSiteextensionArgs struct {
-	// Site name.
+	// Site extension name.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site extension name.
-	SiteExtensionId string `pulumi:"siteExtensionId"`
 	// Name of the deployment slot. If a slot is not specified, the API uses the production slot.
 	Slot string `pulumi:"slot"`
 }

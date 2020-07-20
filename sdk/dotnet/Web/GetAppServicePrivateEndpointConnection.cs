@@ -18,14 +18,8 @@ namespace Pulumi.AzureRM.Web
 
     public sealed class GetAppServicePrivateEndpointConnectionArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the site.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
-
-        [Input("privateEndpointConnectionName", required: true)]
-        public string PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

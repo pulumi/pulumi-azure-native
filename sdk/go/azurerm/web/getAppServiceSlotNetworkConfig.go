@@ -17,12 +17,10 @@ func LookupAppServiceSlotNetworkConfig(ctx *pulumi.Context, args *LookupAppServi
 }
 
 type LookupAppServiceSlotNetworkConfigArgs struct {
-	// Name of the app.
+	// Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
 	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
-	Slot string `pulumi:"slot"`
 }
 
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.

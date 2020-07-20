@@ -27,9 +27,6 @@ type AppServiceSlotDeployment struct {
 // NewAppServiceSlotDeployment registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceSlotDeployment(ctx *pulumi.Context,
 	name string, args *AppServiceSlotDeploymentArgs, opts ...pulumi.ResourceOption) (*AppServiceSlotDeployment, error) {
-	if args == nil || args.Id == nil {
-		return nil, errors.New("missing required argument 'Id'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -90,11 +87,9 @@ func (AppServiceSlotDeploymentState) ElementType() reflect.Type {
 }
 
 type appServiceSlotDeploymentArgs struct {
-	// ID of an existing deployment.
-	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	// ID of an existing deployment.
 	Name string `pulumi:"name"`
 	// Deployment resource specific properties
 	Properties *DeploymentProperties `pulumi:"properties"`
@@ -106,11 +101,9 @@ type appServiceSlotDeploymentArgs struct {
 
 // The set of arguments for constructing a AppServiceSlotDeployment resource.
 type AppServiceSlotDeploymentArgs struct {
-	// ID of an existing deployment.
-	Id pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Name of the app.
+	// ID of an existing deployment.
 	Name pulumi.StringInput
 	// Deployment resource specific properties
 	Properties DeploymentPropertiesPtrInput

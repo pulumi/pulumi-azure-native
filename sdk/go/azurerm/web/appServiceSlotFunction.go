@@ -27,9 +27,6 @@ type AppServiceSlotFunction struct {
 // NewAppServiceSlotFunction registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceSlotFunction(ctx *pulumi.Context,
 	name string, args *AppServiceSlotFunctionArgs, opts ...pulumi.ResourceOption) (*AppServiceSlotFunction, error) {
-	if args == nil || args.FunctionName == nil {
-		return nil, errors.New("missing required argument 'FunctionName'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -90,11 +87,9 @@ func (AppServiceSlotFunctionState) ElementType() reflect.Type {
 }
 
 type appServiceSlotFunctionArgs struct {
-	// Function name.
-	FunctionName string `pulumi:"functionName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// Site name.
+	// Function name.
 	Name string `pulumi:"name"`
 	// FunctionEnvelope resource specific properties
 	Properties *FunctionEnvelopeProperties `pulumi:"properties"`
@@ -106,11 +101,9 @@ type appServiceSlotFunctionArgs struct {
 
 // The set of arguments for constructing a AppServiceSlotFunction resource.
 type AppServiceSlotFunctionArgs struct {
-	// Function name.
-	FunctionName pulumi.StringInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
-	// Site name.
+	// Function name.
 	Name pulumi.StringInput
 	// FunctionEnvelope resource specific properties
 	Properties FunctionEnvelopePropertiesPtrInput

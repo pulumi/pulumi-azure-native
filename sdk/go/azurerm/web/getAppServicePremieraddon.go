@@ -17,10 +17,8 @@ func LookupAppServicePremieraddon(ctx *pulumi.Context, args *LookupAppServicePre
 }
 
 type LookupAppServicePremieraddonArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
 	// Add-on name.
-	PremierAddOnName string `pulumi:"premierAddOnName"`
+	Name string `pulumi:"name"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

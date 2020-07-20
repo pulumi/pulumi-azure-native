@@ -37,9 +37,6 @@ func NewAutomationAccountVariable(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.VariableName == nil {
-		return nil, errors.New("missing required argument 'VariableName'")
-	}
 	if args == nil {
 		args = &AutomationAccountVariableArgs{}
 	}
@@ -89,28 +86,24 @@ func (AutomationAccountVariableState) ElementType() reflect.Type {
 type automationAccountVariableArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the name of the variable.
+	// The variable name.
 	Name string `pulumi:"name"`
 	// Gets or sets the properties of the variable.
 	Properties VariableCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The variable name.
-	VariableName string `pulumi:"variableName"`
 }
 
 // The set of arguments for constructing a AutomationAccountVariable resource.
 type AutomationAccountVariableArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Gets or sets the name of the variable.
+	// The variable name.
 	Name pulumi.StringInput
 	// Gets or sets the properties of the variable.
 	Properties VariableCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
-	// The variable name.
-	VariableName pulumi.StringInput
 }
 
 func (AutomationAccountVariableArgs) ElementType() reflect.Type {

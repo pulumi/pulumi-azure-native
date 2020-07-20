@@ -27,11 +27,11 @@ type LoadBalancerInboundNatRule struct {
 // NewLoadBalancerInboundNatRule registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancerInboundNatRule(ctx *pulumi.Context,
 	name string, args *LoadBalancerInboundNatRuleArgs, opts ...pulumi.ResourceOption) (*LoadBalancerInboundNatRule, error) {
-	if args == nil || args.InboundNatRuleName == nil {
-		return nil, errors.New("missing required argument 'InboundNatRuleName'")
-	}
 	if args == nil || args.LoadBalancerName == nil {
 		return nil, errors.New("missing required argument 'LoadBalancerName'")
+	}
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,12 +89,10 @@ func (LoadBalancerInboundNatRuleState) ElementType() reflect.Type {
 type loadBalancerInboundNatRuleArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the inbound nat rule.
-	InboundNatRuleName string `pulumi:"inboundNatRuleName"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
-	// The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the inbound nat rule.
+	Name string `pulumi:"name"`
 	// Properties of load balancer inbound nat rule.
 	Properties *InboundNatRulePropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
@@ -105,12 +103,10 @@ type loadBalancerInboundNatRuleArgs struct {
 type LoadBalancerInboundNatRuleArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the inbound nat rule.
-	InboundNatRuleName pulumi.StringInput
 	// The name of the load balancer.
 	LoadBalancerName pulumi.StringInput
-	// The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the inbound nat rule.
+	Name pulumi.StringInput
 	// Properties of load balancer inbound nat rule.
 	Properties InboundNatRulePropertiesFormatPtrInput
 	// The name of the resource group.

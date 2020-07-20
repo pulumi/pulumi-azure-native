@@ -43,17 +43,16 @@ class AutomationAccountSchedule(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, schedule_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the schedule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] name: Gets or sets the name of the Schedule.
+        :param pulumi.Input[str] name: The schedule name.
         :param pulumi.Input[dict] properties: Gets or sets the list of schedule properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[str] schedule_name: The schedule name.
 
         The **properties** object supports the following:
 
@@ -101,9 +100,6 @@ class AutomationAccountSchedule(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schedule_name is None:
-                raise TypeError("Missing required property 'schedule_name'")
-            __props__['schedule_name'] = schedule_name
             __props__['type'] = None
         super(AutomationAccountSchedule, __self__).__init__(
             'azurerm:automation:AutomationAccountSchedule',

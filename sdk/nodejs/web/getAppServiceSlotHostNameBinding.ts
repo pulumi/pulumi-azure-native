@@ -15,7 +15,6 @@ export function getAppServiceSlotHostNameBinding(args: GetAppServiceSlotHostName
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotHostNameBinding", {
-        "hostName": args.hostName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -25,10 +24,6 @@ export function getAppServiceSlotHostNameBinding(args: GetAppServiceSlotHostName
 export interface GetAppServiceSlotHostNameBindingArgs {
     /**
      * Hostname in the hostname binding.
-     */
-    readonly hostName: string;
-    /**
-     * Name of the app.
      */
     readonly name: string;
     /**

@@ -84,10 +84,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the subnet.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the subnet.
@@ -100,12 +100,6 @@ namespace Pulumi.AzureRM.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the subnet.
-        /// </summary>
-        [Input("subnetName", required: true)]
-        public Input<string> SubnetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the virtual network.

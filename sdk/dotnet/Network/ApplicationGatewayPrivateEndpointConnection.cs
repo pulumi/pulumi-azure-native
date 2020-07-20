@@ -90,22 +90,16 @@ namespace Pulumi.AzureRM.Network
         public Input<string> ApplicationGatewayName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the application gateway private endpoint connection.
-        /// </summary>
-        [Input("connectionName", required: true)]
-        public Input<string> ConnectionName { get; set; } = null!;
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the private endpoint connection on an application gateway.
+        /// The name of the application gateway private endpoint connection.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the application gateway private endpoint connection.

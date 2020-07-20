@@ -15,7 +15,6 @@ export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:hybridcompute:getMachineExtension", {
-        "extensionName": args.extensionName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -24,10 +23,6 @@ export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi
 export interface GetMachineExtensionArgs {
     /**
      * The name of the machine extension.
-     */
-    readonly extensionName: string;
-    /**
-     * The name of the machine containing the extension.
      */
     readonly name: string;
     /**

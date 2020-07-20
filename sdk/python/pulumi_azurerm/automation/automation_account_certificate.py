@@ -28,15 +28,14 @@ class AutomationAccountCertificate(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, certificate_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the certificate.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[str] certificate_name: The parameters supplied to the create or update certificate operation.
-        :param pulumi.Input[str] name: Gets or sets the name of the certificate.
+        :param pulumi.Input[str] name: The parameters supplied to the create or update certificate operation.
         :param pulumi.Input[dict] properties: Gets or sets the properties of the certificate.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
 
@@ -67,9 +66,6 @@ class AutomationAccountCertificate(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if certificate_name is None:
-                raise TypeError("Missing required property 'certificate_name'")
-            __props__['certificate_name'] = certificate_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

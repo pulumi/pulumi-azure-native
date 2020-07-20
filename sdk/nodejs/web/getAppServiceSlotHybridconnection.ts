@@ -15,7 +15,6 @@ export function getAppServiceSlotHybridconnection(args: GetAppServiceSlotHybridc
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotHybridconnection", {
-        "entityName": args.entityName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
@@ -25,10 +24,6 @@ export function getAppServiceSlotHybridconnection(args: GetAppServiceSlotHybridc
 export interface GetAppServiceSlotHybridconnectionArgs {
     /**
      * Name of the hybrid connection.
-     */
-    readonly entityName: string;
-    /**
-     * Name of the app.
      */
     readonly name: string;
     /**

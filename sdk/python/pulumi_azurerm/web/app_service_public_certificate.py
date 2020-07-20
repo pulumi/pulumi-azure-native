@@ -29,16 +29,15 @@ class AppServicePublicCertificate(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, public_certificate_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Public certificate object
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] name: Public certificate name.
         :param pulumi.Input[dict] properties: PublicCertificate resource specific properties
-        :param pulumi.Input[str] public_certificate_name: Public certificate name.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
 
         The **properties** object supports the following:
@@ -68,9 +67,6 @@ class AppServicePublicCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
-            if public_certificate_name is None:
-                raise TypeError("Missing required property 'public_certificate_name'")
-            __props__['public_certificate_name'] = public_certificate_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

@@ -65,9 +65,6 @@ export class AutomationAccountCertificate extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.certificateName === undefined) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -78,7 +75,6 @@ export class AutomationAccountCertificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -105,10 +101,6 @@ export interface AutomationAccountCertificateArgs {
     readonly automationAccountName: pulumi.Input<string>;
     /**
      * The parameters supplied to the create or update certificate operation.
-     */
-    readonly certificateName: pulumi.Input<string>;
-    /**
-     * Gets or sets the name of the certificate.
      */
     readonly name: pulumi.Input<string>;
     /**

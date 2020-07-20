@@ -25,8 +25,8 @@ type PrivateEndpointPrivateDnsZoneGroup struct {
 // NewPrivateEndpointPrivateDnsZoneGroup registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointPrivateDnsZoneGroup(ctx *pulumi.Context,
 	name string, args *PrivateEndpointPrivateDnsZoneGroupArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointPrivateDnsZoneGroup, error) {
-	if args == nil || args.PrivateDnsZoneGroupName == nil {
-		return nil, errors.New("missing required argument 'PrivateDnsZoneGroupName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.PrivateEndpointName == nil {
 		return nil, errors.New("missing required argument 'PrivateEndpointName'")
@@ -83,10 +83,8 @@ func (PrivateEndpointPrivateDnsZoneGroupState) ElementType() reflect.Type {
 type privateEndpointPrivateDnsZoneGroupArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
 	// The name of the private dns zone group.
-	PrivateDnsZoneGroupName string `pulumi:"privateDnsZoneGroupName"`
+	Name string `pulumi:"name"`
 	// The name of the private endpoint.
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
 	// Properties of the private dns zone group.
@@ -99,10 +97,8 @@ type privateEndpointPrivateDnsZoneGroupArgs struct {
 type PrivateEndpointPrivateDnsZoneGroupArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
 	// The name of the private dns zone group.
-	PrivateDnsZoneGroupName pulumi.StringInput
+	Name pulumi.StringInput
 	// The name of the private endpoint.
 	PrivateEndpointName pulumi.StringInput
 	// Properties of the private dns zone group.

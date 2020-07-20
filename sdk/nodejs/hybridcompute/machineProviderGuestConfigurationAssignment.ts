@@ -66,16 +66,15 @@ export class MachineProviderGuestConfigurationAssignment extends pulumi.CustomRe
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MachineProviderGuestConfigurationAssignmentArgs | undefined;
-            if (!args || args.guestConfigurationAssignmentName === undefined) {
-                throw new Error("Missing required property 'guestConfigurationAssignmentName'");
-            }
             if (!args || args.machineName === undefined) {
                 throw new Error("Missing required property 'machineName'");
+            }
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["machineName"] = args ? args.machineName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -99,10 +98,6 @@ export class MachineProviderGuestConfigurationAssignment extends pulumi.CustomRe
  */
 export interface MachineProviderGuestConfigurationAssignmentArgs {
     /**
-     * Name of the guest configuration assignment.
-     */
-    readonly guestConfigurationAssignmentName: pulumi.Input<string>;
-    /**
      * Region where the VM is located.
      */
     readonly location?: pulumi.Input<string>;
@@ -113,7 +108,7 @@ export interface MachineProviderGuestConfigurationAssignmentArgs {
     /**
      * Name of the guest configuration assignment.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the Guest configuration assignment.
      */

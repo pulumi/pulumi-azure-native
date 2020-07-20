@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Web
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The name of the web app.
+        /// The relay name for this hybrid connection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -106,12 +106,6 @@ namespace Pulumi.AzureRM.Web
         /// </summary>
         [Input("properties")]
         public Input<Inputs.HybridConnectionPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
-        /// The relay name for this hybrid connection.
-        /// </summary>
-        [Input("relayName", required: true)]
-        public Input<string> RelayName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

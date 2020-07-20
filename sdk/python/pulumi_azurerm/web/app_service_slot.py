@@ -277,7 +277,7 @@ class AppServiceSlot(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, slot=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, identity=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A web app, a mobile app backend, or an API app.
 
@@ -286,10 +286,9 @@ class AppServiceSlot(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: Managed service identity.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
+        :param pulumi.Input[str] name: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[dict] properties: Site resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[str] slot: Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
         :param pulumi.Input[dict] tags: Resource tags.
 
         The **identity** object supports the following:
@@ -527,9 +526,6 @@ class AppServiceSlot(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if slot is None:
-                raise TypeError("Missing required property 'slot'")
-            __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = None
         super(AppServiceSlot, __self__).__init__(

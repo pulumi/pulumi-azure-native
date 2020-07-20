@@ -18,13 +18,12 @@ export function getAppServiceSlotVirtualNetworkConnection(args: GetAppServiceSlo
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
-        "vnetName": args.vnetName,
     }, opts);
 }
 
 export interface GetAppServiceSlotVirtualNetworkConnectionArgs {
     /**
-     * Name of the app.
+     * Name of the virtual network.
      */
     readonly name: string;
     /**
@@ -35,10 +34,6 @@ export interface GetAppServiceSlotVirtualNetworkConnectionArgs {
      * Name of the deployment slot. If a slot is not specified, the API will get the named virtual network for the production slot.
      */
     readonly slot: string;
-    /**
-     * Name of the virtual network.
-     */
-    readonly vnetName: string;
 }
 
 /**

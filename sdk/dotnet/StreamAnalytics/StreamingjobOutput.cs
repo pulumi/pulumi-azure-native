@@ -84,16 +84,10 @@ namespace Pulumi.AzureRM.StreamAnalytics
         public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
-        /// Resource name
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The name of the output.
         /// </summary>
-        [Input("outputName", required: true)]
-        public Input<string> OutputName { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.

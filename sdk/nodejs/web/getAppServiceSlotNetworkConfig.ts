@@ -17,23 +17,18 @@ export function getAppServiceSlotNetworkConfig(args: GetAppServiceSlotNetworkCon
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotNetworkConfig", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "slot": args.slot,
     }, opts);
 }
 
 export interface GetAppServiceSlotNetworkConfigArgs {
     /**
-     * Name of the app.
+     * Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
      */
     readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
-    /**
-     * Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
-     */
-    readonly slot: string;
 }
 
 /**

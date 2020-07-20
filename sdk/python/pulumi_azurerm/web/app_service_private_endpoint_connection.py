@@ -35,14 +35,13 @@ class AppServicePrivateEndpointConnection(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, private_endpoint_connection_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Private Endpoint Connection ARM resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the site.
         :param pulumi.Input[dict] properties: Core resource properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
 
@@ -74,9 +73,6 @@ class AppServicePrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if private_endpoint_connection_name is None:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
-            __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

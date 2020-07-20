@@ -33,15 +33,14 @@ class AppServiceHybridconnection(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, entity_name=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Hybrid Connection for an App Service app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] entity_name: Name of the hybrid connection configuration.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the app.
+        :param pulumi.Input[str] name: Name of the hybrid connection configuration.
         :param pulumi.Input[dict] properties: RelayServiceConnectionEntity resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
 
@@ -72,9 +71,6 @@ class AppServiceHybridconnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if entity_name is None:
-                raise TypeError("Missing required property 'entity_name'")
-            __props__['entity_name'] = entity_name
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")

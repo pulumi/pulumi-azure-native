@@ -29,15 +29,14 @@ class VirtualRouterPeering(pulumi.CustomResource):
     """
     Peering type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, peering_name=None, properties=None, resource_group_name=None, virtual_router_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_router_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual Router Peering resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: Name of the virtual router peering that is unique within a virtual router.
-        :param pulumi.Input[str] peering_name: The name of the Virtual Router Peering.
+        :param pulumi.Input[str] name: The name of the Virtual Router Peering.
         :param pulumi.Input[dict] properties: The properties of the Virtual Router Peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] virtual_router_name: The name of the Virtual Router.
@@ -65,10 +64,9 @@ class VirtualRouterPeering(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if peering_name is None:
-                raise TypeError("Missing required property 'peering_name'")
-            __props__['peering_name'] = peering_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

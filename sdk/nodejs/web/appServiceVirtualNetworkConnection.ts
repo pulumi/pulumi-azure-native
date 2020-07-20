@@ -72,14 +72,10 @@ export class AppServiceVirtualNetworkConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vnetName === undefined) {
-                throw new Error("Missing required property 'vnetName'");
-            }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,7 +98,7 @@ export interface AppServiceVirtualNetworkConnectionArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Name of an existing Virtual Network.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -113,8 +109,4 @@ export interface AppServiceVirtualNetworkConnectionArgs {
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Name of an existing Virtual Network.
-     */
-    readonly vnetName: pulumi.Input<string>;
 }

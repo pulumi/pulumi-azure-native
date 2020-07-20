@@ -28,9 +28,6 @@ func NewAutomationAccountCertificate(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.CertificateName == nil {
-		return nil, errors.New("missing required argument 'CertificateName'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -90,8 +87,6 @@ type automationAccountCertificateArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The parameters supplied to the create or update certificate operation.
-	CertificateName string `pulumi:"certificateName"`
-	// Gets or sets the name of the certificate.
 	Name string `pulumi:"name"`
 	// Gets or sets the properties of the certificate.
 	Properties CertificateCreateOrUpdateProperties `pulumi:"properties"`
@@ -104,8 +99,6 @@ type AutomationAccountCertificateArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
 	// The parameters supplied to the create or update certificate operation.
-	CertificateName pulumi.StringInput
-	// Gets or sets the name of the certificate.
 	Name pulumi.StringInput
 	// Gets or sets the properties of the certificate.
 	Properties CertificateCreateOrUpdatePropertiesInput

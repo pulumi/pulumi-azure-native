@@ -25,11 +25,11 @@ type StreamingjobInput struct {
 // NewStreamingjobInput registers a new resource with the given unique name, arguments, and options.
 func NewStreamingjobInput(ctx *pulumi.Context,
 	name string, args *StreamingjobInputArgs, opts ...pulumi.ResourceOption) (*StreamingjobInput, error) {
-	if args == nil || args.InputName == nil {
-		return nil, errors.New("missing required argument 'InputName'")
-	}
 	if args == nil || args.JobName == nil {
 		return nil, errors.New("missing required argument 'JobName'")
+	}
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -81,12 +81,10 @@ func (StreamingjobInputState) ElementType() reflect.Type {
 }
 
 type streamingjobInputArgs struct {
-	// The name of the input.
-	InputName string `pulumi:"inputName"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
-	// Resource name
-	Name *string `pulumi:"name"`
+	// The name of the input.
+	Name string `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
 	Properties *InputProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -95,12 +93,10 @@ type streamingjobInputArgs struct {
 
 // The set of arguments for constructing a StreamingjobInput resource.
 type StreamingjobInputArgs struct {
-	// The name of the input.
-	InputName pulumi.StringInput
 	// The name of the streaming job.
 	JobName pulumi.StringInput
-	// Resource name
-	Name pulumi.StringPtrInput
+	// The name of the input.
+	Name pulumi.StringInput
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
 	Properties InputPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

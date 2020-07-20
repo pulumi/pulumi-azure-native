@@ -30,7 +30,7 @@ class RouteFilterRouteFilterRule(pulumi.CustomResource):
       * `provisioning_state` (`str`) - The provisioning state of the route filter rule resource.
       * `route_filter_rule_type` (`str`) - The rule type of the rule.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, route_filter_name=None, rule_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, route_filter_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Route Filter Rule Resource.
 
@@ -38,11 +38,10 @@ class RouteFilterRouteFilterRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the route filter rule.
         :param pulumi.Input[dict] properties: Properties of the route filter rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_filter_name: The name of the route filter.
-        :param pulumi.Input[str] rule_name: The name of the route filter rule.
 
         The **properties** object supports the following:
 
@@ -69,6 +68,8 @@ class RouteFilterRouteFilterRule(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
@@ -77,9 +78,6 @@ class RouteFilterRouteFilterRule(pulumi.CustomResource):
             if route_filter_name is None:
                 raise TypeError("Missing required property 'route_filter_name'")
             __props__['route_filter_name'] = route_filter_name
-            if rule_name is None:
-                raise TypeError("Missing required property 'rule_name'")
-            __props__['rule_name'] = rule_name
             __props__['etag'] = None
         super(RouteFilterRouteFilterRule, __self__).__init__(
             'azurerm:network:RouteFilterRouteFilterRule',

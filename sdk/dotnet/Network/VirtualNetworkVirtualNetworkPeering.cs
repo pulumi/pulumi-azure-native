@@ -84,10 +84,10 @@ namespace Pulumi.AzureRM.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the peering.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the virtual network peering.
@@ -106,12 +106,6 @@ namespace Pulumi.AzureRM.Network
         /// </summary>
         [Input("virtualNetworkName", required: true)]
         public Input<string> VirtualNetworkName { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the peering.
-        /// </summary>
-        [Input("virtualNetworkPeeringName", required: true)]
-        public Input<string> VirtualNetworkPeeringName { get; set; } = null!;
 
         public VirtualNetworkVirtualNetworkPeeringArgs()
         {

@@ -52,17 +52,15 @@ class AwaitableGetAppServicePublicCertificateResult(GetAppServicePublicCertifica
             type=self.type)
 
 
-def get_app_service_public_certificate(name=None, public_certificate_name=None, resource_group_name=None, opts=None):
+def get_app_service_public_certificate(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str name: Name of the app.
-    :param str public_certificate_name: Public certificate name.
+    :param str name: Public certificate name.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
     __args__ = dict()
     __args__['name'] = name
-    __args__['publicCertificateName'] = public_certificate_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

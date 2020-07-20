@@ -78,7 +78,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, profile_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Defines an Network Experiment Profile and lists of Experiments
 
@@ -86,8 +86,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] name: The name of the Profile
-        :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
+        :param pulumi.Input[str] name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[dict] properties: The properties of a Profile
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[dict] tags: Resource tags.
@@ -157,10 +156,9 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['location'] = location
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if profile_name is None:
-                raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -30,8 +30,8 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	if args == nil || args.CircuitName == nil {
 		return nil, errors.New("missing required argument 'CircuitName'")
 	}
-	if args == nil || args.PeeringName == nil {
-		return nil, errors.New("missing required argument 'PeeringName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -91,10 +91,8 @@ type expressRouteCircuitPeeringArgs struct {
 	CircuitName string `pulumi:"circuitName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
 	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
+	Name string `pulumi:"name"`
 	// Properties of the express route circuit peering.
 	Properties *ExpressRouteCircuitPeeringPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
@@ -107,10 +105,8 @@ type ExpressRouteCircuitPeeringArgs struct {
 	CircuitName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
 	// The name of the peering.
-	PeeringName pulumi.StringInput
+	Name pulumi.StringInput
 	// Properties of the express route circuit peering.
 	Properties ExpressRouteCircuitPeeringPropertiesFormatPtrInput
 	// The name of the resource group.

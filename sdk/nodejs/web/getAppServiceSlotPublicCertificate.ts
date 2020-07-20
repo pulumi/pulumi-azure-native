@@ -16,7 +16,6 @@ export function getAppServiceSlotPublicCertificate(args: GetAppServiceSlotPublic
     }
     return pulumi.runtime.invoke("azurerm:web:getAppServiceSlotPublicCertificate", {
         "name": args.name,
-        "publicCertificateName": args.publicCertificateName,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
     }, opts);
@@ -24,13 +23,9 @@ export function getAppServiceSlotPublicCertificate(args: GetAppServiceSlotPublic
 
 export interface GetAppServiceSlotPublicCertificateArgs {
     /**
-     * Name of the app.
-     */
-    readonly name: string;
-    /**
      * Public certificate name.
      */
-    readonly publicCertificateName: string;
+    readonly name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -45,16 +45,14 @@ class AwaitableGetRedisLinkedServerResult(GetRedisLinkedServerResult):
             type=self.type)
 
 
-def get_redis_linked_server(linked_server_name=None, name=None, resource_group_name=None, opts=None):
+def get_redis_linked_server(name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str linked_server_name: The name of the linked server.
-    :param str name: The name of the redis cache.
+    :param str name: The name of the linked server.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['linkedServerName'] = linked_server_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

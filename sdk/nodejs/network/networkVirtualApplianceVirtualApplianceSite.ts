@@ -66,21 +66,20 @@ export class NetworkVirtualApplianceVirtualApplianceSite extends pulumi.CustomRe
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NetworkVirtualApplianceVirtualApplianceSiteArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.networkVirtualApplianceName === undefined) {
                 throw new Error("Missing required property 'networkVirtualApplianceName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.siteName === undefined) {
-                throw new Error("Missing required property 'siteName'");
-            }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteName"] = args ? args.siteName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -104,9 +103,9 @@ export interface NetworkVirtualApplianceVirtualApplianceSiteArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * Name of the virtual appliance site.
+     * The name of the site.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The name of the Network Virtual Appliance.
      */
@@ -119,8 +118,4 @@ export interface NetworkVirtualApplianceVirtualApplianceSiteArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the site.
-     */
-    readonly siteName: pulumi.Input<string>;
 }

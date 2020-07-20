@@ -438,15 +438,14 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
     """
     Ipconfiguration type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, ip_config_name=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         IpConfigurations.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] ip_config_name: The name of the ipconfig.
-        :param pulumi.Input[str] name: Name of the Ip Configuration.
+        :param pulumi.Input[str] name: The name of the ipconfig.
         :param pulumi.Input[dict] properties: The properties of the Virtual Hub IPConfigurations.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
@@ -585,9 +584,8 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if ip_config_name is None:
-                raise TypeError("Missing required property 'ip_config_name'")
-            __props__['ip_config_name'] = ip_config_name
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:

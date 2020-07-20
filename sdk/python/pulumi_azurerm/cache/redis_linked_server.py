@@ -26,14 +26,13 @@ class RedisLinkedServer(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, linked_server_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Response to put/get linked server (with properties) for Redis cache.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
-        :param pulumi.Input[str] name: The name of the Redis cache.
+        :param pulumi.Input[str] name: The name of the linked server that is being added to the Redis cache.
         :param pulumi.Input[dict] properties: Properties required to create a linked server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
@@ -60,9 +59,6 @@ class RedisLinkedServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if linked_server_name is None:
-                raise TypeError("Missing required property 'linked_server_name'")
-            __props__['linked_server_name'] = linked_server_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

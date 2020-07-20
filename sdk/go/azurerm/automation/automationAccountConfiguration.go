@@ -34,8 +34,8 @@ func NewAutomationAccountConfiguration(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
-	if args == nil || args.ConfigurationName == nil {
-		return nil, errors.New("missing required argument 'ConfigurationName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.Properties == nil {
 		return nil, errors.New("missing required argument 'Properties'")
@@ -104,12 +104,10 @@ func (AutomationAccountConfigurationState) ElementType() reflect.Type {
 type automationAccountConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The create or update parameters for configuration.
-	ConfigurationName string `pulumi:"configurationName"`
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
-	// Gets or sets name of the resource.
-	Name *string `pulumi:"name"`
+	// The create or update parameters for configuration.
+	Name string `pulumi:"name"`
 	// Gets or sets configuration create or update properties.
 	Properties DscConfigurationCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
@@ -122,12 +120,10 @@ type automationAccountConfigurationArgs struct {
 type AutomationAccountConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// The create or update parameters for configuration.
-	ConfigurationName pulumi.StringInput
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
-	// Gets or sets name of the resource.
-	Name pulumi.StringPtrInput
+	// The create or update parameters for configuration.
+	Name pulumi.StringInput
 	// Gets or sets configuration create or update properties.
 	Properties DscConfigurationCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.

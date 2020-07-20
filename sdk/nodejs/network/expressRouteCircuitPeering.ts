@@ -69,8 +69,8 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             if (!args || args.circuitName === undefined) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if (!args || args.peeringName === undefined) {
-                throw new Error("Missing required property 'peeringName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -78,7 +78,6 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["peeringName"] = args ? args.peeringName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
@@ -108,13 +107,9 @@ export interface ExpressRouteCircuitPeeringArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The name of the peering.
      */
-    readonly peeringName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the express route circuit peering.
      */

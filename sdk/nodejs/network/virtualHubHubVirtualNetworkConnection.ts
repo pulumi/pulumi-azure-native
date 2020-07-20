@@ -62,8 +62,8 @@ export class VirtualHubHubVirtualNetworkConnection extends pulumi.CustomResource
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualHubHubVirtualNetworkConnectionArgs | undefined;
-            if (!args || args.connectionName === undefined) {
-                throw new Error("Missing required property 'connectionName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -71,7 +71,6 @@ export class VirtualHubHubVirtualNetworkConnection extends pulumi.CustomResource
             if (!args || args.virtualHubName === undefined) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -95,17 +94,13 @@ export class VirtualHubHubVirtualNetworkConnection extends pulumi.CustomResource
  */
 export interface VirtualHubHubVirtualNetworkConnectionArgs {
     /**
-     * The name of the HubVirtualNetworkConnection.
-     */
-    readonly connectionName: pulumi.Input<string>;
-    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the HubVirtualNetworkConnection.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the hub virtual network connection.
      */

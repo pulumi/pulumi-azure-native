@@ -19,16 +19,10 @@ namespace Pulumi.AzureRM.Web
     public sealed class GetAppServiceSlotPublicCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the app.
+        /// Public certificate name.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
-
-        /// <summary>
-        /// Public certificate name.
-        /// </summary>
-        [Input("publicCertificateName", required: true)]
-        public string PublicCertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

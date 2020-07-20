@@ -66,9 +66,6 @@ export class AppServiceSlotFunction extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceSlotFunctionArgs | undefined;
-            if (!args || args.functionName === undefined) {
-                throw new Error("Missing required property 'functionName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -78,7 +75,6 @@ export class AppServiceSlotFunction extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["functionName"] = args ? args.functionName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -102,15 +98,11 @@ export class AppServiceSlotFunction extends pulumi.CustomResource {
  */
 export interface AppServiceSlotFunctionArgs {
     /**
-     * Function name.
-     */
-    readonly functionName: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Site name.
+     * Function name.
      */
     readonly name: pulumi.Input<string>;
     /**

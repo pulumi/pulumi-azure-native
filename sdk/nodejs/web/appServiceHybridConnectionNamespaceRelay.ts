@@ -72,9 +72,6 @@ export class AppServiceHybridConnectionNamespaceRelay extends pulumi.CustomResou
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.relayName === undefined) {
-                throw new Error("Missing required property 'relayName'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -82,7 +79,6 @@ export class AppServiceHybridConnectionNamespaceRelay extends pulumi.CustomResou
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
-            inputs["relayName"] = args ? args.relayName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["type"] = undefined /*out*/;
         }
@@ -106,7 +102,7 @@ export interface AppServiceHybridConnectionNamespaceRelayArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The name of the web app.
+     * The relay name for this hybrid connection.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -117,10 +113,6 @@ export interface AppServiceHybridConnectionNamespaceRelayArgs {
      * HybridConnection resource specific properties
      */
     readonly properties?: pulumi.Input<inputs.web.HybridConnectionProperties>;
-    /**
-     * The relay name for this hybrid connection.
-     */
-    readonly relayName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

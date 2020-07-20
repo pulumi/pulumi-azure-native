@@ -66,9 +66,6 @@ export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AppServiceSlotHybridconnectionArgs | undefined;
-            if (!args || args.entityName === undefined) {
-                throw new Error("Missing required property 'entityName'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -78,7 +75,6 @@ export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["entityName"] = args ? args.entityName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -102,15 +98,11 @@ export class AppServiceSlotHybridconnection extends pulumi.CustomResource {
  */
 export interface AppServiceSlotHybridconnectionArgs {
     /**
-     * Name of the hybrid connection configuration.
-     */
-    readonly entityName: pulumi.Input<string>;
-    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * Name of the app.
+     * Name of the hybrid connection configuration.
      */
     readonly name: pulumi.Input<string>;
     /**

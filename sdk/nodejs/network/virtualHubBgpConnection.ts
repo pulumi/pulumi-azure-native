@@ -66,8 +66,8 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualHubBgpConnectionArgs | undefined;
-            if (!args || args.connectionName === undefined) {
-                throw new Error("Missing required property 'connectionName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,7 +75,6 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
             if (!args || args.virtualHubName === undefined) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            inputs["connectionName"] = args ? args.connectionName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -100,17 +99,13 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
  */
 export interface VirtualHubBgpConnectionArgs {
     /**
-     * The name of the connection.
-     */
-    readonly connectionName: pulumi.Input<string>;
-    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * Name of the connection.
+     * The name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The properties of the Bgp connections.
      */

@@ -34,18 +34,17 @@ class VirtualNetworkVirtualNetworkPeering(pulumi.CustomResource):
 
       * `use_remote_gateways` (`bool`) - If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_network_name=None, virtual_network_peering_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Peerings in a virtual network resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[str] name: The name of the peering.
         :param pulumi.Input[dict] properties: Properties of the virtual network peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
-        :param pulumi.Input[str] virtual_network_peering_name: The name of the peering.
 
         The **properties** object supports the following:
 
@@ -79,6 +78,8 @@ class VirtualNetworkVirtualNetworkPeering(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
@@ -87,9 +88,6 @@ class VirtualNetworkVirtualNetworkPeering(pulumi.CustomResource):
             if virtual_network_name is None:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
-            if virtual_network_peering_name is None:
-                raise TypeError("Missing required property 'virtual_network_peering_name'")
-            __props__['virtual_network_peering_name'] = virtual_network_peering_name
             __props__['etag'] = None
         super(VirtualNetworkVirtualNetworkPeering, __self__).__init__(
             'azurerm:network:VirtualNetworkVirtualNetworkPeering',

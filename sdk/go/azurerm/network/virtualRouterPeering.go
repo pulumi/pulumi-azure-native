@@ -27,8 +27,8 @@ type VirtualRouterPeering struct {
 // NewVirtualRouterPeering registers a new resource with the given unique name, arguments, and options.
 func NewVirtualRouterPeering(ctx *pulumi.Context,
 	name string, args *VirtualRouterPeeringArgs, opts ...pulumi.ResourceOption) (*VirtualRouterPeering, error) {
-	if args == nil || args.PeeringName == nil {
-		return nil, errors.New("missing required argument 'PeeringName'")
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -89,10 +89,8 @@ func (VirtualRouterPeeringState) ElementType() reflect.Type {
 type virtualRouterPeeringArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// Name of the virtual router peering that is unique within a virtual router.
-	Name *string `pulumi:"name"`
 	// The name of the Virtual Router Peering.
-	PeeringName string `pulumi:"peeringName"`
+	Name string `pulumi:"name"`
 	// The properties of the Virtual Router Peering.
 	Properties *VirtualRouterPeeringProperties `pulumi:"properties"`
 	// The name of the resource group.
@@ -105,10 +103,8 @@ type virtualRouterPeeringArgs struct {
 type VirtualRouterPeeringArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// Name of the virtual router peering that is unique within a virtual router.
-	Name pulumi.StringPtrInput
 	// The name of the Virtual Router Peering.
-	PeeringName pulumi.StringInput
+	Name pulumi.StringInput
 	// The properties of the Virtual Router Peering.
 	Properties VirtualRouterPeeringPropertiesPtrInput
 	// The name of the resource group.

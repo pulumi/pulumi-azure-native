@@ -66,8 +66,8 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PrivateLinkServicePrivateEndpointConnectionArgs | undefined;
-            if (!args || args.peConnectionName === undefined) {
-                throw new Error("Missing required property 'peConnectionName'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -77,7 +77,6 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["peConnectionName"] = args ? args.peConnectionName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -104,13 +103,9 @@ export interface PrivateLinkServicePrivateEndpointConnectionArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-     */
-    readonly name?: pulumi.Input<string>;
-    /**
      * The name of the private end point connection.
      */
-    readonly peConnectionName: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Properties of the private end point connection.
      */

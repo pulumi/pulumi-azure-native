@@ -62,9 +62,6 @@ export class RedisPatchSchedule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RedisPatchScheduleArgs | undefined;
-            if (!args || args.default === undefined) {
-                throw new Error("Missing required property 'default'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -74,7 +71,6 @@ export class RedisPatchSchedule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["default"] = args ? args.default : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -97,10 +93,6 @@ export class RedisPatchSchedule extends pulumi.CustomResource {
 export interface RedisPatchScheduleArgs {
     /**
      * Default string modeled as parameter for auto generation to work correctly.
-     */
-    readonly default: pulumi.Input<string>;
-    /**
-     * The name of the Redis cache.
      */
     readonly name: pulumi.Input<string>;
     /**

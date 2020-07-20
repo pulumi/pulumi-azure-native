@@ -34,15 +34,14 @@ class StreamingjobOutput(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, job_name=None, name=None, output_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, job_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_name: The name of the streaming job.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[str] output_name: The name of the output.
+        :param pulumi.Input[str] name: The name of the output.
         :param pulumi.Input[dict] properties: The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 
@@ -74,10 +73,9 @@ class StreamingjobOutput(pulumi.CustomResource):
             if job_name is None:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if output_name is None:
-                raise TypeError("Missing required property 'output_name'")
-            __props__['output_name'] = output_name
             __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

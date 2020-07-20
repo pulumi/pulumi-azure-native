@@ -31,17 +31,16 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, vm_scale_set_name=None, vmss_extension_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, vm_scale_set_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Virtual Machine Scale Set Extension.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the extension.
+        :param pulumi.Input[str] name: The name of the VM scale set extension.
         :param pulumi.Input[dict] properties: Describes the properties of a Virtual Machine Scale Set Extension.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
-        :param pulumi.Input[str] vmss_extension_name: The name of the VM scale set extension.
 
         The **properties** object supports the following:
 
@@ -71,6 +70,8 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['properties'] = properties
             if resource_group_name is None:
@@ -79,9 +80,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             if vm_scale_set_name is None:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
-            if vmss_extension_name is None:
-                raise TypeError("Missing required property 'vmss_extension_name'")
-            __props__['vmss_extension_name'] = vmss_extension_name
             __props__['type'] = None
         super(VirtualMachineScaleSetExtension, __self__).__init__(
             'azurerm:compute:VirtualMachineScaleSetExtension',

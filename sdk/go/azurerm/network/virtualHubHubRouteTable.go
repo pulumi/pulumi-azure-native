@@ -27,11 +27,11 @@ type VirtualHubHubRouteTable struct {
 // NewVirtualHubHubRouteTable registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHubHubRouteTable(ctx *pulumi.Context,
 	name string, args *VirtualHubHubRouteTableArgs, opts ...pulumi.ResourceOption) (*VirtualHubHubRouteTable, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RouteTableName == nil {
-		return nil, errors.New("missing required argument 'RouteTableName'")
 	}
 	if args == nil || args.VirtualHubName == nil {
 		return nil, errors.New("missing required argument 'VirtualHubName'")
@@ -89,14 +89,12 @@ func (VirtualHubHubRouteTableState) ElementType() reflect.Type {
 type virtualHubHubRouteTableArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
+	// The name of the RouteTable.
+	Name string `pulumi:"name"`
 	// Properties of the RouteTable resource.
 	Properties *HubRouteTableProperties `pulumi:"properties"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the RouteTable.
-	RouteTableName string `pulumi:"routeTableName"`
 	// The name of the VirtualHub.
 	VirtualHubName string `pulumi:"virtualHubName"`
 }
@@ -105,14 +103,12 @@ type virtualHubHubRouteTableArgs struct {
 type VirtualHubHubRouteTableArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
+	// The name of the RouteTable.
+	Name pulumi.StringInput
 	// Properties of the RouteTable resource.
 	Properties HubRouteTablePropertiesPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
-	// The name of the RouteTable.
-	RouteTableName pulumi.StringInput
 	// The name of the VirtualHub.
 	VirtualHubName pulumi.StringInput
 }
