@@ -6625,6 +6625,124 @@ func (o JobSchedulePropertiesResponsePtrOutput) Schedule() ScheduleAssociationPr
 	}).(ScheduleAssociationPropertyResponsePtrOutput)
 }
 
+// Automation key which is used to register a DSC Node
+type KeyResponse struct {
+	// Automation key name.
+	KeyName string `pulumi:"KeyName"`
+	// Automation key permissions.
+	Permissions string `pulumi:"Permissions"`
+	// Value of the Automation Key used for registration.
+	Value string `pulumi:"Value"`
+}
+
+// KeyResponseInput is an input type that accepts KeyResponseArgs and KeyResponseOutput values.
+// You can construct a concrete instance of `KeyResponseInput` via:
+//
+//          KeyResponseArgs{...}
+type KeyResponseInput interface {
+	pulumi.Input
+
+	ToKeyResponseOutput() KeyResponseOutput
+	ToKeyResponseOutputWithContext(context.Context) KeyResponseOutput
+}
+
+// Automation key which is used to register a DSC Node
+type KeyResponseArgs struct {
+	// Automation key name.
+	KeyName pulumi.StringInput `pulumi:"KeyName"`
+	// Automation key permissions.
+	Permissions pulumi.StringInput `pulumi:"Permissions"`
+	// Value of the Automation Key used for registration.
+	Value pulumi.StringInput `pulumi:"Value"`
+}
+
+func (KeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyResponse)(nil)).Elem()
+}
+
+func (i KeyResponseArgs) ToKeyResponseOutput() KeyResponseOutput {
+	return i.ToKeyResponseOutputWithContext(context.Background())
+}
+
+func (i KeyResponseArgs) ToKeyResponseOutputWithContext(ctx context.Context) KeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyResponseOutput)
+}
+
+// KeyResponseArrayInput is an input type that accepts KeyResponseArray and KeyResponseArrayOutput values.
+// You can construct a concrete instance of `KeyResponseArrayInput` via:
+//
+//          KeyResponseArray{ KeyResponseArgs{...} }
+type KeyResponseArrayInput interface {
+	pulumi.Input
+
+	ToKeyResponseArrayOutput() KeyResponseArrayOutput
+	ToKeyResponseArrayOutputWithContext(context.Context) KeyResponseArrayOutput
+}
+
+type KeyResponseArray []KeyResponseInput
+
+func (KeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyResponse)(nil)).Elem()
+}
+
+func (i KeyResponseArray) ToKeyResponseArrayOutput() KeyResponseArrayOutput {
+	return i.ToKeyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KeyResponseArray) ToKeyResponseArrayOutputWithContext(ctx context.Context) KeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyResponseArrayOutput)
+}
+
+// Automation key which is used to register a DSC Node
+type KeyResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyResponse)(nil)).Elem()
+}
+
+func (o KeyResponseOutput) ToKeyResponseOutput() KeyResponseOutput {
+	return o
+}
+
+func (o KeyResponseOutput) ToKeyResponseOutputWithContext(ctx context.Context) KeyResponseOutput {
+	return o
+}
+
+// Automation key name.
+func (o KeyResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Automation key permissions.
+func (o KeyResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
+}
+
+// Value of the Automation Key used for registration.
+func (o KeyResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type KeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyResponse)(nil)).Elem()
+}
+
+func (o KeyResponseArrayOutput) ToKeyResponseArrayOutput() KeyResponseArrayOutput {
+	return o
+}
+
+func (o KeyResponseArrayOutput) ToKeyResponseArrayOutputWithContext(ctx context.Context) KeyResponseArrayOutput {
+	return o
+}
+
+func (o KeyResponseArrayOutput) Index(i pulumi.IntInput) KeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyResponse {
+		return vs[0].([]KeyResponse)[vs[1].(int)]
+	}).(KeyResponseOutput)
+}
+
 // The parameters supplied to the create or update module properties.
 type ModuleCreateOrUpdateProperties struct {
 	// Gets or sets the module content link.
@@ -11486,6 +11604,8 @@ func init() {
 	pulumi.RegisterOutputType(JobScheduleCreatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobSchedulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JobSchedulePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyResponseOutput{})
+	pulumi.RegisterOutputType(KeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ModuleCreateOrUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(ModuleCreateOrUpdatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ModuleErrorInfoResponseOutput{})

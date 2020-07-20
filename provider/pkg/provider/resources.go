@@ -47,9 +47,10 @@ type AzureApiResource struct {
 
 // AzureApiInvoke is an invocation target (a function) in Azure REST API.
 type AzureApiInvoke struct {
-	ApiVersion    string              `json:"apiVersion"`
-	Path          string              `json:"path"`
-	GetParameters []AzureApiParameter `json:"GET"`
+	ApiVersion     string              `json:"apiVersion"`
+	Path           string              `json:"path"`
+	GetParameters  []AzureApiParameter `json:"GET"`
+	PostParameters []AzureApiParameter `json:"POST"`
 }
 
 // AzureApiMetadata is a collection of all resources and functions in the Azure REST API surface.

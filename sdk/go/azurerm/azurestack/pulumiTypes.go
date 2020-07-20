@@ -278,6 +278,306 @@ func (o CustomerSubscriptionPropertiesResponsePtrOutput) TenantId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Data disk image.
+type DataDiskImageResponse struct {
+	// The LUN.
+	Lun int `pulumi:"lun"`
+	// SAS key for source blob.
+	SourceBlobSasUri string `pulumi:"sourceBlobSasUri"`
+}
+
+// DataDiskImageResponseInput is an input type that accepts DataDiskImageResponseArgs and DataDiskImageResponseOutput values.
+// You can construct a concrete instance of `DataDiskImageResponseInput` via:
+//
+//          DataDiskImageResponseArgs{...}
+type DataDiskImageResponseInput interface {
+	pulumi.Input
+
+	ToDataDiskImageResponseOutput() DataDiskImageResponseOutput
+	ToDataDiskImageResponseOutputWithContext(context.Context) DataDiskImageResponseOutput
+}
+
+// Data disk image.
+type DataDiskImageResponseArgs struct {
+	// The LUN.
+	Lun pulumi.IntInput `pulumi:"lun"`
+	// SAS key for source blob.
+	SourceBlobSasUri pulumi.StringInput `pulumi:"sourceBlobSasUri"`
+}
+
+func (DataDiskImageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskImageResponse)(nil)).Elem()
+}
+
+func (i DataDiskImageResponseArgs) ToDataDiskImageResponseOutput() DataDiskImageResponseOutput {
+	return i.ToDataDiskImageResponseOutputWithContext(context.Background())
+}
+
+func (i DataDiskImageResponseArgs) ToDataDiskImageResponseOutputWithContext(ctx context.Context) DataDiskImageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageResponseOutput)
+}
+
+// DataDiskImageResponseArrayInput is an input type that accepts DataDiskImageResponseArray and DataDiskImageResponseArrayOutput values.
+// You can construct a concrete instance of `DataDiskImageResponseArrayInput` via:
+//
+//          DataDiskImageResponseArray{ DataDiskImageResponseArgs{...} }
+type DataDiskImageResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataDiskImageResponseArrayOutput() DataDiskImageResponseArrayOutput
+	ToDataDiskImageResponseArrayOutputWithContext(context.Context) DataDiskImageResponseArrayOutput
+}
+
+type DataDiskImageResponseArray []DataDiskImageResponseInput
+
+func (DataDiskImageResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskImageResponse)(nil)).Elem()
+}
+
+func (i DataDiskImageResponseArray) ToDataDiskImageResponseArrayOutput() DataDiskImageResponseArrayOutput {
+	return i.ToDataDiskImageResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataDiskImageResponseArray) ToDataDiskImageResponseArrayOutputWithContext(ctx context.Context) DataDiskImageResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageResponseArrayOutput)
+}
+
+// Data disk image.
+type DataDiskImageResponseOutput struct{ *pulumi.OutputState }
+
+func (DataDiskImageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskImageResponse)(nil)).Elem()
+}
+
+func (o DataDiskImageResponseOutput) ToDataDiskImageResponseOutput() DataDiskImageResponseOutput {
+	return o
+}
+
+func (o DataDiskImageResponseOutput) ToDataDiskImageResponseOutputWithContext(ctx context.Context) DataDiskImageResponseOutput {
+	return o
+}
+
+// The LUN.
+func (o DataDiskImageResponseOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v DataDiskImageResponse) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// SAS key for source blob.
+func (o DataDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v DataDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
+}
+
+type DataDiskImageResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataDiskImageResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskImageResponse)(nil)).Elem()
+}
+
+func (o DataDiskImageResponseArrayOutput) ToDataDiskImageResponseArrayOutput() DataDiskImageResponseArrayOutput {
+	return o
+}
+
+func (o DataDiskImageResponseArrayOutput) ToDataDiskImageResponseArrayOutputWithContext(ctx context.Context) DataDiskImageResponseArrayOutput {
+	return o
+}
+
+func (o DataDiskImageResponseArrayOutput) Index(i pulumi.IntInput) DataDiskImageResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataDiskImageResponse {
+		return vs[0].([]DataDiskImageResponse)[vs[1].(int)]
+	}).(DataDiskImageResponseOutput)
+}
+
+// Product information.
+type ExtendedProductPropertiesResponse struct {
+	// Specifies kind of compute role included in the package.
+	ComputeRole string `pulumi:"computeRole"`
+	// List of attached data disks.
+	DataDiskImages []DataDiskImageResponse `pulumi:"dataDiskImages"`
+	// Specifies if product is a Virtual Machine Extension.
+	IsSystemExtension bool `pulumi:"isSystemExtension"`
+	// OS disk image used by product.
+	OsDiskImage OsDiskImageResponse `pulumi:"osDiskImage"`
+	// Specifies a download location where content can be downloaded from.
+	SourceBlob UriResponse `pulumi:"sourceBlob"`
+	// Indicates if specified product supports multiple extensions.
+	SupportMultipleExtensions bool `pulumi:"supportMultipleExtensions"`
+	// Specifies product version.
+	Version string `pulumi:"version"`
+	// Specifies operating system used by the product.
+	VmOsType string `pulumi:"vmOsType"`
+	// Indicates if virtual machine Scale Set is enabled in the specified product.
+	VmScaleSetEnabled bool `pulumi:"vmScaleSetEnabled"`
+}
+
+// ExtendedProductPropertiesResponseInput is an input type that accepts ExtendedProductPropertiesResponseArgs and ExtendedProductPropertiesResponseOutput values.
+// You can construct a concrete instance of `ExtendedProductPropertiesResponseInput` via:
+//
+//          ExtendedProductPropertiesResponseArgs{...}
+type ExtendedProductPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToExtendedProductPropertiesResponseOutput() ExtendedProductPropertiesResponseOutput
+	ToExtendedProductPropertiesResponseOutputWithContext(context.Context) ExtendedProductPropertiesResponseOutput
+}
+
+// Product information.
+type ExtendedProductPropertiesResponseArgs struct {
+	// Specifies kind of compute role included in the package.
+	ComputeRole pulumi.StringInput `pulumi:"computeRole"`
+	// List of attached data disks.
+	DataDiskImages DataDiskImageResponseArrayInput `pulumi:"dataDiskImages"`
+	// Specifies if product is a Virtual Machine Extension.
+	IsSystemExtension pulumi.BoolInput `pulumi:"isSystemExtension"`
+	// OS disk image used by product.
+	OsDiskImage OsDiskImageResponseInput `pulumi:"osDiskImage"`
+	// Specifies a download location where content can be downloaded from.
+	SourceBlob UriResponseInput `pulumi:"sourceBlob"`
+	// Indicates if specified product supports multiple extensions.
+	SupportMultipleExtensions pulumi.BoolInput `pulumi:"supportMultipleExtensions"`
+	// Specifies product version.
+	Version pulumi.StringInput `pulumi:"version"`
+	// Specifies operating system used by the product.
+	VmOsType pulumi.StringInput `pulumi:"vmOsType"`
+	// Indicates if virtual machine Scale Set is enabled in the specified product.
+	VmScaleSetEnabled pulumi.BoolInput `pulumi:"vmScaleSetEnabled"`
+}
+
+func (ExtendedProductPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedProductPropertiesResponse)(nil)).Elem()
+}
+
+func (i ExtendedProductPropertiesResponseArgs) ToExtendedProductPropertiesResponseOutput() ExtendedProductPropertiesResponseOutput {
+	return i.ToExtendedProductPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedProductPropertiesResponseArgs) ToExtendedProductPropertiesResponseOutputWithContext(ctx context.Context) ExtendedProductPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedProductPropertiesResponseOutput)
+}
+
+// Product information.
+type ExtendedProductPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedProductPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedProductPropertiesResponse)(nil)).Elem()
+}
+
+func (o ExtendedProductPropertiesResponseOutput) ToExtendedProductPropertiesResponseOutput() ExtendedProductPropertiesResponseOutput {
+	return o
+}
+
+func (o ExtendedProductPropertiesResponseOutput) ToExtendedProductPropertiesResponseOutputWithContext(ctx context.Context) ExtendedProductPropertiesResponseOutput {
+	return o
+}
+
+// Specifies kind of compute role included in the package.
+func (o ExtendedProductPropertiesResponseOutput) ComputeRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) string { return v.ComputeRole }).(pulumi.StringOutput)
+}
+
+// List of attached data disks.
+func (o ExtendedProductPropertiesResponseOutput) DataDiskImages() DataDiskImageResponseArrayOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) []DataDiskImageResponse { return v.DataDiskImages }).(DataDiskImageResponseArrayOutput)
+}
+
+// Specifies if product is a Virtual Machine Extension.
+func (o ExtendedProductPropertiesResponseOutput) IsSystemExtension() pulumi.BoolOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) bool { return v.IsSystemExtension }).(pulumi.BoolOutput)
+}
+
+// OS disk image used by product.
+func (o ExtendedProductPropertiesResponseOutput) OsDiskImage() OsDiskImageResponseOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) OsDiskImageResponse { return v.OsDiskImage }).(OsDiskImageResponseOutput)
+}
+
+// Specifies a download location where content can be downloaded from.
+func (o ExtendedProductPropertiesResponseOutput) SourceBlob() UriResponseOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) UriResponse { return v.SourceBlob }).(UriResponseOutput)
+}
+
+// Indicates if specified product supports multiple extensions.
+func (o ExtendedProductPropertiesResponseOutput) SupportMultipleExtensions() pulumi.BoolOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) bool { return v.SupportMultipleExtensions }).(pulumi.BoolOutput)
+}
+
+// Specifies product version.
+func (o ExtendedProductPropertiesResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// Specifies operating system used by the product.
+func (o ExtendedProductPropertiesResponseOutput) VmOsType() pulumi.StringOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) string { return v.VmOsType }).(pulumi.StringOutput)
+}
+
+// Indicates if virtual machine Scale Set is enabled in the specified product.
+func (o ExtendedProductPropertiesResponseOutput) VmScaleSetEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ExtendedProductPropertiesResponse) bool { return v.VmScaleSetEnabled }).(pulumi.BoolOutput)
+}
+
+// OS disk image.
+type OsDiskImageResponse struct {
+	// OS operating system type.
+	OperatingSystem string `pulumi:"operatingSystem"`
+	// SAS key for source blob.
+	SourceBlobSasUri string `pulumi:"sourceBlobSasUri"`
+}
+
+// OsDiskImageResponseInput is an input type that accepts OsDiskImageResponseArgs and OsDiskImageResponseOutput values.
+// You can construct a concrete instance of `OsDiskImageResponseInput` via:
+//
+//          OsDiskImageResponseArgs{...}
+type OsDiskImageResponseInput interface {
+	pulumi.Input
+
+	ToOsDiskImageResponseOutput() OsDiskImageResponseOutput
+	ToOsDiskImageResponseOutputWithContext(context.Context) OsDiskImageResponseOutput
+}
+
+// OS disk image.
+type OsDiskImageResponseArgs struct {
+	// OS operating system type.
+	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
+	// SAS key for source blob.
+	SourceBlobSasUri pulumi.StringInput `pulumi:"sourceBlobSasUri"`
+}
+
+func (OsDiskImageResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsDiskImageResponse)(nil)).Elem()
+}
+
+func (i OsDiskImageResponseArgs) ToOsDiskImageResponseOutput() OsDiskImageResponseOutput {
+	return i.ToOsDiskImageResponseOutputWithContext(context.Background())
+}
+
+func (i OsDiskImageResponseArgs) ToOsDiskImageResponseOutputWithContext(ctx context.Context) OsDiskImageResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsDiskImageResponseOutput)
+}
+
+// OS disk image.
+type OsDiskImageResponseOutput struct{ *pulumi.OutputState }
+
+func (OsDiskImageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsDiskImageResponse)(nil)).Elem()
+}
+
+func (o OsDiskImageResponseOutput) ToOsDiskImageResponseOutput() OsDiskImageResponseOutput {
+	return o
+}
+
+func (o OsDiskImageResponseOutput) ToOsDiskImageResponseOutputWithContext(ctx context.Context) OsDiskImageResponseOutput {
+	return o
+}
+
+// OS operating system type.
+func (o OsDiskImageResponseOutput) OperatingSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v OsDiskImageResponse) string { return v.OperatingSystem }).(pulumi.StringOutput)
+}
+
+// SAS key for source blob.
+func (o OsDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v OsDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
+}
+
 // Registration information.
 type RegistrationType struct {
 	// The entity tag used for optimistic concurrency when modifying the resource.
@@ -768,15 +1068,75 @@ func (o RegistrationPropertiesResponsePtrOutput) ObjectId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URI.
+type UriResponse struct {
+	// The URI.
+	Uri string `pulumi:"uri"`
+}
+
+// UriResponseInput is an input type that accepts UriResponseArgs and UriResponseOutput values.
+// You can construct a concrete instance of `UriResponseInput` via:
+//
+//          UriResponseArgs{...}
+type UriResponseInput interface {
+	pulumi.Input
+
+	ToUriResponseOutput() UriResponseOutput
+	ToUriResponseOutputWithContext(context.Context) UriResponseOutput
+}
+
+// The URI.
+type UriResponseArgs struct {
+	// The URI.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (UriResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UriResponse)(nil)).Elem()
+}
+
+func (i UriResponseArgs) ToUriResponseOutput() UriResponseOutput {
+	return i.ToUriResponseOutputWithContext(context.Background())
+}
+
+func (i UriResponseArgs) ToUriResponseOutputWithContext(ctx context.Context) UriResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UriResponseOutput)
+}
+
+// The URI.
+type UriResponseOutput struct{ *pulumi.OutputState }
+
+func (UriResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UriResponse)(nil)).Elem()
+}
+
+func (o UriResponseOutput) ToUriResponseOutput() UriResponseOutput {
+	return o
+}
+
+func (o UriResponseOutput) ToUriResponseOutputWithContext(ctx context.Context) UriResponseOutput {
+	return o
+}
+
+// The URI.
+func (o UriResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v UriResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomerSubscriptionPropertiesOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DataDiskImageResponseOutput{})
+	pulumi.RegisterOutputType(DataDiskImageResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExtendedProductPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(OsDiskImageResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationTypeOutput{})
 	pulumi.RegisterOutputType(RegistrationCustomerSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(RegistrationParameterPropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationParameterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(UriResponseOutput{})
 }

@@ -623,6 +623,159 @@ func (o CopyLogDetailsResponseArrayOutput) Index(i pulumi.IntInput) CopyLogDetai
 	}).(CopyLogDetailsResponseOutput)
 }
 
+// Dc Access Security code for device.
+type DcAccessSecurityCodeResponse struct {
+	// Dc Access Code for dispatching from DC.
+	ForwardDcAccessCode *string `pulumi:"forwardDcAccessCode"`
+	// Dc Access code for dropping off at DC.
+	ReverseDcAccessCode *string `pulumi:"reverseDcAccessCode"`
+}
+
+// DcAccessSecurityCodeResponseInput is an input type that accepts DcAccessSecurityCodeResponseArgs and DcAccessSecurityCodeResponseOutput values.
+// You can construct a concrete instance of `DcAccessSecurityCodeResponseInput` via:
+//
+//          DcAccessSecurityCodeResponseArgs{...}
+type DcAccessSecurityCodeResponseInput interface {
+	pulumi.Input
+
+	ToDcAccessSecurityCodeResponseOutput() DcAccessSecurityCodeResponseOutput
+	ToDcAccessSecurityCodeResponseOutputWithContext(context.Context) DcAccessSecurityCodeResponseOutput
+}
+
+// Dc Access Security code for device.
+type DcAccessSecurityCodeResponseArgs struct {
+	// Dc Access Code for dispatching from DC.
+	ForwardDcAccessCode pulumi.StringPtrInput `pulumi:"forwardDcAccessCode"`
+	// Dc Access code for dropping off at DC.
+	ReverseDcAccessCode pulumi.StringPtrInput `pulumi:"reverseDcAccessCode"`
+}
+
+func (DcAccessSecurityCodeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DcAccessSecurityCodeResponse)(nil)).Elem()
+}
+
+func (i DcAccessSecurityCodeResponseArgs) ToDcAccessSecurityCodeResponseOutput() DcAccessSecurityCodeResponseOutput {
+	return i.ToDcAccessSecurityCodeResponseOutputWithContext(context.Background())
+}
+
+func (i DcAccessSecurityCodeResponseArgs) ToDcAccessSecurityCodeResponseOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DcAccessSecurityCodeResponseOutput)
+}
+
+func (i DcAccessSecurityCodeResponseArgs) ToDcAccessSecurityCodeResponsePtrOutput() DcAccessSecurityCodeResponsePtrOutput {
+	return i.ToDcAccessSecurityCodeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DcAccessSecurityCodeResponseArgs) ToDcAccessSecurityCodeResponsePtrOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DcAccessSecurityCodeResponseOutput).ToDcAccessSecurityCodeResponsePtrOutputWithContext(ctx)
+}
+
+// DcAccessSecurityCodeResponsePtrInput is an input type that accepts DcAccessSecurityCodeResponseArgs, DcAccessSecurityCodeResponsePtr and DcAccessSecurityCodeResponsePtrOutput values.
+// You can construct a concrete instance of `DcAccessSecurityCodeResponsePtrInput` via:
+//
+//          DcAccessSecurityCodeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DcAccessSecurityCodeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDcAccessSecurityCodeResponsePtrOutput() DcAccessSecurityCodeResponsePtrOutput
+	ToDcAccessSecurityCodeResponsePtrOutputWithContext(context.Context) DcAccessSecurityCodeResponsePtrOutput
+}
+
+type dcAccessSecurityCodeResponsePtrType DcAccessSecurityCodeResponseArgs
+
+func DcAccessSecurityCodeResponsePtr(v *DcAccessSecurityCodeResponseArgs) DcAccessSecurityCodeResponsePtrInput {
+	return (*dcAccessSecurityCodeResponsePtrType)(v)
+}
+
+func (*dcAccessSecurityCodeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DcAccessSecurityCodeResponse)(nil)).Elem()
+}
+
+func (i *dcAccessSecurityCodeResponsePtrType) ToDcAccessSecurityCodeResponsePtrOutput() DcAccessSecurityCodeResponsePtrOutput {
+	return i.ToDcAccessSecurityCodeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dcAccessSecurityCodeResponsePtrType) ToDcAccessSecurityCodeResponsePtrOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DcAccessSecurityCodeResponsePtrOutput)
+}
+
+// Dc Access Security code for device.
+type DcAccessSecurityCodeResponseOutput struct{ *pulumi.OutputState }
+
+func (DcAccessSecurityCodeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DcAccessSecurityCodeResponse)(nil)).Elem()
+}
+
+func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponseOutput() DcAccessSecurityCodeResponseOutput {
+	return o
+}
+
+func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponseOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponseOutput {
+	return o
+}
+
+func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponsePtrOutput() DcAccessSecurityCodeResponsePtrOutput {
+	return o.ToDcAccessSecurityCodeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponsePtrOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponsePtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *DcAccessSecurityCodeResponse {
+		return &v
+	}).(DcAccessSecurityCodeResponsePtrOutput)
+}
+
+// Dc Access Code for dispatching from DC.
+func (o DcAccessSecurityCodeResponseOutput) ForwardDcAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ForwardDcAccessCode }).(pulumi.StringPtrOutput)
+}
+
+// Dc Access code for dropping off at DC.
+func (o DcAccessSecurityCodeResponseOutput) ReverseDcAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ReverseDcAccessCode }).(pulumi.StringPtrOutput)
+}
+
+type DcAccessSecurityCodeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DcAccessSecurityCodeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DcAccessSecurityCodeResponse)(nil)).Elem()
+}
+
+func (o DcAccessSecurityCodeResponsePtrOutput) ToDcAccessSecurityCodeResponsePtrOutput() DcAccessSecurityCodeResponsePtrOutput {
+	return o
+}
+
+func (o DcAccessSecurityCodeResponsePtrOutput) ToDcAccessSecurityCodeResponsePtrOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponsePtrOutput {
+	return o
+}
+
+func (o DcAccessSecurityCodeResponsePtrOutput) Elem() DcAccessSecurityCodeResponseOutput {
+	return o.ApplyT(func(v *DcAccessSecurityCodeResponse) DcAccessSecurityCodeResponse { return *v }).(DcAccessSecurityCodeResponseOutput)
+}
+
+// Dc Access Code for dispatching from DC.
+func (o DcAccessSecurityCodeResponsePtrOutput) ForwardDcAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DcAccessSecurityCodeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardDcAccessCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dc Access code for dropping off at DC.
+func (o DcAccessSecurityCodeResponsePtrOutput) ReverseDcAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DcAccessSecurityCodeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReverseDcAccessCode
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of the destination storage accounts.
 type DestinationAccountDetails struct {
 	// Arm Id of the destination where the data has to be moved.
@@ -2684,6 +2837,70 @@ func (o JobPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// The base class for the secrets
+type JobSecretsResponse struct {
+	// Dc Access Security Code for Customer Managed Shipping
+	DcAccessSecurityCode *DcAccessSecurityCodeResponse `pulumi:"dcAccessSecurityCode"`
+	// Used to indicate what type of job secrets object.
+	JobSecretsType string `pulumi:"jobSecretsType"`
+}
+
+// JobSecretsResponseInput is an input type that accepts JobSecretsResponseArgs and JobSecretsResponseOutput values.
+// You can construct a concrete instance of `JobSecretsResponseInput` via:
+//
+//          JobSecretsResponseArgs{...}
+type JobSecretsResponseInput interface {
+	pulumi.Input
+
+	ToJobSecretsResponseOutput() JobSecretsResponseOutput
+	ToJobSecretsResponseOutputWithContext(context.Context) JobSecretsResponseOutput
+}
+
+// The base class for the secrets
+type JobSecretsResponseArgs struct {
+	// Dc Access Security Code for Customer Managed Shipping
+	DcAccessSecurityCode DcAccessSecurityCodeResponsePtrInput `pulumi:"dcAccessSecurityCode"`
+	// Used to indicate what type of job secrets object.
+	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
+}
+
+func (JobSecretsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSecretsResponse)(nil)).Elem()
+}
+
+func (i JobSecretsResponseArgs) ToJobSecretsResponseOutput() JobSecretsResponseOutput {
+	return i.ToJobSecretsResponseOutputWithContext(context.Background())
+}
+
+func (i JobSecretsResponseArgs) ToJobSecretsResponseOutputWithContext(ctx context.Context) JobSecretsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSecretsResponseOutput)
+}
+
+// The base class for the secrets
+type JobSecretsResponseOutput struct{ *pulumi.OutputState }
+
+func (JobSecretsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSecretsResponse)(nil)).Elem()
+}
+
+func (o JobSecretsResponseOutput) ToJobSecretsResponseOutput() JobSecretsResponseOutput {
+	return o
+}
+
+func (o JobSecretsResponseOutput) ToJobSecretsResponseOutputWithContext(ctx context.Context) JobSecretsResponseOutput {
+	return o
+}
+
+// Dc Access Security Code for Customer Managed Shipping
+func (o JobSecretsResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeResponsePtrOutput {
+	return o.ApplyT(func(v JobSecretsResponse) *DcAccessSecurityCodeResponse { return v.DcAccessSecurityCode }).(DcAccessSecurityCodeResponsePtrOutput)
+}
+
+// Used to indicate what type of job secrets object.
+func (o JobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
 
 // Job stages.
@@ -4841,6 +5058,115 @@ func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Unencrypted credentials for accessing device.
+type UnencryptedCredentialsResponse struct {
+	// Name of the job.
+	JobName string `pulumi:"jobName"`
+	// Secrets related to this job.
+	JobSecrets JobSecretsResponse `pulumi:"jobSecrets"`
+}
+
+// UnencryptedCredentialsResponseInput is an input type that accepts UnencryptedCredentialsResponseArgs and UnencryptedCredentialsResponseOutput values.
+// You can construct a concrete instance of `UnencryptedCredentialsResponseInput` via:
+//
+//          UnencryptedCredentialsResponseArgs{...}
+type UnencryptedCredentialsResponseInput interface {
+	pulumi.Input
+
+	ToUnencryptedCredentialsResponseOutput() UnencryptedCredentialsResponseOutput
+	ToUnencryptedCredentialsResponseOutputWithContext(context.Context) UnencryptedCredentialsResponseOutput
+}
+
+// Unencrypted credentials for accessing device.
+type UnencryptedCredentialsResponseArgs struct {
+	// Name of the job.
+	JobName pulumi.StringInput `pulumi:"jobName"`
+	// Secrets related to this job.
+	JobSecrets JobSecretsResponseInput `pulumi:"jobSecrets"`
+}
+
+func (UnencryptedCredentialsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnencryptedCredentialsResponse)(nil)).Elem()
+}
+
+func (i UnencryptedCredentialsResponseArgs) ToUnencryptedCredentialsResponseOutput() UnencryptedCredentialsResponseOutput {
+	return i.ToUnencryptedCredentialsResponseOutputWithContext(context.Background())
+}
+
+func (i UnencryptedCredentialsResponseArgs) ToUnencryptedCredentialsResponseOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnencryptedCredentialsResponseOutput)
+}
+
+// UnencryptedCredentialsResponseArrayInput is an input type that accepts UnencryptedCredentialsResponseArray and UnencryptedCredentialsResponseArrayOutput values.
+// You can construct a concrete instance of `UnencryptedCredentialsResponseArrayInput` via:
+//
+//          UnencryptedCredentialsResponseArray{ UnencryptedCredentialsResponseArgs{...} }
+type UnencryptedCredentialsResponseArrayInput interface {
+	pulumi.Input
+
+	ToUnencryptedCredentialsResponseArrayOutput() UnencryptedCredentialsResponseArrayOutput
+	ToUnencryptedCredentialsResponseArrayOutputWithContext(context.Context) UnencryptedCredentialsResponseArrayOutput
+}
+
+type UnencryptedCredentialsResponseArray []UnencryptedCredentialsResponseInput
+
+func (UnencryptedCredentialsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UnencryptedCredentialsResponse)(nil)).Elem()
+}
+
+func (i UnencryptedCredentialsResponseArray) ToUnencryptedCredentialsResponseArrayOutput() UnencryptedCredentialsResponseArrayOutput {
+	return i.ToUnencryptedCredentialsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UnencryptedCredentialsResponseArray) ToUnencryptedCredentialsResponseArrayOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnencryptedCredentialsResponseArrayOutput)
+}
+
+// Unencrypted credentials for accessing device.
+type UnencryptedCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (UnencryptedCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnencryptedCredentialsResponse)(nil)).Elem()
+}
+
+func (o UnencryptedCredentialsResponseOutput) ToUnencryptedCredentialsResponseOutput() UnencryptedCredentialsResponseOutput {
+	return o
+}
+
+func (o UnencryptedCredentialsResponseOutput) ToUnencryptedCredentialsResponseOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseOutput {
+	return o
+}
+
+// Name of the job.
+func (o UnencryptedCredentialsResponseOutput) JobName() pulumi.StringOutput {
+	return o.ApplyT(func(v UnencryptedCredentialsResponse) string { return v.JobName }).(pulumi.StringOutput)
+}
+
+// Secrets related to this job.
+func (o UnencryptedCredentialsResponseOutput) JobSecrets() JobSecretsResponseOutput {
+	return o.ApplyT(func(v UnencryptedCredentialsResponse) JobSecretsResponse { return v.JobSecrets }).(JobSecretsResponseOutput)
+}
+
+type UnencryptedCredentialsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UnencryptedCredentialsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UnencryptedCredentialsResponse)(nil)).Elem()
+}
+
+func (o UnencryptedCredentialsResponseArrayOutput) ToUnencryptedCredentialsResponseArrayOutput() UnencryptedCredentialsResponseArrayOutput {
+	return o
+}
+
+func (o UnencryptedCredentialsResponseArrayOutput) ToUnencryptedCredentialsResponseArrayOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseArrayOutput {
+	return o
+}
+
+func (o UnencryptedCredentialsResponseArrayOutput) Index(i pulumi.IntInput) UnencryptedCredentialsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UnencryptedCredentialsResponse {
+		return vs[0].([]UnencryptedCredentialsResponse)[vs[1].(int)]
+	}).(UnencryptedCredentialsResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContactDetailsOutput{})
 	pulumi.RegisterOutputType(ContactDetailsPtrOutput{})
@@ -4849,6 +5175,8 @@ func init() {
 	pulumi.RegisterOutputType(CopyLogDetailsOutput{})
 	pulumi.RegisterOutputType(CopyLogDetailsResponseOutput{})
 	pulumi.RegisterOutputType(CopyLogDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(DcAccessSecurityCodeResponseOutput{})
+	pulumi.RegisterOutputType(DcAccessSecurityCodeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DestinationAccountDetailsOutput{})
 	pulumi.RegisterOutputType(DestinationAccountDetailsArrayOutput{})
 	pulumi.RegisterOutputType(DestinationAccountDetailsResponseOutput{})
@@ -4872,6 +5200,7 @@ func init() {
 	pulumi.RegisterOutputType(JobPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(JobSecretsResponseOutput{})
 	pulumi.RegisterOutputType(JobStagesOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseArrayOutput{})
@@ -4898,4 +5227,6 @@ func init() {
 	pulumi.RegisterOutputType(TransportPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponseOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponsePtrOutput{})
+	pulumi.RegisterOutputType(UnencryptedCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(UnencryptedCredentialsResponseArrayOutput{})
 }

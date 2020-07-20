@@ -2585,6 +2585,24 @@ export namespace automation {
     }
 
     /**
+     * Automation key which is used to register a DSC Node
+     */
+    export interface KeyResponse {
+        /**
+         * Automation key name.
+         */
+        KeyName: string;
+        /**
+         * Automation key permissions.
+         */
+        Permissions: string;
+        /**
+         * Value of the Automation Key used for registration.
+         */
+        Value: string;
+    }
+
+    /**
      * Definition of the module error info type.
      */
     export interface ModuleErrorInfoResponse {
@@ -3204,6 +3222,76 @@ export namespace azurestack {
     }
 
     /**
+     * Data disk image.
+     */
+    export interface DataDiskImageResponse {
+        /**
+         * The LUN.
+         */
+        lun: number;
+        /**
+         * SAS key for source blob.
+         */
+        sourceBlobSasUri: string;
+    }
+
+    /**
+     * Product information.
+     */
+    export interface ExtendedProductPropertiesResponse {
+        /**
+         * Specifies kind of compute role included in the package.
+         */
+        computeRole: string;
+        /**
+         * List of attached data disks.
+         */
+        dataDiskImages: outputs.azurestack.DataDiskImageResponse[];
+        /**
+         * Specifies if product is a Virtual Machine Extension.
+         */
+        isSystemExtension: boolean;
+        /**
+         * OS disk image used by product.
+         */
+        osDiskImage: outputs.azurestack.OsDiskImageResponse;
+        /**
+         * Specifies a download location where content can be downloaded from.
+         */
+        sourceBlob: outputs.azurestack.UriResponse;
+        /**
+         * Indicates if specified product supports multiple extensions.
+         */
+        supportMultipleExtensions: boolean;
+        /**
+         * Specifies product version.
+         */
+        version: string;
+        /**
+         * Specifies operating system used by the product.
+         */
+        vmOsType: string;
+        /**
+         * Indicates if virtual machine Scale Set is enabled in the specified product.
+         */
+        vmScaleSetEnabled: boolean;
+    }
+
+    /**
+     * OS disk image.
+     */
+    export interface OsDiskImageResponse {
+        /**
+         * OS operating system type.
+         */
+        operatingSystem: string;
+        /**
+         * SAS key for source blob.
+         */
+        sourceBlobSasUri: string;
+    }
+
+    /**
      * Properties portion of the registration resource.
      */
     export interface RegistrationPropertiesResponse {
@@ -3219,6 +3307,16 @@ export namespace azurestack {
          * The object identifier associated with the Azure Stack connecting to Azure.
          */
         objectId?: string;
+    }
+
+    /**
+     * The URI.
+     */
+    export interface UriResponse {
+        /**
+         * The URI.
+         */
+        uri: string;
     }
 }
 
@@ -4576,6 +4674,42 @@ export namespace batchai {
     }
 
     /**
+     * File properties.
+     */
+    export interface FilePropertiesResponse {
+        /**
+         * The file of the size.
+         */
+        contentLength: number;
+        /**
+         * The time at which the file was last modified.
+         */
+        lastModified: string;
+    }
+
+    /**
+     * Properties of the file or directory.
+     */
+    export interface FileResponse {
+        /**
+         * URL to download the corresponding file. The downloadUrl is not returned for directories.
+         */
+        downloadUrl: string;
+        /**
+         * Type of the file. Possible values are file and directory.
+         */
+        fileType: string;
+        /**
+         * Name of the file.
+         */
+        name: string;
+        /**
+         * The properties associated with the file. The properties are not returned for directories.
+         */
+        properties?: outputs.batchai.FilePropertiesResponse;
+    }
+
+    /**
      * File Server properties.
      */
     export interface FileServerPropertiesResponse {
@@ -5053,6 +5187,24 @@ export namespace batchai {
          * The python script to execute.
          */
         pythonScriptFilePath: string;
+    }
+
+    /**
+     * Login details to SSH to a compute node in cluster.
+     */
+    export interface RemoteLoginInformationResponse {
+        /**
+         * Public IP address of the compute node.
+         */
+        ipAddress: string;
+        /**
+         * ID of the compute node.
+         */
+        nodeId: string;
+        /**
+         * SSH port number of the node.
+         */
+        port: number;
     }
 
     /**
@@ -10628,6 +10780,16 @@ export namespace containerinstance {
 
 export namespace containerregistry {
     /**
+     * The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+     */
+    export interface ActorResponse {
+        /**
+         * The subject or username associated with the request context that generated the event.
+         */
+        name?: string;
+    }
+
+    /**
      * The properties that determine the run agent configuration.
      */
     export interface AgentPropertiesResponse {
@@ -10721,6 +10883,110 @@ export namespace containerregistry {
          * Describes the credential parameters for accessing the source registry.
          */
         sourceRegistry?: outputs.containerregistry.SourceRegistryCredentialsResponse;
+    }
+
+    /**
+     * The content of the event request message.
+     */
+    export interface EventContentResponse {
+        /**
+         * The action that encompasses the provided event.
+         */
+        action?: string;
+        /**
+         * The agent that initiated the event. For most situations, this could be from the authorization context of the request.
+         */
+        actor?: outputs.containerregistry.ActorResponse;
+        /**
+         * The event ID.
+         */
+        id?: string;
+        /**
+         * The request that generated the event.
+         */
+        request?: outputs.containerregistry.RequestResponse;
+        /**
+         * The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+         */
+        source?: outputs.containerregistry.SourceResponse;
+        /**
+         * The target of the event.
+         */
+        target?: outputs.containerregistry.TargetResponse;
+        /**
+         * The time at which the event occurred.
+         */
+        timestamp?: string;
+    }
+
+    /**
+     * The event request message sent to the service URI.
+     */
+    export interface EventRequestMessageResponse {
+        /**
+         * The content of the event request message.
+         */
+        content?: outputs.containerregistry.EventContentResponse;
+        /**
+         * The headers of the event request message.
+         */
+        headers?: {[key: string]: string};
+        /**
+         * The HTTP method used to send the event request message.
+         */
+        method?: string;
+        /**
+         * The URI used to send the event request message.
+         */
+        requestUri?: string;
+        /**
+         * The HTTP message version.
+         */
+        version?: string;
+    }
+
+    /**
+     * The event for a webhook.
+     */
+    export interface EventResponse {
+        /**
+         * The event request message sent to the service URI.
+         */
+        eventRequestMessage?: outputs.containerregistry.EventRequestMessageResponse;
+        /**
+         * The event response message received from the service URI.
+         */
+        eventResponseMessage?: outputs.containerregistry.EventResponseMessageResponse;
+        /**
+         * The event ID.
+         */
+        id?: string;
+    }
+
+    /**
+     * The event response message received from the service URI.
+     */
+    export interface EventResponseMessageResponse {
+        /**
+         * The content of the event response message.
+         */
+        content?: string;
+        /**
+         * The headers of the event response message.
+         */
+        headers?: {[key: string]: string};
+        /**
+         * The reason phrase of the event response message.
+         */
+        reasonPhrase?: string;
+        /**
+         * The status code of the event response message.
+         */
+        statusCode?: string;
+        /**
+         * The HTTP message version.
+         */
+        version?: string;
     }
 
     /**
@@ -10827,6 +11093,20 @@ export namespace containerregistry {
     }
 
     /**
+     * The login password for the container registry.
+     */
+    export interface RegistryPasswordResponse {
+        /**
+         * The password name.
+         */
+        name?: string;
+        /**
+         * The password value.
+         */
+        value?: string;
+    }
+
+    /**
      * The properties of a container registry.
      */
     export interface RegistryPropertiesResponse {
@@ -10876,6 +11156,32 @@ export namespace containerregistry {
          * The status of the replication at the time the operation was called.
          */
         status: outputs.containerregistry.StatusResponse;
+    }
+
+    /**
+     * The request that generated the event.
+     */
+    export interface RequestResponse {
+        /**
+         * The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
+         */
+        addr?: string;
+        /**
+         * The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
+         */
+        host?: string;
+        /**
+         * The ID of the request that initiated the event.
+         */
+        id?: string;
+        /**
+         * The request method that generated the event.
+         */
+        method?: string;
+        /**
+         * The user agent header of the request.
+         */
+        useragent?: string;
     }
 
     /**
@@ -10946,6 +11252,20 @@ export namespace containerregistry {
     }
 
     /**
+     * The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+     */
+    export interface SourceResponse {
+        /**
+         * The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
+         */
+        addr?: string;
+        /**
+         * The running instance of an application. Changes after each restart.
+         */
+        instanceID?: string;
+    }
+
+    /**
      * The properties of a source based trigger.
      */
     export interface SourceTriggerResponse {
@@ -10993,6 +11313,48 @@ export namespace containerregistry {
          * The resource ID of the storage account.
          */
         id: string;
+    }
+
+    /**
+     * The target of the event.
+     */
+    export interface TargetResponse {
+        /**
+         * The digest of the content, as defined by the Registry V2 HTTP API Specification.
+         */
+        digest?: string;
+        /**
+         * The number of bytes of the content. Same as Size field.
+         */
+        length?: number;
+        /**
+         * The MIME type of the referenced object.
+         */
+        mediaType?: string;
+        /**
+         * The name of the artifact.
+         */
+        name?: string;
+        /**
+         * The repository name.
+         */
+        repository?: string;
+        /**
+         * The number of bytes of the content. Same as Length field.
+         */
+        size?: number;
+        /**
+         * The tag name.
+         */
+        tag?: string;
+        /**
+         * The direct URL to the content.
+         */
+        url?: string;
+        /**
+         * The version of the artifact.
+         */
+        version?: string;
     }
 
     /**
@@ -11147,6 +11509,16 @@ export namespace containerregistry {
 }
 
 export namespace containerservice {
+    /**
+     * Profile for enabling a user to access a managed cluster.
+     */
+    export interface AccessProfileResponse {
+        /**
+         * Base64-encoded Kubernetes configuration file.
+         */
+        kubeConfig?: string;
+    }
+
     /**
      * Settings for upgrading an agentpool
      */
@@ -11447,6 +11819,20 @@ export namespace containerservice {
          * The administrator username to use for Windows VMs.
          */
         adminUsername: string;
+    }
+
+    /**
+     * The credential result response.
+     */
+    export interface CredentialResultResponse {
+        /**
+         * The name of the credential.
+         */
+        name: string;
+        /**
+         * Base64-encoded Kubernetes configuration file.
+         */
+        value: string;
     }
 
     /**
@@ -13391,6 +13777,20 @@ export namespace databox {
     }
 
     /**
+     * Dc Access Security code for device.
+     */
+    export interface DcAccessSecurityCodeResponse {
+        /**
+         * Dc Access Code for dispatching from DC.
+         */
+        forwardDcAccessCode?: string;
+        /**
+         * Dc Access code for dropping off at DC.
+         */
+        reverseDcAccessCode?: string;
+    }
+
+    /**
      * Details of the destination storage accounts.
      */
     export interface DestinationAccountDetailsResponse {
@@ -13563,6 +13963,20 @@ export namespace databox {
     }
 
     /**
+     * The base class for the secrets
+     */
+    export interface JobSecretsResponse {
+        /**
+         * Dc Access Security Code for Customer Managed Shipping
+         */
+        dcAccessSecurityCode?: outputs.databox.DcAccessSecurityCodeResponse;
+        /**
+         * Used to indicate what type of job secrets object.
+         */
+        jobSecretsType: string;
+    }
+
+    /**
      * Job stages.
      */
     export interface JobStagesResponse {
@@ -13710,6 +14124,20 @@ export namespace databox {
          * Indicates Shipment Logistics type that the customer preferred.
          */
         preferredShipmentType: string;
+    }
+
+    /**
+     * Unencrypted credentials for accessing device.
+     */
+    export interface UnencryptedCredentialsResponse {
+        /**
+         * Name of the job.
+         */
+        jobName: string;
+        /**
+         * Secrets related to this job.
+         */
+        jobSecrets: outputs.databox.JobSecretsResponse;
     }
 }
 
@@ -15135,6 +15563,16 @@ export namespace datalakeanalytics {
     }
 
     /**
+     * SAS token information.
+     */
+    export interface SasTokenInformationResponse {
+        /**
+         * The access token for the associated Azure Storage Container.
+         */
+        accessToken: string;
+    }
+
+    /**
      * The Azure Storage account properties.
      */
     export interface StorageAccountInformationPropertiesResponse {
@@ -15579,6 +16017,162 @@ export namespace datashare {
          * Name of the user who created the resource
          */
         userName: string;
+    }
+
+    /**
+     * A ShareSubscriptionSynchronization data transfer object.
+     */
+    export interface ShareSubscriptionSynchronizationResponse {
+        /**
+         * Synchronization duration
+         */
+        durationMs: number;
+        /**
+         * End time of synchronization
+         */
+        endTime: string;
+        /**
+         * message of Synchronization
+         */
+        message: string;
+        /**
+         * start time of synchronization
+         */
+        startTime: string;
+        /**
+         * Raw Status
+         */
+        status: string;
+        /**
+         * Synchronization id
+         */
+        synchronizationId: string;
+        /**
+         * Synchronization Mode
+         */
+        synchronizationMode: string;
+    }
+
+    /**
+     * A ShareSynchronization data transfer object.
+     */
+    export interface ShareSynchronizationResponse {
+        /**
+         * Email of the user who created the synchronization
+         */
+        consumerEmail?: string;
+        /**
+         * Name of the user who created the synchronization
+         */
+        consumerName?: string;
+        /**
+         * Tenant name of the consumer who created the synchronization
+         */
+        consumerTenantName?: string;
+        /**
+         * synchronization duration
+         */
+        durationMs?: number;
+        /**
+         * End time of synchronization
+         */
+        endTime?: string;
+        /**
+         * message of synchronization
+         */
+        message?: string;
+        /**
+         * start time of synchronization
+         */
+        startTime?: string;
+        /**
+         * Raw Status
+         */
+        status?: string;
+        /**
+         * Synchronization id
+         */
+        synchronizationId?: string;
+        /**
+         * Synchronization mode
+         */
+        synchronizationMode: string;
+    }
+
+    /**
+     * A view of synchronization setting added by the provider
+     */
+    export interface SourceShareSynchronizationSettingResponse {
+        /**
+         * Kind of synchronization
+         */
+        kind: string;
+    }
+
+    /**
+     * Synchronization details at data set level
+     */
+    export interface SynchronizationDetailsResponse {
+        /**
+         * Id of data set
+         */
+        dataSetId: string;
+        /**
+         * Type of the data set
+         */
+        dataSetType: string;
+        /**
+         * Duration of data set level copy
+         */
+        durationMs: number;
+        /**
+         * End time of data set level copy
+         */
+        endTime: string;
+        /**
+         * The number of files read from the source data set
+         */
+        filesRead: number;
+        /**
+         * The number of files written into the sink data set
+         */
+        filesWritten: number;
+        /**
+         * Error message if any
+         */
+        message: string;
+        /**
+         * Name of the data set
+         */
+        name: string;
+        /**
+         * The number of files copied into the sink data set
+         */
+        rowsCopied: number;
+        /**
+         * The number of rows read from the source data set.
+         */
+        rowsRead: number;
+        /**
+         * The size of the data read from the source data set in bytes
+         */
+        sizeRead: number;
+        /**
+         * The size of the data written into the sink data set in bytes
+         */
+        sizeWritten: number;
+        /**
+         * Start time of data set level copy
+         */
+        startTime: string;
+        /**
+         * Raw Status
+         */
+        status: string;
+        /**
+         * The vCore units consumed for the data set synchronization
+         */
+        vCore: number;
     }
 }
 
@@ -17106,6 +17700,13 @@ export namespace devices {
 }
 
 export namespace devspaces {
+    export interface ControllerConnectionDetailsResponse {
+        /**
+         * Base class for types that supply values used to connect to container orchestrators
+         */
+        orchestratorSpecificConnectionDetails?: outputs.devspaces.OrchestratorSpecificConnectionDetailsResponse;
+    }
+
     export interface ControllerPropertiesResponse {
         /**
          * DNS name for accessing DataPlane services
@@ -17131,6 +17732,16 @@ export namespace devspaces {
          * Resource ID of the target container host
          */
         targetContainerHostResourceId: string;
+    }
+
+    /**
+     * Base class for types that supply values used to connect to container orchestrators
+     */
+    export interface OrchestratorSpecificConnectionDetailsResponse {
+        /**
+         * Gets the Instance type.
+         */
+        instanceType: string;
     }
 
     /**
@@ -17947,6 +18558,16 @@ export namespace devtestlab {
          * The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
          */
         markdown?: string;
+    }
+
+    /**
+     * Properties of a VHD in the lab.
+     */
+    export interface LabVhdResponse {
+        /**
+         * The URI to the VHD.
+         */
+        id?: string;
     }
 
     /**
@@ -18854,6 +19475,20 @@ export namespace documentdb {
          * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
          */
         maxStalenessPrefix?: number;
+    }
+
+    /**
+     * Connection string for the Cosmos DB account
+     */
+    export interface DatabaseAccountConnectionStringResponse {
+        /**
+         * Value of the connection string
+         */
+        connectionString: string;
+        /**
+         * Description of the connection string
+         */
+        description: string;
     }
 
     /**
@@ -20922,6 +21557,20 @@ export namespace hybriddata {
 
 export namespace importexport {
     /**
+     * BitLocker recovery key or password to the specified drive
+     */
+    export interface DriveBitLockerKeyResponse {
+        /**
+         * BitLocker recovery key or password
+         */
+        bitLockerKey?: string;
+        /**
+         * Drive ID
+         */
+        driveId?: string;
+    }
+
+    /**
      * Provides information about the drive's status
      */
     export interface DriveStatusResponse {
@@ -21861,6 +22510,58 @@ export namespace kusto {
          * The tenant name of the principal
          */
         tenantName: string;
+    }
+
+    /**
+     * A class representing database principal entity.
+     */
+    export interface DatabasePrincipalResponse {
+        /**
+         * Application id - relevant only for application principal type.
+         */
+        appId?: string;
+        /**
+         * Database principal email if exists.
+         */
+        email?: string;
+        /**
+         * Database principal fully qualified name.
+         */
+        fqn?: string;
+        /**
+         * Database principal name.
+         */
+        name: string;
+        /**
+         * Database principal role.
+         */
+        role: string;
+        /**
+         * The tenant name of the principal
+         */
+        tenantName: string;
+        /**
+         * Database principal type.
+         */
+        type: string;
+    }
+
+    /**
+     * A class representing follower database request.
+     */
+    export interface FollowerDatabaseDefinitionResponse {
+        /**
+         * Resource name of the attached database configuration in the follower cluster.
+         */
+        attachedDatabaseConfigurationName: string;
+        /**
+         * Resource id of the cluster that follows a database owned by this cluster.
+         */
+        clusterResourceId: string;
+        /**
+         * The database name owned by this cluster that was followed. * in case following all databases.
+         */
+        databaseName: string;
     }
 
     /**
@@ -23030,6 +23731,24 @@ export namespace logic {
     }
 
     /**
+     * The azure resource error info.
+     */
+    export interface AzureResourceErrorInfoResponse {
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details?: outputs.logic.AzureResourceErrorInfoResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+    }
+
+    /**
      * The B2B partner content.
      */
     export interface B2BPartnerContentResponse {
@@ -23767,6 +24486,48 @@ export namespace logic {
     }
 
     /**
+     * The expression.
+     */
+    export interface ExpressionResponse {
+        /**
+         * The azure resource error info.
+         */
+        error?: outputs.logic.AzureResourceErrorInfoResponse;
+        /**
+         * The sub expressions.
+         */
+        subexpressions?: outputs.logic.ExpressionResponse[];
+        /**
+         * The text.
+         */
+        text?: string;
+        value?: {[key: string]: string};
+    }
+
+    /**
+     * The expression root.
+     */
+    export interface ExpressionRootResponse {
+        /**
+         * The azure resource error info.
+         */
+        error?: outputs.logic.AzureResourceErrorInfoResponse;
+        /**
+         * The path.
+         */
+        path?: string;
+        /**
+         * The sub expressions.
+         */
+        subexpressions?: outputs.logic.ExpressionResponse[];
+        /**
+         * The text.
+         */
+        text?: string;
+        value?: {[key: string]: string};
+    }
+
+    /**
      * The access control configuration policy.
      */
     export interface FlowAccessControlConfigurationPolicyResponse {
@@ -24201,6 +24962,38 @@ export namespace logic {
     }
 
     /**
+     * The key vault key.
+     */
+    export interface KeyVaultKeyResponse {
+        /**
+         * The key attributes.
+         */
+        attributes?: outputs.logic.KeyVaultKeyResponseProperties;
+        /**
+         * The key id.
+         */
+        kid?: string;
+    }
+
+    /**
+     * The key attributes.
+     */
+    export interface KeyVaultKeyResponseProperties {
+        /**
+         * When the key was created.
+         */
+        created?: number;
+        /**
+         * Whether the key is enabled or not.
+         */
+        enabled?: boolean;
+        /**
+         * When the key was updated.
+         */
+        updated?: number;
+    }
+
+    /**
      * The network configuration.
      */
     export interface NetworkConfigurationResponse {
@@ -24369,6 +25162,28 @@ export namespace logic {
          * Gets the version.
          */
         version: string;
+    }
+
+    /**
+     * Gets the workflow trigger callback URL query parameters.
+     */
+    export interface WorkflowTriggerListCallbackUrlQueriesResponse {
+        /**
+         * The SAS timestamp.
+         */
+        se?: string;
+        /**
+         * The SAS signature.
+         */
+        sig?: string;
+        /**
+         * The SAS permissions.
+         */
+        sp?: string;
+        /**
+         * The SAS version.
+         */
+        sv?: string;
     }
 
     /**
@@ -25238,6 +26053,36 @@ export namespace machinelearning {
 
 export namespace machinelearningservices {
     /**
+     * Compute node information related to a AmlCompute.
+     */
+    export interface AmlComputeNodeInformationResponse {
+        /**
+         * ID of the compute node.
+         */
+        nodeId: string;
+        /**
+         * State of the compute node. Values are idle, running, preparing, unusable, leaving and preempted.
+         */
+        nodeState: string;
+        /**
+         * SSH port number of the node.
+         */
+        port: number;
+        /**
+         * Private IP address of the compute node.
+         */
+        privateIpAddress: string;
+        /**
+         * Public IP address of the compute node.
+         */
+        publicIpAddress: string;
+        /**
+         * ID of the Experiment running on the node, if any else null.
+         */
+        runId: string;
+    }
+
+    /**
      * Machine Learning compute object.
      */
     export interface ComputeResponse {
@@ -25369,6 +26214,11 @@ export namespace machinelearningservices {
         error: outputs.machinelearningservices.ErrorResponseResponse;
     }
 
+    export interface NotebookListCredentialsResultResponse {
+        primaryAccessKey?: string;
+        secondaryAccessKey?: string;
+    }
+
     export interface NotebookPreparationErrorResponse {
         errorMessage?: string;
         statusCode?: number;
@@ -25384,6 +26234,11 @@ export namespace machinelearningservices {
          * the data plane resourceId that used to initialize notebook component
          */
         resourceId?: string;
+    }
+
+    export interface PasswordResponse {
+        name: string;
+        value: string;
     }
 
     /**
@@ -25468,6 +26323,12 @@ export namespace machinelearningservices {
          * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
          */
         status?: string;
+    }
+
+    export interface RegistryListCredentialsResultResponse {
+        location: string;
+        passwords?: outputs.machinelearningservices.PasswordResponse[];
+        username: string;
     }
 
     /**
@@ -25763,6 +26624,44 @@ export namespace media {
     }
 
     /**
+     * Properties of the Streaming Locator.
+     */
+    export interface AssetStreamingLocatorResponse {
+        /**
+         * Asset Name.
+         */
+        assetName: string;
+        /**
+         * The creation time of the Streaming Locator.
+         */
+        created: string;
+        /**
+         * Name of the default ContentKeyPolicy used by this Streaming Locator.
+         */
+        defaultContentKeyPolicyName: string;
+        /**
+         * The end time of the Streaming Locator.
+         */
+        endTime: string;
+        /**
+         * Streaming Locator name.
+         */
+        name: string;
+        /**
+         * The start time of the Streaming Locator.
+         */
+        startTime: string;
+        /**
+         * StreamingLocatorId of the Streaming Locator.
+         */
+        streamingLocatorId: string;
+        /**
+         * Name of the Streaming Policy used by this Streaming Locator.
+         */
+        streamingPolicyName: string;
+    }
+
+    /**
      * Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
      */
     export interface CbcsDrmConfigurationResponse {
@@ -25924,6 +26823,40 @@ export namespace media {
          * Policy used by Default Key
          */
         policyName?: string;
+    }
+
+    export interface EdgeUsageDataCollectionPolicyResponse {
+        /**
+         * Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+         */
+        dataCollectionFrequency?: string;
+        /**
+         * Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+         */
+        dataReportingFrequency?: string;
+        /**
+         * Details of Event Hub where the usage will be reported.
+         */
+        eventHubDetails?: outputs.media.EdgeUsageDataEventHubResponse;
+        /**
+         * Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+         */
+        maxAllowedUnreportedUsageDuration?: string;
+    }
+
+    export interface EdgeUsageDataEventHubResponse {
+        /**
+         * Name of the Event Hub where usage will be reported.
+         */
+        name?: string;
+        /**
+         * Namespace of the Event Hub where usage will be reported.
+         */
+        namespace?: string;
+        /**
+         * SAS token needed to interact with Event Hub.
+         */
+        token?: string;
     }
 
     /**
@@ -26691,6 +27624,24 @@ export namespace media {
          * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
          */
         streamingPolicyName: string;
+    }
+
+    /**
+     * Class of paths for streaming
+     */
+    export interface StreamingPathResponse {
+        /**
+         * Encryption scheme
+         */
+        encryptionScheme: string;
+        /**
+         * Streaming paths for each protocol and encryptionScheme pair
+         */
+        paths?: string[];
+        /**
+         * Streaming protocol
+         */
+        streamingProtocol: string;
     }
 
     /**
@@ -36790,6 +37741,40 @@ export namespace notificationhubs {
     }
 
     /**
+     * Description of a Namespace AuthorizationRules.
+     */
+    export interface SharedAccessAuthorizationRuleResourceResponse {
+        /**
+         * Resource Id
+         */
+        id: string;
+        /**
+         * Resource location
+         */
+        location?: string;
+        /**
+         * Resource name
+         */
+        name: string;
+        /**
+         * Properties of the Namespace AuthorizationRule.
+         */
+        properties?: outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse;
+        /**
+         * The sku of the created namespace
+         */
+        sku?: outputs.notificationhubs.SkuResponse;
+        /**
+         * Resource tags
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type
+         */
+        type: string;
+    }
+
+    /**
      * The Sku description for a namespace
      */
     export interface SkuResponse {
@@ -37602,6 +38587,66 @@ export namespace peering {
 
 export namespace policyinsights {
     /**
+     * Error definition.
+     */
+    export interface ErrorDefinitionResponse {
+        /**
+         * Additional scenario specific error details.
+         */
+        additionalInfo: outputs.policyinsights.TypedErrorInfoResponse[];
+        /**
+         * Service specific error code which serves as the substatus for the HTTP error code.
+         */
+        code: string;
+        /**
+         * Internal error details.
+         */
+        details: outputs.policyinsights.ErrorDefinitionResponse[];
+        /**
+         * Description of the error.
+         */
+        message: string;
+        /**
+         * The target of the error.
+         */
+        target: string;
+    }
+
+    /**
+     * Details of a single deployment created by the remediation.
+     */
+    export interface RemediationDeploymentResponse {
+        /**
+         * The time at which the remediation was created.
+         */
+        createdOn: string;
+        /**
+         * Resource ID of the template deployment that will remediate the resource.
+         */
+        deploymentId: string;
+        /**
+         * Error encountered while remediated the resource.
+         */
+        error: outputs.policyinsights.ErrorDefinitionResponse;
+        /**
+         * The time at which the remediation deployment was last updated.
+         */
+        lastUpdatedOn: string;
+        /**
+         * Resource ID of the resource that is being remediated by the deployment.
+         */
+        remediatedResourceId: string;
+        /**
+         * Location of the resource that is being remediated.
+         */
+        resourceLocation: string;
+        /**
+         * Status of the remediation deployment.
+         */
+        status: string;
+    }
+
+    /**
      * The deployment status summary for all deployments created by the remediation.
      */
     export interface RemediationDeploymentSummaryResponse {
@@ -37665,6 +38710,20 @@ export namespace policyinsights {
          * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
          */
         resourceDiscoveryMode?: string;
+    }
+
+    /**
+     * Scenario specific error details.
+     */
+    export interface TypedErrorInfoResponse {
+        /**
+         * The scenario specific error details.
+         */
+        info: {[key: string]: string};
+        /**
+         * The type of included error details.
+         */
+        type: string;
     }
 }
 
@@ -39898,6 +40957,20 @@ export namespace search {
          * The resource type.
          */
         type: string;
+    }
+
+    /**
+     * Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
+     */
+    export interface QueryKeyResponse {
+        /**
+         * The value of the query API key.
+         */
+        key: string;
+        /**
+         * The name of the query API key; may be empty.
+         */
+        name: string;
     }
 
     /**
@@ -43626,6 +44699,24 @@ export namespace storage {
     }
 
     /**
+     * An access key for the storage account.
+     */
+    export interface StorageAccountKeyResponse {
+        /**
+         * Name of the key.
+         */
+        keyName: string;
+        /**
+         * Permissions for the key -- read-only or full permissions.
+         */
+        permissions: string;
+        /**
+         * Base 64-encoded value of the key.
+         */
+        value: string;
+    }
+
+    /**
      * The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object via a microsoft routing endpoint.
      */
     export interface StorageAccountMicrosoftEndpointsResponse {
@@ -44913,6 +46004,84 @@ export namespace storsimple {
     }
 
     /**
+     * The eligibility result of failover set, for failover.
+     */
+    export interface FailoverSetEligibilityResultResponse {
+        /**
+         * The error message, if the failover set is not eligible for failover.
+         */
+        errorMessage?: string;
+        /**
+         * Represents if this failover set is eligible for failover or not.
+         */
+        isEligibleForFailover?: boolean;
+    }
+
+    /**
+     * The failover set on a device.
+     */
+    export interface FailoverSetResponse {
+        /**
+         * The eligibility result of the failover set, for failover.
+         */
+        eligibilityResult?: outputs.storsimple.FailoverSetEligibilityResultResponse;
+        /**
+         * The list of meta data of volume containers, which are part of the failover set.
+         */
+        volumeContainers?: outputs.storsimple.VolumeContainerFailoverMetadataResponse[];
+    }
+
+    /**
+     * Represents the eligibility of a device as a failover target device.
+     */
+    export interface FailoverTargetResponse {
+        /**
+         * The amount of free local storage available on the device in bytes.
+         */
+        availableLocalStorageInBytes?: number;
+        /**
+         * The amount of free tiered storage available for the device in bytes.
+         */
+        availableTieredStorageInBytes?: number;
+        /**
+         * The count of data containers on the device.
+         */
+        dataContainersCount?: number;
+        /**
+         * The path ID of the device.
+         */
+        deviceId?: string;
+        /**
+         * The geo location (applicable only for cloud appliances) of the device.
+         */
+        deviceLocation?: string;
+        /**
+         * The software version of the device.
+         */
+        deviceSoftwareVersion?: string;
+        /**
+         * The status of the device.
+         */
+        deviceStatus?: string;
+        /**
+         * The eligibility result of the device, as a failover target device.
+         */
+        eligibilityResult?: outputs.storsimple.TargetEligibilityResultResponse;
+        /**
+         * The friendly name for the current version of software on the device.
+         */
+        friendlyDeviceSoftwareVersion?: string;
+        /**
+         * The model number of the device.
+         */
+        modelDescription?: string;
+        /**
+         * The count of volumes on the device.
+         */
+        volumesCount?: number;
+    }
+
+    /**
      * The file server properties.
      */
     export interface FileServerPropertiesResponse {
@@ -45163,6 +46332,38 @@ export namespace storsimple {
     }
 
     /**
+     * The error/warning message due to which the device is ineligible as a failover target device.
+     */
+    export interface TargetEligibilityErrorMessageResponse {
+        /**
+         * The localized error message stating the reason why the device is not eligible as a target device.
+         */
+        message?: string;
+        /**
+         * The localized resolution message for the error.
+         */
+        resolution?: string;
+        /**
+         * The result code for the error, due to which the device does not qualify as a failover target device.
+         */
+        resultCode?: string;
+    }
+
+    /**
+     * The eligibility result of device, as a failover target device.
+     */
+    export interface TargetEligibilityResultResponse {
+        /**
+         * The eligibility status of device, as a failover target device.
+         */
+        eligibilityStatus?: string;
+        /**
+         * The list of error messages, if a device does not qualify as a failover target device.
+         */
+        messages?: outputs.storsimple.TargetEligibilityErrorMessageResponse[];
+    }
+
+    /**
      * The time.
      */
     export interface TimeResponse {
@@ -45178,6 +46379,20 @@ export namespace storsimple {
          * The second.
          */
         seconds: number;
+    }
+
+    /**
+     * The metadata of the volume container, that is being considered as part of a failover set.
+     */
+    export interface VolumeContainerFailoverMetadataResponse {
+        /**
+         * The path ID of the volume container.
+         */
+        volumeContainerId?: string;
+        /**
+         * The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
+         */
+        volumes?: outputs.storsimple.VolumeFailoverMetadataResponse[];
     }
 
     /**
@@ -45216,6 +46431,40 @@ export namespace storsimple {
          * The number of volumes in the volume Container.
          */
         volumeCount: number;
+    }
+
+    /**
+     * The metadata of a volume that has valid cloud snapshot.
+     */
+    export interface VolumeFailoverMetadataResponse {
+        /**
+         * The date at which the snapshot was taken.
+         */
+        backupCreatedDate?: string;
+        /**
+         * The path ID of the backup-element for this volume, inside the backup set.
+         */
+        backupElementId?: string;
+        /**
+         * The path ID of the backup set.
+         */
+        backupId?: string;
+        /**
+         * The path ID of the backup policy using which the snapshot was taken.
+         */
+        backupPolicyId?: string;
+        /**
+         * The size of the volume in bytes at the time the snapshot was taken.
+         */
+        sizeInBytes?: number;
+        /**
+         * The path ID of the volume.
+         */
+        volumeId?: string;
+        /**
+         * The type of the volume.
+         */
+        volumeType?: string;
     }
 
     /**
@@ -46596,6 +47845,94 @@ export namespace web {
     }
 
     /**
+     * Backup description.
+     */
+    export interface BackupItemResponse {
+        /**
+         * Resource Id.
+         */
+        id: string;
+        /**
+         * Kind of resource.
+         */
+        kind?: string;
+        /**
+         * Resource Name.
+         */
+        name: string;
+        /**
+         * BackupItem resource specific properties
+         */
+        properties?: outputs.web.BackupItemResponseProperties;
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * BackupItem resource specific properties
+     */
+    export interface BackupItemResponseProperties {
+        /**
+         * Name of the blob which contains data for this backup.
+         */
+        blobName: string;
+        /**
+         * Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+         */
+        correlationId: string;
+        /**
+         * Timestamp of the backup creation.
+         */
+        created: string;
+        /**
+         * List of databases included in the backup.
+         */
+        databases: outputs.web.DatabaseBackupSettingResponse[];
+        /**
+         * Timestamp when this backup finished.
+         */
+        finishedTimeStamp: string;
+        /**
+         * Id of the backup.
+         */
+        id: number;
+        /**
+         * Timestamp of a last restore operation which used this backup.
+         */
+        lastRestoreTimeStamp: string;
+        /**
+         * Details regarding this backup. Might contain an error message.
+         */
+        log: string;
+        /**
+         * Name of this backup.
+         */
+        name: string;
+        /**
+         * True if this backup has been created due to a schedule being triggered.
+         */
+        scheduled: boolean;
+        /**
+         * Size of the backup in bytes.
+         */
+        sizeInBytes: number;
+        /**
+         * Backup status.
+         */
+        status: string;
+        /**
+         * SAS URL for the storage account container which contains this backup.
+         */
+        storageAccountUrl: string;
+        /**
+         * Size of the original web app which has been backed up.
+         */
+        websiteSizeInBytes: number;
+    }
+
+    /**
      * Describes the capabilities/features allowed for a specific SKU.
      */
     export interface CapabilityResponse {
@@ -46790,6 +48127,26 @@ export namespace web {
     }
 
     /**
+     * Database backup settings.
+     */
+    export interface DatabaseBackupSettingResponse {
+        /**
+         * Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+         */
+        connectionString?: string;
+        /**
+         * Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+         * This is used during restore with overwrite connection strings options.
+         */
+        connectionStringName?: string;
+        /**
+         * Database type (e.g. SqlAzure / MySql).
+         */
+        databaseType: string;
+        name?: string;
+    }
+
+    /**
      * Deployment resource specific properties
      */
     export interface DeploymentResponseProperties {
@@ -46900,6 +48257,20 @@ export namespace web {
     }
 
     /**
+     * FunctionSecrets resource specific properties
+     */
+    export interface FunctionSecretsResponseProperties {
+        /**
+         * Secret key.
+         */
+        key?: string;
+        /**
+         * Trigger URL.
+         */
+        trigger_url?: string;
+    }
+
+    /**
      * The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
      * For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
      */
@@ -47006,6 +48377,20 @@ export namespace web {
          * Resource type of the App Service Environment.
          */
         type: string;
+    }
+
+    /**
+     * HybridConnectionKey resource specific properties
+     */
+    export interface HybridConnectionKeyResponseProperties {
+        /**
+         * The name of the send key.
+         */
+        sendKeyName: string;
+        /**
+         * The value of the send key.
+         */
+        sendKeyValue: string;
     }
 
     /**
@@ -48086,6 +49471,54 @@ export namespace web {
          * URL for the repository of the static site.
          */
         repositoryUrl?: string;
+    }
+
+    /**
+     * Static Site User ARM resource.
+     */
+    export interface StaticSiteUserARMResourceResponse {
+        /**
+         * Resource Id.
+         */
+        id: string;
+        /**
+         * Kind of resource.
+         */
+        kind?: string;
+        /**
+         * Resource Name.
+         */
+        name: string;
+        /**
+         * StaticSiteUserARMResource resource specific properties
+         */
+        properties?: outputs.web.StaticSiteUserARMResourceResponseProperties;
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * StaticSiteUserARMResource resource specific properties
+     */
+    export interface StaticSiteUserARMResourceResponseProperties {
+        /**
+         * The display name for the static site user.
+         */
+        displayName: string;
+        /**
+         * The identity provider for the static site user.
+         */
+        provider: string;
+        /**
+         * The roles for the static site user, in free-form string format
+         */
+        roles?: string;
+        /**
+         * The user id for the static site user.
+         */
+        userId: string;
     }
 
     /**

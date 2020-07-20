@@ -41,6 +41,14 @@ from .get_service_subscription import *
 from .get_service_tag import *
 from .get_service_template import *
 from .get_service_user import *
+from .list_service_authorization_server_secrets import *
+from .list_service_gateway_keys import *
+from .list_service_identity_provider_secrets import *
+from .list_service_named_value_value import *
+from .list_service_openid_connect_provider_secrets import *
+from .list_service_portalsetting_secrets import *
+from .list_service_subscription_secrets import *
+from .list_service_tenant_secrets import *
 from .service import *
 from .service_api import *
 from .service_api_diagnostic import *

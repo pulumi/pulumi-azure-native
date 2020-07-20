@@ -19,6 +19,10 @@ from .get_manager_device_volume_container_volume import *
 from .get_manager_extended_information import *
 from .get_manager_storage_account_credential import *
 from .get_manager_storage_domain import *
+from .list_manager_activation_key import *
+from .list_manager_device_failover_sets import *
+from .list_manager_device_failover_targets import *
+from .list_manager_public_encryption_key import *
 from .manager import *
 from .manager_access_control_record import *
 from .manager_bandwidth_setting import *

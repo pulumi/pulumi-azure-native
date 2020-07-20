@@ -6,6 +6,7 @@ export * from "./getPrivateCloud";
 export * from "./getPrivateCloudAuthorization";
 export * from "./getPrivateCloudCluster";
 export * from "./getPrivateCloudHcxEnterpriseSite";
+export * from "./listPrivateCloudAdminCredentials";
 export * from "./privateCloud";
 export * from "./privateCloudAuthorization";
 export * from "./privateCloudCluster";

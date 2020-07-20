@@ -6,6 +6,8 @@ export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
 export * from "./getNamespaceNotificationHub";
 export * from "./getNamespaceNotificationHubAuthorizationRule";
+export * from "./listNamespaceAuthorizationRuleKeys";
+export * from "./listNamespaceNotificationHubAuthorizationRuleKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./namespaceNotificationHub";

@@ -12,6 +12,7 @@ from .get_storage_account_object_replication_policy import *
 from .get_storage_account_private_endpoint_connection import *
 from .get_storage_account_queue_service_queue import *
 from .get_storage_account_table_service_table import *
+from .list_storage_account_keys import *
 from .storage_account import *
 from .storage_account_blob_service_container import *
 from .storage_account_blob_service_container_immutability_policy import *

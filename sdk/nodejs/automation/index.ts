@@ -32,3 +32,4 @@ export * from "./getAutomationAccountSchedule";
 export * from "./getAutomationAccountVariable";
 export * from "./getAutomationAccountWatcher";
 export * from "./getAutomationAccountWebhook";
+export * from "./listAutomationAccountKeys";

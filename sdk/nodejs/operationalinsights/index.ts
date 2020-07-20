@@ -9,6 +9,7 @@ export * from "./getWorkspaceProviderDataConnector";
 export * from "./getWorkspaceProviderIncident";
 export * from "./getWorkspaceSavedSearch";
 export * from "./getWorkspaceStorageInsightConfig";
+export * from "./listWorkspaceKeys";
 export * from "./workspaceProviderAlertRule";
 export * from "./workspaceProviderAlertRuleAction";
 export * from "./workspaceProviderBookmark";

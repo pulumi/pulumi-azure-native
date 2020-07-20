@@ -15,3 +15,6 @@ from .get_cluster_database import *
 from .get_cluster_database_data_connection import *
 from .get_cluster_database_principal_assignment import *
 from .get_cluster_principal_assignment import *
+from .list_cluster_database_principals import *
+from .list_cluster_follower_databases import *
+from .list_cluster_language_extensions import *

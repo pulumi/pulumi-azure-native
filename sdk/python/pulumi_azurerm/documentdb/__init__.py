@@ -31,3 +31,6 @@ from .get_database_account_sql_database_container_stored_procedure import *
 from .get_database_account_sql_database_container_trigger import *
 from .get_database_account_sql_database_container_user_defined_function import *
 from .get_database_account_table import *
+from .list_database_account_connection_strings import *
+from .list_database_account_keys import *
+from .list_database_account_notebook_workspace_connection_info import *

@@ -38,4 +38,8 @@ from .lab_user_servicefabric_schedule import *
 from .lab_virtualmachine import *
 from .lab_virtualmachine_schedule import *
 from .lab_virtualnetwork import *
+from .list_lab_schedule_applicable import *
+from .list_lab_user_servicefabric_applicable_schedules import *
+from .list_lab_vhds import *
+from .list_lab_virtualmachine_applicable_schedules import *
 from .schedule import *

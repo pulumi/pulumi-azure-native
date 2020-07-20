@@ -4,5 +4,6 @@
 // Export members:
 export * from "./getRegistration";
 export * from "./getRegistrationCustomerSubscription";
+export * from "./listRegistrationProductDetails";
 export * from "./registration";
 export * from "./registrationCustomerSubscription";

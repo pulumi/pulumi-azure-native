@@ -5,5 +5,6 @@
 # Export this package's modules as members:
 from .get_signal_r import *
 from .get_signal_r_private_endpoint_connection import *
+from .list_signal_r_keys import *
 from .signal_r import *
 from .signal_r_private_endpoint_connection import *

@@ -9,6 +9,9 @@ from .get_namespace_disaster_recovery_config import *
 from .get_namespace_eventhub import *
 from .get_namespace_eventhub_authorization_rule import *
 from .get_namespace_eventhub_consumergroup import *
+from .list_namespace_authorization_rule_keys import *
+from .list_namespace_disaster_recovery_config_authorization_rule_keys import *
+from .list_namespace_eventhub_authorization_rule_keys import *
 from .namespace import *
 from .namespace_authorization_rule import *
 from .namespace_disaster_recovery_config import *

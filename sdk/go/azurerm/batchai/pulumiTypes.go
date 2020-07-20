@@ -5654,6 +5654,286 @@ func (o ExperimentPropertiesResponsePtrOutput) ProvisioningStateTransitionTime()
 	}).(pulumi.StringPtrOutput)
 }
 
+// File properties.
+type FilePropertiesResponse struct {
+	// The file of the size.
+	ContentLength int `pulumi:"contentLength"`
+	// The time at which the file was last modified.
+	LastModified string `pulumi:"lastModified"`
+}
+
+// FilePropertiesResponseInput is an input type that accepts FilePropertiesResponseArgs and FilePropertiesResponseOutput values.
+// You can construct a concrete instance of `FilePropertiesResponseInput` via:
+//
+//          FilePropertiesResponseArgs{...}
+type FilePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToFilePropertiesResponseOutput() FilePropertiesResponseOutput
+	ToFilePropertiesResponseOutputWithContext(context.Context) FilePropertiesResponseOutput
+}
+
+// File properties.
+type FilePropertiesResponseArgs struct {
+	// The file of the size.
+	ContentLength pulumi.IntInput `pulumi:"contentLength"`
+	// The time at which the file was last modified.
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
+}
+
+func (FilePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilePropertiesResponse)(nil)).Elem()
+}
+
+func (i FilePropertiesResponseArgs) ToFilePropertiesResponseOutput() FilePropertiesResponseOutput {
+	return i.ToFilePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i FilePropertiesResponseArgs) ToFilePropertiesResponseOutputWithContext(ctx context.Context) FilePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilePropertiesResponseOutput)
+}
+
+func (i FilePropertiesResponseArgs) ToFilePropertiesResponsePtrOutput() FilePropertiesResponsePtrOutput {
+	return i.ToFilePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FilePropertiesResponseArgs) ToFilePropertiesResponsePtrOutputWithContext(ctx context.Context) FilePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilePropertiesResponseOutput).ToFilePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// FilePropertiesResponsePtrInput is an input type that accepts FilePropertiesResponseArgs, FilePropertiesResponsePtr and FilePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `FilePropertiesResponsePtrInput` via:
+//
+//          FilePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FilePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToFilePropertiesResponsePtrOutput() FilePropertiesResponsePtrOutput
+	ToFilePropertiesResponsePtrOutputWithContext(context.Context) FilePropertiesResponsePtrOutput
+}
+
+type filePropertiesResponsePtrType FilePropertiesResponseArgs
+
+func FilePropertiesResponsePtr(v *FilePropertiesResponseArgs) FilePropertiesResponsePtrInput {
+	return (*filePropertiesResponsePtrType)(v)
+}
+
+func (*filePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilePropertiesResponse)(nil)).Elem()
+}
+
+func (i *filePropertiesResponsePtrType) ToFilePropertiesResponsePtrOutput() FilePropertiesResponsePtrOutput {
+	return i.ToFilePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *filePropertiesResponsePtrType) ToFilePropertiesResponsePtrOutputWithContext(ctx context.Context) FilePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilePropertiesResponsePtrOutput)
+}
+
+// File properties.
+type FilePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (FilePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilePropertiesResponse)(nil)).Elem()
+}
+
+func (o FilePropertiesResponseOutput) ToFilePropertiesResponseOutput() FilePropertiesResponseOutput {
+	return o
+}
+
+func (o FilePropertiesResponseOutput) ToFilePropertiesResponseOutputWithContext(ctx context.Context) FilePropertiesResponseOutput {
+	return o
+}
+
+func (o FilePropertiesResponseOutput) ToFilePropertiesResponsePtrOutput() FilePropertiesResponsePtrOutput {
+	return o.ToFilePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FilePropertiesResponseOutput) ToFilePropertiesResponsePtrOutputWithContext(ctx context.Context) FilePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v FilePropertiesResponse) *FilePropertiesResponse {
+		return &v
+	}).(FilePropertiesResponsePtrOutput)
+}
+
+// The file of the size.
+func (o FilePropertiesResponseOutput) ContentLength() pulumi.IntOutput {
+	return o.ApplyT(func(v FilePropertiesResponse) int { return v.ContentLength }).(pulumi.IntOutput)
+}
+
+// The time at which the file was last modified.
+func (o FilePropertiesResponseOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v FilePropertiesResponse) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+type FilePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FilePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FilePropertiesResponse)(nil)).Elem()
+}
+
+func (o FilePropertiesResponsePtrOutput) ToFilePropertiesResponsePtrOutput() FilePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o FilePropertiesResponsePtrOutput) ToFilePropertiesResponsePtrOutputWithContext(ctx context.Context) FilePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o FilePropertiesResponsePtrOutput) Elem() FilePropertiesResponseOutput {
+	return o.ApplyT(func(v *FilePropertiesResponse) FilePropertiesResponse { return *v }).(FilePropertiesResponseOutput)
+}
+
+// The file of the size.
+func (o FilePropertiesResponsePtrOutput) ContentLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentLength
+	}).(pulumi.IntPtrOutput)
+}
+
+// The time at which the file was last modified.
+func (o FilePropertiesResponsePtrOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FilePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastModified
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the file or directory.
+type FileResponse struct {
+	// URL to download the corresponding file. The downloadUrl is not returned for directories.
+	DownloadUrl string `pulumi:"downloadUrl"`
+	// Type of the file. Possible values are file and directory.
+	FileType string `pulumi:"fileType"`
+	// Name of the file.
+	Name string `pulumi:"name"`
+	// The properties associated with the file. The properties are not returned for directories.
+	Properties *FilePropertiesResponse `pulumi:"properties"`
+}
+
+// FileResponseInput is an input type that accepts FileResponseArgs and FileResponseOutput values.
+// You can construct a concrete instance of `FileResponseInput` via:
+//
+//          FileResponseArgs{...}
+type FileResponseInput interface {
+	pulumi.Input
+
+	ToFileResponseOutput() FileResponseOutput
+	ToFileResponseOutputWithContext(context.Context) FileResponseOutput
+}
+
+// Properties of the file or directory.
+type FileResponseArgs struct {
+	// URL to download the corresponding file. The downloadUrl is not returned for directories.
+	DownloadUrl pulumi.StringInput `pulumi:"downloadUrl"`
+	// Type of the file. Possible values are file and directory.
+	FileType pulumi.StringInput `pulumi:"fileType"`
+	// Name of the file.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the file. The properties are not returned for directories.
+	Properties FilePropertiesResponsePtrInput `pulumi:"properties"`
+}
+
+func (FileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileResponse)(nil)).Elem()
+}
+
+func (i FileResponseArgs) ToFileResponseOutput() FileResponseOutput {
+	return i.ToFileResponseOutputWithContext(context.Background())
+}
+
+func (i FileResponseArgs) ToFileResponseOutputWithContext(ctx context.Context) FileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileResponseOutput)
+}
+
+// FileResponseArrayInput is an input type that accepts FileResponseArray and FileResponseArrayOutput values.
+// You can construct a concrete instance of `FileResponseArrayInput` via:
+//
+//          FileResponseArray{ FileResponseArgs{...} }
+type FileResponseArrayInput interface {
+	pulumi.Input
+
+	ToFileResponseArrayOutput() FileResponseArrayOutput
+	ToFileResponseArrayOutputWithContext(context.Context) FileResponseArrayOutput
+}
+
+type FileResponseArray []FileResponseInput
+
+func (FileResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileResponse)(nil)).Elem()
+}
+
+func (i FileResponseArray) ToFileResponseArrayOutput() FileResponseArrayOutput {
+	return i.ToFileResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FileResponseArray) ToFileResponseArrayOutputWithContext(ctx context.Context) FileResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileResponseArrayOutput)
+}
+
+// Properties of the file or directory.
+type FileResponseOutput struct{ *pulumi.OutputState }
+
+func (FileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileResponse)(nil)).Elem()
+}
+
+func (o FileResponseOutput) ToFileResponseOutput() FileResponseOutput {
+	return o
+}
+
+func (o FileResponseOutput) ToFileResponseOutputWithContext(ctx context.Context) FileResponseOutput {
+	return o
+}
+
+// URL to download the corresponding file. The downloadUrl is not returned for directories.
+func (o FileResponseOutput) DownloadUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v FileResponse) string { return v.DownloadUrl }).(pulumi.StringOutput)
+}
+
+// Type of the file. Possible values are file and directory.
+func (o FileResponseOutput) FileType() pulumi.StringOutput {
+	return o.ApplyT(func(v FileResponse) string { return v.FileType }).(pulumi.StringOutput)
+}
+
+// Name of the file.
+func (o FileResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FileResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the file. The properties are not returned for directories.
+func (o FileResponseOutput) Properties() FilePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v FileResponse) *FilePropertiesResponse { return v.Properties }).(FilePropertiesResponsePtrOutput)
+}
+
+type FileResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FileResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileResponse)(nil)).Elem()
+}
+
+func (o FileResponseArrayOutput) ToFileResponseArrayOutput() FileResponseArrayOutput {
+	return o
+}
+
+func (o FileResponseArrayOutput) ToFileResponseArrayOutputWithContext(ctx context.Context) FileResponseArrayOutput {
+	return o
+}
+
+func (o FileResponseArrayOutput) Index(i pulumi.IntInput) FileResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileResponse {
+		return vs[0].([]FileResponse)[vs[1].(int)]
+	}).(FileResponseOutput)
+}
+
 // The properties of a file server.
 type FileServerBaseProperties struct {
 	// Settings for the data disks which will be created for the File Server.
@@ -12547,6 +12827,124 @@ func (o PyTorchSettingsResponsePtrOutput) PythonScriptFilePath() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Login details to SSH to a compute node in cluster.
+type RemoteLoginInformationResponse struct {
+	// Public IP address of the compute node.
+	IpAddress string `pulumi:"ipAddress"`
+	// ID of the compute node.
+	NodeId string `pulumi:"nodeId"`
+	// SSH port number of the node.
+	Port float64 `pulumi:"port"`
+}
+
+// RemoteLoginInformationResponseInput is an input type that accepts RemoteLoginInformationResponseArgs and RemoteLoginInformationResponseOutput values.
+// You can construct a concrete instance of `RemoteLoginInformationResponseInput` via:
+//
+//          RemoteLoginInformationResponseArgs{...}
+type RemoteLoginInformationResponseInput interface {
+	pulumi.Input
+
+	ToRemoteLoginInformationResponseOutput() RemoteLoginInformationResponseOutput
+	ToRemoteLoginInformationResponseOutputWithContext(context.Context) RemoteLoginInformationResponseOutput
+}
+
+// Login details to SSH to a compute node in cluster.
+type RemoteLoginInformationResponseArgs struct {
+	// Public IP address of the compute node.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// ID of the compute node.
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// SSH port number of the node.
+	Port pulumi.Float64Input `pulumi:"port"`
+}
+
+func (RemoteLoginInformationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteLoginInformationResponse)(nil)).Elem()
+}
+
+func (i RemoteLoginInformationResponseArgs) ToRemoteLoginInformationResponseOutput() RemoteLoginInformationResponseOutput {
+	return i.ToRemoteLoginInformationResponseOutputWithContext(context.Background())
+}
+
+func (i RemoteLoginInformationResponseArgs) ToRemoteLoginInformationResponseOutputWithContext(ctx context.Context) RemoteLoginInformationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteLoginInformationResponseOutput)
+}
+
+// RemoteLoginInformationResponseArrayInput is an input type that accepts RemoteLoginInformationResponseArray and RemoteLoginInformationResponseArrayOutput values.
+// You can construct a concrete instance of `RemoteLoginInformationResponseArrayInput` via:
+//
+//          RemoteLoginInformationResponseArray{ RemoteLoginInformationResponseArgs{...} }
+type RemoteLoginInformationResponseArrayInput interface {
+	pulumi.Input
+
+	ToRemoteLoginInformationResponseArrayOutput() RemoteLoginInformationResponseArrayOutput
+	ToRemoteLoginInformationResponseArrayOutputWithContext(context.Context) RemoteLoginInformationResponseArrayOutput
+}
+
+type RemoteLoginInformationResponseArray []RemoteLoginInformationResponseInput
+
+func (RemoteLoginInformationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemoteLoginInformationResponse)(nil)).Elem()
+}
+
+func (i RemoteLoginInformationResponseArray) ToRemoteLoginInformationResponseArrayOutput() RemoteLoginInformationResponseArrayOutput {
+	return i.ToRemoteLoginInformationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RemoteLoginInformationResponseArray) ToRemoteLoginInformationResponseArrayOutputWithContext(ctx context.Context) RemoteLoginInformationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteLoginInformationResponseArrayOutput)
+}
+
+// Login details to SSH to a compute node in cluster.
+type RemoteLoginInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (RemoteLoginInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteLoginInformationResponse)(nil)).Elem()
+}
+
+func (o RemoteLoginInformationResponseOutput) ToRemoteLoginInformationResponseOutput() RemoteLoginInformationResponseOutput {
+	return o
+}
+
+func (o RemoteLoginInformationResponseOutput) ToRemoteLoginInformationResponseOutputWithContext(ctx context.Context) RemoteLoginInformationResponseOutput {
+	return o
+}
+
+// Public IP address of the compute node.
+func (o RemoteLoginInformationResponseOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteLoginInformationResponse) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// ID of the compute node.
+func (o RemoteLoginInformationResponseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteLoginInformationResponse) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// SSH port number of the node.
+func (o RemoteLoginInformationResponseOutput) Port() pulumi.Float64Output {
+	return o.ApplyT(func(v RemoteLoginInformationResponse) float64 { return v.Port }).(pulumi.Float64Output)
+}
+
+type RemoteLoginInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RemoteLoginInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemoteLoginInformationResponse)(nil)).Elem()
+}
+
+func (o RemoteLoginInformationResponseArrayOutput) ToRemoteLoginInformationResponseArrayOutput() RemoteLoginInformationResponseArrayOutput {
+	return o
+}
+
+func (o RemoteLoginInformationResponseArrayOutput) ToRemoteLoginInformationResponseArrayOutputWithContext(ctx context.Context) RemoteLoginInformationResponseArrayOutput {
+	return o
+}
+
+func (o RemoteLoginInformationResponseArrayOutput) Index(i pulumi.IntInput) RemoteLoginInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteLoginInformationResponse {
+		return vs[0].([]RemoteLoginInformationResponse)[vs[1].(int)]
+	}).(RemoteLoginInformationResponseOutput)
+}
+
 // Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
 type ResourceId struct {
 	// The ID of the resource
@@ -15776,6 +16174,10 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentVariableWithSecretValueResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ExperimentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(FilePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(FilePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(FileResponseOutput{})
+	pulumi.RegisterOutputType(FileResponseArrayOutput{})
 	pulumi.RegisterOutputType(FileServerBasePropertiesOutput{})
 	pulumi.RegisterOutputType(FileServerBasePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesResponseOutput{})
@@ -15850,6 +16252,8 @@ func init() {
 	pulumi.RegisterOutputType(PyTorchSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PyTorchSettingsResponseOutput{})
 	pulumi.RegisterOutputType(PyTorchSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(RemoteLoginInformationResponseOutput{})
+	pulumi.RegisterOutputType(RemoteLoginInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceIdOutput{})
 	pulumi.RegisterOutputType(ResourceIdPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdResponseOutput{})

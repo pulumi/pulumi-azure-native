@@ -62,6 +62,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 			}
 
 			gen.genResources(key, &path)
+			gen.genListFunctions(key, &path)
 		}
 	}
 
@@ -193,6 +194,74 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		ApiVersion:    g.swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.metadata,
+	}
+	g.metadata.Invokes[functionTok] = f
+}
+
+// genListFunctions defines functions for list* (listKeys, listSecrets, etc.) POST endpoints.
+func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
+	if path.Post == nil || !strings.Contains(key, "/list") {
+		return
+	}
+
+	parts := strings.Split(key, "/")
+	listOperation := parts[len(parts)-1]
+	if !strings.HasPrefix(listOperation, "list") {
+		return
+	}
+
+	baseUrl := strings.TrimSuffix(key, "/" + listOperation)
+	prov, typeName := provider.ResourceQualifiedName(baseUrl)
+	if typeName == "" {
+		return
+	}
+
+	module := strings.ToLower(prov)
+
+	gen := moduleGenerator{
+		pkg:           g.pkg,
+		module:        module,
+		resourceToken: fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
+		visitedTypes:  make(map[string]bool),
+	}
+
+	// Generate the function to get this resource.
+	subject := strings.Title(strings.TrimPrefix(listOperation, "list"))
+	functionTok := fmt.Sprintf(`%s:%s:list%s%s`, g.pkg.Name, module, typeName, subject)
+
+	request, err := gen.genMethodParameters(path.Post.Parameters, g.swagger.ReferenceContext)
+	if err != nil {
+		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
+		return
+	}
+	response, err := gen.genResponse(path.Post.Responses.StatusCodeResponses, g.swagger.ReferenceContext)
+	if err != nil {
+		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
+		return
+	}
+
+	gen.normalizeName(key, request, response)
+
+	functionSpec := pschema.FunctionSpec{
+		Inputs: &pschema.ObjectTypeSpec{
+			Description: request.description,
+			Type:        "object",
+			Properties:  request.all,
+			Required:    request.required.SortedValues(),
+		},
+		Outputs: &pschema.ObjectTypeSpec{
+			Description: response.description,
+			Type:        "object",
+			Properties:  response.all,
+			Required:    response.required.SortedValues(),
+		},
+	}
+	g.pkg.Functions[functionTok] = functionSpec
+
+	f := provider.AzureApiInvoke{
+		ApiVersion:     g.swagger.Info.Version,
+		Path:           key,
+		PostParameters: request.metadata,
 	}
 	g.metadata.Invokes[functionTok] = f
 }

@@ -10,6 +10,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Profile for enabling a user to access a managed cluster.
+type AccessProfileResponse struct {
+	// Base64-encoded Kubernetes configuration file.
+	KubeConfig *string `pulumi:"kubeConfig"`
+}
+
+// AccessProfileResponseInput is an input type that accepts AccessProfileResponseArgs and AccessProfileResponseOutput values.
+// You can construct a concrete instance of `AccessProfileResponseInput` via:
+//
+//          AccessProfileResponseArgs{...}
+type AccessProfileResponseInput interface {
+	pulumi.Input
+
+	ToAccessProfileResponseOutput() AccessProfileResponseOutput
+	ToAccessProfileResponseOutputWithContext(context.Context) AccessProfileResponseOutput
+}
+
+// Profile for enabling a user to access a managed cluster.
+type AccessProfileResponseArgs struct {
+	// Base64-encoded Kubernetes configuration file.
+	KubeConfig pulumi.StringPtrInput `pulumi:"kubeConfig"`
+}
+
+func (AccessProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessProfileResponse)(nil)).Elem()
+}
+
+func (i AccessProfileResponseArgs) ToAccessProfileResponseOutput() AccessProfileResponseOutput {
+	return i.ToAccessProfileResponseOutputWithContext(context.Background())
+}
+
+func (i AccessProfileResponseArgs) ToAccessProfileResponseOutputWithContext(ctx context.Context) AccessProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessProfileResponseOutput)
+}
+
+// Profile for enabling a user to access a managed cluster.
+type AccessProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessProfileResponse)(nil)).Elem()
+}
+
+func (o AccessProfileResponseOutput) ToAccessProfileResponseOutput() AccessProfileResponseOutput {
+	return o
+}
+
+func (o AccessProfileResponseOutput) ToAccessProfileResponseOutputWithContext(ctx context.Context) AccessProfileResponseOutput {
+	return o
+}
+
+// Base64-encoded Kubernetes configuration file.
+func (o AccessProfileResponseOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessProfileResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
+}
+
 // Settings for upgrading an agentpool
 type AgentPoolUpgradeSettings struct {
 	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
@@ -5215,6 +5270,115 @@ func (o ContainerServiceWindowsProfileResponsePtrOutput) AdminUsername() pulumi.
 		}
 		return &v.AdminUsername
 	}).(pulumi.StringPtrOutput)
+}
+
+// The credential result response.
+type CredentialResultResponse struct {
+	// The name of the credential.
+	Name string `pulumi:"name"`
+	// Base64-encoded Kubernetes configuration file.
+	Value string `pulumi:"value"`
+}
+
+// CredentialResultResponseInput is an input type that accepts CredentialResultResponseArgs and CredentialResultResponseOutput values.
+// You can construct a concrete instance of `CredentialResultResponseInput` via:
+//
+//          CredentialResultResponseArgs{...}
+type CredentialResultResponseInput interface {
+	pulumi.Input
+
+	ToCredentialResultResponseOutput() CredentialResultResponseOutput
+	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
+}
+
+// The credential result response.
+type CredentialResultResponseArgs struct {
+	// The name of the credential.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Base64-encoded Kubernetes configuration file.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CredentialResultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
+}
+
+func (i CredentialResultResponseArgs) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
+	return i.ToCredentialResultResponseOutputWithContext(context.Background())
+}
+
+func (i CredentialResultResponseArgs) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseOutput)
+}
+
+// CredentialResultResponseArrayInput is an input type that accepts CredentialResultResponseArray and CredentialResultResponseArrayOutput values.
+// You can construct a concrete instance of `CredentialResultResponseArrayInput` via:
+//
+//          CredentialResultResponseArray{ CredentialResultResponseArgs{...} }
+type CredentialResultResponseArrayInput interface {
+	pulumi.Input
+
+	ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput
+	ToCredentialResultResponseArrayOutputWithContext(context.Context) CredentialResultResponseArrayOutput
+}
+
+type CredentialResultResponseArray []CredentialResultResponseInput
+
+func (CredentialResultResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
+}
+
+func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
+	return i.ToCredentialResultResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
+}
+
+// The credential result response.
+type CredentialResultResponseOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
+	return o
+}
+
+func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
+	return o
+}
+
+// The name of the credential.
+func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Base64-encoded Kubernetes configuration file.
+func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CredentialResultResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CredentialResultResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
+	return o
+}
+
+func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
+		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
+	}).(CredentialResultResponseOutput)
 }
 
 // Reference to a secret stored in Azure Key Vault.
@@ -15954,6 +16118,7 @@ func (o SpotMaxPriceResponsePtrOutput) Elem() SpotMaxPriceResponseOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessProfileResponseOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsResponseOutput{})
@@ -16015,6 +16180,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceWindowsProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceWindowsProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceWindowsProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
+	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretRefOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretRefPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretRefResponseOutput{})

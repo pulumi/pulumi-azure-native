@@ -14,3 +14,6 @@ export * from "./getClusterDatabase";
 export * from "./getClusterDatabaseDataConnection";
 export * from "./getClusterDatabasePrincipalAssignment";
 export * from "./getClusterPrincipalAssignment";
+export * from "./listClusterDatabasePrincipals";
+export * from "./listClusterFollowerDatabases";
+export * from "./listClusterLanguageExtensions";

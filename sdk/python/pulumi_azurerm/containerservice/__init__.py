@@ -9,6 +9,10 @@ from .get_managed_cluster import *
 from .get_managed_cluster_agent_pool import *
 from .get_managed_cluster_private_endpoint_connection import *
 from .get_open_shift_managed_cluster import *
+from .list_managed_cluster_access_profile_credential import *
+from .list_managed_cluster_cluster_admin_credential import *
+from .list_managed_cluster_cluster_monitoring_user_credential import *
+from .list_managed_cluster_cluster_user_credential import *
 from .managed_cluster import *
 from .managed_cluster_agent_pool import *
 from .managed_cluster_private_endpoint_connection import *

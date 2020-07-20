@@ -104,6 +104,105 @@ func (o ControllerTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ControllerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type ControllerConnectionDetailsResponse struct {
+	// Base class for types that supply values used to connect to container orchestrators
+	OrchestratorSpecificConnectionDetails *OrchestratorSpecificConnectionDetailsResponse `pulumi:"orchestratorSpecificConnectionDetails"`
+}
+
+// ControllerConnectionDetailsResponseInput is an input type that accepts ControllerConnectionDetailsResponseArgs and ControllerConnectionDetailsResponseOutput values.
+// You can construct a concrete instance of `ControllerConnectionDetailsResponseInput` via:
+//
+//          ControllerConnectionDetailsResponseArgs{...}
+type ControllerConnectionDetailsResponseInput interface {
+	pulumi.Input
+
+	ToControllerConnectionDetailsResponseOutput() ControllerConnectionDetailsResponseOutput
+	ToControllerConnectionDetailsResponseOutputWithContext(context.Context) ControllerConnectionDetailsResponseOutput
+}
+
+type ControllerConnectionDetailsResponseArgs struct {
+	// Base class for types that supply values used to connect to container orchestrators
+	OrchestratorSpecificConnectionDetails OrchestratorSpecificConnectionDetailsResponsePtrInput `pulumi:"orchestratorSpecificConnectionDetails"`
+}
+
+func (ControllerConnectionDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (i ControllerConnectionDetailsResponseArgs) ToControllerConnectionDetailsResponseOutput() ControllerConnectionDetailsResponseOutput {
+	return i.ToControllerConnectionDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ControllerConnectionDetailsResponseArgs) ToControllerConnectionDetailsResponseOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerConnectionDetailsResponseOutput)
+}
+
+// ControllerConnectionDetailsResponseArrayInput is an input type that accepts ControllerConnectionDetailsResponseArray and ControllerConnectionDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `ControllerConnectionDetailsResponseArrayInput` via:
+//
+//          ControllerConnectionDetailsResponseArray{ ControllerConnectionDetailsResponseArgs{...} }
+type ControllerConnectionDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToControllerConnectionDetailsResponseArrayOutput() ControllerConnectionDetailsResponseArrayOutput
+	ToControllerConnectionDetailsResponseArrayOutputWithContext(context.Context) ControllerConnectionDetailsResponseArrayOutput
+}
+
+type ControllerConnectionDetailsResponseArray []ControllerConnectionDetailsResponseInput
+
+func (ControllerConnectionDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControllerConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (i ControllerConnectionDetailsResponseArray) ToControllerConnectionDetailsResponseArrayOutput() ControllerConnectionDetailsResponseArrayOutput {
+	return i.ToControllerConnectionDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ControllerConnectionDetailsResponseArray) ToControllerConnectionDetailsResponseArrayOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerConnectionDetailsResponseArrayOutput)
+}
+
+type ControllerConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ControllerConnectionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetailsResponseOutput() ControllerConnectionDetailsResponseOutput {
+	return o
+}
+
+func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetailsResponseOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseOutput {
+	return o
+}
+
+// Base class for types that supply values used to connect to container orchestrators
+func (o ControllerConnectionDetailsResponseOutput) OrchestratorSpecificConnectionDetails() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ControllerConnectionDetailsResponse) *OrchestratorSpecificConnectionDetailsResponse {
+		return v.OrchestratorSpecificConnectionDetails
+	}).(OrchestratorSpecificConnectionDetailsResponsePtrOutput)
+}
+
+type ControllerConnectionDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ControllerConnectionDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControllerConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o ControllerConnectionDetailsResponseArrayOutput) ToControllerConnectionDetailsResponseArrayOutput() ControllerConnectionDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ControllerConnectionDetailsResponseArrayOutput) ToControllerConnectionDetailsResponseArrayOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseArrayOutput {
+	return o
+}
+
+func (o ControllerConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput) ControllerConnectionDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControllerConnectionDetailsResponse {
+		return vs[0].([]ControllerConnectionDetailsResponse)[vs[1].(int)]
+	}).(ControllerConnectionDetailsResponseOutput)
+}
+
 type ControllerProperties struct {
 	// Credentials of the target container host (base64).
 	TargetContainerHostCredentialsBase64 string `pulumi:"targetContainerHostCredentialsBase64"`
@@ -480,6 +579,142 @@ func (o ControllerPropertiesResponsePtrOutput) TargetContainerHostResourceId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Base class for types that supply values used to connect to container orchestrators
+type OrchestratorSpecificConnectionDetailsResponse struct {
+	// Gets the Instance type.
+	InstanceType string `pulumi:"instanceType"`
+}
+
+// OrchestratorSpecificConnectionDetailsResponseInput is an input type that accepts OrchestratorSpecificConnectionDetailsResponseArgs and OrchestratorSpecificConnectionDetailsResponseOutput values.
+// You can construct a concrete instance of `OrchestratorSpecificConnectionDetailsResponseInput` via:
+//
+//          OrchestratorSpecificConnectionDetailsResponseArgs{...}
+type OrchestratorSpecificConnectionDetailsResponseInput interface {
+	pulumi.Input
+
+	ToOrchestratorSpecificConnectionDetailsResponseOutput() OrchestratorSpecificConnectionDetailsResponseOutput
+	ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(context.Context) OrchestratorSpecificConnectionDetailsResponseOutput
+}
+
+// Base class for types that supply values used to connect to container orchestrators
+type OrchestratorSpecificConnectionDetailsResponseArgs struct {
+	// Gets the Instance type.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+}
+
+func (OrchestratorSpecificConnectionDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponseOutput() OrchestratorSpecificConnectionDetailsResponseOutput {
+	return i.ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorSpecificConnectionDetailsResponseOutput)
+}
+
+func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return i.ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratorSpecificConnectionDetailsResponseArgs) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorSpecificConnectionDetailsResponseOutput).ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// OrchestratorSpecificConnectionDetailsResponsePtrInput is an input type that accepts OrchestratorSpecificConnectionDetailsResponseArgs, OrchestratorSpecificConnectionDetailsResponsePtr and OrchestratorSpecificConnectionDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `OrchestratorSpecificConnectionDetailsResponsePtrInput` via:
+//
+//          OrchestratorSpecificConnectionDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OrchestratorSpecificConnectionDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput
+	ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput
+}
+
+type orchestratorSpecificConnectionDetailsResponsePtrType OrchestratorSpecificConnectionDetailsResponseArgs
+
+func OrchestratorSpecificConnectionDetailsResponsePtr(v *OrchestratorSpecificConnectionDetailsResponseArgs) OrchestratorSpecificConnectionDetailsResponsePtrInput {
+	return (*orchestratorSpecificConnectionDetailsResponsePtrType)(v)
+}
+
+func (*orchestratorSpecificConnectionDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (i *orchestratorSpecificConnectionDetailsResponsePtrType) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return i.ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratorSpecificConnectionDetailsResponsePtrType) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorSpecificConnectionDetailsResponsePtrOutput)
+}
+
+// Base class for types that supply values used to connect to container orchestrators
+type OrchestratorSpecificConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (OrchestratorSpecificConnectionDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponseOutput() OrchestratorSpecificConnectionDetailsResponseOutput {
+	return o
+}
+
+func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponseOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponseOutput {
+	return o
+}
+
+func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return o.ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratorSpecificConnectionDetailsResponseOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v OrchestratorSpecificConnectionDetailsResponse) *OrchestratorSpecificConnectionDetailsResponse {
+		return &v
+	}).(OrchestratorSpecificConnectionDetailsResponsePtrOutput)
+}
+
+// Gets the Instance type.
+func (o OrchestratorSpecificConnectionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratorSpecificConnectionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+type OrchestratorSpecificConnectionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratorSpecificConnectionDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratorSpecificConnectionDetailsResponse)(nil)).Elem()
+}
+
+func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutput() OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) ToOrchestratorSpecificConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) OrchestratorSpecificConnectionDetailsResponsePtrOutput {
+	return o
+}
+
+func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) Elem() OrchestratorSpecificConnectionDetailsResponseOutput {
+	return o.ApplyT(func(v *OrchestratorSpecificConnectionDetailsResponse) OrchestratorSpecificConnectionDetailsResponse {
+		return *v
+	}).(OrchestratorSpecificConnectionDetailsResponseOutput)
+}
+
+// Gets the Instance type.
+func (o OrchestratorSpecificConnectionDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorSpecificConnectionDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Model representing SKU for Azure Dev Spaces Controller.
 type Sku struct {
 	// The name of the SKU for Azure Dev Spaces Controller.
@@ -788,10 +1023,14 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(ControllerTypeOutput{})
+	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ControllerPropertiesOutput{})
 	pulumi.RegisterOutputType(ControllerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ControllerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ControllerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(OrchestratorSpecificConnectionDetailsResponseOutput{})
+	pulumi.RegisterOutputType(OrchestratorSpecificConnectionDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

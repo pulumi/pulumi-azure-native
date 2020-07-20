@@ -37,4 +37,8 @@ export * from "./labUserServicefabricSchedule";
 export * from "./labVirtualmachine";
 export * from "./labVirtualmachineSchedule";
 export * from "./labVirtualnetwork";
+export * from "./listLabScheduleApplicable";
+export * from "./listLabUserServicefabricApplicableSchedules";
+export * from "./listLabVhds";
+export * from "./listLabVirtualmachineApplicableSchedules";
 export * from "./schedule";

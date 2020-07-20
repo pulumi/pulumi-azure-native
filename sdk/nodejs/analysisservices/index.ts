@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./getServer";
+export * from "./listServerGatewayStatus";
 export * from "./server";

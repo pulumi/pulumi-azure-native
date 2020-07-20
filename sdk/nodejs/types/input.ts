@@ -19538,6 +19538,20 @@ export namespace logic {
     }
 
     /**
+     * The key vault reference.
+     */
+    export interface KeyVaultReference {
+        /**
+         * The resource id.
+         */
+        id?: string;
+        /**
+         * The key vault name.
+         */
+        name?: string;
+    }
+
+    /**
      * The network configuration.
      */
     export interface NetworkConfiguration {
@@ -35876,6 +35890,58 @@ export namespace web {
     }
 
     /**
+     * BackupRequest resource specific properties
+     */
+    export interface BackupRequestProperties {
+        /**
+         * Name of the backup.
+         */
+        backupName?: string;
+        /**
+         * Schedule for the backup if it is executed periodically.
+         */
+        backupSchedule?: inputs.web.BackupSchedule;
+        /**
+         * Databases included in the backup.
+         */
+        databases?: inputs.web.DatabaseBackupSetting[];
+        /**
+         * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+         */
+        enabled?: boolean;
+        /**
+         * SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    /**
+     * Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+     */
+    export interface BackupSchedule {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+         */
+        frequencyUnit: string;
+        /**
+         * True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+         */
+        keepAtLeastOneBackup: boolean;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * When the schedule should start working.
+         */
+        startTime?: string;
+    }
+
+    /**
      * Describes the capabilities/features allowed for a specific SKU.
      */
     export interface Capability {
@@ -36015,6 +36081,26 @@ export namespace web {
          * for more details.
          */
         supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Database backup settings.
+     */
+    export interface DatabaseBackupSetting {
+        /**
+         * Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+         */
+        connectionString?: string;
+        /**
+         * Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+         * This is used during restore with overwrite connection strings options.
+         */
+        connectionStringName?: string;
+        /**
+         * Database type (e.g. SqlAzure / MySql).
+         */
+        databaseType: string;
+        name?: string;
     }
 
     /**

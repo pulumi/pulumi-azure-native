@@ -3230,6 +3230,115 @@ func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) Type() pulumi.StringOut
 	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceTableType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Connection string for the Cosmos DB account
+type DatabaseAccountConnectionStringResponse struct {
+	// Value of the connection string
+	ConnectionString string `pulumi:"connectionString"`
+	// Description of the connection string
+	Description string `pulumi:"description"`
+}
+
+// DatabaseAccountConnectionStringResponseInput is an input type that accepts DatabaseAccountConnectionStringResponseArgs and DatabaseAccountConnectionStringResponseOutput values.
+// You can construct a concrete instance of `DatabaseAccountConnectionStringResponseInput` via:
+//
+//          DatabaseAccountConnectionStringResponseArgs{...}
+type DatabaseAccountConnectionStringResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput
+	ToDatabaseAccountConnectionStringResponseOutputWithContext(context.Context) DatabaseAccountConnectionStringResponseOutput
+}
+
+// Connection string for the Cosmos DB account
+type DatabaseAccountConnectionStringResponseArgs struct {
+	// Value of the connection string
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// Description of the connection string
+	Description pulumi.StringInput `pulumi:"description"`
+}
+
+func (DatabaseAccountConnectionStringResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (i DatabaseAccountConnectionStringResponseArgs) ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput {
+	return i.ToDatabaseAccountConnectionStringResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccountConnectionStringResponseArgs) ToDatabaseAccountConnectionStringResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountConnectionStringResponseOutput)
+}
+
+// DatabaseAccountConnectionStringResponseArrayInput is an input type that accepts DatabaseAccountConnectionStringResponseArray and DatabaseAccountConnectionStringResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseAccountConnectionStringResponseArrayInput` via:
+//
+//          DatabaseAccountConnectionStringResponseArray{ DatabaseAccountConnectionStringResponseArgs{...} }
+type DatabaseAccountConnectionStringResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput
+	ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(context.Context) DatabaseAccountConnectionStringResponseArrayOutput
+}
+
+type DatabaseAccountConnectionStringResponseArray []DatabaseAccountConnectionStringResponseInput
+
+func (DatabaseAccountConnectionStringResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (i DatabaseAccountConnectionStringResponseArray) ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput {
+	return i.ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseAccountConnectionStringResponseArray) ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountConnectionStringResponseArrayOutput)
+}
+
+// Connection string for the Cosmos DB account
+type DatabaseAccountConnectionStringResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAccountConnectionStringResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseOutput {
+	return o
+}
+
+// Value of the connection string
+func (o DatabaseAccountConnectionStringResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Description of the connection string
+func (o DatabaseAccountConnectionStringResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+type DatabaseAccountConnectionStringResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseAccountConnectionStringResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseAccountConnectionStringResponse)(nil)).Elem()
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseAccountConnectionStringResponseArrayOutput) Index(i pulumi.IntInput) DatabaseAccountConnectionStringResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseAccountConnectionStringResponse {
+		return vs[0].([]DatabaseAccountConnectionStringResponse)[vs[1].(int)]
+	}).(DatabaseAccountConnectionStringResponseOutput)
+}
+
 // Properties to create and update Azure Cosmos DB database accounts.
 type DatabaseAccountCreateUpdateProperties struct {
 	// API specific properties. Currently, supported only for MongoDB API.
@@ -13304,6 +13413,8 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseAccountTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountCassandraKeyspaceTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountCassandraKeyspaceTableTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountCreateUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountCreateUpdatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountGetPropertiesResponseOutput{})

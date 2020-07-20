@@ -12,3 +12,4 @@ export * from "./getBatchAccountApplication";
 export * from "./getBatchAccountApplicationVersion";
 export * from "./getBatchAccountCertificate";
 export * from "./getBatchAccountPool";
+export * from "./listBatchAccountKeys";

@@ -2917,6 +2917,106 @@ func (o FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleRe
 	}).(FirewallRuleResponseOutput)
 }
 
+// SAS token information.
+type SasTokenInformationResponse struct {
+	// The access token for the associated Azure Storage Container.
+	AccessToken string `pulumi:"accessToken"`
+}
+
+// SasTokenInformationResponseInput is an input type that accepts SasTokenInformationResponseArgs and SasTokenInformationResponseOutput values.
+// You can construct a concrete instance of `SasTokenInformationResponseInput` via:
+//
+//          SasTokenInformationResponseArgs{...}
+type SasTokenInformationResponseInput interface {
+	pulumi.Input
+
+	ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput
+	ToSasTokenInformationResponseOutputWithContext(context.Context) SasTokenInformationResponseOutput
+}
+
+// SAS token information.
+type SasTokenInformationResponseArgs struct {
+	// The access token for the associated Azure Storage Container.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+}
+
+func (SasTokenInformationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
+}
+
+func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
+	return i.ToSasTokenInformationResponseOutputWithContext(context.Background())
+}
+
+func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseOutput)
+}
+
+// SasTokenInformationResponseArrayInput is an input type that accepts SasTokenInformationResponseArray and SasTokenInformationResponseArrayOutput values.
+// You can construct a concrete instance of `SasTokenInformationResponseArrayInput` via:
+//
+//          SasTokenInformationResponseArray{ SasTokenInformationResponseArgs{...} }
+type SasTokenInformationResponseArrayInput interface {
+	pulumi.Input
+
+	ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput
+	ToSasTokenInformationResponseArrayOutputWithContext(context.Context) SasTokenInformationResponseArrayOutput
+}
+
+type SasTokenInformationResponseArray []SasTokenInformationResponseInput
+
+func (SasTokenInformationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
+}
+
+func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
+	return i.ToSasTokenInformationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseArrayOutput)
+}
+
+// SAS token information.
+type SasTokenInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (SasTokenInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
+}
+
+func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
+	return o
+}
+
+func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
+	return o
+}
+
+// The access token for the associated Azure Storage Container.
+func (o SasTokenInformationResponseOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v SasTokenInformationResponse) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+type SasTokenInformationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SasTokenInformationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
+}
+
+func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
+	return o
+}
+
+func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
+	return o
+}
+
+func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasTokenInformationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SasTokenInformationResponse {
+		return vs[0].([]SasTokenInformationResponse)[vs[1].(int)]
+	}).(SasTokenInformationResponseOutput)
+}
+
 // The Azure Storage account properties.
 type StorageAccountInformationPropertiesResponse struct {
 	// The optional suffix for the storage account.
@@ -3135,6 +3235,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(SasTokenInformationResponseOutput{})
+	pulumi.RegisterOutputType(SasTokenInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseArrayOutput{})

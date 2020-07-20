@@ -9,3 +9,5 @@ from .bot_service_connection import *
 from .get_bot_service import *
 from .get_bot_service_channel import *
 from .get_bot_service_connection import *
+from .list_bot_service_channel_channel_with_keys import *
+from .list_bot_service_connection_with_secrets import *

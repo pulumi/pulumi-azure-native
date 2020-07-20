@@ -1556,6 +1556,115 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
+// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
+type QueryKeyResponse struct {
+	// The value of the query API key.
+	Key string `pulumi:"key"`
+	// The name of the query API key; may be empty.
+	Name string `pulumi:"name"`
+}
+
+// QueryKeyResponseInput is an input type that accepts QueryKeyResponseArgs and QueryKeyResponseOutput values.
+// You can construct a concrete instance of `QueryKeyResponseInput` via:
+//
+//          QueryKeyResponseArgs{...}
+type QueryKeyResponseInput interface {
+	pulumi.Input
+
+	ToQueryKeyResponseOutput() QueryKeyResponseOutput
+	ToQueryKeyResponseOutputWithContext(context.Context) QueryKeyResponseOutput
+}
+
+// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
+type QueryKeyResponseArgs struct {
+	// The value of the query API key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The name of the query API key; may be empty.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (QueryKeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryKeyResponse)(nil)).Elem()
+}
+
+func (i QueryKeyResponseArgs) ToQueryKeyResponseOutput() QueryKeyResponseOutput {
+	return i.ToQueryKeyResponseOutputWithContext(context.Background())
+}
+
+func (i QueryKeyResponseArgs) ToQueryKeyResponseOutputWithContext(ctx context.Context) QueryKeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseOutput)
+}
+
+// QueryKeyResponseArrayInput is an input type that accepts QueryKeyResponseArray and QueryKeyResponseArrayOutput values.
+// You can construct a concrete instance of `QueryKeyResponseArrayInput` via:
+//
+//          QueryKeyResponseArray{ QueryKeyResponseArgs{...} }
+type QueryKeyResponseArrayInput interface {
+	pulumi.Input
+
+	ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput
+	ToQueryKeyResponseArrayOutputWithContext(context.Context) QueryKeyResponseArrayOutput
+}
+
+type QueryKeyResponseArray []QueryKeyResponseInput
+
+func (QueryKeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryKeyResponse)(nil)).Elem()
+}
+
+func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput {
+	return i.ToQueryKeyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutputWithContext(ctx context.Context) QueryKeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseArrayOutput)
+}
+
+// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
+type QueryKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (QueryKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryKeyResponse)(nil)).Elem()
+}
+
+func (o QueryKeyResponseOutput) ToQueryKeyResponseOutput() QueryKeyResponseOutput {
+	return o
+}
+
+func (o QueryKeyResponseOutput) ToQueryKeyResponseOutputWithContext(ctx context.Context) QueryKeyResponseOutput {
+	return o
+}
+
+// The value of the query API key.
+func (o QueryKeyResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The name of the query API key; may be empty.
+func (o QueryKeyResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type QueryKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (QueryKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryKeyResponse)(nil)).Elem()
+}
+
+func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput {
+	return o
+}
+
+func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutputWithContext(ctx context.Context) QueryKeyResponseArrayOutput {
+	return o
+}
+
+func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryKeyResponse {
+		return vs[0].([]QueryKeyResponse)[vs[1].(int)]
+	}).(QueryKeyResponseOutput)
+}
+
 // Describes an Azure Cognitive Search service and its current state.
 type SearchServiceType struct {
 	// The identity of the resource.
@@ -3194,6 +3303,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(QueryKeyResponseOutput{})
+	pulumi.RegisterOutputType(QueryKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(SearchServiceTypeOutput{})
 	pulumi.RegisterOutputType(SearchServicePrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(SearchServicePropertiesOutput{})

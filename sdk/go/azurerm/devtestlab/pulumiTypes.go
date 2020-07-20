@@ -12539,6 +12539,106 @@ func (o LabUserServicefabricScheduleTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LabUserServicefabricScheduleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Properties of a VHD in the lab.
+type LabVhdResponse struct {
+	// The URI to the VHD.
+	Id *string `pulumi:"id"`
+}
+
+// LabVhdResponseInput is an input type that accepts LabVhdResponseArgs and LabVhdResponseOutput values.
+// You can construct a concrete instance of `LabVhdResponseInput` via:
+//
+//          LabVhdResponseArgs{...}
+type LabVhdResponseInput interface {
+	pulumi.Input
+
+	ToLabVhdResponseOutput() LabVhdResponseOutput
+	ToLabVhdResponseOutputWithContext(context.Context) LabVhdResponseOutput
+}
+
+// Properties of a VHD in the lab.
+type LabVhdResponseArgs struct {
+	// The URI to the VHD.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (LabVhdResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVhdResponse)(nil)).Elem()
+}
+
+func (i LabVhdResponseArgs) ToLabVhdResponseOutput() LabVhdResponseOutput {
+	return i.ToLabVhdResponseOutputWithContext(context.Background())
+}
+
+func (i LabVhdResponseArgs) ToLabVhdResponseOutputWithContext(ctx context.Context) LabVhdResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVhdResponseOutput)
+}
+
+// LabVhdResponseArrayInput is an input type that accepts LabVhdResponseArray and LabVhdResponseArrayOutput values.
+// You can construct a concrete instance of `LabVhdResponseArrayInput` via:
+//
+//          LabVhdResponseArray{ LabVhdResponseArgs{...} }
+type LabVhdResponseArrayInput interface {
+	pulumi.Input
+
+	ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput
+	ToLabVhdResponseArrayOutputWithContext(context.Context) LabVhdResponseArrayOutput
+}
+
+type LabVhdResponseArray []LabVhdResponseInput
+
+func (LabVhdResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabVhdResponse)(nil)).Elem()
+}
+
+func (i LabVhdResponseArray) ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput {
+	return i.ToLabVhdResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LabVhdResponseArray) ToLabVhdResponseArrayOutputWithContext(ctx context.Context) LabVhdResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVhdResponseArrayOutput)
+}
+
+// Properties of a VHD in the lab.
+type LabVhdResponseOutput struct{ *pulumi.OutputState }
+
+func (LabVhdResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVhdResponse)(nil)).Elem()
+}
+
+func (o LabVhdResponseOutput) ToLabVhdResponseOutput() LabVhdResponseOutput {
+	return o
+}
+
+func (o LabVhdResponseOutput) ToLabVhdResponseOutputWithContext(ctx context.Context) LabVhdResponseOutput {
+	return o
+}
+
+// The URI to the VHD.
+func (o LabVhdResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVhdResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type LabVhdResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LabVhdResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabVhdResponse)(nil)).Elem()
+}
+
+func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput {
+	return o
+}
+
+func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutputWithContext(ctx context.Context) LabVhdResponseArrayOutput {
+	return o
+}
+
+func (o LabVhdResponseArrayOutput) Index(i pulumi.IntInput) LabVhdResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabVhdResponse {
+		return vs[0].([]LabVhdResponse)[vs[1].(int)]
+	}).(LabVhdResponseOutput)
+}
+
 // Properties for creating a virtual machine.
 type LabVirtualMachineCreationParameter struct {
 	// The location of the new virtual machine or environment
@@ -20337,6 +20437,31 @@ func (i *scheduleResponsePtrType) ToScheduleResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponsePtrOutput)
 }
 
+// ScheduleResponseArrayInput is an input type that accepts ScheduleResponseArray and ScheduleResponseArrayOutput values.
+// You can construct a concrete instance of `ScheduleResponseArrayInput` via:
+//
+//          ScheduleResponseArray{ ScheduleResponseArgs{...} }
+type ScheduleResponseArrayInput interface {
+	pulumi.Input
+
+	ToScheduleResponseArrayOutput() ScheduleResponseArrayOutput
+	ToScheduleResponseArrayOutputWithContext(context.Context) ScheduleResponseArrayOutput
+}
+
+type ScheduleResponseArray []ScheduleResponseInput
+
+func (ScheduleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleResponse)(nil)).Elem()
+}
+
+func (i ScheduleResponseArray) ToScheduleResponseArrayOutput() ScheduleResponseArrayOutput {
+	return i.ToScheduleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduleResponseArray) ToScheduleResponseArrayOutputWithContext(ctx context.Context) ScheduleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseArrayOutput)
+}
+
 // A schedule.
 type ScheduleResponseOutput struct{ *pulumi.OutputState }
 
@@ -20468,6 +20593,26 @@ func (o ScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleResponse)(nil)).Elem()
+}
+
+func (o ScheduleResponseArrayOutput) ToScheduleResponseArrayOutput() ScheduleResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleResponseArrayOutput) ToScheduleResponseArrayOutputWithContext(ctx context.Context) ScheduleResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScheduleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleResponse {
+		return vs[0].([]ScheduleResponse)[vs[1].(int)]
+	}).(ScheduleResponseOutput)
 }
 
 // Properties of a secret.
@@ -24473,6 +24618,8 @@ func init() {
 	pulumi.RegisterOutputType(LabUserSecretTypeOutput{})
 	pulumi.RegisterOutputType(LabUserServicefabricTypeOutput{})
 	pulumi.RegisterOutputType(LabUserServicefabricScheduleTypeOutput{})
+	pulumi.RegisterOutputType(LabVhdResponseOutput{})
+	pulumi.RegisterOutputType(LabVhdResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterPtrOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterPropertiesOutput{})
@@ -24528,6 +24675,7 @@ func init() {
 	pulumi.RegisterOutputType(SchedulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScheduleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SecretPropertiesOutput{})
 	pulumi.RegisterOutputType(SecretPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SecretPropertiesResponseOutput{})

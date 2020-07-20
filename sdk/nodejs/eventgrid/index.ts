@@ -7,4 +7,6 @@ export * from "./domainTopic";
 export * from "./getDomain";
 export * from "./getDomainTopic";
 export * from "./getTopic";
+export * from "./listDomainKeys";
+export * from "./listTopicKeys";
 export * from "./topic";
