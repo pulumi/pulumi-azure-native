@@ -18,17 +18,16 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/authentication"
-	"github.com/hashicorp/go-azure-helpers/sender"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/util/rpcutil/rpcerror"
-	"google.golang.org/grpc/codes"
 	"log"
 	"net/http"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/hashicorp/go-azure-helpers/authentication"
+	"github.com/hashicorp/go-azure-helpers/sender"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
+	"github.com/pulumi/pulumi/sdk/v2/go/common/resource/plugin"
 
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
@@ -43,7 +42,7 @@ import (
 
 const (
 	ActiveDirectoryEndpoint = "https://login.microsoftonline.com/"
-	AuthTokenAudience = "https://management.azure.com/"
+	AuthTokenAudience       = "https://management.azure.com/"
 	// DefaultBaseURI is the default URI used for the service
 	DefaultBaseURI = "https://management.azure.com"
 )
@@ -56,9 +55,10 @@ type azurermProvider struct {
 	client         autorest.Client
 	resourceMap    *AzureApiMetadata
 	config         map[string]string
+	schemaBytes    []byte
 }
 
-func makeProvider(host *provider.HostClient, name, version string) (rpc.ResourceProviderServer, error) {
+func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte) (rpc.ResourceProviderServer, error) {
 	// Creating a REST client
 	client := autorest.NewClientWithUserAgent("pulumi")
 	// Set a long timeout of 2 hours for now.
@@ -78,6 +78,7 @@ func makeProvider(host *provider.HostClient, name, version string) (rpc.Resource
 		client:      client,
 		resourceMap: resourceMap,
 		config:      map[string]string{},
+		schemaBytes: schemaBytes,
 	}, nil
 }
 
@@ -91,7 +92,7 @@ func (k *azurermProvider) Configure(ctx context.Context, req *rpc.ConfigureReque
 
 	authConfig, err := k.getAuthConfig()
 	if err != nil {
-		return nil, errors.Wrap(err, "building auth config",)
+		return nil, errors.Wrap(err, "building auth config")
 	}
 
 	authorizer, err := k.getAuthorizationToken(authConfig)
@@ -187,7 +188,11 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 }
 
 func (k *azurermProvider) GetSchema(ctx context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
-	return nil, rpcerror.New(codes.Unimplemented, "GetSchema is unimplemented")
+	if v := req.GetVersion(); v != 0 {
+		return nil, fmt.Errorf("unsupported schema version %d", v)
+	}
+
+	return &rpc.GetSchemaResponse{Schema: string(k.schemaBytes)}, nil
 }
 
 // CheckConfig validates the configuration for this provider.

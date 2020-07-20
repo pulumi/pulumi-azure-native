@@ -7,3 +7,4 @@ package-lock.json
 azure-rest-api-specs/
 **/bin/
 **/obj/
+./provider/cmd/pulumi-resource-azurerm/schema.go

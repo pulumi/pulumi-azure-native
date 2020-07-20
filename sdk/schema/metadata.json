@@ -6645,12 +6645,7 @@
                     "location": "body",
                     "required": true,
                     "properties": [
-                        "location",
-                        "properties",
-                        "tags"
-                    ],
-                    "requiredProperties": [
-                        "location"
+                        "properties"
                     ]
                 },
                 {
@@ -6744,7 +6739,7 @@
             ]
         },
         "azurerm:certificateregistration:CertificateOrder": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}",
             "GET": [
                 {
@@ -6808,7 +6803,7 @@
             ]
         },
         "azurerm:certificateregistration:CertificateOrderCertificate": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name}",
             "GET": [
                 {
@@ -17190,7 +17185,7 @@
             ]
         },
         "azurerm:domainregistration:Domain": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}",
             "GET": [
                 {
@@ -17254,7 +17249,7 @@
             ]
         },
         "azurerm:domainregistration:DomainDomainOwnershipIdentifier": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{name}",
             "GET": [
                 {
@@ -43652,7 +43647,7 @@
             "POST": null
         },
         "azurerm:certificateregistration:getCertificateOrder": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}",
             "GET": [
                 {
@@ -43680,7 +43675,7 @@
             "POST": null
         },
         "azurerm:certificateregistration:getCertificateOrderCertificate": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name}",
             "GET": [
                 {
@@ -49566,7 +49561,7 @@
             ]
         },
         "azurerm:domainregistration:getDomain": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}",
             "GET": [
                 {
@@ -49594,7 +49589,7 @@
             "POST": null
         },
         "azurerm:domainregistration:getDomainDomainOwnershipIdentifier": {
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2020-06-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{name}",
             "GET": [
                 {

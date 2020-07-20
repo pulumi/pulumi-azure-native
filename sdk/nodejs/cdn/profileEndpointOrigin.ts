@@ -37,10 +37,6 @@ export class ProfileEndpointOrigin extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location.
-     */
-    public readonly location!: pulumi.Output<string>;
-    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -48,10 +44,6 @@ export class ProfileEndpointOrigin extends pulumi.CustomResource {
      * The JSON object that contains the properties of the origin.
      */
     public readonly properties!: pulumi.Output<outputs.cdn.OriginPropertiesResponse>;
-    /**
-     * Resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -73,9 +65,6 @@ export class ProfileEndpointOrigin extends pulumi.CustomResource {
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -86,12 +75,10 @@ export class ProfileEndpointOrigin extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,10 +101,6 @@ export interface ProfileEndpointOriginArgs {
      */
     readonly endpointName: pulumi.Input<string>;
     /**
-     * Resource location.
-     */
-    readonly location: pulumi.Input<string>;
-    /**
      * Name of the origin that is unique within the endpoint.
      */
     readonly name: pulumi.Input<string>;
@@ -133,8 +116,4 @@ export interface ProfileEndpointOriginArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -10,10 +10,6 @@ from .. import _utilities, _tables
 
 
 class ProfileEndpointOrigin(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    Resource location.
-    """
     name: pulumi.Output[str]
     """
     Resource name.
@@ -31,27 +27,21 @@ class ProfileEndpointOrigin(pulumi.CustomResource):
       * `resource_state` (`str`) - Resource status of the origin.
       * `weight` (`float`) - Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
     """
-    tags: pulumi.Output[dict]
-    """
-    Resource tags.
-    """
     type: pulumi.Output[str]
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, endpoint_name=None, location=None, name=None, profile_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, endpoint_name=None, name=None, profile_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
-        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the origin that is unique within the endpoint.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[dict] properties: The JSON object that contains the properties of the origin.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[dict] tags: Resource tags.
 
         The **properties** object supports the following:
 
@@ -83,9 +73,6 @@ class ProfileEndpointOrigin(pulumi.CustomResource):
             if endpoint_name is None:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
-            if location is None:
-                raise TypeError("Missing required property 'location'")
-            __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
@@ -96,7 +83,6 @@ class ProfileEndpointOrigin(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
             __props__['type'] = None
         super(ProfileEndpointOrigin, __self__).__init__(
             'azurerm:cdn:ProfileEndpointOrigin',

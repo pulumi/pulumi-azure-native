@@ -23,6 +23,11 @@ import (
 func main() {
 	languages := os.Args[1]
 
+	version := ""
+	if len(os.Args) == 3 {
+		version = os.Args[2]
+	}
+
 	swaggerSpecLocations, err := provider.SwaggerLocations()
 	if err != nil {
 		panic(err)
@@ -47,23 +52,25 @@ func main() {
 		outdir := path.Join(".", "sdk", language)
 		switch language {
 		case "schema":
-			err = emitSchema(pkgSpec, outdir)
-			if err == nil {
-				// Also, emit the resource metadata for the provider.
-				err = emitMetadata(meta, outdir)
+			if err = emitSchema(*pkgSpec, outdir); err != nil {
+				break
 			}
+			// Also, emit the resource metadata and embeddable schema for the provider.
+			if err = emitMetadata(meta, outdir); err != nil {
+				break
+			}
+			err = emitSchemaBytes(*pkgSpec, version)
 		default:
 			err = emitPackage(pkgSpec, language, outdir)
 		}
-	}
-
-	if err != nil {
-		panic(err)
+		if err != nil {
+			panic(err)
+		}
 	}
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec *schema.PackageSpec, outDir string) error {
+func emitSchema(pkgSpec schema.PackageSpec, outDir string) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
@@ -80,7 +87,7 @@ func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
 
 	formatted, err := json.MarshalIndent(metadata, "", "    ")
 	if err != nil {
-		return errors.Wrap(err, "marshaling Pulumi schema")
+		return errors.Wrap(err, "marshaling metadata")
 	}
 
 	err = ioutil.WriteFile("./provider/pkg/provider/metadata.go", []byte(fmt.Sprintf(`package provider
@@ -93,10 +100,24 @@ var azureApiResources = %#v
 	return emitFile(outDir, "metadata.json", formatted)
 }
 
+func emitSchemaBytes(pkgSpec schema.PackageSpec, version string) error {
+	// Ensure the spec is stamped with a version.
+	pkgSpec.Version = version
+
+	bytes, err := json.Marshal(pkgSpec)
+	if err != nil {
+		return err
+	}
+
+	return ioutil.WriteFile("./provider/cmd/pulumi-resource-azurerm/schema.go", []byte(fmt.Sprintf(`package main
+var pulumiSchema = %#v
+`, bytes)), 0600)
+}
+
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
 	toolDescription := "the Pulumi SDK Generator"
 	extraFiles := map[string][]byte{}
-	switch language{
+	switch language {
 	case "nodejs":
 		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles)
 	case "python":
