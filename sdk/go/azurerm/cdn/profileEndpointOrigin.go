@@ -14,10 +14,14 @@ import (
 type ProfileEndpointOrigin struct {
 	pulumi.CustomResourceState
 
+	// Resource location.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The JSON object that contains the properties of the origin.
 	Properties OriginPropertiesResponseOutput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -27,6 +31,9 @@ func NewProfileEndpointOrigin(ctx *pulumi.Context,
 	name string, args *ProfileEndpointOriginArgs, opts ...pulumi.ResourceOption) (*ProfileEndpointOrigin, error) {
 	if args == nil || args.EndpointName == nil {
 		return nil, errors.New("missing required argument 'EndpointName'")
+	}
+	if args == nil || args.Location == nil {
+		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
@@ -62,19 +69,27 @@ func GetProfileEndpointOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfileEndpointOrigin resources.
 type profileEndpointOriginState struct {
+	// Resource location.
+	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The JSON object that contains the properties of the origin.
 	Properties *OriginPropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type ProfileEndpointOriginState struct {
+	// Resource location.
+	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// The JSON object that contains the properties of the origin.
 	Properties OriginPropertiesResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -86,6 +101,8 @@ func (ProfileEndpointOriginState) ElementType() reflect.Type {
 type profileEndpointOriginArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
+	// Resource location.
+	Location string `pulumi:"location"`
 	// Name of the origin that is unique within the endpoint.
 	Name string `pulumi:"name"`
 	// Name of the CDN profile which is unique within the resource group.
@@ -94,12 +111,16 @@ type profileEndpointOriginArgs struct {
 	Properties *OriginProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProfileEndpointOrigin resource.
 type ProfileEndpointOriginArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName pulumi.StringInput
+	// Resource location.
+	Location pulumi.StringInput
 	// Name of the origin that is unique within the endpoint.
 	Name pulumi.StringInput
 	// Name of the CDN profile which is unique within the resource group.
@@ -108,6 +129,8 @@ type ProfileEndpointOriginArgs struct {
 	Properties OriginPropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (ProfileEndpointOriginArgs) ElementType() reflect.Type {

@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Cdn
     public partial class ProfileEndpointOrigin : Pulumi.CustomResource
     {
         /// <summary>
+        /// Resource location.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
@@ -25,6 +31,12 @@ namespace Pulumi.AzureRM.Cdn
         /// </summary>
         [Output("properties")]
         public Output<Outputs.OriginPropertiesResponseResult> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -84,6 +96,12 @@ namespace Pulumi.AzureRM.Cdn
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
+        /// Resource location.
+        /// </summary>
+        [Input("location", required: true)]
+        public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
         /// Name of the origin that is unique within the endpoint.
         /// </summary>
         [Input("name", required: true)]
@@ -106,6 +124,18 @@ namespace Pulumi.AzureRM.Cdn
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ProfileEndpointOriginArgs()
         {
