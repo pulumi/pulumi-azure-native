@@ -34,6 +34,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 		Language:  map[string]json.RawMessage{},
 	}
 	metadata := provider.AzureApiMetadata{
+		Types:     map[string]provider.AzureApiType{},
 		Resources: map[string]provider.AzureApiResource{},
 		Invokes:   map[string]provider.AzureApiInvoke{},
 	}
@@ -112,6 +113,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	// Generate the resource.
 	gen := moduleGenerator{
 		pkg:           g.pkg,
+		metadata:      g.metadata,
 		module:        module,
 		resourceToken: resourceTok,
 		visitedTypes:  make(map[string]bool),
@@ -138,14 +140,14 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	objectSpec := pschema.ObjectTypeSpec{
 		Description: resourceResponse.description,
 		Type:        "object",
-		Properties:  resourceResponse.all,
+		Properties:  resourceResponse.specs,
 		Required:    resourceResponse.required.SortedValues(),
 	}
 	g.pkg.Types[resourceTok] = objectSpec
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec:  objectSpec,
-		InputProperties: resourceRequest.all,
+		InputProperties: resourceRequest.specs,
 		RequiredInputs:  resourceRequest.required.SortedValues(),
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
@@ -170,13 +172,13 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: requestFunction.description,
 			Type:        "object",
-			Properties:  requestFunction.all,
+			Properties:  requestFunction.specs,
 			Required:    requestFunction.required.SortedValues(),
 		},
 		Outputs: &pschema.ObjectTypeSpec{
 			Description: responseFunction.description,
 			Type:        "object",
-			Properties:  responseFunction.all,
+			Properties:  responseFunction.specs,
 			Required:    responseFunction.required.SortedValues(),
 		},
 	}
@@ -185,15 +187,15 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	r := provider.AzureApiResource{
 		ApiVersion:    g.swagger.Info.Version,
 		Path:          key,
-		GetParameters: requestFunction.metadata,
-		PutParameters: resourceRequest.metadata,
+		GetParameters: requestFunction.parameters,
+		PutParameters: resourceRequest.parameters,
 	}
 	g.metadata.Resources[resourceTok] = r
 
 	f := provider.AzureApiInvoke{
 		ApiVersion:    g.swagger.Info.Version,
 		Path:          key,
-		GetParameters: requestFunction.metadata,
+		GetParameters: requestFunction.parameters,
 	}
 	g.metadata.Invokes[functionTok] = f
 }
@@ -210,7 +212,7 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 		return
 	}
 
-	baseUrl := strings.TrimSuffix(key, "/" + listOperation)
+	baseUrl := strings.TrimSuffix(key, "/"+listOperation)
 	prov, typeName := provider.ResourceQualifiedName(baseUrl)
 	if typeName == "" {
 		return
@@ -220,6 +222,7 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 
 	gen := moduleGenerator{
 		pkg:           g.pkg,
+		metadata:      g.metadata,
 		module:        module,
 		resourceToken: fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
 		visitedTypes:  make(map[string]bool),
@@ -246,13 +249,13 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",
-			Properties:  request.all,
+			Properties:  request.specs,
 			Required:    request.required.SortedValues(),
 		},
 		Outputs: &pschema.ObjectTypeSpec{
 			Description: response.description,
 			Type:        "object",
-			Properties:  response.all,
+			Properties:  response.specs,
 			Required:    response.required.SortedValues(),
 		},
 	}
@@ -261,13 +264,14 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	f := provider.AzureApiInvoke{
 		ApiVersion:     g.swagger.Info.Version,
 		Path:           key,
-		PostParameters: request.metadata,
+		PostParameters: request.parameters,
 	}
 	g.metadata.Invokes[functionTok] = f
 }
 
 type moduleGenerator struct {
 	pkg           *pschema.PackageSpec
+	metadata      *provider.AzureApiMetadata
 	module        string
 	resourceToken string
 	visitedTypes  map[string]bool
@@ -275,9 +279,9 @@ type moduleGenerator struct {
 
 // normalizeName replaces a custom name input property like `accountName` or `resourceGroupName` with the standard
 // `name` property.
-func (m *moduleGenerator) normalizeName(path string, requestProperties *propertyBag, responseProperties *propertyBag) error {
+func (m *moduleGenerator) normalizeName(path string, requestProperties *parameterBag, responseProperties *propertyBag) error {
 	// Do nothing if there's no `name` in response properties - we always expect it for any resource.
-	if _, ok := responseProperties.all["name"]; !ok {
+	if _, ok := responseProperties.specs["name"]; !ok {
 		return nil
 	}
 
@@ -286,7 +290,7 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 		part := parts[i]
 		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
 			name := part[1 : len(part)-1]
-			if nameProp, ok := requestProperties.all[name]; ok {
+			if nameProp, ok := requestProperties.specs[name]; ok {
 				// We expect names to be always a required string.
 				if nameProp.Type != "string" {
 					return errors.Errorf("name property '%s' is not a string", name)
@@ -295,8 +299,8 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 					return errors.Errorf("name property '%s' is not required", name)
 				}
 
-				delete(requestProperties.all, name)
-				requestProperties.all["name"] = nameProp
+				delete(requestProperties.specs, name)
+				requestProperties.specs["name"] = nameProp
 				requestProperties.required.Delete(name)
 				requestProperties.required.Add("name")
 				break
@@ -309,8 +313,8 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *property
 	return nil
 }
 
-func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext) (*propertyBag, error) {
-	result := newPropertyBag()
+func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext) (*parameterBag, error) {
+	result := newParameterBag()
 
 	for _, param := range parameters {
 		param, err := ctx.ResolveParameter(param)
@@ -318,8 +322,19 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			return nil, err
 		}
 
-		var bodyProperties []string
-		var bodyRequiredProperties []string
+		location, _ := param.Extensions.GetString("x-ms-parameter-location")
+		apiParameter := provider.AzureApiParameter{
+			Name:       param.Name,
+			Location:   param.In,
+			Source:     location,
+			IsRequired: param.Required,
+			Value: &provider.AzureApiProperty{
+				Type:      param.Type,
+				MinLength: param.MinLength,
+				MaxLength: param.MaxLength,
+				Pattern:   param.Pattern,
+			},
+		}
 
 		switch {
 		case param.Name == "subscriptionId":
@@ -343,13 +358,9 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			}
 
 			result.merge(props)
-
-			for k, _ := range props.all {
-				bodyProperties = append(bodyProperties, k)
-			}
-			sort.Strings(bodyProperties)
-			for _, k := range props.required.SortedValues() {
-				bodyRequiredProperties = append(bodyRequiredProperties, k)
+			apiParameter.Body = &provider.AzureApiType{
+				Properties:         props.properties,
+				RequiredProperties: props.required.SortedValues(),
 			}
 
 		default:
@@ -359,22 +370,13 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 					Type: param.Type,
 				},
 			}
-			result.all[param.Name] = propertySpec
+			result.specs[param.Name] = propertySpec
 			if param.Required {
 				result.required.Add(param.Name)
 			}
 		}
 
-		location, _ := param.Extensions.GetString("x-ms-parameter-location")
-		p := provider.AzureApiParameter{
-			Name:               param.Name,
-			Location:           param.In,
-			Source:             location,
-			IsRequired:         param.Required,
-			Properties:         bodyProperties,
-			RequiredProperties: bodyRequiredProperties,
-		}
-		result.metadata = append(result.metadata, p)
+		result.parameters = append(result.parameters, apiParameter)
 	}
 
 	return result, nil
@@ -417,12 +419,12 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 		}
 
 		// Id is a property of the base Custom Resource, we don't want to introduce it on derived resources.
-		delete(result.all, "id")
+		delete(result.specs, "id")
 		result.required.Delete("id")
 
 		// Special case the 'properties' output property as required.
 		// This should be gone when we apply flattening.
-		if _, ok := result.all["properties"]; ok {
+		if _, ok := result.specs["properties"]; ok {
 			result.required.Add("properties")
 		}
 
@@ -456,12 +458,28 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		if isOutput {
-			result.all[name] = *propertySpec
+			result.specs[name] = *propertySpec
 			if property.ReadOnly {
 				result.required.Add(name)
 			}
 		} else if !property.ReadOnly {
-			result.all[name] = *propertySpec
+			result.specs[name] = *propertySpec
+			var items *provider.AzureApiProperty
+			if propertySpec.Items != nil {
+				items = &provider.AzureApiProperty{
+					Type: propertySpec.Items.Type,
+					Ref:  propertySpec.Items.Ref,
+				}
+			}
+			result.properties[name] = provider.AzureApiProperty{
+				Type:      propertySpec.Type,
+				Items:     items,
+				Enum:      m.getEnumValues(&property),
+				Ref:       propertySpec.Ref,
+				MinLength: property.MinLength,
+				MaxLength: property.MaxLength,
+				Pattern:   property.Pattern,
+			}
 		}
 	}
 
@@ -480,11 +498,35 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	}
 
 	for _, name := range resolvedSchema.Required {
-		if _, ok := result.all[name]; ok {
+		if _, ok := result.specs[name]; ok {
 			result.required.Add(name)
 		}
 	}
 	return result, nil
+}
+
+func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
+	if property.Enum == nil {
+		return
+	}
+
+	restrictive := true
+	// If x-ms-enum is present and modelAsString is set to false, the enum is not strict, so we don't want to enforce it.
+	if extension, ok := property.Extensions["x-ms-enum"]; ok {
+		if modelAsString, ok := extension.(map[string]interface{})["modelAsString"]; ok {
+			if v, ok := modelAsString.(bool); ok {
+				restrictive = !v
+			}
+		}
+	}
+	if restrictive {
+		for _, value := range property.Enum {
+			if s, ok := value.(string); ok {
+				enum = append(enum, s)
+			}
+		}
+	}
+	return
 }
 
 func (m *moduleGenerator) genProperty(schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
@@ -555,8 +597,15 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 			m.pkg.Types[tok] = pschema.ObjectTypeSpec{
 				Description: resolvedSchema.Description,
 				Type:        "object",
-				Properties:  props.all,
+				Properties:  props.specs,
 				Required:    props.required.SortedValues(),
+			}
+
+			if !isOutput {
+				m.metadata.Types[tok] = provider.AzureApiType{
+					Properties:         props.properties,
+					RequiredProperties: props.required.SortedValues(),
+				}
 			}
 		}
 	}
@@ -587,23 +636,52 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 	return fmt.Sprintf("azurerm:%s:%s%s", m.module, makeLegalIdentifier(ctx.ReferenceName), suffix)
 }
 
+// parameterBag keeps the schema and metadata parameters for a single resource or invocation.
+type parameterBag struct {
+	description string
+	specs       map[string]pschema.PropertySpec
+	parameters  []provider.AzureApiParameter
+	required    codegen.StringSet
+}
+
+func newParameterBag() *parameterBag {
+	return &parameterBag{
+		specs:    map[string]pschema.PropertySpec{},
+		required: codegen.NewStringSet(),
+	}
+}
+
+func (bag *parameterBag) merge(other *propertyBag) {
+	for key, value := range other.specs {
+		bag.specs[key] = value
+	}
+	for key, _ := range other.required {
+		bag.required.Add(key)
+	}
+}
+
+// propertyBag keeps the schema and metadata properties for a single API type.
 type propertyBag struct {
 	description string
-	all         map[string]pschema.PropertySpec
-	metadata    []provider.AzureApiParameter
+	specs       map[string]pschema.PropertySpec
+	properties  map[string]provider.AzureApiProperty
 	required    codegen.StringSet
 }
 
 func newPropertyBag() *propertyBag {
 	return &propertyBag{
-		all:      map[string]pschema.PropertySpec{},
-		required: codegen.NewStringSet(),
+		specs:      map[string]pschema.PropertySpec{},
+		properties: map[string]provider.AzureApiProperty{},
+		required:   codegen.NewStringSet(),
 	}
 }
 
 func (bag *propertyBag) merge(other *propertyBag) {
-	for key, value := range other.all {
-		bag.all[key] = value
+	for key, value := range other.specs {
+		bag.specs[key] = value
+	}
+	for key, value := range other.properties {
+		bag.properties[key] = value
 	}
 	for key, _ := range other.required {
 		bag.required.Add(key)
