@@ -163,6 +163,208 @@ func (o AppServiceCertificatePtrOutput) KeyVaultSecretName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// SSL certificate purchase order.
+type AppServiceCertificateOrderType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location string `pulumi:"location"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// AppServiceCertificateOrder resource specific properties
+	Properties AppServiceCertificateOrderResponseProperties `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// AppServiceCertificateOrderTypeInput is an input type that accepts AppServiceCertificateOrderTypeArgs and AppServiceCertificateOrderTypeOutput values.
+// You can construct a concrete instance of `AppServiceCertificateOrderTypeInput` via:
+//
+//          AppServiceCertificateOrderTypeArgs{...}
+type AppServiceCertificateOrderTypeInput interface {
+	pulumi.Input
+
+	ToAppServiceCertificateOrderTypeOutput() AppServiceCertificateOrderTypeOutput
+	ToAppServiceCertificateOrderTypeOutputWithContext(context.Context) AppServiceCertificateOrderTypeOutput
+}
+
+// SSL certificate purchase order.
+type AppServiceCertificateOrderTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// AppServiceCertificateOrder resource specific properties
+	Properties AppServiceCertificateOrderResponsePropertiesInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AppServiceCertificateOrderTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateOrderType)(nil)).Elem()
+}
+
+func (i AppServiceCertificateOrderTypeArgs) ToAppServiceCertificateOrderTypeOutput() AppServiceCertificateOrderTypeOutput {
+	return i.ToAppServiceCertificateOrderTypeOutputWithContext(context.Background())
+}
+
+func (i AppServiceCertificateOrderTypeArgs) ToAppServiceCertificateOrderTypeOutputWithContext(ctx context.Context) AppServiceCertificateOrderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderTypeOutput)
+}
+
+// SSL certificate purchase order.
+type AppServiceCertificateOrderTypeOutput struct{ *pulumi.OutputState }
+
+func (AppServiceCertificateOrderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateOrderType)(nil)).Elem()
+}
+
+func (o AppServiceCertificateOrderTypeOutput) ToAppServiceCertificateOrderTypeOutput() AppServiceCertificateOrderTypeOutput {
+	return o
+}
+
+func (o AppServiceCertificateOrderTypeOutput) ToAppServiceCertificateOrderTypeOutputWithContext(ctx context.Context) AppServiceCertificateOrderTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o AppServiceCertificateOrderTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o AppServiceCertificateOrderTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o AppServiceCertificateOrderTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// AppServiceCertificateOrder resource specific properties
+func (o AppServiceCertificateOrderTypeOutput) Properties() AppServiceCertificateOrderResponsePropertiesOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderType) AppServiceCertificateOrderResponseProperties {
+		return v.Properties
+	}).(AppServiceCertificateOrderResponsePropertiesOutput)
+}
+
+// Resource tags.
+func (o AppServiceCertificateOrderTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o AppServiceCertificateOrderTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Key Vault container ARM resource for a certificate that is purchased through Azure.
+type AppServiceCertificateOrderCertificateType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location string `pulumi:"location"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Core resource properties
+	Properties AppServiceCertificateResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// AppServiceCertificateOrderCertificateTypeInput is an input type that accepts AppServiceCertificateOrderCertificateTypeArgs and AppServiceCertificateOrderCertificateTypeOutput values.
+// You can construct a concrete instance of `AppServiceCertificateOrderCertificateTypeInput` via:
+//
+//          AppServiceCertificateOrderCertificateTypeArgs{...}
+type AppServiceCertificateOrderCertificateTypeInput interface {
+	pulumi.Input
+
+	ToAppServiceCertificateOrderCertificateTypeOutput() AppServiceCertificateOrderCertificateTypeOutput
+	ToAppServiceCertificateOrderCertificateTypeOutputWithContext(context.Context) AppServiceCertificateOrderCertificateTypeOutput
+}
+
+// Key Vault container ARM resource for a certificate that is purchased through Azure.
+type AppServiceCertificateOrderCertificateTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Core resource properties
+	Properties AppServiceCertificateResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AppServiceCertificateOrderCertificateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateOrderCertificateType)(nil)).Elem()
+}
+
+func (i AppServiceCertificateOrderCertificateTypeArgs) ToAppServiceCertificateOrderCertificateTypeOutput() AppServiceCertificateOrderCertificateTypeOutput {
+	return i.ToAppServiceCertificateOrderCertificateTypeOutputWithContext(context.Background())
+}
+
+func (i AppServiceCertificateOrderCertificateTypeArgs) ToAppServiceCertificateOrderCertificateTypeOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderCertificateTypeOutput)
+}
+
+// Key Vault container ARM resource for a certificate that is purchased through Azure.
+type AppServiceCertificateOrderCertificateTypeOutput struct{ *pulumi.OutputState }
+
+func (AppServiceCertificateOrderCertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateOrderCertificateType)(nil)).Elem()
+}
+
+func (o AppServiceCertificateOrderCertificateTypeOutput) ToAppServiceCertificateOrderCertificateTypeOutput() AppServiceCertificateOrderCertificateTypeOutput {
+	return o
+}
+
+func (o AppServiceCertificateOrderCertificateTypeOutput) ToAppServiceCertificateOrderCertificateTypeOutputWithContext(ctx context.Context) AppServiceCertificateOrderCertificateTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o AppServiceCertificateOrderCertificateTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o AppServiceCertificateOrderCertificateTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o AppServiceCertificateOrderCertificateTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Core resource properties
+func (o AppServiceCertificateOrderCertificateTypeOutput) Properties() AppServiceCertificateResponseOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) AppServiceCertificateResponse { return v.Properties }).(AppServiceCertificateResponseOutput)
+}
+
+// Resource tags.
+func (o AppServiceCertificateOrderCertificateTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o AppServiceCertificateOrderCertificateTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // AppServiceCertificateOrder resource specific properties
 type AppServiceCertificateOrderProperties struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
@@ -1397,209 +1599,11 @@ func (o CertificateDetailsResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// SSL certificate purchase order.
-type CertificateOrderType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// AppServiceCertificateOrder resource specific properties
-	Properties AppServiceCertificateOrderResponseProperties `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// CertificateOrderTypeInput is an input type that accepts CertificateOrderTypeArgs and CertificateOrderTypeOutput values.
-// You can construct a concrete instance of `CertificateOrderTypeInput` via:
-//
-//          CertificateOrderTypeArgs{...}
-type CertificateOrderTypeInput interface {
-	pulumi.Input
-
-	ToCertificateOrderTypeOutput() CertificateOrderTypeOutput
-	ToCertificateOrderTypeOutputWithContext(context.Context) CertificateOrderTypeOutput
-}
-
-// SSL certificate purchase order.
-type CertificateOrderTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// AppServiceCertificateOrder resource specific properties
-	Properties AppServiceCertificateOrderResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CertificateOrderTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderType)(nil)).Elem()
-}
-
-func (i CertificateOrderTypeArgs) ToCertificateOrderTypeOutput() CertificateOrderTypeOutput {
-	return i.ToCertificateOrderTypeOutputWithContext(context.Background())
-}
-
-func (i CertificateOrderTypeArgs) ToCertificateOrderTypeOutputWithContext(ctx context.Context) CertificateOrderTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderTypeOutput)
-}
-
-// SSL certificate purchase order.
-type CertificateOrderTypeOutput struct{ *pulumi.OutputState }
-
-func (CertificateOrderTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderType)(nil)).Elem()
-}
-
-func (o CertificateOrderTypeOutput) ToCertificateOrderTypeOutput() CertificateOrderTypeOutput {
-	return o
-}
-
-func (o CertificateOrderTypeOutput) ToCertificateOrderTypeOutputWithContext(ctx context.Context) CertificateOrderTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o CertificateOrderTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location.
-func (o CertificateOrderTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateOrderType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name.
-func (o CertificateOrderTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateOrderType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// AppServiceCertificateOrder resource specific properties
-func (o CertificateOrderTypeOutput) Properties() AppServiceCertificateOrderResponsePropertiesOutput {
-	return o.ApplyT(func(v CertificateOrderType) AppServiceCertificateOrderResponseProperties { return v.Properties }).(AppServiceCertificateOrderResponsePropertiesOutput)
-}
-
-// Resource tags.
-func (o CertificateOrderTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CertificateOrderType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o CertificateOrderTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateOrderType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Key Vault container ARM resource for a certificate that is purchased through Azure.
-type CertificateOrderCertificateType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Core resource properties
-	Properties AppServiceCertificateResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// CertificateOrderCertificateTypeInput is an input type that accepts CertificateOrderCertificateTypeArgs and CertificateOrderCertificateTypeOutput values.
-// You can construct a concrete instance of `CertificateOrderCertificateTypeInput` via:
-//
-//          CertificateOrderCertificateTypeArgs{...}
-type CertificateOrderCertificateTypeInput interface {
-	pulumi.Input
-
-	ToCertificateOrderCertificateTypeOutput() CertificateOrderCertificateTypeOutput
-	ToCertificateOrderCertificateTypeOutputWithContext(context.Context) CertificateOrderCertificateTypeOutput
-}
-
-// Key Vault container ARM resource for a certificate that is purchased through Azure.
-type CertificateOrderCertificateTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Core resource properties
-	Properties AppServiceCertificateResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CertificateOrderCertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderCertificateType)(nil)).Elem()
-}
-
-func (i CertificateOrderCertificateTypeArgs) ToCertificateOrderCertificateTypeOutput() CertificateOrderCertificateTypeOutput {
-	return i.ToCertificateOrderCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i CertificateOrderCertificateTypeArgs) ToCertificateOrderCertificateTypeOutputWithContext(ctx context.Context) CertificateOrderCertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificateTypeOutput)
-}
-
-// Key Vault container ARM resource for a certificate that is purchased through Azure.
-type CertificateOrderCertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (CertificateOrderCertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderCertificateType)(nil)).Elem()
-}
-
-func (o CertificateOrderCertificateTypeOutput) ToCertificateOrderCertificateTypeOutput() CertificateOrderCertificateTypeOutput {
-	return o
-}
-
-func (o CertificateOrderCertificateTypeOutput) ToCertificateOrderCertificateTypeOutputWithContext(ctx context.Context) CertificateOrderCertificateTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o CertificateOrderCertificateTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location.
-func (o CertificateOrderCertificateTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name.
-func (o CertificateOrderCertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Core resource properties
-func (o CertificateOrderCertificateTypeOutput) Properties() AppServiceCertificateResponseOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) AppServiceCertificateResponse { return v.Properties }).(AppServiceCertificateResponseOutput)
-}
-
-// Resource tags.
-func (o CertificateOrderCertificateTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o CertificateOrderCertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificatePtrOutput{})
+	pulumi.RegisterOutputType(AppServiceCertificateOrderTypeOutput{})
+	pulumi.RegisterOutputType(AppServiceCertificateOrderCertificateTypeOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderPropertiesOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderResponsePropertiesOutput{})
@@ -1609,6 +1613,4 @@ func init() {
 	pulumi.RegisterOutputType(CertificateDetailsOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(CertificateOrderTypeOutput{})
-	pulumi.RegisterOutputType(CertificateOrderCertificateTypeOutput{})
 }

@@ -3,4 +3,6 @@
 
 // Export members:
 export * from "./deployment";
+export * from "./deploymentAtManagementGroupScope";
 export * from "./getDeployment";
+export * from "./getDeploymentAtManagementGroupScope";

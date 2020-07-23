@@ -11,7 +11,7 @@ import (
 )
 
 // Represents an instance of a Dedicated Capacity resource.
-type CapacityType struct {
+type CapacityDetailsType struct {
 	// Location of the PowerBI Dedicated resource.
 	Location string `pulumi:"location"`
 	// The name of the PowerBI Dedicated resource.
@@ -26,19 +26,19 @@ type CapacityType struct {
 	Type string `pulumi:"type"`
 }
 
-// CapacityTypeInput is an input type that accepts CapacityTypeArgs and CapacityTypeOutput values.
-// You can construct a concrete instance of `CapacityTypeInput` via:
+// CapacityDetailsTypeInput is an input type that accepts CapacityDetailsTypeArgs and CapacityDetailsTypeOutput values.
+// You can construct a concrete instance of `CapacityDetailsTypeInput` via:
 //
-//          CapacityTypeArgs{...}
-type CapacityTypeInput interface {
+//          CapacityDetailsTypeArgs{...}
+type CapacityDetailsTypeInput interface {
 	pulumi.Input
 
-	ToCapacityTypeOutput() CapacityTypeOutput
-	ToCapacityTypeOutputWithContext(context.Context) CapacityTypeOutput
+	ToCapacityDetailsTypeOutput() CapacityDetailsTypeOutput
+	ToCapacityDetailsTypeOutputWithContext(context.Context) CapacityDetailsTypeOutput
 }
 
 // Represents an instance of a Dedicated Capacity resource.
-type CapacityTypeArgs struct {
+type CapacityDetailsTypeArgs struct {
 	// Location of the PowerBI Dedicated resource.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the PowerBI Dedicated resource.
@@ -53,61 +53,61 @@ type CapacityTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (CapacityTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityType)(nil)).Elem()
+func (CapacityDetailsTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityDetailsType)(nil)).Elem()
 }
 
-func (i CapacityTypeArgs) ToCapacityTypeOutput() CapacityTypeOutput {
-	return i.ToCapacityTypeOutputWithContext(context.Background())
+func (i CapacityDetailsTypeArgs) ToCapacityDetailsTypeOutput() CapacityDetailsTypeOutput {
+	return i.ToCapacityDetailsTypeOutputWithContext(context.Background())
 }
 
-func (i CapacityTypeArgs) ToCapacityTypeOutputWithContext(ctx context.Context) CapacityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityTypeOutput)
+func (i CapacityDetailsTypeArgs) ToCapacityDetailsTypeOutputWithContext(ctx context.Context) CapacityDetailsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityDetailsTypeOutput)
 }
 
 // Represents an instance of a Dedicated Capacity resource.
-type CapacityTypeOutput struct{ *pulumi.OutputState }
+type CapacityDetailsTypeOutput struct{ *pulumi.OutputState }
 
-func (CapacityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityType)(nil)).Elem()
+func (CapacityDetailsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityDetailsType)(nil)).Elem()
 }
 
-func (o CapacityTypeOutput) ToCapacityTypeOutput() CapacityTypeOutput {
+func (o CapacityDetailsTypeOutput) ToCapacityDetailsTypeOutput() CapacityDetailsTypeOutput {
 	return o
 }
 
-func (o CapacityTypeOutput) ToCapacityTypeOutputWithContext(ctx context.Context) CapacityTypeOutput {
+func (o CapacityDetailsTypeOutput) ToCapacityDetailsTypeOutputWithContext(ctx context.Context) CapacityDetailsTypeOutput {
 	return o
 }
 
 // Location of the PowerBI Dedicated resource.
-func (o CapacityTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityType) string { return v.Location }).(pulumi.StringOutput)
+func (o CapacityDetailsTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityDetailsType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the PowerBI Dedicated resource.
-func (o CapacityTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityType) string { return v.Name }).(pulumi.StringOutput)
+func (o CapacityDetailsTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityDetailsType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Properties of the provision operation request.
-func (o CapacityTypeOutput) Properties() DedicatedCapacityPropertiesResponseOutput {
-	return o.ApplyT(func(v CapacityType) DedicatedCapacityPropertiesResponse { return v.Properties }).(DedicatedCapacityPropertiesResponseOutput)
+func (o CapacityDetailsTypeOutput) Properties() DedicatedCapacityPropertiesResponseOutput {
+	return o.ApplyT(func(v CapacityDetailsType) DedicatedCapacityPropertiesResponse { return v.Properties }).(DedicatedCapacityPropertiesResponseOutput)
 }
 
 // The SKU of the PowerBI Dedicated resource.
-func (o CapacityTypeOutput) Sku() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v CapacityType) ResourceSkuResponse { return v.Sku }).(ResourceSkuResponseOutput)
+func (o CapacityDetailsTypeOutput) Sku() ResourceSkuResponseOutput {
+	return o.ApplyT(func(v CapacityDetailsType) ResourceSkuResponse { return v.Sku }).(ResourceSkuResponseOutput)
 }
 
 // Key-value pairs of additional resource provisioning properties.
-func (o CapacityTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CapacityType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o CapacityDetailsTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CapacityDetailsType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the PowerBI Dedicated resource.
-func (o CapacityTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityType) string { return v.Type }).(pulumi.StringOutput)
+func (o CapacityDetailsTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityDetailsType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // An array of administrator user identities
@@ -993,7 +993,7 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CapacityTypeOutput{})
+	pulumi.RegisterOutputType(CapacityDetailsTypeOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsPtrOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsResponseOutput{})

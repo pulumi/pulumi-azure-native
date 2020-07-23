@@ -9,31 +9,31 @@ import * as utilities from "../utilities";
 /**
  * P2SVpnGateway Resource.
  */
-export class P2svpnGateway extends pulumi.CustomResource {
+export class P2sVpnGateway extends pulumi.CustomResource {
     /**
-     * Get an existing P2svpnGateway resource's state with the given name, ID, and optional extra
+     * Get an existing P2sVpnGateway resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): P2svpnGateway {
-        return new P2svpnGateway(name, undefined, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): P2sVpnGateway {
+        return new P2sVpnGateway(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:network:P2svpnGateway';
+    public static readonly __pulumiType = 'azurerm:network:P2sVpnGateway';
 
     /**
-     * Returns true if the given object is an instance of P2svpnGateway.  This is designed to work even
+     * Returns true if the given object is an instance of P2sVpnGateway.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is P2svpnGateway {
+    public static isInstance(obj: any): obj is P2sVpnGateway {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === P2svpnGateway.__pulumiType;
+        return obj['__pulumiType'] === P2sVpnGateway.__pulumiType;
     }
 
     /**
@@ -62,18 +62,18 @@ export class P2svpnGateway extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a P2svpnGateway resource with the given unique name, arguments, and options.
+     * Create a P2sVpnGateway resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: P2svpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: P2sVpnGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: P2svpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, argsOrState?: P2sVpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as P2svpnGatewayArgs | undefined;
+            const args = argsOrState as P2sVpnGatewayArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -99,14 +99,14 @@ export class P2svpnGateway extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(P2svpnGateway.__pulumiType, name, inputs, opts);
+        super(P2sVpnGateway.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a P2svpnGateway resource.
+ * The set of arguments for constructing a P2sVpnGateway resource.
  */
-export interface P2svpnGatewayArgs {
+export interface P2sVpnGatewayArgs {
     /**
      * Resource ID.
      */

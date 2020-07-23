@@ -4,6 +4,6 @@
 
 # Export this package's modules as members:
 from .get_workspace import *
-from .get_workspace_virtual_network_peering import *
+from .getv_net_peering import *
+from .v_net_peering import *
 from .workspace import *
-from .workspace_virtual_network_peering import *

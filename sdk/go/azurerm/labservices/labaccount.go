@@ -11,7 +11,7 @@ import (
 )
 
 // Represents a lab account.
-type Labaccount struct {
+type LabAccount struct {
 	pulumi.CustomResourceState
 
 	// The location of the resource.
@@ -26,9 +26,9 @@ type Labaccount struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
-// NewLabaccount registers a new resource with the given unique name, arguments, and options.
-func NewLabaccount(ctx *pulumi.Context,
-	name string, args *LabaccountArgs, opts ...pulumi.ResourceOption) (*Labaccount, error) {
+// NewLabAccount registers a new resource with the given unique name, arguments, and options.
+func NewLabAccount(ctx *pulumi.Context,
+	name string, args *LabAccountArgs, opts ...pulumi.ResourceOption) (*LabAccount, error) {
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -36,30 +36,30 @@ func NewLabaccount(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil {
-		args = &LabaccountArgs{}
+		args = &LabAccountArgs{}
 	}
-	var resource Labaccount
-	err := ctx.RegisterResource("azurerm:labservices:Labaccount", name, args, &resource, opts...)
+	var resource LabAccount
+	err := ctx.RegisterResource("azurerm:labservices:LabAccount", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetLabaccount gets an existing Labaccount resource's state with the given name, ID, and optional
+// GetLabAccount gets an existing LabAccount resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetLabaccount(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *LabaccountState, opts ...pulumi.ResourceOption) (*Labaccount, error) {
-	var resource Labaccount
-	err := ctx.ReadResource("azurerm:labservices:Labaccount", name, id, state, &resource, opts...)
+func GetLabAccount(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *LabAccountState, opts ...pulumi.ResourceOption) (*LabAccount, error) {
+	var resource LabAccount
+	err := ctx.ReadResource("azurerm:labservices:LabAccount", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering Labaccount resources.
-type labaccountState struct {
+// Input properties used for looking up and filtering LabAccount resources.
+type labAccountState struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -72,7 +72,7 @@ type labaccountState struct {
 	Type *string `pulumi:"type"`
 }
 
-type LabaccountState struct {
+type LabAccountState struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
@@ -85,11 +85,11 @@ type LabaccountState struct {
 	Type pulumi.StringPtrInput
 }
 
-func (LabaccountState) ElementType() reflect.Type {
-	return reflect.TypeOf((*labaccountState)(nil)).Elem()
+func (LabAccountState) ElementType() reflect.Type {
+	return reflect.TypeOf((*labAccountState)(nil)).Elem()
 }
 
-type labaccountArgs struct {
+type labAccountArgs struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the lab Account.
@@ -102,8 +102,8 @@ type labaccountArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// The set of arguments for constructing a Labaccount resource.
-type LabaccountArgs struct {
+// The set of arguments for constructing a LabAccount resource.
+type LabAccountArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the lab Account.
@@ -116,6 +116,6 @@ type LabaccountArgs struct {
 	Tags pulumi.StringMapInput
 }
 
-func (LabaccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*labaccountArgs)(nil)).Elem()
+func (LabAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*labAccountArgs)(nil)).Elem()
 }

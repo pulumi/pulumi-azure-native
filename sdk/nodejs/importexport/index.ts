@@ -4,4 +4,4 @@
 // Export members:
 export * from "./getJob";
 export * from "./job";
-export * from "./listJobBitLockerKeys";
+export * from "./listBitLockerKey";

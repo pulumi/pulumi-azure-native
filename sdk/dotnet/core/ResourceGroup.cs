@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureRM.core
+namespace Pulumi.AzureRM.Core
 {
     /// <summary>
     /// Resource group information.

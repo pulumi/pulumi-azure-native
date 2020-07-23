@@ -3,11 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_search_service import *
-from .get_search_service_private_endpoint_connection import *
-from .get_search_service_shared_private_link_resource import *
-from .list_search_service_admin_keys import *
-from .list_search_service_query_keys import *
-from .search_service import *
-from .search_service_private_endpoint_connection import *
-from .search_service_shared_private_link_resource import *
+from .get_private_endpoint_connection import *
+from .get_service import *
+from .get_shared_private_link_resource import *
+from .list_admin_key import *
+from .list_query_key_by_search_service import *
+from .private_endpoint_connection import *
+from .service import *
+from .shared_private_link_resource import *

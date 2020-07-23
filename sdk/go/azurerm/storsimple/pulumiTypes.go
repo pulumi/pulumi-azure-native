@@ -10,6 +10,88 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The access control record.
+type AccessControlRecordType struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name string `pulumi:"name"`
+	// The properties of access control record.
+	Properties AccessControlRecordPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// AccessControlRecordTypeInput is an input type that accepts AccessControlRecordTypeArgs and AccessControlRecordTypeOutput values.
+// You can construct a concrete instance of `AccessControlRecordTypeInput` via:
+//
+//          AccessControlRecordTypeArgs{...}
+type AccessControlRecordTypeInput interface {
+	pulumi.Input
+
+	ToAccessControlRecordTypeOutput() AccessControlRecordTypeOutput
+	ToAccessControlRecordTypeOutputWithContext(context.Context) AccessControlRecordTypeOutput
+}
+
+// The access control record.
+type AccessControlRecordTypeArgs struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of access control record.
+	Properties AccessControlRecordPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccessControlRecordTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControlRecordType)(nil)).Elem()
+}
+
+func (i AccessControlRecordTypeArgs) ToAccessControlRecordTypeOutput() AccessControlRecordTypeOutput {
+	return i.ToAccessControlRecordTypeOutputWithContext(context.Background())
+}
+
+func (i AccessControlRecordTypeArgs) ToAccessControlRecordTypeOutputWithContext(ctx context.Context) AccessControlRecordTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlRecordTypeOutput)
+}
+
+// The access control record.
+type AccessControlRecordTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessControlRecordTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControlRecordType)(nil)).Elem()
+}
+
+func (o AccessControlRecordTypeOutput) ToAccessControlRecordTypeOutput() AccessControlRecordTypeOutput {
+	return o
+}
+
+func (o AccessControlRecordTypeOutput) ToAccessControlRecordTypeOutputWithContext(ctx context.Context) AccessControlRecordTypeOutput {
+	return o
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o AccessControlRecordTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessControlRecordType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o AccessControlRecordTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessControlRecordType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of access control record.
+func (o AccessControlRecordTypeOutput) Properties() AccessControlRecordPropertiesResponseOutput {
+	return o.ApplyT(func(v AccessControlRecordType) AccessControlRecordPropertiesResponse { return v.Properties }).(AccessControlRecordPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o AccessControlRecordTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessControlRecordType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties of access control record.
 type AccessControlRecordProperties struct {
 	// The iSCSI initiator name (IQN).
@@ -641,6 +723,88 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The backup policy.
+type BackupPolicyType struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name string `pulumi:"name"`
+	// The properties of the backup policy.
+	Properties BackupPolicyPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// BackupPolicyTypeInput is an input type that accepts BackupPolicyTypeArgs and BackupPolicyTypeOutput values.
+// You can construct a concrete instance of `BackupPolicyTypeInput` via:
+//
+//          BackupPolicyTypeArgs{...}
+type BackupPolicyTypeInput interface {
+	pulumi.Input
+
+	ToBackupPolicyTypeOutput() BackupPolicyTypeOutput
+	ToBackupPolicyTypeOutputWithContext(context.Context) BackupPolicyTypeOutput
+}
+
+// The backup policy.
+type BackupPolicyTypeArgs struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the backup policy.
+	Properties BackupPolicyPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BackupPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyType)(nil)).Elem()
+}
+
+func (i BackupPolicyTypeArgs) ToBackupPolicyTypeOutput() BackupPolicyTypeOutput {
+	return i.ToBackupPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyTypeArgs) ToBackupPolicyTypeOutputWithContext(ctx context.Context) BackupPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyTypeOutput)
+}
+
+// The backup policy.
+type BackupPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyType)(nil)).Elem()
+}
+
+func (o BackupPolicyTypeOutput) ToBackupPolicyTypeOutput() BackupPolicyTypeOutput {
+	return o
+}
+
+func (o BackupPolicyTypeOutput) ToBackupPolicyTypeOutputWithContext(ctx context.Context) BackupPolicyTypeOutput {
+	return o
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o BackupPolicyTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o BackupPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the backup policy.
+func (o BackupPolicyTypeOutput) Properties() BackupPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v BackupPolicyType) BackupPolicyPropertiesResponse { return v.Properties }).(BackupPolicyPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o BackupPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties of the backup policy.
 type BackupPolicyProperties struct {
 	// The path IDs of the volumes which are part of the backup policy.
@@ -1021,6 +1185,161 @@ func (o BackupPolicyPropertiesResponsePtrOutput) VolumeIds() pulumi.StringArrayO
 		}
 		return v.VolumeIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// The backup schedule.
+type BackupScheduleType struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name string `pulumi:"name"`
+	// The properties of the backup schedule.
+	Properties BackupSchedulePropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// BackupScheduleTypeInput is an input type that accepts BackupScheduleTypeArgs and BackupScheduleTypeOutput values.
+// You can construct a concrete instance of `BackupScheduleTypeInput` via:
+//
+//          BackupScheduleTypeArgs{...}
+type BackupScheduleTypeInput interface {
+	pulumi.Input
+
+	ToBackupScheduleTypeOutput() BackupScheduleTypeOutput
+	ToBackupScheduleTypeOutputWithContext(context.Context) BackupScheduleTypeOutput
+}
+
+// The backup schedule.
+type BackupScheduleTypeArgs struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the backup schedule.
+	Properties BackupSchedulePropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BackupScheduleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleType)(nil)).Elem()
+}
+
+func (i BackupScheduleTypeArgs) ToBackupScheduleTypeOutput() BackupScheduleTypeOutput {
+	return i.ToBackupScheduleTypeOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleTypeArgs) ToBackupScheduleTypeOutputWithContext(ctx context.Context) BackupScheduleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleTypeOutput)
+}
+
+// The backup schedule.
+type BackupScheduleTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleType)(nil)).Elem()
+}
+
+func (o BackupScheduleTypeOutput) ToBackupScheduleTypeOutput() BackupScheduleTypeOutput {
+	return o
+}
+
+func (o BackupScheduleTypeOutput) ToBackupScheduleTypeOutputWithContext(ctx context.Context) BackupScheduleTypeOutput {
+	return o
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o BackupScheduleTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupScheduleType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o BackupScheduleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupScheduleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the backup schedule.
+func (o BackupScheduleTypeOutput) Properties() BackupSchedulePropertiesResponseOutput {
+	return o.ApplyT(func(v BackupScheduleType) BackupSchedulePropertiesResponse { return v.Properties }).(BackupSchedulePropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o BackupScheduleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupScheduleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Backup Schedule Group
+type BackupScheduleGroupType struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// Properties of BackupScheduleGroup
+	Properties BackupScheduleGroupPropertiesResponse `pulumi:"properties"`
+	// The type.
+	Type string `pulumi:"type"`
+}
+
+// BackupScheduleGroupTypeInput is an input type that accepts BackupScheduleGroupTypeArgs and BackupScheduleGroupTypeOutput values.
+// You can construct a concrete instance of `BackupScheduleGroupTypeInput` via:
+//
+//          BackupScheduleGroupTypeArgs{...}
+type BackupScheduleGroupTypeInput interface {
+	pulumi.Input
+
+	ToBackupScheduleGroupTypeOutput() BackupScheduleGroupTypeOutput
+	ToBackupScheduleGroupTypeOutputWithContext(context.Context) BackupScheduleGroupTypeOutput
+}
+
+// The Backup Schedule Group
+type BackupScheduleGroupTypeArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of BackupScheduleGroup
+	Properties BackupScheduleGroupPropertiesResponseInput `pulumi:"properties"`
+	// The type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BackupScheduleGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleGroupType)(nil)).Elem()
+}
+
+func (i BackupScheduleGroupTypeArgs) ToBackupScheduleGroupTypeOutput() BackupScheduleGroupTypeOutput {
+	return i.ToBackupScheduleGroupTypeOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleGroupTypeArgs) ToBackupScheduleGroupTypeOutputWithContext(ctx context.Context) BackupScheduleGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleGroupTypeOutput)
+}
+
+// The Backup Schedule Group
+type BackupScheduleGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleGroupType)(nil)).Elem()
+}
+
+func (o BackupScheduleGroupTypeOutput) ToBackupScheduleGroupTypeOutput() BackupScheduleGroupTypeOutput {
+	return o
+}
+
+func (o BackupScheduleGroupTypeOutput) ToBackupScheduleGroupTypeOutputWithContext(ctx context.Context) BackupScheduleGroupTypeOutput {
+	return o
+}
+
+// The name.
+func (o BackupScheduleGroupTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupScheduleGroupType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of BackupScheduleGroup
+func (o BackupScheduleGroupTypeOutput) Properties() BackupScheduleGroupPropertiesResponseOutput {
+	return o.ApplyT(func(v BackupScheduleGroupType) BackupScheduleGroupPropertiesResponse { return v.Properties }).(BackupScheduleGroupPropertiesResponseOutput)
+}
+
+// The type.
+func (o BackupScheduleGroupTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupScheduleGroupType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Backup Schedule Group Properties
@@ -2271,6 +2590,88 @@ func (o BandwidthScheduleResponseArrayOutput) Index(i pulumi.IntInput) Bandwidth
 	}).(BandwidthScheduleResponseOutput)
 }
 
+// The bandwidth setting.
+type BandwidthSettingType struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name string `pulumi:"name"`
+	// The properties of the bandwidth setting.
+	Properties BandwidthRateSettingPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// BandwidthSettingTypeInput is an input type that accepts BandwidthSettingTypeArgs and BandwidthSettingTypeOutput values.
+// You can construct a concrete instance of `BandwidthSettingTypeInput` via:
+//
+//          BandwidthSettingTypeArgs{...}
+type BandwidthSettingTypeInput interface {
+	pulumi.Input
+
+	ToBandwidthSettingTypeOutput() BandwidthSettingTypeOutput
+	ToBandwidthSettingTypeOutputWithContext(context.Context) BandwidthSettingTypeOutput
+}
+
+// The bandwidth setting.
+type BandwidthSettingTypeArgs struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the bandwidth setting.
+	Properties BandwidthRateSettingPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BandwidthSettingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthSettingType)(nil)).Elem()
+}
+
+func (i BandwidthSettingTypeArgs) ToBandwidthSettingTypeOutput() BandwidthSettingTypeOutput {
+	return i.ToBandwidthSettingTypeOutputWithContext(context.Background())
+}
+
+func (i BandwidthSettingTypeArgs) ToBandwidthSettingTypeOutputWithContext(ctx context.Context) BandwidthSettingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthSettingTypeOutput)
+}
+
+// The bandwidth setting.
+type BandwidthSettingTypeOutput struct{ *pulumi.OutputState }
+
+func (BandwidthSettingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthSettingType)(nil)).Elem()
+}
+
+func (o BandwidthSettingTypeOutput) ToBandwidthSettingTypeOutput() BandwidthSettingTypeOutput {
+	return o
+}
+
+func (o BandwidthSettingTypeOutput) ToBandwidthSettingTypeOutputWithContext(ctx context.Context) BandwidthSettingTypeOutput {
+	return o
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o BandwidthSettingTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BandwidthSettingType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o BandwidthSettingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BandwidthSettingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the bandwidth setting.
+func (o BandwidthSettingTypeOutput) Properties() BandwidthRateSettingPropertiesResponseOutput {
+	return o.ApplyT(func(v BandwidthSettingType) BandwidthRateSettingPropertiesResponse { return v.Properties }).(BandwidthRateSettingPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o BandwidthSettingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BandwidthSettingType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Chap properties
 type ChapProperties struct {
 	// The chap password.
@@ -2537,6 +2938,79 @@ func (o ChapPropertiesResponsePtrOutput) Password() AsymmetricEncryptedSecretRes
 		}
 		return &v.Password
 	}).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// Challenge-Handshake Authentication Protocol (CHAP) setting
+type ChapSettingType struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// Chap properties
+	Properties ChapPropertiesResponse `pulumi:"properties"`
+	// The type.
+	Type string `pulumi:"type"`
+}
+
+// ChapSettingTypeInput is an input type that accepts ChapSettingTypeArgs and ChapSettingTypeOutput values.
+// You can construct a concrete instance of `ChapSettingTypeInput` via:
+//
+//          ChapSettingTypeArgs{...}
+type ChapSettingTypeInput interface {
+	pulumi.Input
+
+	ToChapSettingTypeOutput() ChapSettingTypeOutput
+	ToChapSettingTypeOutputWithContext(context.Context) ChapSettingTypeOutput
+}
+
+// Challenge-Handshake Authentication Protocol (CHAP) setting
+type ChapSettingTypeArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Chap properties
+	Properties ChapPropertiesResponseInput `pulumi:"properties"`
+	// The type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ChapSettingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChapSettingType)(nil)).Elem()
+}
+
+func (i ChapSettingTypeArgs) ToChapSettingTypeOutput() ChapSettingTypeOutput {
+	return i.ToChapSettingTypeOutputWithContext(context.Background())
+}
+
+func (i ChapSettingTypeArgs) ToChapSettingTypeOutputWithContext(ctx context.Context) ChapSettingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChapSettingTypeOutput)
+}
+
+// Challenge-Handshake Authentication Protocol (CHAP) setting
+type ChapSettingTypeOutput struct{ *pulumi.OutputState }
+
+func (ChapSettingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChapSettingType)(nil)).Elem()
+}
+
+func (o ChapSettingTypeOutput) ToChapSettingTypeOutput() ChapSettingTypeOutput {
+	return o
+}
+
+func (o ChapSettingTypeOutput) ToChapSettingTypeOutputWithContext(ctx context.Context) ChapSettingTypeOutput {
+	return o
+}
+
+// The name.
+func (o ChapSettingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ChapSettingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Chap properties
+func (o ChapSettingTypeOutput) Properties() ChapPropertiesResponseOutput {
+	return o.ApplyT(func(v ChapSettingType) ChapPropertiesResponse { return v.Properties }).(ChapPropertiesResponseOutput)
+}
+
+// The type.
+func (o ChapSettingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ChapSettingType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The eligibility result of failover set, for failover.
@@ -2991,6 +3465,79 @@ func (o FailoverTargetResponseArrayOutput) Index(i pulumi.IntInput) FailoverTarg
 	}).(FailoverTargetResponseOutput)
 }
 
+// The file server.
+type FileServerType struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// The properties.
+	Properties FileServerPropertiesResponse `pulumi:"properties"`
+	// The type.
+	Type string `pulumi:"type"`
+}
+
+// FileServerTypeInput is an input type that accepts FileServerTypeArgs and FileServerTypeOutput values.
+// You can construct a concrete instance of `FileServerTypeInput` via:
+//
+//          FileServerTypeArgs{...}
+type FileServerTypeInput interface {
+	pulumi.Input
+
+	ToFileServerTypeOutput() FileServerTypeOutput
+	ToFileServerTypeOutputWithContext(context.Context) FileServerTypeOutput
+}
+
+// The file server.
+type FileServerTypeArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties.
+	Properties FileServerPropertiesResponseInput `pulumi:"properties"`
+	// The type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FileServerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServerType)(nil)).Elem()
+}
+
+func (i FileServerTypeArgs) ToFileServerTypeOutput() FileServerTypeOutput {
+	return i.ToFileServerTypeOutputWithContext(context.Background())
+}
+
+func (i FileServerTypeArgs) ToFileServerTypeOutputWithContext(ctx context.Context) FileServerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileServerTypeOutput)
+}
+
+// The file server.
+type FileServerTypeOutput struct{ *pulumi.OutputState }
+
+func (FileServerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServerType)(nil)).Elem()
+}
+
+func (o FileServerTypeOutput) ToFileServerTypeOutput() FileServerTypeOutput {
+	return o
+}
+
+func (o FileServerTypeOutput) ToFileServerTypeOutputWithContext(ctx context.Context) FileServerTypeOutput {
+	return o
+}
+
+// The name.
+func (o FileServerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FileServerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties.
+func (o FileServerTypeOutput) Properties() FileServerPropertiesResponseOutput {
+	return o.ApplyT(func(v FileServerType) FileServerPropertiesResponse { return v.Properties }).(FileServerPropertiesResponseOutput)
+}
+
+// The type.
+func (o FileServerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FileServerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The file server properties.
 type FileServerProperties struct {
 	// The backup policy id.
@@ -3371,6 +3918,79 @@ func (o FileServerPropertiesResponsePtrOutput) StorageDomainId() pulumi.StringPt
 		}
 		return &v.StorageDomainId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The File Share.
+type FileShareType struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// The properties.
+	Properties FileSharePropertiesResponse `pulumi:"properties"`
+	// The type.
+	Type string `pulumi:"type"`
+}
+
+// FileShareTypeInput is an input type that accepts FileShareTypeArgs and FileShareTypeOutput values.
+// You can construct a concrete instance of `FileShareTypeInput` via:
+//
+//          FileShareTypeArgs{...}
+type FileShareTypeInput interface {
+	pulumi.Input
+
+	ToFileShareTypeOutput() FileShareTypeOutput
+	ToFileShareTypeOutputWithContext(context.Context) FileShareTypeOutput
+}
+
+// The File Share.
+type FileShareTypeArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties.
+	Properties FileSharePropertiesResponseInput `pulumi:"properties"`
+	// The type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FileShareTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShareType)(nil)).Elem()
+}
+
+func (i FileShareTypeArgs) ToFileShareTypeOutput() FileShareTypeOutput {
+	return i.ToFileShareTypeOutputWithContext(context.Background())
+}
+
+func (i FileShareTypeArgs) ToFileShareTypeOutputWithContext(ctx context.Context) FileShareTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileShareTypeOutput)
+}
+
+// The File Share.
+type FileShareTypeOutput struct{ *pulumi.OutputState }
+
+func (FileShareTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShareType)(nil)).Elem()
+}
+
+func (o FileShareTypeOutput) ToFileShareTypeOutput() FileShareTypeOutput {
+	return o
+}
+
+func (o FileShareTypeOutput) ToFileShareTypeOutputWithContext(ctx context.Context) FileShareTypeOutput {
+	return o
+}
+
+// The name.
+func (o FileShareTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FileShareType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties.
+func (o FileShareTypeOutput) Properties() FileSharePropertiesResponseOutput {
+	return o.ApplyT(func(v FileShareType) FileSharePropertiesResponse { return v.Properties }).(FileSharePropertiesResponseOutput)
+}
+
+// The type.
+func (o FileShareTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FileShareType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The File Share.
@@ -4785,6 +5405,152 @@ func (o ISCSIServerPropertiesResponsePtrOutput) StorageDomainId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The iSCSI disk.
+type IscsiDiskType struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// The properties.
+	Properties ISCSIDiskPropertiesResponse `pulumi:"properties"`
+	// The type.
+	Type string `pulumi:"type"`
+}
+
+// IscsiDiskTypeInput is an input type that accepts IscsiDiskTypeArgs and IscsiDiskTypeOutput values.
+// You can construct a concrete instance of `IscsiDiskTypeInput` via:
+//
+//          IscsiDiskTypeArgs{...}
+type IscsiDiskTypeInput interface {
+	pulumi.Input
+
+	ToIscsiDiskTypeOutput() IscsiDiskTypeOutput
+	ToIscsiDiskTypeOutputWithContext(context.Context) IscsiDiskTypeOutput
+}
+
+// The iSCSI disk.
+type IscsiDiskTypeArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties.
+	Properties ISCSIDiskPropertiesResponseInput `pulumi:"properties"`
+	// The type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IscsiDiskTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiDiskType)(nil)).Elem()
+}
+
+func (i IscsiDiskTypeArgs) ToIscsiDiskTypeOutput() IscsiDiskTypeOutput {
+	return i.ToIscsiDiskTypeOutputWithContext(context.Background())
+}
+
+func (i IscsiDiskTypeArgs) ToIscsiDiskTypeOutputWithContext(ctx context.Context) IscsiDiskTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IscsiDiskTypeOutput)
+}
+
+// The iSCSI disk.
+type IscsiDiskTypeOutput struct{ *pulumi.OutputState }
+
+func (IscsiDiskTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiDiskType)(nil)).Elem()
+}
+
+func (o IscsiDiskTypeOutput) ToIscsiDiskTypeOutput() IscsiDiskTypeOutput {
+	return o
+}
+
+func (o IscsiDiskTypeOutput) ToIscsiDiskTypeOutputWithContext(ctx context.Context) IscsiDiskTypeOutput {
+	return o
+}
+
+// The name.
+func (o IscsiDiskTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IscsiDiskType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties.
+func (o IscsiDiskTypeOutput) Properties() ISCSIDiskPropertiesResponseOutput {
+	return o.ApplyT(func(v IscsiDiskType) ISCSIDiskPropertiesResponse { return v.Properties }).(ISCSIDiskPropertiesResponseOutput)
+}
+
+// The type.
+func (o IscsiDiskTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IscsiDiskType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The iSCSI server.
+type IscsiServerType struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// The properties.
+	Properties ISCSIServerPropertiesResponse `pulumi:"properties"`
+	// The type.
+	Type string `pulumi:"type"`
+}
+
+// IscsiServerTypeInput is an input type that accepts IscsiServerTypeArgs and IscsiServerTypeOutput values.
+// You can construct a concrete instance of `IscsiServerTypeInput` via:
+//
+//          IscsiServerTypeArgs{...}
+type IscsiServerTypeInput interface {
+	pulumi.Input
+
+	ToIscsiServerTypeOutput() IscsiServerTypeOutput
+	ToIscsiServerTypeOutputWithContext(context.Context) IscsiServerTypeOutput
+}
+
+// The iSCSI server.
+type IscsiServerTypeArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties.
+	Properties ISCSIServerPropertiesResponseInput `pulumi:"properties"`
+	// The type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IscsiServerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiServerType)(nil)).Elem()
+}
+
+func (i IscsiServerTypeArgs) ToIscsiServerTypeOutput() IscsiServerTypeOutput {
+	return i.ToIscsiServerTypeOutputWithContext(context.Background())
+}
+
+func (i IscsiServerTypeArgs) ToIscsiServerTypeOutputWithContext(ctx context.Context) IscsiServerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IscsiServerTypeOutput)
+}
+
+// The iSCSI server.
+type IscsiServerTypeOutput struct{ *pulumi.OutputState }
+
+func (IscsiServerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IscsiServerType)(nil)).Elem()
+}
+
+func (o IscsiServerTypeOutput) ToIscsiServerTypeOutput() IscsiServerTypeOutput {
+	return o
+}
+
+func (o IscsiServerTypeOutput) ToIscsiServerTypeOutputWithContext(ctx context.Context) IscsiServerTypeOutput {
+	return o
+}
+
+// The name.
+func (o IscsiServerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IscsiServerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties.
+func (o IscsiServerTypeOutput) Properties() ISCSIServerPropertiesResponseOutput {
+	return o.ApplyT(func(v IscsiServerType) ISCSIServerPropertiesResponse { return v.Properties }).(ISCSIServerPropertiesResponseOutput)
+}
+
+// The type.
+func (o IscsiServerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IscsiServerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The StorSimple Manager.
 type ManagerType struct {
 	// The etag of the manager.
@@ -4885,936 +5651,95 @@ func (o ManagerTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The access control record.
-type ManagerAccessControlRecordType struct {
+// The extended info of the manager.
+type ManagerExtendedInfoType struct {
+	// The etag of the resource.
+	Etag *string `pulumi:"etag"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name string `pulumi:"name"`
-	// The properties of access control record.
-	Properties AccessControlRecordPropertiesResponse `pulumi:"properties"`
+	// The extended info properties.
+	Properties ManagerExtendedInfoPropertiesResponse `pulumi:"properties"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }
 
-// ManagerAccessControlRecordTypeInput is an input type that accepts ManagerAccessControlRecordTypeArgs and ManagerAccessControlRecordTypeOutput values.
-// You can construct a concrete instance of `ManagerAccessControlRecordTypeInput` via:
+// ManagerExtendedInfoTypeInput is an input type that accepts ManagerExtendedInfoTypeArgs and ManagerExtendedInfoTypeOutput values.
+// You can construct a concrete instance of `ManagerExtendedInfoTypeInput` via:
 //
-//          ManagerAccessControlRecordTypeArgs{...}
-type ManagerAccessControlRecordTypeInput interface {
+//          ManagerExtendedInfoTypeArgs{...}
+type ManagerExtendedInfoTypeInput interface {
 	pulumi.Input
 
-	ToManagerAccessControlRecordTypeOutput() ManagerAccessControlRecordTypeOutput
-	ToManagerAccessControlRecordTypeOutputWithContext(context.Context) ManagerAccessControlRecordTypeOutput
+	ToManagerExtendedInfoTypeOutput() ManagerExtendedInfoTypeOutput
+	ToManagerExtendedInfoTypeOutputWithContext(context.Context) ManagerExtendedInfoTypeOutput
 }
 
-// The access control record.
-type ManagerAccessControlRecordTypeArgs struct {
+// The extended info of the manager.
+type ManagerExtendedInfoTypeArgs struct {
+	// The etag of the resource.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// The name of the object.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of access control record.
-	Properties AccessControlRecordPropertiesResponseInput `pulumi:"properties"`
+	// The extended info properties.
+	Properties ManagerExtendedInfoPropertiesResponseInput `pulumi:"properties"`
 	// The hierarchical type of the object.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ManagerAccessControlRecordTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerAccessControlRecordType)(nil)).Elem()
+func (ManagerExtendedInfoTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerExtendedInfoType)(nil)).Elem()
 }
 
-func (i ManagerAccessControlRecordTypeArgs) ToManagerAccessControlRecordTypeOutput() ManagerAccessControlRecordTypeOutput {
-	return i.ToManagerAccessControlRecordTypeOutputWithContext(context.Background())
+func (i ManagerExtendedInfoTypeArgs) ToManagerExtendedInfoTypeOutput() ManagerExtendedInfoTypeOutput {
+	return i.ToManagerExtendedInfoTypeOutputWithContext(context.Background())
 }
 
-func (i ManagerAccessControlRecordTypeArgs) ToManagerAccessControlRecordTypeOutputWithContext(ctx context.Context) ManagerAccessControlRecordTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerAccessControlRecordTypeOutput)
+func (i ManagerExtendedInfoTypeArgs) ToManagerExtendedInfoTypeOutputWithContext(ctx context.Context) ManagerExtendedInfoTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoTypeOutput)
 }
 
-// The access control record.
-type ManagerAccessControlRecordTypeOutput struct{ *pulumi.OutputState }
+// The extended info of the manager.
+type ManagerExtendedInfoTypeOutput struct{ *pulumi.OutputState }
 
-func (ManagerAccessControlRecordTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerAccessControlRecordType)(nil)).Elem()
+func (ManagerExtendedInfoTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerExtendedInfoType)(nil)).Elem()
 }
 
-func (o ManagerAccessControlRecordTypeOutput) ToManagerAccessControlRecordTypeOutput() ManagerAccessControlRecordTypeOutput {
+func (o ManagerExtendedInfoTypeOutput) ToManagerExtendedInfoTypeOutput() ManagerExtendedInfoTypeOutput {
 	return o
 }
 
-func (o ManagerAccessControlRecordTypeOutput) ToManagerAccessControlRecordTypeOutputWithContext(ctx context.Context) ManagerAccessControlRecordTypeOutput {
+func (o ManagerExtendedInfoTypeOutput) ToManagerExtendedInfoTypeOutputWithContext(ctx context.Context) ManagerExtendedInfoTypeOutput {
 	return o
+}
+
+// The etag of the resource.
+func (o ManagerExtendedInfoTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagerExtendedInfoType) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // The Kind of the object. Currently only Series8000 is supported
-func (o ManagerAccessControlRecordTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerAccessControlRecordType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+func (o ManagerExtendedInfoTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagerExtendedInfoType) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 // The name of the object.
-func (o ManagerAccessControlRecordTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerAccessControlRecordType) string { return v.Name }).(pulumi.StringOutput)
+func (o ManagerExtendedInfoTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerExtendedInfoType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties of access control record.
-func (o ManagerAccessControlRecordTypeOutput) Properties() AccessControlRecordPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerAccessControlRecordType) AccessControlRecordPropertiesResponse { return v.Properties }).(AccessControlRecordPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o ManagerAccessControlRecordTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerAccessControlRecordType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The bandwidth setting.
-type ManagerBandwidthSettingType struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The properties of the bandwidth setting.
-	Properties BandwidthRateSettingPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// ManagerBandwidthSettingTypeInput is an input type that accepts ManagerBandwidthSettingTypeArgs and ManagerBandwidthSettingTypeOutput values.
-// You can construct a concrete instance of `ManagerBandwidthSettingTypeInput` via:
-//
-//          ManagerBandwidthSettingTypeArgs{...}
-type ManagerBandwidthSettingTypeInput interface {
-	pulumi.Input
-
-	ToManagerBandwidthSettingTypeOutput() ManagerBandwidthSettingTypeOutput
-	ToManagerBandwidthSettingTypeOutputWithContext(context.Context) ManagerBandwidthSettingTypeOutput
-}
-
-// The bandwidth setting.
-type ManagerBandwidthSettingTypeArgs struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the bandwidth setting.
-	Properties BandwidthRateSettingPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerBandwidthSettingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerBandwidthSettingType)(nil)).Elem()
-}
-
-func (i ManagerBandwidthSettingTypeArgs) ToManagerBandwidthSettingTypeOutput() ManagerBandwidthSettingTypeOutput {
-	return i.ToManagerBandwidthSettingTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerBandwidthSettingTypeArgs) ToManagerBandwidthSettingTypeOutputWithContext(ctx context.Context) ManagerBandwidthSettingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerBandwidthSettingTypeOutput)
-}
-
-// The bandwidth setting.
-type ManagerBandwidthSettingTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerBandwidthSettingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerBandwidthSettingType)(nil)).Elem()
-}
-
-func (o ManagerBandwidthSettingTypeOutput) ToManagerBandwidthSettingTypeOutput() ManagerBandwidthSettingTypeOutput {
-	return o
-}
-
-func (o ManagerBandwidthSettingTypeOutput) ToManagerBandwidthSettingTypeOutputWithContext(ctx context.Context) ManagerBandwidthSettingTypeOutput {
-	return o
-}
-
-// The Kind of the object. Currently only Series8000 is supported
-func (o ManagerBandwidthSettingTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerBandwidthSettingType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The name of the object.
-func (o ManagerBandwidthSettingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerBandwidthSettingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the bandwidth setting.
-func (o ManagerBandwidthSettingTypeOutput) Properties() BandwidthRateSettingPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerBandwidthSettingType) BandwidthRateSettingPropertiesResponse { return v.Properties }).(BandwidthRateSettingPropertiesResponseOutput)
+// The extended info properties.
+func (o ManagerExtendedInfoTypeOutput) Properties() ManagerExtendedInfoPropertiesResponseOutput {
+	return o.ApplyT(func(v ManagerExtendedInfoType) ManagerExtendedInfoPropertiesResponse { return v.Properties }).(ManagerExtendedInfoPropertiesResponseOutput)
 }
 
 // The hierarchical type of the object.
-func (o ManagerBandwidthSettingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerBandwidthSettingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The backup policy.
-type ManagerDeviceBackupPolicyType struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The properties of the backup policy.
-	Properties BackupPolicyPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceBackupPolicyTypeInput is an input type that accepts ManagerDeviceBackupPolicyTypeArgs and ManagerDeviceBackupPolicyTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceBackupPolicyTypeInput` via:
-//
-//          ManagerDeviceBackupPolicyTypeArgs{...}
-type ManagerDeviceBackupPolicyTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceBackupPolicyTypeOutput() ManagerDeviceBackupPolicyTypeOutput
-	ToManagerDeviceBackupPolicyTypeOutputWithContext(context.Context) ManagerDeviceBackupPolicyTypeOutput
-}
-
-// The backup policy.
-type ManagerDeviceBackupPolicyTypeArgs struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the backup policy.
-	Properties BackupPolicyPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceBackupPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceBackupPolicyType)(nil)).Elem()
-}
-
-func (i ManagerDeviceBackupPolicyTypeArgs) ToManagerDeviceBackupPolicyTypeOutput() ManagerDeviceBackupPolicyTypeOutput {
-	return i.ToManagerDeviceBackupPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceBackupPolicyTypeArgs) ToManagerDeviceBackupPolicyTypeOutputWithContext(ctx context.Context) ManagerDeviceBackupPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceBackupPolicyTypeOutput)
-}
-
-// The backup policy.
-type ManagerDeviceBackupPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceBackupPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceBackupPolicyType)(nil)).Elem()
-}
-
-func (o ManagerDeviceBackupPolicyTypeOutput) ToManagerDeviceBackupPolicyTypeOutput() ManagerDeviceBackupPolicyTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceBackupPolicyTypeOutput) ToManagerDeviceBackupPolicyTypeOutputWithContext(ctx context.Context) ManagerDeviceBackupPolicyTypeOutput {
-	return o
-}
-
-// The Kind of the object. Currently only Series8000 is supported
-func (o ManagerDeviceBackupPolicyTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The name of the object.
-func (o ManagerDeviceBackupPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the backup policy.
-func (o ManagerDeviceBackupPolicyTypeOutput) Properties() BackupPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyType) BackupPolicyPropertiesResponse { return v.Properties }).(BackupPolicyPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o ManagerDeviceBackupPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The backup schedule.
-type ManagerDeviceBackupPolicyScheduleType struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The properties of the backup schedule.
-	Properties BackupSchedulePropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceBackupPolicyScheduleTypeInput is an input type that accepts ManagerDeviceBackupPolicyScheduleTypeArgs and ManagerDeviceBackupPolicyScheduleTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceBackupPolicyScheduleTypeInput` via:
-//
-//          ManagerDeviceBackupPolicyScheduleTypeArgs{...}
-type ManagerDeviceBackupPolicyScheduleTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceBackupPolicyScheduleTypeOutput() ManagerDeviceBackupPolicyScheduleTypeOutput
-	ToManagerDeviceBackupPolicyScheduleTypeOutputWithContext(context.Context) ManagerDeviceBackupPolicyScheduleTypeOutput
-}
-
-// The backup schedule.
-type ManagerDeviceBackupPolicyScheduleTypeArgs struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the backup schedule.
-	Properties BackupSchedulePropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceBackupPolicyScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceBackupPolicyScheduleType)(nil)).Elem()
-}
-
-func (i ManagerDeviceBackupPolicyScheduleTypeArgs) ToManagerDeviceBackupPolicyScheduleTypeOutput() ManagerDeviceBackupPolicyScheduleTypeOutput {
-	return i.ToManagerDeviceBackupPolicyScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceBackupPolicyScheduleTypeArgs) ToManagerDeviceBackupPolicyScheduleTypeOutputWithContext(ctx context.Context) ManagerDeviceBackupPolicyScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceBackupPolicyScheduleTypeOutput)
-}
-
-// The backup schedule.
-type ManagerDeviceBackupPolicyScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceBackupPolicyScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceBackupPolicyScheduleType)(nil)).Elem()
-}
-
-func (o ManagerDeviceBackupPolicyScheduleTypeOutput) ToManagerDeviceBackupPolicyScheduleTypeOutput() ManagerDeviceBackupPolicyScheduleTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceBackupPolicyScheduleTypeOutput) ToManagerDeviceBackupPolicyScheduleTypeOutputWithContext(ctx context.Context) ManagerDeviceBackupPolicyScheduleTypeOutput {
-	return o
-}
-
-// The Kind of the object. Currently only Series8000 is supported
-func (o ManagerDeviceBackupPolicyScheduleTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyScheduleType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The name of the object.
-func (o ManagerDeviceBackupPolicyScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the backup schedule.
-func (o ManagerDeviceBackupPolicyScheduleTypeOutput) Properties() BackupSchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyScheduleType) BackupSchedulePropertiesResponse { return v.Properties }).(BackupSchedulePropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o ManagerDeviceBackupPolicyScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupPolicyScheduleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Backup Schedule Group
-type ManagerDeviceBackupScheduleGroupType struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// Properties of BackupScheduleGroup
-	Properties BackupScheduleGroupPropertiesResponse `pulumi:"properties"`
-	// The type.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceBackupScheduleGroupTypeInput is an input type that accepts ManagerDeviceBackupScheduleGroupTypeArgs and ManagerDeviceBackupScheduleGroupTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceBackupScheduleGroupTypeInput` via:
-//
-//          ManagerDeviceBackupScheduleGroupTypeArgs{...}
-type ManagerDeviceBackupScheduleGroupTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceBackupScheduleGroupTypeOutput() ManagerDeviceBackupScheduleGroupTypeOutput
-	ToManagerDeviceBackupScheduleGroupTypeOutputWithContext(context.Context) ManagerDeviceBackupScheduleGroupTypeOutput
-}
-
-// The Backup Schedule Group
-type ManagerDeviceBackupScheduleGroupTypeArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of BackupScheduleGroup
-	Properties BackupScheduleGroupPropertiesResponseInput `pulumi:"properties"`
-	// The type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceBackupScheduleGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceBackupScheduleGroupType)(nil)).Elem()
-}
-
-func (i ManagerDeviceBackupScheduleGroupTypeArgs) ToManagerDeviceBackupScheduleGroupTypeOutput() ManagerDeviceBackupScheduleGroupTypeOutput {
-	return i.ToManagerDeviceBackupScheduleGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceBackupScheduleGroupTypeArgs) ToManagerDeviceBackupScheduleGroupTypeOutputWithContext(ctx context.Context) ManagerDeviceBackupScheduleGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceBackupScheduleGroupTypeOutput)
-}
-
-// The Backup Schedule Group
-type ManagerDeviceBackupScheduleGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceBackupScheduleGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceBackupScheduleGroupType)(nil)).Elem()
-}
-
-func (o ManagerDeviceBackupScheduleGroupTypeOutput) ToManagerDeviceBackupScheduleGroupTypeOutput() ManagerDeviceBackupScheduleGroupTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceBackupScheduleGroupTypeOutput) ToManagerDeviceBackupScheduleGroupTypeOutputWithContext(ctx context.Context) ManagerDeviceBackupScheduleGroupTypeOutput {
-	return o
-}
-
-// The name.
-func (o ManagerDeviceBackupScheduleGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupScheduleGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of BackupScheduleGroup
-func (o ManagerDeviceBackupScheduleGroupTypeOutput) Properties() BackupScheduleGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupScheduleGroupType) BackupScheduleGroupPropertiesResponse {
-		return v.Properties
-	}).(BackupScheduleGroupPropertiesResponseOutput)
-}
-
-// The type.
-func (o ManagerDeviceBackupScheduleGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceBackupScheduleGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Challenge-Handshake Authentication Protocol (CHAP) setting
-type ManagerDeviceChapSettingType struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// Chap properties
-	Properties ChapPropertiesResponse `pulumi:"properties"`
-	// The type.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceChapSettingTypeInput is an input type that accepts ManagerDeviceChapSettingTypeArgs and ManagerDeviceChapSettingTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceChapSettingTypeInput` via:
-//
-//          ManagerDeviceChapSettingTypeArgs{...}
-type ManagerDeviceChapSettingTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceChapSettingTypeOutput() ManagerDeviceChapSettingTypeOutput
-	ToManagerDeviceChapSettingTypeOutputWithContext(context.Context) ManagerDeviceChapSettingTypeOutput
-}
-
-// Challenge-Handshake Authentication Protocol (CHAP) setting
-type ManagerDeviceChapSettingTypeArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Chap properties
-	Properties ChapPropertiesResponseInput `pulumi:"properties"`
-	// The type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceChapSettingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceChapSettingType)(nil)).Elem()
-}
-
-func (i ManagerDeviceChapSettingTypeArgs) ToManagerDeviceChapSettingTypeOutput() ManagerDeviceChapSettingTypeOutput {
-	return i.ToManagerDeviceChapSettingTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceChapSettingTypeArgs) ToManagerDeviceChapSettingTypeOutputWithContext(ctx context.Context) ManagerDeviceChapSettingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceChapSettingTypeOutput)
-}
-
-// Challenge-Handshake Authentication Protocol (CHAP) setting
-type ManagerDeviceChapSettingTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceChapSettingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceChapSettingType)(nil)).Elem()
-}
-
-func (o ManagerDeviceChapSettingTypeOutput) ToManagerDeviceChapSettingTypeOutput() ManagerDeviceChapSettingTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceChapSettingTypeOutput) ToManagerDeviceChapSettingTypeOutputWithContext(ctx context.Context) ManagerDeviceChapSettingTypeOutput {
-	return o
-}
-
-// The name.
-func (o ManagerDeviceChapSettingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceChapSettingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Chap properties
-func (o ManagerDeviceChapSettingTypeOutput) Properties() ChapPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceChapSettingType) ChapPropertiesResponse { return v.Properties }).(ChapPropertiesResponseOutput)
-}
-
-// The type.
-func (o ManagerDeviceChapSettingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceChapSettingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The file server.
-type ManagerDeviceFileserverType struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The properties.
-	Properties FileServerPropertiesResponse `pulumi:"properties"`
-	// The type.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceFileserverTypeInput is an input type that accepts ManagerDeviceFileserverTypeArgs and ManagerDeviceFileserverTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceFileserverTypeInput` via:
-//
-//          ManagerDeviceFileserverTypeArgs{...}
-type ManagerDeviceFileserverTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceFileserverTypeOutput() ManagerDeviceFileserverTypeOutput
-	ToManagerDeviceFileserverTypeOutputWithContext(context.Context) ManagerDeviceFileserverTypeOutput
-}
-
-// The file server.
-type ManagerDeviceFileserverTypeArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties.
-	Properties FileServerPropertiesResponseInput `pulumi:"properties"`
-	// The type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceFileserverTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceFileserverType)(nil)).Elem()
-}
-
-func (i ManagerDeviceFileserverTypeArgs) ToManagerDeviceFileserverTypeOutput() ManagerDeviceFileserverTypeOutput {
-	return i.ToManagerDeviceFileserverTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceFileserverTypeArgs) ToManagerDeviceFileserverTypeOutputWithContext(ctx context.Context) ManagerDeviceFileserverTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceFileserverTypeOutput)
-}
-
-// The file server.
-type ManagerDeviceFileserverTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceFileserverTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceFileserverType)(nil)).Elem()
-}
-
-func (o ManagerDeviceFileserverTypeOutput) ToManagerDeviceFileserverTypeOutput() ManagerDeviceFileserverTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceFileserverTypeOutput) ToManagerDeviceFileserverTypeOutputWithContext(ctx context.Context) ManagerDeviceFileserverTypeOutput {
-	return o
-}
-
-// The name.
-func (o ManagerDeviceFileserverTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceFileserverType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties.
-func (o ManagerDeviceFileserverTypeOutput) Properties() FileServerPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceFileserverType) FileServerPropertiesResponse { return v.Properties }).(FileServerPropertiesResponseOutput)
-}
-
-// The type.
-func (o ManagerDeviceFileserverTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceFileserverType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The File Share.
-type ManagerDeviceFileserverShareType struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The properties.
-	Properties FileSharePropertiesResponse `pulumi:"properties"`
-	// The type.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceFileserverShareTypeInput is an input type that accepts ManagerDeviceFileserverShareTypeArgs and ManagerDeviceFileserverShareTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceFileserverShareTypeInput` via:
-//
-//          ManagerDeviceFileserverShareTypeArgs{...}
-type ManagerDeviceFileserverShareTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceFileserverShareTypeOutput() ManagerDeviceFileserverShareTypeOutput
-	ToManagerDeviceFileserverShareTypeOutputWithContext(context.Context) ManagerDeviceFileserverShareTypeOutput
-}
-
-// The File Share.
-type ManagerDeviceFileserverShareTypeArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties.
-	Properties FileSharePropertiesResponseInput `pulumi:"properties"`
-	// The type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceFileserverShareTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceFileserverShareType)(nil)).Elem()
-}
-
-func (i ManagerDeviceFileserverShareTypeArgs) ToManagerDeviceFileserverShareTypeOutput() ManagerDeviceFileserverShareTypeOutput {
-	return i.ToManagerDeviceFileserverShareTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceFileserverShareTypeArgs) ToManagerDeviceFileserverShareTypeOutputWithContext(ctx context.Context) ManagerDeviceFileserverShareTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceFileserverShareTypeOutput)
-}
-
-// The File Share.
-type ManagerDeviceFileserverShareTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceFileserverShareTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceFileserverShareType)(nil)).Elem()
-}
-
-func (o ManagerDeviceFileserverShareTypeOutput) ToManagerDeviceFileserverShareTypeOutput() ManagerDeviceFileserverShareTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceFileserverShareTypeOutput) ToManagerDeviceFileserverShareTypeOutputWithContext(ctx context.Context) ManagerDeviceFileserverShareTypeOutput {
-	return o
-}
-
-// The name.
-func (o ManagerDeviceFileserverShareTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceFileserverShareType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties.
-func (o ManagerDeviceFileserverShareTypeOutput) Properties() FileSharePropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceFileserverShareType) FileSharePropertiesResponse { return v.Properties }).(FileSharePropertiesResponseOutput)
-}
-
-// The type.
-func (o ManagerDeviceFileserverShareTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceFileserverShareType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The iSCSI server.
-type ManagerDeviceIscsiserverType struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The properties.
-	Properties ISCSIServerPropertiesResponse `pulumi:"properties"`
-	// The type.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceIscsiserverTypeInput is an input type that accepts ManagerDeviceIscsiserverTypeArgs and ManagerDeviceIscsiserverTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceIscsiserverTypeInput` via:
-//
-//          ManagerDeviceIscsiserverTypeArgs{...}
-type ManagerDeviceIscsiserverTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceIscsiserverTypeOutput() ManagerDeviceIscsiserverTypeOutput
-	ToManagerDeviceIscsiserverTypeOutputWithContext(context.Context) ManagerDeviceIscsiserverTypeOutput
-}
-
-// The iSCSI server.
-type ManagerDeviceIscsiserverTypeArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties.
-	Properties ISCSIServerPropertiesResponseInput `pulumi:"properties"`
-	// The type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceIscsiserverTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceIscsiserverType)(nil)).Elem()
-}
-
-func (i ManagerDeviceIscsiserverTypeArgs) ToManagerDeviceIscsiserverTypeOutput() ManagerDeviceIscsiserverTypeOutput {
-	return i.ToManagerDeviceIscsiserverTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceIscsiserverTypeArgs) ToManagerDeviceIscsiserverTypeOutputWithContext(ctx context.Context) ManagerDeviceIscsiserverTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceIscsiserverTypeOutput)
-}
-
-// The iSCSI server.
-type ManagerDeviceIscsiserverTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceIscsiserverTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceIscsiserverType)(nil)).Elem()
-}
-
-func (o ManagerDeviceIscsiserverTypeOutput) ToManagerDeviceIscsiserverTypeOutput() ManagerDeviceIscsiserverTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceIscsiserverTypeOutput) ToManagerDeviceIscsiserverTypeOutputWithContext(ctx context.Context) ManagerDeviceIscsiserverTypeOutput {
-	return o
-}
-
-// The name.
-func (o ManagerDeviceIscsiserverTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceIscsiserverType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties.
-func (o ManagerDeviceIscsiserverTypeOutput) Properties() ISCSIServerPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceIscsiserverType) ISCSIServerPropertiesResponse { return v.Properties }).(ISCSIServerPropertiesResponseOutput)
-}
-
-// The type.
-func (o ManagerDeviceIscsiserverTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceIscsiserverType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The iSCSI disk.
-type ManagerDeviceIscsiserverDiskType struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The properties.
-	Properties ISCSIDiskPropertiesResponse `pulumi:"properties"`
-	// The type.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceIscsiserverDiskTypeInput is an input type that accepts ManagerDeviceIscsiserverDiskTypeArgs and ManagerDeviceIscsiserverDiskTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceIscsiserverDiskTypeInput` via:
-//
-//          ManagerDeviceIscsiserverDiskTypeArgs{...}
-type ManagerDeviceIscsiserverDiskTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceIscsiserverDiskTypeOutput() ManagerDeviceIscsiserverDiskTypeOutput
-	ToManagerDeviceIscsiserverDiskTypeOutputWithContext(context.Context) ManagerDeviceIscsiserverDiskTypeOutput
-}
-
-// The iSCSI disk.
-type ManagerDeviceIscsiserverDiskTypeArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties.
-	Properties ISCSIDiskPropertiesResponseInput `pulumi:"properties"`
-	// The type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceIscsiserverDiskTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceIscsiserverDiskType)(nil)).Elem()
-}
-
-func (i ManagerDeviceIscsiserverDiskTypeArgs) ToManagerDeviceIscsiserverDiskTypeOutput() ManagerDeviceIscsiserverDiskTypeOutput {
-	return i.ToManagerDeviceIscsiserverDiskTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceIscsiserverDiskTypeArgs) ToManagerDeviceIscsiserverDiskTypeOutputWithContext(ctx context.Context) ManagerDeviceIscsiserverDiskTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceIscsiserverDiskTypeOutput)
-}
-
-// The iSCSI disk.
-type ManagerDeviceIscsiserverDiskTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceIscsiserverDiskTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceIscsiserverDiskType)(nil)).Elem()
-}
-
-func (o ManagerDeviceIscsiserverDiskTypeOutput) ToManagerDeviceIscsiserverDiskTypeOutput() ManagerDeviceIscsiserverDiskTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceIscsiserverDiskTypeOutput) ToManagerDeviceIscsiserverDiskTypeOutputWithContext(ctx context.Context) ManagerDeviceIscsiserverDiskTypeOutput {
-	return o
-}
-
-// The name.
-func (o ManagerDeviceIscsiserverDiskTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceIscsiserverDiskType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties.
-func (o ManagerDeviceIscsiserverDiskTypeOutput) Properties() ISCSIDiskPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceIscsiserverDiskType) ISCSIDiskPropertiesResponse { return v.Properties }).(ISCSIDiskPropertiesResponseOutput)
-}
-
-// The type.
-func (o ManagerDeviceIscsiserverDiskTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceIscsiserverDiskType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The volume container.
-type ManagerDeviceVolumeContainerType struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The volume container properties.
-	Properties VolumeContainerPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceVolumeContainerTypeInput is an input type that accepts ManagerDeviceVolumeContainerTypeArgs and ManagerDeviceVolumeContainerTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceVolumeContainerTypeInput` via:
-//
-//          ManagerDeviceVolumeContainerTypeArgs{...}
-type ManagerDeviceVolumeContainerTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceVolumeContainerTypeOutput() ManagerDeviceVolumeContainerTypeOutput
-	ToManagerDeviceVolumeContainerTypeOutputWithContext(context.Context) ManagerDeviceVolumeContainerTypeOutput
-}
-
-// The volume container.
-type ManagerDeviceVolumeContainerTypeArgs struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The volume container properties.
-	Properties VolumeContainerPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceVolumeContainerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceVolumeContainerType)(nil)).Elem()
-}
-
-func (i ManagerDeviceVolumeContainerTypeArgs) ToManagerDeviceVolumeContainerTypeOutput() ManagerDeviceVolumeContainerTypeOutput {
-	return i.ToManagerDeviceVolumeContainerTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceVolumeContainerTypeArgs) ToManagerDeviceVolumeContainerTypeOutputWithContext(ctx context.Context) ManagerDeviceVolumeContainerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceVolumeContainerTypeOutput)
-}
-
-// The volume container.
-type ManagerDeviceVolumeContainerTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceVolumeContainerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceVolumeContainerType)(nil)).Elem()
-}
-
-func (o ManagerDeviceVolumeContainerTypeOutput) ToManagerDeviceVolumeContainerTypeOutput() ManagerDeviceVolumeContainerTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceVolumeContainerTypeOutput) ToManagerDeviceVolumeContainerTypeOutputWithContext(ctx context.Context) ManagerDeviceVolumeContainerTypeOutput {
-	return o
-}
-
-// The Kind of the object. Currently only Series8000 is supported
-func (o ManagerDeviceVolumeContainerTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The name of the object.
-func (o ManagerDeviceVolumeContainerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The volume container properties.
-func (o ManagerDeviceVolumeContainerTypeOutput) Properties() VolumeContainerPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerType) VolumeContainerPropertiesResponse { return v.Properties }).(VolumeContainerPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o ManagerDeviceVolumeContainerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The volume.
-type ManagerDeviceVolumeContainerVolumeType struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The properties of the volume.
-	Properties VolumePropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// ManagerDeviceVolumeContainerVolumeTypeInput is an input type that accepts ManagerDeviceVolumeContainerVolumeTypeArgs and ManagerDeviceVolumeContainerVolumeTypeOutput values.
-// You can construct a concrete instance of `ManagerDeviceVolumeContainerVolumeTypeInput` via:
-//
-//          ManagerDeviceVolumeContainerVolumeTypeArgs{...}
-type ManagerDeviceVolumeContainerVolumeTypeInput interface {
-	pulumi.Input
-
-	ToManagerDeviceVolumeContainerVolumeTypeOutput() ManagerDeviceVolumeContainerVolumeTypeOutput
-	ToManagerDeviceVolumeContainerVolumeTypeOutputWithContext(context.Context) ManagerDeviceVolumeContainerVolumeTypeOutput
-}
-
-// The volume.
-type ManagerDeviceVolumeContainerVolumeTypeArgs struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the volume.
-	Properties VolumePropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerDeviceVolumeContainerVolumeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceVolumeContainerVolumeType)(nil)).Elem()
-}
-
-func (i ManagerDeviceVolumeContainerVolumeTypeArgs) ToManagerDeviceVolumeContainerVolumeTypeOutput() ManagerDeviceVolumeContainerVolumeTypeOutput {
-	return i.ToManagerDeviceVolumeContainerVolumeTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerDeviceVolumeContainerVolumeTypeArgs) ToManagerDeviceVolumeContainerVolumeTypeOutputWithContext(ctx context.Context) ManagerDeviceVolumeContainerVolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerDeviceVolumeContainerVolumeTypeOutput)
-}
-
-// The volume.
-type ManagerDeviceVolumeContainerVolumeTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerDeviceVolumeContainerVolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerDeviceVolumeContainerVolumeType)(nil)).Elem()
-}
-
-func (o ManagerDeviceVolumeContainerVolumeTypeOutput) ToManagerDeviceVolumeContainerVolumeTypeOutput() ManagerDeviceVolumeContainerVolumeTypeOutput {
-	return o
-}
-
-func (o ManagerDeviceVolumeContainerVolumeTypeOutput) ToManagerDeviceVolumeContainerVolumeTypeOutputWithContext(ctx context.Context) ManagerDeviceVolumeContainerVolumeTypeOutput {
-	return o
-}
-
-// The Kind of the object. Currently only Series8000 is supported
-func (o ManagerDeviceVolumeContainerVolumeTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerVolumeType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The name of the object.
-func (o ManagerDeviceVolumeContainerVolumeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerVolumeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the volume.
-func (o ManagerDeviceVolumeContainerVolumeTypeOutput) Properties() VolumePropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerVolumeType) VolumePropertiesResponse { return v.Properties }).(VolumePropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o ManagerDeviceVolumeContainerVolumeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerDeviceVolumeContainerVolumeType) string { return v.Type }).(pulumi.StringOutput)
+func (o ManagerExtendedInfoTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerExtendedInfoType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of the manager extended info.
@@ -6273,97 +6198,6 @@ func (o ManagerExtendedInfoPropertiesResponsePtrOutput) Version() pulumi.StringP
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
-}
-
-// The extended info of the manager.
-type ManagerExtendedInformationType struct {
-	// The etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The extended info properties.
-	Properties ManagerExtendedInfoPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// ManagerExtendedInformationTypeInput is an input type that accepts ManagerExtendedInformationTypeArgs and ManagerExtendedInformationTypeOutput values.
-// You can construct a concrete instance of `ManagerExtendedInformationTypeInput` via:
-//
-//          ManagerExtendedInformationTypeArgs{...}
-type ManagerExtendedInformationTypeInput interface {
-	pulumi.Input
-
-	ToManagerExtendedInformationTypeOutput() ManagerExtendedInformationTypeOutput
-	ToManagerExtendedInformationTypeOutputWithContext(context.Context) ManagerExtendedInformationTypeOutput
-}
-
-// The extended info of the manager.
-type ManagerExtendedInformationTypeArgs struct {
-	// The etag of the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The extended info properties.
-	Properties ManagerExtendedInfoPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerExtendedInformationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerExtendedInformationType)(nil)).Elem()
-}
-
-func (i ManagerExtendedInformationTypeArgs) ToManagerExtendedInformationTypeOutput() ManagerExtendedInformationTypeOutput {
-	return i.ToManagerExtendedInformationTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerExtendedInformationTypeArgs) ToManagerExtendedInformationTypeOutputWithContext(ctx context.Context) ManagerExtendedInformationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInformationTypeOutput)
-}
-
-// The extended info of the manager.
-type ManagerExtendedInformationTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerExtendedInformationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerExtendedInformationType)(nil)).Elem()
-}
-
-func (o ManagerExtendedInformationTypeOutput) ToManagerExtendedInformationTypeOutput() ManagerExtendedInformationTypeOutput {
-	return o
-}
-
-func (o ManagerExtendedInformationTypeOutput) ToManagerExtendedInformationTypeOutputWithContext(ctx context.Context) ManagerExtendedInformationTypeOutput {
-	return o
-}
-
-// The etag of the resource.
-func (o ManagerExtendedInformationTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerExtendedInformationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Kind of the object. Currently only Series8000 is supported
-func (o ManagerExtendedInformationTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerExtendedInformationType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The name of the object.
-func (o ManagerExtendedInformationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerExtendedInformationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The extended info properties.
-func (o ManagerExtendedInformationTypeOutput) Properties() ManagerExtendedInfoPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerExtendedInformationType) ManagerExtendedInfoPropertiesResponse { return v.Properties }).(ManagerExtendedInfoPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o ManagerExtendedInformationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerExtendedInformationType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Intrinsic settings which refers to the type of the StorSimple Manager.
@@ -7246,163 +7080,6 @@ func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account credential.
-type ManagerStorageAccountCredentialType struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// ManagerStorageAccountCredentialTypeInput is an input type that accepts ManagerStorageAccountCredentialTypeArgs and ManagerStorageAccountCredentialTypeOutput values.
-// You can construct a concrete instance of `ManagerStorageAccountCredentialTypeInput` via:
-//
-//          ManagerStorageAccountCredentialTypeArgs{...}
-type ManagerStorageAccountCredentialTypeInput interface {
-	pulumi.Input
-
-	ToManagerStorageAccountCredentialTypeOutput() ManagerStorageAccountCredentialTypeOutput
-	ToManagerStorageAccountCredentialTypeOutputWithContext(context.Context) ManagerStorageAccountCredentialTypeOutput
-}
-
-// The storage account credential.
-type ManagerStorageAccountCredentialTypeArgs struct {
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerStorageAccountCredentialTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerStorageAccountCredentialType)(nil)).Elem()
-}
-
-func (i ManagerStorageAccountCredentialTypeArgs) ToManagerStorageAccountCredentialTypeOutput() ManagerStorageAccountCredentialTypeOutput {
-	return i.ToManagerStorageAccountCredentialTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerStorageAccountCredentialTypeArgs) ToManagerStorageAccountCredentialTypeOutputWithContext(ctx context.Context) ManagerStorageAccountCredentialTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerStorageAccountCredentialTypeOutput)
-}
-
-// The storage account credential.
-type ManagerStorageAccountCredentialTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerStorageAccountCredentialTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerStorageAccountCredentialType)(nil)).Elem()
-}
-
-func (o ManagerStorageAccountCredentialTypeOutput) ToManagerStorageAccountCredentialTypeOutput() ManagerStorageAccountCredentialTypeOutput {
-	return o
-}
-
-func (o ManagerStorageAccountCredentialTypeOutput) ToManagerStorageAccountCredentialTypeOutputWithContext(ctx context.Context) ManagerStorageAccountCredentialTypeOutput {
-	return o
-}
-
-// The Kind of the object. Currently only Series8000 is supported
-func (o ManagerStorageAccountCredentialTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagerStorageAccountCredentialType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The name of the object.
-func (o ManagerStorageAccountCredentialTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerStorageAccountCredentialType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The storage account credential properties.
-func (o ManagerStorageAccountCredentialTypeOutput) Properties() StorageAccountCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerStorageAccountCredentialType) StorageAccountCredentialPropertiesResponse {
-		return v.Properties
-	}).(StorageAccountCredentialPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o ManagerStorageAccountCredentialTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerStorageAccountCredentialType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The storage domain.
-type ManagerStorageDomainType struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The properties.
-	Properties StorageDomainPropertiesResponse `pulumi:"properties"`
-	// The type.
-	Type string `pulumi:"type"`
-}
-
-// ManagerStorageDomainTypeInput is an input type that accepts ManagerStorageDomainTypeArgs and ManagerStorageDomainTypeOutput values.
-// You can construct a concrete instance of `ManagerStorageDomainTypeInput` via:
-//
-//          ManagerStorageDomainTypeArgs{...}
-type ManagerStorageDomainTypeInput interface {
-	pulumi.Input
-
-	ToManagerStorageDomainTypeOutput() ManagerStorageDomainTypeOutput
-	ToManagerStorageDomainTypeOutputWithContext(context.Context) ManagerStorageDomainTypeOutput
-}
-
-// The storage domain.
-type ManagerStorageDomainTypeArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties.
-	Properties StorageDomainPropertiesResponseInput `pulumi:"properties"`
-	// The type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagerStorageDomainTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerStorageDomainType)(nil)).Elem()
-}
-
-func (i ManagerStorageDomainTypeArgs) ToManagerStorageDomainTypeOutput() ManagerStorageDomainTypeOutput {
-	return i.ToManagerStorageDomainTypeOutputWithContext(context.Background())
-}
-
-func (i ManagerStorageDomainTypeArgs) ToManagerStorageDomainTypeOutputWithContext(ctx context.Context) ManagerStorageDomainTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagerStorageDomainTypeOutput)
-}
-
-// The storage domain.
-type ManagerStorageDomainTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagerStorageDomainTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerStorageDomainType)(nil)).Elem()
-}
-
-func (o ManagerStorageDomainTypeOutput) ToManagerStorageDomainTypeOutput() ManagerStorageDomainTypeOutput {
-	return o
-}
-
-func (o ManagerStorageDomainTypeOutput) ToManagerStorageDomainTypeOutputWithContext(ctx context.Context) ManagerStorageDomainTypeOutput {
-	return o
-}
-
-// The name.
-func (o ManagerStorageDomainTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerStorageDomainType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties.
-func (o ManagerStorageDomainTypeOutput) Properties() StorageDomainPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagerStorageDomainType) StorageDomainPropertiesResponse { return v.Properties }).(StorageDomainPropertiesResponseOutput)
-}
-
-// The type.
-func (o ManagerStorageDomainTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerStorageDomainType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The schedule recurrence.
 type ScheduleRecurrence struct {
 	// The recurrence type.
@@ -7745,6 +7422,88 @@ func (o ScheduleRecurrenceResponsePtrOutput) WeeklyDaysList() pulumi.StringArray
 		}
 		return v.WeeklyDaysList
 	}).(pulumi.StringArrayOutput)
+}
+
+// The storage account credential.
+type StorageAccountCredentialType struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name string `pulumi:"name"`
+	// The storage account credential properties.
+	Properties StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// StorageAccountCredentialTypeInput is an input type that accepts StorageAccountCredentialTypeArgs and StorageAccountCredentialTypeOutput values.
+// You can construct a concrete instance of `StorageAccountCredentialTypeInput` via:
+//
+//          StorageAccountCredentialTypeArgs{...}
+type StorageAccountCredentialTypeInput interface {
+	pulumi.Input
+
+	ToStorageAccountCredentialTypeOutput() StorageAccountCredentialTypeOutput
+	ToStorageAccountCredentialTypeOutputWithContext(context.Context) StorageAccountCredentialTypeOutput
+}
+
+// The storage account credential.
+type StorageAccountCredentialTypeArgs struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The storage account credential properties.
+	Properties StorageAccountCredentialPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageAccountCredentialTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialType)(nil)).Elem()
+}
+
+func (i StorageAccountCredentialTypeArgs) ToStorageAccountCredentialTypeOutput() StorageAccountCredentialTypeOutput {
+	return i.ToStorageAccountCredentialTypeOutputWithContext(context.Background())
+}
+
+func (i StorageAccountCredentialTypeArgs) ToStorageAccountCredentialTypeOutputWithContext(ctx context.Context) StorageAccountCredentialTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialTypeOutput)
+}
+
+// The storage account credential.
+type StorageAccountCredentialTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountCredentialTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialType)(nil)).Elem()
+}
+
+func (o StorageAccountCredentialTypeOutput) ToStorageAccountCredentialTypeOutput() StorageAccountCredentialTypeOutput {
+	return o
+}
+
+func (o StorageAccountCredentialTypeOutput) ToStorageAccountCredentialTypeOutputWithContext(ctx context.Context) StorageAccountCredentialTypeOutput {
+	return o
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o StorageAccountCredentialTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountCredentialType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o StorageAccountCredentialTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage account credential properties.
+func (o StorageAccountCredentialTypeOutput) Properties() StorageAccountCredentialPropertiesResponseOutput {
+	return o.ApplyT(func(v StorageAccountCredentialType) StorageAccountCredentialPropertiesResponse { return v.Properties }).(StorageAccountCredentialPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o StorageAccountCredentialTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The storage account credential properties.
@@ -8112,6 +7871,79 @@ func (o StorageAccountCredentialPropertiesResponsePtrOutput) VolumesCount() pulu
 		}
 		return &v.VolumesCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// The storage domain.
+type StorageDomainType struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// The properties.
+	Properties StorageDomainPropertiesResponse `pulumi:"properties"`
+	// The type.
+	Type string `pulumi:"type"`
+}
+
+// StorageDomainTypeInput is an input type that accepts StorageDomainTypeArgs and StorageDomainTypeOutput values.
+// You can construct a concrete instance of `StorageDomainTypeInput` via:
+//
+//          StorageDomainTypeArgs{...}
+type StorageDomainTypeInput interface {
+	pulumi.Input
+
+	ToStorageDomainTypeOutput() StorageDomainTypeOutput
+	ToStorageDomainTypeOutputWithContext(context.Context) StorageDomainTypeOutput
+}
+
+// The storage domain.
+type StorageDomainTypeArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties.
+	Properties StorageDomainPropertiesResponseInput `pulumi:"properties"`
+	// The type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageDomainTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageDomainType)(nil)).Elem()
+}
+
+func (i StorageDomainTypeArgs) ToStorageDomainTypeOutput() StorageDomainTypeOutput {
+	return i.ToStorageDomainTypeOutputWithContext(context.Background())
+}
+
+func (i StorageDomainTypeArgs) ToStorageDomainTypeOutputWithContext(ctx context.Context) StorageDomainTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageDomainTypeOutput)
+}
+
+// The storage domain.
+type StorageDomainTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageDomainTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageDomainType)(nil)).Elem()
+}
+
+func (o StorageDomainTypeOutput) ToStorageDomainTypeOutput() StorageDomainTypeOutput {
+	return o
+}
+
+func (o StorageDomainTypeOutput) ToStorageDomainTypeOutputWithContext(ctx context.Context) StorageDomainTypeOutput {
+	return o
+}
+
+// The name.
+func (o StorageDomainTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageDomainType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties.
+func (o StorageDomainTypeOutput) Properties() StorageDomainPropertiesResponseOutput {
+	return o.ApplyT(func(v StorageDomainType) StorageDomainPropertiesResponse { return v.Properties }).(StorageDomainPropertiesResponseOutput)
+}
+
+// The type.
+func (o StorageDomainTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageDomainType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The storage domain properties.
@@ -9071,6 +8903,170 @@ func (o TimeResponsePtrOutput) Seconds() pulumi.IntPtrOutput {
 		}
 		return &v.Seconds
 	}).(pulumi.IntPtrOutput)
+}
+
+// The volume.
+type VolumeType struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name string `pulumi:"name"`
+	// The properties of the volume.
+	Properties VolumePropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// VolumeTypeInput is an input type that accepts VolumeTypeArgs and VolumeTypeOutput values.
+// You can construct a concrete instance of `VolumeTypeInput` via:
+//
+//          VolumeTypeArgs{...}
+type VolumeTypeInput interface {
+	pulumi.Input
+
+	ToVolumeTypeOutput() VolumeTypeOutput
+	ToVolumeTypeOutputWithContext(context.Context) VolumeTypeOutput
+}
+
+// The volume.
+type VolumeTypeArgs struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the volume.
+	Properties VolumePropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VolumeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeType)(nil)).Elem()
+}
+
+func (i VolumeTypeArgs) ToVolumeTypeOutput() VolumeTypeOutput {
+	return i.ToVolumeTypeOutputWithContext(context.Background())
+}
+
+func (i VolumeTypeArgs) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTypeOutput)
+}
+
+// The volume.
+type VolumeTypeOutput struct{ *pulumi.OutputState }
+
+func (VolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeType)(nil)).Elem()
+}
+
+func (o VolumeTypeOutput) ToVolumeTypeOutput() VolumeTypeOutput {
+	return o
+}
+
+func (o VolumeTypeOutput) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
+	return o
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o VolumeTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o VolumeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the volume.
+func (o VolumeTypeOutput) Properties() VolumePropertiesResponseOutput {
+	return o.ApplyT(func(v VolumeType) VolumePropertiesResponse { return v.Properties }).(VolumePropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o VolumeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The volume container.
+type VolumeContainerType struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name string `pulumi:"name"`
+	// The volume container properties.
+	Properties VolumeContainerPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// VolumeContainerTypeInput is an input type that accepts VolumeContainerTypeArgs and VolumeContainerTypeOutput values.
+// You can construct a concrete instance of `VolumeContainerTypeInput` via:
+//
+//          VolumeContainerTypeArgs{...}
+type VolumeContainerTypeInput interface {
+	pulumi.Input
+
+	ToVolumeContainerTypeOutput() VolumeContainerTypeOutput
+	ToVolumeContainerTypeOutputWithContext(context.Context) VolumeContainerTypeOutput
+}
+
+// The volume container.
+type VolumeContainerTypeArgs struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The volume container properties.
+	Properties VolumeContainerPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VolumeContainerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeContainerType)(nil)).Elem()
+}
+
+func (i VolumeContainerTypeArgs) ToVolumeContainerTypeOutput() VolumeContainerTypeOutput {
+	return i.ToVolumeContainerTypeOutputWithContext(context.Background())
+}
+
+func (i VolumeContainerTypeArgs) ToVolumeContainerTypeOutputWithContext(ctx context.Context) VolumeContainerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeContainerTypeOutput)
+}
+
+// The volume container.
+type VolumeContainerTypeOutput struct{ *pulumi.OutputState }
+
+func (VolumeContainerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeContainerType)(nil)).Elem()
+}
+
+func (o VolumeContainerTypeOutput) ToVolumeContainerTypeOutput() VolumeContainerTypeOutput {
+	return o
+}
+
+func (o VolumeContainerTypeOutput) ToVolumeContainerTypeOutputWithContext(ctx context.Context) VolumeContainerTypeOutput {
+	return o
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o VolumeContainerTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeContainerType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o VolumeContainerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeContainerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The volume container properties.
+func (o VolumeContainerTypeOutput) Properties() VolumeContainerPropertiesResponseOutput {
+	return o.ApplyT(func(v VolumeContainerType) VolumeContainerPropertiesResponse { return v.Properties }).(VolumeContainerPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o VolumeContainerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeContainerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The metadata of the volume container, that is being considered as part of a failover set.
@@ -10291,6 +10287,7 @@ func (o VolumePropertiesResponsePtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessControlRecordTypeOutput{})
 	pulumi.RegisterOutputType(AccessControlRecordPropertiesOutput{})
 	pulumi.RegisterOutputType(AccessControlRecordPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AccessControlRecordPropertiesResponseOutput{})
@@ -10299,10 +10296,13 @@ func init() {
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretPtrOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponseOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponsePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyTypeOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPropertiesOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(BackupScheduleTypeOutput{})
+	pulumi.RegisterOutputType(BackupScheduleGroupTypeOutput{})
 	pulumi.RegisterOutputType(BackupScheduleGroupPropertiesOutput{})
 	pulumi.RegisterOutputType(BackupScheduleGroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BackupScheduleGroupPropertiesResponseOutput{})
@@ -10319,20 +10319,24 @@ func init() {
 	pulumi.RegisterOutputType(BandwidthScheduleArrayOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleResponseOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleResponseArrayOutput{})
+	pulumi.RegisterOutputType(BandwidthSettingTypeOutput{})
 	pulumi.RegisterOutputType(ChapPropertiesOutput{})
 	pulumi.RegisterOutputType(ChapPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ChapPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ChapPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ChapSettingTypeOutput{})
 	pulumi.RegisterOutputType(FailoverSetEligibilityResultResponseOutput{})
 	pulumi.RegisterOutputType(FailoverSetEligibilityResultResponsePtrOutput{})
 	pulumi.RegisterOutputType(FailoverSetResponseOutput{})
 	pulumi.RegisterOutputType(FailoverSetResponseArrayOutput{})
 	pulumi.RegisterOutputType(FailoverTargetResponseOutput{})
 	pulumi.RegisterOutputType(FailoverTargetResponseArrayOutput{})
+	pulumi.RegisterOutputType(FileServerTypeOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(FileShareTypeOutput{})
 	pulumi.RegisterOutputType(FileSharePropertiesOutput{})
 	pulumi.RegisterOutputType(FileSharePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FileSharePropertiesResponseOutput{})
@@ -10345,24 +10349,14 @@ func init() {
 	pulumi.RegisterOutputType(ISCSIServerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ISCSIServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ISCSIServerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(IscsiDiskTypeOutput{})
+	pulumi.RegisterOutputType(IscsiServerTypeOutput{})
 	pulumi.RegisterOutputType(ManagerTypeOutput{})
-	pulumi.RegisterOutputType(ManagerAccessControlRecordTypeOutput{})
-	pulumi.RegisterOutputType(ManagerBandwidthSettingTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceBackupPolicyTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceBackupPolicyScheduleTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceBackupScheduleGroupTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceChapSettingTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceFileserverTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceFileserverShareTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceIscsiserverTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceIscsiserverDiskTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceVolumeContainerTypeOutput{})
-	pulumi.RegisterOutputType(ManagerDeviceVolumeContainerVolumeTypeOutput{})
+	pulumi.RegisterOutputType(ManagerExtendedInfoTypeOutput{})
 	pulumi.RegisterOutputType(ManagerExtendedInfoPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagerExtendedInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ManagerExtendedInfoPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagerExtendedInfoPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ManagerExtendedInformationTypeOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsResponseOutput{})
@@ -10375,16 +10369,16 @@ func init() {
 	pulumi.RegisterOutputType(ManagerSkuPtrOutput{})
 	pulumi.RegisterOutputType(ManagerSkuResponseOutput{})
 	pulumi.RegisterOutputType(ManagerSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(ManagerStorageAccountCredentialTypeOutput{})
-	pulumi.RegisterOutputType(ManagerStorageDomainTypeOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountCredentialTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageDomainTypeOutput{})
 	pulumi.RegisterOutputType(StorageDomainPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageDomainPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageDomainPropertiesResponseOutput{})
@@ -10397,6 +10391,8 @@ func init() {
 	pulumi.RegisterOutputType(TimePtrOutput{})
 	pulumi.RegisterOutputType(TimeResponseOutput{})
 	pulumi.RegisterOutputType(TimeResponsePtrOutput{})
+	pulumi.RegisterOutputType(VolumeTypeOutput{})
+	pulumi.RegisterOutputType(VolumeContainerTypeOutput{})
 	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseOutput{})
 	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseArrayOutput{})
 	pulumi.RegisterOutputType(VolumeContainerPropertiesOutput{})

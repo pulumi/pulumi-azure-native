@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getStreamingjob(args: GetStreamingjobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingjobResult> {
+export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,13 +14,13 @@ export function getStreamingjob(args: GetStreamingjobArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:streamanalytics:getStreamingjob", {
+    return pulumi.runtime.invoke("azurerm:streamanalytics:getStreamingJob", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetStreamingjobArgs {
+export interface GetStreamingJobArgs {
     /**
      * The name of the streaming job.
      */
@@ -34,7 +34,7 @@ export interface GetStreamingjobArgs {
 /**
  * A streaming job object, containing all information associated with the named streaming job.
  */
-export interface GetStreamingjobResult {
+export interface GetStreamingJobResult {
     /**
      * Resource location. Required on PUT (CreateOrReplace) requests.
      */

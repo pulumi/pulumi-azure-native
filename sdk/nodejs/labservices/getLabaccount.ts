@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getLabaccount(args: GetLabaccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLabaccountResult> {
+export function getLabAccount(args: GetLabAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLabAccountResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,13 +14,13 @@ export function getLabaccount(args: GetLabaccountArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:labservices:getLabaccount", {
+    return pulumi.runtime.invoke("azurerm:labservices:getLabAccount", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetLabaccountArgs {
+export interface GetLabAccountArgs {
     /**
      * The name of the lab Account.
      */
@@ -34,7 +34,7 @@ export interface GetLabaccountArgs {
 /**
  * Represents a lab account.
  */
-export interface GetLabaccountResult {
+export interface GetLabAccountResult {
     /**
      * The location of the resource.
      */

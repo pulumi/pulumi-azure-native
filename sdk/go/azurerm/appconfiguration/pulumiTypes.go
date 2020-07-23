@@ -119,81 +119,6 @@ func (o ConfigurationStoreTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationStoreType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// A private endpoint connection
-type ConfigurationStorePrivateEndpointConnectionType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of a private endpoint.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ConfigurationStorePrivateEndpointConnectionTypeInput is an input type that accepts ConfigurationStorePrivateEndpointConnectionTypeArgs and ConfigurationStorePrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `ConfigurationStorePrivateEndpointConnectionTypeInput` via:
-//
-//          ConfigurationStorePrivateEndpointConnectionTypeArgs{...}
-type ConfigurationStorePrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToConfigurationStorePrivateEndpointConnectionTypeOutput() ConfigurationStorePrivateEndpointConnectionTypeOutput
-	ToConfigurationStorePrivateEndpointConnectionTypeOutputWithContext(context.Context) ConfigurationStorePrivateEndpointConnectionTypeOutput
-}
-
-// A private endpoint connection
-type ConfigurationStorePrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a private endpoint.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConfigurationStorePrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStorePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i ConfigurationStorePrivateEndpointConnectionTypeArgs) ToConfigurationStorePrivateEndpointConnectionTypeOutput() ConfigurationStorePrivateEndpointConnectionTypeOutput {
-	return i.ToConfigurationStorePrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i ConfigurationStorePrivateEndpointConnectionTypeArgs) ToConfigurationStorePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) ConfigurationStorePrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePrivateEndpointConnectionTypeOutput)
-}
-
-// A private endpoint connection
-type ConfigurationStorePrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationStorePrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStorePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o ConfigurationStorePrivateEndpointConnectionTypeOutput) ToConfigurationStorePrivateEndpointConnectionTypeOutput() ConfigurationStorePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o ConfigurationStorePrivateEndpointConnectionTypeOutput) ToConfigurationStorePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) ConfigurationStorePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o ConfigurationStorePrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationStorePrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a private endpoint.
-func (o ConfigurationStorePrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v ConfigurationStorePrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o ConfigurationStorePrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationStorePrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a configuration store.
 type ConfigurationStoreProperties struct {
 	// The encryption settings of the configuration store.
@@ -1284,6 +1209,79 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of a private endpoint.
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of a private endpoint.
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a private endpoint.
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a private endpoint connection.
@@ -2876,7 +2874,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(ConfigurationStoreTypeOutput{})
-	pulumi.RegisterOutputType(ConfigurationStorePrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesResponseOutput{})
@@ -2891,6 +2888,7 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})

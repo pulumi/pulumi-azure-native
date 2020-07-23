@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getRemediation";
-export * from "./listRemediationDeployments";
-export * from "./remediation";
+export * from "./getRemediationAtManagementGroup";
+export * from "./getRemediationAtResourceGroup";
+export * from "./listRemediationDeploymentsAtManagementGroup";
+export * from "./listRemediationDeploymentsAtResourceGroup";
+export * from "./remediationAtManagementGroup";
+export * from "./remediationAtResourceGroup";

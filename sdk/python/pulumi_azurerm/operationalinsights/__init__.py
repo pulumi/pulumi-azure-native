@@ -3,18 +3,18 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_workspace_provider_alert_rule import *
-from .get_workspace_provider_alert_rule_action import *
-from .get_workspace_provider_bookmark import *
-from .get_workspace_provider_data_connector import *
-from .get_workspace_provider_incident import *
-from .get_workspace_saved_search import *
-from .get_workspace_storage_insight_config import *
+from .alert_rule import *
+from .alert_rule_action import *
+from .bookmark import *
+from .data_connector import *
+from .get_alert_rule import *
+from .get_alert_rule_action import *
+from .get_bookmark import *
+from .get_data_connector import *
+from .get_incident import *
+from .get_saved_search import *
+from .get_storage_insight import *
+from .incident import *
 from .list_workspace_keys import *
-from .workspace_provider_alert_rule import *
-from .workspace_provider_alert_rule_action import *
-from .workspace_provider_bookmark import *
-from .workspace_provider_data_connector import *
-from .workspace_provider_incident import *
-from .workspace_saved_search import *
-from .workspace_storage_insight_config import *
+from .saved_search import *
+from .storage_insight import *

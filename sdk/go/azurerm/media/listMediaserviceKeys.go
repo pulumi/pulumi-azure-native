@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func ListMediaserviceKeys(ctx *pulumi.Context, args *ListMediaserviceKeysArgs, opts ...pulumi.InvokeOption) (*ListMediaserviceKeysResult, error) {
-	var rv ListMediaserviceKeysResult
-	err := ctx.Invoke("azurerm:media:listMediaserviceKeys", args, &rv, opts...)
+func ListMediaServiceKeys(ctx *pulumi.Context, args *ListMediaServiceKeysArgs, opts ...pulumi.InvokeOption) (*ListMediaServiceKeysResult, error) {
+	var rv ListMediaServiceKeysResult
+	err := ctx.Invoke("azurerm:media:listMediaServiceKeys", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type ListMediaserviceKeysArgs struct {
+type ListMediaServiceKeysArgs struct {
 	// Name of the Media Service.
 	MediaServiceName string `pulumi:"mediaServiceName"`
 	// Name of the resource group within the Azure subscription.
@@ -24,7 +24,7 @@ type ListMediaserviceKeysArgs struct {
 }
 
 // The response body for a ListKeys API.
-type ListMediaserviceKeysResult struct {
+type ListMediaServiceKeysResult struct {
 	// The primary authorization endpoint.
 	PrimaryAuthEndpoint *string `pulumi:"primaryAuthEndpoint"`
 	// The primary key for the Media Service resource.

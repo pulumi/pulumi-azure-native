@@ -355,112 +355,112 @@ func (o DiagnosticsResponsePtrOutput) Conditions() DiagnosticConditionResponseAr
 }
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-type Function struct {
+type FunctionType struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
 	Properties *FunctionProperties `pulumi:"properties"`
 }
 
-// FunctionInput is an input type that accepts FunctionArgs and FunctionOutput values.
-// You can construct a concrete instance of `FunctionInput` via:
+// FunctionTypeInput is an input type that accepts FunctionTypeArgs and FunctionTypeOutput values.
+// You can construct a concrete instance of `FunctionTypeInput` via:
 //
-//          FunctionArgs{...}
-type FunctionInput interface {
+//          FunctionTypeArgs{...}
+type FunctionTypeInput interface {
 	pulumi.Input
 
-	ToFunctionOutput() FunctionOutput
-	ToFunctionOutputWithContext(context.Context) FunctionOutput
+	ToFunctionTypeOutput() FunctionTypeOutput
+	ToFunctionTypeOutputWithContext(context.Context) FunctionTypeOutput
 }
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-type FunctionArgs struct {
+type FunctionTypeArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The properties that are associated with a function.
 	Properties FunctionPropertiesPtrInput `pulumi:"properties"`
 }
 
-func (FunctionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Function)(nil)).Elem()
+func (FunctionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionType)(nil)).Elem()
 }
 
-func (i FunctionArgs) ToFunctionOutput() FunctionOutput {
-	return i.ToFunctionOutputWithContext(context.Background())
+func (i FunctionTypeArgs) ToFunctionTypeOutput() FunctionTypeOutput {
+	return i.ToFunctionTypeOutputWithContext(context.Background())
 }
 
-func (i FunctionArgs) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutput)
+func (i FunctionTypeArgs) ToFunctionTypeOutputWithContext(ctx context.Context) FunctionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTypeOutput)
 }
 
-// FunctionArrayInput is an input type that accepts FunctionArray and FunctionArrayOutput values.
-// You can construct a concrete instance of `FunctionArrayInput` via:
+// FunctionTypeArrayInput is an input type that accepts FunctionTypeArray and FunctionTypeArrayOutput values.
+// You can construct a concrete instance of `FunctionTypeArrayInput` via:
 //
-//          FunctionArray{ FunctionArgs{...} }
-type FunctionArrayInput interface {
+//          FunctionTypeArray{ FunctionTypeArgs{...} }
+type FunctionTypeArrayInput interface {
 	pulumi.Input
 
-	ToFunctionArrayOutput() FunctionArrayOutput
-	ToFunctionArrayOutputWithContext(context.Context) FunctionArrayOutput
+	ToFunctionTypeArrayOutput() FunctionTypeArrayOutput
+	ToFunctionTypeArrayOutputWithContext(context.Context) FunctionTypeArrayOutput
 }
 
-type FunctionArray []FunctionInput
+type FunctionTypeArray []FunctionTypeInput
 
-func (FunctionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Function)(nil)).Elem()
+func (FunctionTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionType)(nil)).Elem()
 }
 
-func (i FunctionArray) ToFunctionArrayOutput() FunctionArrayOutput {
-	return i.ToFunctionArrayOutputWithContext(context.Background())
+func (i FunctionTypeArray) ToFunctionTypeArrayOutput() FunctionTypeArrayOutput {
+	return i.ToFunctionTypeArrayOutputWithContext(context.Background())
 }
 
-func (i FunctionArray) ToFunctionArrayOutputWithContext(ctx context.Context) FunctionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionArrayOutput)
+func (i FunctionTypeArray) ToFunctionTypeArrayOutputWithContext(ctx context.Context) FunctionTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTypeArrayOutput)
 }
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-type FunctionOutput struct{ *pulumi.OutputState }
+type FunctionTypeOutput struct{ *pulumi.OutputState }
 
-func (FunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Function)(nil)).Elem()
+func (FunctionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionType)(nil)).Elem()
 }
 
-func (o FunctionOutput) ToFunctionOutput() FunctionOutput {
+func (o FunctionTypeOutput) ToFunctionTypeOutput() FunctionTypeOutput {
 	return o
 }
 
-func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
+func (o FunctionTypeOutput) ToFunctionTypeOutputWithContext(ctx context.Context) FunctionTypeOutput {
 	return o
 }
 
 // Resource name
-func (o FunctionOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Function) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o FunctionTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The properties that are associated with a function.
-func (o FunctionOutput) Properties() FunctionPropertiesPtrOutput {
-	return o.ApplyT(func(v Function) *FunctionProperties { return v.Properties }).(FunctionPropertiesPtrOutput)
+func (o FunctionTypeOutput) Properties() FunctionPropertiesPtrOutput {
+	return o.ApplyT(func(v FunctionType) *FunctionProperties { return v.Properties }).(FunctionPropertiesPtrOutput)
 }
 
-type FunctionArrayOutput struct{ *pulumi.OutputState }
+type FunctionTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (FunctionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Function)(nil)).Elem()
+func (FunctionTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionType)(nil)).Elem()
 }
 
-func (o FunctionArrayOutput) ToFunctionArrayOutput() FunctionArrayOutput {
+func (o FunctionTypeArrayOutput) ToFunctionTypeArrayOutput() FunctionTypeArrayOutput {
 	return o
 }
 
-func (o FunctionArrayOutput) ToFunctionArrayOutputWithContext(ctx context.Context) FunctionArrayOutput {
+func (o FunctionTypeArrayOutput) ToFunctionTypeArrayOutputWithContext(ctx context.Context) FunctionTypeArrayOutput {
 	return o
 }
 
-func (o FunctionArrayOutput) Index(i pulumi.IntInput) FunctionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Function {
-		return vs[0].([]Function)[vs[1].(int)]
-	}).(FunctionOutput)
+func (o FunctionTypeArrayOutput) Index(i pulumi.IntInput) FunctionTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionType {
+		return vs[0].([]FunctionType)[vs[1].(int)]
+	}).(FunctionTypeOutput)
 }
 
 // The properties that are associated with a function.
@@ -878,112 +878,112 @@ func (o FunctionResponseArrayOutput) Index(i pulumi.IntInput) FunctionResponseOu
 }
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-type Input struct {
+type InputType struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
 	Properties *InputProperties `pulumi:"properties"`
 }
 
-// InputInput is an input type that accepts InputArgs and InputOutput values.
-// You can construct a concrete instance of `InputInput` via:
+// InputTypeInput is an input type that accepts InputTypeArgs and InputTypeOutput values.
+// You can construct a concrete instance of `InputTypeInput` via:
 //
-//          InputArgs{...}
-type InputInput interface {
+//          InputTypeArgs{...}
+type InputTypeInput interface {
 	pulumi.Input
 
-	ToInputOutput() InputOutput
-	ToInputOutputWithContext(context.Context) InputOutput
+	ToInputTypeOutput() InputTypeOutput
+	ToInputTypeOutputWithContext(context.Context) InputTypeOutput
 }
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-type InputArgs struct {
+type InputTypeArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
 	Properties InputPropertiesPtrInput `pulumi:"properties"`
 }
 
-func (InputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Input)(nil)).Elem()
+func (InputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputType)(nil)).Elem()
 }
 
-func (i InputArgs) ToInputOutput() InputOutput {
-	return i.ToInputOutputWithContext(context.Background())
+func (i InputTypeArgs) ToInputTypeOutput() InputTypeOutput {
+	return i.ToInputTypeOutputWithContext(context.Background())
 }
 
-func (i InputArgs) ToInputOutputWithContext(ctx context.Context) InputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputOutput)
+func (i InputTypeArgs) ToInputTypeOutputWithContext(ctx context.Context) InputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputTypeOutput)
 }
 
-// InputArrayInput is an input type that accepts InputArray and InputArrayOutput values.
-// You can construct a concrete instance of `InputArrayInput` via:
+// InputTypeArrayInput is an input type that accepts InputTypeArray and InputTypeArrayOutput values.
+// You can construct a concrete instance of `InputTypeArrayInput` via:
 //
-//          InputArray{ InputArgs{...} }
-type InputArrayInput interface {
+//          InputTypeArray{ InputTypeArgs{...} }
+type InputTypeArrayInput interface {
 	pulumi.Input
 
-	ToInputArrayOutput() InputArrayOutput
-	ToInputArrayOutputWithContext(context.Context) InputArrayOutput
+	ToInputTypeArrayOutput() InputTypeArrayOutput
+	ToInputTypeArrayOutputWithContext(context.Context) InputTypeArrayOutput
 }
 
-type InputArray []InputInput
+type InputTypeArray []InputTypeInput
 
-func (InputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Input)(nil)).Elem()
+func (InputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputType)(nil)).Elem()
 }
 
-func (i InputArray) ToInputArrayOutput() InputArrayOutput {
-	return i.ToInputArrayOutputWithContext(context.Background())
+func (i InputTypeArray) ToInputTypeArrayOutput() InputTypeArrayOutput {
+	return i.ToInputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i InputArray) ToInputArrayOutputWithContext(ctx context.Context) InputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputArrayOutput)
+func (i InputTypeArray) ToInputTypeArrayOutputWithContext(ctx context.Context) InputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputTypeArrayOutput)
 }
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-type InputOutput struct{ *pulumi.OutputState }
+type InputTypeOutput struct{ *pulumi.OutputState }
 
-func (InputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Input)(nil)).Elem()
+func (InputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputType)(nil)).Elem()
 }
 
-func (o InputOutput) ToInputOutput() InputOutput {
+func (o InputTypeOutput) ToInputTypeOutput() InputTypeOutput {
 	return o
 }
 
-func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
+func (o InputTypeOutput) ToInputTypeOutputWithContext(ctx context.Context) InputTypeOutput {
 	return o
 }
 
 // Resource name
-func (o InputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Input) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o InputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-func (o InputOutput) Properties() InputPropertiesPtrOutput {
-	return o.ApplyT(func(v Input) *InputProperties { return v.Properties }).(InputPropertiesPtrOutput)
+func (o InputTypeOutput) Properties() InputPropertiesPtrOutput {
+	return o.ApplyT(func(v InputType) *InputProperties { return v.Properties }).(InputPropertiesPtrOutput)
 }
 
-type InputArrayOutput struct{ *pulumi.OutputState }
+type InputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (InputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Input)(nil)).Elem()
+func (InputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputType)(nil)).Elem()
 }
 
-func (o InputArrayOutput) ToInputArrayOutput() InputArrayOutput {
+func (o InputTypeArrayOutput) ToInputTypeArrayOutput() InputTypeArrayOutput {
 	return o
 }
 
-func (o InputArrayOutput) ToInputArrayOutputWithContext(ctx context.Context) InputArrayOutput {
+func (o InputTypeArrayOutput) ToInputTypeArrayOutputWithContext(ctx context.Context) InputTypeArrayOutput {
 	return o
 }
 
-func (o InputArrayOutput) Index(i pulumi.IntInput) InputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Input {
-		return vs[0].([]Input)[vs[1].(int)]
-	}).(InputOutput)
+func (o InputTypeArrayOutput) Index(i pulumi.IntInput) InputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputType {
+		return vs[0].([]InputType)[vs[1].(int)]
+	}).(InputTypeOutput)
 }
 
 // The properties that are associated with an input.
@@ -1458,112 +1458,112 @@ func (o InputResponseArrayOutput) Index(i pulumi.IntInput) InputResponseOutput {
 }
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-type Output struct {
+type OutputType struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
 	Properties *OutputProperties `pulumi:"properties"`
 }
 
-// OutputInput is an input type that accepts OutputArgs and OutputOutput values.
-// You can construct a concrete instance of `OutputInput` via:
+// OutputTypeInput is an input type that accepts OutputTypeArgs and OutputTypeOutput values.
+// You can construct a concrete instance of `OutputTypeInput` via:
 //
-//          OutputArgs{...}
-type OutputInput interface {
+//          OutputTypeArgs{...}
+type OutputTypeInput interface {
 	pulumi.Input
 
-	ToOutputOutput() OutputOutput
-	ToOutputOutputWithContext(context.Context) OutputOutput
+	ToOutputTypeOutput() OutputTypeOutput
+	ToOutputTypeOutputWithContext(context.Context) OutputTypeOutput
 }
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-type OutputArgs struct {
+type OutputTypeArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
 	Properties OutputPropertiesPtrInput `pulumi:"properties"`
 }
 
-func (OutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Output)(nil)).Elem()
+func (OutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputType)(nil)).Elem()
 }
 
-func (i OutputArgs) ToOutputOutput() OutputOutput {
-	return i.ToOutputOutputWithContext(context.Background())
+func (i OutputTypeArgs) ToOutputTypeOutput() OutputTypeOutput {
+	return i.ToOutputTypeOutputWithContext(context.Background())
 }
 
-func (i OutputArgs) ToOutputOutputWithContext(ctx context.Context) OutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputOutput)
+func (i OutputTypeArgs) ToOutputTypeOutputWithContext(ctx context.Context) OutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputTypeOutput)
 }
 
-// OutputArrayInput is an input type that accepts OutputArray and OutputArrayOutput values.
-// You can construct a concrete instance of `OutputArrayInput` via:
+// OutputTypeArrayInput is an input type that accepts OutputTypeArray and OutputTypeArrayOutput values.
+// You can construct a concrete instance of `OutputTypeArrayInput` via:
 //
-//          OutputArray{ OutputArgs{...} }
-type OutputArrayInput interface {
+//          OutputTypeArray{ OutputTypeArgs{...} }
+type OutputTypeArrayInput interface {
 	pulumi.Input
 
-	ToOutputArrayOutput() OutputArrayOutput
-	ToOutputArrayOutputWithContext(context.Context) OutputArrayOutput
+	ToOutputTypeArrayOutput() OutputTypeArrayOutput
+	ToOutputTypeArrayOutputWithContext(context.Context) OutputTypeArrayOutput
 }
 
-type OutputArray []OutputInput
+type OutputTypeArray []OutputTypeInput
 
-func (OutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Output)(nil)).Elem()
+func (OutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputType)(nil)).Elem()
 }
 
-func (i OutputArray) ToOutputArrayOutput() OutputArrayOutput {
-	return i.ToOutputArrayOutputWithContext(context.Background())
+func (i OutputTypeArray) ToOutputTypeArrayOutput() OutputTypeArrayOutput {
+	return i.ToOutputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i OutputArray) ToOutputArrayOutputWithContext(ctx context.Context) OutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputArrayOutput)
+func (i OutputTypeArray) ToOutputTypeArrayOutputWithContext(ctx context.Context) OutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputTypeArrayOutput)
 }
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-type OutputOutput struct{ *pulumi.OutputState }
+type OutputTypeOutput struct{ *pulumi.OutputState }
 
-func (OutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Output)(nil)).Elem()
+func (OutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputType)(nil)).Elem()
 }
 
-func (o OutputOutput) ToOutputOutput() OutputOutput {
+func (o OutputTypeOutput) ToOutputTypeOutput() OutputTypeOutput {
 	return o
 }
 
-func (o OutputOutput) ToOutputOutputWithContext(ctx context.Context) OutputOutput {
+func (o OutputTypeOutput) ToOutputTypeOutputWithContext(ctx context.Context) OutputTypeOutput {
 	return o
 }
 
 // Resource name
-func (o OutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Output) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o OutputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-func (o OutputOutput) Properties() OutputPropertiesPtrOutput {
-	return o.ApplyT(func(v Output) *OutputProperties { return v.Properties }).(OutputPropertiesPtrOutput)
+func (o OutputTypeOutput) Properties() OutputPropertiesPtrOutput {
+	return o.ApplyT(func(v OutputType) *OutputProperties { return v.Properties }).(OutputPropertiesPtrOutput)
 }
 
-type OutputArrayOutput struct{ *pulumi.OutputState }
+type OutputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (OutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Output)(nil)).Elem()
+func (OutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputType)(nil)).Elem()
 }
 
-func (o OutputArrayOutput) ToOutputArrayOutput() OutputArrayOutput {
+func (o OutputTypeArrayOutput) ToOutputTypeArrayOutput() OutputTypeArrayOutput {
 	return o
 }
 
-func (o OutputArrayOutput) ToOutputArrayOutputWithContext(ctx context.Context) OutputArrayOutput {
+func (o OutputTypeArrayOutput) ToOutputTypeArrayOutputWithContext(ctx context.Context) OutputTypeArrayOutput {
 	return o
 }
 
-func (o OutputArrayOutput) Index(i pulumi.IntInput) OutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Output {
-		return vs[0].([]Output)[vs[1].(int)]
-	}).(OutputOutput)
+func (o OutputTypeArrayOutput) Index(i pulumi.IntInput) OutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputType {
+		return vs[0].([]OutputType)[vs[1].(int)]
+	}).(OutputTypeOutput)
 }
 
 // Describes the data source that output will be written to.
@@ -2841,6 +2841,97 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A streaming job object, containing all information associated with the named streaming job.
+type StreamingJobType struct {
+	// Resource location. Required on PUT (CreateOrReplace) requests.
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
+	Properties StreamingJobPropertiesResponse `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// StreamingJobTypeInput is an input type that accepts StreamingJobTypeArgs and StreamingJobTypeOutput values.
+// You can construct a concrete instance of `StreamingJobTypeInput` via:
+//
+//          StreamingJobTypeArgs{...}
+type StreamingJobTypeInput interface {
+	pulumi.Input
+
+	ToStreamingJobTypeOutput() StreamingJobTypeOutput
+	ToStreamingJobTypeOutputWithContext(context.Context) StreamingJobTypeOutput
+}
+
+// A streaming job object, containing all information associated with the named streaming job.
+type StreamingJobTypeArgs struct {
+	// Resource location. Required on PUT (CreateOrReplace) requests.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
+	Properties StreamingJobPropertiesResponseInput `pulumi:"properties"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StreamingJobTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingJobType)(nil)).Elem()
+}
+
+func (i StreamingJobTypeArgs) ToStreamingJobTypeOutput() StreamingJobTypeOutput {
+	return i.ToStreamingJobTypeOutputWithContext(context.Background())
+}
+
+func (i StreamingJobTypeArgs) ToStreamingJobTypeOutputWithContext(ctx context.Context) StreamingJobTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobTypeOutput)
+}
+
+// A streaming job object, containing all information associated with the named streaming job.
+type StreamingJobTypeOutput struct{ *pulumi.OutputState }
+
+func (StreamingJobTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingJobType)(nil)).Elem()
+}
+
+func (o StreamingJobTypeOutput) ToStreamingJobTypeOutput() StreamingJobTypeOutput {
+	return o
+}
+
+func (o StreamingJobTypeOutput) ToStreamingJobTypeOutputWithContext(ctx context.Context) StreamingJobTypeOutput {
+	return o
+}
+
+// Resource location. Required on PUT (CreateOrReplace) requests.
+func (o StreamingJobTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingJobType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o StreamingJobTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingJobType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
+func (o StreamingJobTypeOutput) Properties() StreamingJobPropertiesResponseOutput {
+	return o.ApplyT(func(v StreamingJobType) StreamingJobPropertiesResponse { return v.Properties }).(StreamingJobPropertiesResponseOutput)
+}
+
+// Resource tags
+func (o StreamingJobTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StreamingJobType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o StreamingJobTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingJobType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties that are associated with a streaming job.
 type StreamingJobProperties struct {
 	// Controls certain runtime behaviors of the streaming job.
@@ -2854,9 +2945,9 @@ type StreamingJobProperties struct {
 	// Indicates the policy to apply to events that arrive out of order in the input event stream.
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Functions []Function `pulumi:"functions"`
+	Functions []FunctionType `pulumi:"functions"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-	Inputs []Input `pulumi:"inputs"`
+	Inputs []InputType `pulumi:"inputs"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
 	// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
@@ -2864,7 +2955,7 @@ type StreamingJobProperties struct {
 	// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
 	OutputStartTime *string `pulumi:"outputStartTime"`
 	// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-	Outputs []Output `pulumi:"outputs"`
+	Outputs []OutputType `pulumi:"outputs"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku *Sku `pulumi:"sku"`
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
@@ -2895,9 +2986,9 @@ type StreamingJobPropertiesArgs struct {
 	// Indicates the policy to apply to events that arrive out of order in the input event stream.
 	EventsOutOfOrderPolicy pulumi.StringPtrInput `pulumi:"eventsOutOfOrderPolicy"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Functions FunctionArrayInput `pulumi:"functions"`
+	Functions FunctionTypeArrayInput `pulumi:"functions"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-	Inputs InputArrayInput `pulumi:"inputs"`
+	Inputs InputTypeArrayInput `pulumi:"inputs"`
 	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
 	OutputErrorPolicy pulumi.StringPtrInput `pulumi:"outputErrorPolicy"`
 	// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
@@ -2905,7 +2996,7 @@ type StreamingJobPropertiesArgs struct {
 	// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
 	OutputStartTime pulumi.StringPtrInput `pulumi:"outputStartTime"`
 	// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-	Outputs OutputArrayInput `pulumi:"outputs"`
+	Outputs OutputTypeArrayInput `pulumi:"outputs"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
 	Sku SkuPtrInput `pulumi:"sku"`
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
@@ -3016,13 +3107,13 @@ func (o StreamingJobPropertiesOutput) EventsOutOfOrderPolicy() pulumi.StringPtrO
 }
 
 // A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-func (o StreamingJobPropertiesOutput) Functions() FunctionArrayOutput {
-	return o.ApplyT(func(v StreamingJobProperties) []Function { return v.Functions }).(FunctionArrayOutput)
+func (o StreamingJobPropertiesOutput) Functions() FunctionTypeArrayOutput {
+	return o.ApplyT(func(v StreamingJobProperties) []FunctionType { return v.Functions }).(FunctionTypeArrayOutput)
 }
 
 // A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-func (o StreamingJobPropertiesOutput) Inputs() InputArrayOutput {
-	return o.ApplyT(func(v StreamingJobProperties) []Input { return v.Inputs }).(InputArrayOutput)
+func (o StreamingJobPropertiesOutput) Inputs() InputTypeArrayOutput {
+	return o.ApplyT(func(v StreamingJobProperties) []InputType { return v.Inputs }).(InputTypeArrayOutput)
 }
 
 // Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
@@ -3041,8 +3132,8 @@ func (o StreamingJobPropertiesOutput) OutputStartTime() pulumi.StringPtrOutput {
 }
 
 // A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-func (o StreamingJobPropertiesOutput) Outputs() OutputArrayOutput {
-	return o.ApplyT(func(v StreamingJobProperties) []Output { return v.Outputs }).(OutputArrayOutput)
+func (o StreamingJobPropertiesOutput) Outputs() OutputTypeArrayOutput {
+	return o.ApplyT(func(v StreamingJobProperties) []OutputType { return v.Outputs }).(OutputTypeArrayOutput)
 }
 
 // Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
@@ -3124,23 +3215,23 @@ func (o StreamingJobPropertiesPtrOutput) EventsOutOfOrderPolicy() pulumi.StringP
 }
 
 // A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-func (o StreamingJobPropertiesPtrOutput) Functions() FunctionArrayOutput {
-	return o.ApplyT(func(v *StreamingJobProperties) []Function {
+func (o StreamingJobPropertiesPtrOutput) Functions() FunctionTypeArrayOutput {
+	return o.ApplyT(func(v *StreamingJobProperties) []FunctionType {
 		if v == nil {
 			return nil
 		}
 		return v.Functions
-	}).(FunctionArrayOutput)
+	}).(FunctionTypeArrayOutput)
 }
 
 // A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-func (o StreamingJobPropertiesPtrOutput) Inputs() InputArrayOutput {
-	return o.ApplyT(func(v *StreamingJobProperties) []Input {
+func (o StreamingJobPropertiesPtrOutput) Inputs() InputTypeArrayOutput {
+	return o.ApplyT(func(v *StreamingJobProperties) []InputType {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(InputArrayOutput)
+	}).(InputTypeArrayOutput)
 }
 
 // Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
@@ -3174,13 +3265,13 @@ func (o StreamingJobPropertiesPtrOutput) OutputStartTime() pulumi.StringPtrOutpu
 }
 
 // A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-func (o StreamingJobPropertiesPtrOutput) Outputs() OutputArrayOutput {
-	return o.ApplyT(func(v *StreamingJobProperties) []Output {
+func (o StreamingJobPropertiesPtrOutput) Outputs() OutputTypeArrayOutput {
+	return o.ApplyT(func(v *StreamingJobProperties) []OutputType {
 		if v == nil {
 			return nil
 		}
 		return v.Outputs
-	}).(OutputArrayOutput)
+	}).(OutputTypeArrayOutput)
 }
 
 // Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
@@ -3677,316 +3768,6 @@ func (o StreamingJobPropertiesResponsePtrOutput) Transformation() Transformation
 		}
 		return v.Transformation
 	}).(TransformationResponsePtrOutput)
-}
-
-// A streaming job object, containing all information associated with the named streaming job.
-type StreamingjobType struct {
-	// Resource location. Required on PUT (CreateOrReplace) requests.
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-	Properties StreamingJobPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// StreamingjobTypeInput is an input type that accepts StreamingjobTypeArgs and StreamingjobTypeOutput values.
-// You can construct a concrete instance of `StreamingjobTypeInput` via:
-//
-//          StreamingjobTypeArgs{...}
-type StreamingjobTypeInput interface {
-	pulumi.Input
-
-	ToStreamingjobTypeOutput() StreamingjobTypeOutput
-	ToStreamingjobTypeOutputWithContext(context.Context) StreamingjobTypeOutput
-}
-
-// A streaming job object, containing all information associated with the named streaming job.
-type StreamingjobTypeArgs struct {
-	// Resource location. Required on PUT (CreateOrReplace) requests.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-	Properties StreamingJobPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingjobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobType)(nil)).Elem()
-}
-
-func (i StreamingjobTypeArgs) ToStreamingjobTypeOutput() StreamingjobTypeOutput {
-	return i.ToStreamingjobTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingjobTypeArgs) ToStreamingjobTypeOutputWithContext(ctx context.Context) StreamingjobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingjobTypeOutput)
-}
-
-// A streaming job object, containing all information associated with the named streaming job.
-type StreamingjobTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingjobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobType)(nil)).Elem()
-}
-
-func (o StreamingjobTypeOutput) ToStreamingjobTypeOutput() StreamingjobTypeOutput {
-	return o
-}
-
-func (o StreamingjobTypeOutput) ToStreamingjobTypeOutputWithContext(ctx context.Context) StreamingjobTypeOutput {
-	return o
-}
-
-// Resource location. Required on PUT (CreateOrReplace) requests.
-func (o StreamingjobTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingjobType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o StreamingjobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingjobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-func (o StreamingjobTypeOutput) Properties() StreamingJobPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingjobType) StreamingJobPropertiesResponse { return v.Properties }).(StreamingJobPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o StreamingjobTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v StreamingjobType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o StreamingjobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingjobType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-type StreamingjobFunctionType struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with a function.
-	Properties FunctionPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// StreamingjobFunctionTypeInput is an input type that accepts StreamingjobFunctionTypeArgs and StreamingjobFunctionTypeOutput values.
-// You can construct a concrete instance of `StreamingjobFunctionTypeInput` via:
-//
-//          StreamingjobFunctionTypeArgs{...}
-type StreamingjobFunctionTypeInput interface {
-	pulumi.Input
-
-	ToStreamingjobFunctionTypeOutput() StreamingjobFunctionTypeOutput
-	ToStreamingjobFunctionTypeOutputWithContext(context.Context) StreamingjobFunctionTypeOutput
-}
-
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-type StreamingjobFunctionTypeArgs struct {
-	// Resource name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The properties that are associated with a function.
-	Properties FunctionPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingjobFunctionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobFunctionType)(nil)).Elem()
-}
-
-func (i StreamingjobFunctionTypeArgs) ToStreamingjobFunctionTypeOutput() StreamingjobFunctionTypeOutput {
-	return i.ToStreamingjobFunctionTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingjobFunctionTypeArgs) ToStreamingjobFunctionTypeOutputWithContext(ctx context.Context) StreamingjobFunctionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingjobFunctionTypeOutput)
-}
-
-// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-type StreamingjobFunctionTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingjobFunctionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobFunctionType)(nil)).Elem()
-}
-
-func (o StreamingjobFunctionTypeOutput) ToStreamingjobFunctionTypeOutput() StreamingjobFunctionTypeOutput {
-	return o
-}
-
-func (o StreamingjobFunctionTypeOutput) ToStreamingjobFunctionTypeOutputWithContext(ctx context.Context) StreamingjobFunctionTypeOutput {
-	return o
-}
-
-// Resource name
-func (o StreamingjobFunctionTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingjobFunctionType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The properties that are associated with a function.
-func (o StreamingjobFunctionTypeOutput) Properties() FunctionPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingjobFunctionType) FunctionPropertiesResponse { return v.Properties }).(FunctionPropertiesResponseOutput)
-}
-
-// Resource type
-func (o StreamingjobFunctionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingjobFunctionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-type StreamingjobInputType struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties InputPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// StreamingjobInputTypeInput is an input type that accepts StreamingjobInputTypeArgs and StreamingjobInputTypeOutput values.
-// You can construct a concrete instance of `StreamingjobInputTypeInput` via:
-//
-//          StreamingjobInputTypeArgs{...}
-type StreamingjobInputTypeInput interface {
-	pulumi.Input
-
-	ToStreamingjobInputTypeOutput() StreamingjobInputTypeOutput
-	ToStreamingjobInputTypeOutputWithContext(context.Context) StreamingjobInputTypeOutput
-}
-
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-type StreamingjobInputTypeArgs struct {
-	// Resource name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-	Properties InputPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingjobInputTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobInputType)(nil)).Elem()
-}
-
-func (i StreamingjobInputTypeArgs) ToStreamingjobInputTypeOutput() StreamingjobInputTypeOutput {
-	return i.ToStreamingjobInputTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingjobInputTypeArgs) ToStreamingjobInputTypeOutputWithContext(ctx context.Context) StreamingjobInputTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingjobInputTypeOutput)
-}
-
-// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-type StreamingjobInputTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingjobInputTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobInputType)(nil)).Elem()
-}
-
-func (o StreamingjobInputTypeOutput) ToStreamingjobInputTypeOutput() StreamingjobInputTypeOutput {
-	return o
-}
-
-func (o StreamingjobInputTypeOutput) ToStreamingjobInputTypeOutputWithContext(ctx context.Context) StreamingjobInputTypeOutput {
-	return o
-}
-
-// Resource name
-func (o StreamingjobInputTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingjobInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-func (o StreamingjobInputTypeOutput) Properties() InputPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingjobInputType) InputPropertiesResponse { return v.Properties }).(InputPropertiesResponseOutput)
-}
-
-// Resource type
-func (o StreamingjobInputTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingjobInputType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-type StreamingjobOutputType struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties OutputPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// StreamingjobOutputTypeInput is an input type that accepts StreamingjobOutputTypeArgs and StreamingjobOutputTypeOutput values.
-// You can construct a concrete instance of `StreamingjobOutputTypeInput` via:
-//
-//          StreamingjobOutputTypeArgs{...}
-type StreamingjobOutputTypeInput interface {
-	pulumi.Input
-
-	ToStreamingjobOutputTypeOutput() StreamingjobOutputTypeOutput
-	ToStreamingjobOutputTypeOutputWithContext(context.Context) StreamingjobOutputTypeOutput
-}
-
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-type StreamingjobOutputTypeArgs struct {
-	// Resource name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties OutputPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingjobOutputTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobOutputType)(nil)).Elem()
-}
-
-func (i StreamingjobOutputTypeArgs) ToStreamingjobOutputTypeOutput() StreamingjobOutputTypeOutput {
-	return i.ToStreamingjobOutputTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingjobOutputTypeArgs) ToStreamingjobOutputTypeOutputWithContext(ctx context.Context) StreamingjobOutputTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingjobOutputTypeOutput)
-}
-
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-type StreamingjobOutputTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingjobOutputTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingjobOutputType)(nil)).Elem()
-}
-
-func (o StreamingjobOutputTypeOutput) ToStreamingjobOutputTypeOutput() StreamingjobOutputTypeOutput {
-	return o
-}
-
-func (o StreamingjobOutputTypeOutput) ToStreamingjobOutputTypeOutputWithContext(ctx context.Context) StreamingjobOutputTypeOutput {
-	return o
-}
-
-// Resource name
-func (o StreamingjobOutputTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingjobOutputType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-func (o StreamingjobOutputTypeOutput) Properties() OutputPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingjobOutputType) OutputPropertiesResponse { return v.Properties }).(OutputPropertiesResponseOutput)
-}
-
-// Resource type
-func (o StreamingjobOutputTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingjobOutputType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
@@ -4665,24 +4446,24 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticsOutput{})
 	pulumi.RegisterOutputType(DiagnosticsResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsResponsePtrOutput{})
-	pulumi.RegisterOutputType(FunctionOutput{})
-	pulumi.RegisterOutputType(FunctionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionTypeOutput{})
+	pulumi.RegisterOutputType(FunctionTypeArrayOutput{})
 	pulumi.RegisterOutputType(FunctionPropertiesOutput{})
 	pulumi.RegisterOutputType(FunctionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FunctionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FunctionResponseOutput{})
 	pulumi.RegisterOutputType(FunctionResponseArrayOutput{})
-	pulumi.RegisterOutputType(InputOutput{})
-	pulumi.RegisterOutputType(InputArrayOutput{})
+	pulumi.RegisterOutputType(InputTypeOutput{})
+	pulumi.RegisterOutputType(InputTypeArrayOutput{})
 	pulumi.RegisterOutputType(InputPropertiesOutput{})
 	pulumi.RegisterOutputType(InputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InputPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(InputPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(InputResponseOutput{})
 	pulumi.RegisterOutputType(InputResponseArrayOutput{})
-	pulumi.RegisterOutputType(OutputOutput{})
-	pulumi.RegisterOutputType(OutputArrayOutput{})
+	pulumi.RegisterOutputType(OutputTypeOutput{})
+	pulumi.RegisterOutputType(OutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(OutputDataSourceOutput{})
 	pulumi.RegisterOutputType(OutputDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(OutputDataSourceResponseOutput{})
@@ -4701,14 +4482,11 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(StreamingJobTypeOutput{})
 	pulumi.RegisterOutputType(StreamingJobPropertiesOutput{})
 	pulumi.RegisterOutputType(StreamingJobPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StreamingJobPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StreamingJobPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(StreamingjobTypeOutput{})
-	pulumi.RegisterOutputType(StreamingjobFunctionTypeOutput{})
-	pulumi.RegisterOutputType(StreamingjobInputTypeOutput{})
-	pulumi.RegisterOutputType(StreamingjobOutputTypeOutput{})
 	pulumi.RegisterOutputType(TransformationOutput{})
 	pulumi.RegisterOutputType(TransformationPtrOutput{})
 	pulumi.RegisterOutputType(TransformationPropertiesOutput{})

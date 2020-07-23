@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.Devices.Inputs
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The resource name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
         /// The properties of a private endpoint connection
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;
+        public Input<Inputs.PrivateEndpointConnectionPropertiesResponseArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// The resource type.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public PrivateEndpointConnectionArgs()
         {

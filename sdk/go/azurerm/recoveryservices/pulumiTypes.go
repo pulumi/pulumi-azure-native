@@ -5643,7 +5643,236 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Private Endpoint Connection Response Properties
-type PrivateEndpointConnection struct {
+type PrivateEndpointConnectionType struct {
+	// Optional ETag.
+	ETag *string `pulumi:"eTag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name associated with the resource.
+	Name string `pulumi:"name"`
+	// PrivateEndpointConnectionResource properties
+	Properties PrivateEndpointConnectionResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
+}
+
+// Private Endpoint Connection Response Properties
+type PrivateEndpointConnectionTypeArgs struct {
+	// Optional ETag.
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
+	// Resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource name associated with the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// PrivateEndpointConnectionResource properties
+	Properties PrivateEndpointConnectionResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypePtrOutput() PrivateEndpointConnectionTypePtrOutput {
+	return i.ToPrivateEndpointConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput).ToPrivateEndpointConnectionTypePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointConnectionTypePtrInput is an input type that accepts PrivateEndpointConnectionTypeArgs, PrivateEndpointConnectionTypePtr and PrivateEndpointConnectionTypePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypePtrInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointConnectionTypePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypePtrOutput() PrivateEndpointConnectionTypePtrOutput
+	ToPrivateEndpointConnectionTypePtrOutputWithContext(context.Context) PrivateEndpointConnectionTypePtrOutput
+}
+
+type privateEndpointConnectionTypePtrType PrivateEndpointConnectionTypeArgs
+
+func PrivateEndpointConnectionTypePtr(v *PrivateEndpointConnectionTypeArgs) PrivateEndpointConnectionTypePtrInput {
+	return (*privateEndpointConnectionTypePtrType)(v)
+}
+
+func (*privateEndpointConnectionTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i *privateEndpointConnectionTypePtrType) ToPrivateEndpointConnectionTypePtrOutput() PrivateEndpointConnectionTypePtrOutput {
+	return i.ToPrivateEndpointConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointConnectionTypePtrType) ToPrivateEndpointConnectionTypePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypePtrOutput)
+}
+
+// Private Endpoint Connection Response Properties
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypePtrOutput() PrivateEndpointConnectionTypePtrOutput {
+	return o.ToPrivateEndpointConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *PrivateEndpointConnectionType {
+		return &v
+	}).(PrivateEndpointConnectionTypePtrOutput)
+}
+
+// Optional ETag.
+func (o PrivateEndpointConnectionTypeOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o PrivateEndpointConnectionTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// PrivateEndpointConnectionResource properties
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionResponse { return v.Properties }).(PrivateEndpointConnectionResponseOutput)
+}
+
+// Resource tags.
+func (o PrivateEndpointConnectionTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypePtrOutput) ToPrivateEndpointConnectionTypePtrOutput() PrivateEndpointConnectionTypePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypePtrOutput) ToPrivateEndpointConnectionTypePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypePtrOutput) Elem() PrivateEndpointConnectionTypeOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) PrivateEndpointConnectionType { return *v }).(PrivateEndpointConnectionTypeOutput)
+}
+
+// Optional ETag.
+func (o PrivateEndpointConnectionTypePtrOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ETag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o PrivateEndpointConnectionTypePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o PrivateEndpointConnectionTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivateEndpointConnectionResource properties
+func (o PrivateEndpointConnectionTypePtrOutput) Properties() PrivateEndpointConnectionResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) *PrivateEndpointConnectionResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Properties
+	}).(PrivateEndpointConnectionResponsePtrOutput)
+}
+
+// Resource tags.
+func (o PrivateEndpointConnectionTypePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o PrivateEndpointConnectionTypePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private Endpoint Connection Response Properties
+type PrivateEndpointConnectionDefinition struct {
 	// Gets or sets private endpoint associated with the private endpoint connection
 	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// Gets or sets private link service connection state
@@ -5652,19 +5881,19 @@ type PrivateEndpointConnection struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
-// PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionInput` via:
+// PrivateEndpointConnectionDefinitionInput is an input type that accepts PrivateEndpointConnectionDefinitionArgs and PrivateEndpointConnectionDefinitionOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionDefinitionInput` via:
 //
-//          PrivateEndpointConnectionArgs{...}
-type PrivateEndpointConnectionInput interface {
+//          PrivateEndpointConnectionDefinitionArgs{...}
+type PrivateEndpointConnectionDefinitionInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
-	ToPrivateEndpointConnectionOutputWithContext(context.Context) PrivateEndpointConnectionOutput
+	ToPrivateEndpointConnectionDefinitionOutput() PrivateEndpointConnectionDefinitionOutput
+	ToPrivateEndpointConnectionDefinitionOutputWithContext(context.Context) PrivateEndpointConnectionDefinitionOutput
 }
 
 // Private Endpoint Connection Response Properties
-type PrivateEndpointConnectionArgs struct {
+type PrivateEndpointConnectionDefinitionArgs struct {
 	// Gets or sets private endpoint associated with the private endpoint connection
 	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
 	// Gets or sets private link service connection state
@@ -5673,122 +5902,122 @@ type PrivateEndpointConnectionArgs struct {
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
-func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionDefinition)(nil)).Elem()
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
-	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionDefinitionArgs) ToPrivateEndpointConnectionDefinitionOutput() PrivateEndpointConnectionDefinitionOutput {
+	return i.ToPrivateEndpointConnectionDefinitionOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
+func (i PrivateEndpointConnectionDefinitionArgs) ToPrivateEndpointConnectionDefinitionOutputWithContext(ctx context.Context) PrivateEndpointConnectionDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionDefinitionOutput)
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionPtrOutput() PrivateEndpointConnectionPtrOutput {
-	return i.ToPrivateEndpointConnectionPtrOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionDefinitionArgs) ToPrivateEndpointConnectionDefinitionPtrOutput() PrivateEndpointConnectionDefinitionPtrOutput {
+	return i.ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput).ToPrivateEndpointConnectionPtrOutputWithContext(ctx)
+func (i PrivateEndpointConnectionDefinitionArgs) ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionDefinitionOutput).ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(ctx)
 }
 
-// PrivateEndpointConnectionPtrInput is an input type that accepts PrivateEndpointConnectionArgs, PrivateEndpointConnectionPtr and PrivateEndpointConnectionPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPtrInput` via:
+// PrivateEndpointConnectionDefinitionPtrInput is an input type that accepts PrivateEndpointConnectionDefinitionArgs, PrivateEndpointConnectionDefinitionPtr and PrivateEndpointConnectionDefinitionPtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionDefinitionPtrInput` via:
 //
-//          PrivateEndpointConnectionArgs{...}
+//          PrivateEndpointConnectionDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type PrivateEndpointConnectionPtrInput interface {
+type PrivateEndpointConnectionDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionPtrOutput() PrivateEndpointConnectionPtrOutput
-	ToPrivateEndpointConnectionPtrOutputWithContext(context.Context) PrivateEndpointConnectionPtrOutput
+	ToPrivateEndpointConnectionDefinitionPtrOutput() PrivateEndpointConnectionDefinitionPtrOutput
+	ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(context.Context) PrivateEndpointConnectionDefinitionPtrOutput
 }
 
-type privateEndpointConnectionPtrType PrivateEndpointConnectionArgs
+type privateEndpointConnectionDefinitionPtrType PrivateEndpointConnectionDefinitionArgs
 
-func PrivateEndpointConnectionPtr(v *PrivateEndpointConnectionArgs) PrivateEndpointConnectionPtrInput {
-	return (*privateEndpointConnectionPtrType)(v)
+func PrivateEndpointConnectionDefinitionPtr(v *PrivateEndpointConnectionDefinitionArgs) PrivateEndpointConnectionDefinitionPtrInput {
+	return (*privateEndpointConnectionDefinitionPtrType)(v)
 }
 
-func (*privateEndpointConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnection)(nil)).Elem()
+func (*privateEndpointConnectionDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionDefinition)(nil)).Elem()
 }
 
-func (i *privateEndpointConnectionPtrType) ToPrivateEndpointConnectionPtrOutput() PrivateEndpointConnectionPtrOutput {
-	return i.ToPrivateEndpointConnectionPtrOutputWithContext(context.Background())
+func (i *privateEndpointConnectionDefinitionPtrType) ToPrivateEndpointConnectionDefinitionPtrOutput() PrivateEndpointConnectionDefinitionPtrOutput {
+	return i.ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *privateEndpointConnectionPtrType) ToPrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPtrOutput)
+func (i *privateEndpointConnectionDefinitionPtrType) ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionDefinitionPtrOutput)
 }
 
 // Private Endpoint Connection Response Properties
-type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionDefinitionOutput struct{ *pulumi.OutputState }
 
-func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionDefinition)(nil)).Elem()
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionDefinitionOutput) ToPrivateEndpointConnectionDefinitionOutput() PrivateEndpointConnectionDefinitionOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionDefinitionOutput) ToPrivateEndpointConnectionDefinitionOutputWithContext(ctx context.Context) PrivateEndpointConnectionDefinitionOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionPtrOutput() PrivateEndpointConnectionPtrOutput {
-	return o.ToPrivateEndpointConnectionPtrOutputWithContext(context.Background())
+func (o PrivateEndpointConnectionDefinitionOutput) ToPrivateEndpointConnectionDefinitionPtrOutput() PrivateEndpointConnectionDefinitionPtrOutput {
+	return o.ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpointConnection {
+func (o PrivateEndpointConnectionDefinitionOutput) ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionDefinitionPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionDefinition) *PrivateEndpointConnectionDefinition {
 		return &v
-	}).(PrivateEndpointConnectionPtrOutput)
+	}).(PrivateEndpointConnectionDefinitionPtrOutput)
 }
 
 // Gets or sets private endpoint associated with the private endpoint connection
-func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
+func (o PrivateEndpointConnectionDefinitionOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionDefinition) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
 }
 
 // Gets or sets private link service connection state
-func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateLinkServiceConnectionState {
+func (o PrivateEndpointConnectionDefinitionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionDefinition) *PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
 // Gets or sets provisioning state of the private endpoint connection
-func (o PrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionDefinitionOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionDefinition) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-type PrivateEndpointConnectionPtrOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (PrivateEndpointConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionDefinition)(nil)).Elem()
 }
 
-func (o PrivateEndpointConnectionPtrOutput) ToPrivateEndpointConnectionPtrOutput() PrivateEndpointConnectionPtrOutput {
+func (o PrivateEndpointConnectionDefinitionPtrOutput) ToPrivateEndpointConnectionDefinitionPtrOutput() PrivateEndpointConnectionDefinitionPtrOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionPtrOutput) ToPrivateEndpointConnectionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPtrOutput {
+func (o PrivateEndpointConnectionDefinitionPtrOutput) ToPrivateEndpointConnectionDefinitionPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionDefinitionPtrOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionPtrOutput) Elem() PrivateEndpointConnectionOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateEndpointConnection { return *v }).(PrivateEndpointConnectionOutput)
+func (o PrivateEndpointConnectionDefinitionPtrOutput) Elem() PrivateEndpointConnectionDefinitionOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionDefinition) PrivateEndpointConnectionDefinition { return *v }).(PrivateEndpointConnectionDefinitionOutput)
 }
 
 // Gets or sets private endpoint associated with the private endpoint connection
-func (o PrivateEndpointConnectionPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) *PrivateEndpoint {
+func (o PrivateEndpointConnectionDefinitionPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionDefinition) *PrivateEndpoint {
 		if v == nil {
 			return nil
 		}
@@ -5797,8 +6026,8 @@ func (o PrivateEndpointConnectionPtrOutput) PrivateEndpoint() PrivateEndpointPtr
 }
 
 // Gets or sets private link service connection state
-func (o PrivateEndpointConnectionPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) *PrivateLinkServiceConnectionState {
+func (o PrivateEndpointConnectionDefinitionPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionDefinition) *PrivateLinkServiceConnectionState {
 		if v == nil {
 			return nil
 		}
@@ -5807,8 +6036,8 @@ func (o PrivateEndpointConnectionPtrOutput) PrivateLinkServiceConnectionState() 
 }
 
 // Gets or sets provisioning state of the private endpoint connection
-func (o PrivateEndpointConnectionPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnection) *string {
+func (o PrivateEndpointConnectionDefinitionPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -5993,7 +6222,7 @@ func (o PrivateEndpointConnectionResponsePtrOutput) ProvisioningState() pulumi.S
 // Information to be stored in Vault properties as an element of privateEndpointConnections List.
 type PrivateEndpointConnectionVaultProperties struct {
 	// Private Endpoint Connection Response Properties.
-	Properties *PrivateEndpointConnection `pulumi:"properties"`
+	Properties *PrivateEndpointConnectionType `pulumi:"properties"`
 }
 
 // PrivateEndpointConnectionVaultPropertiesInput is an input type that accepts PrivateEndpointConnectionVaultPropertiesArgs and PrivateEndpointConnectionVaultPropertiesOutput values.
@@ -6010,7 +6239,7 @@ type PrivateEndpointConnectionVaultPropertiesInput interface {
 // Information to be stored in Vault properties as an element of privateEndpointConnections List.
 type PrivateEndpointConnectionVaultPropertiesArgs struct {
 	// Private Endpoint Connection Response Properties.
-	Properties PrivateEndpointConnectionPtrInput `pulumi:"properties"`
+	Properties PrivateEndpointConnectionTypePtrInput `pulumi:"properties"`
 }
 
 func (PrivateEndpointConnectionVaultPropertiesArgs) ElementType() reflect.Type {
@@ -6041,8 +6270,8 @@ func (o PrivateEndpointConnectionVaultPropertiesOutput) ToPrivateEndpointConnect
 }
 
 // Private Endpoint Connection Response Properties.
-func (o PrivateEndpointConnectionVaultPropertiesOutput) Properties() PrivateEndpointConnectionPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionVaultProperties) *PrivateEndpointConnection { return v.Properties }).(PrivateEndpointConnectionPtrOutput)
+func (o PrivateEndpointConnectionVaultPropertiesOutput) Properties() PrivateEndpointConnectionTypePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultProperties) *PrivateEndpointConnectionType { return v.Properties }).(PrivateEndpointConnectionTypePtrOutput)
 }
 
 // Information to be stored in Vault properties as an element of privateEndpointConnections List.
@@ -6637,7 +6866,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 // The base class for backup items.
-type ProtectedItem struct {
+type ProtectedItemDefinition struct {
 	// The backup management type associated with the backup item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The timestamp when the most recent backup copy was created for this backup item.
@@ -6652,19 +6881,19 @@ type ProtectedItem struct {
 	WorkloadType *string `pulumi:"workloadType"`
 }
 
-// ProtectedItemInput is an input type that accepts ProtectedItemArgs and ProtectedItemOutput values.
-// You can construct a concrete instance of `ProtectedItemInput` via:
+// ProtectedItemDefinitionInput is an input type that accepts ProtectedItemDefinitionArgs and ProtectedItemDefinitionOutput values.
+// You can construct a concrete instance of `ProtectedItemDefinitionInput` via:
 //
-//          ProtectedItemArgs{...}
-type ProtectedItemInput interface {
+//          ProtectedItemDefinitionArgs{...}
+type ProtectedItemDefinitionInput interface {
 	pulumi.Input
 
-	ToProtectedItemOutput() ProtectedItemOutput
-	ToProtectedItemOutputWithContext(context.Context) ProtectedItemOutput
+	ToProtectedItemDefinitionOutput() ProtectedItemDefinitionOutput
+	ToProtectedItemDefinitionOutputWithContext(context.Context) ProtectedItemDefinitionOutput
 }
 
 // The base class for backup items.
-type ProtectedItemArgs struct {
+type ProtectedItemDefinitionArgs struct {
 	// The backup management type associated with the backup item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The timestamp when the most recent backup copy was created for this backup item.
@@ -6679,61 +6908,61 @@ type ProtectedItemArgs struct {
 	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
 }
 
-func (ProtectedItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItem)(nil)).Elem()
+func (ProtectedItemDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedItemDefinition)(nil)).Elem()
 }
 
-func (i ProtectedItemArgs) ToProtectedItemOutput() ProtectedItemOutput {
-	return i.ToProtectedItemOutputWithContext(context.Background())
+func (i ProtectedItemDefinitionArgs) ToProtectedItemDefinitionOutput() ProtectedItemDefinitionOutput {
+	return i.ToProtectedItemDefinitionOutputWithContext(context.Background())
 }
 
-func (i ProtectedItemArgs) ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemOutput)
+func (i ProtectedItemDefinitionArgs) ToProtectedItemDefinitionOutputWithContext(ctx context.Context) ProtectedItemDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemDefinitionOutput)
 }
 
 // The base class for backup items.
-type ProtectedItemOutput struct{ *pulumi.OutputState }
+type ProtectedItemDefinitionOutput struct{ *pulumi.OutputState }
 
-func (ProtectedItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItem)(nil)).Elem()
+func (ProtectedItemDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedItemDefinition)(nil)).Elem()
 }
 
-func (o ProtectedItemOutput) ToProtectedItemOutput() ProtectedItemOutput {
+func (o ProtectedItemDefinitionOutput) ToProtectedItemDefinitionOutput() ProtectedItemDefinitionOutput {
 	return o
 }
 
-func (o ProtectedItemOutput) ToProtectedItemOutputWithContext(ctx context.Context) ProtectedItemOutput {
+func (o ProtectedItemDefinitionOutput) ToProtectedItemDefinitionOutputWithContext(ctx context.Context) ProtectedItemDefinitionOutput {
 	return o
 }
 
 // The backup management type associated with the backup item.
-func (o ProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o ProtectedItemDefinitionOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp when the most recent backup copy was created for this backup item.
-func (o ProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+func (o ProtectedItemDefinitionOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the backup policy associated with this backup item.
-func (o ProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+func (o ProtectedItemDefinitionOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
 // The backup item type.
-func (o ProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItem) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
+func (o ProtectedItemDefinitionOutput) ProtectedItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the resource to be backed up.
-func (o ProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+func (o ProtectedItemDefinitionOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
 // The workload type for this item.
-func (o ProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+func (o ProtectedItemDefinitionOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Protection container mapping properties.
@@ -7206,142 +7435,242 @@ func (o ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput) Inst
 	}).(pulumi.StringPtrOutput)
 }
 
+// The base class for backup policy. Workload-specific backup policies are derived from this class.
+type ProtectionPolicyType struct {
+	// Optional ETag.
+	ETag *string `pulumi:"eTag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name associated with the resource.
+	Name *string `pulumi:"name"`
+	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+	Properties ProtectionPolicyResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type *string `pulumi:"type"`
+}
+
+// ProtectionPolicyTypeInput is an input type that accepts ProtectionPolicyTypeArgs and ProtectionPolicyTypeOutput values.
+// You can construct a concrete instance of `ProtectionPolicyTypeInput` via:
+//
+//          ProtectionPolicyTypeArgs{...}
+type ProtectionPolicyTypeInput interface {
+	pulumi.Input
+
+	ToProtectionPolicyTypeOutput() ProtectionPolicyTypeOutput
+	ToProtectionPolicyTypeOutputWithContext(context.Context) ProtectionPolicyTypeOutput
+}
+
+// The base class for backup policy. Workload-specific backup policies are derived from this class.
+type ProtectionPolicyTypeArgs struct {
+	// Optional ETag.
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
+	// Resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource name associated with the resource.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+	Properties ProtectionPolicyResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ProtectionPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionPolicyType)(nil)).Elem()
+}
+
+func (i ProtectionPolicyTypeArgs) ToProtectionPolicyTypeOutput() ProtectionPolicyTypeOutput {
+	return i.ToProtectionPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ProtectionPolicyTypeArgs) ToProtectionPolicyTypeOutputWithContext(ctx context.Context) ProtectionPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyTypeOutput)
+}
+
+// The base class for backup policy. Workload-specific backup policies are derived from this class.
+type ProtectionPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ProtectionPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionPolicyType)(nil)).Elem()
+}
+
+func (o ProtectionPolicyTypeOutput) ToProtectionPolicyTypeOutput() ProtectionPolicyTypeOutput {
+	return o
+}
+
+func (o ProtectionPolicyTypeOutput) ToProtectionPolicyTypeOutputWithContext(ctx context.Context) ProtectionPolicyTypeOutput {
+	return o
+}
+
+// Optional ETag.
+func (o ProtectionPolicyTypeOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionPolicyType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ProtectionPolicyTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionPolicyType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o ProtectionPolicyTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionPolicyType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 // The base class for a backup policy. Workload-specific backup policies are derived from this class.
-type ProtectionPolicy struct {
+func (o ProtectionPolicyTypeOutput) Properties() ProtectionPolicyResponseOutput {
+	return o.ApplyT(func(v ProtectionPolicyType) ProtectionPolicyResponse { return v.Properties }).(ProtectionPolicyResponseOutput)
+}
+
+// Resource tags.
+func (o ProtectionPolicyTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProtectionPolicyType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o ProtectionPolicyTypeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionPolicyType) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The base class for a backup policy. Workload-specific backup policies are derived from this class.
+type ProtectionPolicyDefinition struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
 }
 
-// ProtectionPolicyInput is an input type that accepts ProtectionPolicyArgs and ProtectionPolicyOutput values.
-// You can construct a concrete instance of `ProtectionPolicyInput` via:
+// ProtectionPolicyDefinitionInput is an input type that accepts ProtectionPolicyDefinitionArgs and ProtectionPolicyDefinitionOutput values.
+// You can construct a concrete instance of `ProtectionPolicyDefinitionInput` via:
 //
-//          ProtectionPolicyArgs{...}
-type ProtectionPolicyInput interface {
+//          ProtectionPolicyDefinitionArgs{...}
+type ProtectionPolicyDefinitionInput interface {
 	pulumi.Input
 
-	ToProtectionPolicyOutput() ProtectionPolicyOutput
-	ToProtectionPolicyOutputWithContext(context.Context) ProtectionPolicyOutput
+	ToProtectionPolicyDefinitionOutput() ProtectionPolicyDefinitionOutput
+	ToProtectionPolicyDefinitionOutputWithContext(context.Context) ProtectionPolicyDefinitionOutput
 }
 
 // The base class for a backup policy. Workload-specific backup policies are derived from this class.
-type ProtectionPolicyArgs struct {
+type ProtectionPolicyDefinitionArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// The number of items associated with this policy.
 	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
 }
 
-func (ProtectionPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionPolicy)(nil)).Elem()
+func (ProtectionPolicyDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionPolicyDefinition)(nil)).Elem()
 }
 
-func (i ProtectionPolicyArgs) ToProtectionPolicyOutput() ProtectionPolicyOutput {
-	return i.ToProtectionPolicyOutputWithContext(context.Background())
+func (i ProtectionPolicyDefinitionArgs) ToProtectionPolicyDefinitionOutput() ProtectionPolicyDefinitionOutput {
+	return i.ToProtectionPolicyDefinitionOutputWithContext(context.Background())
 }
 
-func (i ProtectionPolicyArgs) ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyOutput)
+func (i ProtectionPolicyDefinitionArgs) ToProtectionPolicyDefinitionOutputWithContext(ctx context.Context) ProtectionPolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyDefinitionOutput)
 }
 
-func (i ProtectionPolicyArgs) ToProtectionPolicyPtrOutput() ProtectionPolicyPtrOutput {
-	return i.ToProtectionPolicyPtrOutputWithContext(context.Background())
+func (i ProtectionPolicyDefinitionArgs) ToProtectionPolicyDefinitionPtrOutput() ProtectionPolicyDefinitionPtrOutput {
+	return i.ToProtectionPolicyDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i ProtectionPolicyArgs) ToProtectionPolicyPtrOutputWithContext(ctx context.Context) ProtectionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyOutput).ToProtectionPolicyPtrOutputWithContext(ctx)
+func (i ProtectionPolicyDefinitionArgs) ToProtectionPolicyDefinitionPtrOutputWithContext(ctx context.Context) ProtectionPolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyDefinitionOutput).ToProtectionPolicyDefinitionPtrOutputWithContext(ctx)
 }
 
-// ProtectionPolicyPtrInput is an input type that accepts ProtectionPolicyArgs, ProtectionPolicyPtr and ProtectionPolicyPtrOutput values.
-// You can construct a concrete instance of `ProtectionPolicyPtrInput` via:
+// ProtectionPolicyDefinitionPtrInput is an input type that accepts ProtectionPolicyDefinitionArgs, ProtectionPolicyDefinitionPtr and ProtectionPolicyDefinitionPtrOutput values.
+// You can construct a concrete instance of `ProtectionPolicyDefinitionPtrInput` via:
 //
-//          ProtectionPolicyArgs{...}
+//          ProtectionPolicyDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type ProtectionPolicyPtrInput interface {
+type ProtectionPolicyDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToProtectionPolicyPtrOutput() ProtectionPolicyPtrOutput
-	ToProtectionPolicyPtrOutputWithContext(context.Context) ProtectionPolicyPtrOutput
+	ToProtectionPolicyDefinitionPtrOutput() ProtectionPolicyDefinitionPtrOutput
+	ToProtectionPolicyDefinitionPtrOutputWithContext(context.Context) ProtectionPolicyDefinitionPtrOutput
 }
 
-type protectionPolicyPtrType ProtectionPolicyArgs
+type protectionPolicyDefinitionPtrType ProtectionPolicyDefinitionArgs
 
-func ProtectionPolicyPtr(v *ProtectionPolicyArgs) ProtectionPolicyPtrInput {
-	return (*protectionPolicyPtrType)(v)
+func ProtectionPolicyDefinitionPtr(v *ProtectionPolicyDefinitionArgs) ProtectionPolicyDefinitionPtrInput {
+	return (*protectionPolicyDefinitionPtrType)(v)
 }
 
-func (*protectionPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionPolicy)(nil)).Elem()
+func (*protectionPolicyDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionPolicyDefinition)(nil)).Elem()
 }
 
-func (i *protectionPolicyPtrType) ToProtectionPolicyPtrOutput() ProtectionPolicyPtrOutput {
-	return i.ToProtectionPolicyPtrOutputWithContext(context.Background())
+func (i *protectionPolicyDefinitionPtrType) ToProtectionPolicyDefinitionPtrOutput() ProtectionPolicyDefinitionPtrOutput {
+	return i.ToProtectionPolicyDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *protectionPolicyPtrType) ToProtectionPolicyPtrOutputWithContext(ctx context.Context) ProtectionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyPtrOutput)
+func (i *protectionPolicyDefinitionPtrType) ToProtectionPolicyDefinitionPtrOutputWithContext(ctx context.Context) ProtectionPolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyDefinitionPtrOutput)
 }
 
 // The base class for a backup policy. Workload-specific backup policies are derived from this class.
-type ProtectionPolicyOutput struct{ *pulumi.OutputState }
+type ProtectionPolicyDefinitionOutput struct{ *pulumi.OutputState }
 
-func (ProtectionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionPolicy)(nil)).Elem()
+func (ProtectionPolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionPolicyDefinition)(nil)).Elem()
 }
 
-func (o ProtectionPolicyOutput) ToProtectionPolicyOutput() ProtectionPolicyOutput {
+func (o ProtectionPolicyDefinitionOutput) ToProtectionPolicyDefinitionOutput() ProtectionPolicyDefinitionOutput {
 	return o
 }
 
-func (o ProtectionPolicyOutput) ToProtectionPolicyOutputWithContext(ctx context.Context) ProtectionPolicyOutput {
+func (o ProtectionPolicyDefinitionOutput) ToProtectionPolicyDefinitionOutputWithContext(ctx context.Context) ProtectionPolicyDefinitionOutput {
 	return o
 }
 
-func (o ProtectionPolicyOutput) ToProtectionPolicyPtrOutput() ProtectionPolicyPtrOutput {
-	return o.ToProtectionPolicyPtrOutputWithContext(context.Background())
+func (o ProtectionPolicyDefinitionOutput) ToProtectionPolicyDefinitionPtrOutput() ProtectionPolicyDefinitionPtrOutput {
+	return o.ToProtectionPolicyDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o ProtectionPolicyOutput) ToProtectionPolicyPtrOutputWithContext(ctx context.Context) ProtectionPolicyPtrOutput {
-	return o.ApplyT(func(v ProtectionPolicy) *ProtectionPolicy {
+func (o ProtectionPolicyDefinitionOutput) ToProtectionPolicyDefinitionPtrOutputWithContext(ctx context.Context) ProtectionPolicyDefinitionPtrOutput {
+	return o.ApplyT(func(v ProtectionPolicyDefinition) *ProtectionPolicyDefinition {
 		return &v
-	}).(ProtectionPolicyPtrOutput)
+	}).(ProtectionPolicyDefinitionPtrOutput)
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-func (o ProtectionPolicyOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionPolicy) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o ProtectionPolicyDefinitionOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionPolicyDefinition) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
 // The number of items associated with this policy.
-func (o ProtectionPolicyOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProtectionPolicy) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+func (o ProtectionPolicyDefinitionOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProtectionPolicyDefinition) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
 }
 
-type ProtectionPolicyPtrOutput struct{ *pulumi.OutputState }
+type ProtectionPolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (ProtectionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionPolicy)(nil)).Elem()
+func (ProtectionPolicyDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionPolicyDefinition)(nil)).Elem()
 }
 
-func (o ProtectionPolicyPtrOutput) ToProtectionPolicyPtrOutput() ProtectionPolicyPtrOutput {
+func (o ProtectionPolicyDefinitionPtrOutput) ToProtectionPolicyDefinitionPtrOutput() ProtectionPolicyDefinitionPtrOutput {
 	return o
 }
 
-func (o ProtectionPolicyPtrOutput) ToProtectionPolicyPtrOutputWithContext(ctx context.Context) ProtectionPolicyPtrOutput {
+func (o ProtectionPolicyDefinitionPtrOutput) ToProtectionPolicyDefinitionPtrOutputWithContext(ctx context.Context) ProtectionPolicyDefinitionPtrOutput {
 	return o
 }
 
-func (o ProtectionPolicyPtrOutput) Elem() ProtectionPolicyOutput {
-	return o.ApplyT(func(v *ProtectionPolicy) ProtectionPolicy { return *v }).(ProtectionPolicyOutput)
+func (o ProtectionPolicyDefinitionPtrOutput) Elem() ProtectionPolicyDefinitionOutput {
+	return o.ApplyT(func(v *ProtectionPolicyDefinition) ProtectionPolicyDefinition { return *v }).(ProtectionPolicyDefinitionOutput)
 }
 
 // This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-func (o ProtectionPolicyPtrOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionPolicy) *string {
+func (o ProtectionPolicyDefinitionPtrOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionPolicyDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -7350,8 +7679,8 @@ func (o ProtectionPolicyPtrOutput) BackupManagementType() pulumi.StringPtrOutput
 }
 
 // The number of items associated with this policy.
-func (o ProtectionPolicyPtrOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProtectionPolicy) *int {
+func (o ProtectionPolicyDefinitionPtrOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProtectionPolicyDefinition) *int {
 		if v == nil {
 			return nil
 		}
@@ -9389,6 +9718,416 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ServerVersion() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Fabric definition.
+type ReplicationFabricType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// Fabric related data.
+	Properties FabricPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationFabricTypeInput is an input type that accepts ReplicationFabricTypeArgs and ReplicationFabricTypeOutput values.
+// You can construct a concrete instance of `ReplicationFabricTypeInput` via:
+//
+//          ReplicationFabricTypeArgs{...}
+type ReplicationFabricTypeInput interface {
+	pulumi.Input
+
+	ToReplicationFabricTypeOutput() ReplicationFabricTypeOutput
+	ToReplicationFabricTypeOutputWithContext(context.Context) ReplicationFabricTypeOutput
+}
+
+// Fabric definition.
+type ReplicationFabricTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Fabric related data.
+	Properties FabricPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationFabricTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationFabricType)(nil)).Elem()
+}
+
+func (i ReplicationFabricTypeArgs) ToReplicationFabricTypeOutput() ReplicationFabricTypeOutput {
+	return i.ToReplicationFabricTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationFabricTypeArgs) ToReplicationFabricTypeOutputWithContext(ctx context.Context) ReplicationFabricTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationFabricTypeOutput)
+}
+
+// Fabric definition.
+type ReplicationFabricTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationFabricTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationFabricType)(nil)).Elem()
+}
+
+func (o ReplicationFabricTypeOutput) ToReplicationFabricTypeOutput() ReplicationFabricTypeOutput {
+	return o
+}
+
+func (o ReplicationFabricTypeOutput) ToReplicationFabricTypeOutputWithContext(ctx context.Context) ReplicationFabricTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationFabricTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationFabricType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationFabricTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationFabricType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Fabric related data.
+func (o ReplicationFabricTypeOutput) Properties() FabricPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationFabricType) FabricPropertiesResponse { return v.Properties }).(FabricPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationFabricTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationFabricType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Migration item.
+type ReplicationMigrationItemType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// The migration item properties.
+	Properties MigrationItemPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationMigrationItemTypeInput is an input type that accepts ReplicationMigrationItemTypeArgs and ReplicationMigrationItemTypeOutput values.
+// You can construct a concrete instance of `ReplicationMigrationItemTypeInput` via:
+//
+//          ReplicationMigrationItemTypeArgs{...}
+type ReplicationMigrationItemTypeInput interface {
+	pulumi.Input
+
+	ToReplicationMigrationItemTypeOutput() ReplicationMigrationItemTypeOutput
+	ToReplicationMigrationItemTypeOutputWithContext(context.Context) ReplicationMigrationItemTypeOutput
+}
+
+// Migration item.
+type ReplicationMigrationItemTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The migration item properties.
+	Properties MigrationItemPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationMigrationItemTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationMigrationItemType)(nil)).Elem()
+}
+
+func (i ReplicationMigrationItemTypeArgs) ToReplicationMigrationItemTypeOutput() ReplicationMigrationItemTypeOutput {
+	return i.ToReplicationMigrationItemTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationMigrationItemTypeArgs) ToReplicationMigrationItemTypeOutputWithContext(ctx context.Context) ReplicationMigrationItemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationMigrationItemTypeOutput)
+}
+
+// Migration item.
+type ReplicationMigrationItemTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationMigrationItemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationMigrationItemType)(nil)).Elem()
+}
+
+func (o ReplicationMigrationItemTypeOutput) ToReplicationMigrationItemTypeOutput() ReplicationMigrationItemTypeOutput {
+	return o
+}
+
+func (o ReplicationMigrationItemTypeOutput) ToReplicationMigrationItemTypeOutputWithContext(ctx context.Context) ReplicationMigrationItemTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationMigrationItemTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationMigrationItemType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationMigrationItemTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationMigrationItemType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The migration item properties.
+func (o ReplicationMigrationItemTypeOutput) Properties() MigrationItemPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationMigrationItemType) MigrationItemPropertiesResponse { return v.Properties }).(MigrationItemPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationMigrationItemTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationMigrationItemType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+type ReplicationNetworkMappingType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// The Network Mapping Properties.
+	Properties NetworkMappingPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationNetworkMappingTypeInput is an input type that accepts ReplicationNetworkMappingTypeArgs and ReplicationNetworkMappingTypeOutput values.
+// You can construct a concrete instance of `ReplicationNetworkMappingTypeInput` via:
+//
+//          ReplicationNetworkMappingTypeArgs{...}
+type ReplicationNetworkMappingTypeInput interface {
+	pulumi.Input
+
+	ToReplicationNetworkMappingTypeOutput() ReplicationNetworkMappingTypeOutput
+	ToReplicationNetworkMappingTypeOutputWithContext(context.Context) ReplicationNetworkMappingTypeOutput
+}
+
+// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+type ReplicationNetworkMappingTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Network Mapping Properties.
+	Properties NetworkMappingPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationNetworkMappingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationNetworkMappingType)(nil)).Elem()
+}
+
+func (i ReplicationNetworkMappingTypeArgs) ToReplicationNetworkMappingTypeOutput() ReplicationNetworkMappingTypeOutput {
+	return i.ToReplicationNetworkMappingTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationNetworkMappingTypeArgs) ToReplicationNetworkMappingTypeOutputWithContext(ctx context.Context) ReplicationNetworkMappingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationNetworkMappingTypeOutput)
+}
+
+// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+type ReplicationNetworkMappingTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationNetworkMappingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationNetworkMappingType)(nil)).Elem()
+}
+
+func (o ReplicationNetworkMappingTypeOutput) ToReplicationNetworkMappingTypeOutput() ReplicationNetworkMappingTypeOutput {
+	return o
+}
+
+func (o ReplicationNetworkMappingTypeOutput) ToReplicationNetworkMappingTypeOutputWithContext(ctx context.Context) ReplicationNetworkMappingTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationNetworkMappingTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationNetworkMappingType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationNetworkMappingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationNetworkMappingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Network Mapping Properties.
+func (o ReplicationNetworkMappingTypeOutput) Properties() NetworkMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationNetworkMappingType) NetworkMappingPropertiesResponse { return v.Properties }).(NetworkMappingPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationNetworkMappingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationNetworkMappingType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Protection profile details.
+type ReplicationPolicyType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// The custom data.
+	Properties PolicyPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationPolicyTypeInput is an input type that accepts ReplicationPolicyTypeArgs and ReplicationPolicyTypeOutput values.
+// You can construct a concrete instance of `ReplicationPolicyTypeInput` via:
+//
+//          ReplicationPolicyTypeArgs{...}
+type ReplicationPolicyTypeInput interface {
+	pulumi.Input
+
+	ToReplicationPolicyTypeOutput() ReplicationPolicyTypeOutput
+	ToReplicationPolicyTypeOutputWithContext(context.Context) ReplicationPolicyTypeOutput
+}
+
+// Protection profile details.
+type ReplicationPolicyTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The custom data.
+	Properties PolicyPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationPolicyType)(nil)).Elem()
+}
+
+func (i ReplicationPolicyTypeArgs) ToReplicationPolicyTypeOutput() ReplicationPolicyTypeOutput {
+	return i.ToReplicationPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationPolicyTypeArgs) ToReplicationPolicyTypeOutputWithContext(ctx context.Context) ReplicationPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationPolicyTypeOutput)
+}
+
+// Protection profile details.
+type ReplicationPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationPolicyType)(nil)).Elem()
+}
+
+func (o ReplicationPolicyTypeOutput) ToReplicationPolicyTypeOutput() ReplicationPolicyTypeOutput {
+	return o
+}
+
+func (o ReplicationPolicyTypeOutput) ToReplicationPolicyTypeOutputWithContext(ctx context.Context) ReplicationPolicyTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationPolicyTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationPolicyType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom data.
+func (o ReplicationPolicyTypeOutput) Properties() PolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationPolicyType) PolicyPropertiesResponse { return v.Properties }).(PolicyPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Replication protected item.
+type ReplicationProtectedItemType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// The custom data.
+	Properties ReplicationProtectedItemPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationProtectedItemTypeInput is an input type that accepts ReplicationProtectedItemTypeArgs and ReplicationProtectedItemTypeOutput values.
+// You can construct a concrete instance of `ReplicationProtectedItemTypeInput` via:
+//
+//          ReplicationProtectedItemTypeArgs{...}
+type ReplicationProtectedItemTypeInput interface {
+	pulumi.Input
+
+	ToReplicationProtectedItemTypeOutput() ReplicationProtectedItemTypeOutput
+	ToReplicationProtectedItemTypeOutputWithContext(context.Context) ReplicationProtectedItemTypeOutput
+}
+
+// Replication protected item.
+type ReplicationProtectedItemTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The custom data.
+	Properties ReplicationProtectedItemPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationProtectedItemTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectedItemType)(nil)).Elem()
+}
+
+func (i ReplicationProtectedItemTypeArgs) ToReplicationProtectedItemTypeOutput() ReplicationProtectedItemTypeOutput {
+	return i.ToReplicationProtectedItemTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationProtectedItemTypeArgs) ToReplicationProtectedItemTypeOutputWithContext(ctx context.Context) ReplicationProtectedItemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemTypeOutput)
+}
+
+// Replication protected item.
+type ReplicationProtectedItemTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationProtectedItemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectedItemType)(nil)).Elem()
+}
+
+func (o ReplicationProtectedItemTypeOutput) ToReplicationProtectedItemTypeOutput() ReplicationProtectedItemTypeOutput {
+	return o
+}
+
+func (o ReplicationProtectedItemTypeOutput) ToReplicationProtectedItemTypeOutputWithContext(ctx context.Context) ReplicationProtectedItemTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationProtectedItemTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationProtectedItemType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationProtectedItemTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationProtectedItemType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom data.
+func (o ReplicationProtectedItemTypeOutput) Properties() ReplicationProtectedItemPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationProtectedItemType) ReplicationProtectedItemPropertiesResponse { return v.Properties }).(ReplicationProtectedItemPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationProtectedItemTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationProtectedItemType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponse struct {
 	// The Current active location of the PE.
@@ -10027,6 +10766,90 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverStateDe
 	}).(pulumi.StringPtrOutput)
 }
 
+// Protection container mapping object.
+type ReplicationProtectionContainerMappingType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// The custom data.
+	Properties ProtectionContainerMappingPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationProtectionContainerMappingTypeInput is an input type that accepts ReplicationProtectionContainerMappingTypeArgs and ReplicationProtectionContainerMappingTypeOutput values.
+// You can construct a concrete instance of `ReplicationProtectionContainerMappingTypeInput` via:
+//
+//          ReplicationProtectionContainerMappingTypeArgs{...}
+type ReplicationProtectionContainerMappingTypeInput interface {
+	pulumi.Input
+
+	ToReplicationProtectionContainerMappingTypeOutput() ReplicationProtectionContainerMappingTypeOutput
+	ToReplicationProtectionContainerMappingTypeOutputWithContext(context.Context) ReplicationProtectionContainerMappingTypeOutput
+}
+
+// Protection container mapping object.
+type ReplicationProtectionContainerMappingTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The custom data.
+	Properties ProtectionContainerMappingPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationProtectionContainerMappingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectionContainerMappingType)(nil)).Elem()
+}
+
+func (i ReplicationProtectionContainerMappingTypeArgs) ToReplicationProtectionContainerMappingTypeOutput() ReplicationProtectionContainerMappingTypeOutput {
+	return i.ToReplicationProtectionContainerMappingTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationProtectionContainerMappingTypeArgs) ToReplicationProtectionContainerMappingTypeOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectionContainerMappingTypeOutput)
+}
+
+// Protection container mapping object.
+type ReplicationProtectionContainerMappingTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationProtectionContainerMappingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationProtectionContainerMappingType)(nil)).Elem()
+}
+
+func (o ReplicationProtectionContainerMappingTypeOutput) ToReplicationProtectionContainerMappingTypeOutput() ReplicationProtectionContainerMappingTypeOutput {
+	return o
+}
+
+func (o ReplicationProtectionContainerMappingTypeOutput) ToReplicationProtectionContainerMappingTypeOutputWithContext(ctx context.Context) ReplicationProtectionContainerMappingTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationProtectionContainerMappingTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationProtectionContainerMappingType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationProtectionContainerMappingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationProtectionContainerMappingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom data.
+func (o ReplicationProtectionContainerMappingTypeOutput) Properties() ProtectionContainerMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationProtectionContainerMappingType) ProtectionContainerMappingPropertiesResponse {
+		return v.Properties
+	}).(ProtectionContainerMappingPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationProtectionContainerMappingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationProtectionContainerMappingType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Provider specific input for pairing operations.
 type ReplicationProviderSpecificContainerMappingInput struct {
 	// The class type.
@@ -10297,6 +11120,338 @@ func (o ReplicationProviderSpecificSettingsResponsePtrOutput) InstanceType() pul
 		}
 		return &v.InstanceType
 	}).(pulumi.StringPtrOutput)
+}
+
+// Recovery plan details.
+type ReplicationRecoveryPlanType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// The custom details.
+	Properties RecoveryPlanPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationRecoveryPlanTypeInput is an input type that accepts ReplicationRecoveryPlanTypeArgs and ReplicationRecoveryPlanTypeOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryPlanTypeInput` via:
+//
+//          ReplicationRecoveryPlanTypeArgs{...}
+type ReplicationRecoveryPlanTypeInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryPlanTypeOutput() ReplicationRecoveryPlanTypeOutput
+	ToReplicationRecoveryPlanTypeOutputWithContext(context.Context) ReplicationRecoveryPlanTypeOutput
+}
+
+// Recovery plan details.
+type ReplicationRecoveryPlanTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The custom details.
+	Properties RecoveryPlanPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationRecoveryPlanTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanType)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryPlanTypeArgs) ToReplicationRecoveryPlanTypeOutput() ReplicationRecoveryPlanTypeOutput {
+	return i.ToReplicationRecoveryPlanTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryPlanTypeArgs) ToReplicationRecoveryPlanTypeOutputWithContext(ctx context.Context) ReplicationRecoveryPlanTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanTypeOutput)
+}
+
+// Recovery plan details.
+type ReplicationRecoveryPlanTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryPlanTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryPlanType)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryPlanTypeOutput) ToReplicationRecoveryPlanTypeOutput() ReplicationRecoveryPlanTypeOutput {
+	return o
+}
+
+func (o ReplicationRecoveryPlanTypeOutput) ToReplicationRecoveryPlanTypeOutputWithContext(ctx context.Context) ReplicationRecoveryPlanTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationRecoveryPlanTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationRecoveryPlanTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom details.
+func (o ReplicationRecoveryPlanTypeOutput) Properties() RecoveryPlanPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanType) RecoveryPlanPropertiesResponse { return v.Properties }).(RecoveryPlanPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationRecoveryPlanTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryPlanType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Provider details.
+type ReplicationRecoveryServicesProviderType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// Provider properties.
+	Properties RecoveryServicesProviderPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationRecoveryServicesProviderTypeInput is an input type that accepts ReplicationRecoveryServicesProviderTypeArgs and ReplicationRecoveryServicesProviderTypeOutput values.
+// You can construct a concrete instance of `ReplicationRecoveryServicesProviderTypeInput` via:
+//
+//          ReplicationRecoveryServicesProviderTypeArgs{...}
+type ReplicationRecoveryServicesProviderTypeInput interface {
+	pulumi.Input
+
+	ToReplicationRecoveryServicesProviderTypeOutput() ReplicationRecoveryServicesProviderTypeOutput
+	ToReplicationRecoveryServicesProviderTypeOutputWithContext(context.Context) ReplicationRecoveryServicesProviderTypeOutput
+}
+
+// Provider details.
+type ReplicationRecoveryServicesProviderTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Provider properties.
+	Properties RecoveryServicesProviderPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationRecoveryServicesProviderTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryServicesProviderType)(nil)).Elem()
+}
+
+func (i ReplicationRecoveryServicesProviderTypeArgs) ToReplicationRecoveryServicesProviderTypeOutput() ReplicationRecoveryServicesProviderTypeOutput {
+	return i.ToReplicationRecoveryServicesProviderTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationRecoveryServicesProviderTypeArgs) ToReplicationRecoveryServicesProviderTypeOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryServicesProviderTypeOutput)
+}
+
+// Provider details.
+type ReplicationRecoveryServicesProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationRecoveryServicesProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationRecoveryServicesProviderType)(nil)).Elem()
+}
+
+func (o ReplicationRecoveryServicesProviderTypeOutput) ToReplicationRecoveryServicesProviderTypeOutput() ReplicationRecoveryServicesProviderTypeOutput {
+	return o
+}
+
+func (o ReplicationRecoveryServicesProviderTypeOutput) ToReplicationRecoveryServicesProviderTypeOutputWithContext(ctx context.Context) ReplicationRecoveryServicesProviderTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationRecoveryServicesProviderTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationRecoveryServicesProviderType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationRecoveryServicesProviderTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryServicesProviderType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provider properties.
+func (o ReplicationRecoveryServicesProviderTypeOutput) Properties() RecoveryServicesProviderPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationRecoveryServicesProviderType) RecoveryServicesProviderPropertiesResponse {
+		return v.Properties
+	}).(RecoveryServicesProviderPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationRecoveryServicesProviderTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationRecoveryServicesProviderType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Storage mapping object.
+type ReplicationStorageClassificationMappingType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// Properties of the storage mapping object.
+	Properties StorageClassificationMappingPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationStorageClassificationMappingTypeInput is an input type that accepts ReplicationStorageClassificationMappingTypeArgs and ReplicationStorageClassificationMappingTypeOutput values.
+// You can construct a concrete instance of `ReplicationStorageClassificationMappingTypeInput` via:
+//
+//          ReplicationStorageClassificationMappingTypeArgs{...}
+type ReplicationStorageClassificationMappingTypeInput interface {
+	pulumi.Input
+
+	ToReplicationStorageClassificationMappingTypeOutput() ReplicationStorageClassificationMappingTypeOutput
+	ToReplicationStorageClassificationMappingTypeOutputWithContext(context.Context) ReplicationStorageClassificationMappingTypeOutput
+}
+
+// Storage mapping object.
+type ReplicationStorageClassificationMappingTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the storage mapping object.
+	Properties StorageClassificationMappingPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationStorageClassificationMappingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationStorageClassificationMappingType)(nil)).Elem()
+}
+
+func (i ReplicationStorageClassificationMappingTypeArgs) ToReplicationStorageClassificationMappingTypeOutput() ReplicationStorageClassificationMappingTypeOutput {
+	return i.ToReplicationStorageClassificationMappingTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationStorageClassificationMappingTypeArgs) ToReplicationStorageClassificationMappingTypeOutputWithContext(ctx context.Context) ReplicationStorageClassificationMappingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStorageClassificationMappingTypeOutput)
+}
+
+// Storage mapping object.
+type ReplicationStorageClassificationMappingTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationStorageClassificationMappingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationStorageClassificationMappingType)(nil)).Elem()
+}
+
+func (o ReplicationStorageClassificationMappingTypeOutput) ToReplicationStorageClassificationMappingTypeOutput() ReplicationStorageClassificationMappingTypeOutput {
+	return o
+}
+
+func (o ReplicationStorageClassificationMappingTypeOutput) ToReplicationStorageClassificationMappingTypeOutputWithContext(ctx context.Context) ReplicationStorageClassificationMappingTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationStorageClassificationMappingTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationStorageClassificationMappingType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationStorageClassificationMappingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationStorageClassificationMappingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the storage mapping object.
+func (o ReplicationStorageClassificationMappingTypeOutput) Properties() StorageClassificationMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationStorageClassificationMappingType) StorageClassificationMappingPropertiesResponse {
+		return v.Properties
+	}).(StorageClassificationMappingPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationStorageClassificationMappingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationStorageClassificationMappingType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// vCenter definition.
+type ReplicationvCenterType struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name string `pulumi:"name"`
+	// VCenter related data.
+	Properties VCenterPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type string `pulumi:"type"`
+}
+
+// ReplicationvCenterTypeInput is an input type that accepts ReplicationvCenterTypeArgs and ReplicationvCenterTypeOutput values.
+// You can construct a concrete instance of `ReplicationvCenterTypeInput` via:
+//
+//          ReplicationvCenterTypeArgs{...}
+type ReplicationvCenterTypeInput interface {
+	pulumi.Input
+
+	ToReplicationvCenterTypeOutput() ReplicationvCenterTypeOutput
+	ToReplicationvCenterTypeOutputWithContext(context.Context) ReplicationvCenterTypeOutput
+}
+
+// vCenter definition.
+type ReplicationvCenterTypeArgs struct {
+	// Resource Location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// VCenter related data.
+	Properties VCenterPropertiesResponseInput `pulumi:"properties"`
+	// Resource Type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReplicationvCenterTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationvCenterType)(nil)).Elem()
+}
+
+func (i ReplicationvCenterTypeArgs) ToReplicationvCenterTypeOutput() ReplicationvCenterTypeOutput {
+	return i.ToReplicationvCenterTypeOutputWithContext(context.Background())
+}
+
+func (i ReplicationvCenterTypeArgs) ToReplicationvCenterTypeOutputWithContext(ctx context.Context) ReplicationvCenterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationvCenterTypeOutput)
+}
+
+// vCenter definition.
+type ReplicationvCenterTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationvCenterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationvCenterType)(nil)).Elem()
+}
+
+func (o ReplicationvCenterTypeOutput) ToReplicationvCenterTypeOutput() ReplicationvCenterTypeOutput {
+	return o
+}
+
+func (o ReplicationvCenterTypeOutput) ToReplicationvCenterTypeOutputWithContext(ctx context.Context) ReplicationvCenterTypeOutput {
+	return o
+}
+
+// Resource Location
+func (o ReplicationvCenterTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationvCenterType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationvCenterTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationvCenterType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// VCenter related data.
+func (o ReplicationvCenterTypeOutput) Properties() VCenterPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationvCenterType) VCenterPropertiesResponse { return v.Properties }).(VCenterPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationvCenterTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationvCenterType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Identifies the unique system identifier for each Azure resource.
@@ -11680,206 +12835,6 @@ func (o VaultTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The base class for backup policy. Workload-specific backup policies are derived from this class.
-type VaultBackupPolicyType struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties ProtectionPolicyResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
-}
-
-// VaultBackupPolicyTypeInput is an input type that accepts VaultBackupPolicyTypeArgs and VaultBackupPolicyTypeOutput values.
-// You can construct a concrete instance of `VaultBackupPolicyTypeInput` via:
-//
-//          VaultBackupPolicyTypeArgs{...}
-type VaultBackupPolicyTypeInput interface {
-	pulumi.Input
-
-	ToVaultBackupPolicyTypeOutput() VaultBackupPolicyTypeOutput
-	ToVaultBackupPolicyTypeOutputWithContext(context.Context) VaultBackupPolicyTypeOutput
-}
-
-// The base class for backup policy. Workload-specific backup policies are derived from this class.
-type VaultBackupPolicyTypeArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties ProtectionPolicyResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (VaultBackupPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultBackupPolicyType)(nil)).Elem()
-}
-
-func (i VaultBackupPolicyTypeArgs) ToVaultBackupPolicyTypeOutput() VaultBackupPolicyTypeOutput {
-	return i.ToVaultBackupPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i VaultBackupPolicyTypeArgs) ToVaultBackupPolicyTypeOutputWithContext(ctx context.Context) VaultBackupPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultBackupPolicyTypeOutput)
-}
-
-// The base class for backup policy. Workload-specific backup policies are derived from this class.
-type VaultBackupPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultBackupPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultBackupPolicyType)(nil)).Elem()
-}
-
-func (o VaultBackupPolicyTypeOutput) ToVaultBackupPolicyTypeOutput() VaultBackupPolicyTypeOutput {
-	return o
-}
-
-func (o VaultBackupPolicyTypeOutput) ToVaultBackupPolicyTypeOutputWithContext(ctx context.Context) VaultBackupPolicyTypeOutput {
-	return o
-}
-
-// Optional ETag.
-func (o VaultBackupPolicyTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultBackupPolicyType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location.
-func (o VaultBackupPolicyTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultBackupPolicyType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name associated with the resource.
-func (o VaultBackupPolicyTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultBackupPolicyType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-func (o VaultBackupPolicyTypeOutput) Properties() ProtectionPolicyResponseOutput {
-	return o.ApplyT(func(v VaultBackupPolicyType) ProtectionPolicyResponse { return v.Properties }).(ProtectionPolicyResponseOutput)
-}
-
-// Resource tags.
-func (o VaultBackupPolicyTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VaultBackupPolicyType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-func (o VaultBackupPolicyTypeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultBackupPolicyType) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Private Endpoint Connection Response Properties
-type VaultPrivateEndpointConnectionType struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// PrivateEndpointConnectionResource properties
-	Properties PrivateEndpointConnectionResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
-}
-
-// VaultPrivateEndpointConnectionTypeInput is an input type that accepts VaultPrivateEndpointConnectionTypeArgs and VaultPrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `VaultPrivateEndpointConnectionTypeInput` via:
-//
-//          VaultPrivateEndpointConnectionTypeArgs{...}
-type VaultPrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToVaultPrivateEndpointConnectionTypeOutput() VaultPrivateEndpointConnectionTypeOutput
-	ToVaultPrivateEndpointConnectionTypeOutputWithContext(context.Context) VaultPrivateEndpointConnectionTypeOutput
-}
-
-// Private Endpoint Connection Response Properties
-type VaultPrivateEndpointConnectionTypeArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// PrivateEndpointConnectionResource properties
-	Properties PrivateEndpointConnectionResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultPrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i VaultPrivateEndpointConnectionTypeArgs) ToVaultPrivateEndpointConnectionTypeOutput() VaultPrivateEndpointConnectionTypeOutput {
-	return i.ToVaultPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i VaultPrivateEndpointConnectionTypeArgs) ToVaultPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) VaultPrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultPrivateEndpointConnectionTypeOutput)
-}
-
-// Private Endpoint Connection Response Properties
-type VaultPrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultPrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o VaultPrivateEndpointConnectionTypeOutput) ToVaultPrivateEndpointConnectionTypeOutput() VaultPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o VaultPrivateEndpointConnectionTypeOutput) ToVaultPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) VaultPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// Optional ETag.
-func (o VaultPrivateEndpointConnectionTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location.
-func (o VaultPrivateEndpointConnectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name associated with the resource.
-func (o VaultPrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// PrivateEndpointConnectionResource properties
-func (o VaultPrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionResponseOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) PrivateEndpointConnectionResponse { return v.Properties }).(PrivateEndpointConnectionResponseOutput)
-}
-
-// Resource tags.
-func (o VaultPrivateEndpointConnectionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-func (o VaultPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the vault.
 type VaultProperties struct {
 	// Details for upgrading vault.
@@ -12226,864 +13181,6 @@ func (o VaultPropertiesResponsePtrOutput) UpgradeDetails() UpgradeDetailsRespons
 	}).(UpgradeDetailsResponsePtrOutput)
 }
 
-// Fabric definition.
-type VaultReplicationFabricType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Fabric related data.
-	Properties FabricPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricTypeInput is an input type that accepts VaultReplicationFabricTypeArgs and VaultReplicationFabricTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricTypeInput` via:
-//
-//          VaultReplicationFabricTypeArgs{...}
-type VaultReplicationFabricTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricTypeOutput() VaultReplicationFabricTypeOutput
-	ToVaultReplicationFabricTypeOutputWithContext(context.Context) VaultReplicationFabricTypeOutput
-}
-
-// Fabric definition.
-type VaultReplicationFabricTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Fabric related data.
-	Properties FabricPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricTypeArgs) ToVaultReplicationFabricTypeOutput() VaultReplicationFabricTypeOutput {
-	return i.ToVaultReplicationFabricTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricTypeArgs) ToVaultReplicationFabricTypeOutputWithContext(ctx context.Context) VaultReplicationFabricTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricTypeOutput)
-}
-
-// Fabric definition.
-type VaultReplicationFabricTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricTypeOutput) ToVaultReplicationFabricTypeOutput() VaultReplicationFabricTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricTypeOutput) ToVaultReplicationFabricTypeOutputWithContext(ctx context.Context) VaultReplicationFabricTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Fabric related data.
-func (o VaultReplicationFabricTypeOutput) Properties() FabricPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricType) FabricPropertiesResponse { return v.Properties }).(FabricPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-type VaultReplicationFabricReplicationNetworkReplicationNetworkMappingType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The Network Mapping Properties.
-	Properties NetworkMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeInput is an input type that accepts VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeArgs and VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeInput` via:
-//
-//          VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeArgs{...}
-type VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput() VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput
-	ToVaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutputWithContext(context.Context) VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput
-}
-
-// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-type VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Network Mapping Properties.
-	Properties NetworkMappingPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationNetworkReplicationNetworkMappingType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeArgs) ToVaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput() VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput {
-	return i.ToVaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeArgs) ToVaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput)
-}
-
-// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-type VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationNetworkReplicationNetworkMappingType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput) ToVaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput() VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput) ToVaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationNetworkReplicationNetworkMappingType) *string {
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationNetworkReplicationNetworkMappingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Network Mapping Properties.
-func (o VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput) Properties() NetworkMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationNetworkReplicationNetworkMappingType) NetworkMappingPropertiesResponse {
-		return v.Properties
-	}).(NetworkMappingPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationNetworkReplicationNetworkMappingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Migration item.
-type VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The migration item properties.
-	Properties MigrationItemPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeInput is an input type that accepts VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeArgs and VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeInput` via:
-//
-//          VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeArgs{...}
-type VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput
-	ToVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutputWithContext(context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput
-}
-
-// Migration item.
-type VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The migration item properties.
-	Properties MigrationItemPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeArgs) ToVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput {
-	return i.ToVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeArgs) ToVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput)
-}
-
-// Migration item.
-type VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput) ToVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput) ToVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemType) *string {
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemType) string {
-		return v.Name
-	}).(pulumi.StringOutput)
-}
-
-// The migration item properties.
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput) Properties() MigrationItemPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemType) MigrationItemPropertiesResponse {
-		return v.Properties
-	}).(MigrationItemPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemType) string {
-		return v.Type
-	}).(pulumi.StringOutput)
-}
-
-// Replication protected item.
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The custom data.
-	Properties ReplicationProtectedItemPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeInput is an input type that accepts VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeArgs and VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeInput` via:
-//
-//          VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeArgs{...}
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput
-	ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutputWithContext(context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput
-}
-
-// Replication protected item.
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The custom data.
-	Properties ReplicationProtectedItemPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeArgs) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput {
-	return i.ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeArgs) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput)
-}
-
-// Replication protected item.
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemType) *string {
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemType) string {
-		return v.Name
-	}).(pulumi.StringOutput)
-}
-
-// The custom data.
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput) Properties() ReplicationProtectedItemPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemType) ReplicationProtectedItemPropertiesResponse {
-		return v.Properties
-	}).(ReplicationProtectedItemPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemType) string {
-		return v.Type
-	}).(pulumi.StringOutput)
-}
-
-// Protection container mapping object.
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The custom data.
-	Properties ProtectionContainerMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeInput is an input type that accepts VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeArgs and VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeInput` via:
-//
-//          VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeArgs{...}
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput
-	ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutputWithContext(context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput
-}
-
-// Protection container mapping object.
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The custom data.
-	Properties ProtectionContainerMappingPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeArgs) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput {
-	return i.ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeArgs) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput)
-}
-
-// Protection container mapping object.
-type VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput() VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput) ToVaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingType) *string {
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingType) string {
-		return v.Name
-	}).(pulumi.StringOutput)
-}
-
-// The custom data.
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput) Properties() ProtectionContainerMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingType) ProtectionContainerMappingPropertiesResponse {
-		return v.Properties
-	}).(ProtectionContainerMappingPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingType) string {
-		return v.Type
-	}).(pulumi.StringOutput)
-}
-
-// Provider details.
-type VaultReplicationFabricReplicationRecoveryServicesProviderType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Provider properties.
-	Properties RecoveryServicesProviderPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricReplicationRecoveryServicesProviderTypeInput is an input type that accepts VaultReplicationFabricReplicationRecoveryServicesProviderTypeArgs and VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricReplicationRecoveryServicesProviderTypeInput` via:
-//
-//          VaultReplicationFabricReplicationRecoveryServicesProviderTypeArgs{...}
-type VaultReplicationFabricReplicationRecoveryServicesProviderTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput() VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput
-	ToVaultReplicationFabricReplicationRecoveryServicesProviderTypeOutputWithContext(context.Context) VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput
-}
-
-// Provider details.
-type VaultReplicationFabricReplicationRecoveryServicesProviderTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Provider properties.
-	Properties RecoveryServicesProviderPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricReplicationRecoveryServicesProviderTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationRecoveryServicesProviderType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricReplicationRecoveryServicesProviderTypeArgs) ToVaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput() VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput {
-	return i.ToVaultReplicationFabricReplicationRecoveryServicesProviderTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricReplicationRecoveryServicesProviderTypeArgs) ToVaultReplicationFabricReplicationRecoveryServicesProviderTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput)
-}
-
-// Provider details.
-type VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationRecoveryServicesProviderType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput) ToVaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput() VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput) ToVaultReplicationFabricReplicationRecoveryServicesProviderTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationRecoveryServicesProviderType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationRecoveryServicesProviderType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Provider properties.
-func (o VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput) Properties() RecoveryServicesProviderPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationRecoveryServicesProviderType) RecoveryServicesProviderPropertiesResponse {
-		return v.Properties
-	}).(RecoveryServicesProviderPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationRecoveryServicesProviderType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Storage mapping object.
-type VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Properties of the storage mapping object.
-	Properties StorageClassificationMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeInput is an input type that accepts VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeArgs and VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeInput` via:
-//
-//          VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeArgs{...}
-type VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput() VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput
-	ToVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutputWithContext(context.Context) VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput
-}
-
-// Storage mapping object.
-type VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the storage mapping object.
-	Properties StorageClassificationMappingPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeArgs) ToVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput() VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput {
-	return i.ToVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeArgs) ToVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput)
-}
-
-// Storage mapping object.
-type VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput) ToVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput() VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput) ToVaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingType) *string {
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingType) string {
-		return v.Name
-	}).(pulumi.StringOutput)
-}
-
-// Properties of the storage mapping object.
-func (o VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput) Properties() StorageClassificationMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingType) StorageClassificationMappingPropertiesResponse {
-		return v.Properties
-	}).(StorageClassificationMappingPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingType) string {
-		return v.Type
-	}).(pulumi.StringOutput)
-}
-
-// vCenter definition.
-type VaultReplicationFabricReplicationvCenterType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// VCenter related data.
-	Properties VCenterPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationFabricReplicationvCenterTypeInput is an input type that accepts VaultReplicationFabricReplicationvCenterTypeArgs and VaultReplicationFabricReplicationvCenterTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationFabricReplicationvCenterTypeInput` via:
-//
-//          VaultReplicationFabricReplicationvCenterTypeArgs{...}
-type VaultReplicationFabricReplicationvCenterTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationFabricReplicationvCenterTypeOutput() VaultReplicationFabricReplicationvCenterTypeOutput
-	ToVaultReplicationFabricReplicationvCenterTypeOutputWithContext(context.Context) VaultReplicationFabricReplicationvCenterTypeOutput
-}
-
-// vCenter definition.
-type VaultReplicationFabricReplicationvCenterTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// VCenter related data.
-	Properties VCenterPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationFabricReplicationvCenterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationvCenterType)(nil)).Elem()
-}
-
-func (i VaultReplicationFabricReplicationvCenterTypeArgs) ToVaultReplicationFabricReplicationvCenterTypeOutput() VaultReplicationFabricReplicationvCenterTypeOutput {
-	return i.ToVaultReplicationFabricReplicationvCenterTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationFabricReplicationvCenterTypeArgs) ToVaultReplicationFabricReplicationvCenterTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationvCenterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationFabricReplicationvCenterTypeOutput)
-}
-
-// vCenter definition.
-type VaultReplicationFabricReplicationvCenterTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationFabricReplicationvCenterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationFabricReplicationvCenterType)(nil)).Elem()
-}
-
-func (o VaultReplicationFabricReplicationvCenterTypeOutput) ToVaultReplicationFabricReplicationvCenterTypeOutput() VaultReplicationFabricReplicationvCenterTypeOutput {
-	return o
-}
-
-func (o VaultReplicationFabricReplicationvCenterTypeOutput) ToVaultReplicationFabricReplicationvCenterTypeOutputWithContext(ctx context.Context) VaultReplicationFabricReplicationvCenterTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationFabricReplicationvCenterTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationvCenterType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationFabricReplicationvCenterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationvCenterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// VCenter related data.
-func (o VaultReplicationFabricReplicationvCenterTypeOutput) Properties() VCenterPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationvCenterType) VCenterPropertiesResponse { return v.Properties }).(VCenterPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationFabricReplicationvCenterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationFabricReplicationvCenterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Protection profile details.
-type VaultReplicationPolicyType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The custom data.
-	Properties PolicyPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationPolicyTypeInput is an input type that accepts VaultReplicationPolicyTypeArgs and VaultReplicationPolicyTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationPolicyTypeInput` via:
-//
-//          VaultReplicationPolicyTypeArgs{...}
-type VaultReplicationPolicyTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationPolicyTypeOutput() VaultReplicationPolicyTypeOutput
-	ToVaultReplicationPolicyTypeOutputWithContext(context.Context) VaultReplicationPolicyTypeOutput
-}
-
-// Protection profile details.
-type VaultReplicationPolicyTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The custom data.
-	Properties PolicyPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationPolicyType)(nil)).Elem()
-}
-
-func (i VaultReplicationPolicyTypeArgs) ToVaultReplicationPolicyTypeOutput() VaultReplicationPolicyTypeOutput {
-	return i.ToVaultReplicationPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationPolicyTypeArgs) ToVaultReplicationPolicyTypeOutputWithContext(ctx context.Context) VaultReplicationPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationPolicyTypeOutput)
-}
-
-// Protection profile details.
-type VaultReplicationPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationPolicyType)(nil)).Elem()
-}
-
-func (o VaultReplicationPolicyTypeOutput) ToVaultReplicationPolicyTypeOutput() VaultReplicationPolicyTypeOutput {
-	return o
-}
-
-func (o VaultReplicationPolicyTypeOutput) ToVaultReplicationPolicyTypeOutputWithContext(ctx context.Context) VaultReplicationPolicyTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationPolicyTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationPolicyType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The custom data.
-func (o VaultReplicationPolicyTypeOutput) Properties() PolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationPolicyType) PolicyPropertiesResponse { return v.Properties }).(PolicyPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Recovery plan details.
-type VaultReplicationRecoveryPlanType struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The custom details.
-	Properties RecoveryPlanPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
-}
-
-// VaultReplicationRecoveryPlanTypeInput is an input type that accepts VaultReplicationRecoveryPlanTypeArgs and VaultReplicationRecoveryPlanTypeOutput values.
-// You can construct a concrete instance of `VaultReplicationRecoveryPlanTypeInput` via:
-//
-//          VaultReplicationRecoveryPlanTypeArgs{...}
-type VaultReplicationRecoveryPlanTypeInput interface {
-	pulumi.Input
-
-	ToVaultReplicationRecoveryPlanTypeOutput() VaultReplicationRecoveryPlanTypeOutput
-	ToVaultReplicationRecoveryPlanTypeOutputWithContext(context.Context) VaultReplicationRecoveryPlanTypeOutput
-}
-
-// Recovery plan details.
-type VaultReplicationRecoveryPlanTypeArgs struct {
-	// Resource Location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The custom details.
-	Properties RecoveryPlanPropertiesResponseInput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultReplicationRecoveryPlanTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationRecoveryPlanType)(nil)).Elem()
-}
-
-func (i VaultReplicationRecoveryPlanTypeArgs) ToVaultReplicationRecoveryPlanTypeOutput() VaultReplicationRecoveryPlanTypeOutput {
-	return i.ToVaultReplicationRecoveryPlanTypeOutputWithContext(context.Background())
-}
-
-func (i VaultReplicationRecoveryPlanTypeArgs) ToVaultReplicationRecoveryPlanTypeOutputWithContext(ctx context.Context) VaultReplicationRecoveryPlanTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultReplicationRecoveryPlanTypeOutput)
-}
-
-// Recovery plan details.
-type VaultReplicationRecoveryPlanTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultReplicationRecoveryPlanTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultReplicationRecoveryPlanType)(nil)).Elem()
-}
-
-func (o VaultReplicationRecoveryPlanTypeOutput) ToVaultReplicationRecoveryPlanTypeOutput() VaultReplicationRecoveryPlanTypeOutput {
-	return o
-}
-
-func (o VaultReplicationRecoveryPlanTypeOutput) ToVaultReplicationRecoveryPlanTypeOutputWithContext(ctx context.Context) VaultReplicationRecoveryPlanTypeOutput {
-	return o
-}
-
-// Resource Location
-func (o VaultReplicationRecoveryPlanTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultReplicationRecoveryPlanType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name
-func (o VaultReplicationRecoveryPlanTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationRecoveryPlanType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The custom details.
-func (o VaultReplicationRecoveryPlanTypeOutput) Properties() RecoveryPlanPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultReplicationRecoveryPlanType) RecoveryPlanPropertiesResponse { return v.Properties }).(RecoveryPlanPropertiesResponseOutput)
-}
-
-// Resource Type
-func (o VaultReplicationRecoveryPlanTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultReplicationRecoveryPlanType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Version related details.
 type VersionDetailsResponse struct {
 	// Version expiry date.
@@ -13321,8 +13418,10 @@ func init() {
 	pulumi.RegisterOutputType(PolicyProviderSpecificInputPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionDefinitionOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionVaultPropertiesOutput{})
@@ -13334,13 +13433,14 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProtectedItemOutput{})
+	pulumi.RegisterOutputType(ProtectedItemDefinitionOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingProviderSpecificDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProtectionPolicyOutput{})
-	pulumi.RegisterOutputType(ProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ProtectionPolicyTypeOutput{})
+	pulumi.RegisterOutputType(ProtectionPolicyDefinitionOutput{})
+	pulumi.RegisterOutputType(ProtectionPolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(RecoveryPlanActionOutput{})
@@ -13365,12 +13465,22 @@ func init() {
 	pulumi.RegisterOutputType(RecoveryPlanProviderSpecificInputArrayOutput{})
 	pulumi.RegisterOutputType(RecoveryServicesProviderPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecoveryServicesProviderPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationFabricTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationMigrationItemTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationNetworkMappingTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationPolicyTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationProtectedItemTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationProtectedItemPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationProtectedItemPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationProtectionContainerMappingTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationProviderSpecificContainerMappingInputOutput{})
 	pulumi.RegisterOutputType(ReplicationProviderSpecificContainerMappingInputPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationProviderSpecificSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationProviderSpecificSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryPlanTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationRecoveryServicesProviderTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationStorageClassificationMappingTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationvCenterTypeOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
@@ -13386,22 +13496,10 @@ func init() {
 	pulumi.RegisterOutputType(VCenterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VCenterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VaultTypeOutput{})
-	pulumi.RegisterOutputType(VaultBackupPolicyTypeOutput{})
-	pulumi.RegisterOutputType(VaultPrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricReplicationNetworkReplicationNetworkMappingTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricReplicationProtectionContainerReplicationMigrationItemTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricReplicationProtectionContainerReplicationProtectedItemTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricReplicationProtectionContainerReplicationProtectionContainerMappingTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricReplicationRecoveryServicesProviderTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricReplicationStorageClassificationReplicationStorageClassificationMappingTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationFabricReplicationvCenterTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationPolicyTypeOutput{})
-	pulumi.RegisterOutputType(VaultReplicationRecoveryPlanTypeOutput{})
 	pulumi.RegisterOutputType(VersionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VersionDetailsResponsePtrOutput{})
 }

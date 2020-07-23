@@ -1327,6 +1327,79 @@ func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Single item in List or Get Alias(Disaster Recovery configuration) operation
+type DisasterRecoveryConfigType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+	Properties ArmDisasterRecoveryResponseProperties `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// DisasterRecoveryConfigTypeInput is an input type that accepts DisasterRecoveryConfigTypeArgs and DisasterRecoveryConfigTypeOutput values.
+// You can construct a concrete instance of `DisasterRecoveryConfigTypeInput` via:
+//
+//          DisasterRecoveryConfigTypeArgs{...}
+type DisasterRecoveryConfigTypeInput interface {
+	pulumi.Input
+
+	ToDisasterRecoveryConfigTypeOutput() DisasterRecoveryConfigTypeOutput
+	ToDisasterRecoveryConfigTypeOutputWithContext(context.Context) DisasterRecoveryConfigTypeOutput
+}
+
+// Single item in List or Get Alias(Disaster Recovery configuration) operation
+type DisasterRecoveryConfigTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+	Properties ArmDisasterRecoveryResponsePropertiesInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DisasterRecoveryConfigTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigType)(nil)).Elem()
+}
+
+func (i DisasterRecoveryConfigTypeArgs) ToDisasterRecoveryConfigTypeOutput() DisasterRecoveryConfigTypeOutput {
+	return i.ToDisasterRecoveryConfigTypeOutputWithContext(context.Background())
+}
+
+func (i DisasterRecoveryConfigTypeArgs) ToDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) DisasterRecoveryConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigTypeOutput)
+}
+
+// Single item in List or Get Alias(Disaster Recovery configuration) operation
+type DisasterRecoveryConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (DisasterRecoveryConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigType)(nil)).Elem()
+}
+
+func (o DisasterRecoveryConfigTypeOutput) ToDisasterRecoveryConfigTypeOutput() DisasterRecoveryConfigTypeOutput {
+	return o
+}
+
+func (o DisasterRecoveryConfigTypeOutput) ToDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) DisasterRecoveryConfigTypeOutput {
+	return o
+}
+
+// Resource name
+func (o DisasterRecoveryConfigTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+func (o DisasterRecoveryConfigTypeOutput) Properties() ArmDisasterRecoveryResponsePropertiesOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigType) ArmDisasterRecoveryResponseProperties { return v.Properties }).(ArmDisasterRecoveryResponsePropertiesOutput)
+}
+
+// Resource type
+func (o DisasterRecoveryConfigTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Message Count Details.
 type MessageCountDetails struct {
 }
@@ -1581,6 +1654,79 @@ func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.IntP
 		}
 		return &v.TransferMessageCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Single item in List or Get Migration Config operation
+type MigrationConfigType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties required to the Create Migration Configuration
+	Properties MigrationConfigPropertiesResponseProperties `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// MigrationConfigTypeInput is an input type that accepts MigrationConfigTypeArgs and MigrationConfigTypeOutput values.
+// You can construct a concrete instance of `MigrationConfigTypeInput` via:
+//
+//          MigrationConfigTypeArgs{...}
+type MigrationConfigTypeInput interface {
+	pulumi.Input
+
+	ToMigrationConfigTypeOutput() MigrationConfigTypeOutput
+	ToMigrationConfigTypeOutputWithContext(context.Context) MigrationConfigTypeOutput
+}
+
+// Single item in List or Get Migration Config operation
+type MigrationConfigTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties required to the Create Migration Configuration
+	Properties MigrationConfigPropertiesResponsePropertiesInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MigrationConfigTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationConfigType)(nil)).Elem()
+}
+
+func (i MigrationConfigTypeArgs) ToMigrationConfigTypeOutput() MigrationConfigTypeOutput {
+	return i.ToMigrationConfigTypeOutputWithContext(context.Background())
+}
+
+func (i MigrationConfigTypeArgs) ToMigrationConfigTypeOutputWithContext(ctx context.Context) MigrationConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationConfigTypeOutput)
+}
+
+// Single item in List or Get Migration Config operation
+type MigrationConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (MigrationConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationConfigType)(nil)).Elem()
+}
+
+func (o MigrationConfigTypeOutput) ToMigrationConfigTypeOutput() MigrationConfigTypeOutput {
+	return o
+}
+
+func (o MigrationConfigTypeOutput) ToMigrationConfigTypeOutputWithContext(ctx context.Context) MigrationConfigTypeOutput {
+	return o
+}
+
+// Resource name
+func (o MigrationConfigTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationConfigType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties required to the Create Migration Configuration
+func (o MigrationConfigTypeOutput) Properties() MigrationConfigPropertiesResponsePropertiesOutput {
+	return o.ApplyT(func(v MigrationConfigType) MigrationConfigPropertiesResponseProperties { return v.Properties }).(MigrationConfigPropertiesResponsePropertiesOutput)
+}
+
+// Resource type
+func (o MigrationConfigTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationConfigType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties required to the Create Migration Configuration
@@ -2121,156 +2267,8 @@ func (o NamespaceAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
-type NamespaceDisasterRecoveryConfigType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryResponseProperties `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NamespaceDisasterRecoveryConfigTypeInput is an input type that accepts NamespaceDisasterRecoveryConfigTypeArgs and NamespaceDisasterRecoveryConfigTypeOutput values.
-// You can construct a concrete instance of `NamespaceDisasterRecoveryConfigTypeInput` via:
-//
-//          NamespaceDisasterRecoveryConfigTypeArgs{...}
-type NamespaceDisasterRecoveryConfigTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceDisasterRecoveryConfigTypeOutput() NamespaceDisasterRecoveryConfigTypeOutput
-	ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(context.Context) NamespaceDisasterRecoveryConfigTypeOutput
-}
-
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
-type NamespaceDisasterRecoveryConfigTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryResponsePropertiesInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceDisasterRecoveryConfigTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceDisasterRecoveryConfigType)(nil)).Elem()
-}
-
-func (i NamespaceDisasterRecoveryConfigTypeArgs) ToNamespaceDisasterRecoveryConfigTypeOutput() NamespaceDisasterRecoveryConfigTypeOutput {
-	return i.ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceDisasterRecoveryConfigTypeArgs) ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigTypeOutput)
-}
-
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
-type NamespaceDisasterRecoveryConfigTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceDisasterRecoveryConfigTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceDisasterRecoveryConfigType)(nil)).Elem()
-}
-
-func (o NamespaceDisasterRecoveryConfigTypeOutput) ToNamespaceDisasterRecoveryConfigTypeOutput() NamespaceDisasterRecoveryConfigTypeOutput {
-	return o
-}
-
-func (o NamespaceDisasterRecoveryConfigTypeOutput) ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigTypeOutput {
-	return o
-}
-
-// Resource name
-func (o NamespaceDisasterRecoveryConfigTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceDisasterRecoveryConfigType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-func (o NamespaceDisasterRecoveryConfigTypeOutput) Properties() ArmDisasterRecoveryResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceDisasterRecoveryConfigType) ArmDisasterRecoveryResponseProperties { return v.Properties }).(ArmDisasterRecoveryResponsePropertiesOutput)
-}
-
-// Resource type
-func (o NamespaceDisasterRecoveryConfigTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceDisasterRecoveryConfigType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Single item in List or Get Migration Config operation
-type NamespaceMigrationConfigurationType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties required to the Create Migration Configuration
-	Properties MigrationConfigPropertiesResponseProperties `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NamespaceMigrationConfigurationTypeInput is an input type that accepts NamespaceMigrationConfigurationTypeArgs and NamespaceMigrationConfigurationTypeOutput values.
-// You can construct a concrete instance of `NamespaceMigrationConfigurationTypeInput` via:
-//
-//          NamespaceMigrationConfigurationTypeArgs{...}
-type NamespaceMigrationConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceMigrationConfigurationTypeOutput() NamespaceMigrationConfigurationTypeOutput
-	ToNamespaceMigrationConfigurationTypeOutputWithContext(context.Context) NamespaceMigrationConfigurationTypeOutput
-}
-
-// Single item in List or Get Migration Config operation
-type NamespaceMigrationConfigurationTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties required to the Create Migration Configuration
-	Properties MigrationConfigPropertiesResponsePropertiesInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceMigrationConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceMigrationConfigurationType)(nil)).Elem()
-}
-
-func (i NamespaceMigrationConfigurationTypeArgs) ToNamespaceMigrationConfigurationTypeOutput() NamespaceMigrationConfigurationTypeOutput {
-	return i.ToNamespaceMigrationConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceMigrationConfigurationTypeArgs) ToNamespaceMigrationConfigurationTypeOutputWithContext(ctx context.Context) NamespaceMigrationConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceMigrationConfigurationTypeOutput)
-}
-
-// Single item in List or Get Migration Config operation
-type NamespaceMigrationConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceMigrationConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceMigrationConfigurationType)(nil)).Elem()
-}
-
-func (o NamespaceMigrationConfigurationTypeOutput) ToNamespaceMigrationConfigurationTypeOutput() NamespaceMigrationConfigurationTypeOutput {
-	return o
-}
-
-func (o NamespaceMigrationConfigurationTypeOutput) ToNamespaceMigrationConfigurationTypeOutputWithContext(ctx context.Context) NamespaceMigrationConfigurationTypeOutput {
-	return o
-}
-
-// Resource name
-func (o NamespaceMigrationConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceMigrationConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties required to the Create Migration Configuration
-func (o NamespaceMigrationConfigurationTypeOutput) Properties() MigrationConfigPropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceMigrationConfigurationType) MigrationConfigPropertiesResponseProperties {
-		return v.Properties
-	}).(MigrationConfigPropertiesResponsePropertiesOutput)
-}
-
-// Resource type
-func (o NamespaceMigrationConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceMigrationConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Description of queue Resource.
-type NamespaceQueueType struct {
+type QueueType struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Queue Properties
@@ -2279,19 +2277,19 @@ type NamespaceQueueType struct {
 	Type string `pulumi:"type"`
 }
 
-// NamespaceQueueTypeInput is an input type that accepts NamespaceQueueTypeArgs and NamespaceQueueTypeOutput values.
-// You can construct a concrete instance of `NamespaceQueueTypeInput` via:
+// QueueTypeInput is an input type that accepts QueueTypeArgs and QueueTypeOutput values.
+// You can construct a concrete instance of `QueueTypeInput` via:
 //
-//          NamespaceQueueTypeArgs{...}
-type NamespaceQueueTypeInput interface {
+//          QueueTypeArgs{...}
+type QueueTypeInput interface {
 	pulumi.Input
 
-	ToNamespaceQueueTypeOutput() NamespaceQueueTypeOutput
-	ToNamespaceQueueTypeOutputWithContext(context.Context) NamespaceQueueTypeOutput
+	ToQueueTypeOutput() QueueTypeOutput
+	ToQueueTypeOutputWithContext(context.Context) QueueTypeOutput
 }
 
 // Description of queue Resource.
-type NamespaceQueueTypeArgs struct {
+type QueueTypeArgs struct {
 	// Resource name
 	Name pulumi.StringInput `pulumi:"name"`
 	// Queue Properties
@@ -2300,50 +2298,50 @@ type NamespaceQueueTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (NamespaceQueueTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceQueueType)(nil)).Elem()
+func (QueueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueType)(nil)).Elem()
 }
 
-func (i NamespaceQueueTypeArgs) ToNamespaceQueueTypeOutput() NamespaceQueueTypeOutput {
-	return i.ToNamespaceQueueTypeOutputWithContext(context.Background())
+func (i QueueTypeArgs) ToQueueTypeOutput() QueueTypeOutput {
+	return i.ToQueueTypeOutputWithContext(context.Background())
 }
 
-func (i NamespaceQueueTypeArgs) ToNamespaceQueueTypeOutputWithContext(ctx context.Context) NamespaceQueueTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceQueueTypeOutput)
+func (i QueueTypeArgs) ToQueueTypeOutputWithContext(ctx context.Context) QueueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueTypeOutput)
 }
 
 // Description of queue Resource.
-type NamespaceQueueTypeOutput struct{ *pulumi.OutputState }
+type QueueTypeOutput struct{ *pulumi.OutputState }
 
-func (NamespaceQueueTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceQueueType)(nil)).Elem()
+func (QueueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueType)(nil)).Elem()
 }
 
-func (o NamespaceQueueTypeOutput) ToNamespaceQueueTypeOutput() NamespaceQueueTypeOutput {
+func (o QueueTypeOutput) ToQueueTypeOutput() QueueTypeOutput {
 	return o
 }
 
-func (o NamespaceQueueTypeOutput) ToNamespaceQueueTypeOutputWithContext(ctx context.Context) NamespaceQueueTypeOutput {
+func (o QueueTypeOutput) ToQueueTypeOutputWithContext(ctx context.Context) QueueTypeOutput {
 	return o
 }
 
 // Resource name
-func (o NamespaceQueueTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceQueueType) string { return v.Name }).(pulumi.StringOutput)
+func (o QueueTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Queue Properties
-func (o NamespaceQueueTypeOutput) Properties() SBQueuePropertiesResponseOutput {
-	return o.ApplyT(func(v NamespaceQueueType) SBQueuePropertiesResponse { return v.Properties }).(SBQueuePropertiesResponseOutput)
+func (o QueueTypeOutput) Properties() SBQueuePropertiesResponseOutput {
+	return o.ApplyT(func(v QueueType) SBQueuePropertiesResponse { return v.Properties }).(SBQueuePropertiesResponseOutput)
 }
 
 // Resource type
-func (o NamespaceQueueTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceQueueType) string { return v.Type }).(pulumi.StringOutput)
+func (o QueueTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Description of a namespace authorization rule.
-type NamespaceQueueAuthorizationRuleType struct {
+type QueueAuthorizationRuleType struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// AuthorizationRule properties.
@@ -2352,19 +2350,19 @@ type NamespaceQueueAuthorizationRuleType struct {
 	Type string `pulumi:"type"`
 }
 
-// NamespaceQueueAuthorizationRuleTypeInput is an input type that accepts NamespaceQueueAuthorizationRuleTypeArgs and NamespaceQueueAuthorizationRuleTypeOutput values.
-// You can construct a concrete instance of `NamespaceQueueAuthorizationRuleTypeInput` via:
+// QueueAuthorizationRuleTypeInput is an input type that accepts QueueAuthorizationRuleTypeArgs and QueueAuthorizationRuleTypeOutput values.
+// You can construct a concrete instance of `QueueAuthorizationRuleTypeInput` via:
 //
-//          NamespaceQueueAuthorizationRuleTypeArgs{...}
-type NamespaceQueueAuthorizationRuleTypeInput interface {
+//          QueueAuthorizationRuleTypeArgs{...}
+type QueueAuthorizationRuleTypeInput interface {
 	pulumi.Input
 
-	ToNamespaceQueueAuthorizationRuleTypeOutput() NamespaceQueueAuthorizationRuleTypeOutput
-	ToNamespaceQueueAuthorizationRuleTypeOutputWithContext(context.Context) NamespaceQueueAuthorizationRuleTypeOutput
+	ToQueueAuthorizationRuleTypeOutput() QueueAuthorizationRuleTypeOutput
+	ToQueueAuthorizationRuleTypeOutputWithContext(context.Context) QueueAuthorizationRuleTypeOutput
 }
 
 // Description of a namespace authorization rule.
-type NamespaceQueueAuthorizationRuleTypeArgs struct {
+type QueueAuthorizationRuleTypeArgs struct {
 	// Resource name
 	Name pulumi.StringInput `pulumi:"name"`
 	// AuthorizationRule properties.
@@ -2373,269 +2371,50 @@ type NamespaceQueueAuthorizationRuleTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (NamespaceQueueAuthorizationRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceQueueAuthorizationRuleType)(nil)).Elem()
+func (QueueAuthorizationRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueAuthorizationRuleType)(nil)).Elem()
 }
 
-func (i NamespaceQueueAuthorizationRuleTypeArgs) ToNamespaceQueueAuthorizationRuleTypeOutput() NamespaceQueueAuthorizationRuleTypeOutput {
-	return i.ToNamespaceQueueAuthorizationRuleTypeOutputWithContext(context.Background())
+func (i QueueAuthorizationRuleTypeArgs) ToQueueAuthorizationRuleTypeOutput() QueueAuthorizationRuleTypeOutput {
+	return i.ToQueueAuthorizationRuleTypeOutputWithContext(context.Background())
 }
 
-func (i NamespaceQueueAuthorizationRuleTypeArgs) ToNamespaceQueueAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceQueueAuthorizationRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceQueueAuthorizationRuleTypeOutput)
+func (i QueueAuthorizationRuleTypeArgs) ToQueueAuthorizationRuleTypeOutputWithContext(ctx context.Context) QueueAuthorizationRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleTypeOutput)
 }
 
 // Description of a namespace authorization rule.
-type NamespaceQueueAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
+type QueueAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
 
-func (NamespaceQueueAuthorizationRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceQueueAuthorizationRuleType)(nil)).Elem()
+func (QueueAuthorizationRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueAuthorizationRuleType)(nil)).Elem()
 }
 
-func (o NamespaceQueueAuthorizationRuleTypeOutput) ToNamespaceQueueAuthorizationRuleTypeOutput() NamespaceQueueAuthorizationRuleTypeOutput {
+func (o QueueAuthorizationRuleTypeOutput) ToQueueAuthorizationRuleTypeOutput() QueueAuthorizationRuleTypeOutput {
 	return o
 }
 
-func (o NamespaceQueueAuthorizationRuleTypeOutput) ToNamespaceQueueAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceQueueAuthorizationRuleTypeOutput {
+func (o QueueAuthorizationRuleTypeOutput) ToQueueAuthorizationRuleTypeOutputWithContext(ctx context.Context) QueueAuthorizationRuleTypeOutput {
 	return o
 }
 
 // Resource name
-func (o NamespaceQueueAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceQueueAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
+func (o QueueAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // AuthorizationRule properties.
-func (o NamespaceQueueAuthorizationRuleTypeOutput) Properties() SBAuthorizationRuleResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceQueueAuthorizationRuleType) SBAuthorizationRuleResponseProperties { return v.Properties }).(SBAuthorizationRuleResponsePropertiesOutput)
+func (o QueueAuthorizationRuleTypeOutput) Properties() SBAuthorizationRuleResponsePropertiesOutput {
+	return o.ApplyT(func(v QueueAuthorizationRuleType) SBAuthorizationRuleResponseProperties { return v.Properties }).(SBAuthorizationRuleResponsePropertiesOutput)
 }
 
 // Resource type
-func (o NamespaceQueueAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceQueueAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of topic resource.
-type NamespaceTopicType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of topic resource.
-	Properties SBTopicPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NamespaceTopicTypeInput is an input type that accepts NamespaceTopicTypeArgs and NamespaceTopicTypeOutput values.
-// You can construct a concrete instance of `NamespaceTopicTypeInput` via:
-//
-//          NamespaceTopicTypeArgs{...}
-type NamespaceTopicTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceTopicTypeOutput() NamespaceTopicTypeOutput
-	ToNamespaceTopicTypeOutputWithContext(context.Context) NamespaceTopicTypeOutput
-}
-
-// Description of topic resource.
-type NamespaceTopicTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of topic resource.
-	Properties SBTopicPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceTopicTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicType)(nil)).Elem()
-}
-
-func (i NamespaceTopicTypeArgs) ToNamespaceTopicTypeOutput() NamespaceTopicTypeOutput {
-	return i.ToNamespaceTopicTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceTopicTypeArgs) ToNamespaceTopicTypeOutputWithContext(ctx context.Context) NamespaceTopicTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicTypeOutput)
-}
-
-// Description of topic resource.
-type NamespaceTopicTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceTopicTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicType)(nil)).Elem()
-}
-
-func (o NamespaceTopicTypeOutput) ToNamespaceTopicTypeOutput() NamespaceTopicTypeOutput {
-	return o
-}
-
-func (o NamespaceTopicTypeOutput) ToNamespaceTopicTypeOutputWithContext(ctx context.Context) NamespaceTopicTypeOutput {
-	return o
-}
-
-// Resource name
-func (o NamespaceTopicTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of topic resource.
-func (o NamespaceTopicTypeOutput) Properties() SBTopicPropertiesResponseOutput {
-	return o.ApplyT(func(v NamespaceTopicType) SBTopicPropertiesResponse { return v.Properties }).(SBTopicPropertiesResponseOutput)
-}
-
-// Resource type
-func (o NamespaceTopicTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of a namespace authorization rule.
-type NamespaceTopicAuthorizationRuleType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// AuthorizationRule properties.
-	Properties SBAuthorizationRuleResponseProperties `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NamespaceTopicAuthorizationRuleTypeInput is an input type that accepts NamespaceTopicAuthorizationRuleTypeArgs and NamespaceTopicAuthorizationRuleTypeOutput values.
-// You can construct a concrete instance of `NamespaceTopicAuthorizationRuleTypeInput` via:
-//
-//          NamespaceTopicAuthorizationRuleTypeArgs{...}
-type NamespaceTopicAuthorizationRuleTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceTopicAuthorizationRuleTypeOutput() NamespaceTopicAuthorizationRuleTypeOutput
-	ToNamespaceTopicAuthorizationRuleTypeOutputWithContext(context.Context) NamespaceTopicAuthorizationRuleTypeOutput
-}
-
-// Description of a namespace authorization rule.
-type NamespaceTopicAuthorizationRuleTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// AuthorizationRule properties.
-	Properties SBAuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceTopicAuthorizationRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicAuthorizationRuleType)(nil)).Elem()
-}
-
-func (i NamespaceTopicAuthorizationRuleTypeArgs) ToNamespaceTopicAuthorizationRuleTypeOutput() NamespaceTopicAuthorizationRuleTypeOutput {
-	return i.ToNamespaceTopicAuthorizationRuleTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceTopicAuthorizationRuleTypeArgs) ToNamespaceTopicAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceTopicAuthorizationRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicAuthorizationRuleTypeOutput)
-}
-
-// Description of a namespace authorization rule.
-type NamespaceTopicAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceTopicAuthorizationRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicAuthorizationRuleType)(nil)).Elem()
-}
-
-func (o NamespaceTopicAuthorizationRuleTypeOutput) ToNamespaceTopicAuthorizationRuleTypeOutput() NamespaceTopicAuthorizationRuleTypeOutput {
-	return o
-}
-
-func (o NamespaceTopicAuthorizationRuleTypeOutput) ToNamespaceTopicAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceTopicAuthorizationRuleTypeOutput {
-	return o
-}
-
-// Resource name
-func (o NamespaceTopicAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// AuthorizationRule properties.
-func (o NamespaceTopicAuthorizationRuleTypeOutput) Properties() SBAuthorizationRuleResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceTopicAuthorizationRuleType) SBAuthorizationRuleResponseProperties { return v.Properties }).(SBAuthorizationRuleResponsePropertiesOutput)
-}
-
-// Resource type
-func (o NamespaceTopicAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of subscription resource.
-type NamespaceTopicSubscriptionType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of subscriptions resource.
-	Properties SBSubscriptionPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NamespaceTopicSubscriptionTypeInput is an input type that accepts NamespaceTopicSubscriptionTypeArgs and NamespaceTopicSubscriptionTypeOutput values.
-// You can construct a concrete instance of `NamespaceTopicSubscriptionTypeInput` via:
-//
-//          NamespaceTopicSubscriptionTypeArgs{...}
-type NamespaceTopicSubscriptionTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceTopicSubscriptionTypeOutput() NamespaceTopicSubscriptionTypeOutput
-	ToNamespaceTopicSubscriptionTypeOutputWithContext(context.Context) NamespaceTopicSubscriptionTypeOutput
-}
-
-// Description of subscription resource.
-type NamespaceTopicSubscriptionTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of subscriptions resource.
-	Properties SBSubscriptionPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceTopicSubscriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicSubscriptionType)(nil)).Elem()
-}
-
-func (i NamespaceTopicSubscriptionTypeArgs) ToNamespaceTopicSubscriptionTypeOutput() NamespaceTopicSubscriptionTypeOutput {
-	return i.ToNamespaceTopicSubscriptionTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceTopicSubscriptionTypeArgs) ToNamespaceTopicSubscriptionTypeOutputWithContext(ctx context.Context) NamespaceTopicSubscriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSubscriptionTypeOutput)
-}
-
-// Description of subscription resource.
-type NamespaceTopicSubscriptionTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceTopicSubscriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicSubscriptionType)(nil)).Elem()
-}
-
-func (o NamespaceTopicSubscriptionTypeOutput) ToNamespaceTopicSubscriptionTypeOutput() NamespaceTopicSubscriptionTypeOutput {
-	return o
-}
-
-func (o NamespaceTopicSubscriptionTypeOutput) ToNamespaceTopicSubscriptionTypeOutputWithContext(ctx context.Context) NamespaceTopicSubscriptionTypeOutput {
-	return o
-}
-
-// Resource name
-func (o NamespaceTopicSubscriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of subscriptions resource.
-func (o NamespaceTopicSubscriptionTypeOutput) Properties() SBSubscriptionPropertiesResponseOutput {
-	return o.ApplyT(func(v NamespaceTopicSubscriptionType) SBSubscriptionPropertiesResponse { return v.Properties }).(SBSubscriptionPropertiesResponseOutput)
-}
-
-// Resource type
-func (o NamespaceTopicSubscriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
+func (o QueueAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Description of Rule Resource.
-type NamespaceTopicSubscriptionRuleType struct {
+type RuleType struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Properties of Rule resource
@@ -2644,19 +2423,19 @@ type NamespaceTopicSubscriptionRuleType struct {
 	Type string `pulumi:"type"`
 }
 
-// NamespaceTopicSubscriptionRuleTypeInput is an input type that accepts NamespaceTopicSubscriptionRuleTypeArgs and NamespaceTopicSubscriptionRuleTypeOutput values.
-// You can construct a concrete instance of `NamespaceTopicSubscriptionRuleTypeInput` via:
+// RuleTypeInput is an input type that accepts RuleTypeArgs and RuleTypeOutput values.
+// You can construct a concrete instance of `RuleTypeInput` via:
 //
-//          NamespaceTopicSubscriptionRuleTypeArgs{...}
-type NamespaceTopicSubscriptionRuleTypeInput interface {
+//          RuleTypeArgs{...}
+type RuleTypeInput interface {
 	pulumi.Input
 
-	ToNamespaceTopicSubscriptionRuleTypeOutput() NamespaceTopicSubscriptionRuleTypeOutput
-	ToNamespaceTopicSubscriptionRuleTypeOutputWithContext(context.Context) NamespaceTopicSubscriptionRuleTypeOutput
+	ToRuleTypeOutput() RuleTypeOutput
+	ToRuleTypeOutputWithContext(context.Context) RuleTypeOutput
 }
 
 // Description of Rule Resource.
-type NamespaceTopicSubscriptionRuleTypeArgs struct {
+type RuleTypeArgs struct {
 	// Resource name
 	Name pulumi.StringInput `pulumi:"name"`
 	// Properties of Rule resource
@@ -2665,46 +2444,46 @@ type NamespaceTopicSubscriptionRuleTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (NamespaceTopicSubscriptionRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicSubscriptionRuleType)(nil)).Elem()
+func (RuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleType)(nil)).Elem()
 }
 
-func (i NamespaceTopicSubscriptionRuleTypeArgs) ToNamespaceTopicSubscriptionRuleTypeOutput() NamespaceTopicSubscriptionRuleTypeOutput {
-	return i.ToNamespaceTopicSubscriptionRuleTypeOutputWithContext(context.Background())
+func (i RuleTypeArgs) ToRuleTypeOutput() RuleTypeOutput {
+	return i.ToRuleTypeOutputWithContext(context.Background())
 }
 
-func (i NamespaceTopicSubscriptionRuleTypeArgs) ToNamespaceTopicSubscriptionRuleTypeOutputWithContext(ctx context.Context) NamespaceTopicSubscriptionRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSubscriptionRuleTypeOutput)
+func (i RuleTypeArgs) ToRuleTypeOutputWithContext(ctx context.Context) RuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTypeOutput)
 }
 
 // Description of Rule Resource.
-type NamespaceTopicSubscriptionRuleTypeOutput struct{ *pulumi.OutputState }
+type RuleTypeOutput struct{ *pulumi.OutputState }
 
-func (NamespaceTopicSubscriptionRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceTopicSubscriptionRuleType)(nil)).Elem()
+func (RuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleType)(nil)).Elem()
 }
 
-func (o NamespaceTopicSubscriptionRuleTypeOutput) ToNamespaceTopicSubscriptionRuleTypeOutput() NamespaceTopicSubscriptionRuleTypeOutput {
+func (o RuleTypeOutput) ToRuleTypeOutput() RuleTypeOutput {
 	return o
 }
 
-func (o NamespaceTopicSubscriptionRuleTypeOutput) ToNamespaceTopicSubscriptionRuleTypeOutputWithContext(ctx context.Context) NamespaceTopicSubscriptionRuleTypeOutput {
+func (o RuleTypeOutput) ToRuleTypeOutputWithContext(ctx context.Context) RuleTypeOutput {
 	return o
 }
 
 // Resource name
-func (o NamespaceTopicSubscriptionRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicSubscriptionRuleType) string { return v.Name }).(pulumi.StringOutput)
+func (o RuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Properties of Rule resource
-func (o NamespaceTopicSubscriptionRuleTypeOutput) Properties() RulepropertiesResponseOutput {
-	return o.ApplyT(func(v NamespaceTopicSubscriptionRuleType) RulepropertiesResponse { return v.Properties }).(RulepropertiesResponseOutput)
+func (o RuleTypeOutput) Properties() RulepropertiesResponseOutput {
+	return o.ApplyT(func(v RuleType) RulepropertiesResponse { return v.Properties }).(RulepropertiesResponseOutput)
 }
 
 // Resource type
-func (o NamespaceTopicSubscriptionRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceTopicSubscriptionRuleType) string { return v.Type }).(pulumi.StringOutput)
+func (o RuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Description of Rule Resource.
@@ -6789,6 +6568,225 @@ func (o SqlFilterResponsePtrOutput) SqlExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Description of subscription resource.
+type SubscriptionType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties of subscriptions resource.
+	Properties SBSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// SubscriptionTypeInput is an input type that accepts SubscriptionTypeArgs and SubscriptionTypeOutput values.
+// You can construct a concrete instance of `SubscriptionTypeInput` via:
+//
+//          SubscriptionTypeArgs{...}
+type SubscriptionTypeInput interface {
+	pulumi.Input
+
+	ToSubscriptionTypeOutput() SubscriptionTypeOutput
+	ToSubscriptionTypeOutputWithContext(context.Context) SubscriptionTypeOutput
+}
+
+// Description of subscription resource.
+type SubscriptionTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of subscriptions resource.
+	Properties SBSubscriptionPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SubscriptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionType)(nil)).Elem()
+}
+
+func (i SubscriptionTypeArgs) ToSubscriptionTypeOutput() SubscriptionTypeOutput {
+	return i.ToSubscriptionTypeOutputWithContext(context.Background())
+}
+
+func (i SubscriptionTypeArgs) ToSubscriptionTypeOutputWithContext(ctx context.Context) SubscriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTypeOutput)
+}
+
+// Description of subscription resource.
+type SubscriptionTypeOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionType)(nil)).Elem()
+}
+
+func (o SubscriptionTypeOutput) ToSubscriptionTypeOutput() SubscriptionTypeOutput {
+	return o
+}
+
+func (o SubscriptionTypeOutput) ToSubscriptionTypeOutputWithContext(ctx context.Context) SubscriptionTypeOutput {
+	return o
+}
+
+// Resource name
+func (o SubscriptionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of subscriptions resource.
+func (o SubscriptionTypeOutput) Properties() SBSubscriptionPropertiesResponseOutput {
+	return o.ApplyT(func(v SubscriptionType) SBSubscriptionPropertiesResponse { return v.Properties }).(SBSubscriptionPropertiesResponseOutput)
+}
+
+// Resource type
+func (o SubscriptionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Description of topic resource.
+type TopicType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties of topic resource.
+	Properties SBTopicPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// TopicTypeInput is an input type that accepts TopicTypeArgs and TopicTypeOutput values.
+// You can construct a concrete instance of `TopicTypeInput` via:
+//
+//          TopicTypeArgs{...}
+type TopicTypeInput interface {
+	pulumi.Input
+
+	ToTopicTypeOutput() TopicTypeOutput
+	ToTopicTypeOutputWithContext(context.Context) TopicTypeOutput
+}
+
+// Description of topic resource.
+type TopicTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of topic resource.
+	Properties SBTopicPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TopicTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicType)(nil)).Elem()
+}
+
+func (i TopicTypeArgs) ToTopicTypeOutput() TopicTypeOutput {
+	return i.ToTopicTypeOutputWithContext(context.Background())
+}
+
+func (i TopicTypeArgs) ToTopicTypeOutputWithContext(ctx context.Context) TopicTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeOutput)
+}
+
+// Description of topic resource.
+type TopicTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicType)(nil)).Elem()
+}
+
+func (o TopicTypeOutput) ToTopicTypeOutput() TopicTypeOutput {
+	return o
+}
+
+func (o TopicTypeOutput) ToTopicTypeOutputWithContext(ctx context.Context) TopicTypeOutput {
+	return o
+}
+
+// Resource name
+func (o TopicTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of topic resource.
+func (o TopicTypeOutput) Properties() SBTopicPropertiesResponseOutput {
+	return o.ApplyT(func(v TopicType) SBTopicPropertiesResponse { return v.Properties }).(SBTopicPropertiesResponseOutput)
+}
+
+// Resource type
+func (o TopicTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Description of a namespace authorization rule.
+type TopicAuthorizationRuleType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// AuthorizationRule properties.
+	Properties SBAuthorizationRuleResponseProperties `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// TopicAuthorizationRuleTypeInput is an input type that accepts TopicAuthorizationRuleTypeArgs and TopicAuthorizationRuleTypeOutput values.
+// You can construct a concrete instance of `TopicAuthorizationRuleTypeInput` via:
+//
+//          TopicAuthorizationRuleTypeArgs{...}
+type TopicAuthorizationRuleTypeInput interface {
+	pulumi.Input
+
+	ToTopicAuthorizationRuleTypeOutput() TopicAuthorizationRuleTypeOutput
+	ToTopicAuthorizationRuleTypeOutputWithContext(context.Context) TopicAuthorizationRuleTypeOutput
+}
+
+// Description of a namespace authorization rule.
+type TopicAuthorizationRuleTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// AuthorizationRule properties.
+	Properties SBAuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TopicAuthorizationRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorizationRuleType)(nil)).Elem()
+}
+
+func (i TopicAuthorizationRuleTypeArgs) ToTopicAuthorizationRuleTypeOutput() TopicAuthorizationRuleTypeOutput {
+	return i.ToTopicAuthorizationRuleTypeOutputWithContext(context.Background())
+}
+
+func (i TopicAuthorizationRuleTypeArgs) ToTopicAuthorizationRuleTypeOutputWithContext(ctx context.Context) TopicAuthorizationRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleTypeOutput)
+}
+
+// Description of a namespace authorization rule.
+type TopicAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (TopicAuthorizationRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAuthorizationRuleType)(nil)).Elem()
+}
+
+func (o TopicAuthorizationRuleTypeOutput) ToTopicAuthorizationRuleTypeOutput() TopicAuthorizationRuleTypeOutput {
+	return o
+}
+
+func (o TopicAuthorizationRuleTypeOutput) ToTopicAuthorizationRuleTypeOutputWithContext(ctx context.Context) TopicAuthorizationRuleTypeOutput {
+	return o
+}
+
+// Resource name
+func (o TopicAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// AuthorizationRule properties.
+func (o TopicAuthorizationRuleTypeOutput) Properties() SBAuthorizationRuleResponsePropertiesOutput {
+	return o.ApplyT(func(v TopicAuthorizationRuleType) SBAuthorizationRuleResponseProperties { return v.Properties }).(SBAuthorizationRuleResponsePropertiesOutput)
+}
+
+// Resource type
+func (o TopicAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionOutput{})
 	pulumi.RegisterOutputType(ActionPtrOutput{})
@@ -6802,23 +6800,20 @@ func init() {
 	pulumi.RegisterOutputType(CorrelationFilterPtrOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterResponseOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(DisasterRecoveryConfigTypeOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(MigrationConfigTypeOutput{})
 	pulumi.RegisterOutputType(MigrationConfigPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(MigrationConfigPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MigrationConfigPropertiesResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(MigrationConfigPropertiesResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceDisasterRecoveryConfigTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceMigrationConfigurationTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceQueueTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceQueueAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceTopicTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceTopicAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceTopicSubscriptionTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceTopicSubscriptionRuleTypeOutput{})
+	pulumi.RegisterOutputType(QueueTypeOutput{})
+	pulumi.RegisterOutputType(QueueAuthorizationRuleTypeOutput{})
+	pulumi.RegisterOutputType(RuleTypeOutput{})
 	pulumi.RegisterOutputType(RulepropertiesOutput{})
 	pulumi.RegisterOutputType(RulepropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RulepropertiesResponseOutput{})
@@ -6851,4 +6846,7 @@ func init() {
 	pulumi.RegisterOutputType(SqlFilterPtrOutput{})
 	pulumi.RegisterOutputType(SqlFilterResponseOutput{})
 	pulumi.RegisterOutputType(SqlFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionTypeOutput{})
+	pulumi.RegisterOutputType(TopicTypeOutput{})
+	pulumi.RegisterOutputType(TopicAuthorizationRuleTypeOutput{})
 }

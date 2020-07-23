@@ -2579,6 +2579,90 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) TargetResourceI
 	}).(pulumi.StringPtrOutput)
 }
 
+// Guest configuration assignment is an association between a machine and guest configuration.
+type GuestConfigurationHCRPAssignmentType struct {
+	// Region where the VM is located.
+	Location *string `pulumi:"location"`
+	// Name of the guest configuration assignment.
+	Name *string `pulumi:"name"`
+	// Properties of the Guest configuration assignment.
+	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// GuestConfigurationHCRPAssignmentTypeInput is an input type that accepts GuestConfigurationHCRPAssignmentTypeArgs and GuestConfigurationHCRPAssignmentTypeOutput values.
+// You can construct a concrete instance of `GuestConfigurationHCRPAssignmentTypeInput` via:
+//
+//          GuestConfigurationHCRPAssignmentTypeArgs{...}
+type GuestConfigurationHCRPAssignmentTypeInput interface {
+	pulumi.Input
+
+	ToGuestConfigurationHCRPAssignmentTypeOutput() GuestConfigurationHCRPAssignmentTypeOutput
+	ToGuestConfigurationHCRPAssignmentTypeOutputWithContext(context.Context) GuestConfigurationHCRPAssignmentTypeOutput
+}
+
+// Guest configuration assignment is an association between a machine and guest configuration.
+type GuestConfigurationHCRPAssignmentTypeArgs struct {
+	// Region where the VM is located.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Name of the guest configuration assignment.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Properties of the Guest configuration assignment.
+	Properties GuestConfigurationAssignmentPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GuestConfigurationHCRPAssignmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationHCRPAssignmentType)(nil)).Elem()
+}
+
+func (i GuestConfigurationHCRPAssignmentTypeArgs) ToGuestConfigurationHCRPAssignmentTypeOutput() GuestConfigurationHCRPAssignmentTypeOutput {
+	return i.ToGuestConfigurationHCRPAssignmentTypeOutputWithContext(context.Background())
+}
+
+func (i GuestConfigurationHCRPAssignmentTypeArgs) ToGuestConfigurationHCRPAssignmentTypeOutputWithContext(ctx context.Context) GuestConfigurationHCRPAssignmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationHCRPAssignmentTypeOutput)
+}
+
+// Guest configuration assignment is an association between a machine and guest configuration.
+type GuestConfigurationHCRPAssignmentTypeOutput struct{ *pulumi.OutputState }
+
+func (GuestConfigurationHCRPAssignmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationHCRPAssignmentType)(nil)).Elem()
+}
+
+func (o GuestConfigurationHCRPAssignmentTypeOutput) ToGuestConfigurationHCRPAssignmentTypeOutput() GuestConfigurationHCRPAssignmentTypeOutput {
+	return o
+}
+
+func (o GuestConfigurationHCRPAssignmentTypeOutput) ToGuestConfigurationHCRPAssignmentTypeOutputWithContext(ctx context.Context) GuestConfigurationHCRPAssignmentTypeOutput {
+	return o
+}
+
+// Region where the VM is located.
+func (o GuestConfigurationHCRPAssignmentTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationHCRPAssignmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o GuestConfigurationHCRPAssignmentTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationHCRPAssignmentType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the Guest configuration assignment.
+func (o GuestConfigurationHCRPAssignmentTypeOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v GuestConfigurationHCRPAssignmentType) GuestConfigurationAssignmentPropertiesResponse {
+		return v.Properties
+	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o GuestConfigurationHCRPAssignmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationHCRPAssignmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigation struct {
 	// The configuration parameters for the guest configuration.
@@ -3229,90 +3313,6 @@ func (o MachineExtensionTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineExtensionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Guest configuration assignment is an association between a machine and guest configuration.
-type MachineProviderGuestConfigurationAssignmentType struct {
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// MachineProviderGuestConfigurationAssignmentTypeInput is an input type that accepts MachineProviderGuestConfigurationAssignmentTypeArgs and MachineProviderGuestConfigurationAssignmentTypeOutput values.
-// You can construct a concrete instance of `MachineProviderGuestConfigurationAssignmentTypeInput` via:
-//
-//          MachineProviderGuestConfigurationAssignmentTypeArgs{...}
-type MachineProviderGuestConfigurationAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToMachineProviderGuestConfigurationAssignmentTypeOutput() MachineProviderGuestConfigurationAssignmentTypeOutput
-	ToMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(context.Context) MachineProviderGuestConfigurationAssignmentTypeOutput
-}
-
-// Guest configuration assignment is an association between a machine and guest configuration.
-type MachineProviderGuestConfigurationAssignmentTypeArgs struct {
-	// Region where the VM is located.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MachineProviderGuestConfigurationAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineProviderGuestConfigurationAssignmentType)(nil)).Elem()
-}
-
-func (i MachineProviderGuestConfigurationAssignmentTypeArgs) ToMachineProviderGuestConfigurationAssignmentTypeOutput() MachineProviderGuestConfigurationAssignmentTypeOutput {
-	return i.ToMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i MachineProviderGuestConfigurationAssignmentTypeArgs) ToMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) MachineProviderGuestConfigurationAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineProviderGuestConfigurationAssignmentTypeOutput)
-}
-
-// Guest configuration assignment is an association between a machine and guest configuration.
-type MachineProviderGuestConfigurationAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (MachineProviderGuestConfigurationAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineProviderGuestConfigurationAssignmentType)(nil)).Elem()
-}
-
-func (o MachineProviderGuestConfigurationAssignmentTypeOutput) ToMachineProviderGuestConfigurationAssignmentTypeOutput() MachineProviderGuestConfigurationAssignmentTypeOutput {
-	return o
-}
-
-func (o MachineProviderGuestConfigurationAssignmentTypeOutput) ToMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) MachineProviderGuestConfigurationAssignmentTypeOutput {
-	return o
-}
-
-// Region where the VM is located.
-func (o MachineProviderGuestConfigurationAssignmentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineProviderGuestConfigurationAssignmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Name of the guest configuration assignment.
-func (o MachineProviderGuestConfigurationAssignmentTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineProviderGuestConfigurationAssignmentType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Properties of the Guest configuration assignment.
-func (o MachineProviderGuestConfigurationAssignmentTypeOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v MachineProviderGuestConfigurationAssignmentType) GuestConfigurationAssignmentPropertiesResponse {
-		return v.Properties
-	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o MachineProviderGuestConfigurationAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MachineProviderGuestConfigurationAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Information about the VM.
 type VMInfo struct {
 }
@@ -3614,13 +3614,13 @@ func init() {
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GuestConfigurationHCRPAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationPtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationResponseOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationResponsePtrOutput{})
 	pulumi.RegisterOutputType(MachineTypeOutput{})
 	pulumi.RegisterOutputType(MachineExtensionTypeOutput{})
-	pulumi.RegisterOutputType(MachineProviderGuestConfigurationAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(VMInfoOutput{})
 	pulumi.RegisterOutputType(VMInfoPtrOutput{})
 	pulumi.RegisterOutputType(VMInfoResponseOutput{})

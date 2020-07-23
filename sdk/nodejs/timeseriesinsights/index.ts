@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./accessPolicy";
 export * from "./environment";
-export * from "./environmentAccessPolicy";
-export * from "./environmentEventSource";
-export * from "./environmentReferenceDataSet";
+export * from "./eventSource";
+export * from "./getAccessPolicy";
 export * from "./getEnvironment";
-export * from "./getEnvironmentAccessPolicy";
-export * from "./getEnvironmentEventSource";
-export * from "./getEnvironmentReferenceDataSet";
+export * from "./getEventSource";
+export * from "./getReferenceDataSet";
+export * from "./referenceDataSet";

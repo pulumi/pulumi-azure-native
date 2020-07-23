@@ -2,13 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./assessmentProject";
-export * from "./assessmentProjectGroup";
-export * from "./assessmentProjectGroupAssessment";
-export * from "./assessmentProjectHypervcollector";
-export * from "./assessmentProjectVmwarecollector";
-export * from "./getAssessmentProject";
-export * from "./getAssessmentProjectGroup";
-export * from "./getAssessmentProjectGroupAssessment";
-export * from "./getAssessmentProjectHypervcollector";
-export * from "./getAssessmentProjectVmwarecollector";
+export * from "./assessment";
+export * from "./getAssessment";
+export * from "./getGroup";
+export * from "./getHyperVCollector";
+export * from "./getProject";
+export * from "./getVMwareCollector";
+export * from "./group";
+export * from "./hyperVCollector";
+export * from "./project";
+export * from "./vmwareCollector";

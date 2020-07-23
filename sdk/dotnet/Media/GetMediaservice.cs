@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Media
 {
-    public static class GetMediaservice
+    public static class GetMediaService
     {
-        public static Task<GetMediaserviceResult> InvokeAsync(GetMediaserviceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaserviceResult>("azurerm:media:getMediaservice", args ?? new GetMediaserviceArgs(), options.WithVersion());
+        public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azurerm:media:getMediaService", args ?? new GetMediaServiceArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetMediaserviceArgs : Pulumi.InvokeArgs
+    public sealed class GetMediaServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.Media
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetMediaserviceArgs()
+        public GetMediaServiceArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetMediaserviceResult
+    public sealed class GetMediaServiceResult
     {
         /// <summary>
         /// The Managed Identity for the Media Services account.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureRM.Media
         public readonly string Type;
 
         [OutputConstructor]
-        private GetMediaserviceResult(
+        private GetMediaServiceResult(
             Outputs.MediaServiceIdentityResponseResult? identity,
 
             string location,

@@ -12,7 +12,7 @@ namespace Pulumi.AzureRM.StreamAnalytics
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
     /// </summary>
-    public partial class Streamingjob : Pulumi.CustomResource
+    public partial class StreamingJob : Pulumi.CustomResource
     {
         /// <summary>
         /// Resource location. Required on PUT (CreateOrReplace) requests.
@@ -46,19 +46,19 @@ namespace Pulumi.AzureRM.StreamAnalytics
 
 
         /// <summary>
-        /// Create a Streamingjob resource with the given unique name, arguments, and options.
+        /// Create a StreamingJob resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Streamingjob(string name, StreamingjobArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics:Streamingjob", name, args ?? new StreamingjobArgs(), MakeResourceOptions(options, ""))
+        public StreamingJob(string name, StreamingJobArgs args, CustomResourceOptions? options = null)
+            : base("azurerm:streamanalytics:StreamingJob", name, args ?? new StreamingJobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Streamingjob(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:streamanalytics:Streamingjob", name, null, MakeResourceOptions(options, id))
+        private StreamingJob(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:streamanalytics:StreamingJob", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -74,20 +74,20 @@ namespace Pulumi.AzureRM.StreamAnalytics
             return merged;
         }
         /// <summary>
-        /// Get an existing Streamingjob resource's state with the given name, ID, and optional extra
+        /// Get an existing StreamingJob resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Streamingjob Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static StreamingJob Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Streamingjob(name, id, options);
+            return new StreamingJob(name, id, options);
         }
     }
 
-    public sealed class StreamingjobArgs : Pulumi.ResourceArgs
+    public sealed class StreamingJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource location. Required on PUT (CreateOrReplace) requests.
@@ -125,7 +125,7 @@ namespace Pulumi.AzureRM.StreamAnalytics
             set => _tags = value;
         }
 
-        public StreamingjobArgs()
+        public StreamingJobArgs()
         {
         }
     }

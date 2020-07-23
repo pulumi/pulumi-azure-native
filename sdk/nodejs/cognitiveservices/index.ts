@@ -3,7 +3,7 @@
 
 // Export members:
 export * from "./account";
-export * from "./accountPrivateEndpointConnection";
 export * from "./getAccount";
-export * from "./getAccountPrivateEndpointConnection";
+export * from "./getPrivateEndpointConnection";
 export * from "./listAccountKeys";
+export * from "./privateEndpointConnection";

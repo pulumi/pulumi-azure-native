@@ -546,281 +546,108 @@ func (o ApiManagementConfigResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A web app, a mobile app backend, or an API app.
-type AppServiceType struct {
-	// Managed service identity.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+// App Service Environment ARM resource.
+type AppServiceEnvironmentType struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// Site resource specific properties
-	Properties SiteResponseProperties `pulumi:"properties"`
+	// Core resource properties
+	Properties AppServiceEnvironmentResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
 
-// AppServiceTypeInput is an input type that accepts AppServiceTypeArgs and AppServiceTypeOutput values.
-// You can construct a concrete instance of `AppServiceTypeInput` via:
+// AppServiceEnvironmentTypeInput is an input type that accepts AppServiceEnvironmentTypeArgs and AppServiceEnvironmentTypeOutput values.
+// You can construct a concrete instance of `AppServiceEnvironmentTypeInput` via:
 //
-//          AppServiceTypeArgs{...}
-type AppServiceTypeInput interface {
+//          AppServiceEnvironmentTypeArgs{...}
+type AppServiceEnvironmentTypeInput interface {
 	pulumi.Input
 
-	ToAppServiceTypeOutput() AppServiceTypeOutput
-	ToAppServiceTypeOutputWithContext(context.Context) AppServiceTypeOutput
+	ToAppServiceEnvironmentTypeOutput() AppServiceEnvironmentTypeOutput
+	ToAppServiceEnvironmentTypeOutputWithContext(context.Context) AppServiceEnvironmentTypeOutput
 }
 
-// A web app, a mobile app backend, or an API app.
-type AppServiceTypeArgs struct {
-	// Managed service identity.
-	Identity ManagedServiceIdentityResponsePtrInput `pulumi:"identity"`
+// App Service Environment ARM resource.
+type AppServiceEnvironmentTypeArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Location.
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource Name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Site resource specific properties
-	Properties SiteResponsePropertiesInput `pulumi:"properties"`
+	// Core resource properties
+	Properties AppServiceEnvironmentResponseInput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (AppServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceType)(nil)).Elem()
+func (AppServiceEnvironmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceEnvironmentType)(nil)).Elem()
 }
 
-func (i AppServiceTypeArgs) ToAppServiceTypeOutput() AppServiceTypeOutput {
-	return i.ToAppServiceTypeOutputWithContext(context.Background())
+func (i AppServiceEnvironmentTypeArgs) ToAppServiceEnvironmentTypeOutput() AppServiceEnvironmentTypeOutput {
+	return i.ToAppServiceEnvironmentTypeOutputWithContext(context.Background())
 }
 
-func (i AppServiceTypeArgs) ToAppServiceTypeOutputWithContext(ctx context.Context) AppServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceTypeOutput)
+func (i AppServiceEnvironmentTypeArgs) ToAppServiceEnvironmentTypeOutputWithContext(ctx context.Context) AppServiceEnvironmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentTypeOutput)
 }
 
-// A web app, a mobile app backend, or an API app.
-type AppServiceTypeOutput struct{ *pulumi.OutputState }
+// App Service Environment ARM resource.
+type AppServiceEnvironmentTypeOutput struct{ *pulumi.OutputState }
 
-func (AppServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceType)(nil)).Elem()
+func (AppServiceEnvironmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceEnvironmentType)(nil)).Elem()
 }
 
-func (o AppServiceTypeOutput) ToAppServiceTypeOutput() AppServiceTypeOutput {
+func (o AppServiceEnvironmentTypeOutput) ToAppServiceEnvironmentTypeOutput() AppServiceEnvironmentTypeOutput {
 	return o
 }
 
-func (o AppServiceTypeOutput) ToAppServiceTypeOutputWithContext(ctx context.Context) AppServiceTypeOutput {
+func (o AppServiceEnvironmentTypeOutput) ToAppServiceEnvironmentTypeOutputWithContext(ctx context.Context) AppServiceEnvironmentTypeOutput {
 	return o
-}
-
-// Managed service identity.
-func (o AppServiceTypeOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v AppServiceType) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Kind of resource.
-func (o AppServiceTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentType) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 // Resource Location.
-func (o AppServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceType) string { return v.Location }).(pulumi.StringOutput)
+func (o AppServiceEnvironmentTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Resource Name.
-func (o AppServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceType) string { return v.Name }).(pulumi.StringOutput)
+func (o AppServiceEnvironmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Site resource specific properties
-func (o AppServiceTypeOutput) Properties() SiteResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceType) SiteResponseProperties { return v.Properties }).(SiteResponsePropertiesOutput)
+// Core resource properties
+func (o AppServiceEnvironmentTypeOutput) Properties() AppServiceEnvironmentResponseOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentType) AppServiceEnvironmentResponse { return v.Properties }).(AppServiceEnvironmentResponseOutput)
 }
 
 // Resource tags.
-func (o AppServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AppServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o AppServiceEnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Resource type.
-func (o AppServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User credentials used for publishing activity.
-type AppServiceDeploymentType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties DeploymentResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceDeploymentTypeInput is an input type that accepts AppServiceDeploymentTypeArgs and AppServiceDeploymentTypeOutput values.
-// You can construct a concrete instance of `AppServiceDeploymentTypeInput` via:
-//
-//          AppServiceDeploymentTypeArgs{...}
-type AppServiceDeploymentTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceDeploymentTypeOutput() AppServiceDeploymentTypeOutput
-	ToAppServiceDeploymentTypeOutputWithContext(context.Context) AppServiceDeploymentTypeOutput
-}
-
-// User credentials used for publishing activity.
-type AppServiceDeploymentTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties DeploymentResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceDeploymentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceDeploymentType)(nil)).Elem()
-}
-
-func (i AppServiceDeploymentTypeArgs) ToAppServiceDeploymentTypeOutput() AppServiceDeploymentTypeOutput {
-	return i.ToAppServiceDeploymentTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceDeploymentTypeArgs) ToAppServiceDeploymentTypeOutputWithContext(ctx context.Context) AppServiceDeploymentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceDeploymentTypeOutput)
-}
-
-// User credentials used for publishing activity.
-type AppServiceDeploymentTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceDeploymentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceDeploymentType)(nil)).Elem()
-}
-
-func (o AppServiceDeploymentTypeOutput) ToAppServiceDeploymentTypeOutput() AppServiceDeploymentTypeOutput {
-	return o
-}
-
-func (o AppServiceDeploymentTypeOutput) ToAppServiceDeploymentTypeOutputWithContext(ctx context.Context) AppServiceDeploymentTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceDeploymentTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceDeploymentType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceDeploymentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceDeploymentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deployment resource specific properties
-func (o AppServiceDeploymentTypeOutput) Properties() DeploymentResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceDeploymentType) DeploymentResponseProperties { return v.Properties }).(DeploymentResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceDeploymentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceDeploymentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A domain specific resource identifier.
-type AppServiceDomainOwnershipIdentifierType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties IdentifierResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceDomainOwnershipIdentifierTypeInput is an input type that accepts AppServiceDomainOwnershipIdentifierTypeArgs and AppServiceDomainOwnershipIdentifierTypeOutput values.
-// You can construct a concrete instance of `AppServiceDomainOwnershipIdentifierTypeInput` via:
-//
-//          AppServiceDomainOwnershipIdentifierTypeArgs{...}
-type AppServiceDomainOwnershipIdentifierTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceDomainOwnershipIdentifierTypeOutput() AppServiceDomainOwnershipIdentifierTypeOutput
-	ToAppServiceDomainOwnershipIdentifierTypeOutputWithContext(context.Context) AppServiceDomainOwnershipIdentifierTypeOutput
-}
-
-// A domain specific resource identifier.
-type AppServiceDomainOwnershipIdentifierTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties IdentifierResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceDomainOwnershipIdentifierTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceDomainOwnershipIdentifierType)(nil)).Elem()
-}
-
-func (i AppServiceDomainOwnershipIdentifierTypeArgs) ToAppServiceDomainOwnershipIdentifierTypeOutput() AppServiceDomainOwnershipIdentifierTypeOutput {
-	return i.ToAppServiceDomainOwnershipIdentifierTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceDomainOwnershipIdentifierTypeArgs) ToAppServiceDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) AppServiceDomainOwnershipIdentifierTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceDomainOwnershipIdentifierTypeOutput)
-}
-
-// A domain specific resource identifier.
-type AppServiceDomainOwnershipIdentifierTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceDomainOwnershipIdentifierTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceDomainOwnershipIdentifierType)(nil)).Elem()
-}
-
-func (o AppServiceDomainOwnershipIdentifierTypeOutput) ToAppServiceDomainOwnershipIdentifierTypeOutput() AppServiceDomainOwnershipIdentifierTypeOutput {
-	return o
-}
-
-func (o AppServiceDomainOwnershipIdentifierTypeOutput) ToAppServiceDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) AppServiceDomainOwnershipIdentifierTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceDomainOwnershipIdentifierTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceDomainOwnershipIdentifierType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceDomainOwnershipIdentifierTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceDomainOwnershipIdentifierType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Identifier resource specific properties
-func (o AppServiceDomainOwnershipIdentifierTypeOutput) Properties() IdentifierResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceDomainOwnershipIdentifierType) IdentifierResponseProperties { return v.Properties }).(IdentifierResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceDomainOwnershipIdentifierTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceDomainOwnershipIdentifierType) string { return v.Type }).(pulumi.StringOutput)
+func (o AppServiceEnvironmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Description of an App Service Environment.
-type AppServiceEnvironment struct {
+type AppServiceEnvironmentDefinition struct {
 	// API Management Account associated with the App Service Environment.
 	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
 	// Custom settings for changing the behavior of the App Service Environment.
@@ -869,19 +696,19 @@ type AppServiceEnvironment struct {
 	WorkerPools []WorkerPool `pulumi:"workerPools"`
 }
 
-// AppServiceEnvironmentInput is an input type that accepts AppServiceEnvironmentArgs and AppServiceEnvironmentOutput values.
-// You can construct a concrete instance of `AppServiceEnvironmentInput` via:
+// AppServiceEnvironmentDefinitionInput is an input type that accepts AppServiceEnvironmentDefinitionArgs and AppServiceEnvironmentDefinitionOutput values.
+// You can construct a concrete instance of `AppServiceEnvironmentDefinitionInput` via:
 //
-//          AppServiceEnvironmentArgs{...}
-type AppServiceEnvironmentInput interface {
+//          AppServiceEnvironmentDefinitionArgs{...}
+type AppServiceEnvironmentDefinitionInput interface {
 	pulumi.Input
 
-	ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput
-	ToAppServiceEnvironmentOutputWithContext(context.Context) AppServiceEnvironmentOutput
+	ToAppServiceEnvironmentDefinitionOutput() AppServiceEnvironmentDefinitionOutput
+	ToAppServiceEnvironmentDefinitionOutputWithContext(context.Context) AppServiceEnvironmentDefinitionOutput
 }
 
 // Description of an App Service Environment.
-type AppServiceEnvironmentArgs struct {
+type AppServiceEnvironmentDefinitionArgs struct {
 	// API Management Account associated with the App Service Environment.
 	ApiManagementAccountId pulumi.StringPtrInput `pulumi:"apiManagementAccountId"`
 	// Custom settings for changing the behavior of the App Service Environment.
@@ -930,217 +757,217 @@ type AppServiceEnvironmentArgs struct {
 	WorkerPools WorkerPoolArrayInput `pulumi:"workerPools"`
 }
 
-func (AppServiceEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceEnvironment)(nil)).Elem()
+func (AppServiceEnvironmentDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceEnvironmentDefinition)(nil)).Elem()
 }
 
-func (i AppServiceEnvironmentArgs) ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput {
-	return i.ToAppServiceEnvironmentOutputWithContext(context.Background())
+func (i AppServiceEnvironmentDefinitionArgs) ToAppServiceEnvironmentDefinitionOutput() AppServiceEnvironmentDefinitionOutput {
+	return i.ToAppServiceEnvironmentDefinitionOutputWithContext(context.Background())
 }
 
-func (i AppServiceEnvironmentArgs) ToAppServiceEnvironmentOutputWithContext(ctx context.Context) AppServiceEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentOutput)
+func (i AppServiceEnvironmentDefinitionArgs) ToAppServiceEnvironmentDefinitionOutputWithContext(ctx context.Context) AppServiceEnvironmentDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentDefinitionOutput)
 }
 
-func (i AppServiceEnvironmentArgs) ToAppServiceEnvironmentPtrOutput() AppServiceEnvironmentPtrOutput {
-	return i.ToAppServiceEnvironmentPtrOutputWithContext(context.Background())
+func (i AppServiceEnvironmentDefinitionArgs) ToAppServiceEnvironmentDefinitionPtrOutput() AppServiceEnvironmentDefinitionPtrOutput {
+	return i.ToAppServiceEnvironmentDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i AppServiceEnvironmentArgs) ToAppServiceEnvironmentPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentOutput).ToAppServiceEnvironmentPtrOutputWithContext(ctx)
+func (i AppServiceEnvironmentDefinitionArgs) ToAppServiceEnvironmentDefinitionPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentDefinitionOutput).ToAppServiceEnvironmentDefinitionPtrOutputWithContext(ctx)
 }
 
-// AppServiceEnvironmentPtrInput is an input type that accepts AppServiceEnvironmentArgs, AppServiceEnvironmentPtr and AppServiceEnvironmentPtrOutput values.
-// You can construct a concrete instance of `AppServiceEnvironmentPtrInput` via:
+// AppServiceEnvironmentDefinitionPtrInput is an input type that accepts AppServiceEnvironmentDefinitionArgs, AppServiceEnvironmentDefinitionPtr and AppServiceEnvironmentDefinitionPtrOutput values.
+// You can construct a concrete instance of `AppServiceEnvironmentDefinitionPtrInput` via:
 //
-//          AppServiceEnvironmentArgs{...}
+//          AppServiceEnvironmentDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type AppServiceEnvironmentPtrInput interface {
+type AppServiceEnvironmentDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToAppServiceEnvironmentPtrOutput() AppServiceEnvironmentPtrOutput
-	ToAppServiceEnvironmentPtrOutputWithContext(context.Context) AppServiceEnvironmentPtrOutput
+	ToAppServiceEnvironmentDefinitionPtrOutput() AppServiceEnvironmentDefinitionPtrOutput
+	ToAppServiceEnvironmentDefinitionPtrOutputWithContext(context.Context) AppServiceEnvironmentDefinitionPtrOutput
 }
 
-type appServiceEnvironmentPtrType AppServiceEnvironmentArgs
+type appServiceEnvironmentDefinitionPtrType AppServiceEnvironmentDefinitionArgs
 
-func AppServiceEnvironmentPtr(v *AppServiceEnvironmentArgs) AppServiceEnvironmentPtrInput {
-	return (*appServiceEnvironmentPtrType)(v)
+func AppServiceEnvironmentDefinitionPtr(v *AppServiceEnvironmentDefinitionArgs) AppServiceEnvironmentDefinitionPtrInput {
+	return (*appServiceEnvironmentDefinitionPtrType)(v)
 }
 
-func (*appServiceEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceEnvironment)(nil)).Elem()
+func (*appServiceEnvironmentDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceEnvironmentDefinition)(nil)).Elem()
 }
 
-func (i *appServiceEnvironmentPtrType) ToAppServiceEnvironmentPtrOutput() AppServiceEnvironmentPtrOutput {
-	return i.ToAppServiceEnvironmentPtrOutputWithContext(context.Background())
+func (i *appServiceEnvironmentDefinitionPtrType) ToAppServiceEnvironmentDefinitionPtrOutput() AppServiceEnvironmentDefinitionPtrOutput {
+	return i.ToAppServiceEnvironmentDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *appServiceEnvironmentPtrType) ToAppServiceEnvironmentPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentPtrOutput)
+func (i *appServiceEnvironmentDefinitionPtrType) ToAppServiceEnvironmentDefinitionPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentDefinitionPtrOutput)
 }
 
 // Description of an App Service Environment.
-type AppServiceEnvironmentOutput struct{ *pulumi.OutputState }
+type AppServiceEnvironmentDefinitionOutput struct{ *pulumi.OutputState }
 
-func (AppServiceEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceEnvironment)(nil)).Elem()
+func (AppServiceEnvironmentDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceEnvironmentDefinition)(nil)).Elem()
 }
 
-func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput {
+func (o AppServiceEnvironmentDefinitionOutput) ToAppServiceEnvironmentDefinitionOutput() AppServiceEnvironmentDefinitionOutput {
 	return o
 }
 
-func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentOutputWithContext(ctx context.Context) AppServiceEnvironmentOutput {
+func (o AppServiceEnvironmentDefinitionOutput) ToAppServiceEnvironmentDefinitionOutputWithContext(ctx context.Context) AppServiceEnvironmentDefinitionOutput {
 	return o
 }
 
-func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentPtrOutput() AppServiceEnvironmentPtrOutput {
-	return o.ToAppServiceEnvironmentPtrOutputWithContext(context.Background())
+func (o AppServiceEnvironmentDefinitionOutput) ToAppServiceEnvironmentDefinitionPtrOutput() AppServiceEnvironmentDefinitionPtrOutput {
+	return o.ToAppServiceEnvironmentDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *AppServiceEnvironment {
+func (o AppServiceEnvironmentDefinitionOutput) ToAppServiceEnvironmentDefinitionPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentDefinitionPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *AppServiceEnvironmentDefinition {
 		return &v
-	}).(AppServiceEnvironmentPtrOutput)
+	}).(AppServiceEnvironmentDefinitionPtrOutput)
 }
 
 // API Management Account associated with the App Service Environment.
-func (o AppServiceEnvironmentOutput) ApiManagementAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.ApiManagementAccountId }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) ApiManagementAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.ApiManagementAccountId }).(pulumi.StringPtrOutput)
 }
 
 // Custom settings for changing the behavior of the App Service Environment.
-func (o AppServiceEnvironmentOutput) ClusterSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) []NameValuePair { return v.ClusterSettings }).(NameValuePairArrayOutput)
+func (o AppServiceEnvironmentDefinitionOutput) ClusterSettings() NameValuePairArrayOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) []NameValuePair { return v.ClusterSettings }).(NameValuePairArrayOutput)
 }
 
 // DNS suffix of the App Service Environment.
-func (o AppServiceEnvironmentOutput) DnsSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.DnsSuffix }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) DnsSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.DnsSuffix }).(pulumi.StringPtrOutput)
 }
 
 // True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
 // (most likely because NSG blocked the incoming traffic).
-func (o AppServiceEnvironmentOutput) DynamicCacheEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *bool { return v.DynamicCacheEnabled }).(pulumi.BoolPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) DynamicCacheEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *bool { return v.DynamicCacheEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Scale factor for front-ends.
-func (o AppServiceEnvironmentOutput) FrontEndScaleFactor() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *int { return v.FrontEndScaleFactor }).(pulumi.IntPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) FrontEndScaleFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *int { return v.FrontEndScaleFactor }).(pulumi.IntPtrOutput)
 }
 
 // Flag that displays whether an ASE has linux workers or not
-func (o AppServiceEnvironmentOutput) HasLinuxWorkers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *bool { return v.HasLinuxWorkers }).(pulumi.BoolPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) HasLinuxWorkers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *bool { return v.HasLinuxWorkers }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-func (o AppServiceEnvironmentOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.InternalLoadBalancingMode }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.InternalLoadBalancingMode }).(pulumi.StringPtrOutput)
 }
 
 // Number of IP SSL addresses reserved for the App Service Environment.
-func (o AppServiceEnvironmentOutput) IpsslAddressCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *int { return v.IpsslAddressCount }).(pulumi.IntPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) IpsslAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *int { return v.IpsslAddressCount }).(pulumi.IntPtrOutput)
 }
 
 // Location of the App Service Environment, e.g. "West US".
-func (o AppServiceEnvironmentOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) string { return v.Location }).(pulumi.StringOutput)
+func (o AppServiceEnvironmentDefinitionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Number of front-end instances.
-func (o AppServiceEnvironmentOutput) MultiRoleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *int { return v.MultiRoleCount }).(pulumi.IntPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) MultiRoleCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *int { return v.MultiRoleCount }).(pulumi.IntPtrOutput)
 }
 
 // Front-end VM size, e.g. "Medium", "Large".
-func (o AppServiceEnvironmentOutput) MultiSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.MultiSize }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) MultiSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.MultiSize }).(pulumi.StringPtrOutput)
 }
 
 // Name of the App Service Environment.
-func (o AppServiceEnvironmentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) string { return v.Name }).(pulumi.StringOutput)
+func (o AppServiceEnvironmentDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Access control list for controlling traffic to the App Service Environment.
-func (o AppServiceEnvironmentOutput) NetworkAccessControlList() NetworkAccessControlEntryArrayOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) []NetworkAccessControlEntry { return v.NetworkAccessControlList }).(NetworkAccessControlEntryArrayOutput)
+func (o AppServiceEnvironmentDefinitionOutput) NetworkAccessControlList() NetworkAccessControlEntryArrayOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) []NetworkAccessControlEntry { return v.NetworkAccessControlList }).(NetworkAccessControlEntryArrayOutput)
 }
 
 // Key Vault ID for ILB App Service Environment default SSL certificate
-func (o AppServiceEnvironmentOutput) SslCertKeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.SslCertKeyVaultId }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) SslCertKeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.SslCertKeyVaultId }).(pulumi.StringPtrOutput)
 }
 
 // Key Vault Secret Name for ILB App Service Environment default SSL certificate
-func (o AppServiceEnvironmentOutput) SslCertKeyVaultSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.SslCertKeyVaultSecretName }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) SslCertKeyVaultSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.SslCertKeyVaultSecretName }).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
 //  (most likely because NSG blocked the incoming traffic).
-func (o AppServiceEnvironmentOutput) Suspended() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *bool { return v.Suspended }).(pulumi.BoolPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) Suspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *bool { return v.Suspended }).(pulumi.BoolPtrOutput)
 }
 
 // User added ip ranges to whitelist on ASE db
-func (o AppServiceEnvironmentOutput) UserWhitelistedIpRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) []string { return v.UserWhitelistedIpRanges }).(pulumi.StringArrayOutput)
+func (o AppServiceEnvironmentDefinitionOutput) UserWhitelistedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) []string { return v.UserWhitelistedIpRanges }).(pulumi.StringArrayOutput)
 }
 
 // Description of the Virtual Network.
-func (o AppServiceEnvironmentOutput) VirtualNetwork() VirtualNetworkProfileOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) VirtualNetworkProfile { return v.VirtualNetwork }).(VirtualNetworkProfileOutput)
+func (o AppServiceEnvironmentDefinitionOutput) VirtualNetwork() VirtualNetworkProfileOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) VirtualNetworkProfile { return v.VirtualNetwork }).(VirtualNetworkProfileOutput)
 }
 
 // Name of the Virtual Network for the App Service Environment.
-func (o AppServiceEnvironmentOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
 // Resource group of the Virtual Network.
-func (o AppServiceEnvironmentOutput) VnetResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.VnetResourceGroupName }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) VnetResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.VnetResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Subnet of the Virtual Network.
-func (o AppServiceEnvironmentOutput) VnetSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) *string { return v.VnetSubnetName }).(pulumi.StringPtrOutput)
+func (o AppServiceEnvironmentDefinitionOutput) VnetSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) *string { return v.VnetSubnetName }).(pulumi.StringPtrOutput)
 }
 
 // Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-func (o AppServiceEnvironmentOutput) WorkerPools() WorkerPoolArrayOutput {
-	return o.ApplyT(func(v AppServiceEnvironment) []WorkerPool { return v.WorkerPools }).(WorkerPoolArrayOutput)
+func (o AppServiceEnvironmentDefinitionOutput) WorkerPools() WorkerPoolArrayOutput {
+	return o.ApplyT(func(v AppServiceEnvironmentDefinition) []WorkerPool { return v.WorkerPools }).(WorkerPoolArrayOutput)
 }
 
-type AppServiceEnvironmentPtrOutput struct{ *pulumi.OutputState }
+type AppServiceEnvironmentDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (AppServiceEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceEnvironment)(nil)).Elem()
+func (AppServiceEnvironmentDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceEnvironmentDefinition)(nil)).Elem()
 }
 
-func (o AppServiceEnvironmentPtrOutput) ToAppServiceEnvironmentPtrOutput() AppServiceEnvironmentPtrOutput {
+func (o AppServiceEnvironmentDefinitionPtrOutput) ToAppServiceEnvironmentDefinitionPtrOutput() AppServiceEnvironmentDefinitionPtrOutput {
 	return o
 }
 
-func (o AppServiceEnvironmentPtrOutput) ToAppServiceEnvironmentPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentPtrOutput {
+func (o AppServiceEnvironmentDefinitionPtrOutput) ToAppServiceEnvironmentDefinitionPtrOutputWithContext(ctx context.Context) AppServiceEnvironmentDefinitionPtrOutput {
 	return o
 }
 
-func (o AppServiceEnvironmentPtrOutput) Elem() AppServiceEnvironmentOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) AppServiceEnvironment { return *v }).(AppServiceEnvironmentOutput)
+func (o AppServiceEnvironmentDefinitionPtrOutput) Elem() AppServiceEnvironmentDefinitionOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) AppServiceEnvironmentDefinition { return *v }).(AppServiceEnvironmentDefinitionOutput)
 }
 
 // API Management Account associated with the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) ApiManagementAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) ApiManagementAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1149,8 +976,8 @@ func (o AppServiceEnvironmentPtrOutput) ApiManagementAccountId() pulumi.StringPt
 }
 
 // Custom settings for changing the behavior of the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) ClusterSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) []NameValuePair {
+func (o AppServiceEnvironmentDefinitionPtrOutput) ClusterSettings() NameValuePairArrayOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) []NameValuePair {
 		if v == nil {
 			return nil
 		}
@@ -1159,8 +986,8 @@ func (o AppServiceEnvironmentPtrOutput) ClusterSettings() NameValuePairArrayOutp
 }
 
 // DNS suffix of the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) DnsSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) DnsSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1170,8 +997,8 @@ func (o AppServiceEnvironmentPtrOutput) DnsSuffix() pulumi.StringPtrOutput {
 
 // True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
 // (most likely because NSG blocked the incoming traffic).
-func (o AppServiceEnvironmentPtrOutput) DynamicCacheEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *bool {
+func (o AppServiceEnvironmentDefinitionPtrOutput) DynamicCacheEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1180,8 +1007,8 @@ func (o AppServiceEnvironmentPtrOutput) DynamicCacheEnabled() pulumi.BoolPtrOutp
 }
 
 // Scale factor for front-ends.
-func (o AppServiceEnvironmentPtrOutput) FrontEndScaleFactor() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *int {
+func (o AppServiceEnvironmentDefinitionPtrOutput) FrontEndScaleFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *int {
 		if v == nil {
 			return nil
 		}
@@ -1190,8 +1017,8 @@ func (o AppServiceEnvironmentPtrOutput) FrontEndScaleFactor() pulumi.IntPtrOutpu
 }
 
 // Flag that displays whether an ASE has linux workers or not
-func (o AppServiceEnvironmentPtrOutput) HasLinuxWorkers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *bool {
+func (o AppServiceEnvironmentDefinitionPtrOutput) HasLinuxWorkers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1200,8 +1027,8 @@ func (o AppServiceEnvironmentPtrOutput) HasLinuxWorkers() pulumi.BoolPtrOutput {
 }
 
 // Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1210,8 +1037,8 @@ func (o AppServiceEnvironmentPtrOutput) InternalLoadBalancingMode() pulumi.Strin
 }
 
 // Number of IP SSL addresses reserved for the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) IpsslAddressCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *int {
+func (o AppServiceEnvironmentDefinitionPtrOutput) IpsslAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *int {
 		if v == nil {
 			return nil
 		}
@@ -1220,8 +1047,8 @@ func (o AppServiceEnvironmentPtrOutput) IpsslAddressCount() pulumi.IntPtrOutput 
 }
 
 // Location of the App Service Environment, e.g. "West US".
-func (o AppServiceEnvironmentPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1230,8 +1057,8 @@ func (o AppServiceEnvironmentPtrOutput) Location() pulumi.StringPtrOutput {
 }
 
 // Number of front-end instances.
-func (o AppServiceEnvironmentPtrOutput) MultiRoleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *int {
+func (o AppServiceEnvironmentDefinitionPtrOutput) MultiRoleCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *int {
 		if v == nil {
 			return nil
 		}
@@ -1240,8 +1067,8 @@ func (o AppServiceEnvironmentPtrOutput) MultiRoleCount() pulumi.IntPtrOutput {
 }
 
 // Front-end VM size, e.g. "Medium", "Large".
-func (o AppServiceEnvironmentPtrOutput) MultiSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) MultiSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1250,8 +1077,8 @@ func (o AppServiceEnvironmentPtrOutput) MultiSize() pulumi.StringPtrOutput {
 }
 
 // Name of the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1260,8 +1087,8 @@ func (o AppServiceEnvironmentPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Access control list for controlling traffic to the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) NetworkAccessControlList() NetworkAccessControlEntryArrayOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) []NetworkAccessControlEntry {
+func (o AppServiceEnvironmentDefinitionPtrOutput) NetworkAccessControlList() NetworkAccessControlEntryArrayOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) []NetworkAccessControlEntry {
 		if v == nil {
 			return nil
 		}
@@ -1270,8 +1097,8 @@ func (o AppServiceEnvironmentPtrOutput) NetworkAccessControlList() NetworkAccess
 }
 
 // Key Vault ID for ILB App Service Environment default SSL certificate
-func (o AppServiceEnvironmentPtrOutput) SslCertKeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) SslCertKeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1280,8 +1107,8 @@ func (o AppServiceEnvironmentPtrOutput) SslCertKeyVaultId() pulumi.StringPtrOutp
 }
 
 // Key Vault Secret Name for ILB App Service Environment default SSL certificate
-func (o AppServiceEnvironmentPtrOutput) SslCertKeyVaultSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) SslCertKeyVaultSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1291,8 +1118,8 @@ func (o AppServiceEnvironmentPtrOutput) SslCertKeyVaultSecretName() pulumi.Strin
 
 // <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
 //  (most likely because NSG blocked the incoming traffic).
-func (o AppServiceEnvironmentPtrOutput) Suspended() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *bool {
+func (o AppServiceEnvironmentDefinitionPtrOutput) Suspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1301,8 +1128,8 @@ func (o AppServiceEnvironmentPtrOutput) Suspended() pulumi.BoolPtrOutput {
 }
 
 // User added ip ranges to whitelist on ASE db
-func (o AppServiceEnvironmentPtrOutput) UserWhitelistedIpRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) []string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) UserWhitelistedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) []string {
 		if v == nil {
 			return nil
 		}
@@ -1311,8 +1138,8 @@ func (o AppServiceEnvironmentPtrOutput) UserWhitelistedIpRanges() pulumi.StringA
 }
 
 // Description of the Virtual Network.
-func (o AppServiceEnvironmentPtrOutput) VirtualNetwork() VirtualNetworkProfilePtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *VirtualNetworkProfile {
+func (o AppServiceEnvironmentDefinitionPtrOutput) VirtualNetwork() VirtualNetworkProfilePtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *VirtualNetworkProfile {
 		if v == nil {
 			return nil
 		}
@@ -1321,8 +1148,8 @@ func (o AppServiceEnvironmentPtrOutput) VirtualNetwork() VirtualNetworkProfilePt
 }
 
 // Name of the Virtual Network for the App Service Environment.
-func (o AppServiceEnvironmentPtrOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1331,8 +1158,8 @@ func (o AppServiceEnvironmentPtrOutput) VnetName() pulumi.StringPtrOutput {
 }
 
 // Resource group of the Virtual Network.
-func (o AppServiceEnvironmentPtrOutput) VnetResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) VnetResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1341,8 +1168,8 @@ func (o AppServiceEnvironmentPtrOutput) VnetResourceGroupName() pulumi.StringPtr
 }
 
 // Subnet of the Virtual Network.
-func (o AppServiceEnvironmentPtrOutput) VnetSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) *string {
+func (o AppServiceEnvironmentDefinitionPtrOutput) VnetSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1351,8 +1178,8 @@ func (o AppServiceEnvironmentPtrOutput) VnetSubnetName() pulumi.StringPtrOutput 
 }
 
 // Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-func (o AppServiceEnvironmentPtrOutput) WorkerPools() WorkerPoolArrayOutput {
-	return o.ApplyT(func(v *AppServiceEnvironment) []WorkerPool {
+func (o AppServiceEnvironmentDefinitionPtrOutput) WorkerPools() WorkerPoolArrayOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentDefinition) []WorkerPool {
 		if v == nil {
 			return nil
 		}
@@ -2224,420 +2051,6 @@ func (o AppServiceEnvironmentResponsePtrOutput) WorkerPools() WorkerPoolResponse
 		}
 		return v.WorkerPools
 	}).(WorkerPoolResponseArrayOutput)
-}
-
-// Function information.
-type AppServiceFunctionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceFunctionTypeInput is an input type that accepts AppServiceFunctionTypeArgs and AppServiceFunctionTypeOutput values.
-// You can construct a concrete instance of `AppServiceFunctionTypeInput` via:
-//
-//          AppServiceFunctionTypeArgs{...}
-type AppServiceFunctionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceFunctionTypeOutput() AppServiceFunctionTypeOutput
-	ToAppServiceFunctionTypeOutputWithContext(context.Context) AppServiceFunctionTypeOutput
-}
-
-// Function information.
-type AppServiceFunctionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceFunctionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceFunctionType)(nil)).Elem()
-}
-
-func (i AppServiceFunctionTypeArgs) ToAppServiceFunctionTypeOutput() AppServiceFunctionTypeOutput {
-	return i.ToAppServiceFunctionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceFunctionTypeArgs) ToAppServiceFunctionTypeOutputWithContext(ctx context.Context) AppServiceFunctionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceFunctionTypeOutput)
-}
-
-// Function information.
-type AppServiceFunctionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceFunctionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceFunctionType)(nil)).Elem()
-}
-
-func (o AppServiceFunctionTypeOutput) ToAppServiceFunctionTypeOutput() AppServiceFunctionTypeOutput {
-	return o
-}
-
-func (o AppServiceFunctionTypeOutput) ToAppServiceFunctionTypeOutputWithContext(ctx context.Context) AppServiceFunctionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceFunctionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceFunctionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceFunctionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceFunctionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// FunctionEnvelope resource specific properties
-func (o AppServiceFunctionTypeOutput) Properties() FunctionEnvelopeResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceFunctionType) FunctionEnvelopeResponseProperties { return v.Properties }).(FunctionEnvelopeResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceFunctionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceFunctionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A hostname binding object.
-type AppServiceHostNameBindingType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// HostNameBinding resource specific properties
-	Properties HostNameBindingResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceHostNameBindingTypeInput is an input type that accepts AppServiceHostNameBindingTypeArgs and AppServiceHostNameBindingTypeOutput values.
-// You can construct a concrete instance of `AppServiceHostNameBindingTypeInput` via:
-//
-//          AppServiceHostNameBindingTypeArgs{...}
-type AppServiceHostNameBindingTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceHostNameBindingTypeOutput() AppServiceHostNameBindingTypeOutput
-	ToAppServiceHostNameBindingTypeOutputWithContext(context.Context) AppServiceHostNameBindingTypeOutput
-}
-
-// A hostname binding object.
-type AppServiceHostNameBindingTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// HostNameBinding resource specific properties
-	Properties HostNameBindingResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceHostNameBindingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceHostNameBindingType)(nil)).Elem()
-}
-
-func (i AppServiceHostNameBindingTypeArgs) ToAppServiceHostNameBindingTypeOutput() AppServiceHostNameBindingTypeOutput {
-	return i.ToAppServiceHostNameBindingTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceHostNameBindingTypeArgs) ToAppServiceHostNameBindingTypeOutputWithContext(ctx context.Context) AppServiceHostNameBindingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceHostNameBindingTypeOutput)
-}
-
-// A hostname binding object.
-type AppServiceHostNameBindingTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceHostNameBindingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceHostNameBindingType)(nil)).Elem()
-}
-
-func (o AppServiceHostNameBindingTypeOutput) ToAppServiceHostNameBindingTypeOutput() AppServiceHostNameBindingTypeOutput {
-	return o
-}
-
-func (o AppServiceHostNameBindingTypeOutput) ToAppServiceHostNameBindingTypeOutputWithContext(ctx context.Context) AppServiceHostNameBindingTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceHostNameBindingTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceHostNameBindingType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceHostNameBindingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceHostNameBindingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// HostNameBinding resource specific properties
-func (o AppServiceHostNameBindingTypeOutput) Properties() HostNameBindingResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceHostNameBindingType) HostNameBindingResponseProperties { return v.Properties }).(HostNameBindingResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceHostNameBindingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceHostNameBindingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-type AppServiceHybridConnectionNamespaceRelayType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// HybridConnection resource specific properties
-	Properties HybridConnectionResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceHybridConnectionNamespaceRelayTypeInput is an input type that accepts AppServiceHybridConnectionNamespaceRelayTypeArgs and AppServiceHybridConnectionNamespaceRelayTypeOutput values.
-// You can construct a concrete instance of `AppServiceHybridConnectionNamespaceRelayTypeInput` via:
-//
-//          AppServiceHybridConnectionNamespaceRelayTypeArgs{...}
-type AppServiceHybridConnectionNamespaceRelayTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceHybridConnectionNamespaceRelayTypeOutput() AppServiceHybridConnectionNamespaceRelayTypeOutput
-	ToAppServiceHybridConnectionNamespaceRelayTypeOutputWithContext(context.Context) AppServiceHybridConnectionNamespaceRelayTypeOutput
-}
-
-// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-type AppServiceHybridConnectionNamespaceRelayTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// HybridConnection resource specific properties
-	Properties HybridConnectionResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceHybridConnectionNamespaceRelayTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceHybridConnectionNamespaceRelayType)(nil)).Elem()
-}
-
-func (i AppServiceHybridConnectionNamespaceRelayTypeArgs) ToAppServiceHybridConnectionNamespaceRelayTypeOutput() AppServiceHybridConnectionNamespaceRelayTypeOutput {
-	return i.ToAppServiceHybridConnectionNamespaceRelayTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceHybridConnectionNamespaceRelayTypeArgs) ToAppServiceHybridConnectionNamespaceRelayTypeOutputWithContext(ctx context.Context) AppServiceHybridConnectionNamespaceRelayTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceHybridConnectionNamespaceRelayTypeOutput)
-}
-
-// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-type AppServiceHybridConnectionNamespaceRelayTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceHybridConnectionNamespaceRelayTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceHybridConnectionNamespaceRelayType)(nil)).Elem()
-}
-
-func (o AppServiceHybridConnectionNamespaceRelayTypeOutput) ToAppServiceHybridConnectionNamespaceRelayTypeOutput() AppServiceHybridConnectionNamespaceRelayTypeOutput {
-	return o
-}
-
-func (o AppServiceHybridConnectionNamespaceRelayTypeOutput) ToAppServiceHybridConnectionNamespaceRelayTypeOutputWithContext(ctx context.Context) AppServiceHybridConnectionNamespaceRelayTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceHybridConnectionNamespaceRelayTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceHybridConnectionNamespaceRelayType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceHybridConnectionNamespaceRelayTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceHybridConnectionNamespaceRelayType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// HybridConnection resource specific properties
-func (o AppServiceHybridConnectionNamespaceRelayTypeOutput) Properties() HybridConnectionResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceHybridConnectionNamespaceRelayType) HybridConnectionResponseProperties {
-		return v.Properties
-	}).(HybridConnectionResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceHybridConnectionNamespaceRelayTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceHybridConnectionNamespaceRelayType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Hybrid Connection for an App Service app.
-type AppServiceHybridconnectionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceHybridconnectionTypeInput is an input type that accepts AppServiceHybridconnectionTypeArgs and AppServiceHybridconnectionTypeOutput values.
-// You can construct a concrete instance of `AppServiceHybridconnectionTypeInput` via:
-//
-//          AppServiceHybridconnectionTypeArgs{...}
-type AppServiceHybridconnectionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceHybridconnectionTypeOutput() AppServiceHybridconnectionTypeOutput
-	ToAppServiceHybridconnectionTypeOutputWithContext(context.Context) AppServiceHybridconnectionTypeOutput
-}
-
-// Hybrid Connection for an App Service app.
-type AppServiceHybridconnectionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceHybridconnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceHybridconnectionType)(nil)).Elem()
-}
-
-func (i AppServiceHybridconnectionTypeArgs) ToAppServiceHybridconnectionTypeOutput() AppServiceHybridconnectionTypeOutput {
-	return i.ToAppServiceHybridconnectionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceHybridconnectionTypeArgs) ToAppServiceHybridconnectionTypeOutputWithContext(ctx context.Context) AppServiceHybridconnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceHybridconnectionTypeOutput)
-}
-
-// Hybrid Connection for an App Service app.
-type AppServiceHybridconnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceHybridconnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceHybridconnectionType)(nil)).Elem()
-}
-
-func (o AppServiceHybridconnectionTypeOutput) ToAppServiceHybridconnectionTypeOutput() AppServiceHybridconnectionTypeOutput {
-	return o
-}
-
-func (o AppServiceHybridconnectionTypeOutput) ToAppServiceHybridconnectionTypeOutputWithContext(ctx context.Context) AppServiceHybridconnectionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceHybridconnectionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceHybridconnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceHybridconnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceHybridconnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// RelayServiceConnectionEntity resource specific properties
-func (o AppServiceHybridconnectionTypeOutput) Properties() RelayServiceConnectionEntityResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceHybridconnectionType) RelayServiceConnectionEntityResponseProperties {
-		return v.Properties
-	}).(RelayServiceConnectionEntityResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceHybridconnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceHybridconnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-type AppServiceNetworkConfigType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceNetworkConfigTypeInput is an input type that accepts AppServiceNetworkConfigTypeArgs and AppServiceNetworkConfigTypeOutput values.
-// You can construct a concrete instance of `AppServiceNetworkConfigTypeInput` via:
-//
-//          AppServiceNetworkConfigTypeArgs{...}
-type AppServiceNetworkConfigTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceNetworkConfigTypeOutput() AppServiceNetworkConfigTypeOutput
-	ToAppServiceNetworkConfigTypeOutputWithContext(context.Context) AppServiceNetworkConfigTypeOutput
-}
-
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-type AppServiceNetworkConfigTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceNetworkConfigTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceNetworkConfigType)(nil)).Elem()
-}
-
-func (i AppServiceNetworkConfigTypeArgs) ToAppServiceNetworkConfigTypeOutput() AppServiceNetworkConfigTypeOutput {
-	return i.ToAppServiceNetworkConfigTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceNetworkConfigTypeArgs) ToAppServiceNetworkConfigTypeOutputWithContext(ctx context.Context) AppServiceNetworkConfigTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceNetworkConfigTypeOutput)
-}
-
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-type AppServiceNetworkConfigTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceNetworkConfigTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceNetworkConfigType)(nil)).Elem()
-}
-
-func (o AppServiceNetworkConfigTypeOutput) ToAppServiceNetworkConfigTypeOutput() AppServiceNetworkConfigTypeOutput {
-	return o
-}
-
-func (o AppServiceNetworkConfigTypeOutput) ToAppServiceNetworkConfigTypeOutputWithContext(ctx context.Context) AppServiceNetworkConfigTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceNetworkConfigTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceNetworkConfigType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceNetworkConfigTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceNetworkConfigType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SwiftVirtualNetwork resource specific properties
-func (o AppServiceNetworkConfigTypeOutput) Properties() SwiftVirtualNetworkResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceNetworkConfigType) SwiftVirtualNetworkResponseProperties { return v.Properties }).(SwiftVirtualNetworkResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceNetworkConfigTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceNetworkConfigType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // App Service plan.
@@ -3579,7 +2992,7 @@ func (o AppServicePlanResponsePropertiesPtrOutput) WorkerTierName() pulumi.Strin
 }
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
-type AppServicePlanVirtualNetworkConnectionRouteType struct {
+type AppServicePlanRouteForVnetType struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
@@ -3590,19 +3003,19 @@ type AppServicePlanVirtualNetworkConnectionRouteType struct {
 	Type string `pulumi:"type"`
 }
 
-// AppServicePlanVirtualNetworkConnectionRouteTypeInput is an input type that accepts AppServicePlanVirtualNetworkConnectionRouteTypeArgs and AppServicePlanVirtualNetworkConnectionRouteTypeOutput values.
-// You can construct a concrete instance of `AppServicePlanVirtualNetworkConnectionRouteTypeInput` via:
+// AppServicePlanRouteForVnetTypeInput is an input type that accepts AppServicePlanRouteForVnetTypeArgs and AppServicePlanRouteForVnetTypeOutput values.
+// You can construct a concrete instance of `AppServicePlanRouteForVnetTypeInput` via:
 //
-//          AppServicePlanVirtualNetworkConnectionRouteTypeArgs{...}
-type AppServicePlanVirtualNetworkConnectionRouteTypeInput interface {
+//          AppServicePlanRouteForVnetTypeArgs{...}
+type AppServicePlanRouteForVnetTypeInput interface {
 	pulumi.Input
 
-	ToAppServicePlanVirtualNetworkConnectionRouteTypeOutput() AppServicePlanVirtualNetworkConnectionRouteTypeOutput
-	ToAppServicePlanVirtualNetworkConnectionRouteTypeOutputWithContext(context.Context) AppServicePlanVirtualNetworkConnectionRouteTypeOutput
+	ToAppServicePlanRouteForVnetTypeOutput() AppServicePlanRouteForVnetTypeOutput
+	ToAppServicePlanRouteForVnetTypeOutputWithContext(context.Context) AppServicePlanRouteForVnetTypeOutput
 }
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
-type AppServicePlanVirtualNetworkConnectionRouteTypeArgs struct {
+type AppServicePlanRouteForVnetTypeArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
@@ -3613,1680 +3026,51 @@ type AppServicePlanVirtualNetworkConnectionRouteTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (AppServicePlanVirtualNetworkConnectionRouteTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlanVirtualNetworkConnectionRouteType)(nil)).Elem()
+func (AppServicePlanRouteForVnetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlanRouteForVnetType)(nil)).Elem()
 }
 
-func (i AppServicePlanVirtualNetworkConnectionRouteTypeArgs) ToAppServicePlanVirtualNetworkConnectionRouteTypeOutput() AppServicePlanVirtualNetworkConnectionRouteTypeOutput {
-	return i.ToAppServicePlanVirtualNetworkConnectionRouteTypeOutputWithContext(context.Background())
+func (i AppServicePlanRouteForVnetTypeArgs) ToAppServicePlanRouteForVnetTypeOutput() AppServicePlanRouteForVnetTypeOutput {
+	return i.ToAppServicePlanRouteForVnetTypeOutputWithContext(context.Background())
 }
 
-func (i AppServicePlanVirtualNetworkConnectionRouteTypeArgs) ToAppServicePlanVirtualNetworkConnectionRouteTypeOutputWithContext(ctx context.Context) AppServicePlanVirtualNetworkConnectionRouteTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanVirtualNetworkConnectionRouteTypeOutput)
+func (i AppServicePlanRouteForVnetTypeArgs) ToAppServicePlanRouteForVnetTypeOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServicePlanRouteForVnetTypeOutput)
 }
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
-type AppServicePlanVirtualNetworkConnectionRouteTypeOutput struct{ *pulumi.OutputState }
+type AppServicePlanRouteForVnetTypeOutput struct{ *pulumi.OutputState }
 
-func (AppServicePlanVirtualNetworkConnectionRouteTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlanVirtualNetworkConnectionRouteType)(nil)).Elem()
+func (AppServicePlanRouteForVnetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServicePlanRouteForVnetType)(nil)).Elem()
 }
 
-func (o AppServicePlanVirtualNetworkConnectionRouteTypeOutput) ToAppServicePlanVirtualNetworkConnectionRouteTypeOutput() AppServicePlanVirtualNetworkConnectionRouteTypeOutput {
+func (o AppServicePlanRouteForVnetTypeOutput) ToAppServicePlanRouteForVnetTypeOutput() AppServicePlanRouteForVnetTypeOutput {
 	return o
 }
 
-func (o AppServicePlanVirtualNetworkConnectionRouteTypeOutput) ToAppServicePlanVirtualNetworkConnectionRouteTypeOutputWithContext(ctx context.Context) AppServicePlanVirtualNetworkConnectionRouteTypeOutput {
+func (o AppServicePlanRouteForVnetTypeOutput) ToAppServicePlanRouteForVnetTypeOutputWithContext(ctx context.Context) AppServicePlanRouteForVnetTypeOutput {
 	return o
 }
 
 // Kind of resource.
-func (o AppServicePlanVirtualNetworkConnectionRouteTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServicePlanVirtualNetworkConnectionRouteType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+func (o AppServicePlanRouteForVnetTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServicePlanRouteForVnetType) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 // Resource Name.
-func (o AppServicePlanVirtualNetworkConnectionRouteTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePlanVirtualNetworkConnectionRouteType) string { return v.Name }).(pulumi.StringOutput)
+func (o AppServicePlanRouteForVnetTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServicePlanRouteForVnetType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // VnetRoute resource specific properties
-func (o AppServicePlanVirtualNetworkConnectionRouteTypeOutput) Properties() VnetRouteResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServicePlanVirtualNetworkConnectionRouteType) VnetRouteResponseProperties {
-		return v.Properties
-	}).(VnetRouteResponsePropertiesOutput)
+func (o AppServicePlanRouteForVnetTypeOutput) Properties() VnetRouteResponsePropertiesOutput {
+	return o.ApplyT(func(v AppServicePlanRouteForVnetType) VnetRouteResponseProperties { return v.Properties }).(VnetRouteResponsePropertiesOutput)
 }
 
 // Resource type.
-func (o AppServicePlanVirtualNetworkConnectionRouteTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePlanVirtualNetworkConnectionRouteType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Premier add-on.
-type AppServicePremieraddonType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnResponseProperties `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServicePremieraddonTypeInput is an input type that accepts AppServicePremieraddonTypeArgs and AppServicePremieraddonTypeOutput values.
-// You can construct a concrete instance of `AppServicePremieraddonTypeInput` via:
-//
-//          AppServicePremieraddonTypeArgs{...}
-type AppServicePremieraddonTypeInput interface {
-	pulumi.Input
-
-	ToAppServicePremieraddonTypeOutput() AppServicePremieraddonTypeOutput
-	ToAppServicePremieraddonTypeOutputWithContext(context.Context) AppServicePremieraddonTypeOutput
-}
-
-// Premier add-on.
-type AppServicePremieraddonTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServicePremieraddonTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePremieraddonType)(nil)).Elem()
-}
-
-func (i AppServicePremieraddonTypeArgs) ToAppServicePremieraddonTypeOutput() AppServicePremieraddonTypeOutput {
-	return i.ToAppServicePremieraddonTypeOutputWithContext(context.Background())
-}
-
-func (i AppServicePremieraddonTypeArgs) ToAppServicePremieraddonTypeOutputWithContext(ctx context.Context) AppServicePremieraddonTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServicePremieraddonTypeOutput)
-}
-
-// Premier add-on.
-type AppServicePremieraddonTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServicePremieraddonTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePremieraddonType)(nil)).Elem()
-}
-
-func (o AppServicePremieraddonTypeOutput) ToAppServicePremieraddonTypeOutput() AppServicePremieraddonTypeOutput {
-	return o
-}
-
-func (o AppServicePremieraddonTypeOutput) ToAppServicePremieraddonTypeOutputWithContext(ctx context.Context) AppServicePremieraddonTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServicePremieraddonTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServicePremieraddonType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location.
-func (o AppServicePremieraddonTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePremieraddonType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name.
-func (o AppServicePremieraddonTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePremieraddonType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// PremierAddOn resource specific properties
-func (o AppServicePremieraddonTypeOutput) Properties() PremierAddOnResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServicePremieraddonType) PremierAddOnResponseProperties { return v.Properties }).(PremierAddOnResponsePropertiesOutput)
-}
-
-// Resource tags.
-func (o AppServicePremieraddonTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AppServicePremieraddonType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o AppServicePremieraddonTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePremieraddonType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Private Endpoint Connection ARM resource.
-type AppServicePrivateEndpointConnectionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Core resource properties
-	Properties RemotePrivateEndpointConnectionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServicePrivateEndpointConnectionTypeInput is an input type that accepts AppServicePrivateEndpointConnectionTypeArgs and AppServicePrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `AppServicePrivateEndpointConnectionTypeInput` via:
-//
-//          AppServicePrivateEndpointConnectionTypeArgs{...}
-type AppServicePrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToAppServicePrivateEndpointConnectionTypeOutput() AppServicePrivateEndpointConnectionTypeOutput
-	ToAppServicePrivateEndpointConnectionTypeOutputWithContext(context.Context) AppServicePrivateEndpointConnectionTypeOutput
-}
-
-// Private Endpoint Connection ARM resource.
-type AppServicePrivateEndpointConnectionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Core resource properties
-	Properties RemotePrivateEndpointConnectionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServicePrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i AppServicePrivateEndpointConnectionTypeArgs) ToAppServicePrivateEndpointConnectionTypeOutput() AppServicePrivateEndpointConnectionTypeOutput {
-	return i.ToAppServicePrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServicePrivateEndpointConnectionTypeArgs) ToAppServicePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) AppServicePrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServicePrivateEndpointConnectionTypeOutput)
-}
-
-// Private Endpoint Connection ARM resource.
-type AppServicePrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServicePrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o AppServicePrivateEndpointConnectionTypeOutput) ToAppServicePrivateEndpointConnectionTypeOutput() AppServicePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o AppServicePrivateEndpointConnectionTypeOutput) ToAppServicePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) AppServicePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServicePrivateEndpointConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServicePrivateEndpointConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServicePrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Core resource properties
-func (o AppServicePrivateEndpointConnectionTypeOutput) Properties() RemotePrivateEndpointConnectionResponseOutput {
-	return o.ApplyT(func(v AppServicePrivateEndpointConnectionType) RemotePrivateEndpointConnectionResponse {
-		return v.Properties
-	}).(RemotePrivateEndpointConnectionResponseOutput)
-}
-
-// Resource type.
-func (o AppServicePrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Public certificate object
-type AppServicePublicCertificateType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// PublicCertificate resource specific properties
-	Properties PublicCertificateResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServicePublicCertificateTypeInput is an input type that accepts AppServicePublicCertificateTypeArgs and AppServicePublicCertificateTypeOutput values.
-// You can construct a concrete instance of `AppServicePublicCertificateTypeInput` via:
-//
-//          AppServicePublicCertificateTypeArgs{...}
-type AppServicePublicCertificateTypeInput interface {
-	pulumi.Input
-
-	ToAppServicePublicCertificateTypeOutput() AppServicePublicCertificateTypeOutput
-	ToAppServicePublicCertificateTypeOutputWithContext(context.Context) AppServicePublicCertificateTypeOutput
-}
-
-// Public certificate object
-type AppServicePublicCertificateTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// PublicCertificate resource specific properties
-	Properties PublicCertificateResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServicePublicCertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePublicCertificateType)(nil)).Elem()
-}
-
-func (i AppServicePublicCertificateTypeArgs) ToAppServicePublicCertificateTypeOutput() AppServicePublicCertificateTypeOutput {
-	return i.ToAppServicePublicCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i AppServicePublicCertificateTypeArgs) ToAppServicePublicCertificateTypeOutputWithContext(ctx context.Context) AppServicePublicCertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServicePublicCertificateTypeOutput)
-}
-
-// Public certificate object
-type AppServicePublicCertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServicePublicCertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePublicCertificateType)(nil)).Elem()
-}
-
-func (o AppServicePublicCertificateTypeOutput) ToAppServicePublicCertificateTypeOutput() AppServicePublicCertificateTypeOutput {
-	return o
-}
-
-func (o AppServicePublicCertificateTypeOutput) ToAppServicePublicCertificateTypeOutputWithContext(ctx context.Context) AppServicePublicCertificateTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServicePublicCertificateTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServicePublicCertificateType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServicePublicCertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePublicCertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// PublicCertificate resource specific properties
-func (o AppServicePublicCertificateTypeOutput) Properties() PublicCertificateResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServicePublicCertificateType) PublicCertificateResponseProperties { return v.Properties }).(PublicCertificateResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServicePublicCertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServicePublicCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Site Extension Information.
-type AppServiceSiteextensionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// SiteExtensionInfo resource specific properties
-	Properties SiteExtensionInfoResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSiteextensionTypeInput is an input type that accepts AppServiceSiteextensionTypeArgs and AppServiceSiteextensionTypeOutput values.
-// You can construct a concrete instance of `AppServiceSiteextensionTypeInput` via:
-//
-//          AppServiceSiteextensionTypeArgs{...}
-type AppServiceSiteextensionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSiteextensionTypeOutput() AppServiceSiteextensionTypeOutput
-	ToAppServiceSiteextensionTypeOutputWithContext(context.Context) AppServiceSiteextensionTypeOutput
-}
-
-// Site Extension Information.
-type AppServiceSiteextensionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SiteExtensionInfo resource specific properties
-	Properties SiteExtensionInfoResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSiteextensionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSiteextensionType)(nil)).Elem()
-}
-
-func (i AppServiceSiteextensionTypeArgs) ToAppServiceSiteextensionTypeOutput() AppServiceSiteextensionTypeOutput {
-	return i.ToAppServiceSiteextensionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSiteextensionTypeArgs) ToAppServiceSiteextensionTypeOutputWithContext(ctx context.Context) AppServiceSiteextensionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteextensionTypeOutput)
-}
-
-// Site Extension Information.
-type AppServiceSiteextensionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSiteextensionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSiteextensionType)(nil)).Elem()
-}
-
-func (o AppServiceSiteextensionTypeOutput) ToAppServiceSiteextensionTypeOutput() AppServiceSiteextensionTypeOutput {
-	return o
-}
-
-func (o AppServiceSiteextensionTypeOutput) ToAppServiceSiteextensionTypeOutputWithContext(ctx context.Context) AppServiceSiteextensionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSiteextensionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteextensionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSiteextensionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSiteextensionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SiteExtensionInfo resource specific properties
-func (o AppServiceSiteextensionTypeOutput) Properties() SiteExtensionInfoResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSiteextensionType) SiteExtensionInfoResponseProperties { return v.Properties }).(SiteExtensionInfoResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSiteextensionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSiteextensionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A web app, a mobile app backend, or an API app.
-type AppServiceSlotType struct {
-	// Managed service identity.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Site resource specific properties
-	Properties SiteResponseProperties `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotTypeInput is an input type that accepts AppServiceSlotTypeArgs and AppServiceSlotTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotTypeInput` via:
-//
-//          AppServiceSlotTypeArgs{...}
-type AppServiceSlotTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotTypeOutput() AppServiceSlotTypeOutput
-	ToAppServiceSlotTypeOutputWithContext(context.Context) AppServiceSlotTypeOutput
-}
-
-// A web app, a mobile app backend, or an API app.
-type AppServiceSlotTypeArgs struct {
-	// Managed service identity.
-	Identity ManagedServiceIdentityResponsePtrInput `pulumi:"identity"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Site resource specific properties
-	Properties SiteResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotType)(nil)).Elem()
-}
-
-func (i AppServiceSlotTypeArgs) ToAppServiceSlotTypeOutput() AppServiceSlotTypeOutput {
-	return i.ToAppServiceSlotTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotTypeArgs) ToAppServiceSlotTypeOutputWithContext(ctx context.Context) AppServiceSlotTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotTypeOutput)
-}
-
-// A web app, a mobile app backend, or an API app.
-type AppServiceSlotTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotType)(nil)).Elem()
-}
-
-func (o AppServiceSlotTypeOutput) ToAppServiceSlotTypeOutput() AppServiceSlotTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotTypeOutput) ToAppServiceSlotTypeOutputWithContext(ctx context.Context) AppServiceSlotTypeOutput {
-	return o
-}
-
-// Managed service identity.
-func (o AppServiceSlotTypeOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v AppServiceSlotType) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
-}
-
-// Kind of resource.
-func (o AppServiceSlotTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location.
-func (o AppServiceSlotTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Site resource specific properties
-func (o AppServiceSlotTypeOutput) Properties() SiteResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotType) SiteResponseProperties { return v.Properties }).(SiteResponsePropertiesOutput)
-}
-
-// Resource tags.
-func (o AppServiceSlotTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AppServiceSlotType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User credentials used for publishing activity.
-type AppServiceSlotDeploymentType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties DeploymentResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotDeploymentTypeInput is an input type that accepts AppServiceSlotDeploymentTypeArgs and AppServiceSlotDeploymentTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotDeploymentTypeInput` via:
-//
-//          AppServiceSlotDeploymentTypeArgs{...}
-type AppServiceSlotDeploymentTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotDeploymentTypeOutput() AppServiceSlotDeploymentTypeOutput
-	ToAppServiceSlotDeploymentTypeOutputWithContext(context.Context) AppServiceSlotDeploymentTypeOutput
-}
-
-// User credentials used for publishing activity.
-type AppServiceSlotDeploymentTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties DeploymentResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotDeploymentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotDeploymentType)(nil)).Elem()
-}
-
-func (i AppServiceSlotDeploymentTypeArgs) ToAppServiceSlotDeploymentTypeOutput() AppServiceSlotDeploymentTypeOutput {
-	return i.ToAppServiceSlotDeploymentTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotDeploymentTypeArgs) ToAppServiceSlotDeploymentTypeOutputWithContext(ctx context.Context) AppServiceSlotDeploymentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotDeploymentTypeOutput)
-}
-
-// User credentials used for publishing activity.
-type AppServiceSlotDeploymentTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotDeploymentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotDeploymentType)(nil)).Elem()
-}
-
-func (o AppServiceSlotDeploymentTypeOutput) ToAppServiceSlotDeploymentTypeOutput() AppServiceSlotDeploymentTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotDeploymentTypeOutput) ToAppServiceSlotDeploymentTypeOutputWithContext(ctx context.Context) AppServiceSlotDeploymentTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotDeploymentTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotDeploymentType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotDeploymentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotDeploymentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deployment resource specific properties
-func (o AppServiceSlotDeploymentTypeOutput) Properties() DeploymentResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotDeploymentType) DeploymentResponseProperties { return v.Properties }).(DeploymentResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotDeploymentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotDeploymentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A domain specific resource identifier.
-type AppServiceSlotDomainOwnershipIdentifierType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties IdentifierResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotDomainOwnershipIdentifierTypeInput is an input type that accepts AppServiceSlotDomainOwnershipIdentifierTypeArgs and AppServiceSlotDomainOwnershipIdentifierTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotDomainOwnershipIdentifierTypeInput` via:
-//
-//          AppServiceSlotDomainOwnershipIdentifierTypeArgs{...}
-type AppServiceSlotDomainOwnershipIdentifierTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotDomainOwnershipIdentifierTypeOutput() AppServiceSlotDomainOwnershipIdentifierTypeOutput
-	ToAppServiceSlotDomainOwnershipIdentifierTypeOutputWithContext(context.Context) AppServiceSlotDomainOwnershipIdentifierTypeOutput
-}
-
-// A domain specific resource identifier.
-type AppServiceSlotDomainOwnershipIdentifierTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties IdentifierResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotDomainOwnershipIdentifierTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotDomainOwnershipIdentifierType)(nil)).Elem()
-}
-
-func (i AppServiceSlotDomainOwnershipIdentifierTypeArgs) ToAppServiceSlotDomainOwnershipIdentifierTypeOutput() AppServiceSlotDomainOwnershipIdentifierTypeOutput {
-	return i.ToAppServiceSlotDomainOwnershipIdentifierTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotDomainOwnershipIdentifierTypeArgs) ToAppServiceSlotDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) AppServiceSlotDomainOwnershipIdentifierTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotDomainOwnershipIdentifierTypeOutput)
-}
-
-// A domain specific resource identifier.
-type AppServiceSlotDomainOwnershipIdentifierTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotDomainOwnershipIdentifierTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotDomainOwnershipIdentifierType)(nil)).Elem()
-}
-
-func (o AppServiceSlotDomainOwnershipIdentifierTypeOutput) ToAppServiceSlotDomainOwnershipIdentifierTypeOutput() AppServiceSlotDomainOwnershipIdentifierTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotDomainOwnershipIdentifierTypeOutput) ToAppServiceSlotDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) AppServiceSlotDomainOwnershipIdentifierTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotDomainOwnershipIdentifierTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotDomainOwnershipIdentifierType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotDomainOwnershipIdentifierTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotDomainOwnershipIdentifierType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Identifier resource specific properties
-func (o AppServiceSlotDomainOwnershipIdentifierTypeOutput) Properties() IdentifierResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotDomainOwnershipIdentifierType) IdentifierResponseProperties { return v.Properties }).(IdentifierResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotDomainOwnershipIdentifierTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotDomainOwnershipIdentifierType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Function information.
-type AppServiceSlotFunctionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotFunctionTypeInput is an input type that accepts AppServiceSlotFunctionTypeArgs and AppServiceSlotFunctionTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotFunctionTypeInput` via:
-//
-//          AppServiceSlotFunctionTypeArgs{...}
-type AppServiceSlotFunctionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotFunctionTypeOutput() AppServiceSlotFunctionTypeOutput
-	ToAppServiceSlotFunctionTypeOutputWithContext(context.Context) AppServiceSlotFunctionTypeOutput
-}
-
-// Function information.
-type AppServiceSlotFunctionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotFunctionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotFunctionType)(nil)).Elem()
-}
-
-func (i AppServiceSlotFunctionTypeArgs) ToAppServiceSlotFunctionTypeOutput() AppServiceSlotFunctionTypeOutput {
-	return i.ToAppServiceSlotFunctionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotFunctionTypeArgs) ToAppServiceSlotFunctionTypeOutputWithContext(ctx context.Context) AppServiceSlotFunctionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotFunctionTypeOutput)
-}
-
-// Function information.
-type AppServiceSlotFunctionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotFunctionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotFunctionType)(nil)).Elem()
-}
-
-func (o AppServiceSlotFunctionTypeOutput) ToAppServiceSlotFunctionTypeOutput() AppServiceSlotFunctionTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotFunctionTypeOutput) ToAppServiceSlotFunctionTypeOutputWithContext(ctx context.Context) AppServiceSlotFunctionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotFunctionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotFunctionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotFunctionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotFunctionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// FunctionEnvelope resource specific properties
-func (o AppServiceSlotFunctionTypeOutput) Properties() FunctionEnvelopeResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotFunctionType) FunctionEnvelopeResponseProperties { return v.Properties }).(FunctionEnvelopeResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotFunctionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotFunctionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A hostname binding object.
-type AppServiceSlotHostNameBindingType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// HostNameBinding resource specific properties
-	Properties HostNameBindingResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotHostNameBindingTypeInput is an input type that accepts AppServiceSlotHostNameBindingTypeArgs and AppServiceSlotHostNameBindingTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotHostNameBindingTypeInput` via:
-//
-//          AppServiceSlotHostNameBindingTypeArgs{...}
-type AppServiceSlotHostNameBindingTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotHostNameBindingTypeOutput() AppServiceSlotHostNameBindingTypeOutput
-	ToAppServiceSlotHostNameBindingTypeOutputWithContext(context.Context) AppServiceSlotHostNameBindingTypeOutput
-}
-
-// A hostname binding object.
-type AppServiceSlotHostNameBindingTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// HostNameBinding resource specific properties
-	Properties HostNameBindingResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotHostNameBindingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotHostNameBindingType)(nil)).Elem()
-}
-
-func (i AppServiceSlotHostNameBindingTypeArgs) ToAppServiceSlotHostNameBindingTypeOutput() AppServiceSlotHostNameBindingTypeOutput {
-	return i.ToAppServiceSlotHostNameBindingTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotHostNameBindingTypeArgs) ToAppServiceSlotHostNameBindingTypeOutputWithContext(ctx context.Context) AppServiceSlotHostNameBindingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotHostNameBindingTypeOutput)
-}
-
-// A hostname binding object.
-type AppServiceSlotHostNameBindingTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotHostNameBindingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotHostNameBindingType)(nil)).Elem()
-}
-
-func (o AppServiceSlotHostNameBindingTypeOutput) ToAppServiceSlotHostNameBindingTypeOutput() AppServiceSlotHostNameBindingTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotHostNameBindingTypeOutput) ToAppServiceSlotHostNameBindingTypeOutputWithContext(ctx context.Context) AppServiceSlotHostNameBindingTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotHostNameBindingTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotHostNameBindingType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotHostNameBindingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotHostNameBindingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// HostNameBinding resource specific properties
-func (o AppServiceSlotHostNameBindingTypeOutput) Properties() HostNameBindingResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotHostNameBindingType) HostNameBindingResponseProperties { return v.Properties }).(HostNameBindingResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotHostNameBindingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotHostNameBindingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-type AppServiceSlotHybridConnectionNamespaceRelayType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// HybridConnection resource specific properties
-	Properties HybridConnectionResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotHybridConnectionNamespaceRelayTypeInput is an input type that accepts AppServiceSlotHybridConnectionNamespaceRelayTypeArgs and AppServiceSlotHybridConnectionNamespaceRelayTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotHybridConnectionNamespaceRelayTypeInput` via:
-//
-//          AppServiceSlotHybridConnectionNamespaceRelayTypeArgs{...}
-type AppServiceSlotHybridConnectionNamespaceRelayTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotHybridConnectionNamespaceRelayTypeOutput() AppServiceSlotHybridConnectionNamespaceRelayTypeOutput
-	ToAppServiceSlotHybridConnectionNamespaceRelayTypeOutputWithContext(context.Context) AppServiceSlotHybridConnectionNamespaceRelayTypeOutput
-}
-
-// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-type AppServiceSlotHybridConnectionNamespaceRelayTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// HybridConnection resource specific properties
-	Properties HybridConnectionResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotHybridConnectionNamespaceRelayTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotHybridConnectionNamespaceRelayType)(nil)).Elem()
-}
-
-func (i AppServiceSlotHybridConnectionNamespaceRelayTypeArgs) ToAppServiceSlotHybridConnectionNamespaceRelayTypeOutput() AppServiceSlotHybridConnectionNamespaceRelayTypeOutput {
-	return i.ToAppServiceSlotHybridConnectionNamespaceRelayTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotHybridConnectionNamespaceRelayTypeArgs) ToAppServiceSlotHybridConnectionNamespaceRelayTypeOutputWithContext(ctx context.Context) AppServiceSlotHybridConnectionNamespaceRelayTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotHybridConnectionNamespaceRelayTypeOutput)
-}
-
-// Hybrid Connection contract. This is used to configure a Hybrid Connection.
-type AppServiceSlotHybridConnectionNamespaceRelayTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotHybridConnectionNamespaceRelayTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotHybridConnectionNamespaceRelayType)(nil)).Elem()
-}
-
-func (o AppServiceSlotHybridConnectionNamespaceRelayTypeOutput) ToAppServiceSlotHybridConnectionNamespaceRelayTypeOutput() AppServiceSlotHybridConnectionNamespaceRelayTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotHybridConnectionNamespaceRelayTypeOutput) ToAppServiceSlotHybridConnectionNamespaceRelayTypeOutputWithContext(ctx context.Context) AppServiceSlotHybridConnectionNamespaceRelayTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotHybridConnectionNamespaceRelayTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridConnectionNamespaceRelayType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotHybridConnectionNamespaceRelayTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridConnectionNamespaceRelayType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// HybridConnection resource specific properties
-func (o AppServiceSlotHybridConnectionNamespaceRelayTypeOutput) Properties() HybridConnectionResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridConnectionNamespaceRelayType) HybridConnectionResponseProperties {
-		return v.Properties
-	}).(HybridConnectionResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotHybridConnectionNamespaceRelayTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridConnectionNamespaceRelayType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Hybrid Connection for an App Service app.
-type AppServiceSlotHybridconnectionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotHybridconnectionTypeInput is an input type that accepts AppServiceSlotHybridconnectionTypeArgs and AppServiceSlotHybridconnectionTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotHybridconnectionTypeInput` via:
-//
-//          AppServiceSlotHybridconnectionTypeArgs{...}
-type AppServiceSlotHybridconnectionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotHybridconnectionTypeOutput() AppServiceSlotHybridconnectionTypeOutput
-	ToAppServiceSlotHybridconnectionTypeOutputWithContext(context.Context) AppServiceSlotHybridconnectionTypeOutput
-}
-
-// Hybrid Connection for an App Service app.
-type AppServiceSlotHybridconnectionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotHybridconnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotHybridconnectionType)(nil)).Elem()
-}
-
-func (i AppServiceSlotHybridconnectionTypeArgs) ToAppServiceSlotHybridconnectionTypeOutput() AppServiceSlotHybridconnectionTypeOutput {
-	return i.ToAppServiceSlotHybridconnectionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotHybridconnectionTypeArgs) ToAppServiceSlotHybridconnectionTypeOutputWithContext(ctx context.Context) AppServiceSlotHybridconnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotHybridconnectionTypeOutput)
-}
-
-// Hybrid Connection for an App Service app.
-type AppServiceSlotHybridconnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotHybridconnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotHybridconnectionType)(nil)).Elem()
-}
-
-func (o AppServiceSlotHybridconnectionTypeOutput) ToAppServiceSlotHybridconnectionTypeOutput() AppServiceSlotHybridconnectionTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotHybridconnectionTypeOutput) ToAppServiceSlotHybridconnectionTypeOutputWithContext(ctx context.Context) AppServiceSlotHybridconnectionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotHybridconnectionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridconnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotHybridconnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridconnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// RelayServiceConnectionEntity resource specific properties
-func (o AppServiceSlotHybridconnectionTypeOutput) Properties() RelayServiceConnectionEntityResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridconnectionType) RelayServiceConnectionEntityResponseProperties {
-		return v.Properties
-	}).(RelayServiceConnectionEntityResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotHybridconnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotHybridconnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-type AppServiceSlotNetworkConfigType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotNetworkConfigTypeInput is an input type that accepts AppServiceSlotNetworkConfigTypeArgs and AppServiceSlotNetworkConfigTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotNetworkConfigTypeInput` via:
-//
-//          AppServiceSlotNetworkConfigTypeArgs{...}
-type AppServiceSlotNetworkConfigTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotNetworkConfigTypeOutput() AppServiceSlotNetworkConfigTypeOutput
-	ToAppServiceSlotNetworkConfigTypeOutputWithContext(context.Context) AppServiceSlotNetworkConfigTypeOutput
-}
-
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-type AppServiceSlotNetworkConfigTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotNetworkConfigTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotNetworkConfigType)(nil)).Elem()
-}
-
-func (i AppServiceSlotNetworkConfigTypeArgs) ToAppServiceSlotNetworkConfigTypeOutput() AppServiceSlotNetworkConfigTypeOutput {
-	return i.ToAppServiceSlotNetworkConfigTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotNetworkConfigTypeArgs) ToAppServiceSlotNetworkConfigTypeOutputWithContext(ctx context.Context) AppServiceSlotNetworkConfigTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotNetworkConfigTypeOutput)
-}
-
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
-type AppServiceSlotNetworkConfigTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotNetworkConfigTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotNetworkConfigType)(nil)).Elem()
-}
-
-func (o AppServiceSlotNetworkConfigTypeOutput) ToAppServiceSlotNetworkConfigTypeOutput() AppServiceSlotNetworkConfigTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotNetworkConfigTypeOutput) ToAppServiceSlotNetworkConfigTypeOutputWithContext(ctx context.Context) AppServiceSlotNetworkConfigTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotNetworkConfigTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotNetworkConfigType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotNetworkConfigTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotNetworkConfigType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SwiftVirtualNetwork resource specific properties
-func (o AppServiceSlotNetworkConfigTypeOutput) Properties() SwiftVirtualNetworkResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotNetworkConfigType) SwiftVirtualNetworkResponseProperties { return v.Properties }).(SwiftVirtualNetworkResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotNetworkConfigTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotNetworkConfigType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Premier add-on.
-type AppServiceSlotPremieraddonType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnResponseProperties `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotPremieraddonTypeInput is an input type that accepts AppServiceSlotPremieraddonTypeArgs and AppServiceSlotPremieraddonTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotPremieraddonTypeInput` via:
-//
-//          AppServiceSlotPremieraddonTypeArgs{...}
-type AppServiceSlotPremieraddonTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotPremieraddonTypeOutput() AppServiceSlotPremieraddonTypeOutput
-	ToAppServiceSlotPremieraddonTypeOutputWithContext(context.Context) AppServiceSlotPremieraddonTypeOutput
-}
-
-// Premier add-on.
-type AppServiceSlotPremieraddonTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotPremieraddonTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotPremieraddonType)(nil)).Elem()
-}
-
-func (i AppServiceSlotPremieraddonTypeArgs) ToAppServiceSlotPremieraddonTypeOutput() AppServiceSlotPremieraddonTypeOutput {
-	return i.ToAppServiceSlotPremieraddonTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotPremieraddonTypeArgs) ToAppServiceSlotPremieraddonTypeOutputWithContext(ctx context.Context) AppServiceSlotPremieraddonTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotPremieraddonTypeOutput)
-}
-
-// Premier add-on.
-type AppServiceSlotPremieraddonTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotPremieraddonTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotPremieraddonType)(nil)).Elem()
-}
-
-func (o AppServiceSlotPremieraddonTypeOutput) ToAppServiceSlotPremieraddonTypeOutput() AppServiceSlotPremieraddonTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotPremieraddonTypeOutput) ToAppServiceSlotPremieraddonTypeOutputWithContext(ctx context.Context) AppServiceSlotPremieraddonTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotPremieraddonTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotPremieraddonType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location.
-func (o AppServiceSlotPremieraddonTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotPremieraddonType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotPremieraddonTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotPremieraddonType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// PremierAddOn resource specific properties
-func (o AppServiceSlotPremieraddonTypeOutput) Properties() PremierAddOnResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotPremieraddonType) PremierAddOnResponseProperties { return v.Properties }).(PremierAddOnResponsePropertiesOutput)
-}
-
-// Resource tags.
-func (o AppServiceSlotPremieraddonTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AppServiceSlotPremieraddonType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotPremieraddonTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotPremieraddonType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Public certificate object
-type AppServiceSlotPublicCertificateType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// PublicCertificate resource specific properties
-	Properties PublicCertificateResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotPublicCertificateTypeInput is an input type that accepts AppServiceSlotPublicCertificateTypeArgs and AppServiceSlotPublicCertificateTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotPublicCertificateTypeInput` via:
-//
-//          AppServiceSlotPublicCertificateTypeArgs{...}
-type AppServiceSlotPublicCertificateTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotPublicCertificateTypeOutput() AppServiceSlotPublicCertificateTypeOutput
-	ToAppServiceSlotPublicCertificateTypeOutputWithContext(context.Context) AppServiceSlotPublicCertificateTypeOutput
-}
-
-// Public certificate object
-type AppServiceSlotPublicCertificateTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// PublicCertificate resource specific properties
-	Properties PublicCertificateResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotPublicCertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotPublicCertificateType)(nil)).Elem()
-}
-
-func (i AppServiceSlotPublicCertificateTypeArgs) ToAppServiceSlotPublicCertificateTypeOutput() AppServiceSlotPublicCertificateTypeOutput {
-	return i.ToAppServiceSlotPublicCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotPublicCertificateTypeArgs) ToAppServiceSlotPublicCertificateTypeOutputWithContext(ctx context.Context) AppServiceSlotPublicCertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotPublicCertificateTypeOutput)
-}
-
-// Public certificate object
-type AppServiceSlotPublicCertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotPublicCertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotPublicCertificateType)(nil)).Elem()
-}
-
-func (o AppServiceSlotPublicCertificateTypeOutput) ToAppServiceSlotPublicCertificateTypeOutput() AppServiceSlotPublicCertificateTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotPublicCertificateTypeOutput) ToAppServiceSlotPublicCertificateTypeOutputWithContext(ctx context.Context) AppServiceSlotPublicCertificateTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotPublicCertificateTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotPublicCertificateType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotPublicCertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotPublicCertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// PublicCertificate resource specific properties
-func (o AppServiceSlotPublicCertificateTypeOutput) Properties() PublicCertificateResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotPublicCertificateType) PublicCertificateResponseProperties { return v.Properties }).(PublicCertificateResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotPublicCertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotPublicCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Site Extension Information.
-type AppServiceSlotSiteextensionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// SiteExtensionInfo resource specific properties
-	Properties SiteExtensionInfoResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotSiteextensionTypeInput is an input type that accepts AppServiceSlotSiteextensionTypeArgs and AppServiceSlotSiteextensionTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotSiteextensionTypeInput` via:
-//
-//          AppServiceSlotSiteextensionTypeArgs{...}
-type AppServiceSlotSiteextensionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotSiteextensionTypeOutput() AppServiceSlotSiteextensionTypeOutput
-	ToAppServiceSlotSiteextensionTypeOutputWithContext(context.Context) AppServiceSlotSiteextensionTypeOutput
-}
-
-// Site Extension Information.
-type AppServiceSlotSiteextensionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SiteExtensionInfo resource specific properties
-	Properties SiteExtensionInfoResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotSiteextensionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotSiteextensionType)(nil)).Elem()
-}
-
-func (i AppServiceSlotSiteextensionTypeArgs) ToAppServiceSlotSiteextensionTypeOutput() AppServiceSlotSiteextensionTypeOutput {
-	return i.ToAppServiceSlotSiteextensionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotSiteextensionTypeArgs) ToAppServiceSlotSiteextensionTypeOutputWithContext(ctx context.Context) AppServiceSlotSiteextensionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotSiteextensionTypeOutput)
-}
-
-// Site Extension Information.
-type AppServiceSlotSiteextensionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotSiteextensionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotSiteextensionType)(nil)).Elem()
-}
-
-func (o AppServiceSlotSiteextensionTypeOutput) ToAppServiceSlotSiteextensionTypeOutput() AppServiceSlotSiteextensionTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotSiteextensionTypeOutput) ToAppServiceSlotSiteextensionTypeOutputWithContext(ctx context.Context) AppServiceSlotSiteextensionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotSiteextensionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotSiteextensionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotSiteextensionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotSiteextensionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SiteExtensionInfo resource specific properties
-func (o AppServiceSlotSiteextensionTypeOutput) Properties() SiteExtensionInfoResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotSiteextensionType) SiteExtensionInfoResponseProperties { return v.Properties }).(SiteExtensionInfoResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotSiteextensionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotSiteextensionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Source control configuration for an app.
-type AppServiceSlotSourcecontrolType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotSourcecontrolTypeInput is an input type that accepts AppServiceSlotSourcecontrolTypeArgs and AppServiceSlotSourcecontrolTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotSourcecontrolTypeInput` via:
-//
-//          AppServiceSlotSourcecontrolTypeArgs{...}
-type AppServiceSlotSourcecontrolTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotSourcecontrolTypeOutput() AppServiceSlotSourcecontrolTypeOutput
-	ToAppServiceSlotSourcecontrolTypeOutputWithContext(context.Context) AppServiceSlotSourcecontrolTypeOutput
-}
-
-// Source control configuration for an app.
-type AppServiceSlotSourcecontrolTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotSourcecontrolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotSourcecontrolType)(nil)).Elem()
-}
-
-func (i AppServiceSlotSourcecontrolTypeArgs) ToAppServiceSlotSourcecontrolTypeOutput() AppServiceSlotSourcecontrolTypeOutput {
-	return i.ToAppServiceSlotSourcecontrolTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotSourcecontrolTypeArgs) ToAppServiceSlotSourcecontrolTypeOutputWithContext(ctx context.Context) AppServiceSlotSourcecontrolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotSourcecontrolTypeOutput)
-}
-
-// Source control configuration for an app.
-type AppServiceSlotSourcecontrolTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotSourcecontrolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotSourcecontrolType)(nil)).Elem()
-}
-
-func (o AppServiceSlotSourcecontrolTypeOutput) ToAppServiceSlotSourcecontrolTypeOutput() AppServiceSlotSourcecontrolTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotSourcecontrolTypeOutput) ToAppServiceSlotSourcecontrolTypeOutputWithContext(ctx context.Context) AppServiceSlotSourcecontrolTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotSourcecontrolTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotSourcecontrolType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotSourcecontrolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotSourcecontrolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SiteSourceControl resource specific properties
-func (o AppServiceSlotSourcecontrolTypeOutput) Properties() SiteSourceControlResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotSourcecontrolType) SiteSourceControlResponseProperties { return v.Properties }).(SiteSourceControlResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotSourcecontrolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotSourcecontrolType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Virtual Network information contract.
-type AppServiceSlotVirtualNetworkConnectionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// VnetInfo resource specific properties
-	Properties VnetInfoResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSlotVirtualNetworkConnectionTypeInput is an input type that accepts AppServiceSlotVirtualNetworkConnectionTypeArgs and AppServiceSlotVirtualNetworkConnectionTypeOutput values.
-// You can construct a concrete instance of `AppServiceSlotVirtualNetworkConnectionTypeInput` via:
-//
-//          AppServiceSlotVirtualNetworkConnectionTypeArgs{...}
-type AppServiceSlotVirtualNetworkConnectionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSlotVirtualNetworkConnectionTypeOutput() AppServiceSlotVirtualNetworkConnectionTypeOutput
-	ToAppServiceSlotVirtualNetworkConnectionTypeOutputWithContext(context.Context) AppServiceSlotVirtualNetworkConnectionTypeOutput
-}
-
-// Virtual Network information contract.
-type AppServiceSlotVirtualNetworkConnectionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// VnetInfo resource specific properties
-	Properties VnetInfoResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSlotVirtualNetworkConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotVirtualNetworkConnectionType)(nil)).Elem()
-}
-
-func (i AppServiceSlotVirtualNetworkConnectionTypeArgs) ToAppServiceSlotVirtualNetworkConnectionTypeOutput() AppServiceSlotVirtualNetworkConnectionTypeOutput {
-	return i.ToAppServiceSlotVirtualNetworkConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSlotVirtualNetworkConnectionTypeArgs) ToAppServiceSlotVirtualNetworkConnectionTypeOutputWithContext(ctx context.Context) AppServiceSlotVirtualNetworkConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSlotVirtualNetworkConnectionTypeOutput)
-}
-
-// Virtual Network information contract.
-type AppServiceSlotVirtualNetworkConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSlotVirtualNetworkConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSlotVirtualNetworkConnectionType)(nil)).Elem()
-}
-
-func (o AppServiceSlotVirtualNetworkConnectionTypeOutput) ToAppServiceSlotVirtualNetworkConnectionTypeOutput() AppServiceSlotVirtualNetworkConnectionTypeOutput {
-	return o
-}
-
-func (o AppServiceSlotVirtualNetworkConnectionTypeOutput) ToAppServiceSlotVirtualNetworkConnectionTypeOutputWithContext(ctx context.Context) AppServiceSlotVirtualNetworkConnectionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSlotVirtualNetworkConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSlotVirtualNetworkConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSlotVirtualNetworkConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotVirtualNetworkConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// VnetInfo resource specific properties
-func (o AppServiceSlotVirtualNetworkConnectionTypeOutput) Properties() VnetInfoResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSlotVirtualNetworkConnectionType) VnetInfoResponseProperties { return v.Properties }).(VnetInfoResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSlotVirtualNetworkConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSlotVirtualNetworkConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Source control configuration for an app.
-type AppServiceSourcecontrolType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceSourcecontrolTypeInput is an input type that accepts AppServiceSourcecontrolTypeArgs and AppServiceSourcecontrolTypeOutput values.
-// You can construct a concrete instance of `AppServiceSourcecontrolTypeInput` via:
-//
-//          AppServiceSourcecontrolTypeArgs{...}
-type AppServiceSourcecontrolTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceSourcecontrolTypeOutput() AppServiceSourcecontrolTypeOutput
-	ToAppServiceSourcecontrolTypeOutputWithContext(context.Context) AppServiceSourcecontrolTypeOutput
-}
-
-// Source control configuration for an app.
-type AppServiceSourcecontrolTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceSourcecontrolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSourcecontrolType)(nil)).Elem()
-}
-
-func (i AppServiceSourcecontrolTypeArgs) ToAppServiceSourcecontrolTypeOutput() AppServiceSourcecontrolTypeOutput {
-	return i.ToAppServiceSourcecontrolTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceSourcecontrolTypeArgs) ToAppServiceSourcecontrolTypeOutputWithContext(ctx context.Context) AppServiceSourcecontrolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourcecontrolTypeOutput)
-}
-
-// Source control configuration for an app.
-type AppServiceSourcecontrolTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSourcecontrolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceSourcecontrolType)(nil)).Elem()
-}
-
-func (o AppServiceSourcecontrolTypeOutput) ToAppServiceSourcecontrolTypeOutput() AppServiceSourcecontrolTypeOutput {
-	return o
-}
-
-func (o AppServiceSourcecontrolTypeOutput) ToAppServiceSourcecontrolTypeOutputWithContext(ctx context.Context) AppServiceSourcecontrolTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceSourcecontrolTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSourcecontrolType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceSourcecontrolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSourcecontrolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SiteSourceControl resource specific properties
-func (o AppServiceSourcecontrolTypeOutput) Properties() SiteSourceControlResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceSourcecontrolType) SiteSourceControlResponseProperties { return v.Properties }).(SiteSourceControlResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceSourcecontrolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceSourcecontrolType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Virtual Network information contract.
-type AppServiceVirtualNetworkConnectionType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// VnetInfo resource specific properties
-	Properties VnetInfoResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppServiceVirtualNetworkConnectionTypeInput is an input type that accepts AppServiceVirtualNetworkConnectionTypeArgs and AppServiceVirtualNetworkConnectionTypeOutput values.
-// You can construct a concrete instance of `AppServiceVirtualNetworkConnectionTypeInput` via:
-//
-//          AppServiceVirtualNetworkConnectionTypeArgs{...}
-type AppServiceVirtualNetworkConnectionTypeInput interface {
-	pulumi.Input
-
-	ToAppServiceVirtualNetworkConnectionTypeOutput() AppServiceVirtualNetworkConnectionTypeOutput
-	ToAppServiceVirtualNetworkConnectionTypeOutputWithContext(context.Context) AppServiceVirtualNetworkConnectionTypeOutput
-}
-
-// Virtual Network information contract.
-type AppServiceVirtualNetworkConnectionTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// VnetInfo resource specific properties
-	Properties VnetInfoResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppServiceVirtualNetworkConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceVirtualNetworkConnectionType)(nil)).Elem()
-}
-
-func (i AppServiceVirtualNetworkConnectionTypeArgs) ToAppServiceVirtualNetworkConnectionTypeOutput() AppServiceVirtualNetworkConnectionTypeOutput {
-	return i.ToAppServiceVirtualNetworkConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i AppServiceVirtualNetworkConnectionTypeArgs) ToAppServiceVirtualNetworkConnectionTypeOutputWithContext(ctx context.Context) AppServiceVirtualNetworkConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceVirtualNetworkConnectionTypeOutput)
-}
-
-// Virtual Network information contract.
-type AppServiceVirtualNetworkConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (AppServiceVirtualNetworkConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceVirtualNetworkConnectionType)(nil)).Elem()
-}
-
-func (o AppServiceVirtualNetworkConnectionTypeOutput) ToAppServiceVirtualNetworkConnectionTypeOutput() AppServiceVirtualNetworkConnectionTypeOutput {
-	return o
-}
-
-func (o AppServiceVirtualNetworkConnectionTypeOutput) ToAppServiceVirtualNetworkConnectionTypeOutputWithContext(ctx context.Context) AppServiceVirtualNetworkConnectionTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o AppServiceVirtualNetworkConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceVirtualNetworkConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Name.
-func (o AppServiceVirtualNetworkConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceVirtualNetworkConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// VnetInfo resource specific properties
-func (o AppServiceVirtualNetworkConnectionTypeOutput) Properties() VnetInfoResponsePropertiesOutput {
-	return o.ApplyT(func(v AppServiceVirtualNetworkConnectionType) VnetInfoResponseProperties { return v.Properties }).(VnetInfoResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o AppServiceVirtualNetworkConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceVirtualNetworkConnectionType) string { return v.Type }).(pulumi.StringOutput)
+func (o AppServicePlanRouteForVnetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServicePlanRouteForVnetType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A wrapper for an ARM resource id
@@ -13208,106 +10992,6 @@ func (o HostNameSslStateResponseArrayOutput) Index(i pulumi.IntInput) HostNameSs
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostNameSslStateResponse {
 		return vs[0].([]HostNameSslStateResponse)[vs[1].(int)]
 	}).(HostNameSslStateResponseOutput)
-}
-
-// App Service Environment ARM resource.
-type HostingEnvironmentType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Core resource properties
-	Properties AppServiceEnvironmentResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HostingEnvironmentTypeInput is an input type that accepts HostingEnvironmentTypeArgs and HostingEnvironmentTypeOutput values.
-// You can construct a concrete instance of `HostingEnvironmentTypeInput` via:
-//
-//          HostingEnvironmentTypeArgs{...}
-type HostingEnvironmentTypeInput interface {
-	pulumi.Input
-
-	ToHostingEnvironmentTypeOutput() HostingEnvironmentTypeOutput
-	ToHostingEnvironmentTypeOutputWithContext(context.Context) HostingEnvironmentTypeOutput
-}
-
-// App Service Environment ARM resource.
-type HostingEnvironmentTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Core resource properties
-	Properties AppServiceEnvironmentResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HostingEnvironmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentType)(nil)).Elem()
-}
-
-func (i HostingEnvironmentTypeArgs) ToHostingEnvironmentTypeOutput() HostingEnvironmentTypeOutput {
-	return i.ToHostingEnvironmentTypeOutputWithContext(context.Background())
-}
-
-func (i HostingEnvironmentTypeArgs) ToHostingEnvironmentTypeOutputWithContext(ctx context.Context) HostingEnvironmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentTypeOutput)
-}
-
-// App Service Environment ARM resource.
-type HostingEnvironmentTypeOutput struct{ *pulumi.OutputState }
-
-func (HostingEnvironmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentType)(nil)).Elem()
-}
-
-func (o HostingEnvironmentTypeOutput) ToHostingEnvironmentTypeOutput() HostingEnvironmentTypeOutput {
-	return o
-}
-
-func (o HostingEnvironmentTypeOutput) ToHostingEnvironmentTypeOutputWithContext(ctx context.Context) HostingEnvironmentTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o HostingEnvironmentTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location.
-func (o HostingEnvironmentTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v HostingEnvironmentType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name.
-func (o HostingEnvironmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HostingEnvironmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Core resource properties
-func (o HostingEnvironmentTypeOutput) Properties() AppServiceEnvironmentResponseOutput {
-	return o.ApplyT(func(v HostingEnvironmentType) AppServiceEnvironmentResponse { return v.Properties }).(AppServiceEnvironmentResponseOutput)
-}
-
-// Resource tags.
-func (o HostingEnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v HostingEnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o HostingEnvironmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HostingEnvironmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specification for an App Service Environment to use for this resource.
@@ -30238,6 +27922,2320 @@ func (o VnetRouteResponsePropertiesPtrOutput) StartAddress() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// A web app, a mobile app backend, or an API app.
+type WebAppType struct {
+	// Managed service identity.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location string `pulumi:"location"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Site resource specific properties
+	Properties SiteResponseProperties `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppTypeInput is an input type that accepts WebAppTypeArgs and WebAppTypeOutput values.
+// You can construct a concrete instance of `WebAppTypeInput` via:
+//
+//          WebAppTypeArgs{...}
+type WebAppTypeInput interface {
+	pulumi.Input
+
+	ToWebAppTypeOutput() WebAppTypeOutput
+	ToWebAppTypeOutputWithContext(context.Context) WebAppTypeOutput
+}
+
+// A web app, a mobile app backend, or an API app.
+type WebAppTypeArgs struct {
+	// Managed service identity.
+	Identity ManagedServiceIdentityResponsePtrInput `pulumi:"identity"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Site resource specific properties
+	Properties SiteResponsePropertiesInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppType)(nil)).Elem()
+}
+
+func (i WebAppTypeArgs) ToWebAppTypeOutput() WebAppTypeOutput {
+	return i.ToWebAppTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppTypeArgs) ToWebAppTypeOutputWithContext(ctx context.Context) WebAppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppTypeOutput)
+}
+
+// A web app, a mobile app backend, or an API app.
+type WebAppTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppType)(nil)).Elem()
+}
+
+func (o WebAppTypeOutput) ToWebAppTypeOutput() WebAppTypeOutput {
+	return o
+}
+
+func (o WebAppTypeOutput) ToWebAppTypeOutputWithContext(ctx context.Context) WebAppTypeOutput {
+	return o
+}
+
+// Managed service identity.
+func (o WebAppTypeOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v WebAppType) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o WebAppTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o WebAppTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Site resource specific properties
+func (o WebAppTypeOutput) Properties() SiteResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppType) SiteResponseProperties { return v.Properties }).(SiteResponsePropertiesOutput)
+}
+
+// Resource tags.
+func (o WebAppTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebAppType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebAppTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// User credentials used for publishing activity.
+type WebAppDeploymentType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Deployment resource specific properties
+	Properties DeploymentResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppDeploymentTypeInput is an input type that accepts WebAppDeploymentTypeArgs and WebAppDeploymentTypeOutput values.
+// You can construct a concrete instance of `WebAppDeploymentTypeInput` via:
+//
+//          WebAppDeploymentTypeArgs{...}
+type WebAppDeploymentTypeInput interface {
+	pulumi.Input
+
+	ToWebAppDeploymentTypeOutput() WebAppDeploymentTypeOutput
+	ToWebAppDeploymentTypeOutputWithContext(context.Context) WebAppDeploymentTypeOutput
+}
+
+// User credentials used for publishing activity.
+type WebAppDeploymentTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Deployment resource specific properties
+	Properties DeploymentResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppDeploymentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeploymentType)(nil)).Elem()
+}
+
+func (i WebAppDeploymentTypeArgs) ToWebAppDeploymentTypeOutput() WebAppDeploymentTypeOutput {
+	return i.ToWebAppDeploymentTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppDeploymentTypeArgs) ToWebAppDeploymentTypeOutputWithContext(ctx context.Context) WebAppDeploymentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppDeploymentTypeOutput)
+}
+
+// User credentials used for publishing activity.
+type WebAppDeploymentTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppDeploymentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeploymentType)(nil)).Elem()
+}
+
+func (o WebAppDeploymentTypeOutput) ToWebAppDeploymentTypeOutput() WebAppDeploymentTypeOutput {
+	return o
+}
+
+func (o WebAppDeploymentTypeOutput) ToWebAppDeploymentTypeOutputWithContext(ctx context.Context) WebAppDeploymentTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppDeploymentTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppDeploymentType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppDeploymentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDeploymentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment resource specific properties
+func (o WebAppDeploymentTypeOutput) Properties() DeploymentResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppDeploymentType) DeploymentResponseProperties { return v.Properties }).(DeploymentResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppDeploymentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDeploymentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// User credentials used for publishing activity.
+type WebAppDeploymentSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Deployment resource specific properties
+	Properties DeploymentResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppDeploymentSlotTypeInput is an input type that accepts WebAppDeploymentSlotTypeArgs and WebAppDeploymentSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppDeploymentSlotTypeInput` via:
+//
+//          WebAppDeploymentSlotTypeArgs{...}
+type WebAppDeploymentSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppDeploymentSlotTypeOutput() WebAppDeploymentSlotTypeOutput
+	ToWebAppDeploymentSlotTypeOutputWithContext(context.Context) WebAppDeploymentSlotTypeOutput
+}
+
+// User credentials used for publishing activity.
+type WebAppDeploymentSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Deployment resource specific properties
+	Properties DeploymentResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppDeploymentSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeploymentSlotType)(nil)).Elem()
+}
+
+func (i WebAppDeploymentSlotTypeArgs) ToWebAppDeploymentSlotTypeOutput() WebAppDeploymentSlotTypeOutput {
+	return i.ToWebAppDeploymentSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppDeploymentSlotTypeArgs) ToWebAppDeploymentSlotTypeOutputWithContext(ctx context.Context) WebAppDeploymentSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppDeploymentSlotTypeOutput)
+}
+
+// User credentials used for publishing activity.
+type WebAppDeploymentSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppDeploymentSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDeploymentSlotType)(nil)).Elem()
+}
+
+func (o WebAppDeploymentSlotTypeOutput) ToWebAppDeploymentSlotTypeOutput() WebAppDeploymentSlotTypeOutput {
+	return o
+}
+
+func (o WebAppDeploymentSlotTypeOutput) ToWebAppDeploymentSlotTypeOutputWithContext(ctx context.Context) WebAppDeploymentSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppDeploymentSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppDeploymentSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppDeploymentSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDeploymentSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment resource specific properties
+func (o WebAppDeploymentSlotTypeOutput) Properties() DeploymentResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppDeploymentSlotType) DeploymentResponseProperties { return v.Properties }).(DeploymentResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppDeploymentSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDeploymentSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A domain specific resource identifier.
+type WebAppDomainOwnershipIdentifierType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Identifier resource specific properties
+	Properties IdentifierResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppDomainOwnershipIdentifierTypeInput is an input type that accepts WebAppDomainOwnershipIdentifierTypeArgs and WebAppDomainOwnershipIdentifierTypeOutput values.
+// You can construct a concrete instance of `WebAppDomainOwnershipIdentifierTypeInput` via:
+//
+//          WebAppDomainOwnershipIdentifierTypeArgs{...}
+type WebAppDomainOwnershipIdentifierTypeInput interface {
+	pulumi.Input
+
+	ToWebAppDomainOwnershipIdentifierTypeOutput() WebAppDomainOwnershipIdentifierTypeOutput
+	ToWebAppDomainOwnershipIdentifierTypeOutputWithContext(context.Context) WebAppDomainOwnershipIdentifierTypeOutput
+}
+
+// A domain specific resource identifier.
+type WebAppDomainOwnershipIdentifierTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Identifier resource specific properties
+	Properties IdentifierResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppDomainOwnershipIdentifierTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierType)(nil)).Elem()
+}
+
+func (i WebAppDomainOwnershipIdentifierTypeArgs) ToWebAppDomainOwnershipIdentifierTypeOutput() WebAppDomainOwnershipIdentifierTypeOutput {
+	return i.ToWebAppDomainOwnershipIdentifierTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppDomainOwnershipIdentifierTypeArgs) ToWebAppDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierTypeOutput)
+}
+
+// A domain specific resource identifier.
+type WebAppDomainOwnershipIdentifierTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppDomainOwnershipIdentifierTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierType)(nil)).Elem()
+}
+
+func (o WebAppDomainOwnershipIdentifierTypeOutput) ToWebAppDomainOwnershipIdentifierTypeOutput() WebAppDomainOwnershipIdentifierTypeOutput {
+	return o
+}
+
+func (o WebAppDomainOwnershipIdentifierTypeOutput) ToWebAppDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppDomainOwnershipIdentifierTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppDomainOwnershipIdentifierTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identifier resource specific properties
+func (o WebAppDomainOwnershipIdentifierTypeOutput) Properties() IdentifierResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierType) IdentifierResponseProperties { return v.Properties }).(IdentifierResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppDomainOwnershipIdentifierTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A domain specific resource identifier.
+type WebAppDomainOwnershipIdentifierSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Identifier resource specific properties
+	Properties IdentifierResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppDomainOwnershipIdentifierSlotTypeInput is an input type that accepts WebAppDomainOwnershipIdentifierSlotTypeArgs and WebAppDomainOwnershipIdentifierSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppDomainOwnershipIdentifierSlotTypeInput` via:
+//
+//          WebAppDomainOwnershipIdentifierSlotTypeArgs{...}
+type WebAppDomainOwnershipIdentifierSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppDomainOwnershipIdentifierSlotTypeOutput() WebAppDomainOwnershipIdentifierSlotTypeOutput
+	ToWebAppDomainOwnershipIdentifierSlotTypeOutputWithContext(context.Context) WebAppDomainOwnershipIdentifierSlotTypeOutput
+}
+
+// A domain specific resource identifier.
+type WebAppDomainOwnershipIdentifierSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Identifier resource specific properties
+	Properties IdentifierResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppDomainOwnershipIdentifierSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierSlotType)(nil)).Elem()
+}
+
+func (i WebAppDomainOwnershipIdentifierSlotTypeArgs) ToWebAppDomainOwnershipIdentifierSlotTypeOutput() WebAppDomainOwnershipIdentifierSlotTypeOutput {
+	return i.ToWebAppDomainOwnershipIdentifierSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppDomainOwnershipIdentifierSlotTypeArgs) ToWebAppDomainOwnershipIdentifierSlotTypeOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierSlotTypeOutput)
+}
+
+// A domain specific resource identifier.
+type WebAppDomainOwnershipIdentifierSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppDomainOwnershipIdentifierSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierSlotType)(nil)).Elem()
+}
+
+func (o WebAppDomainOwnershipIdentifierSlotTypeOutput) ToWebAppDomainOwnershipIdentifierSlotTypeOutput() WebAppDomainOwnershipIdentifierSlotTypeOutput {
+	return o
+}
+
+func (o WebAppDomainOwnershipIdentifierSlotTypeOutput) ToWebAppDomainOwnershipIdentifierSlotTypeOutputWithContext(ctx context.Context) WebAppDomainOwnershipIdentifierSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppDomainOwnershipIdentifierSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppDomainOwnershipIdentifierSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identifier resource specific properties
+func (o WebAppDomainOwnershipIdentifierSlotTypeOutput) Properties() IdentifierResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierSlotType) IdentifierResponseProperties { return v.Properties }).(IdentifierResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppDomainOwnershipIdentifierSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppDomainOwnershipIdentifierSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Function information.
+type WebAppFunctionType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// FunctionEnvelope resource specific properties
+	Properties FunctionEnvelopeResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppFunctionTypeInput is an input type that accepts WebAppFunctionTypeArgs and WebAppFunctionTypeOutput values.
+// You can construct a concrete instance of `WebAppFunctionTypeInput` via:
+//
+//          WebAppFunctionTypeArgs{...}
+type WebAppFunctionTypeInput interface {
+	pulumi.Input
+
+	ToWebAppFunctionTypeOutput() WebAppFunctionTypeOutput
+	ToWebAppFunctionTypeOutputWithContext(context.Context) WebAppFunctionTypeOutput
+}
+
+// Function information.
+type WebAppFunctionTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// FunctionEnvelope resource specific properties
+	Properties FunctionEnvelopeResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppFunctionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppFunctionType)(nil)).Elem()
+}
+
+func (i WebAppFunctionTypeArgs) ToWebAppFunctionTypeOutput() WebAppFunctionTypeOutput {
+	return i.ToWebAppFunctionTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppFunctionTypeArgs) ToWebAppFunctionTypeOutputWithContext(ctx context.Context) WebAppFunctionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppFunctionTypeOutput)
+}
+
+// Function information.
+type WebAppFunctionTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppFunctionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppFunctionType)(nil)).Elem()
+}
+
+func (o WebAppFunctionTypeOutput) ToWebAppFunctionTypeOutput() WebAppFunctionTypeOutput {
+	return o
+}
+
+func (o WebAppFunctionTypeOutput) ToWebAppFunctionTypeOutputWithContext(ctx context.Context) WebAppFunctionTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppFunctionTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppFunctionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppFunctionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppFunctionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// FunctionEnvelope resource specific properties
+func (o WebAppFunctionTypeOutput) Properties() FunctionEnvelopeResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppFunctionType) FunctionEnvelopeResponseProperties { return v.Properties }).(FunctionEnvelopeResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppFunctionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppFunctionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A hostname binding object.
+type WebAppHostNameBindingType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// HostNameBinding resource specific properties
+	Properties HostNameBindingResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppHostNameBindingTypeInput is an input type that accepts WebAppHostNameBindingTypeArgs and WebAppHostNameBindingTypeOutput values.
+// You can construct a concrete instance of `WebAppHostNameBindingTypeInput` via:
+//
+//          WebAppHostNameBindingTypeArgs{...}
+type WebAppHostNameBindingTypeInput interface {
+	pulumi.Input
+
+	ToWebAppHostNameBindingTypeOutput() WebAppHostNameBindingTypeOutput
+	ToWebAppHostNameBindingTypeOutputWithContext(context.Context) WebAppHostNameBindingTypeOutput
+}
+
+// A hostname binding object.
+type WebAppHostNameBindingTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// HostNameBinding resource specific properties
+	Properties HostNameBindingResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppHostNameBindingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingType)(nil)).Elem()
+}
+
+func (i WebAppHostNameBindingTypeArgs) ToWebAppHostNameBindingTypeOutput() WebAppHostNameBindingTypeOutput {
+	return i.ToWebAppHostNameBindingTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppHostNameBindingTypeArgs) ToWebAppHostNameBindingTypeOutputWithContext(ctx context.Context) WebAppHostNameBindingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHostNameBindingTypeOutput)
+}
+
+// A hostname binding object.
+type WebAppHostNameBindingTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppHostNameBindingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingType)(nil)).Elem()
+}
+
+func (o WebAppHostNameBindingTypeOutput) ToWebAppHostNameBindingTypeOutput() WebAppHostNameBindingTypeOutput {
+	return o
+}
+
+func (o WebAppHostNameBindingTypeOutput) ToWebAppHostNameBindingTypeOutputWithContext(ctx context.Context) WebAppHostNameBindingTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppHostNameBindingTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppHostNameBindingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// HostNameBinding resource specific properties
+func (o WebAppHostNameBindingTypeOutput) Properties() HostNameBindingResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingType) HostNameBindingResponseProperties { return v.Properties }).(HostNameBindingResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppHostNameBindingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A hostname binding object.
+type WebAppHostNameBindingSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// HostNameBinding resource specific properties
+	Properties HostNameBindingResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppHostNameBindingSlotTypeInput is an input type that accepts WebAppHostNameBindingSlotTypeArgs and WebAppHostNameBindingSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppHostNameBindingSlotTypeInput` via:
+//
+//          WebAppHostNameBindingSlotTypeArgs{...}
+type WebAppHostNameBindingSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppHostNameBindingSlotTypeOutput() WebAppHostNameBindingSlotTypeOutput
+	ToWebAppHostNameBindingSlotTypeOutputWithContext(context.Context) WebAppHostNameBindingSlotTypeOutput
+}
+
+// A hostname binding object.
+type WebAppHostNameBindingSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// HostNameBinding resource specific properties
+	Properties HostNameBindingResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppHostNameBindingSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingSlotType)(nil)).Elem()
+}
+
+func (i WebAppHostNameBindingSlotTypeArgs) ToWebAppHostNameBindingSlotTypeOutput() WebAppHostNameBindingSlotTypeOutput {
+	return i.ToWebAppHostNameBindingSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppHostNameBindingSlotTypeArgs) ToWebAppHostNameBindingSlotTypeOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHostNameBindingSlotTypeOutput)
+}
+
+// A hostname binding object.
+type WebAppHostNameBindingSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppHostNameBindingSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHostNameBindingSlotType)(nil)).Elem()
+}
+
+func (o WebAppHostNameBindingSlotTypeOutput) ToWebAppHostNameBindingSlotTypeOutput() WebAppHostNameBindingSlotTypeOutput {
+	return o
+}
+
+func (o WebAppHostNameBindingSlotTypeOutput) ToWebAppHostNameBindingSlotTypeOutputWithContext(ctx context.Context) WebAppHostNameBindingSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppHostNameBindingSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppHostNameBindingSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// HostNameBinding resource specific properties
+func (o WebAppHostNameBindingSlotTypeOutput) Properties() HostNameBindingResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingSlotType) HostNameBindingResponseProperties { return v.Properties }).(HostNameBindingResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppHostNameBindingSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHostNameBindingSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+type WebAppHybridConnectionType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// HybridConnection resource specific properties
+	Properties HybridConnectionResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppHybridConnectionTypeInput is an input type that accepts WebAppHybridConnectionTypeArgs and WebAppHybridConnectionTypeOutput values.
+// You can construct a concrete instance of `WebAppHybridConnectionTypeInput` via:
+//
+//          WebAppHybridConnectionTypeArgs{...}
+type WebAppHybridConnectionTypeInput interface {
+	pulumi.Input
+
+	ToWebAppHybridConnectionTypeOutput() WebAppHybridConnectionTypeOutput
+	ToWebAppHybridConnectionTypeOutputWithContext(context.Context) WebAppHybridConnectionTypeOutput
+}
+
+// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+type WebAppHybridConnectionTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// HybridConnection resource specific properties
+	Properties HybridConnectionResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppHybridConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionType)(nil)).Elem()
+}
+
+func (i WebAppHybridConnectionTypeArgs) ToWebAppHybridConnectionTypeOutput() WebAppHybridConnectionTypeOutput {
+	return i.ToWebAppHybridConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppHybridConnectionTypeArgs) ToWebAppHybridConnectionTypeOutputWithContext(ctx context.Context) WebAppHybridConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionTypeOutput)
+}
+
+// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+type WebAppHybridConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppHybridConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionType)(nil)).Elem()
+}
+
+func (o WebAppHybridConnectionTypeOutput) ToWebAppHybridConnectionTypeOutput() WebAppHybridConnectionTypeOutput {
+	return o
+}
+
+func (o WebAppHybridConnectionTypeOutput) ToWebAppHybridConnectionTypeOutputWithContext(ctx context.Context) WebAppHybridConnectionTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppHybridConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppHybridConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// HybridConnection resource specific properties
+func (o WebAppHybridConnectionTypeOutput) Properties() HybridConnectionResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionType) HybridConnectionResponseProperties { return v.Properties }).(HybridConnectionResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppHybridConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+type WebAppHybridConnectionSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// HybridConnection resource specific properties
+	Properties HybridConnectionResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppHybridConnectionSlotTypeInput is an input type that accepts WebAppHybridConnectionSlotTypeArgs and WebAppHybridConnectionSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppHybridConnectionSlotTypeInput` via:
+//
+//          WebAppHybridConnectionSlotTypeArgs{...}
+type WebAppHybridConnectionSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppHybridConnectionSlotTypeOutput() WebAppHybridConnectionSlotTypeOutput
+	ToWebAppHybridConnectionSlotTypeOutputWithContext(context.Context) WebAppHybridConnectionSlotTypeOutput
+}
+
+// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+type WebAppHybridConnectionSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// HybridConnection resource specific properties
+	Properties HybridConnectionResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppHybridConnectionSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionSlotType)(nil)).Elem()
+}
+
+func (i WebAppHybridConnectionSlotTypeArgs) ToWebAppHybridConnectionSlotTypeOutput() WebAppHybridConnectionSlotTypeOutput {
+	return i.ToWebAppHybridConnectionSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppHybridConnectionSlotTypeArgs) ToWebAppHybridConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppHybridConnectionSlotTypeOutput)
+}
+
+// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+type WebAppHybridConnectionSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppHybridConnectionSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppHybridConnectionSlotType)(nil)).Elem()
+}
+
+func (o WebAppHybridConnectionSlotTypeOutput) ToWebAppHybridConnectionSlotTypeOutput() WebAppHybridConnectionSlotTypeOutput {
+	return o
+}
+
+func (o WebAppHybridConnectionSlotTypeOutput) ToWebAppHybridConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppHybridConnectionSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppHybridConnectionSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppHybridConnectionSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// HybridConnection resource specific properties
+func (o WebAppHybridConnectionSlotTypeOutput) Properties() HybridConnectionResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionSlotType) HybridConnectionResponseProperties { return v.Properties }).(HybridConnectionResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppHybridConnectionSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppHybridConnectionSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Function information.
+type WebAppInstanceFunctionSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// FunctionEnvelope resource specific properties
+	Properties FunctionEnvelopeResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppInstanceFunctionSlotTypeInput is an input type that accepts WebAppInstanceFunctionSlotTypeArgs and WebAppInstanceFunctionSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppInstanceFunctionSlotTypeInput` via:
+//
+//          WebAppInstanceFunctionSlotTypeArgs{...}
+type WebAppInstanceFunctionSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppInstanceFunctionSlotTypeOutput() WebAppInstanceFunctionSlotTypeOutput
+	ToWebAppInstanceFunctionSlotTypeOutputWithContext(context.Context) WebAppInstanceFunctionSlotTypeOutput
+}
+
+// Function information.
+type WebAppInstanceFunctionSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// FunctionEnvelope resource specific properties
+	Properties FunctionEnvelopeResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppInstanceFunctionSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppInstanceFunctionSlotType)(nil)).Elem()
+}
+
+func (i WebAppInstanceFunctionSlotTypeArgs) ToWebAppInstanceFunctionSlotTypeOutput() WebAppInstanceFunctionSlotTypeOutput {
+	return i.ToWebAppInstanceFunctionSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppInstanceFunctionSlotTypeArgs) ToWebAppInstanceFunctionSlotTypeOutputWithContext(ctx context.Context) WebAppInstanceFunctionSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppInstanceFunctionSlotTypeOutput)
+}
+
+// Function information.
+type WebAppInstanceFunctionSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppInstanceFunctionSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppInstanceFunctionSlotType)(nil)).Elem()
+}
+
+func (o WebAppInstanceFunctionSlotTypeOutput) ToWebAppInstanceFunctionSlotTypeOutput() WebAppInstanceFunctionSlotTypeOutput {
+	return o
+}
+
+func (o WebAppInstanceFunctionSlotTypeOutput) ToWebAppInstanceFunctionSlotTypeOutputWithContext(ctx context.Context) WebAppInstanceFunctionSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppInstanceFunctionSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppInstanceFunctionSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppInstanceFunctionSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppInstanceFunctionSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// FunctionEnvelope resource specific properties
+func (o WebAppInstanceFunctionSlotTypeOutput) Properties() FunctionEnvelopeResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppInstanceFunctionSlotType) FunctionEnvelopeResponseProperties { return v.Properties }).(FunctionEnvelopeResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppInstanceFunctionSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppInstanceFunctionSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Premier add-on.
+type WebAppPremierAddOnType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location string `pulumi:"location"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// PremierAddOn resource specific properties
+	Properties PremierAddOnResponseProperties `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppPremierAddOnTypeInput is an input type that accepts WebAppPremierAddOnTypeArgs and WebAppPremierAddOnTypeOutput values.
+// You can construct a concrete instance of `WebAppPremierAddOnTypeInput` via:
+//
+//          WebAppPremierAddOnTypeArgs{...}
+type WebAppPremierAddOnTypeInput interface {
+	pulumi.Input
+
+	ToWebAppPremierAddOnTypeOutput() WebAppPremierAddOnTypeOutput
+	ToWebAppPremierAddOnTypeOutputWithContext(context.Context) WebAppPremierAddOnTypeOutput
+}
+
+// Premier add-on.
+type WebAppPremierAddOnTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// PremierAddOn resource specific properties
+	Properties PremierAddOnResponsePropertiesInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppPremierAddOnTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnType)(nil)).Elem()
+}
+
+func (i WebAppPremierAddOnTypeArgs) ToWebAppPremierAddOnTypeOutput() WebAppPremierAddOnTypeOutput {
+	return i.ToWebAppPremierAddOnTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppPremierAddOnTypeArgs) ToWebAppPremierAddOnTypeOutputWithContext(ctx context.Context) WebAppPremierAddOnTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnTypeOutput)
+}
+
+// Premier add-on.
+type WebAppPremierAddOnTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppPremierAddOnTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnType)(nil)).Elem()
+}
+
+func (o WebAppPremierAddOnTypeOutput) ToWebAppPremierAddOnTypeOutput() WebAppPremierAddOnTypeOutput {
+	return o
+}
+
+func (o WebAppPremierAddOnTypeOutput) ToWebAppPremierAddOnTypeOutputWithContext(ctx context.Context) WebAppPremierAddOnTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppPremierAddOnTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o WebAppPremierAddOnTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o WebAppPremierAddOnTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// PremierAddOn resource specific properties
+func (o WebAppPremierAddOnTypeOutput) Properties() PremierAddOnResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnType) PremierAddOnResponseProperties { return v.Properties }).(PremierAddOnResponsePropertiesOutput)
+}
+
+// Resource tags.
+func (o WebAppPremierAddOnTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebAppPremierAddOnTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Premier add-on.
+type WebAppPremierAddOnSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location string `pulumi:"location"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// PremierAddOn resource specific properties
+	Properties PremierAddOnResponseProperties `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppPremierAddOnSlotTypeInput is an input type that accepts WebAppPremierAddOnSlotTypeArgs and WebAppPremierAddOnSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppPremierAddOnSlotTypeInput` via:
+//
+//          WebAppPremierAddOnSlotTypeArgs{...}
+type WebAppPremierAddOnSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppPremierAddOnSlotTypeOutput() WebAppPremierAddOnSlotTypeOutput
+	ToWebAppPremierAddOnSlotTypeOutputWithContext(context.Context) WebAppPremierAddOnSlotTypeOutput
+}
+
+// Premier add-on.
+type WebAppPremierAddOnSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// PremierAddOn resource specific properties
+	Properties PremierAddOnResponsePropertiesInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppPremierAddOnSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnSlotType)(nil)).Elem()
+}
+
+func (i WebAppPremierAddOnSlotTypeArgs) ToWebAppPremierAddOnSlotTypeOutput() WebAppPremierAddOnSlotTypeOutput {
+	return i.ToWebAppPremierAddOnSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppPremierAddOnSlotTypeArgs) ToWebAppPremierAddOnSlotTypeOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPremierAddOnSlotTypeOutput)
+}
+
+// Premier add-on.
+type WebAppPremierAddOnSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppPremierAddOnSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPremierAddOnSlotType)(nil)).Elem()
+}
+
+func (o WebAppPremierAddOnSlotTypeOutput) ToWebAppPremierAddOnSlotTypeOutput() WebAppPremierAddOnSlotTypeOutput {
+	return o
+}
+
+func (o WebAppPremierAddOnSlotTypeOutput) ToWebAppPremierAddOnSlotTypeOutputWithContext(ctx context.Context) WebAppPremierAddOnSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppPremierAddOnSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o WebAppPremierAddOnSlotTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnSlotType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o WebAppPremierAddOnSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// PremierAddOn resource specific properties
+func (o WebAppPremierAddOnSlotTypeOutput) Properties() PremierAddOnResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnSlotType) PremierAddOnResponseProperties { return v.Properties }).(PremierAddOnResponsePropertiesOutput)
+}
+
+// Resource tags.
+func (o WebAppPremierAddOnSlotTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnSlotType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebAppPremierAddOnSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPremierAddOnSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Private Endpoint Connection ARM resource.
+type WebAppPrivateEndpointConnectionType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Core resource properties
+	Properties RemotePrivateEndpointConnectionResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppPrivateEndpointConnectionTypeInput is an input type that accepts WebAppPrivateEndpointConnectionTypeArgs and WebAppPrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `WebAppPrivateEndpointConnectionTypeInput` via:
+//
+//          WebAppPrivateEndpointConnectionTypeArgs{...}
+type WebAppPrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToWebAppPrivateEndpointConnectionTypeOutput() WebAppPrivateEndpointConnectionTypeOutput
+	ToWebAppPrivateEndpointConnectionTypeOutputWithContext(context.Context) WebAppPrivateEndpointConnectionTypeOutput
+}
+
+// Private Endpoint Connection ARM resource.
+type WebAppPrivateEndpointConnectionTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Core resource properties
+	Properties RemotePrivateEndpointConnectionResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppPrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i WebAppPrivateEndpointConnectionTypeArgs) ToWebAppPrivateEndpointConnectionTypeOutput() WebAppPrivateEndpointConnectionTypeOutput {
+	return i.ToWebAppPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppPrivateEndpointConnectionTypeArgs) ToWebAppPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPrivateEndpointConnectionTypeOutput)
+}
+
+// Private Endpoint Connection ARM resource.
+type WebAppPrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppPrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o WebAppPrivateEndpointConnectionTypeOutput) ToWebAppPrivateEndpointConnectionTypeOutput() WebAppPrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o WebAppPrivateEndpointConnectionTypeOutput) ToWebAppPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) WebAppPrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppPrivateEndpointConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppPrivateEndpointConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppPrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Core resource properties
+func (o WebAppPrivateEndpointConnectionTypeOutput) Properties() RemotePrivateEndpointConnectionResponseOutput {
+	return o.ApplyT(func(v WebAppPrivateEndpointConnectionType) RemotePrivateEndpointConnectionResponse {
+		return v.Properties
+	}).(RemotePrivateEndpointConnectionResponseOutput)
+}
+
+// Resource type.
+func (o WebAppPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Public certificate object
+type WebAppPublicCertificateType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// PublicCertificate resource specific properties
+	Properties PublicCertificateResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppPublicCertificateTypeInput is an input type that accepts WebAppPublicCertificateTypeArgs and WebAppPublicCertificateTypeOutput values.
+// You can construct a concrete instance of `WebAppPublicCertificateTypeInput` via:
+//
+//          WebAppPublicCertificateTypeArgs{...}
+type WebAppPublicCertificateTypeInput interface {
+	pulumi.Input
+
+	ToWebAppPublicCertificateTypeOutput() WebAppPublicCertificateTypeOutput
+	ToWebAppPublicCertificateTypeOutputWithContext(context.Context) WebAppPublicCertificateTypeOutput
+}
+
+// Public certificate object
+type WebAppPublicCertificateTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// PublicCertificate resource specific properties
+	Properties PublicCertificateResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppPublicCertificateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateType)(nil)).Elem()
+}
+
+func (i WebAppPublicCertificateTypeArgs) ToWebAppPublicCertificateTypeOutput() WebAppPublicCertificateTypeOutput {
+	return i.ToWebAppPublicCertificateTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppPublicCertificateTypeArgs) ToWebAppPublicCertificateTypeOutputWithContext(ctx context.Context) WebAppPublicCertificateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateTypeOutput)
+}
+
+// Public certificate object
+type WebAppPublicCertificateTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppPublicCertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateType)(nil)).Elem()
+}
+
+func (o WebAppPublicCertificateTypeOutput) ToWebAppPublicCertificateTypeOutput() WebAppPublicCertificateTypeOutput {
+	return o
+}
+
+func (o WebAppPublicCertificateTypeOutput) ToWebAppPublicCertificateTypeOutputWithContext(ctx context.Context) WebAppPublicCertificateTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppPublicCertificateTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppPublicCertificateTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// PublicCertificate resource specific properties
+func (o WebAppPublicCertificateTypeOutput) Properties() PublicCertificateResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateType) PublicCertificateResponseProperties { return v.Properties }).(PublicCertificateResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppPublicCertificateTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Public certificate object
+type WebAppPublicCertificateSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// PublicCertificate resource specific properties
+	Properties PublicCertificateResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppPublicCertificateSlotTypeInput is an input type that accepts WebAppPublicCertificateSlotTypeArgs and WebAppPublicCertificateSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppPublicCertificateSlotTypeInput` via:
+//
+//          WebAppPublicCertificateSlotTypeArgs{...}
+type WebAppPublicCertificateSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppPublicCertificateSlotTypeOutput() WebAppPublicCertificateSlotTypeOutput
+	ToWebAppPublicCertificateSlotTypeOutputWithContext(context.Context) WebAppPublicCertificateSlotTypeOutput
+}
+
+// Public certificate object
+type WebAppPublicCertificateSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// PublicCertificate resource specific properties
+	Properties PublicCertificateResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppPublicCertificateSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateSlotType)(nil)).Elem()
+}
+
+func (i WebAppPublicCertificateSlotTypeArgs) ToWebAppPublicCertificateSlotTypeOutput() WebAppPublicCertificateSlotTypeOutput {
+	return i.ToWebAppPublicCertificateSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppPublicCertificateSlotTypeArgs) ToWebAppPublicCertificateSlotTypeOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateSlotTypeOutput)
+}
+
+// Public certificate object
+type WebAppPublicCertificateSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppPublicCertificateSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppPublicCertificateSlotType)(nil)).Elem()
+}
+
+func (o WebAppPublicCertificateSlotTypeOutput) ToWebAppPublicCertificateSlotTypeOutput() WebAppPublicCertificateSlotTypeOutput {
+	return o
+}
+
+func (o WebAppPublicCertificateSlotTypeOutput) ToWebAppPublicCertificateSlotTypeOutputWithContext(ctx context.Context) WebAppPublicCertificateSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppPublicCertificateSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppPublicCertificateSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// PublicCertificate resource specific properties
+func (o WebAppPublicCertificateSlotTypeOutput) Properties() PublicCertificateResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateSlotType) PublicCertificateResponseProperties { return v.Properties }).(PublicCertificateResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppPublicCertificateSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppPublicCertificateSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Hybrid Connection for an App Service app.
+type WebAppRelayServiceConnectionType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// RelayServiceConnectionEntity resource specific properties
+	Properties RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppRelayServiceConnectionTypeInput is an input type that accepts WebAppRelayServiceConnectionTypeArgs and WebAppRelayServiceConnectionTypeOutput values.
+// You can construct a concrete instance of `WebAppRelayServiceConnectionTypeInput` via:
+//
+//          WebAppRelayServiceConnectionTypeArgs{...}
+type WebAppRelayServiceConnectionTypeInput interface {
+	pulumi.Input
+
+	ToWebAppRelayServiceConnectionTypeOutput() WebAppRelayServiceConnectionTypeOutput
+	ToWebAppRelayServiceConnectionTypeOutputWithContext(context.Context) WebAppRelayServiceConnectionTypeOutput
+}
+
+// Hybrid Connection for an App Service app.
+type WebAppRelayServiceConnectionTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// RelayServiceConnectionEntity resource specific properties
+	Properties RelayServiceConnectionEntityResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppRelayServiceConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionType)(nil)).Elem()
+}
+
+func (i WebAppRelayServiceConnectionTypeArgs) ToWebAppRelayServiceConnectionTypeOutput() WebAppRelayServiceConnectionTypeOutput {
+	return i.ToWebAppRelayServiceConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppRelayServiceConnectionTypeArgs) ToWebAppRelayServiceConnectionTypeOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionTypeOutput)
+}
+
+// Hybrid Connection for an App Service app.
+type WebAppRelayServiceConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppRelayServiceConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionType)(nil)).Elem()
+}
+
+func (o WebAppRelayServiceConnectionTypeOutput) ToWebAppRelayServiceConnectionTypeOutput() WebAppRelayServiceConnectionTypeOutput {
+	return o
+}
+
+func (o WebAppRelayServiceConnectionTypeOutput) ToWebAppRelayServiceConnectionTypeOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppRelayServiceConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppRelayServiceConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// RelayServiceConnectionEntity resource specific properties
+func (o WebAppRelayServiceConnectionTypeOutput) Properties() RelayServiceConnectionEntityResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionType) RelayServiceConnectionEntityResponseProperties {
+		return v.Properties
+	}).(RelayServiceConnectionEntityResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppRelayServiceConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Hybrid Connection for an App Service app.
+type WebAppRelayServiceConnectionSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// RelayServiceConnectionEntity resource specific properties
+	Properties RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppRelayServiceConnectionSlotTypeInput is an input type that accepts WebAppRelayServiceConnectionSlotTypeArgs and WebAppRelayServiceConnectionSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppRelayServiceConnectionSlotTypeInput` via:
+//
+//          WebAppRelayServiceConnectionSlotTypeArgs{...}
+type WebAppRelayServiceConnectionSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppRelayServiceConnectionSlotTypeOutput() WebAppRelayServiceConnectionSlotTypeOutput
+	ToWebAppRelayServiceConnectionSlotTypeOutputWithContext(context.Context) WebAppRelayServiceConnectionSlotTypeOutput
+}
+
+// Hybrid Connection for an App Service app.
+type WebAppRelayServiceConnectionSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// RelayServiceConnectionEntity resource specific properties
+	Properties RelayServiceConnectionEntityResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppRelayServiceConnectionSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionSlotType)(nil)).Elem()
+}
+
+func (i WebAppRelayServiceConnectionSlotTypeArgs) ToWebAppRelayServiceConnectionSlotTypeOutput() WebAppRelayServiceConnectionSlotTypeOutput {
+	return i.ToWebAppRelayServiceConnectionSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppRelayServiceConnectionSlotTypeArgs) ToWebAppRelayServiceConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionSlotTypeOutput)
+}
+
+// Hybrid Connection for an App Service app.
+type WebAppRelayServiceConnectionSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppRelayServiceConnectionSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppRelayServiceConnectionSlotType)(nil)).Elem()
+}
+
+func (o WebAppRelayServiceConnectionSlotTypeOutput) ToWebAppRelayServiceConnectionSlotTypeOutput() WebAppRelayServiceConnectionSlotTypeOutput {
+	return o
+}
+
+func (o WebAppRelayServiceConnectionSlotTypeOutput) ToWebAppRelayServiceConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppRelayServiceConnectionSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppRelayServiceConnectionSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppRelayServiceConnectionSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// RelayServiceConnectionEntity resource specific properties
+func (o WebAppRelayServiceConnectionSlotTypeOutput) Properties() RelayServiceConnectionEntityResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionSlotType) RelayServiceConnectionEntityResponseProperties {
+		return v.Properties
+	}).(RelayServiceConnectionEntityResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppRelayServiceConnectionSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppRelayServiceConnectionSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Site Extension Information.
+type WebAppSiteExtensionType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// SiteExtensionInfo resource specific properties
+	Properties SiteExtensionInfoResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppSiteExtensionTypeInput is an input type that accepts WebAppSiteExtensionTypeArgs and WebAppSiteExtensionTypeOutput values.
+// You can construct a concrete instance of `WebAppSiteExtensionTypeInput` via:
+//
+//          WebAppSiteExtensionTypeArgs{...}
+type WebAppSiteExtensionTypeInput interface {
+	pulumi.Input
+
+	ToWebAppSiteExtensionTypeOutput() WebAppSiteExtensionTypeOutput
+	ToWebAppSiteExtensionTypeOutputWithContext(context.Context) WebAppSiteExtensionTypeOutput
+}
+
+// Site Extension Information.
+type WebAppSiteExtensionTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SiteExtensionInfo resource specific properties
+	Properties SiteExtensionInfoResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppSiteExtensionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionType)(nil)).Elem()
+}
+
+func (i WebAppSiteExtensionTypeArgs) ToWebAppSiteExtensionTypeOutput() WebAppSiteExtensionTypeOutput {
+	return i.ToWebAppSiteExtensionTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppSiteExtensionTypeArgs) ToWebAppSiteExtensionTypeOutputWithContext(ctx context.Context) WebAppSiteExtensionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionTypeOutput)
+}
+
+// Site Extension Information.
+type WebAppSiteExtensionTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppSiteExtensionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionType)(nil)).Elem()
+}
+
+func (o WebAppSiteExtensionTypeOutput) ToWebAppSiteExtensionTypeOutput() WebAppSiteExtensionTypeOutput {
+	return o
+}
+
+func (o WebAppSiteExtensionTypeOutput) ToWebAppSiteExtensionTypeOutputWithContext(ctx context.Context) WebAppSiteExtensionTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppSiteExtensionTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSiteExtensionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SiteExtensionInfo resource specific properties
+func (o WebAppSiteExtensionTypeOutput) Properties() SiteExtensionInfoResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionType) SiteExtensionInfoResponseProperties { return v.Properties }).(SiteExtensionInfoResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppSiteExtensionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Site Extension Information.
+type WebAppSiteExtensionSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// SiteExtensionInfo resource specific properties
+	Properties SiteExtensionInfoResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppSiteExtensionSlotTypeInput is an input type that accepts WebAppSiteExtensionSlotTypeArgs and WebAppSiteExtensionSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppSiteExtensionSlotTypeInput` via:
+//
+//          WebAppSiteExtensionSlotTypeArgs{...}
+type WebAppSiteExtensionSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppSiteExtensionSlotTypeOutput() WebAppSiteExtensionSlotTypeOutput
+	ToWebAppSiteExtensionSlotTypeOutputWithContext(context.Context) WebAppSiteExtensionSlotTypeOutput
+}
+
+// Site Extension Information.
+type WebAppSiteExtensionSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SiteExtensionInfo resource specific properties
+	Properties SiteExtensionInfoResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppSiteExtensionSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionSlotType)(nil)).Elem()
+}
+
+func (i WebAppSiteExtensionSlotTypeArgs) ToWebAppSiteExtensionSlotTypeOutput() WebAppSiteExtensionSlotTypeOutput {
+	return i.ToWebAppSiteExtensionSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppSiteExtensionSlotTypeArgs) ToWebAppSiteExtensionSlotTypeOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSiteExtensionSlotTypeOutput)
+}
+
+// Site Extension Information.
+type WebAppSiteExtensionSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppSiteExtensionSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSiteExtensionSlotType)(nil)).Elem()
+}
+
+func (o WebAppSiteExtensionSlotTypeOutput) ToWebAppSiteExtensionSlotTypeOutput() WebAppSiteExtensionSlotTypeOutput {
+	return o
+}
+
+func (o WebAppSiteExtensionSlotTypeOutput) ToWebAppSiteExtensionSlotTypeOutputWithContext(ctx context.Context) WebAppSiteExtensionSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppSiteExtensionSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSiteExtensionSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SiteExtensionInfo resource specific properties
+func (o WebAppSiteExtensionSlotTypeOutput) Properties() SiteExtensionInfoResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionSlotType) SiteExtensionInfoResponseProperties { return v.Properties }).(SiteExtensionInfoResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppSiteExtensionSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSiteExtensionSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A web app, a mobile app backend, or an API app.
+type WebAppSlotType struct {
+	// Managed service identity.
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location string `pulumi:"location"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Site resource specific properties
+	Properties SiteResponseProperties `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppSlotTypeInput is an input type that accepts WebAppSlotTypeArgs and WebAppSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppSlotTypeInput` via:
+//
+//          WebAppSlotTypeArgs{...}
+type WebAppSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppSlotTypeOutput() WebAppSlotTypeOutput
+	ToWebAppSlotTypeOutputWithContext(context.Context) WebAppSlotTypeOutput
+}
+
+// A web app, a mobile app backend, or an API app.
+type WebAppSlotTypeArgs struct {
+	// Managed service identity.
+	Identity ManagedServiceIdentityResponsePtrInput `pulumi:"identity"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Site resource specific properties
+	Properties SiteResponsePropertiesInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSlotType)(nil)).Elem()
+}
+
+func (i WebAppSlotTypeArgs) ToWebAppSlotTypeOutput() WebAppSlotTypeOutput {
+	return i.ToWebAppSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppSlotTypeArgs) ToWebAppSlotTypeOutputWithContext(ctx context.Context) WebAppSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotTypeOutput)
+}
+
+// A web app, a mobile app backend, or an API app.
+type WebAppSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSlotType)(nil)).Elem()
+}
+
+func (o WebAppSlotTypeOutput) ToWebAppSlotTypeOutput() WebAppSlotTypeOutput {
+	return o
+}
+
+func (o WebAppSlotTypeOutput) ToWebAppSlotTypeOutputWithContext(ctx context.Context) WebAppSlotTypeOutput {
+	return o
+}
+
+// Managed service identity.
+func (o WebAppSlotTypeOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v WebAppSlotType) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o WebAppSlotTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSlotType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o WebAppSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Site resource specific properties
+func (o WebAppSlotTypeOutput) Properties() SiteResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppSlotType) SiteResponseProperties { return v.Properties }).(SiteResponsePropertiesOutput)
+}
+
+// Resource tags.
+func (o WebAppSlotTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebAppSlotType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebAppSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Source control configuration for an app.
+type WebAppSourceControlType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// SiteSourceControl resource specific properties
+	Properties SiteSourceControlResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppSourceControlTypeInput is an input type that accepts WebAppSourceControlTypeArgs and WebAppSourceControlTypeOutput values.
+// You can construct a concrete instance of `WebAppSourceControlTypeInput` via:
+//
+//          WebAppSourceControlTypeArgs{...}
+type WebAppSourceControlTypeInput interface {
+	pulumi.Input
+
+	ToWebAppSourceControlTypeOutput() WebAppSourceControlTypeOutput
+	ToWebAppSourceControlTypeOutputWithContext(context.Context) WebAppSourceControlTypeOutput
+}
+
+// Source control configuration for an app.
+type WebAppSourceControlTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SiteSourceControl resource specific properties
+	Properties SiteSourceControlResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppSourceControlTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlType)(nil)).Elem()
+}
+
+func (i WebAppSourceControlTypeArgs) ToWebAppSourceControlTypeOutput() WebAppSourceControlTypeOutput {
+	return i.ToWebAppSourceControlTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppSourceControlTypeArgs) ToWebAppSourceControlTypeOutputWithContext(ctx context.Context) WebAppSourceControlTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlTypeOutput)
+}
+
+// Source control configuration for an app.
+type WebAppSourceControlTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppSourceControlTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlType)(nil)).Elem()
+}
+
+func (o WebAppSourceControlTypeOutput) ToWebAppSourceControlTypeOutput() WebAppSourceControlTypeOutput {
+	return o
+}
+
+func (o WebAppSourceControlTypeOutput) ToWebAppSourceControlTypeOutputWithContext(ctx context.Context) WebAppSourceControlTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppSourceControlTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppSourceControlType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSourceControlTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSourceControlType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SiteSourceControl resource specific properties
+func (o WebAppSourceControlTypeOutput) Properties() SiteSourceControlResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppSourceControlType) SiteSourceControlResponseProperties { return v.Properties }).(SiteSourceControlResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppSourceControlTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSourceControlType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Source control configuration for an app.
+type WebAppSourceControlSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// SiteSourceControl resource specific properties
+	Properties SiteSourceControlResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppSourceControlSlotTypeInput is an input type that accepts WebAppSourceControlSlotTypeArgs and WebAppSourceControlSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppSourceControlSlotTypeInput` via:
+//
+//          WebAppSourceControlSlotTypeArgs{...}
+type WebAppSourceControlSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppSourceControlSlotTypeOutput() WebAppSourceControlSlotTypeOutput
+	ToWebAppSourceControlSlotTypeOutputWithContext(context.Context) WebAppSourceControlSlotTypeOutput
+}
+
+// Source control configuration for an app.
+type WebAppSourceControlSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SiteSourceControl resource specific properties
+	Properties SiteSourceControlResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppSourceControlSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlSlotType)(nil)).Elem()
+}
+
+func (i WebAppSourceControlSlotTypeArgs) ToWebAppSourceControlSlotTypeOutput() WebAppSourceControlSlotTypeOutput {
+	return i.ToWebAppSourceControlSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppSourceControlSlotTypeArgs) ToWebAppSourceControlSlotTypeOutputWithContext(ctx context.Context) WebAppSourceControlSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlSlotTypeOutput)
+}
+
+// Source control configuration for an app.
+type WebAppSourceControlSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppSourceControlSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSourceControlSlotType)(nil)).Elem()
+}
+
+func (o WebAppSourceControlSlotTypeOutput) ToWebAppSourceControlSlotTypeOutput() WebAppSourceControlSlotTypeOutput {
+	return o
+}
+
+func (o WebAppSourceControlSlotTypeOutput) ToWebAppSourceControlSlotTypeOutputWithContext(ctx context.Context) WebAppSourceControlSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppSourceControlSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppSourceControlSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSourceControlSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSourceControlSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SiteSourceControl resource specific properties
+func (o WebAppSourceControlSlotTypeOutput) Properties() SiteSourceControlResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppSourceControlSlotType) SiteSourceControlResponseProperties { return v.Properties }).(SiteSourceControlResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppSourceControlSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSourceControlSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type WebAppSwiftVirtualNetworkConnectionType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// SwiftVirtualNetwork resource specific properties
+	Properties SwiftVirtualNetworkResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppSwiftVirtualNetworkConnectionTypeInput is an input type that accepts WebAppSwiftVirtualNetworkConnectionTypeArgs and WebAppSwiftVirtualNetworkConnectionTypeOutput values.
+// You can construct a concrete instance of `WebAppSwiftVirtualNetworkConnectionTypeInput` via:
+//
+//          WebAppSwiftVirtualNetworkConnectionTypeArgs{...}
+type WebAppSwiftVirtualNetworkConnectionTypeInput interface {
+	pulumi.Input
+
+	ToWebAppSwiftVirtualNetworkConnectionTypeOutput() WebAppSwiftVirtualNetworkConnectionTypeOutput
+	ToWebAppSwiftVirtualNetworkConnectionTypeOutputWithContext(context.Context) WebAppSwiftVirtualNetworkConnectionTypeOutput
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type WebAppSwiftVirtualNetworkConnectionTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SwiftVirtualNetwork resource specific properties
+	Properties SwiftVirtualNetworkResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppSwiftVirtualNetworkConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionType)(nil)).Elem()
+}
+
+func (i WebAppSwiftVirtualNetworkConnectionTypeArgs) ToWebAppSwiftVirtualNetworkConnectionTypeOutput() WebAppSwiftVirtualNetworkConnectionTypeOutput {
+	return i.ToWebAppSwiftVirtualNetworkConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppSwiftVirtualNetworkConnectionTypeArgs) ToWebAppSwiftVirtualNetworkConnectionTypeOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSwiftVirtualNetworkConnectionTypeOutput)
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type WebAppSwiftVirtualNetworkConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppSwiftVirtualNetworkConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionType)(nil)).Elem()
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionTypeOutput) ToWebAppSwiftVirtualNetworkConnectionTypeOutput() WebAppSwiftVirtualNetworkConnectionTypeOutput {
+	return o
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionTypeOutput) ToWebAppSwiftVirtualNetworkConnectionTypeOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppSwiftVirtualNetworkConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSwiftVirtualNetworkConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SwiftVirtualNetwork resource specific properties
+func (o WebAppSwiftVirtualNetworkConnectionTypeOutput) Properties() SwiftVirtualNetworkResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionType) SwiftVirtualNetworkResponseProperties {
+		return v.Properties
+	}).(SwiftVirtualNetworkResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppSwiftVirtualNetworkConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type WebAppSwiftVirtualNetworkConnectionSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// SwiftVirtualNetwork resource specific properties
+	Properties SwiftVirtualNetworkResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppSwiftVirtualNetworkConnectionSlotTypeInput is an input type that accepts WebAppSwiftVirtualNetworkConnectionSlotTypeArgs and WebAppSwiftVirtualNetworkConnectionSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppSwiftVirtualNetworkConnectionSlotTypeInput` via:
+//
+//          WebAppSwiftVirtualNetworkConnectionSlotTypeArgs{...}
+type WebAppSwiftVirtualNetworkConnectionSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppSwiftVirtualNetworkConnectionSlotTypeOutput() WebAppSwiftVirtualNetworkConnectionSlotTypeOutput
+	ToWebAppSwiftVirtualNetworkConnectionSlotTypeOutputWithContext(context.Context) WebAppSwiftVirtualNetworkConnectionSlotTypeOutput
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type WebAppSwiftVirtualNetworkConnectionSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SwiftVirtualNetwork resource specific properties
+	Properties SwiftVirtualNetworkResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppSwiftVirtualNetworkConnectionSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionSlotType)(nil)).Elem()
+}
+
+func (i WebAppSwiftVirtualNetworkConnectionSlotTypeArgs) ToWebAppSwiftVirtualNetworkConnectionSlotTypeOutput() WebAppSwiftVirtualNetworkConnectionSlotTypeOutput {
+	return i.ToWebAppSwiftVirtualNetworkConnectionSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppSwiftVirtualNetworkConnectionSlotTypeArgs) ToWebAppSwiftVirtualNetworkConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppSwiftVirtualNetworkConnectionSlotTypeOutput)
+}
+
+// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+type WebAppSwiftVirtualNetworkConnectionSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppSwiftVirtualNetworkConnectionSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionSlotType)(nil)).Elem()
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionSlotTypeOutput) ToWebAppSwiftVirtualNetworkConnectionSlotTypeOutput() WebAppSwiftVirtualNetworkConnectionSlotTypeOutput {
+	return o
+}
+
+func (o WebAppSwiftVirtualNetworkConnectionSlotTypeOutput) ToWebAppSwiftVirtualNetworkConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppSwiftVirtualNetworkConnectionSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppSwiftVirtualNetworkConnectionSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSwiftVirtualNetworkConnectionSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SwiftVirtualNetwork resource specific properties
+func (o WebAppSwiftVirtualNetworkConnectionSlotTypeOutput) Properties() SwiftVirtualNetworkResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionSlotType) SwiftVirtualNetworkResponseProperties {
+		return v.Properties
+	}).(SwiftVirtualNetworkResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppSwiftVirtualNetworkConnectionSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppSwiftVirtualNetworkConnectionSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Virtual Network information contract.
+type WebAppVnetConnectionType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// VnetInfo resource specific properties
+	Properties VnetInfoResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppVnetConnectionTypeInput is an input type that accepts WebAppVnetConnectionTypeArgs and WebAppVnetConnectionTypeOutput values.
+// You can construct a concrete instance of `WebAppVnetConnectionTypeInput` via:
+//
+//          WebAppVnetConnectionTypeArgs{...}
+type WebAppVnetConnectionTypeInput interface {
+	pulumi.Input
+
+	ToWebAppVnetConnectionTypeOutput() WebAppVnetConnectionTypeOutput
+	ToWebAppVnetConnectionTypeOutputWithContext(context.Context) WebAppVnetConnectionTypeOutput
+}
+
+// Virtual Network information contract.
+type WebAppVnetConnectionTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// VnetInfo resource specific properties
+	Properties VnetInfoResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppVnetConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionType)(nil)).Elem()
+}
+
+func (i WebAppVnetConnectionTypeArgs) ToWebAppVnetConnectionTypeOutput() WebAppVnetConnectionTypeOutput {
+	return i.ToWebAppVnetConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppVnetConnectionTypeArgs) ToWebAppVnetConnectionTypeOutputWithContext(ctx context.Context) WebAppVnetConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionTypeOutput)
+}
+
+// Virtual Network information contract.
+type WebAppVnetConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppVnetConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionType)(nil)).Elem()
+}
+
+func (o WebAppVnetConnectionTypeOutput) ToWebAppVnetConnectionTypeOutput() WebAppVnetConnectionTypeOutput {
+	return o
+}
+
+func (o WebAppVnetConnectionTypeOutput) ToWebAppVnetConnectionTypeOutputWithContext(ctx context.Context) WebAppVnetConnectionTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppVnetConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppVnetConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// VnetInfo resource specific properties
+func (o WebAppVnetConnectionTypeOutput) Properties() VnetInfoResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionType) VnetInfoResponseProperties { return v.Properties }).(VnetInfoResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppVnetConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Virtual Network information contract.
+type WebAppVnetConnectionSlotType struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// VnetInfo resource specific properties
+	Properties VnetInfoResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WebAppVnetConnectionSlotTypeInput is an input type that accepts WebAppVnetConnectionSlotTypeArgs and WebAppVnetConnectionSlotTypeOutput values.
+// You can construct a concrete instance of `WebAppVnetConnectionSlotTypeInput` via:
+//
+//          WebAppVnetConnectionSlotTypeArgs{...}
+type WebAppVnetConnectionSlotTypeInput interface {
+	pulumi.Input
+
+	ToWebAppVnetConnectionSlotTypeOutput() WebAppVnetConnectionSlotTypeOutput
+	ToWebAppVnetConnectionSlotTypeOutputWithContext(context.Context) WebAppVnetConnectionSlotTypeOutput
+}
+
+// Virtual Network information contract.
+type WebAppVnetConnectionSlotTypeArgs struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// VnetInfo resource specific properties
+	Properties VnetInfoResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebAppVnetConnectionSlotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionSlotType)(nil)).Elem()
+}
+
+func (i WebAppVnetConnectionSlotTypeArgs) ToWebAppVnetConnectionSlotTypeOutput() WebAppVnetConnectionSlotTypeOutput {
+	return i.ToWebAppVnetConnectionSlotTypeOutputWithContext(context.Background())
+}
+
+func (i WebAppVnetConnectionSlotTypeArgs) ToWebAppVnetConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAppVnetConnectionSlotTypeOutput)
+}
+
+// Virtual Network information contract.
+type WebAppVnetConnectionSlotTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAppVnetConnectionSlotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAppVnetConnectionSlotType)(nil)).Elem()
+}
+
+func (o WebAppVnetConnectionSlotTypeOutput) ToWebAppVnetConnectionSlotTypeOutput() WebAppVnetConnectionSlotTypeOutput {
+	return o
+}
+
+func (o WebAppVnetConnectionSlotTypeOutput) ToWebAppVnetConnectionSlotTypeOutputWithContext(ctx context.Context) WebAppVnetConnectionSlotTypeOutput {
+	return o
+}
+
+// Kind of resource.
+func (o WebAppVnetConnectionSlotTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionSlotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppVnetConnectionSlotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionSlotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// VnetInfo resource specific properties
+func (o WebAppVnetConnectionSlotTypeOutput) Properties() VnetInfoResponsePropertiesOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionSlotType) VnetInfoResponseProperties { return v.Properties }).(VnetInfoResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WebAppVnetConnectionSlotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAppVnetConnectionSlotType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Worker pool of an App Service Environment.
 type WorkerPool struct {
 	// Shared or dedicated app hosting.
@@ -30510,43 +30508,17 @@ func init() {
 	pulumi.RegisterOutputType(ApiManagementConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApiManagementConfigResponseOutput{})
 	pulumi.RegisterOutputType(ApiManagementConfigResponsePtrOutput{})
-	pulumi.RegisterOutputType(AppServiceTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceDeploymentTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceDomainOwnershipIdentifierTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceEnvironmentOutput{})
-	pulumi.RegisterOutputType(AppServiceEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(AppServiceEnvironmentTypeOutput{})
+	pulumi.RegisterOutputType(AppServiceEnvironmentDefinitionOutput{})
+	pulumi.RegisterOutputType(AppServiceEnvironmentDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceEnvironmentResponseOutput{})
 	pulumi.RegisterOutputType(AppServiceEnvironmentResponsePtrOutput{})
-	pulumi.RegisterOutputType(AppServiceFunctionTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceHostNameBindingTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceHybridConnectionNamespaceRelayTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceHybridconnectionTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceNetworkConfigTypeOutput{})
 	pulumi.RegisterOutputType(AppServicePlanTypeOutput{})
 	pulumi.RegisterOutputType(AppServicePlanPropertiesOutput{})
 	pulumi.RegisterOutputType(AppServicePlanPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppServicePlanResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AppServicePlanResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(AppServicePlanVirtualNetworkConnectionRouteTypeOutput{})
-	pulumi.RegisterOutputType(AppServicePremieraddonTypeOutput{})
-	pulumi.RegisterOutputType(AppServicePrivateEndpointConnectionTypeOutput{})
-	pulumi.RegisterOutputType(AppServicePublicCertificateTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSiteextensionTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotDeploymentTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotDomainOwnershipIdentifierTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotFunctionTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotHostNameBindingTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotHybridConnectionNamespaceRelayTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotHybridconnectionTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotNetworkConfigTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotPremieraddonTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotPublicCertificateTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotSiteextensionTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotSourcecontrolTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSlotVirtualNetworkConnectionTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceSourcecontrolTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceVirtualNetworkConnectionTypeOutput{})
+	pulumi.RegisterOutputType(AppServicePlanRouteForVnetTypeOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponseOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsOutput{})
@@ -30625,7 +30597,6 @@ func init() {
 	pulumi.RegisterOutputType(HostNameSslStateArrayOutput{})
 	pulumi.RegisterOutputType(HostNameSslStateResponseOutput{})
 	pulumi.RegisterOutputType(HostNameSslStateResponseArrayOutput{})
-	pulumi.RegisterOutputType(HostingEnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfilePtrOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
@@ -30779,6 +30750,33 @@ func init() {
 	pulumi.RegisterOutputType(VnetRouteResponseArrayOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebAppTypeOutput{})
+	pulumi.RegisterOutputType(WebAppDeploymentTypeOutput{})
+	pulumi.RegisterOutputType(WebAppDeploymentSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppDomainOwnershipIdentifierTypeOutput{})
+	pulumi.RegisterOutputType(WebAppDomainOwnershipIdentifierSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppFunctionTypeOutput{})
+	pulumi.RegisterOutputType(WebAppHostNameBindingTypeOutput{})
+	pulumi.RegisterOutputType(WebAppHostNameBindingSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppHybridConnectionTypeOutput{})
+	pulumi.RegisterOutputType(WebAppHybridConnectionSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppInstanceFunctionSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppPremierAddOnTypeOutput{})
+	pulumi.RegisterOutputType(WebAppPremierAddOnSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppPrivateEndpointConnectionTypeOutput{})
+	pulumi.RegisterOutputType(WebAppPublicCertificateTypeOutput{})
+	pulumi.RegisterOutputType(WebAppPublicCertificateSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppRelayServiceConnectionTypeOutput{})
+	pulumi.RegisterOutputType(WebAppRelayServiceConnectionSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppSiteExtensionTypeOutput{})
+	pulumi.RegisterOutputType(WebAppSiteExtensionSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppSourceControlTypeOutput{})
+	pulumi.RegisterOutputType(WebAppSourceControlSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppSwiftVirtualNetworkConnectionTypeOutput{})
+	pulumi.RegisterOutputType(WebAppSwiftVirtualNetworkConnectionSlotTypeOutput{})
+	pulumi.RegisterOutputType(WebAppVnetConnectionTypeOutput{})
+	pulumi.RegisterOutputType(WebAppVnetConnectionSlotTypeOutput{})
 	pulumi.RegisterOutputType(WorkerPoolOutput{})
 	pulumi.RegisterOutputType(WorkerPoolArrayOutput{})
 	pulumi.RegisterOutputType(WorkerPoolResponseOutput{})

@@ -11,7 +11,7 @@ import (
 )
 
 // P2SVpnGateway Resource.
-type P2svpnGateway struct {
+type P2sVpnGateway struct {
 	pulumi.CustomResourceState
 
 	// A unique read-only string that changes whenever the resource is updated.
@@ -28,9 +28,9 @@ type P2svpnGateway struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
-// NewP2svpnGateway registers a new resource with the given unique name, arguments, and options.
-func NewP2svpnGateway(ctx *pulumi.Context,
-	name string, args *P2svpnGatewayArgs, opts ...pulumi.ResourceOption) (*P2svpnGateway, error) {
+// NewP2sVpnGateway registers a new resource with the given unique name, arguments, and options.
+func NewP2sVpnGateway(ctx *pulumi.Context,
+	name string, args *P2sVpnGatewayArgs, opts ...pulumi.ResourceOption) (*P2sVpnGateway, error) {
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -41,30 +41,30 @@ func NewP2svpnGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil {
-		args = &P2svpnGatewayArgs{}
+		args = &P2sVpnGatewayArgs{}
 	}
-	var resource P2svpnGateway
-	err := ctx.RegisterResource("azurerm:network:P2svpnGateway", name, args, &resource, opts...)
+	var resource P2sVpnGateway
+	err := ctx.RegisterResource("azurerm:network:P2sVpnGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetP2svpnGateway gets an existing P2svpnGateway resource's state with the given name, ID, and optional
+// GetP2sVpnGateway gets an existing P2sVpnGateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetP2svpnGateway(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *P2svpnGatewayState, opts ...pulumi.ResourceOption) (*P2svpnGateway, error) {
-	var resource P2svpnGateway
-	err := ctx.ReadResource("azurerm:network:P2svpnGateway", name, id, state, &resource, opts...)
+func GetP2sVpnGateway(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *P2sVpnGatewayState, opts ...pulumi.ResourceOption) (*P2sVpnGateway, error) {
+	var resource P2sVpnGateway
+	err := ctx.ReadResource("azurerm:network:P2sVpnGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering P2svpnGateway resources.
-type p2svpnGatewayState struct {
+// Input properties used for looking up and filtering P2sVpnGateway resources.
+type p2sVpnGatewayState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
@@ -79,7 +79,7 @@ type p2svpnGatewayState struct {
 	Type *string `pulumi:"type"`
 }
 
-type P2svpnGatewayState struct {
+type P2sVpnGatewayState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
@@ -94,11 +94,11 @@ type P2svpnGatewayState struct {
 	Type pulumi.StringPtrInput
 }
 
-func (P2svpnGatewayState) ElementType() reflect.Type {
-	return reflect.TypeOf((*p2svpnGatewayState)(nil)).Elem()
+func (P2sVpnGatewayState) ElementType() reflect.Type {
+	return reflect.TypeOf((*p2sVpnGatewayState)(nil)).Elem()
 }
 
-type p2svpnGatewayArgs struct {
+type p2sVpnGatewayArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -113,8 +113,8 @@ type p2svpnGatewayArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// The set of arguments for constructing a P2svpnGateway resource.
-type P2svpnGatewayArgs struct {
+// The set of arguments for constructing a P2sVpnGateway resource.
+type P2sVpnGatewayArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
@@ -129,6 +129,6 @@ type P2svpnGatewayArgs struct {
 	Tags pulumi.StringMapInput
 }
 
-func (P2svpnGatewayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*p2svpnGatewayArgs)(nil)).Elem()
+func (P2sVpnGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*p2sVpnGatewayArgs)(nil)).Elem()
 }

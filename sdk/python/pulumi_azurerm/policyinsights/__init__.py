@@ -3,6 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_remediation import *
-from .list_remediation_deployments import *
-from .remediation import *
+from .get_remediation_at_management_group import *
+from .get_remediation_at_resource_group import *
+from .list_remediation_deployments_at_management_group import *
+from .list_remediation_deployments_at_resource_group import *
+from .remediation_at_management_group import *
+from .remediation_at_resource_group import *

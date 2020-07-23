@@ -55,7 +55,7 @@ class Template extends pulumi.ComponentResource {
             } else if (resource.type === "Microsoft.Web/serverfarms") {
                 typeName = "azurerm:web:AppServicePlan";
             } else if (resource.type === "Microsoft.Web/sites") {
-                typeName = "azurerm:web:AppService";
+                typeName = "azurerm:web:WebApp";
             } else if (resource.type === "Microsoft.Cache/Redis") {
                 typeName = "azurerm:cache:Redis";
             } else if (resource.type === "Microsoft.ContainerInstance/containerGroups") {

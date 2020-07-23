@@ -57,7 +57,7 @@ func (o HealthErrorDetailsOutput) ToHealthErrorDetailsOutputWithContext(ctx cont
 }
 
 // Site REST Resource.
-type HyperVSiteType struct {
+type HyperVSiteSiteType struct {
 	// eTag for concurrency control.
 	ETag *string `pulumi:"eTag"`
 	// Azure location in which Sites is created.
@@ -71,19 +71,19 @@ type HyperVSiteType struct {
 	Type string `pulumi:"type"`
 }
 
-// HyperVSiteTypeInput is an input type that accepts HyperVSiteTypeArgs and HyperVSiteTypeOutput values.
-// You can construct a concrete instance of `HyperVSiteTypeInput` via:
+// HyperVSiteSiteTypeInput is an input type that accepts HyperVSiteSiteTypeArgs and HyperVSiteSiteTypeOutput values.
+// You can construct a concrete instance of `HyperVSiteSiteTypeInput` via:
 //
-//          HyperVSiteTypeArgs{...}
-type HyperVSiteTypeInput interface {
+//          HyperVSiteSiteTypeArgs{...}
+type HyperVSiteSiteTypeInput interface {
 	pulumi.Input
 
-	ToHyperVSiteTypeOutput() HyperVSiteTypeOutput
-	ToHyperVSiteTypeOutputWithContext(context.Context) HyperVSiteTypeOutput
+	ToHyperVSiteSiteTypeOutput() HyperVSiteSiteTypeOutput
+	ToHyperVSiteSiteTypeOutputWithContext(context.Context) HyperVSiteSiteTypeOutput
 }
 
 // Site REST Resource.
-type HyperVSiteTypeArgs struct {
+type HyperVSiteSiteTypeArgs struct {
 	// eTag for concurrency control.
 	ETag pulumi.StringPtrInput `pulumi:"eTag"`
 	// Azure location in which Sites is created.
@@ -97,60 +97,157 @@ type HyperVSiteTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (HyperVSiteTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVSiteType)(nil)).Elem()
+func (HyperVSiteSiteTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVSiteSiteType)(nil)).Elem()
 }
 
-func (i HyperVSiteTypeArgs) ToHyperVSiteTypeOutput() HyperVSiteTypeOutput {
-	return i.ToHyperVSiteTypeOutputWithContext(context.Background())
+func (i HyperVSiteSiteTypeArgs) ToHyperVSiteSiteTypeOutput() HyperVSiteSiteTypeOutput {
+	return i.ToHyperVSiteSiteTypeOutputWithContext(context.Background())
 }
 
-func (i HyperVSiteTypeArgs) ToHyperVSiteTypeOutputWithContext(ctx context.Context) HyperVSiteTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteTypeOutput)
+func (i HyperVSiteSiteTypeArgs) ToHyperVSiteSiteTypeOutputWithContext(ctx context.Context) HyperVSiteSiteTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteSiteTypeOutput)
 }
 
 // Site REST Resource.
-type HyperVSiteTypeOutput struct{ *pulumi.OutputState }
+type HyperVSiteSiteTypeOutput struct{ *pulumi.OutputState }
 
-func (HyperVSiteTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVSiteType)(nil)).Elem()
+func (HyperVSiteSiteTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HyperVSiteSiteType)(nil)).Elem()
 }
 
-func (o HyperVSiteTypeOutput) ToHyperVSiteTypeOutput() HyperVSiteTypeOutput {
+func (o HyperVSiteSiteTypeOutput) ToHyperVSiteSiteTypeOutput() HyperVSiteSiteTypeOutput {
 	return o
 }
 
-func (o HyperVSiteTypeOutput) ToHyperVSiteTypeOutputWithContext(ctx context.Context) HyperVSiteTypeOutput {
+func (o HyperVSiteSiteTypeOutput) ToHyperVSiteSiteTypeOutputWithContext(ctx context.Context) HyperVSiteSiteTypeOutput {
 	return o
 }
 
 // eTag for concurrency control.
-func (o HyperVSiteTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVSiteType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+func (o HyperVSiteSiteTypeOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HyperVSiteSiteType) *string { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
 // Azure location in which Sites is created.
-func (o HyperVSiteTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVSiteType) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o HyperVSiteSiteTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HyperVSiteSiteType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Name of the Hyper-V site.
-func (o HyperVSiteTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVSiteType) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o HyperVSiteSiteTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HyperVSiteSiteType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Nested properties of Hyper-V site.
-func (o HyperVSiteTypeOutput) Properties() SitePropertiesResponseOutput {
-	return o.ApplyT(func(v HyperVSiteType) SitePropertiesResponse { return v.Properties }).(SitePropertiesResponseOutput)
+func (o HyperVSiteSiteTypeOutput) Properties() SitePropertiesResponseOutput {
+	return o.ApplyT(func(v HyperVSiteSiteType) SitePropertiesResponse { return v.Properties }).(SitePropertiesResponseOutput)
 }
 
-func (o HyperVSiteTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v HyperVSiteType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o HyperVSiteSiteTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HyperVSiteSiteType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Type of resource. Type = Microsoft.OffAzure/HyperVSites.
-func (o HyperVSiteTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HyperVSiteType) string { return v.Type }).(pulumi.StringOutput)
+func (o HyperVSiteSiteTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HyperVSiteSiteType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Site REST Resource.
+type SiteType struct {
+	// eTag for concurrency control.
+	ETag *string `pulumi:"eTag"`
+	// Azure location in which Sites is created.
+	Location *string `pulumi:"location"`
+	// Name of the VMware site.
+	Name *string `pulumi:"name"`
+	// Nested properties of VMWare site.
+	Properties SitePropertiesResponse `pulumi:"properties"`
+	Tags       map[string]string      `pulumi:"tags"`
+	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
+	Type string `pulumi:"type"`
+}
+
+// SiteTypeInput is an input type that accepts SiteTypeArgs and SiteTypeOutput values.
+// You can construct a concrete instance of `SiteTypeInput` via:
+//
+//          SiteTypeArgs{...}
+type SiteTypeInput interface {
+	pulumi.Input
+
+	ToSiteTypeOutput() SiteTypeOutput
+	ToSiteTypeOutputWithContext(context.Context) SiteTypeOutput
+}
+
+// Site REST Resource.
+type SiteTypeArgs struct {
+	// eTag for concurrency control.
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
+	// Azure location in which Sites is created.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Name of the VMware site.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Nested properties of VMWare site.
+	Properties SitePropertiesResponseInput `pulumi:"properties"`
+	Tags       pulumi.StringMapInput       `pulumi:"tags"`
+	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SiteTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteType)(nil)).Elem()
+}
+
+func (i SiteTypeArgs) ToSiteTypeOutput() SiteTypeOutput {
+	return i.ToSiteTypeOutputWithContext(context.Background())
+}
+
+func (i SiteTypeArgs) ToSiteTypeOutputWithContext(ctx context.Context) SiteTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteTypeOutput)
+}
+
+// Site REST Resource.
+type SiteTypeOutput struct{ *pulumi.OutputState }
+
+func (SiteTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteType)(nil)).Elem()
+}
+
+func (o SiteTypeOutput) ToSiteTypeOutput() SiteTypeOutput {
+	return o
+}
+
+func (o SiteTypeOutput) ToSiteTypeOutputWithContext(ctx context.Context) SiteTypeOutput {
+	return o
+}
+
+// eTag for concurrency control.
+func (o SiteTypeOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Azure location in which Sites is created.
+func (o SiteTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the VMware site.
+func (o SiteTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Nested properties of VMWare site.
+func (o SiteTypeOutput) Properties() SitePropertiesResponseOutput {
+	return o.ApplyT(func(v SiteType) SitePropertiesResponse { return v.Properties }).(SitePropertiesResponseOutput)
+}
+
+func (o SiteTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SiteType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
+func (o SiteTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Class for site agent properties.
@@ -1448,106 +1545,10 @@ func (o VCenterPropertiesOutput) RunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterProperties) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
 }
 
-// Site REST Resource.
-type VMwareSiteType struct {
-	// eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location *string `pulumi:"location"`
-	// Name of the VMware site.
-	Name *string `pulumi:"name"`
-	// Nested properties of VMWare site.
-	Properties SitePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string      `pulumi:"tags"`
-	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
-	Type string `pulumi:"type"`
-}
-
-// VMwareSiteTypeInput is an input type that accepts VMwareSiteTypeArgs and VMwareSiteTypeOutput values.
-// You can construct a concrete instance of `VMwareSiteTypeInput` via:
-//
-//          VMwareSiteTypeArgs{...}
-type VMwareSiteTypeInput interface {
-	pulumi.Input
-
-	ToVMwareSiteTypeOutput() VMwareSiteTypeOutput
-	ToVMwareSiteTypeOutputWithContext(context.Context) VMwareSiteTypeOutput
-}
-
-// Site REST Resource.
-type VMwareSiteTypeArgs struct {
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the VMware site.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Nested properties of VMWare site.
-	Properties SitePropertiesResponseInput `pulumi:"properties"`
-	Tags       pulumi.StringMapInput       `pulumi:"tags"`
-	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VMwareSiteTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareSiteType)(nil)).Elem()
-}
-
-func (i VMwareSiteTypeArgs) ToVMwareSiteTypeOutput() VMwareSiteTypeOutput {
-	return i.ToVMwareSiteTypeOutputWithContext(context.Background())
-}
-
-func (i VMwareSiteTypeArgs) ToVMwareSiteTypeOutputWithContext(ctx context.Context) VMwareSiteTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VMwareSiteTypeOutput)
-}
-
-// Site REST Resource.
-type VMwareSiteTypeOutput struct{ *pulumi.OutputState }
-
-func (VMwareSiteTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareSiteType)(nil)).Elem()
-}
-
-func (o VMwareSiteTypeOutput) ToVMwareSiteTypeOutput() VMwareSiteTypeOutput {
-	return o
-}
-
-func (o VMwareSiteTypeOutput) ToVMwareSiteTypeOutputWithContext(ctx context.Context) VMwareSiteTypeOutput {
-	return o
-}
-
-// eTag for concurrency control.
-func (o VMwareSiteTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VMwareSiteType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Azure location in which Sites is created.
-func (o VMwareSiteTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VMwareSiteType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Name of the VMware site.
-func (o VMwareSiteTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VMwareSiteType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Nested properties of VMWare site.
-func (o VMwareSiteTypeOutput) Properties() SitePropertiesResponseOutput {
-	return o.ApplyT(func(v VMwareSiteType) SitePropertiesResponse { return v.Properties }).(SitePropertiesResponseOutput)
-}
-
-func (o VMwareSiteTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VMwareSiteType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
-func (o VMwareSiteTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VMwareSiteType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(HealthErrorDetailsOutput{})
-	pulumi.RegisterOutputType(HyperVSiteTypeOutput{})
+	pulumi.RegisterOutputType(HyperVSiteSiteTypeOutput{})
+	pulumi.RegisterOutputType(SiteTypeOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesResponseOutput{})
@@ -1561,5 +1562,4 @@ func init() {
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VCenterPropertiesOutput{})
-	pulumi.RegisterOutputType(VMwareSiteTypeOutput{})
 }

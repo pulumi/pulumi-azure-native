@@ -4,15 +4,15 @@
 
 # Export this package's modules as members:
 from .get_registry import *
-from .get_registry_replication import *
-from .get_registry_task import *
-from .get_registry_webhook import *
+from .get_replication import *
+from .get_task import *
+from .get_webhook import *
 from .list_registry_build_source_upload_url import *
 from .list_registry_credentials import *
-from .list_registry_run_log_sas_url import *
-from .list_registry_task_details import *
-from .list_registry_webhook_events import *
+from .list_run_log_sas_url import *
+from .list_task_details import *
+from .list_webhook_events import *
 from .registry import *
-from .registry_replication import *
-from .registry_task import *
-from .registry_webhook import *
+from .replication import *
+from .task import *
+from .webhook import *

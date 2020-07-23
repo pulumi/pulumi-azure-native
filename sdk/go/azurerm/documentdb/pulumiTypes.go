@@ -1134,6 +1134,190 @@ func (o CassandraPartitionKeyArrayOutput) Index(i pulumi.IntInput) CassandraPart
 	}).(CassandraPartitionKeyOutput)
 }
 
+// An Azure Cosmos DB Cassandra keyspace.
+type CassandraResourceCassandraKeyspaceType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Cassandra keyspace
+	Properties CassandraKeyspaceGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// CassandraResourceCassandraKeyspaceTypeInput is an input type that accepts CassandraResourceCassandraKeyspaceTypeArgs and CassandraResourceCassandraKeyspaceTypeOutput values.
+// You can construct a concrete instance of `CassandraResourceCassandraKeyspaceTypeInput` via:
+//
+//          CassandraResourceCassandraKeyspaceTypeArgs{...}
+type CassandraResourceCassandraKeyspaceTypeInput interface {
+	pulumi.Input
+
+	ToCassandraResourceCassandraKeyspaceTypeOutput() CassandraResourceCassandraKeyspaceTypeOutput
+	ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(context.Context) CassandraResourceCassandraKeyspaceTypeOutput
+}
+
+// An Azure Cosmos DB Cassandra keyspace.
+type CassandraResourceCassandraKeyspaceTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Cassandra keyspace
+	Properties CassandraKeyspaceGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CassandraResourceCassandraKeyspaceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraKeyspaceType)(nil)).Elem()
+}
+
+func (i CassandraResourceCassandraKeyspaceTypeArgs) ToCassandraResourceCassandraKeyspaceTypeOutput() CassandraResourceCassandraKeyspaceTypeOutput {
+	return i.ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(context.Background())
+}
+
+func (i CassandraResourceCassandraKeyspaceTypeArgs) ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraKeyspaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraKeyspaceTypeOutput)
+}
+
+// An Azure Cosmos DB Cassandra keyspace.
+type CassandraResourceCassandraKeyspaceTypeOutput struct{ *pulumi.OutputState }
+
+func (CassandraResourceCassandraKeyspaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraKeyspaceType)(nil)).Elem()
+}
+
+func (o CassandraResourceCassandraKeyspaceTypeOutput) ToCassandraResourceCassandraKeyspaceTypeOutput() CassandraResourceCassandraKeyspaceTypeOutput {
+	return o
+}
+
+func (o CassandraResourceCassandraKeyspaceTypeOutput) ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraKeyspaceTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o CassandraResourceCassandraKeyspaceTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o CassandraResourceCassandraKeyspaceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB Cassandra keyspace
+func (o CassandraResourceCassandraKeyspaceTypeOutput) Properties() CassandraKeyspaceGetPropertiesResponseOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) CassandraKeyspaceGetPropertiesResponse {
+		return v.Properties
+	}).(CassandraKeyspaceGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o CassandraResourceCassandraKeyspaceTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o CassandraResourceCassandraKeyspaceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Azure Cosmos DB Cassandra table.
+type CassandraResourceCassandraTableType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Cassandra table
+	Properties CassandraTableGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// CassandraResourceCassandraTableTypeInput is an input type that accepts CassandraResourceCassandraTableTypeArgs and CassandraResourceCassandraTableTypeOutput values.
+// You can construct a concrete instance of `CassandraResourceCassandraTableTypeInput` via:
+//
+//          CassandraResourceCassandraTableTypeArgs{...}
+type CassandraResourceCassandraTableTypeInput interface {
+	pulumi.Input
+
+	ToCassandraResourceCassandraTableTypeOutput() CassandraResourceCassandraTableTypeOutput
+	ToCassandraResourceCassandraTableTypeOutputWithContext(context.Context) CassandraResourceCassandraTableTypeOutput
+}
+
+// An Azure Cosmos DB Cassandra table.
+type CassandraResourceCassandraTableTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Cassandra table
+	Properties CassandraTableGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CassandraResourceCassandraTableTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraTableType)(nil)).Elem()
+}
+
+func (i CassandraResourceCassandraTableTypeArgs) ToCassandraResourceCassandraTableTypeOutput() CassandraResourceCassandraTableTypeOutput {
+	return i.ToCassandraResourceCassandraTableTypeOutputWithContext(context.Background())
+}
+
+func (i CassandraResourceCassandraTableTypeArgs) ToCassandraResourceCassandraTableTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraTableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraTableTypeOutput)
+}
+
+// An Azure Cosmos DB Cassandra table.
+type CassandraResourceCassandraTableTypeOutput struct{ *pulumi.OutputState }
+
+func (CassandraResourceCassandraTableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraResourceCassandraTableType)(nil)).Elem()
+}
+
+func (o CassandraResourceCassandraTableTypeOutput) ToCassandraResourceCassandraTableTypeOutput() CassandraResourceCassandraTableTypeOutput {
+	return o
+}
+
+func (o CassandraResourceCassandraTableTypeOutput) ToCassandraResourceCassandraTableTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraTableTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o CassandraResourceCassandraTableTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraTableType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o CassandraResourceCassandraTableTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraTableType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB Cassandra table
+func (o CassandraResourceCassandraTableTypeOutput) Properties() CassandraTableGetPropertiesResponseOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraTableType) CassandraTableGetPropertiesResponse { return v.Properties }).(CassandraTableGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o CassandraResourceCassandraTableTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraTableType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o CassandraResourceCassandraTableTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraResourceCassandraTableType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Cosmos DB Cassandra table schema
 type CassandraSchema struct {
 	// List of cluster key.
@@ -3044,192 +3228,6 @@ func (o DatabaseAccountTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseAccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// An Azure Cosmos DB Cassandra keyspace.
-type DatabaseAccountCassandraKeyspaceType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra keyspace
-	Properties CassandraKeyspaceGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountCassandraKeyspaceTypeInput is an input type that accepts DatabaseAccountCassandraKeyspaceTypeArgs and DatabaseAccountCassandraKeyspaceTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountCassandraKeyspaceTypeInput` via:
-//
-//          DatabaseAccountCassandraKeyspaceTypeArgs{...}
-type DatabaseAccountCassandraKeyspaceTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountCassandraKeyspaceTypeOutput() DatabaseAccountCassandraKeyspaceTypeOutput
-	ToDatabaseAccountCassandraKeyspaceTypeOutputWithContext(context.Context) DatabaseAccountCassandraKeyspaceTypeOutput
-}
-
-// An Azure Cosmos DB Cassandra keyspace.
-type DatabaseAccountCassandraKeyspaceTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra keyspace
-	Properties CassandraKeyspaceGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountCassandraKeyspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspaceType)(nil)).Elem()
-}
-
-func (i DatabaseAccountCassandraKeyspaceTypeArgs) ToDatabaseAccountCassandraKeyspaceTypeOutput() DatabaseAccountCassandraKeyspaceTypeOutput {
-	return i.ToDatabaseAccountCassandraKeyspaceTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountCassandraKeyspaceTypeArgs) ToDatabaseAccountCassandraKeyspaceTypeOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraKeyspaceTypeOutput)
-}
-
-// An Azure Cosmos DB Cassandra keyspace.
-type DatabaseAccountCassandraKeyspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountCassandraKeyspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspaceType)(nil)).Elem()
-}
-
-func (o DatabaseAccountCassandraKeyspaceTypeOutput) ToDatabaseAccountCassandraKeyspaceTypeOutput() DatabaseAccountCassandraKeyspaceTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountCassandraKeyspaceTypeOutput) ToDatabaseAccountCassandraKeyspaceTypeOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountCassandraKeyspaceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountCassandraKeyspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB Cassandra keyspace
-func (o DatabaseAccountCassandraKeyspaceTypeOutput) Properties() CassandraKeyspaceGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceType) CassandraKeyspaceGetPropertiesResponse {
-		return v.Properties
-	}).(CassandraKeyspaceGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountCassandraKeyspaceTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountCassandraKeyspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB Cassandra table.
-type DatabaseAccountCassandraKeyspaceTableType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra table
-	Properties CassandraTableGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountCassandraKeyspaceTableTypeInput is an input type that accepts DatabaseAccountCassandraKeyspaceTableTypeArgs and DatabaseAccountCassandraKeyspaceTableTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountCassandraKeyspaceTableTypeInput` via:
-//
-//          DatabaseAccountCassandraKeyspaceTableTypeArgs{...}
-type DatabaseAccountCassandraKeyspaceTableTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountCassandraKeyspaceTableTypeOutput() DatabaseAccountCassandraKeyspaceTableTypeOutput
-	ToDatabaseAccountCassandraKeyspaceTableTypeOutputWithContext(context.Context) DatabaseAccountCassandraKeyspaceTableTypeOutput
-}
-
-// An Azure Cosmos DB Cassandra table.
-type DatabaseAccountCassandraKeyspaceTableTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra table
-	Properties CassandraTableGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountCassandraKeyspaceTableTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspaceTableType)(nil)).Elem()
-}
-
-func (i DatabaseAccountCassandraKeyspaceTableTypeArgs) ToDatabaseAccountCassandraKeyspaceTableTypeOutput() DatabaseAccountCassandraKeyspaceTableTypeOutput {
-	return i.ToDatabaseAccountCassandraKeyspaceTableTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountCassandraKeyspaceTableTypeArgs) ToDatabaseAccountCassandraKeyspaceTableTypeOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceTableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraKeyspaceTableTypeOutput)
-}
-
-// An Azure Cosmos DB Cassandra table.
-type DatabaseAccountCassandraKeyspaceTableTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountCassandraKeyspaceTableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountCassandraKeyspaceTableType)(nil)).Elem()
-}
-
-func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) ToDatabaseAccountCassandraKeyspaceTableTypeOutput() DatabaseAccountCassandraKeyspaceTableTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) ToDatabaseAccountCassandraKeyspaceTableTypeOutputWithContext(ctx context.Context) DatabaseAccountCassandraKeyspaceTableTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceTableType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceTableType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB Cassandra table
-func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) Properties() CassandraTableGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceTableType) CassandraTableGetPropertiesResponse {
-		return v.Properties
-	}).(CassandraTableGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceTableType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountCassandraKeyspaceTableTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountCassandraKeyspaceTableType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Connection string for the Cosmos DB account
 type DatabaseAccountConnectionStringResponse struct {
 	// Value of the connection string
@@ -4331,997 +4329,6 @@ func (o DatabaseAccountGetPropertiesResponsePtrOutput) WriteLocations() Location
 		}
 		return v.WriteLocations
 	}).(LocationResponseArrayOutput)
-}
-
-// An Azure Cosmos DB Gremlin database.
-type DatabaseAccountGremlinDatabaseType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties GremlinDatabaseGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountGremlinDatabaseTypeInput is an input type that accepts DatabaseAccountGremlinDatabaseTypeArgs and DatabaseAccountGremlinDatabaseTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountGremlinDatabaseTypeInput` via:
-//
-//          DatabaseAccountGremlinDatabaseTypeArgs{...}
-type DatabaseAccountGremlinDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountGremlinDatabaseTypeOutput() DatabaseAccountGremlinDatabaseTypeOutput
-	ToDatabaseAccountGremlinDatabaseTypeOutputWithContext(context.Context) DatabaseAccountGremlinDatabaseTypeOutput
-}
-
-// An Azure Cosmos DB Gremlin database.
-type DatabaseAccountGremlinDatabaseTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties GremlinDatabaseGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountGremlinDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabaseType)(nil)).Elem()
-}
-
-func (i DatabaseAccountGremlinDatabaseTypeArgs) ToDatabaseAccountGremlinDatabaseTypeOutput() DatabaseAccountGremlinDatabaseTypeOutput {
-	return i.ToDatabaseAccountGremlinDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountGremlinDatabaseTypeArgs) ToDatabaseAccountGremlinDatabaseTypeOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinDatabaseTypeOutput)
-}
-
-// An Azure Cosmos DB Gremlin database.
-type DatabaseAccountGremlinDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountGremlinDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabaseType)(nil)).Elem()
-}
-
-func (o DatabaseAccountGremlinDatabaseTypeOutput) ToDatabaseAccountGremlinDatabaseTypeOutput() DatabaseAccountGremlinDatabaseTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountGremlinDatabaseTypeOutput) ToDatabaseAccountGremlinDatabaseTypeOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountGremlinDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountGremlinDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB SQL database
-func (o DatabaseAccountGremlinDatabaseTypeOutput) Properties() GremlinDatabaseGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseType) GremlinDatabaseGetPropertiesResponse { return v.Properties }).(GremlinDatabaseGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountGremlinDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountGremlinDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB Gremlin graph.
-type DatabaseAccountGremlinDatabaseGraphType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Gremlin graph
-	Properties GremlinGraphGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountGremlinDatabaseGraphTypeInput is an input type that accepts DatabaseAccountGremlinDatabaseGraphTypeArgs and DatabaseAccountGremlinDatabaseGraphTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountGremlinDatabaseGraphTypeInput` via:
-//
-//          DatabaseAccountGremlinDatabaseGraphTypeArgs{...}
-type DatabaseAccountGremlinDatabaseGraphTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountGremlinDatabaseGraphTypeOutput() DatabaseAccountGremlinDatabaseGraphTypeOutput
-	ToDatabaseAccountGremlinDatabaseGraphTypeOutputWithContext(context.Context) DatabaseAccountGremlinDatabaseGraphTypeOutput
-}
-
-// An Azure Cosmos DB Gremlin graph.
-type DatabaseAccountGremlinDatabaseGraphTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Gremlin graph
-	Properties GremlinGraphGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountGremlinDatabaseGraphTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabaseGraphType)(nil)).Elem()
-}
-
-func (i DatabaseAccountGremlinDatabaseGraphTypeArgs) ToDatabaseAccountGremlinDatabaseGraphTypeOutput() DatabaseAccountGremlinDatabaseGraphTypeOutput {
-	return i.ToDatabaseAccountGremlinDatabaseGraphTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountGremlinDatabaseGraphTypeArgs) ToDatabaseAccountGremlinDatabaseGraphTypeOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseGraphTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinDatabaseGraphTypeOutput)
-}
-
-// An Azure Cosmos DB Gremlin graph.
-type DatabaseAccountGremlinDatabaseGraphTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountGremlinDatabaseGraphTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinDatabaseGraphType)(nil)).Elem()
-}
-
-func (o DatabaseAccountGremlinDatabaseGraphTypeOutput) ToDatabaseAccountGremlinDatabaseGraphTypeOutput() DatabaseAccountGremlinDatabaseGraphTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountGremlinDatabaseGraphTypeOutput) ToDatabaseAccountGremlinDatabaseGraphTypeOutputWithContext(ctx context.Context) DatabaseAccountGremlinDatabaseGraphTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountGremlinDatabaseGraphTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseGraphType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountGremlinDatabaseGraphTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseGraphType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB Gremlin graph
-func (o DatabaseAccountGremlinDatabaseGraphTypeOutput) Properties() GremlinGraphGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseGraphType) GremlinGraphGetPropertiesResponse { return v.Properties }).(GremlinGraphGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountGremlinDatabaseGraphTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseGraphType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountGremlinDatabaseGraphTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountGremlinDatabaseGraphType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB MongoDB database.
-type DatabaseAccountMongodbDatabaseType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB database
-	Properties MongoDBDatabaseGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountMongodbDatabaseTypeInput is an input type that accepts DatabaseAccountMongodbDatabaseTypeArgs and DatabaseAccountMongodbDatabaseTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountMongodbDatabaseTypeInput` via:
-//
-//          DatabaseAccountMongodbDatabaseTypeArgs{...}
-type DatabaseAccountMongodbDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountMongodbDatabaseTypeOutput() DatabaseAccountMongodbDatabaseTypeOutput
-	ToDatabaseAccountMongodbDatabaseTypeOutputWithContext(context.Context) DatabaseAccountMongodbDatabaseTypeOutput
-}
-
-// An Azure Cosmos DB MongoDB database.
-type DatabaseAccountMongodbDatabaseTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB database
-	Properties MongoDBDatabaseGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountMongodbDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongodbDatabaseType)(nil)).Elem()
-}
-
-func (i DatabaseAccountMongodbDatabaseTypeArgs) ToDatabaseAccountMongodbDatabaseTypeOutput() DatabaseAccountMongodbDatabaseTypeOutput {
-	return i.ToDatabaseAccountMongodbDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountMongodbDatabaseTypeArgs) ToDatabaseAccountMongodbDatabaseTypeOutputWithContext(ctx context.Context) DatabaseAccountMongodbDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongodbDatabaseTypeOutput)
-}
-
-// An Azure Cosmos DB MongoDB database.
-type DatabaseAccountMongodbDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountMongodbDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongodbDatabaseType)(nil)).Elem()
-}
-
-func (o DatabaseAccountMongodbDatabaseTypeOutput) ToDatabaseAccountMongodbDatabaseTypeOutput() DatabaseAccountMongodbDatabaseTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountMongodbDatabaseTypeOutput) ToDatabaseAccountMongodbDatabaseTypeOutputWithContext(ctx context.Context) DatabaseAccountMongodbDatabaseTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountMongodbDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountMongodbDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB MongoDB database
-func (o DatabaseAccountMongodbDatabaseTypeOutput) Properties() MongoDBDatabaseGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseType) MongoDBDatabaseGetPropertiesResponse { return v.Properties }).(MongoDBDatabaseGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountMongodbDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountMongodbDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB MongoDB collection.
-type DatabaseAccountMongodbDatabaseCollectionType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB collection
-	Properties MongoDBCollectionGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountMongodbDatabaseCollectionTypeInput is an input type that accepts DatabaseAccountMongodbDatabaseCollectionTypeArgs and DatabaseAccountMongodbDatabaseCollectionTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountMongodbDatabaseCollectionTypeInput` via:
-//
-//          DatabaseAccountMongodbDatabaseCollectionTypeArgs{...}
-type DatabaseAccountMongodbDatabaseCollectionTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountMongodbDatabaseCollectionTypeOutput() DatabaseAccountMongodbDatabaseCollectionTypeOutput
-	ToDatabaseAccountMongodbDatabaseCollectionTypeOutputWithContext(context.Context) DatabaseAccountMongodbDatabaseCollectionTypeOutput
-}
-
-// An Azure Cosmos DB MongoDB collection.
-type DatabaseAccountMongodbDatabaseCollectionTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB collection
-	Properties MongoDBCollectionGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountMongodbDatabaseCollectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongodbDatabaseCollectionType)(nil)).Elem()
-}
-
-func (i DatabaseAccountMongodbDatabaseCollectionTypeArgs) ToDatabaseAccountMongodbDatabaseCollectionTypeOutput() DatabaseAccountMongodbDatabaseCollectionTypeOutput {
-	return i.ToDatabaseAccountMongodbDatabaseCollectionTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountMongodbDatabaseCollectionTypeArgs) ToDatabaseAccountMongodbDatabaseCollectionTypeOutputWithContext(ctx context.Context) DatabaseAccountMongodbDatabaseCollectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountMongodbDatabaseCollectionTypeOutput)
-}
-
-// An Azure Cosmos DB MongoDB collection.
-type DatabaseAccountMongodbDatabaseCollectionTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountMongodbDatabaseCollectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongodbDatabaseCollectionType)(nil)).Elem()
-}
-
-func (o DatabaseAccountMongodbDatabaseCollectionTypeOutput) ToDatabaseAccountMongodbDatabaseCollectionTypeOutput() DatabaseAccountMongodbDatabaseCollectionTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountMongodbDatabaseCollectionTypeOutput) ToDatabaseAccountMongodbDatabaseCollectionTypeOutputWithContext(ctx context.Context) DatabaseAccountMongodbDatabaseCollectionTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountMongodbDatabaseCollectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseCollectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountMongodbDatabaseCollectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseCollectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB MongoDB collection
-func (o DatabaseAccountMongodbDatabaseCollectionTypeOutput) Properties() MongoDBCollectionGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseCollectionType) MongoDBCollectionGetPropertiesResponse {
-		return v.Properties
-	}).(MongoDBCollectionGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountMongodbDatabaseCollectionTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseCollectionType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountMongodbDatabaseCollectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountMongodbDatabaseCollectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A notebook workspace resource
-type DatabaseAccountNotebookWorkspaceType struct {
-	// The name of the database account.
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties NotebookWorkspacePropertiesResponse `pulumi:"properties"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountNotebookWorkspaceTypeInput is an input type that accepts DatabaseAccountNotebookWorkspaceTypeArgs and DatabaseAccountNotebookWorkspaceTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountNotebookWorkspaceTypeInput` via:
-//
-//          DatabaseAccountNotebookWorkspaceTypeArgs{...}
-type DatabaseAccountNotebookWorkspaceTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountNotebookWorkspaceTypeOutput() DatabaseAccountNotebookWorkspaceTypeOutput
-	ToDatabaseAccountNotebookWorkspaceTypeOutputWithContext(context.Context) DatabaseAccountNotebookWorkspaceTypeOutput
-}
-
-// A notebook workspace resource
-type DatabaseAccountNotebookWorkspaceTypeArgs struct {
-	// The name of the database account.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties NotebookWorkspacePropertiesResponseInput `pulumi:"properties"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountNotebookWorkspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountNotebookWorkspaceType)(nil)).Elem()
-}
-
-func (i DatabaseAccountNotebookWorkspaceTypeArgs) ToDatabaseAccountNotebookWorkspaceTypeOutput() DatabaseAccountNotebookWorkspaceTypeOutput {
-	return i.ToDatabaseAccountNotebookWorkspaceTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountNotebookWorkspaceTypeArgs) ToDatabaseAccountNotebookWorkspaceTypeOutputWithContext(ctx context.Context) DatabaseAccountNotebookWorkspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountNotebookWorkspaceTypeOutput)
-}
-
-// A notebook workspace resource
-type DatabaseAccountNotebookWorkspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountNotebookWorkspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountNotebookWorkspaceType)(nil)).Elem()
-}
-
-func (o DatabaseAccountNotebookWorkspaceTypeOutput) ToDatabaseAccountNotebookWorkspaceTypeOutput() DatabaseAccountNotebookWorkspaceTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountNotebookWorkspaceTypeOutput) ToDatabaseAccountNotebookWorkspaceTypeOutputWithContext(ctx context.Context) DatabaseAccountNotebookWorkspaceTypeOutput {
-	return o
-}
-
-// The name of the database account.
-func (o DatabaseAccountNotebookWorkspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountNotebookWorkspaceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o DatabaseAccountNotebookWorkspaceTypeOutput) Properties() NotebookWorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountNotebookWorkspaceType) NotebookWorkspacePropertiesResponse { return v.Properties }).(NotebookWorkspacePropertiesResponseOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountNotebookWorkspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountNotebookWorkspaceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB SQL database.
-type DatabaseAccountSqlDatabaseType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties SqlDatabaseGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountSqlDatabaseTypeInput is an input type that accepts DatabaseAccountSqlDatabaseTypeArgs and DatabaseAccountSqlDatabaseTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountSqlDatabaseTypeInput` via:
-//
-//          DatabaseAccountSqlDatabaseTypeArgs{...}
-type DatabaseAccountSqlDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountSqlDatabaseTypeOutput() DatabaseAccountSqlDatabaseTypeOutput
-	ToDatabaseAccountSqlDatabaseTypeOutputWithContext(context.Context) DatabaseAccountSqlDatabaseTypeOutput
-}
-
-// An Azure Cosmos DB SQL database.
-type DatabaseAccountSqlDatabaseTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties SqlDatabaseGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountSqlDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseType)(nil)).Elem()
-}
-
-func (i DatabaseAccountSqlDatabaseTypeArgs) ToDatabaseAccountSqlDatabaseTypeOutput() DatabaseAccountSqlDatabaseTypeOutput {
-	return i.ToDatabaseAccountSqlDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountSqlDatabaseTypeArgs) ToDatabaseAccountSqlDatabaseTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlDatabaseTypeOutput)
-}
-
-// An Azure Cosmos DB SQL database.
-type DatabaseAccountSqlDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountSqlDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseType)(nil)).Elem()
-}
-
-func (o DatabaseAccountSqlDatabaseTypeOutput) ToDatabaseAccountSqlDatabaseTypeOutput() DatabaseAccountSqlDatabaseTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountSqlDatabaseTypeOutput) ToDatabaseAccountSqlDatabaseTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountSqlDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountSqlDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB SQL database
-func (o DatabaseAccountSqlDatabaseTypeOutput) Properties() SqlDatabaseGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseType) SqlDatabaseGetPropertiesResponse { return v.Properties }).(SqlDatabaseGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountSqlDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountSqlDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB container.
-type DatabaseAccountSqlDatabaseContainerType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB container
-	Properties SqlContainerGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountSqlDatabaseContainerTypeInput is an input type that accepts DatabaseAccountSqlDatabaseContainerTypeArgs and DatabaseAccountSqlDatabaseContainerTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountSqlDatabaseContainerTypeInput` via:
-//
-//          DatabaseAccountSqlDatabaseContainerTypeArgs{...}
-type DatabaseAccountSqlDatabaseContainerTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountSqlDatabaseContainerTypeOutput() DatabaseAccountSqlDatabaseContainerTypeOutput
-	ToDatabaseAccountSqlDatabaseContainerTypeOutputWithContext(context.Context) DatabaseAccountSqlDatabaseContainerTypeOutput
-}
-
-// An Azure Cosmos DB container.
-type DatabaseAccountSqlDatabaseContainerTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB container
-	Properties SqlContainerGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountSqlDatabaseContainerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerType)(nil)).Elem()
-}
-
-func (i DatabaseAccountSqlDatabaseContainerTypeArgs) ToDatabaseAccountSqlDatabaseContainerTypeOutput() DatabaseAccountSqlDatabaseContainerTypeOutput {
-	return i.ToDatabaseAccountSqlDatabaseContainerTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountSqlDatabaseContainerTypeArgs) ToDatabaseAccountSqlDatabaseContainerTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlDatabaseContainerTypeOutput)
-}
-
-// An Azure Cosmos DB container.
-type DatabaseAccountSqlDatabaseContainerTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountSqlDatabaseContainerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerType)(nil)).Elem()
-}
-
-func (o DatabaseAccountSqlDatabaseContainerTypeOutput) ToDatabaseAccountSqlDatabaseContainerTypeOutput() DatabaseAccountSqlDatabaseContainerTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountSqlDatabaseContainerTypeOutput) ToDatabaseAccountSqlDatabaseContainerTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountSqlDatabaseContainerTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountSqlDatabaseContainerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB container
-func (o DatabaseAccountSqlDatabaseContainerTypeOutput) Properties() SqlContainerGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerType) SqlContainerGetPropertiesResponse { return v.Properties }).(SqlContainerGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountSqlDatabaseContainerTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountSqlDatabaseContainerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB storedProcedure.
-type DatabaseAccountSqlDatabaseContainerStoredProcedureType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB storedProcedure
-	Properties SqlStoredProcedureGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountSqlDatabaseContainerStoredProcedureTypeInput is an input type that accepts DatabaseAccountSqlDatabaseContainerStoredProcedureTypeArgs and DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountSqlDatabaseContainerStoredProcedureTypeInput` via:
-//
-//          DatabaseAccountSqlDatabaseContainerStoredProcedureTypeArgs{...}
-type DatabaseAccountSqlDatabaseContainerStoredProcedureTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput() DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput
-	ToDatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutputWithContext(context.Context) DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput
-}
-
-// An Azure Cosmos DB storedProcedure.
-type DatabaseAccountSqlDatabaseContainerStoredProcedureTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB storedProcedure
-	Properties SqlStoredProcedureGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountSqlDatabaseContainerStoredProcedureTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerStoredProcedureType)(nil)).Elem()
-}
-
-func (i DatabaseAccountSqlDatabaseContainerStoredProcedureTypeArgs) ToDatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput() DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput {
-	return i.ToDatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountSqlDatabaseContainerStoredProcedureTypeArgs) ToDatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput)
-}
-
-// An Azure Cosmos DB storedProcedure.
-type DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerStoredProcedureType)(nil)).Elem()
-}
-
-func (o DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) ToDatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput() DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) ToDatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerStoredProcedureType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerStoredProcedureType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB storedProcedure
-func (o DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) Properties() SqlStoredProcedureGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerStoredProcedureType) SqlStoredProcedureGetPropertiesResponse {
-		return v.Properties
-	}).(SqlStoredProcedureGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerStoredProcedureType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerStoredProcedureType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB trigger.
-type DatabaseAccountSqlDatabaseContainerTriggerType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB trigger
-	Properties SqlTriggerGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountSqlDatabaseContainerTriggerTypeInput is an input type that accepts DatabaseAccountSqlDatabaseContainerTriggerTypeArgs and DatabaseAccountSqlDatabaseContainerTriggerTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountSqlDatabaseContainerTriggerTypeInput` via:
-//
-//          DatabaseAccountSqlDatabaseContainerTriggerTypeArgs{...}
-type DatabaseAccountSqlDatabaseContainerTriggerTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountSqlDatabaseContainerTriggerTypeOutput() DatabaseAccountSqlDatabaseContainerTriggerTypeOutput
-	ToDatabaseAccountSqlDatabaseContainerTriggerTypeOutputWithContext(context.Context) DatabaseAccountSqlDatabaseContainerTriggerTypeOutput
-}
-
-// An Azure Cosmos DB trigger.
-type DatabaseAccountSqlDatabaseContainerTriggerTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB trigger
-	Properties SqlTriggerGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountSqlDatabaseContainerTriggerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerTriggerType)(nil)).Elem()
-}
-
-func (i DatabaseAccountSqlDatabaseContainerTriggerTypeArgs) ToDatabaseAccountSqlDatabaseContainerTriggerTypeOutput() DatabaseAccountSqlDatabaseContainerTriggerTypeOutput {
-	return i.ToDatabaseAccountSqlDatabaseContainerTriggerTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountSqlDatabaseContainerTriggerTypeArgs) ToDatabaseAccountSqlDatabaseContainerTriggerTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerTriggerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlDatabaseContainerTriggerTypeOutput)
-}
-
-// An Azure Cosmos DB trigger.
-type DatabaseAccountSqlDatabaseContainerTriggerTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerTriggerType)(nil)).Elem()
-}
-
-func (o DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) ToDatabaseAccountSqlDatabaseContainerTriggerTypeOutput() DatabaseAccountSqlDatabaseContainerTriggerTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) ToDatabaseAccountSqlDatabaseContainerTriggerTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerTriggerTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerTriggerType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerTriggerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB trigger
-func (o DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) Properties() SqlTriggerGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerTriggerType) SqlTriggerGetPropertiesResponse {
-		return v.Properties
-	}).(SqlTriggerGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerTriggerType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountSqlDatabaseContainerTriggerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerTriggerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB userDefinedFunction.
-type DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB userDefinedFunction
-	Properties SqlUserDefinedFunctionGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeInput is an input type that accepts DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeArgs and DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeInput` via:
-//
-//          DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeArgs{...}
-type DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput() DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput
-	ToDatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutputWithContext(context.Context) DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput
-}
-
-// An Azure Cosmos DB userDefinedFunction.
-type DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB userDefinedFunction
-	Properties SqlUserDefinedFunctionGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType)(nil)).Elem()
-}
-
-func (i DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeArgs) ToDatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput() DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput {
-	return i.ToDatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeArgs) ToDatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput)
-}
-
-// An Azure Cosmos DB userDefinedFunction.
-type DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType)(nil)).Elem()
-}
-
-func (o DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) ToDatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput() DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) ToDatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutputWithContext(ctx context.Context) DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB userDefinedFunction
-func (o DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) Properties() SqlUserDefinedFunctionGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType) SqlUserDefinedFunctionGetPropertiesResponse {
-		return v.Properties
-	}).(SqlUserDefinedFunctionGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountSqlDatabaseContainerUserDefinedFunctionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB Table.
-type DatabaseAccountTableType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Table
-	Properties TableGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountTableTypeInput is an input type that accepts DatabaseAccountTableTypeArgs and DatabaseAccountTableTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountTableTypeInput` via:
-//
-//          DatabaseAccountTableTypeArgs{...}
-type DatabaseAccountTableTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountTableTypeOutput() DatabaseAccountTableTypeOutput
-	ToDatabaseAccountTableTypeOutputWithContext(context.Context) DatabaseAccountTableTypeOutput
-}
-
-// An Azure Cosmos DB Table.
-type DatabaseAccountTableTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Table
-	Properties TableGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountTableTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountTableType)(nil)).Elem()
-}
-
-func (i DatabaseAccountTableTypeArgs) ToDatabaseAccountTableTypeOutput() DatabaseAccountTableTypeOutput {
-	return i.ToDatabaseAccountTableTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountTableTypeArgs) ToDatabaseAccountTableTypeOutputWithContext(ctx context.Context) DatabaseAccountTableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountTableTypeOutput)
-}
-
-// An Azure Cosmos DB Table.
-type DatabaseAccountTableTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountTableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountTableType)(nil)).Elem()
-}
-
-func (o DatabaseAccountTableTypeOutput) ToDatabaseAccountTableTypeOutput() DatabaseAccountTableTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountTableTypeOutput) ToDatabaseAccountTableTypeOutputWithContext(ctx context.Context) DatabaseAccountTableTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountTableTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountTableType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountTableTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountTableType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB Table
-func (o DatabaseAccountTableTypeOutput) Properties() TableGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountTableType) TableGetPropertiesResponse { return v.Properties }).(TableGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountTableTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountTableType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountTableTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountTableType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ExcludedPath struct {
@@ -6494,6 +5501,188 @@ func (o GremlinGraphResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutpu
 		}
 		return v.UniqueKeyPolicy
 	}).(UniqueKeyPolicyPtrOutput)
+}
+
+// An Azure Cosmos DB Gremlin database.
+type GremlinResourceGremlinDatabaseType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB SQL database
+	Properties GremlinDatabaseGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// GremlinResourceGremlinDatabaseTypeInput is an input type that accepts GremlinResourceGremlinDatabaseTypeArgs and GremlinResourceGremlinDatabaseTypeOutput values.
+// You can construct a concrete instance of `GremlinResourceGremlinDatabaseTypeInput` via:
+//
+//          GremlinResourceGremlinDatabaseTypeArgs{...}
+type GremlinResourceGremlinDatabaseTypeInput interface {
+	pulumi.Input
+
+	ToGremlinResourceGremlinDatabaseTypeOutput() GremlinResourceGremlinDatabaseTypeOutput
+	ToGremlinResourceGremlinDatabaseTypeOutputWithContext(context.Context) GremlinResourceGremlinDatabaseTypeOutput
+}
+
+// An Azure Cosmos DB Gremlin database.
+type GremlinResourceGremlinDatabaseTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB SQL database
+	Properties GremlinDatabaseGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GremlinResourceGremlinDatabaseTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinDatabaseType)(nil)).Elem()
+}
+
+func (i GremlinResourceGremlinDatabaseTypeArgs) ToGremlinResourceGremlinDatabaseTypeOutput() GremlinResourceGremlinDatabaseTypeOutput {
+	return i.ToGremlinResourceGremlinDatabaseTypeOutputWithContext(context.Background())
+}
+
+func (i GremlinResourceGremlinDatabaseTypeArgs) ToGremlinResourceGremlinDatabaseTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinDatabaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinDatabaseTypeOutput)
+}
+
+// An Azure Cosmos DB Gremlin database.
+type GremlinResourceGremlinDatabaseTypeOutput struct{ *pulumi.OutputState }
+
+func (GremlinResourceGremlinDatabaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinDatabaseType)(nil)).Elem()
+}
+
+func (o GremlinResourceGremlinDatabaseTypeOutput) ToGremlinResourceGremlinDatabaseTypeOutput() GremlinResourceGremlinDatabaseTypeOutput {
+	return o
+}
+
+func (o GremlinResourceGremlinDatabaseTypeOutput) ToGremlinResourceGremlinDatabaseTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinDatabaseTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o GremlinResourceGremlinDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o GremlinResourceGremlinDatabaseTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB SQL database
+func (o GremlinResourceGremlinDatabaseTypeOutput) Properties() GremlinDatabaseGetPropertiesResponseOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) GremlinDatabaseGetPropertiesResponse { return v.Properties }).(GremlinDatabaseGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o GremlinResourceGremlinDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o GremlinResourceGremlinDatabaseTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Azure Cosmos DB Gremlin graph.
+type GremlinResourceGremlinGraphType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Gremlin graph
+	Properties GremlinGraphGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// GremlinResourceGremlinGraphTypeInput is an input type that accepts GremlinResourceGremlinGraphTypeArgs and GremlinResourceGremlinGraphTypeOutput values.
+// You can construct a concrete instance of `GremlinResourceGremlinGraphTypeInput` via:
+//
+//          GremlinResourceGremlinGraphTypeArgs{...}
+type GremlinResourceGremlinGraphTypeInput interface {
+	pulumi.Input
+
+	ToGremlinResourceGremlinGraphTypeOutput() GremlinResourceGremlinGraphTypeOutput
+	ToGremlinResourceGremlinGraphTypeOutputWithContext(context.Context) GremlinResourceGremlinGraphTypeOutput
+}
+
+// An Azure Cosmos DB Gremlin graph.
+type GremlinResourceGremlinGraphTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Gremlin graph
+	Properties GremlinGraphGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GremlinResourceGremlinGraphTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinGraphType)(nil)).Elem()
+}
+
+func (i GremlinResourceGremlinGraphTypeArgs) ToGremlinResourceGremlinGraphTypeOutput() GremlinResourceGremlinGraphTypeOutput {
+	return i.ToGremlinResourceGremlinGraphTypeOutputWithContext(context.Background())
+}
+
+func (i GremlinResourceGremlinGraphTypeArgs) ToGremlinResourceGremlinGraphTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinGraphTypeOutput)
+}
+
+// An Azure Cosmos DB Gremlin graph.
+type GremlinResourceGremlinGraphTypeOutput struct{ *pulumi.OutputState }
+
+func (GremlinResourceGremlinGraphTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinResourceGremlinGraphType)(nil)).Elem()
+}
+
+func (o GremlinResourceGremlinGraphTypeOutput) ToGremlinResourceGremlinGraphTypeOutput() GremlinResourceGremlinGraphTypeOutput {
+	return o
+}
+
+func (o GremlinResourceGremlinGraphTypeOutput) ToGremlinResourceGremlinGraphTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o GremlinResourceGremlinGraphTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinGraphType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o GremlinResourceGremlinGraphTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinGraphType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB Gremlin graph
+func (o GremlinResourceGremlinGraphTypeOutput) Properties() GremlinGraphGetPropertiesResponseOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinGraphType) GremlinGraphGetPropertiesResponse { return v.Properties }).(GremlinGraphGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o GremlinResourceGremlinGraphTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinGraphType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o GremlinResourceGremlinGraphTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinResourceGremlinGraphType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Array of IpAddressOrRange objects.
@@ -8373,6 +7562,190 @@ func (o MongoDBDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Azure Cosmos DB MongoDB collection.
+type MongoDBResourceMongoDBCollectionType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB MongoDB collection
+	Properties MongoDBCollectionGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// MongoDBResourceMongoDBCollectionTypeInput is an input type that accepts MongoDBResourceMongoDBCollectionTypeArgs and MongoDBResourceMongoDBCollectionTypeOutput values.
+// You can construct a concrete instance of `MongoDBResourceMongoDBCollectionTypeInput` via:
+//
+//          MongoDBResourceMongoDBCollectionTypeArgs{...}
+type MongoDBResourceMongoDBCollectionTypeInput interface {
+	pulumi.Input
+
+	ToMongoDBResourceMongoDBCollectionTypeOutput() MongoDBResourceMongoDBCollectionTypeOutput
+	ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(context.Context) MongoDBResourceMongoDBCollectionTypeOutput
+}
+
+// An Azure Cosmos DB MongoDB collection.
+type MongoDBResourceMongoDBCollectionTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB MongoDB collection
+	Properties MongoDBCollectionGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MongoDBResourceMongoDBCollectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBCollectionType)(nil)).Elem()
+}
+
+func (i MongoDBResourceMongoDBCollectionTypeArgs) ToMongoDBResourceMongoDBCollectionTypeOutput() MongoDBResourceMongoDBCollectionTypeOutput {
+	return i.ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(context.Background())
+}
+
+func (i MongoDBResourceMongoDBCollectionTypeArgs) ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBCollectionTypeOutput)
+}
+
+// An Azure Cosmos DB MongoDB collection.
+type MongoDBResourceMongoDBCollectionTypeOutput struct{ *pulumi.OutputState }
+
+func (MongoDBResourceMongoDBCollectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBCollectionType)(nil)).Elem()
+}
+
+func (o MongoDBResourceMongoDBCollectionTypeOutput) ToMongoDBResourceMongoDBCollectionTypeOutput() MongoDBResourceMongoDBCollectionTypeOutput {
+	return o
+}
+
+func (o MongoDBResourceMongoDBCollectionTypeOutput) ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o MongoDBResourceMongoDBCollectionTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o MongoDBResourceMongoDBCollectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB MongoDB collection
+func (o MongoDBResourceMongoDBCollectionTypeOutput) Properties() MongoDBCollectionGetPropertiesResponseOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) MongoDBCollectionGetPropertiesResponse {
+		return v.Properties
+	}).(MongoDBCollectionGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o MongoDBResourceMongoDBCollectionTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o MongoDBResourceMongoDBCollectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Azure Cosmos DB MongoDB database.
+type MongoDBResourceMongoDBDatabaseType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB MongoDB database
+	Properties MongoDBDatabaseGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// MongoDBResourceMongoDBDatabaseTypeInput is an input type that accepts MongoDBResourceMongoDBDatabaseTypeArgs and MongoDBResourceMongoDBDatabaseTypeOutput values.
+// You can construct a concrete instance of `MongoDBResourceMongoDBDatabaseTypeInput` via:
+//
+//          MongoDBResourceMongoDBDatabaseTypeArgs{...}
+type MongoDBResourceMongoDBDatabaseTypeInput interface {
+	pulumi.Input
+
+	ToMongoDBResourceMongoDBDatabaseTypeOutput() MongoDBResourceMongoDBDatabaseTypeOutput
+	ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(context.Context) MongoDBResourceMongoDBDatabaseTypeOutput
+}
+
+// An Azure Cosmos DB MongoDB database.
+type MongoDBResourceMongoDBDatabaseTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB MongoDB database
+	Properties MongoDBDatabaseGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MongoDBResourceMongoDBDatabaseTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBDatabaseType)(nil)).Elem()
+}
+
+func (i MongoDBResourceMongoDBDatabaseTypeArgs) ToMongoDBResourceMongoDBDatabaseTypeOutput() MongoDBResourceMongoDBDatabaseTypeOutput {
+	return i.ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(context.Background())
+}
+
+func (i MongoDBResourceMongoDBDatabaseTypeArgs) ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBDatabaseTypeOutput)
+}
+
+// An Azure Cosmos DB MongoDB database.
+type MongoDBResourceMongoDBDatabaseTypeOutput struct{ *pulumi.OutputState }
+
+func (MongoDBResourceMongoDBDatabaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBResourceMongoDBDatabaseType)(nil)).Elem()
+}
+
+func (o MongoDBResourceMongoDBDatabaseTypeOutput) ToMongoDBResourceMongoDBDatabaseTypeOutput() MongoDBResourceMongoDBDatabaseTypeOutput {
+	return o
+}
+
+func (o MongoDBResourceMongoDBDatabaseTypeOutput) ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o MongoDBResourceMongoDBDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o MongoDBResourceMongoDBDatabaseTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB MongoDB database
+func (o MongoDBResourceMongoDBDatabaseTypeOutput) Properties() MongoDBDatabaseGetPropertiesResponseOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) MongoDBDatabaseGetPropertiesResponse { return v.Properties }).(MongoDBDatabaseGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o MongoDBResourceMongoDBDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o MongoDBResourceMongoDBDatabaseTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Cosmos DB MongoDB collection index key
 type MongoIndex struct {
 	// Cosmos DB MongoDB collection index keys
@@ -8767,6 +8140,79 @@ func (o MongoIndexOptionsPtrOutput) Unique() pulumi.BoolPtrOutput {
 		}
 		return v.Unique
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A notebook workspace resource
+type NotebookWorkspaceType struct {
+	// The name of the database account.
+	Name string `pulumi:"name"`
+	// Resource properties.
+	Properties NotebookWorkspacePropertiesResponse `pulumi:"properties"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// NotebookWorkspaceTypeInput is an input type that accepts NotebookWorkspaceTypeArgs and NotebookWorkspaceTypeOutput values.
+// You can construct a concrete instance of `NotebookWorkspaceTypeInput` via:
+//
+//          NotebookWorkspaceTypeArgs{...}
+type NotebookWorkspaceTypeInput interface {
+	pulumi.Input
+
+	ToNotebookWorkspaceTypeOutput() NotebookWorkspaceTypeOutput
+	ToNotebookWorkspaceTypeOutputWithContext(context.Context) NotebookWorkspaceTypeOutput
+}
+
+// A notebook workspace resource
+type NotebookWorkspaceTypeArgs struct {
+	// The name of the database account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource properties.
+	Properties NotebookWorkspacePropertiesResponseInput `pulumi:"properties"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NotebookWorkspaceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookWorkspaceType)(nil)).Elem()
+}
+
+func (i NotebookWorkspaceTypeArgs) ToNotebookWorkspaceTypeOutput() NotebookWorkspaceTypeOutput {
+	return i.ToNotebookWorkspaceTypeOutputWithContext(context.Background())
+}
+
+func (i NotebookWorkspaceTypeArgs) ToNotebookWorkspaceTypeOutputWithContext(ctx context.Context) NotebookWorkspaceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceTypeOutput)
+}
+
+// A notebook workspace resource
+type NotebookWorkspaceTypeOutput struct{ *pulumi.OutputState }
+
+func (NotebookWorkspaceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookWorkspaceType)(nil)).Elem()
+}
+
+func (o NotebookWorkspaceTypeOutput) ToNotebookWorkspaceTypeOutput() NotebookWorkspaceTypeOutput {
+	return o
+}
+
+func (o NotebookWorkspaceTypeOutput) ToNotebookWorkspaceTypeOutputWithContext(ctx context.Context) NotebookWorkspaceTypeOutput {
+	return o
+}
+
+// The name of the database account.
+func (o NotebookWorkspaceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NotebookWorkspaceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource properties.
+func (o NotebookWorkspaceTypeOutput) Properties() NotebookWorkspacePropertiesResponseOutput {
+	return o.ApplyT(func(v NotebookWorkspaceType) NotebookWorkspacePropertiesResponse { return v.Properties }).(NotebookWorkspacePropertiesResponseOutput)
+}
+
+// The type of Azure resource.
+func (o NotebookWorkspaceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NotebookWorkspaceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a notebook workspace resource.
@@ -10907,6 +10353,463 @@ func (o SqlDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Azure Cosmos DB container.
+type SqlResourceSqlContainerType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB container
+	Properties SqlContainerGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// SqlResourceSqlContainerTypeInput is an input type that accepts SqlResourceSqlContainerTypeArgs and SqlResourceSqlContainerTypeOutput values.
+// You can construct a concrete instance of `SqlResourceSqlContainerTypeInput` via:
+//
+//          SqlResourceSqlContainerTypeArgs{...}
+type SqlResourceSqlContainerTypeInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlContainerTypeOutput() SqlResourceSqlContainerTypeOutput
+	ToSqlResourceSqlContainerTypeOutputWithContext(context.Context) SqlResourceSqlContainerTypeOutput
+}
+
+// An Azure Cosmos DB container.
+type SqlResourceSqlContainerTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB container
+	Properties SqlContainerGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SqlResourceSqlContainerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlContainerType)(nil)).Elem()
+}
+
+func (i SqlResourceSqlContainerTypeArgs) ToSqlResourceSqlContainerTypeOutput() SqlResourceSqlContainerTypeOutput {
+	return i.ToSqlResourceSqlContainerTypeOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlContainerTypeArgs) ToSqlResourceSqlContainerTypeOutputWithContext(ctx context.Context) SqlResourceSqlContainerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlContainerTypeOutput)
+}
+
+// An Azure Cosmos DB container.
+type SqlResourceSqlContainerTypeOutput struct{ *pulumi.OutputState }
+
+func (SqlResourceSqlContainerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlContainerType)(nil)).Elem()
+}
+
+func (o SqlResourceSqlContainerTypeOutput) ToSqlResourceSqlContainerTypeOutput() SqlResourceSqlContainerTypeOutput {
+	return o
+}
+
+func (o SqlResourceSqlContainerTypeOutput) ToSqlResourceSqlContainerTypeOutputWithContext(ctx context.Context) SqlResourceSqlContainerTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o SqlResourceSqlContainerTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlContainerType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o SqlResourceSqlContainerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlContainerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB container
+func (o SqlResourceSqlContainerTypeOutput) Properties() SqlContainerGetPropertiesResponseOutput {
+	return o.ApplyT(func(v SqlResourceSqlContainerType) SqlContainerGetPropertiesResponse { return v.Properties }).(SqlContainerGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o SqlResourceSqlContainerTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlContainerType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlContainerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlContainerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Azure Cosmos DB SQL database.
+type SqlResourceSqlDatabaseType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB SQL database
+	Properties SqlDatabaseGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// SqlResourceSqlDatabaseTypeInput is an input type that accepts SqlResourceSqlDatabaseTypeArgs and SqlResourceSqlDatabaseTypeOutput values.
+// You can construct a concrete instance of `SqlResourceSqlDatabaseTypeInput` via:
+//
+//          SqlResourceSqlDatabaseTypeArgs{...}
+type SqlResourceSqlDatabaseTypeInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlDatabaseTypeOutput() SqlResourceSqlDatabaseTypeOutput
+	ToSqlResourceSqlDatabaseTypeOutputWithContext(context.Context) SqlResourceSqlDatabaseTypeOutput
+}
+
+// An Azure Cosmos DB SQL database.
+type SqlResourceSqlDatabaseTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB SQL database
+	Properties SqlDatabaseGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SqlResourceSqlDatabaseTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlDatabaseType)(nil)).Elem()
+}
+
+func (i SqlResourceSqlDatabaseTypeArgs) ToSqlResourceSqlDatabaseTypeOutput() SqlResourceSqlDatabaseTypeOutput {
+	return i.ToSqlResourceSqlDatabaseTypeOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlDatabaseTypeArgs) ToSqlResourceSqlDatabaseTypeOutputWithContext(ctx context.Context) SqlResourceSqlDatabaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlDatabaseTypeOutput)
+}
+
+// An Azure Cosmos DB SQL database.
+type SqlResourceSqlDatabaseTypeOutput struct{ *pulumi.OutputState }
+
+func (SqlResourceSqlDatabaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlDatabaseType)(nil)).Elem()
+}
+
+func (o SqlResourceSqlDatabaseTypeOutput) ToSqlResourceSqlDatabaseTypeOutput() SqlResourceSqlDatabaseTypeOutput {
+	return o
+}
+
+func (o SqlResourceSqlDatabaseTypeOutput) ToSqlResourceSqlDatabaseTypeOutputWithContext(ctx context.Context) SqlResourceSqlDatabaseTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o SqlResourceSqlDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o SqlResourceSqlDatabaseTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlDatabaseType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB SQL database
+func (o SqlResourceSqlDatabaseTypeOutput) Properties() SqlDatabaseGetPropertiesResponseOutput {
+	return o.ApplyT(func(v SqlResourceSqlDatabaseType) SqlDatabaseGetPropertiesResponse { return v.Properties }).(SqlDatabaseGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o SqlResourceSqlDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlDatabaseTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlDatabaseType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Azure Cosmos DB storedProcedure.
+type SqlResourceSqlStoredProcedureType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB storedProcedure
+	Properties SqlStoredProcedureGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// SqlResourceSqlStoredProcedureTypeInput is an input type that accepts SqlResourceSqlStoredProcedureTypeArgs and SqlResourceSqlStoredProcedureTypeOutput values.
+// You can construct a concrete instance of `SqlResourceSqlStoredProcedureTypeInput` via:
+//
+//          SqlResourceSqlStoredProcedureTypeArgs{...}
+type SqlResourceSqlStoredProcedureTypeInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlStoredProcedureTypeOutput() SqlResourceSqlStoredProcedureTypeOutput
+	ToSqlResourceSqlStoredProcedureTypeOutputWithContext(context.Context) SqlResourceSqlStoredProcedureTypeOutput
+}
+
+// An Azure Cosmos DB storedProcedure.
+type SqlResourceSqlStoredProcedureTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB storedProcedure
+	Properties SqlStoredProcedureGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SqlResourceSqlStoredProcedureTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlStoredProcedureType)(nil)).Elem()
+}
+
+func (i SqlResourceSqlStoredProcedureTypeArgs) ToSqlResourceSqlStoredProcedureTypeOutput() SqlResourceSqlStoredProcedureTypeOutput {
+	return i.ToSqlResourceSqlStoredProcedureTypeOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlStoredProcedureTypeArgs) ToSqlResourceSqlStoredProcedureTypeOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlStoredProcedureTypeOutput)
+}
+
+// An Azure Cosmos DB storedProcedure.
+type SqlResourceSqlStoredProcedureTypeOutput struct{ *pulumi.OutputState }
+
+func (SqlResourceSqlStoredProcedureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlStoredProcedureType)(nil)).Elem()
+}
+
+func (o SqlResourceSqlStoredProcedureTypeOutput) ToSqlResourceSqlStoredProcedureTypeOutput() SqlResourceSqlStoredProcedureTypeOutput {
+	return o
+}
+
+func (o SqlResourceSqlStoredProcedureTypeOutput) ToSqlResourceSqlStoredProcedureTypeOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o SqlResourceSqlStoredProcedureTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o SqlResourceSqlStoredProcedureTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB storedProcedure
+func (o SqlResourceSqlStoredProcedureTypeOutput) Properties() SqlStoredProcedureGetPropertiesResponseOutput {
+	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) SqlStoredProcedureGetPropertiesResponse { return v.Properties }).(SqlStoredProcedureGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o SqlResourceSqlStoredProcedureTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlStoredProcedureTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Azure Cosmos DB trigger.
+type SqlResourceSqlTriggerType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB trigger
+	Properties SqlTriggerGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// SqlResourceSqlTriggerTypeInput is an input type that accepts SqlResourceSqlTriggerTypeArgs and SqlResourceSqlTriggerTypeOutput values.
+// You can construct a concrete instance of `SqlResourceSqlTriggerTypeInput` via:
+//
+//          SqlResourceSqlTriggerTypeArgs{...}
+type SqlResourceSqlTriggerTypeInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlTriggerTypeOutput() SqlResourceSqlTriggerTypeOutput
+	ToSqlResourceSqlTriggerTypeOutputWithContext(context.Context) SqlResourceSqlTriggerTypeOutput
+}
+
+// An Azure Cosmos DB trigger.
+type SqlResourceSqlTriggerTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB trigger
+	Properties SqlTriggerGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SqlResourceSqlTriggerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlTriggerType)(nil)).Elem()
+}
+
+func (i SqlResourceSqlTriggerTypeArgs) ToSqlResourceSqlTriggerTypeOutput() SqlResourceSqlTriggerTypeOutput {
+	return i.ToSqlResourceSqlTriggerTypeOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlTriggerTypeArgs) ToSqlResourceSqlTriggerTypeOutputWithContext(ctx context.Context) SqlResourceSqlTriggerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlTriggerTypeOutput)
+}
+
+// An Azure Cosmos DB trigger.
+type SqlResourceSqlTriggerTypeOutput struct{ *pulumi.OutputState }
+
+func (SqlResourceSqlTriggerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlTriggerType)(nil)).Elem()
+}
+
+func (o SqlResourceSqlTriggerTypeOutput) ToSqlResourceSqlTriggerTypeOutput() SqlResourceSqlTriggerTypeOutput {
+	return o
+}
+
+func (o SqlResourceSqlTriggerTypeOutput) ToSqlResourceSqlTriggerTypeOutputWithContext(ctx context.Context) SqlResourceSqlTriggerTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o SqlResourceSqlTriggerTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlTriggerType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o SqlResourceSqlTriggerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlTriggerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB trigger
+func (o SqlResourceSqlTriggerTypeOutput) Properties() SqlTriggerGetPropertiesResponseOutput {
+	return o.ApplyT(func(v SqlResourceSqlTriggerType) SqlTriggerGetPropertiesResponse { return v.Properties }).(SqlTriggerGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o SqlResourceSqlTriggerTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlTriggerType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlTriggerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlTriggerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Azure Cosmos DB userDefinedFunction.
+type SqlResourceSqlUserDefinedFunctionType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB userDefinedFunction
+	Properties SqlUserDefinedFunctionGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// SqlResourceSqlUserDefinedFunctionTypeInput is an input type that accepts SqlResourceSqlUserDefinedFunctionTypeArgs and SqlResourceSqlUserDefinedFunctionTypeOutput values.
+// You can construct a concrete instance of `SqlResourceSqlUserDefinedFunctionTypeInput` via:
+//
+//          SqlResourceSqlUserDefinedFunctionTypeArgs{...}
+type SqlResourceSqlUserDefinedFunctionTypeInput interface {
+	pulumi.Input
+
+	ToSqlResourceSqlUserDefinedFunctionTypeOutput() SqlResourceSqlUserDefinedFunctionTypeOutput
+	ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(context.Context) SqlResourceSqlUserDefinedFunctionTypeOutput
+}
+
+// An Azure Cosmos DB userDefinedFunction.
+type SqlResourceSqlUserDefinedFunctionTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB userDefinedFunction
+	Properties SqlUserDefinedFunctionGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SqlResourceSqlUserDefinedFunctionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunctionType)(nil)).Elem()
+}
+
+func (i SqlResourceSqlUserDefinedFunctionTypeArgs) ToSqlResourceSqlUserDefinedFunctionTypeOutput() SqlResourceSqlUserDefinedFunctionTypeOutput {
+	return i.ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(context.Background())
+}
+
+func (i SqlResourceSqlUserDefinedFunctionTypeArgs) ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlUserDefinedFunctionTypeOutput)
+}
+
+// An Azure Cosmos DB userDefinedFunction.
+type SqlResourceSqlUserDefinedFunctionTypeOutput struct{ *pulumi.OutputState }
+
+func (SqlResourceSqlUserDefinedFunctionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunctionType)(nil)).Elem()
+}
+
+func (o SqlResourceSqlUserDefinedFunctionTypeOutput) ToSqlResourceSqlUserDefinedFunctionTypeOutput() SqlResourceSqlUserDefinedFunctionTypeOutput {
+	return o
+}
+
+func (o SqlResourceSqlUserDefinedFunctionTypeOutput) ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB userDefinedFunction
+func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Properties() SqlUserDefinedFunctionGetPropertiesResponseOutput {
+	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) SqlUserDefinedFunctionGetPropertiesResponse {
+		return v.Properties
+	}).(SqlUserDefinedFunctionGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties to create and update Azure Cosmos DB storedProcedure.
 type SqlStoredProcedureCreateUpdateProperties struct {
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
@@ -12685,6 +12588,97 @@ func (o TableResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Azure Cosmos DB Table.
+type TableResourceTableType struct {
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the ARM resource.
+	Name string `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Table
+	Properties TableGetPropertiesResponse `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags *TagsResponse `pulumi:"tags"`
+	// The type of Azure resource.
+	Type string `pulumi:"type"`
+}
+
+// TableResourceTableTypeInput is an input type that accepts TableResourceTableTypeArgs and TableResourceTableTypeOutput values.
+// You can construct a concrete instance of `TableResourceTableTypeInput` via:
+//
+//          TableResourceTableTypeArgs{...}
+type TableResourceTableTypeInput interface {
+	pulumi.Input
+
+	ToTableResourceTableTypeOutput() TableResourceTableTypeOutput
+	ToTableResourceTableTypeOutputWithContext(context.Context) TableResourceTableTypeOutput
+}
+
+// An Azure Cosmos DB Table.
+type TableResourceTableTypeArgs struct {
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the ARM resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an Azure Cosmos DB Table
+	Properties TableGetPropertiesResponseInput `pulumi:"properties"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags TagsResponsePtrInput `pulumi:"tags"`
+	// The type of Azure resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableResourceTableTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourceTableType)(nil)).Elem()
+}
+
+func (i TableResourceTableTypeArgs) ToTableResourceTableTypeOutput() TableResourceTableTypeOutput {
+	return i.ToTableResourceTableTypeOutputWithContext(context.Background())
+}
+
+func (i TableResourceTableTypeArgs) ToTableResourceTableTypeOutputWithContext(ctx context.Context) TableResourceTableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableResourceTableTypeOutput)
+}
+
+// An Azure Cosmos DB Table.
+type TableResourceTableTypeOutput struct{ *pulumi.OutputState }
+
+func (TableResourceTableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableResourceTableType)(nil)).Elem()
+}
+
+func (o TableResourceTableTypeOutput) ToTableResourceTableTypeOutput() TableResourceTableTypeOutput {
+	return o
+}
+
+func (o TableResourceTableTypeOutput) ToTableResourceTableTypeOutputWithContext(ctx context.Context) TableResourceTableTypeOutput {
+	return o
+}
+
+// The location of the resource group to which the resource belongs.
+func (o TableResourceTableTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableResourceTableType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o TableResourceTableTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableResourceTableType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an Azure Cosmos DB Table
+func (o TableResourceTableTypeOutput) Properties() TableGetPropertiesResponseOutput {
+	return o.ApplyT(func(v TableResourceTableType) TableGetPropertiesResponse { return v.Properties }).(TableGetPropertiesResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o TableResourceTableTypeOutput) Tags() TagsResponsePtrOutput {
+	return o.ApplyT(func(v TableResourceTableType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+}
+
+// The type of Azure resource.
+func (o TableResourceTableTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableResourceTableType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 type Tags struct {
 }
@@ -13386,6 +13380,8 @@ func init() {
 	pulumi.RegisterOutputType(CassandraKeyspaceResourcePtrOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyArrayOutput{})
+	pulumi.RegisterOutputType(CassandraResourceCassandraKeyspaceTypeOutput{})
+	pulumi.RegisterOutputType(CassandraResourceCassandraTableTypeOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaPtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableCreateUpdatePropertiesOutput{})
@@ -13411,25 +13407,12 @@ func init() {
 	pulumi.RegisterOutputType(CreateUpdateOptionsOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountCassandraKeyspaceTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountCassandraKeyspaceTableTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountCreateUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountCreateUpdatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountGetPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountGremlinDatabaseTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountGremlinDatabaseGraphTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountMongodbDatabaseTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountMongodbDatabaseCollectionTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountNotebookWorkspaceTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountSqlDatabaseTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountSqlDatabaseContainerTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountSqlDatabaseContainerStoredProcedureTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountSqlDatabaseContainerTriggerTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountSqlDatabaseContainerUserDefinedFunctionTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountTableTypeOutput{})
 	pulumi.RegisterOutputType(ExcludedPathOutput{})
 	pulumi.RegisterOutputType(ExcludedPathArrayOutput{})
 	pulumi.RegisterOutputType(FailoverPolicyResponseOutput{})
@@ -13446,6 +13429,8 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphGetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphResourceOutput{})
 	pulumi.RegisterOutputType(GremlinGraphResourcePtrOutput{})
+	pulumi.RegisterOutputType(GremlinResourceGremlinDatabaseTypeOutput{})
+	pulumi.RegisterOutputType(GremlinResourceGremlinGraphTypeOutput{})
 	pulumi.RegisterOutputType(IPRulesOutput{})
 	pulumi.RegisterOutputType(IPRulesPtrOutput{})
 	pulumi.RegisterOutputType(IPRulesResponseOutput{})
@@ -13472,12 +13457,15 @@ func init() {
 	pulumi.RegisterOutputType(MongoDBDatabaseGetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoDBDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(MongoDBDatabaseResourcePtrOutput{})
+	pulumi.RegisterOutputType(MongoDBResourceMongoDBCollectionTypeOutput{})
+	pulumi.RegisterOutputType(MongoDBResourceMongoDBDatabaseTypeOutput{})
 	pulumi.RegisterOutputType(MongoIndexOutput{})
 	pulumi.RegisterOutputType(MongoIndexArrayOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysPtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsPtrOutput{})
+	pulumi.RegisterOutputType(NotebookWorkspaceTypeOutput{})
 	pulumi.RegisterOutputType(NotebookWorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NotebookWorkspacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
@@ -13506,6 +13494,11 @@ func init() {
 	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseResourcePtrOutput{})
+	pulumi.RegisterOutputType(SqlResourceSqlContainerTypeOutput{})
+	pulumi.RegisterOutputType(SqlResourceSqlDatabaseTypeOutput{})
+	pulumi.RegisterOutputType(SqlResourceSqlStoredProcedureTypeOutput{})
+	pulumi.RegisterOutputType(SqlResourceSqlTriggerTypeOutput{})
+	pulumi.RegisterOutputType(SqlResourceSqlUserDefinedFunctionTypeOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureCreateUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureCreateUpdatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseOutput{})
@@ -13530,6 +13523,7 @@ func init() {
 	pulumi.RegisterOutputType(TableGetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TableResourceOutput{})
 	pulumi.RegisterOutputType(TableResourcePtrOutput{})
+	pulumi.RegisterOutputType(TableResourceTableTypeOutput{})
 	pulumi.RegisterOutputType(TagsOutput{})
 	pulumi.RegisterOutputType(TagsPtrOutput{})
 	pulumi.RegisterOutputType(TagsResponseOutput{})

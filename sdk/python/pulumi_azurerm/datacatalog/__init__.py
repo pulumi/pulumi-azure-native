@@ -3,5 +3,5 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .catalog import *
-from .get_catalog import *
+from .adc_catalog import *
+from .get_adc_catalog import *

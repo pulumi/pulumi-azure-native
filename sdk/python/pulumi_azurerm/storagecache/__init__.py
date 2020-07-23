@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .cach import *
-from .cach_storage_target import *
-from .get_cach import *
-from .get_cach_storage_target import *
+from .cache import *
+from .get_cache import *
+from .get_storage_target import *
+from .storage_target import *

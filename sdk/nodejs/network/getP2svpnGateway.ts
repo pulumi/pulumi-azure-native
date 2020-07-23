@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getP2svpnGateway(args: GetP2svpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2svpnGatewayResult> {
+export function getP2sVpnGateway(args: GetP2sVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetP2sVpnGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,13 +14,13 @@ export function getP2svpnGateway(args: GetP2svpnGatewayArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:network:getP2svpnGateway", {
+    return pulumi.runtime.invoke("azurerm:network:getP2sVpnGateway", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetP2svpnGatewayArgs {
+export interface GetP2sVpnGatewayArgs {
     /**
      * The name of the gateway.
      */
@@ -34,7 +34,7 @@ export interface GetP2svpnGatewayArgs {
 /**
  * P2SVpnGateway Resource.
  */
-export interface GetP2svpnGatewayResult {
+export interface GetP2sVpnGatewayResult {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

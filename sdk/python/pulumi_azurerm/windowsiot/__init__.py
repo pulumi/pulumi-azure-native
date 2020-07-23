@@ -3,5 +3,5 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .device_service import *
-from .get_device_service import *
+from .get_service import *
+from .service import *

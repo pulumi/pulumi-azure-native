@@ -454,7 +454,7 @@ type DomainProperties struct {
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
 	InputSchemaMapping *InputSchemaMapping `pulumi:"inputSchemaMapping"`
 	// List of private endpoint connections.
-	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -480,7 +480,7 @@ type DomainPropertiesArgs struct {
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
 	InputSchemaMapping InputSchemaMappingPtrInput `pulumi:"inputSchemaMapping"`
 	// List of private endpoint connections.
-	PrivateEndpointConnections PrivateEndpointConnectionArrayInput `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
@@ -580,8 +580,8 @@ func (o DomainPropertiesOutput) InputSchemaMapping() InputSchemaMappingPtrOutput
 }
 
 // List of private endpoint connections.
-func (o DomainPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
-	return o.ApplyT(func(v DomainProperties) []PrivateEndpointConnection { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionArrayOutput)
+func (o DomainPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v DomainProperties) []PrivateEndpointConnectionType { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
 // This determines if traffic is allowed over public network. By default it is enabled.
@@ -639,13 +639,13 @@ func (o DomainPropertiesPtrOutput) InputSchemaMapping() InputSchemaMappingPtrOut
 }
 
 // List of private endpoint connections.
-func (o DomainPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
-	return o.ApplyT(func(v *DomainProperties) []PrivateEndpointConnection {
+func (o DomainPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v *DomainProperties) []PrivateEndpointConnectionType {
 		if v == nil {
 			return nil
 		}
 		return v.PrivateEndpointConnections
-	}).(PrivateEndpointConnectionArrayOutput)
+	}).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
 // This determines if traffic is allowed over public network. By default it is enabled.
@@ -1753,101 +1753,119 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type PrivateEndpointConnection struct {
+type PrivateEndpointConnectionType struct {
+	// Name of the resource.
+	Name string `pulumi:"name"`
 	// Properties of the PrivateEndpointConnection.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// Type of the resource.
+	Type string `pulumi:"type"`
 }
 
-// PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionInput` via:
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
 //
-//          PrivateEndpointConnectionArgs{...}
-type PrivateEndpointConnectionInput interface {
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
-	ToPrivateEndpointConnectionOutputWithContext(context.Context) PrivateEndpointConnectionOutput
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
-type PrivateEndpointConnectionArgs struct {
+type PrivateEndpointConnectionTypeArgs struct {
+	// Name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
 	// Properties of the PrivateEndpointConnection.
-	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// Type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
-	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
 }
 
-// PrivateEndpointConnectionArrayInput is an input type that accepts PrivateEndpointConnectionArray and PrivateEndpointConnectionArrayOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionArrayInput` via:
+// PrivateEndpointConnectionTypeArrayInput is an input type that accepts PrivateEndpointConnectionTypeArray and PrivateEndpointConnectionTypeArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeArrayInput` via:
 //
-//          PrivateEndpointConnectionArray{ PrivateEndpointConnectionArgs{...} }
-type PrivateEndpointConnectionArrayInput interface {
+//          PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
+type PrivateEndpointConnectionTypeArrayInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionArrayOutput() PrivateEndpointConnectionArrayOutput
-	ToPrivateEndpointConnectionArrayOutputWithContext(context.Context) PrivateEndpointConnectionArrayOutput
+	ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput
+	ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Context) PrivateEndpointConnectionTypeArrayOutput
 }
 
-type PrivateEndpointConnectionArray []PrivateEndpointConnectionInput
+type PrivateEndpointConnectionTypeArray []PrivateEndpointConnectionTypeInput
 
-func (PrivateEndpointConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (i PrivateEndpointConnectionArray) ToPrivateEndpointConnectionArrayOutput() PrivateEndpointConnectionArrayOutput {
-	return i.ToPrivateEndpointConnectionArrayOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
+	return i.ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArray) ToPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionArrayOutput)
+func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
-func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
 	return o
+}
+
+// Name of the resource.
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Properties of the PrivateEndpointConnection.
-func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-type PrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnection)(nil)).Elem()
+// Type of the resource.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o PrivateEndpointConnectionArrayOutput) ToPrivateEndpointConnectionArrayOutput() PrivateEndpointConnectionArrayOutput {
+type PrivateEndpointConnectionTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionArrayOutput) ToPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionArrayOutput {
+func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnection {
-		return vs[0].([]PrivateEndpointConnection)[vs[1].(int)]
-	}).(PrivateEndpointConnectionOutput)
+func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionType {
+		return vs[0].([]PrivateEndpointConnectionType)[vs[1].(int)]
+	}).(PrivateEndpointConnectionTypeOutput)
 }
 
 // Properties of the private endpoint connection resource.
@@ -2596,8 +2614,8 @@ type TopicProperties struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema *string `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping         *InputSchemaMapping         `pulumi:"inputSchemaMapping"`
-	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
+	InputSchemaMapping         *InputSchemaMapping             `pulumi:"inputSchemaMapping"`
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
@@ -2621,8 +2639,8 @@ type TopicPropertiesArgs struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema pulumi.StringPtrInput `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping         InputSchemaMappingPtrInput          `pulumi:"inputSchemaMapping"`
-	PrivateEndpointConnections PrivateEndpointConnectionArrayInput `pulumi:"privateEndpointConnections"`
+	InputSchemaMapping         InputSchemaMappingPtrInput              `pulumi:"inputSchemaMapping"`
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
@@ -2721,8 +2739,8 @@ func (o TopicPropertiesOutput) InputSchemaMapping() InputSchemaMappingPtrOutput 
 	return o.ApplyT(func(v TopicProperties) *InputSchemaMapping { return v.InputSchemaMapping }).(InputSchemaMappingPtrOutput)
 }
 
-func (o TopicPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
-	return o.ApplyT(func(v TopicProperties) []PrivateEndpointConnection { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionArrayOutput)
+func (o TopicPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v TopicProperties) []PrivateEndpointConnectionType { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
 // This determines if traffic is allowed over public network. By default it is enabled.
@@ -2779,13 +2797,13 @@ func (o TopicPropertiesPtrOutput) InputSchemaMapping() InputSchemaMappingPtrOutp
 	}).(InputSchemaMappingPtrOutput)
 }
 
-func (o TopicPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
-	return o.ApplyT(func(v *TopicProperties) []PrivateEndpointConnection {
+func (o TopicPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v *TopicProperties) []PrivateEndpointConnectionType {
 		if v == nil {
 			return nil
 		}
 		return v.PrivateEndpointConnections
-	}).(PrivateEndpointConnectionArrayOutput)
+	}).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
 // This determines if traffic is allowed over public network. By default it is enabled.
@@ -3091,8 +3109,8 @@ func init() {
 	pulumi.RegisterOutputType(InputSchemaMappingResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})

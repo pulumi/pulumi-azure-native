@@ -500,8 +500,90 @@ func (o ActivityResponseArrayOutput) Index(i pulumi.IntInput) ActivityResponseOu
 	}).(ActivityResponseOutput)
 }
 
+// Data flow resource type.
+type DataFlowType struct {
+	// Etag identifies change in the resource.
+	Etag string `pulumi:"etag"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// Data flow properties.
+	Properties DataFlowResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// DataFlowTypeInput is an input type that accepts DataFlowTypeArgs and DataFlowTypeOutput values.
+// You can construct a concrete instance of `DataFlowTypeInput` via:
+//
+//          DataFlowTypeArgs{...}
+type DataFlowTypeInput interface {
+	pulumi.Input
+
+	ToDataFlowTypeOutput() DataFlowTypeOutput
+	ToDataFlowTypeOutputWithContext(context.Context) DataFlowTypeOutput
+}
+
+// Data flow resource type.
+type DataFlowTypeArgs struct {
+	// Etag identifies change in the resource.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Data flow properties.
+	Properties DataFlowResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataFlowTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowType)(nil)).Elem()
+}
+
+func (i DataFlowTypeArgs) ToDataFlowTypeOutput() DataFlowTypeOutput {
+	return i.ToDataFlowTypeOutputWithContext(context.Background())
+}
+
+func (i DataFlowTypeArgs) ToDataFlowTypeOutputWithContext(ctx context.Context) DataFlowTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTypeOutput)
+}
+
+// Data flow resource type.
+type DataFlowTypeOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowType)(nil)).Elem()
+}
+
+func (o DataFlowTypeOutput) ToDataFlowTypeOutput() DataFlowTypeOutput {
+	return o
+}
+
+func (o DataFlowTypeOutput) ToDataFlowTypeOutputWithContext(ctx context.Context) DataFlowTypeOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o DataFlowTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o DataFlowTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Data flow properties.
+func (o DataFlowTypeOutput) Properties() DataFlowResponseOutput {
+	return o.ApplyT(func(v DataFlowType) DataFlowResponse { return v.Properties }).(DataFlowResponseOutput)
+}
+
+// The resource type.
+func (o DataFlowTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
-type DataFlow struct {
+type DataFlowDefinition struct {
 	// List of tags that can be used for describing the data flow.
 	Annotations []map[string]string `pulumi:"annotations"`
 	// The description of the data flow.
@@ -512,19 +594,19 @@ type DataFlow struct {
 	Type *string `pulumi:"type"`
 }
 
-// DataFlowInput is an input type that accepts DataFlowArgs and DataFlowOutput values.
-// You can construct a concrete instance of `DataFlowInput` via:
+// DataFlowDefinitionInput is an input type that accepts DataFlowDefinitionArgs and DataFlowDefinitionOutput values.
+// You can construct a concrete instance of `DataFlowDefinitionInput` via:
 //
-//          DataFlowArgs{...}
-type DataFlowInput interface {
+//          DataFlowDefinitionArgs{...}
+type DataFlowDefinitionInput interface {
 	pulumi.Input
 
-	ToDataFlowOutput() DataFlowOutput
-	ToDataFlowOutputWithContext(context.Context) DataFlowOutput
+	ToDataFlowDefinitionOutput() DataFlowDefinitionOutput
+	ToDataFlowDefinitionOutputWithContext(context.Context) DataFlowDefinitionOutput
 }
 
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
-type DataFlowArgs struct {
+type DataFlowDefinitionArgs struct {
 	// List of tags that can be used for describing the data flow.
 	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
 	// The description of the data flow.
@@ -535,125 +617,125 @@ type DataFlowArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (DataFlowArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlow)(nil)).Elem()
+func (DataFlowDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowDefinition)(nil)).Elem()
 }
 
-func (i DataFlowArgs) ToDataFlowOutput() DataFlowOutput {
-	return i.ToDataFlowOutputWithContext(context.Background())
+func (i DataFlowDefinitionArgs) ToDataFlowDefinitionOutput() DataFlowDefinitionOutput {
+	return i.ToDataFlowDefinitionOutputWithContext(context.Background())
 }
 
-func (i DataFlowArgs) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFlowOutput)
+func (i DataFlowDefinitionArgs) ToDataFlowDefinitionOutputWithContext(ctx context.Context) DataFlowDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowDefinitionOutput)
 }
 
-func (i DataFlowArgs) ToDataFlowPtrOutput() DataFlowPtrOutput {
-	return i.ToDataFlowPtrOutputWithContext(context.Background())
+func (i DataFlowDefinitionArgs) ToDataFlowDefinitionPtrOutput() DataFlowDefinitionPtrOutput {
+	return i.ToDataFlowDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i DataFlowArgs) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFlowOutput).ToDataFlowPtrOutputWithContext(ctx)
+func (i DataFlowDefinitionArgs) ToDataFlowDefinitionPtrOutputWithContext(ctx context.Context) DataFlowDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowDefinitionOutput).ToDataFlowDefinitionPtrOutputWithContext(ctx)
 }
 
-// DataFlowPtrInput is an input type that accepts DataFlowArgs, DataFlowPtr and DataFlowPtrOutput values.
-// You can construct a concrete instance of `DataFlowPtrInput` via:
+// DataFlowDefinitionPtrInput is an input type that accepts DataFlowDefinitionArgs, DataFlowDefinitionPtr and DataFlowDefinitionPtrOutput values.
+// You can construct a concrete instance of `DataFlowDefinitionPtrInput` via:
 //
-//          DataFlowArgs{...}
+//          DataFlowDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type DataFlowPtrInput interface {
+type DataFlowDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToDataFlowPtrOutput() DataFlowPtrOutput
-	ToDataFlowPtrOutputWithContext(context.Context) DataFlowPtrOutput
+	ToDataFlowDefinitionPtrOutput() DataFlowDefinitionPtrOutput
+	ToDataFlowDefinitionPtrOutputWithContext(context.Context) DataFlowDefinitionPtrOutput
 }
 
-type dataFlowPtrType DataFlowArgs
+type dataFlowDefinitionPtrType DataFlowDefinitionArgs
 
-func DataFlowPtr(v *DataFlowArgs) DataFlowPtrInput {
-	return (*dataFlowPtrType)(v)
+func DataFlowDefinitionPtr(v *DataFlowDefinitionArgs) DataFlowDefinitionPtrInput {
+	return (*dataFlowDefinitionPtrType)(v)
 }
 
-func (*dataFlowPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataFlow)(nil)).Elem()
+func (*dataFlowDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowDefinition)(nil)).Elem()
 }
 
-func (i *dataFlowPtrType) ToDataFlowPtrOutput() DataFlowPtrOutput {
-	return i.ToDataFlowPtrOutputWithContext(context.Background())
+func (i *dataFlowDefinitionPtrType) ToDataFlowDefinitionPtrOutput() DataFlowDefinitionPtrOutput {
+	return i.ToDataFlowDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *dataFlowPtrType) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFlowPtrOutput)
+func (i *dataFlowDefinitionPtrType) ToDataFlowDefinitionPtrOutputWithContext(ctx context.Context) DataFlowDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowDefinitionPtrOutput)
 }
 
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
-type DataFlowOutput struct{ *pulumi.OutputState }
+type DataFlowDefinitionOutput struct{ *pulumi.OutputState }
 
-func (DataFlowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlow)(nil)).Elem()
+func (DataFlowDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowDefinition)(nil)).Elem()
 }
 
-func (o DataFlowOutput) ToDataFlowOutput() DataFlowOutput {
+func (o DataFlowDefinitionOutput) ToDataFlowDefinitionOutput() DataFlowDefinitionOutput {
 	return o
 }
 
-func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
+func (o DataFlowDefinitionOutput) ToDataFlowDefinitionOutputWithContext(ctx context.Context) DataFlowDefinitionOutput {
 	return o
 }
 
-func (o DataFlowOutput) ToDataFlowPtrOutput() DataFlowPtrOutput {
-	return o.ToDataFlowPtrOutputWithContext(context.Background())
+func (o DataFlowDefinitionOutput) ToDataFlowDefinitionPtrOutput() DataFlowDefinitionPtrOutput {
+	return o.ToDataFlowDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o DataFlowOutput) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
-	return o.ApplyT(func(v DataFlow) *DataFlow {
+func (o DataFlowDefinitionOutput) ToDataFlowDefinitionPtrOutputWithContext(ctx context.Context) DataFlowDefinitionPtrOutput {
+	return o.ApplyT(func(v DataFlowDefinition) *DataFlowDefinition {
 		return &v
-	}).(DataFlowPtrOutput)
+	}).(DataFlowDefinitionPtrOutput)
 }
 
 // List of tags that can be used for describing the data flow.
-func (o DataFlowOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v DataFlow) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o DataFlowDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v DataFlowDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
 }
 
 // The description of the data flow.
-func (o DataFlowOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataFlow) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o DataFlowDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The folder that this data flow is in. If not specified, Data flow will appear at the root level.
-func (o DataFlowOutput) Folder() DataFlowPropertiesPtrOutput {
-	return o.ApplyT(func(v DataFlow) *DataFlowProperties { return v.Folder }).(DataFlowPropertiesPtrOutput)
+func (o DataFlowDefinitionOutput) Folder() DataFlowPropertiesPtrOutput {
+	return o.ApplyT(func(v DataFlowDefinition) *DataFlowProperties { return v.Folder }).(DataFlowPropertiesPtrOutput)
 }
 
 // Type of data flow.
-func (o DataFlowOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataFlow) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o DataFlowDefinitionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type DataFlowPtrOutput struct{ *pulumi.OutputState }
+type DataFlowDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (DataFlowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataFlow)(nil)).Elem()
+func (DataFlowDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowDefinition)(nil)).Elem()
 }
 
-func (o DataFlowPtrOutput) ToDataFlowPtrOutput() DataFlowPtrOutput {
+func (o DataFlowDefinitionPtrOutput) ToDataFlowDefinitionPtrOutput() DataFlowDefinitionPtrOutput {
 	return o
 }
 
-func (o DataFlowPtrOutput) ToDataFlowPtrOutputWithContext(ctx context.Context) DataFlowPtrOutput {
+func (o DataFlowDefinitionPtrOutput) ToDataFlowDefinitionPtrOutputWithContext(ctx context.Context) DataFlowDefinitionPtrOutput {
 	return o
 }
 
-func (o DataFlowPtrOutput) Elem() DataFlowOutput {
-	return o.ApplyT(func(v *DataFlow) DataFlow { return *v }).(DataFlowOutput)
+func (o DataFlowDefinitionPtrOutput) Elem() DataFlowDefinitionOutput {
+	return o.ApplyT(func(v *DataFlowDefinition) DataFlowDefinition { return *v }).(DataFlowDefinitionOutput)
 }
 
 // List of tags that can be used for describing the data flow.
-func (o DataFlowPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *DataFlow) []map[string]string {
+func (o DataFlowDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *DataFlowDefinition) []map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -662,8 +744,8 @@ func (o DataFlowPtrOutput) Annotations() pulumi.StringMapArrayOutput {
 }
 
 // The description of the data flow.
-func (o DataFlowPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataFlow) *string {
+func (o DataFlowDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -672,8 +754,8 @@ func (o DataFlowPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The folder that this data flow is in. If not specified, Data flow will appear at the root level.
-func (o DataFlowPtrOutput) Folder() DataFlowPropertiesPtrOutput {
-	return o.ApplyT(func(v *DataFlow) *DataFlowProperties {
+func (o DataFlowDefinitionPtrOutput) Folder() DataFlowPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataFlowDefinition) *DataFlowProperties {
 		if v == nil {
 			return nil
 		}
@@ -682,8 +764,8 @@ func (o DataFlowPtrOutput) Folder() DataFlowPropertiesPtrOutput {
 }
 
 // Type of data flow.
-func (o DataFlowPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataFlow) *string {
+func (o DataFlowDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1150,8 +1232,90 @@ func (o DataFlowResponsePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Dataset resource type.
+type DatasetType struct {
+	// Etag identifies change in the resource.
+	Etag string `pulumi:"etag"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// Dataset properties.
+	Properties DatasetResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// DatasetTypeInput is an input type that accepts DatasetTypeArgs and DatasetTypeOutput values.
+// You can construct a concrete instance of `DatasetTypeInput` via:
+//
+//          DatasetTypeArgs{...}
+type DatasetTypeInput interface {
+	pulumi.Input
+
+	ToDatasetTypeOutput() DatasetTypeOutput
+	ToDatasetTypeOutputWithContext(context.Context) DatasetTypeOutput
+}
+
+// Dataset resource type.
+type DatasetTypeArgs struct {
+	// Etag identifies change in the resource.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Dataset properties.
+	Properties DatasetResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatasetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetType)(nil)).Elem()
+}
+
+func (i DatasetTypeArgs) ToDatasetTypeOutput() DatasetTypeOutput {
+	return i.ToDatasetTypeOutputWithContext(context.Background())
+}
+
+func (i DatasetTypeArgs) ToDatasetTypeOutputWithContext(ctx context.Context) DatasetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetTypeOutput)
+}
+
+// Dataset resource type.
+type DatasetTypeOutput struct{ *pulumi.OutputState }
+
+func (DatasetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetType)(nil)).Elem()
+}
+
+func (o DatasetTypeOutput) ToDatasetTypeOutput() DatasetTypeOutput {
+	return o
+}
+
+func (o DatasetTypeOutput) ToDatasetTypeOutputWithContext(ctx context.Context) DatasetTypeOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o DatasetTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o DatasetTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Dataset properties.
+func (o DatasetTypeOutput) Properties() DatasetResponseOutput {
+	return o.ApplyT(func(v DatasetType) DatasetResponse { return v.Properties }).(DatasetResponseOutput)
+}
+
+// The resource type.
+func (o DatasetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
-type Dataset struct {
+type DatasetDefinition struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]string `pulumi:"annotations"`
 	// Dataset description.
@@ -1170,19 +1334,19 @@ type Dataset struct {
 	Type string `pulumi:"type"`
 }
 
-// DatasetInput is an input type that accepts DatasetArgs and DatasetOutput values.
-// You can construct a concrete instance of `DatasetInput` via:
+// DatasetDefinitionInput is an input type that accepts DatasetDefinitionArgs and DatasetDefinitionOutput values.
+// You can construct a concrete instance of `DatasetDefinitionInput` via:
 //
-//          DatasetArgs{...}
-type DatasetInput interface {
+//          DatasetDefinitionArgs{...}
+type DatasetDefinitionInput interface {
 	pulumi.Input
 
-	ToDatasetOutput() DatasetOutput
-	ToDatasetOutputWithContext(context.Context) DatasetOutput
+	ToDatasetDefinitionOutput() DatasetDefinitionOutput
+	ToDatasetDefinitionOutputWithContext(context.Context) DatasetDefinitionOutput
 }
 
 // The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
-type DatasetArgs struct {
+type DatasetDefinitionArgs struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
 	// Dataset description.
@@ -1201,145 +1365,145 @@ type DatasetArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (DatasetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dataset)(nil)).Elem()
+func (DatasetDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDefinition)(nil)).Elem()
 }
 
-func (i DatasetArgs) ToDatasetOutput() DatasetOutput {
-	return i.ToDatasetOutputWithContext(context.Background())
+func (i DatasetDefinitionArgs) ToDatasetDefinitionOutput() DatasetDefinitionOutput {
+	return i.ToDatasetDefinitionOutputWithContext(context.Background())
 }
 
-func (i DatasetArgs) ToDatasetOutputWithContext(ctx context.Context) DatasetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetOutput)
+func (i DatasetDefinitionArgs) ToDatasetDefinitionOutputWithContext(ctx context.Context) DatasetDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDefinitionOutput)
 }
 
-func (i DatasetArgs) ToDatasetPtrOutput() DatasetPtrOutput {
-	return i.ToDatasetPtrOutputWithContext(context.Background())
+func (i DatasetDefinitionArgs) ToDatasetDefinitionPtrOutput() DatasetDefinitionPtrOutput {
+	return i.ToDatasetDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i DatasetArgs) ToDatasetPtrOutputWithContext(ctx context.Context) DatasetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetOutput).ToDatasetPtrOutputWithContext(ctx)
+func (i DatasetDefinitionArgs) ToDatasetDefinitionPtrOutputWithContext(ctx context.Context) DatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDefinitionOutput).ToDatasetDefinitionPtrOutputWithContext(ctx)
 }
 
-// DatasetPtrInput is an input type that accepts DatasetArgs, DatasetPtr and DatasetPtrOutput values.
-// You can construct a concrete instance of `DatasetPtrInput` via:
+// DatasetDefinitionPtrInput is an input type that accepts DatasetDefinitionArgs, DatasetDefinitionPtr and DatasetDefinitionPtrOutput values.
+// You can construct a concrete instance of `DatasetDefinitionPtrInput` via:
 //
-//          DatasetArgs{...}
+//          DatasetDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type DatasetPtrInput interface {
+type DatasetDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToDatasetPtrOutput() DatasetPtrOutput
-	ToDatasetPtrOutputWithContext(context.Context) DatasetPtrOutput
+	ToDatasetDefinitionPtrOutput() DatasetDefinitionPtrOutput
+	ToDatasetDefinitionPtrOutputWithContext(context.Context) DatasetDefinitionPtrOutput
 }
 
-type datasetPtrType DatasetArgs
+type datasetDefinitionPtrType DatasetDefinitionArgs
 
-func DatasetPtr(v *DatasetArgs) DatasetPtrInput {
-	return (*datasetPtrType)(v)
+func DatasetDefinitionPtr(v *DatasetDefinitionArgs) DatasetDefinitionPtrInput {
+	return (*datasetDefinitionPtrType)(v)
 }
 
-func (*datasetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Dataset)(nil)).Elem()
+func (*datasetDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDefinition)(nil)).Elem()
 }
 
-func (i *datasetPtrType) ToDatasetPtrOutput() DatasetPtrOutput {
-	return i.ToDatasetPtrOutputWithContext(context.Background())
+func (i *datasetDefinitionPtrType) ToDatasetDefinitionPtrOutput() DatasetDefinitionPtrOutput {
+	return i.ToDatasetDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *datasetPtrType) ToDatasetPtrOutputWithContext(ctx context.Context) DatasetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetPtrOutput)
+func (i *datasetDefinitionPtrType) ToDatasetDefinitionPtrOutputWithContext(ctx context.Context) DatasetDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDefinitionPtrOutput)
 }
 
 // The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
-type DatasetOutput struct{ *pulumi.OutputState }
+type DatasetDefinitionOutput struct{ *pulumi.OutputState }
 
-func (DatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dataset)(nil)).Elem()
+func (DatasetDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDefinition)(nil)).Elem()
 }
 
-func (o DatasetOutput) ToDatasetOutput() DatasetOutput {
+func (o DatasetDefinitionOutput) ToDatasetDefinitionOutput() DatasetDefinitionOutput {
 	return o
 }
 
-func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOutput {
+func (o DatasetDefinitionOutput) ToDatasetDefinitionOutputWithContext(ctx context.Context) DatasetDefinitionOutput {
 	return o
 }
 
-func (o DatasetOutput) ToDatasetPtrOutput() DatasetPtrOutput {
-	return o.ToDatasetPtrOutputWithContext(context.Background())
+func (o DatasetDefinitionOutput) ToDatasetDefinitionPtrOutput() DatasetDefinitionPtrOutput {
+	return o.ToDatasetDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o DatasetOutput) ToDatasetPtrOutputWithContext(ctx context.Context) DatasetPtrOutput {
-	return o.ApplyT(func(v Dataset) *Dataset {
+func (o DatasetDefinitionOutput) ToDatasetDefinitionPtrOutputWithContext(ctx context.Context) DatasetDefinitionPtrOutput {
+	return o.ApplyT(func(v DatasetDefinition) *DatasetDefinition {
 		return &v
-	}).(DatasetPtrOutput)
+	}).(DatasetDefinitionPtrOutput)
 }
 
 // List of tags that can be used for describing the Dataset.
-func (o DatasetOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v Dataset) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o DatasetDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v DatasetDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
 }
 
 // Dataset description.
-func (o DatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Dataset) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o DatasetDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-func (o DatasetOutput) Folder() DatasetPropertiesPtrOutput {
-	return o.ApplyT(func(v Dataset) *DatasetProperties { return v.Folder }).(DatasetPropertiesPtrOutput)
+func (o DatasetDefinitionOutput) Folder() DatasetPropertiesPtrOutput {
+	return o.ApplyT(func(v DatasetDefinition) *DatasetProperties { return v.Folder }).(DatasetPropertiesPtrOutput)
 }
 
 // Linked service reference.
-func (o DatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v Dataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
+func (o DatasetDefinitionOutput) LinkedServiceName() LinkedServiceReferenceOutput {
+	return o.ApplyT(func(v DatasetDefinition) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
 }
 
 // Parameters for dataset.
-func (o DatasetOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v Dataset) *ParameterDefinitionSpecification { return v.Parameters }).(ParameterDefinitionSpecificationPtrOutput)
+func (o DatasetDefinitionOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v DatasetDefinition) *ParameterDefinitionSpecification { return v.Parameters }).(ParameterDefinitionSpecificationPtrOutput)
 }
 
 // Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-func (o DatasetOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Dataset) map[string]string { return v.Schema }).(pulumi.StringMapOutput)
+func (o DatasetDefinitionOutput) Schema() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatasetDefinition) map[string]string { return v.Schema }).(pulumi.StringMapOutput)
 }
 
 // Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DatasetOutput) Structure() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Dataset) map[string]string { return v.Structure }).(pulumi.StringMapOutput)
+func (o DatasetDefinitionOutput) Structure() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatasetDefinition) map[string]string { return v.Structure }).(pulumi.StringMapOutput)
 }
 
 // Type of dataset.
-func (o DatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Dataset) string { return v.Type }).(pulumi.StringOutput)
+func (o DatasetDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type DatasetPtrOutput struct{ *pulumi.OutputState }
+type DatasetDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (DatasetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Dataset)(nil)).Elem()
+func (DatasetDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDefinition)(nil)).Elem()
 }
 
-func (o DatasetPtrOutput) ToDatasetPtrOutput() DatasetPtrOutput {
+func (o DatasetDefinitionPtrOutput) ToDatasetDefinitionPtrOutput() DatasetDefinitionPtrOutput {
 	return o
 }
 
-func (o DatasetPtrOutput) ToDatasetPtrOutputWithContext(ctx context.Context) DatasetPtrOutput {
+func (o DatasetDefinitionPtrOutput) ToDatasetDefinitionPtrOutputWithContext(ctx context.Context) DatasetDefinitionPtrOutput {
 	return o
 }
 
-func (o DatasetPtrOutput) Elem() DatasetOutput {
-	return o.ApplyT(func(v *Dataset) Dataset { return *v }).(DatasetOutput)
+func (o DatasetDefinitionPtrOutput) Elem() DatasetDefinitionOutput {
+	return o.ApplyT(func(v *DatasetDefinition) DatasetDefinition { return *v }).(DatasetDefinitionOutput)
 }
 
 // List of tags that can be used for describing the Dataset.
-func (o DatasetPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *Dataset) []map[string]string {
+func (o DatasetDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *DatasetDefinition) []map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -1348,8 +1512,8 @@ func (o DatasetPtrOutput) Annotations() pulumi.StringMapArrayOutput {
 }
 
 // Dataset description.
-func (o DatasetPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Dataset) *string {
+func (o DatasetDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1358,8 +1522,8 @@ func (o DatasetPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-func (o DatasetPtrOutput) Folder() DatasetPropertiesPtrOutput {
-	return o.ApplyT(func(v *Dataset) *DatasetProperties {
+func (o DatasetDefinitionPtrOutput) Folder() DatasetPropertiesPtrOutput {
+	return o.ApplyT(func(v *DatasetDefinition) *DatasetProperties {
 		if v == nil {
 			return nil
 		}
@@ -1368,8 +1532,8 @@ func (o DatasetPtrOutput) Folder() DatasetPropertiesPtrOutput {
 }
 
 // Linked service reference.
-func (o DatasetPtrOutput) LinkedServiceName() LinkedServiceReferencePtrOutput {
-	return o.ApplyT(func(v *Dataset) *LinkedServiceReference {
+func (o DatasetDefinitionPtrOutput) LinkedServiceName() LinkedServiceReferencePtrOutput {
+	return o.ApplyT(func(v *DatasetDefinition) *LinkedServiceReference {
 		if v == nil {
 			return nil
 		}
@@ -1378,8 +1542,8 @@ func (o DatasetPtrOutput) LinkedServiceName() LinkedServiceReferencePtrOutput {
 }
 
 // Parameters for dataset.
-func (o DatasetPtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v *Dataset) *ParameterDefinitionSpecification {
+func (o DatasetDefinitionPtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v *DatasetDefinition) *ParameterDefinitionSpecification {
 		if v == nil {
 			return nil
 		}
@@ -1388,8 +1552,8 @@ func (o DatasetPtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutput
 }
 
 // Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-func (o DatasetPtrOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Dataset) map[string]string {
+func (o DatasetDefinitionPtrOutput) Schema() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatasetDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -1398,8 +1562,8 @@ func (o DatasetPtrOutput) Schema() pulumi.StringMapOutput {
 }
 
 // Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DatasetPtrOutput) Structure() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Dataset) map[string]string {
+func (o DatasetDefinitionPtrOutput) Structure() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatasetDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -1408,8 +1572,8 @@ func (o DatasetPtrOutput) Structure() pulumi.StringMapOutput {
 }
 
 // Type of dataset.
-func (o DatasetPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Dataset) *string {
+func (o DatasetDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -2061,170 +2225,6 @@ func (o FactoryTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Data flow resource type.
-type FactoryDataflowType struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Data flow properties.
-	Properties DataFlowResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FactoryDataflowTypeInput is an input type that accepts FactoryDataflowTypeArgs and FactoryDataflowTypeOutput values.
-// You can construct a concrete instance of `FactoryDataflowTypeInput` via:
-//
-//          FactoryDataflowTypeArgs{...}
-type FactoryDataflowTypeInput interface {
-	pulumi.Input
-
-	ToFactoryDataflowTypeOutput() FactoryDataflowTypeOutput
-	ToFactoryDataflowTypeOutputWithContext(context.Context) FactoryDataflowTypeOutput
-}
-
-// Data flow resource type.
-type FactoryDataflowTypeArgs struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Data flow properties.
-	Properties DataFlowResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FactoryDataflowTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryDataflowType)(nil)).Elem()
-}
-
-func (i FactoryDataflowTypeArgs) ToFactoryDataflowTypeOutput() FactoryDataflowTypeOutput {
-	return i.ToFactoryDataflowTypeOutputWithContext(context.Background())
-}
-
-func (i FactoryDataflowTypeArgs) ToFactoryDataflowTypeOutputWithContext(ctx context.Context) FactoryDataflowTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryDataflowTypeOutput)
-}
-
-// Data flow resource type.
-type FactoryDataflowTypeOutput struct{ *pulumi.OutputState }
-
-func (FactoryDataflowTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryDataflowType)(nil)).Elem()
-}
-
-func (o FactoryDataflowTypeOutput) ToFactoryDataflowTypeOutput() FactoryDataflowTypeOutput {
-	return o
-}
-
-func (o FactoryDataflowTypeOutput) ToFactoryDataflowTypeOutputWithContext(ctx context.Context) FactoryDataflowTypeOutput {
-	return o
-}
-
-// Etag identifies change in the resource.
-func (o FactoryDataflowTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryDataflowType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o FactoryDataflowTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryDataflowType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Data flow properties.
-func (o FactoryDataflowTypeOutput) Properties() DataFlowResponseOutput {
-	return o.ApplyT(func(v FactoryDataflowType) DataFlowResponse { return v.Properties }).(DataFlowResponseOutput)
-}
-
-// The resource type.
-func (o FactoryDataflowTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryDataflowType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Dataset resource type.
-type FactoryDatasetType struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Dataset properties.
-	Properties DatasetResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FactoryDatasetTypeInput is an input type that accepts FactoryDatasetTypeArgs and FactoryDatasetTypeOutput values.
-// You can construct a concrete instance of `FactoryDatasetTypeInput` via:
-//
-//          FactoryDatasetTypeArgs{...}
-type FactoryDatasetTypeInput interface {
-	pulumi.Input
-
-	ToFactoryDatasetTypeOutput() FactoryDatasetTypeOutput
-	ToFactoryDatasetTypeOutputWithContext(context.Context) FactoryDatasetTypeOutput
-}
-
-// Dataset resource type.
-type FactoryDatasetTypeArgs struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Dataset properties.
-	Properties DatasetResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FactoryDatasetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryDatasetType)(nil)).Elem()
-}
-
-func (i FactoryDatasetTypeArgs) ToFactoryDatasetTypeOutput() FactoryDatasetTypeOutput {
-	return i.ToFactoryDatasetTypeOutputWithContext(context.Background())
-}
-
-func (i FactoryDatasetTypeArgs) ToFactoryDatasetTypeOutputWithContext(ctx context.Context) FactoryDatasetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryDatasetTypeOutput)
-}
-
-// Dataset resource type.
-type FactoryDatasetTypeOutput struct{ *pulumi.OutputState }
-
-func (FactoryDatasetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryDatasetType)(nil)).Elem()
-}
-
-func (o FactoryDatasetTypeOutput) ToFactoryDatasetTypeOutput() FactoryDatasetTypeOutput {
-	return o
-}
-
-func (o FactoryDatasetTypeOutput) ToFactoryDatasetTypeOutputWithContext(ctx context.Context) FactoryDatasetTypeOutput {
-	return o
-}
-
-// Etag identifies change in the resource.
-func (o FactoryDatasetTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryDatasetType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o FactoryDatasetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryDatasetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Dataset properties.
-func (o FactoryDatasetTypeOutput) Properties() DatasetResponseOutput {
-	return o.ApplyT(func(v FactoryDatasetType) DatasetResponse { return v.Properties }).(DatasetResponseOutput)
-}
-
-// The resource type.
-func (o FactoryDatasetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryDatasetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Identity properties of the factory resource.
 type FactoryIdentity struct {
 	// The identity type. Currently the only supported type is 'SystemAssigned'.
@@ -2529,252 +2529,6 @@ func (o FactoryIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// Integration runtime resource type.
-type FactoryIntegrationRuntimeType struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Integration runtime properties.
-	Properties IntegrationRuntimeResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FactoryIntegrationRuntimeTypeInput is an input type that accepts FactoryIntegrationRuntimeTypeArgs and FactoryIntegrationRuntimeTypeOutput values.
-// You can construct a concrete instance of `FactoryIntegrationRuntimeTypeInput` via:
-//
-//          FactoryIntegrationRuntimeTypeArgs{...}
-type FactoryIntegrationRuntimeTypeInput interface {
-	pulumi.Input
-
-	ToFactoryIntegrationRuntimeTypeOutput() FactoryIntegrationRuntimeTypeOutput
-	ToFactoryIntegrationRuntimeTypeOutputWithContext(context.Context) FactoryIntegrationRuntimeTypeOutput
-}
-
-// Integration runtime resource type.
-type FactoryIntegrationRuntimeTypeArgs struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Integration runtime properties.
-	Properties IntegrationRuntimeResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FactoryIntegrationRuntimeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryIntegrationRuntimeType)(nil)).Elem()
-}
-
-func (i FactoryIntegrationRuntimeTypeArgs) ToFactoryIntegrationRuntimeTypeOutput() FactoryIntegrationRuntimeTypeOutput {
-	return i.ToFactoryIntegrationRuntimeTypeOutputWithContext(context.Background())
-}
-
-func (i FactoryIntegrationRuntimeTypeArgs) ToFactoryIntegrationRuntimeTypeOutputWithContext(ctx context.Context) FactoryIntegrationRuntimeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryIntegrationRuntimeTypeOutput)
-}
-
-// Integration runtime resource type.
-type FactoryIntegrationRuntimeTypeOutput struct{ *pulumi.OutputState }
-
-func (FactoryIntegrationRuntimeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryIntegrationRuntimeType)(nil)).Elem()
-}
-
-func (o FactoryIntegrationRuntimeTypeOutput) ToFactoryIntegrationRuntimeTypeOutput() FactoryIntegrationRuntimeTypeOutput {
-	return o
-}
-
-func (o FactoryIntegrationRuntimeTypeOutput) ToFactoryIntegrationRuntimeTypeOutputWithContext(ctx context.Context) FactoryIntegrationRuntimeTypeOutput {
-	return o
-}
-
-// Etag identifies change in the resource.
-func (o FactoryIntegrationRuntimeTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryIntegrationRuntimeType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o FactoryIntegrationRuntimeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryIntegrationRuntimeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Integration runtime properties.
-func (o FactoryIntegrationRuntimeTypeOutput) Properties() IntegrationRuntimeResponseOutput {
-	return o.ApplyT(func(v FactoryIntegrationRuntimeType) IntegrationRuntimeResponse { return v.Properties }).(IntegrationRuntimeResponseOutput)
-}
-
-// The resource type.
-func (o FactoryIntegrationRuntimeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryIntegrationRuntimeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Linked service resource type.
-type FactoryLinkedserviceType struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Properties of linked service.
-	Properties LinkedServiceResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FactoryLinkedserviceTypeInput is an input type that accepts FactoryLinkedserviceTypeArgs and FactoryLinkedserviceTypeOutput values.
-// You can construct a concrete instance of `FactoryLinkedserviceTypeInput` via:
-//
-//          FactoryLinkedserviceTypeArgs{...}
-type FactoryLinkedserviceTypeInput interface {
-	pulumi.Input
-
-	ToFactoryLinkedserviceTypeOutput() FactoryLinkedserviceTypeOutput
-	ToFactoryLinkedserviceTypeOutputWithContext(context.Context) FactoryLinkedserviceTypeOutput
-}
-
-// Linked service resource type.
-type FactoryLinkedserviceTypeArgs struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of linked service.
-	Properties LinkedServiceResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FactoryLinkedserviceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryLinkedserviceType)(nil)).Elem()
-}
-
-func (i FactoryLinkedserviceTypeArgs) ToFactoryLinkedserviceTypeOutput() FactoryLinkedserviceTypeOutput {
-	return i.ToFactoryLinkedserviceTypeOutputWithContext(context.Background())
-}
-
-func (i FactoryLinkedserviceTypeArgs) ToFactoryLinkedserviceTypeOutputWithContext(ctx context.Context) FactoryLinkedserviceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryLinkedserviceTypeOutput)
-}
-
-// Linked service resource type.
-type FactoryLinkedserviceTypeOutput struct{ *pulumi.OutputState }
-
-func (FactoryLinkedserviceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryLinkedserviceType)(nil)).Elem()
-}
-
-func (o FactoryLinkedserviceTypeOutput) ToFactoryLinkedserviceTypeOutput() FactoryLinkedserviceTypeOutput {
-	return o
-}
-
-func (o FactoryLinkedserviceTypeOutput) ToFactoryLinkedserviceTypeOutputWithContext(ctx context.Context) FactoryLinkedserviceTypeOutput {
-	return o
-}
-
-// Etag identifies change in the resource.
-func (o FactoryLinkedserviceTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryLinkedserviceType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o FactoryLinkedserviceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryLinkedserviceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of linked service.
-func (o FactoryLinkedserviceTypeOutput) Properties() LinkedServiceResponseOutput {
-	return o.ApplyT(func(v FactoryLinkedserviceType) LinkedServiceResponse { return v.Properties }).(LinkedServiceResponseOutput)
-}
-
-// The resource type.
-func (o FactoryLinkedserviceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryLinkedserviceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Pipeline resource type.
-type FactoryPipelineType struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Properties of the pipeline.
-	Properties PipelineResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FactoryPipelineTypeInput is an input type that accepts FactoryPipelineTypeArgs and FactoryPipelineTypeOutput values.
-// You can construct a concrete instance of `FactoryPipelineTypeInput` via:
-//
-//          FactoryPipelineTypeArgs{...}
-type FactoryPipelineTypeInput interface {
-	pulumi.Input
-
-	ToFactoryPipelineTypeOutput() FactoryPipelineTypeOutput
-	ToFactoryPipelineTypeOutputWithContext(context.Context) FactoryPipelineTypeOutput
-}
-
-// Pipeline resource type.
-type FactoryPipelineTypeArgs struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the pipeline.
-	Properties PipelineResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FactoryPipelineTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryPipelineType)(nil)).Elem()
-}
-
-func (i FactoryPipelineTypeArgs) ToFactoryPipelineTypeOutput() FactoryPipelineTypeOutput {
-	return i.ToFactoryPipelineTypeOutputWithContext(context.Background())
-}
-
-func (i FactoryPipelineTypeArgs) ToFactoryPipelineTypeOutputWithContext(ctx context.Context) FactoryPipelineTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryPipelineTypeOutput)
-}
-
-// Pipeline resource type.
-type FactoryPipelineTypeOutput struct{ *pulumi.OutputState }
-
-func (FactoryPipelineTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryPipelineType)(nil)).Elem()
-}
-
-func (o FactoryPipelineTypeOutput) ToFactoryPipelineTypeOutput() FactoryPipelineTypeOutput {
-	return o
-}
-
-func (o FactoryPipelineTypeOutput) ToFactoryPipelineTypeOutputWithContext(ctx context.Context) FactoryPipelineTypeOutput {
-	return o
-}
-
-// Etag identifies change in the resource.
-func (o FactoryPipelineTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryPipelineType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o FactoryPipelineTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryPipelineType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the pipeline.
-func (o FactoryPipelineTypeOutput) Properties() PipelineResponseOutput {
-	return o.ApplyT(func(v FactoryPipelineType) PipelineResponse { return v.Properties }).(PipelineResponseOutput)
-}
-
-// The resource type.
-func (o FactoryPipelineTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryPipelineType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Factory resource properties.
@@ -3600,88 +3354,6 @@ func (o FactoryRepoConfigurationResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Trigger resource type.
-type FactoryTriggerType struct {
-	// Etag identifies change in the resource.
-	Etag string `pulumi:"etag"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Properties of the trigger.
-	Properties TriggerResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FactoryTriggerTypeInput is an input type that accepts FactoryTriggerTypeArgs and FactoryTriggerTypeOutput values.
-// You can construct a concrete instance of `FactoryTriggerTypeInput` via:
-//
-//          FactoryTriggerTypeArgs{...}
-type FactoryTriggerTypeInput interface {
-	pulumi.Input
-
-	ToFactoryTriggerTypeOutput() FactoryTriggerTypeOutput
-	ToFactoryTriggerTypeOutputWithContext(context.Context) FactoryTriggerTypeOutput
-}
-
-// Trigger resource type.
-type FactoryTriggerTypeArgs struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the trigger.
-	Properties TriggerResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FactoryTriggerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryTriggerType)(nil)).Elem()
-}
-
-func (i FactoryTriggerTypeArgs) ToFactoryTriggerTypeOutput() FactoryTriggerTypeOutput {
-	return i.ToFactoryTriggerTypeOutputWithContext(context.Background())
-}
-
-func (i FactoryTriggerTypeArgs) ToFactoryTriggerTypeOutputWithContext(ctx context.Context) FactoryTriggerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryTriggerTypeOutput)
-}
-
-// Trigger resource type.
-type FactoryTriggerTypeOutput struct{ *pulumi.OutputState }
-
-func (FactoryTriggerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryTriggerType)(nil)).Elem()
-}
-
-func (o FactoryTriggerTypeOutput) ToFactoryTriggerTypeOutput() FactoryTriggerTypeOutput {
-	return o
-}
-
-func (o FactoryTriggerTypeOutput) ToFactoryTriggerTypeOutputWithContext(ctx context.Context) FactoryTriggerTypeOutput {
-	return o
-}
-
-// Etag identifies change in the resource.
-func (o FactoryTriggerTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryTriggerType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o FactoryTriggerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryTriggerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the trigger.
-func (o FactoryTriggerTypeOutput) Properties() TriggerResponseOutput {
-	return o.ApplyT(func(v FactoryTriggerType) TriggerResponse { return v.Properties }).(TriggerResponseOutput)
-}
-
-// The resource type.
-func (o FactoryTriggerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryTriggerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Definition of all parameters for an entity.
 type GlobalParameterDefinitionSpecification struct {
 }
@@ -3914,142 +3586,224 @@ func (o GlobalParameterDefinitionSpecificationResponsePtrOutput) Elem() GlobalPa
 	}).(GlobalParameterDefinitionSpecificationResponseOutput)
 }
 
+// Integration runtime resource type.
+type IntegrationRuntimeType struct {
+	// Etag identifies change in the resource.
+	Etag string `pulumi:"etag"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// Integration runtime properties.
+	Properties IntegrationRuntimeResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// IntegrationRuntimeTypeInput is an input type that accepts IntegrationRuntimeTypeArgs and IntegrationRuntimeTypeOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeTypeInput` via:
+//
+//          IntegrationRuntimeTypeArgs{...}
+type IntegrationRuntimeTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeTypeOutput() IntegrationRuntimeTypeOutput
+	ToIntegrationRuntimeTypeOutputWithContext(context.Context) IntegrationRuntimeTypeOutput
+}
+
+// Integration runtime resource type.
+type IntegrationRuntimeTypeArgs struct {
+	// Etag identifies change in the resource.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Integration runtime properties.
+	Properties IntegrationRuntimeResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IntegrationRuntimeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeType)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeTypeArgs) ToIntegrationRuntimeTypeOutput() IntegrationRuntimeTypeOutput {
+	return i.ToIntegrationRuntimeTypeOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeTypeArgs) ToIntegrationRuntimeTypeOutputWithContext(ctx context.Context) IntegrationRuntimeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeTypeOutput)
+}
+
+// Integration runtime resource type.
+type IntegrationRuntimeTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeType)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeTypeOutput) ToIntegrationRuntimeTypeOutput() IntegrationRuntimeTypeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeTypeOutput) ToIntegrationRuntimeTypeOutputWithContext(ctx context.Context) IntegrationRuntimeTypeOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o IntegrationRuntimeTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o IntegrationRuntimeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Integration runtime properties.
+func (o IntegrationRuntimeTypeOutput) Properties() IntegrationRuntimeResponseOutput {
+	return o.ApplyT(func(v IntegrationRuntimeType) IntegrationRuntimeResponse { return v.Properties }).(IntegrationRuntimeResponseOutput)
+}
+
+// The resource type.
+func (o IntegrationRuntimeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Azure Data Factory nested object which serves as a compute resource for activities.
-type IntegrationRuntime struct {
+type IntegrationRuntimeDefinition struct {
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
 	// Type of integration runtime.
 	Type string `pulumi:"type"`
 }
 
-// IntegrationRuntimeInput is an input type that accepts IntegrationRuntimeArgs and IntegrationRuntimeOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeInput` via:
+// IntegrationRuntimeDefinitionInput is an input type that accepts IntegrationRuntimeDefinitionArgs and IntegrationRuntimeDefinitionOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeDefinitionInput` via:
 //
-//          IntegrationRuntimeArgs{...}
-type IntegrationRuntimeInput interface {
+//          IntegrationRuntimeDefinitionArgs{...}
+type IntegrationRuntimeDefinitionInput interface {
 	pulumi.Input
 
-	ToIntegrationRuntimeOutput() IntegrationRuntimeOutput
-	ToIntegrationRuntimeOutputWithContext(context.Context) IntegrationRuntimeOutput
+	ToIntegrationRuntimeDefinitionOutput() IntegrationRuntimeDefinitionOutput
+	ToIntegrationRuntimeDefinitionOutputWithContext(context.Context) IntegrationRuntimeDefinitionOutput
 }
 
 // Azure Data Factory nested object which serves as a compute resource for activities.
-type IntegrationRuntimeArgs struct {
+type IntegrationRuntimeDefinitionArgs struct {
 	// Integration runtime description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Type of integration runtime.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (IntegrationRuntimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntime)(nil)).Elem()
+func (IntegrationRuntimeDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeDefinition)(nil)).Elem()
 }
 
-func (i IntegrationRuntimeArgs) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {
-	return i.ToIntegrationRuntimeOutputWithContext(context.Background())
+func (i IntegrationRuntimeDefinitionArgs) ToIntegrationRuntimeDefinitionOutput() IntegrationRuntimeDefinitionOutput {
+	return i.ToIntegrationRuntimeDefinitionOutputWithContext(context.Background())
 }
 
-func (i IntegrationRuntimeArgs) ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeOutput)
+func (i IntegrationRuntimeDefinitionArgs) ToIntegrationRuntimeDefinitionOutputWithContext(ctx context.Context) IntegrationRuntimeDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDefinitionOutput)
 }
 
-func (i IntegrationRuntimeArgs) ToIntegrationRuntimePtrOutput() IntegrationRuntimePtrOutput {
-	return i.ToIntegrationRuntimePtrOutputWithContext(context.Background())
+func (i IntegrationRuntimeDefinitionArgs) ToIntegrationRuntimeDefinitionPtrOutput() IntegrationRuntimeDefinitionPtrOutput {
+	return i.ToIntegrationRuntimeDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i IntegrationRuntimeArgs) ToIntegrationRuntimePtrOutputWithContext(ctx context.Context) IntegrationRuntimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeOutput).ToIntegrationRuntimePtrOutputWithContext(ctx)
+func (i IntegrationRuntimeDefinitionArgs) ToIntegrationRuntimeDefinitionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDefinitionOutput).ToIntegrationRuntimeDefinitionPtrOutputWithContext(ctx)
 }
 
-// IntegrationRuntimePtrInput is an input type that accepts IntegrationRuntimeArgs, IntegrationRuntimePtr and IntegrationRuntimePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimePtrInput` via:
+// IntegrationRuntimeDefinitionPtrInput is an input type that accepts IntegrationRuntimeDefinitionArgs, IntegrationRuntimeDefinitionPtr and IntegrationRuntimeDefinitionPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeDefinitionPtrInput` via:
 //
-//          IntegrationRuntimeArgs{...}
+//          IntegrationRuntimeDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type IntegrationRuntimePtrInput interface {
+type IntegrationRuntimeDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToIntegrationRuntimePtrOutput() IntegrationRuntimePtrOutput
-	ToIntegrationRuntimePtrOutputWithContext(context.Context) IntegrationRuntimePtrOutput
+	ToIntegrationRuntimeDefinitionPtrOutput() IntegrationRuntimeDefinitionPtrOutput
+	ToIntegrationRuntimeDefinitionPtrOutputWithContext(context.Context) IntegrationRuntimeDefinitionPtrOutput
 }
 
-type integrationRuntimePtrType IntegrationRuntimeArgs
+type integrationRuntimeDefinitionPtrType IntegrationRuntimeDefinitionArgs
 
-func IntegrationRuntimePtr(v *IntegrationRuntimeArgs) IntegrationRuntimePtrInput {
-	return (*integrationRuntimePtrType)(v)
+func IntegrationRuntimeDefinitionPtr(v *IntegrationRuntimeDefinitionArgs) IntegrationRuntimeDefinitionPtrInput {
+	return (*integrationRuntimeDefinitionPtrType)(v)
 }
 
-func (*integrationRuntimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntime)(nil)).Elem()
+func (*integrationRuntimeDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeDefinition)(nil)).Elem()
 }
 
-func (i *integrationRuntimePtrType) ToIntegrationRuntimePtrOutput() IntegrationRuntimePtrOutput {
-	return i.ToIntegrationRuntimePtrOutputWithContext(context.Background())
+func (i *integrationRuntimeDefinitionPtrType) ToIntegrationRuntimeDefinitionPtrOutput() IntegrationRuntimeDefinitionPtrOutput {
+	return i.ToIntegrationRuntimeDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *integrationRuntimePtrType) ToIntegrationRuntimePtrOutputWithContext(ctx context.Context) IntegrationRuntimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimePtrOutput)
+func (i *integrationRuntimeDefinitionPtrType) ToIntegrationRuntimeDefinitionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDefinitionPtrOutput)
 }
 
 // Azure Data Factory nested object which serves as a compute resource for activities.
-type IntegrationRuntimeOutput struct{ *pulumi.OutputState }
+type IntegrationRuntimeDefinitionOutput struct{ *pulumi.OutputState }
 
-func (IntegrationRuntimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntime)(nil)).Elem()
+func (IntegrationRuntimeDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeDefinition)(nil)).Elem()
 }
 
-func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {
+func (o IntegrationRuntimeDefinitionOutput) ToIntegrationRuntimeDefinitionOutput() IntegrationRuntimeDefinitionOutput {
 	return o
 }
 
-func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutputWithContext(ctx context.Context) IntegrationRuntimeOutput {
+func (o IntegrationRuntimeDefinitionOutput) ToIntegrationRuntimeDefinitionOutputWithContext(ctx context.Context) IntegrationRuntimeDefinitionOutput {
 	return o
 }
 
-func (o IntegrationRuntimeOutput) ToIntegrationRuntimePtrOutput() IntegrationRuntimePtrOutput {
-	return o.ToIntegrationRuntimePtrOutputWithContext(context.Background())
+func (o IntegrationRuntimeDefinitionOutput) ToIntegrationRuntimeDefinitionPtrOutput() IntegrationRuntimeDefinitionPtrOutput {
+	return o.ToIntegrationRuntimeDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o IntegrationRuntimeOutput) ToIntegrationRuntimePtrOutputWithContext(ctx context.Context) IntegrationRuntimePtrOutput {
-	return o.ApplyT(func(v IntegrationRuntime) *IntegrationRuntime {
+func (o IntegrationRuntimeDefinitionOutput) ToIntegrationRuntimeDefinitionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeDefinitionPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeDefinition) *IntegrationRuntimeDefinition {
 		return &v
-	}).(IntegrationRuntimePtrOutput)
+	}).(IntegrationRuntimeDefinitionPtrOutput)
 }
 
 // Integration runtime description.
-func (o IntegrationRuntimeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntime) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o IntegrationRuntimeDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Type of integration runtime.
-func (o IntegrationRuntimeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
+func (o IntegrationRuntimeDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type IntegrationRuntimePtrOutput struct{ *pulumi.OutputState }
+type IntegrationRuntimeDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (IntegrationRuntimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntime)(nil)).Elem()
+func (IntegrationRuntimeDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeDefinition)(nil)).Elem()
 }
 
-func (o IntegrationRuntimePtrOutput) ToIntegrationRuntimePtrOutput() IntegrationRuntimePtrOutput {
+func (o IntegrationRuntimeDefinitionPtrOutput) ToIntegrationRuntimeDefinitionPtrOutput() IntegrationRuntimeDefinitionPtrOutput {
 	return o
 }
 
-func (o IntegrationRuntimePtrOutput) ToIntegrationRuntimePtrOutputWithContext(ctx context.Context) IntegrationRuntimePtrOutput {
+func (o IntegrationRuntimeDefinitionPtrOutput) ToIntegrationRuntimeDefinitionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeDefinitionPtrOutput {
 	return o
 }
 
-func (o IntegrationRuntimePtrOutput) Elem() IntegrationRuntimeOutput {
-	return o.ApplyT(func(v *IntegrationRuntime) IntegrationRuntime { return *v }).(IntegrationRuntimeOutput)
+func (o IntegrationRuntimeDefinitionPtrOutput) Elem() IntegrationRuntimeDefinitionOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeDefinition) IntegrationRuntimeDefinition { return *v }).(IntegrationRuntimeDefinitionOutput)
 }
 
 // Integration runtime description.
-func (o IntegrationRuntimePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntime) *string {
+func (o IntegrationRuntimeDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -4058,8 +3812,8 @@ func (o IntegrationRuntimePtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Type of integration runtime.
-func (o IntegrationRuntimePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntime) *string {
+func (o IntegrationRuntimeDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -4564,8 +4318,90 @@ func (o IntegrationRuntimeResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Linked service resource type.
+type LinkedServiceType struct {
+	// Etag identifies change in the resource.
+	Etag string `pulumi:"etag"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// Properties of linked service.
+	Properties LinkedServiceResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// LinkedServiceTypeInput is an input type that accepts LinkedServiceTypeArgs and LinkedServiceTypeOutput values.
+// You can construct a concrete instance of `LinkedServiceTypeInput` via:
+//
+//          LinkedServiceTypeArgs{...}
+type LinkedServiceTypeInput interface {
+	pulumi.Input
+
+	ToLinkedServiceTypeOutput() LinkedServiceTypeOutput
+	ToLinkedServiceTypeOutputWithContext(context.Context) LinkedServiceTypeOutput
+}
+
+// Linked service resource type.
+type LinkedServiceTypeArgs struct {
+	// Etag identifies change in the resource.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of linked service.
+	Properties LinkedServiceResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LinkedServiceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceType)(nil)).Elem()
+}
+
+func (i LinkedServiceTypeArgs) ToLinkedServiceTypeOutput() LinkedServiceTypeOutput {
+	return i.ToLinkedServiceTypeOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceTypeArgs) ToLinkedServiceTypeOutputWithContext(ctx context.Context) LinkedServiceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceTypeOutput)
+}
+
+// Linked service resource type.
+type LinkedServiceTypeOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceType)(nil)).Elem()
+}
+
+func (o LinkedServiceTypeOutput) ToLinkedServiceTypeOutput() LinkedServiceTypeOutput {
+	return o
+}
+
+func (o LinkedServiceTypeOutput) ToLinkedServiceTypeOutputWithContext(ctx context.Context) LinkedServiceTypeOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o LinkedServiceTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o LinkedServiceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of linked service.
+func (o LinkedServiceTypeOutput) Properties() LinkedServiceResponseOutput {
+	return o.ApplyT(func(v LinkedServiceType) LinkedServiceResponse { return v.Properties }).(LinkedServiceResponseOutput)
+}
+
+// The resource type.
+func (o LinkedServiceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
-type LinkedService struct {
+type LinkedServiceDefinition struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations []map[string]string `pulumi:"annotations"`
 	// The integration runtime reference.
@@ -4578,19 +4414,19 @@ type LinkedService struct {
 	Type string `pulumi:"type"`
 }
 
-// LinkedServiceInput is an input type that accepts LinkedServiceArgs and LinkedServiceOutput values.
-// You can construct a concrete instance of `LinkedServiceInput` via:
+// LinkedServiceDefinitionInput is an input type that accepts LinkedServiceDefinitionArgs and LinkedServiceDefinitionOutput values.
+// You can construct a concrete instance of `LinkedServiceDefinitionInput` via:
 //
-//          LinkedServiceArgs{...}
-type LinkedServiceInput interface {
+//          LinkedServiceDefinitionArgs{...}
+type LinkedServiceDefinitionInput interface {
 	pulumi.Input
 
-	ToLinkedServiceOutput() LinkedServiceOutput
-	ToLinkedServiceOutputWithContext(context.Context) LinkedServiceOutput
+	ToLinkedServiceDefinitionOutput() LinkedServiceDefinitionOutput
+	ToLinkedServiceDefinitionOutputWithContext(context.Context) LinkedServiceDefinitionOutput
 }
 
 // The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
-type LinkedServiceArgs struct {
+type LinkedServiceDefinitionArgs struct {
 	// List of tags that can be used for describing the linked service.
 	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
 	// The integration runtime reference.
@@ -4603,130 +4439,130 @@ type LinkedServiceArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (LinkedServiceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedService)(nil)).Elem()
+func (LinkedServiceDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceDefinition)(nil)).Elem()
 }
 
-func (i LinkedServiceArgs) ToLinkedServiceOutput() LinkedServiceOutput {
-	return i.ToLinkedServiceOutputWithContext(context.Background())
+func (i LinkedServiceDefinitionArgs) ToLinkedServiceDefinitionOutput() LinkedServiceDefinitionOutput {
+	return i.ToLinkedServiceDefinitionOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceArgs) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
+func (i LinkedServiceDefinitionArgs) ToLinkedServiceDefinitionOutputWithContext(ctx context.Context) LinkedServiceDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDefinitionOutput)
 }
 
-func (i LinkedServiceArgs) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
-	return i.ToLinkedServicePtrOutputWithContext(context.Background())
+func (i LinkedServiceDefinitionArgs) ToLinkedServiceDefinitionPtrOutput() LinkedServiceDefinitionPtrOutput {
+	return i.ToLinkedServiceDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i LinkedServiceArgs) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput).ToLinkedServicePtrOutputWithContext(ctx)
+func (i LinkedServiceDefinitionArgs) ToLinkedServiceDefinitionPtrOutputWithContext(ctx context.Context) LinkedServiceDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDefinitionOutput).ToLinkedServiceDefinitionPtrOutputWithContext(ctx)
 }
 
-// LinkedServicePtrInput is an input type that accepts LinkedServiceArgs, LinkedServicePtr and LinkedServicePtrOutput values.
-// You can construct a concrete instance of `LinkedServicePtrInput` via:
+// LinkedServiceDefinitionPtrInput is an input type that accepts LinkedServiceDefinitionArgs, LinkedServiceDefinitionPtr and LinkedServiceDefinitionPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceDefinitionPtrInput` via:
 //
-//          LinkedServiceArgs{...}
+//          LinkedServiceDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type LinkedServicePtrInput interface {
+type LinkedServiceDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToLinkedServicePtrOutput() LinkedServicePtrOutput
-	ToLinkedServicePtrOutputWithContext(context.Context) LinkedServicePtrOutput
+	ToLinkedServiceDefinitionPtrOutput() LinkedServiceDefinitionPtrOutput
+	ToLinkedServiceDefinitionPtrOutputWithContext(context.Context) LinkedServiceDefinitionPtrOutput
 }
 
-type linkedServicePtrType LinkedServiceArgs
+type linkedServiceDefinitionPtrType LinkedServiceDefinitionArgs
 
-func LinkedServicePtr(v *LinkedServiceArgs) LinkedServicePtrInput {
-	return (*linkedServicePtrType)(v)
+func LinkedServiceDefinitionPtr(v *LinkedServiceDefinitionArgs) LinkedServiceDefinitionPtrInput {
+	return (*linkedServiceDefinitionPtrType)(v)
 }
 
-func (*linkedServicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedService)(nil)).Elem()
+func (*linkedServiceDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceDefinition)(nil)).Elem()
 }
 
-func (i *linkedServicePtrType) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
-	return i.ToLinkedServicePtrOutputWithContext(context.Background())
+func (i *linkedServiceDefinitionPtrType) ToLinkedServiceDefinitionPtrOutput() LinkedServiceDefinitionPtrOutput {
+	return i.ToLinkedServiceDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *linkedServicePtrType) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePtrOutput)
+func (i *linkedServiceDefinitionPtrType) ToLinkedServiceDefinitionPtrOutputWithContext(ctx context.Context) LinkedServiceDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDefinitionPtrOutput)
 }
 
 // The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
-type LinkedServiceOutput struct{ *pulumi.OutputState }
+type LinkedServiceDefinitionOutput struct{ *pulumi.OutputState }
 
-func (LinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedService)(nil)).Elem()
+func (LinkedServiceDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceDefinition)(nil)).Elem()
 }
 
-func (o LinkedServiceOutput) ToLinkedServiceOutput() LinkedServiceOutput {
+func (o LinkedServiceDefinitionOutput) ToLinkedServiceDefinitionOutput() LinkedServiceDefinitionOutput {
 	return o
 }
 
-func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Context) LinkedServiceOutput {
+func (o LinkedServiceDefinitionOutput) ToLinkedServiceDefinitionOutputWithContext(ctx context.Context) LinkedServiceDefinitionOutput {
 	return o
 }
 
-func (o LinkedServiceOutput) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
-	return o.ToLinkedServicePtrOutputWithContext(context.Background())
+func (o LinkedServiceDefinitionOutput) ToLinkedServiceDefinitionPtrOutput() LinkedServiceDefinitionPtrOutput {
+	return o.ToLinkedServiceDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o LinkedServiceOutput) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
-	return o.ApplyT(func(v LinkedService) *LinkedService {
+func (o LinkedServiceDefinitionOutput) ToLinkedServiceDefinitionPtrOutputWithContext(ctx context.Context) LinkedServiceDefinitionPtrOutput {
+	return o.ApplyT(func(v LinkedServiceDefinition) *LinkedServiceDefinition {
 		return &v
-	}).(LinkedServicePtrOutput)
+	}).(LinkedServiceDefinitionPtrOutput)
 }
 
 // List of tags that can be used for describing the linked service.
-func (o LinkedServiceOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v LinkedService) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o LinkedServiceDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v LinkedServiceDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
 }
 
 // The integration runtime reference.
-func (o LinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v LinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
+func (o LinkedServiceDefinitionOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
+	return o.ApplyT(func(v LinkedServiceDefinition) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
 }
 
 // Linked service description.
-func (o LinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o LinkedServiceDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Parameters for linked service.
-func (o LinkedServiceOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v LinkedService) *ParameterDefinitionSpecification { return v.Parameters }).(ParameterDefinitionSpecificationPtrOutput)
+func (o LinkedServiceDefinitionOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v LinkedServiceDefinition) *ParameterDefinitionSpecification { return v.Parameters }).(ParameterDefinitionSpecificationPtrOutput)
 }
 
 // Type of linked service.
-func (o LinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedService) string { return v.Type }).(pulumi.StringOutput)
+func (o LinkedServiceDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type LinkedServicePtrOutput struct{ *pulumi.OutputState }
+type LinkedServiceDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (LinkedServicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedService)(nil)).Elem()
+func (LinkedServiceDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceDefinition)(nil)).Elem()
 }
 
-func (o LinkedServicePtrOutput) ToLinkedServicePtrOutput() LinkedServicePtrOutput {
+func (o LinkedServiceDefinitionPtrOutput) ToLinkedServiceDefinitionPtrOutput() LinkedServiceDefinitionPtrOutput {
 	return o
 }
 
-func (o LinkedServicePtrOutput) ToLinkedServicePtrOutputWithContext(ctx context.Context) LinkedServicePtrOutput {
+func (o LinkedServiceDefinitionPtrOutput) ToLinkedServiceDefinitionPtrOutputWithContext(ctx context.Context) LinkedServiceDefinitionPtrOutput {
 	return o
 }
 
-func (o LinkedServicePtrOutput) Elem() LinkedServiceOutput {
-	return o.ApplyT(func(v *LinkedService) LinkedService { return *v }).(LinkedServiceOutput)
+func (o LinkedServiceDefinitionPtrOutput) Elem() LinkedServiceDefinitionOutput {
+	return o.ApplyT(func(v *LinkedServiceDefinition) LinkedServiceDefinition { return *v }).(LinkedServiceDefinitionOutput)
 }
 
 // List of tags that can be used for describing the linked service.
-func (o LinkedServicePtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *LinkedService) []map[string]string {
+func (o LinkedServiceDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *LinkedServiceDefinition) []map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -4735,8 +4571,8 @@ func (o LinkedServicePtrOutput) Annotations() pulumi.StringMapArrayOutput {
 }
 
 // The integration runtime reference.
-func (o LinkedServicePtrOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v *LinkedService) *IntegrationRuntimeReference {
+func (o LinkedServiceDefinitionPtrOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
+	return o.ApplyT(func(v *LinkedServiceDefinition) *IntegrationRuntimeReference {
 		if v == nil {
 			return nil
 		}
@@ -4745,8 +4581,8 @@ func (o LinkedServicePtrOutput) ConnectVia() IntegrationRuntimeReferencePtrOutpu
 }
 
 // Linked service description.
-func (o LinkedServicePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedService) *string {
+func (o LinkedServiceDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -4755,8 +4591,8 @@ func (o LinkedServicePtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Parameters for linked service.
-func (o LinkedServicePtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v *LinkedService) *ParameterDefinitionSpecification {
+func (o LinkedServiceDefinitionPtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceDefinition) *ParameterDefinitionSpecification {
 		if v == nil {
 			return nil
 		}
@@ -4765,8 +4601,8 @@ func (o LinkedServicePtrOutput) Parameters() ParameterDefinitionSpecificationPtr
 }
 
 // Type of linked service.
-func (o LinkedServicePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedService) *string {
+func (o LinkedServiceDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -5788,8 +5624,90 @@ func (o ParameterValueSpecificationResponsePtrOutput) Elem() ParameterValueSpeci
 	return o.ApplyT(func(v *ParameterValueSpecificationResponse) ParameterValueSpecificationResponse { return *v }).(ParameterValueSpecificationResponseOutput)
 }
 
+// Pipeline resource type.
+type PipelineType struct {
+	// Etag identifies change in the resource.
+	Etag string `pulumi:"etag"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// Properties of the pipeline.
+	Properties PipelineResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// PipelineTypeInput is an input type that accepts PipelineTypeArgs and PipelineTypeOutput values.
+// You can construct a concrete instance of `PipelineTypeInput` via:
+//
+//          PipelineTypeArgs{...}
+type PipelineTypeInput interface {
+	pulumi.Input
+
+	ToPipelineTypeOutput() PipelineTypeOutput
+	ToPipelineTypeOutputWithContext(context.Context) PipelineTypeOutput
+}
+
+// Pipeline resource type.
+type PipelineTypeArgs struct {
+	// Etag identifies change in the resource.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the pipeline.
+	Properties PipelineResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PipelineTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineType)(nil)).Elem()
+}
+
+func (i PipelineTypeArgs) ToPipelineTypeOutput() PipelineTypeOutput {
+	return i.ToPipelineTypeOutputWithContext(context.Background())
+}
+
+func (i PipelineTypeArgs) ToPipelineTypeOutputWithContext(ctx context.Context) PipelineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTypeOutput)
+}
+
+// Pipeline resource type.
+type PipelineTypeOutput struct{ *pulumi.OutputState }
+
+func (PipelineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineType)(nil)).Elem()
+}
+
+func (o PipelineTypeOutput) ToPipelineTypeOutput() PipelineTypeOutput {
+	return o
+}
+
+func (o PipelineTypeOutput) ToPipelineTypeOutputWithContext(ctx context.Context) PipelineTypeOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o PipelineTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PipelineTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the pipeline.
+func (o PipelineTypeOutput) Properties() PipelineResponseOutput {
+	return o.ApplyT(func(v PipelineType) PipelineResponse { return v.Properties }).(PipelineResponseOutput)
+}
+
+// The resource type.
+func (o PipelineTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // A data factory pipeline.
-type Pipeline struct {
+type PipelineDefinition struct {
 	// List of activities in pipeline.
 	Activities []Activity `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
@@ -5808,19 +5726,19 @@ type Pipeline struct {
 	Variables *VariableDefinitionSpecification `pulumi:"variables"`
 }
 
-// PipelineInput is an input type that accepts PipelineArgs and PipelineOutput values.
-// You can construct a concrete instance of `PipelineInput` via:
+// PipelineDefinitionInput is an input type that accepts PipelineDefinitionArgs and PipelineDefinitionOutput values.
+// You can construct a concrete instance of `PipelineDefinitionInput` via:
 //
-//          PipelineArgs{...}
-type PipelineInput interface {
+//          PipelineDefinitionArgs{...}
+type PipelineDefinitionInput interface {
 	pulumi.Input
 
-	ToPipelineOutput() PipelineOutput
-	ToPipelineOutputWithContext(context.Context) PipelineOutput
+	ToPipelineDefinitionOutput() PipelineDefinitionOutput
+	ToPipelineDefinitionOutputWithContext(context.Context) PipelineDefinitionOutput
 }
 
 // A data factory pipeline.
-type PipelineArgs struct {
+type PipelineDefinitionArgs struct {
 	// List of activities in pipeline.
 	Activities ActivityArrayInput `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
@@ -5839,145 +5757,145 @@ type PipelineArgs struct {
 	Variables VariableDefinitionSpecificationPtrInput `pulumi:"variables"`
 }
 
-func (PipelineArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pipeline)(nil)).Elem()
+func (PipelineDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineDefinition)(nil)).Elem()
 }
 
-func (i PipelineArgs) ToPipelineOutput() PipelineOutput {
-	return i.ToPipelineOutputWithContext(context.Background())
+func (i PipelineDefinitionArgs) ToPipelineDefinitionOutput() PipelineDefinitionOutput {
+	return i.ToPipelineDefinitionOutputWithContext(context.Background())
 }
 
-func (i PipelineArgs) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
+func (i PipelineDefinitionArgs) ToPipelineDefinitionOutputWithContext(ctx context.Context) PipelineDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionOutput)
 }
 
-func (i PipelineArgs) ToPipelinePtrOutput() PipelinePtrOutput {
-	return i.ToPipelinePtrOutputWithContext(context.Background())
+func (i PipelineDefinitionArgs) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
+	return i.ToPipelineDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i PipelineArgs) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput).ToPipelinePtrOutputWithContext(ctx)
+func (i PipelineDefinitionArgs) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionOutput).ToPipelineDefinitionPtrOutputWithContext(ctx)
 }
 
-// PipelinePtrInput is an input type that accepts PipelineArgs, PipelinePtr and PipelinePtrOutput values.
-// You can construct a concrete instance of `PipelinePtrInput` via:
+// PipelineDefinitionPtrInput is an input type that accepts PipelineDefinitionArgs, PipelineDefinitionPtr and PipelineDefinitionPtrOutput values.
+// You can construct a concrete instance of `PipelineDefinitionPtrInput` via:
 //
-//          PipelineArgs{...}
+//          PipelineDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type PipelinePtrInput interface {
+type PipelineDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToPipelinePtrOutput() PipelinePtrOutput
-	ToPipelinePtrOutputWithContext(context.Context) PipelinePtrOutput
+	ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput
+	ToPipelineDefinitionPtrOutputWithContext(context.Context) PipelineDefinitionPtrOutput
 }
 
-type pipelinePtrType PipelineArgs
+type pipelineDefinitionPtrType PipelineDefinitionArgs
 
-func PipelinePtr(v *PipelineArgs) PipelinePtrInput {
-	return (*pipelinePtrType)(v)
+func PipelineDefinitionPtr(v *PipelineDefinitionArgs) PipelineDefinitionPtrInput {
+	return (*pipelineDefinitionPtrType)(v)
 }
 
-func (*pipelinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Pipeline)(nil)).Elem()
+func (*pipelineDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineDefinition)(nil)).Elem()
 }
 
-func (i *pipelinePtrType) ToPipelinePtrOutput() PipelinePtrOutput {
-	return i.ToPipelinePtrOutputWithContext(context.Background())
+func (i *pipelineDefinitionPtrType) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
+	return i.ToPipelineDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *pipelinePtrType) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelinePtrOutput)
+func (i *pipelineDefinitionPtrType) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionPtrOutput)
 }
 
 // A data factory pipeline.
-type PipelineOutput struct{ *pulumi.OutputState }
+type PipelineDefinitionOutput struct{ *pulumi.OutputState }
 
-func (PipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pipeline)(nil)).Elem()
+func (PipelineDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineDefinition)(nil)).Elem()
 }
 
-func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
+func (o PipelineDefinitionOutput) ToPipelineDefinitionOutput() PipelineDefinitionOutput {
 	return o
 }
 
-func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
+func (o PipelineDefinitionOutput) ToPipelineDefinitionOutputWithContext(ctx context.Context) PipelineDefinitionOutput {
 	return o
 }
 
-func (o PipelineOutput) ToPipelinePtrOutput() PipelinePtrOutput {
-	return o.ToPipelinePtrOutputWithContext(context.Background())
+func (o PipelineDefinitionOutput) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
+	return o.ToPipelineDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o PipelineOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return o.ApplyT(func(v Pipeline) *Pipeline {
+func (o PipelineDefinitionOutput) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
+	return o.ApplyT(func(v PipelineDefinition) *PipelineDefinition {
 		return &v
-	}).(PipelinePtrOutput)
+	}).(PipelineDefinitionPtrOutput)
 }
 
 // List of activities in pipeline.
-func (o PipelineOutput) Activities() ActivityArrayOutput {
-	return o.ApplyT(func(v Pipeline) []Activity { return v.Activities }).(ActivityArrayOutput)
+func (o PipelineDefinitionOutput) Activities() ActivityArrayOutput {
+	return o.ApplyT(func(v PipelineDefinition) []Activity { return v.Activities }).(ActivityArrayOutput)
 }
 
 // List of tags that can be used for describing the Pipeline.
-func (o PipelineOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v Pipeline) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o PipelineDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v PipelineDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
 }
 
 // The max number of concurrent runs for the pipeline.
-func (o PipelineOutput) Concurrency() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Pipeline) *int { return v.Concurrency }).(pulumi.IntPtrOutput)
+func (o PipelineDefinitionOutput) Concurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PipelineDefinition) *int { return v.Concurrency }).(pulumi.IntPtrOutput)
 }
 
 // The description of the pipeline.
-func (o PipelineOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Pipeline) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o PipelineDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-func (o PipelineOutput) Folder() PipelinePropertiesPtrOutput {
-	return o.ApplyT(func(v Pipeline) *PipelineProperties { return v.Folder }).(PipelinePropertiesPtrOutput)
+func (o PipelineDefinitionOutput) Folder() PipelinePropertiesPtrOutput {
+	return o.ApplyT(func(v PipelineDefinition) *PipelineProperties { return v.Folder }).(PipelinePropertiesPtrOutput)
 }
 
 // List of parameters for pipeline.
-func (o PipelineOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v Pipeline) *ParameterDefinitionSpecification { return v.Parameters }).(ParameterDefinitionSpecificationPtrOutput)
+func (o PipelineDefinitionOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v PipelineDefinition) *ParameterDefinitionSpecification { return v.Parameters }).(ParameterDefinitionSpecificationPtrOutput)
 }
 
 // Dimensions emitted by Pipeline.
-func (o PipelineOutput) RunDimensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Pipeline) map[string]string { return v.RunDimensions }).(pulumi.StringMapOutput)
+func (o PipelineDefinitionOutput) RunDimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipelineDefinition) map[string]string { return v.RunDimensions }).(pulumi.StringMapOutput)
 }
 
 // List of variables for pipeline.
-func (o PipelineOutput) Variables() VariableDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v Pipeline) *VariableDefinitionSpecification { return v.Variables }).(VariableDefinitionSpecificationPtrOutput)
+func (o PipelineDefinitionOutput) Variables() VariableDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v PipelineDefinition) *VariableDefinitionSpecification { return v.Variables }).(VariableDefinitionSpecificationPtrOutput)
 }
 
-type PipelinePtrOutput struct{ *pulumi.OutputState }
+type PipelineDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (PipelinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Pipeline)(nil)).Elem()
+func (PipelineDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineDefinition)(nil)).Elem()
 }
 
-func (o PipelinePtrOutput) ToPipelinePtrOutput() PipelinePtrOutput {
+func (o PipelineDefinitionPtrOutput) ToPipelineDefinitionPtrOutput() PipelineDefinitionPtrOutput {
 	return o
 }
 
-func (o PipelinePtrOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
+func (o PipelineDefinitionPtrOutput) ToPipelineDefinitionPtrOutputWithContext(ctx context.Context) PipelineDefinitionPtrOutput {
 	return o
 }
 
-func (o PipelinePtrOutput) Elem() PipelineOutput {
-	return o.ApplyT(func(v *Pipeline) Pipeline { return *v }).(PipelineOutput)
+func (o PipelineDefinitionPtrOutput) Elem() PipelineDefinitionOutput {
+	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinition { return *v }).(PipelineDefinitionOutput)
 }
 
 // List of activities in pipeline.
-func (o PipelinePtrOutput) Activities() ActivityArrayOutput {
-	return o.ApplyT(func(v *Pipeline) []Activity {
+func (o PipelineDefinitionPtrOutput) Activities() ActivityArrayOutput {
+	return o.ApplyT(func(v *PipelineDefinition) []Activity {
 		if v == nil {
 			return nil
 		}
@@ -5986,8 +5904,8 @@ func (o PipelinePtrOutput) Activities() ActivityArrayOutput {
 }
 
 // List of tags that can be used for describing the Pipeline.
-func (o PipelinePtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *Pipeline) []map[string]string {
+func (o PipelineDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *PipelineDefinition) []map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -5996,8 +5914,8 @@ func (o PipelinePtrOutput) Annotations() pulumi.StringMapArrayOutput {
 }
 
 // The max number of concurrent runs for the pipeline.
-func (o PipelinePtrOutput) Concurrency() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Pipeline) *int {
+func (o PipelineDefinitionPtrOutput) Concurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipelineDefinition) *int {
 		if v == nil {
 			return nil
 		}
@@ -6006,8 +5924,8 @@ func (o PipelinePtrOutput) Concurrency() pulumi.IntPtrOutput {
 }
 
 // The description of the pipeline.
-func (o PipelinePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Pipeline) *string {
+func (o PipelineDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -6016,8 +5934,8 @@ func (o PipelinePtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-func (o PipelinePtrOutput) Folder() PipelinePropertiesPtrOutput {
-	return o.ApplyT(func(v *Pipeline) *PipelineProperties {
+func (o PipelineDefinitionPtrOutput) Folder() PipelinePropertiesPtrOutput {
+	return o.ApplyT(func(v *PipelineDefinition) *PipelineProperties {
 		if v == nil {
 			return nil
 		}
@@ -6026,8 +5944,8 @@ func (o PipelinePtrOutput) Folder() PipelinePropertiesPtrOutput {
 }
 
 // List of parameters for pipeline.
-func (o PipelinePtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v *Pipeline) *ParameterDefinitionSpecification {
+func (o PipelineDefinitionPtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v *PipelineDefinition) *ParameterDefinitionSpecification {
 		if v == nil {
 			return nil
 		}
@@ -6036,8 +5954,8 @@ func (o PipelinePtrOutput) Parameters() ParameterDefinitionSpecificationPtrOutpu
 }
 
 // Dimensions emitted by Pipeline.
-func (o PipelinePtrOutput) RunDimensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Pipeline) map[string]string {
+func (o PipelineDefinitionPtrOutput) RunDimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PipelineDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -6046,8 +5964,8 @@ func (o PipelinePtrOutput) RunDimensions() pulumi.StringMapOutput {
 }
 
 // List of variables for pipeline.
-func (o PipelinePtrOutput) Variables() VariableDefinitionSpecificationPtrOutput {
-	return o.ApplyT(func(v *Pipeline) *VariableDefinitionSpecification {
+func (o PipelineDefinitionPtrOutput) Variables() VariableDefinitionSpecificationPtrOutput {
+	return o.ApplyT(func(v *PipelineDefinition) *VariableDefinitionSpecification {
 		if v == nil {
 			return nil
 		}
@@ -6590,8 +6508,90 @@ func (o PipelineResponsePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Trigger resource type.
+type TriggerType struct {
+	// Etag identifies change in the resource.
+	Etag string `pulumi:"etag"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// Properties of the trigger.
+	Properties TriggerResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// TriggerTypeInput is an input type that accepts TriggerTypeArgs and TriggerTypeOutput values.
+// You can construct a concrete instance of `TriggerTypeInput` via:
+//
+//          TriggerTypeArgs{...}
+type TriggerTypeInput interface {
+	pulumi.Input
+
+	ToTriggerTypeOutput() TriggerTypeOutput
+	ToTriggerTypeOutputWithContext(context.Context) TriggerTypeOutput
+}
+
+// Trigger resource type.
+type TriggerTypeArgs struct {
+	// Etag identifies change in the resource.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the trigger.
+	Properties TriggerResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TriggerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (i TriggerTypeArgs) ToTriggerTypeOutput() TriggerTypeOutput {
+	return i.ToTriggerTypeOutputWithContext(context.Background())
+}
+
+func (i TriggerTypeArgs) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTypeOutput)
+}
+
+// Trigger resource type.
+type TriggerTypeOutput struct{ *pulumi.OutputState }
+
+func (TriggerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutput() TriggerTypeOutput {
+	return o
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return o
+}
+
+// Etag identifies change in the resource.
+func (o TriggerTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o TriggerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the trigger.
+func (o TriggerTypeOutput) Properties() TriggerResponseOutput {
+	return o.ApplyT(func(v TriggerType) TriggerResponse { return v.Properties }).(TriggerResponseOutput)
+}
+
+// The resource type.
+func (o TriggerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Azure data factory nested object which contains information about creating pipeline run
-type Trigger struct {
+type TriggerDefinition struct {
 	// List of tags that can be used for describing the trigger.
 	Annotations []map[string]string `pulumi:"annotations"`
 	// Trigger description.
@@ -6600,19 +6600,19 @@ type Trigger struct {
 	Type string `pulumi:"type"`
 }
 
-// TriggerInput is an input type that accepts TriggerArgs and TriggerOutput values.
-// You can construct a concrete instance of `TriggerInput` via:
+// TriggerDefinitionInput is an input type that accepts TriggerDefinitionArgs and TriggerDefinitionOutput values.
+// You can construct a concrete instance of `TriggerDefinitionInput` via:
 //
-//          TriggerArgs{...}
-type TriggerInput interface {
+//          TriggerDefinitionArgs{...}
+type TriggerDefinitionInput interface {
 	pulumi.Input
 
-	ToTriggerOutput() TriggerOutput
-	ToTriggerOutputWithContext(context.Context) TriggerOutput
+	ToTriggerDefinitionOutput() TriggerDefinitionOutput
+	ToTriggerDefinitionOutputWithContext(context.Context) TriggerDefinitionOutput
 }
 
 // Azure data factory nested object which contains information about creating pipeline run
-type TriggerArgs struct {
+type TriggerDefinitionArgs struct {
 	// List of tags that can be used for describing the trigger.
 	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
 	// Trigger description.
@@ -6621,120 +6621,120 @@ type TriggerArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (TriggerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trigger)(nil)).Elem()
+func (TriggerDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerDefinition)(nil)).Elem()
 }
 
-func (i TriggerArgs) ToTriggerOutput() TriggerOutput {
-	return i.ToTriggerOutputWithContext(context.Background())
+func (i TriggerDefinitionArgs) ToTriggerDefinitionOutput() TriggerDefinitionOutput {
+	return i.ToTriggerDefinitionOutputWithContext(context.Background())
 }
 
-func (i TriggerArgs) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
+func (i TriggerDefinitionArgs) ToTriggerDefinitionOutputWithContext(ctx context.Context) TriggerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerDefinitionOutput)
 }
 
-func (i TriggerArgs) ToTriggerPtrOutput() TriggerPtrOutput {
-	return i.ToTriggerPtrOutputWithContext(context.Background())
+func (i TriggerDefinitionArgs) ToTriggerDefinitionPtrOutput() TriggerDefinitionPtrOutput {
+	return i.ToTriggerDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i TriggerArgs) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput).ToTriggerPtrOutputWithContext(ctx)
+func (i TriggerDefinitionArgs) ToTriggerDefinitionPtrOutputWithContext(ctx context.Context) TriggerDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerDefinitionOutput).ToTriggerDefinitionPtrOutputWithContext(ctx)
 }
 
-// TriggerPtrInput is an input type that accepts TriggerArgs, TriggerPtr and TriggerPtrOutput values.
-// You can construct a concrete instance of `TriggerPtrInput` via:
+// TriggerDefinitionPtrInput is an input type that accepts TriggerDefinitionArgs, TriggerDefinitionPtr and TriggerDefinitionPtrOutput values.
+// You can construct a concrete instance of `TriggerDefinitionPtrInput` via:
 //
-//          TriggerArgs{...}
+//          TriggerDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type TriggerPtrInput interface {
+type TriggerDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToTriggerPtrOutput() TriggerPtrOutput
-	ToTriggerPtrOutputWithContext(context.Context) TriggerPtrOutput
+	ToTriggerDefinitionPtrOutput() TriggerDefinitionPtrOutput
+	ToTriggerDefinitionPtrOutputWithContext(context.Context) TriggerDefinitionPtrOutput
 }
 
-type triggerPtrType TriggerArgs
+type triggerDefinitionPtrType TriggerDefinitionArgs
 
-func TriggerPtr(v *TriggerArgs) TriggerPtrInput {
-	return (*triggerPtrType)(v)
+func TriggerDefinitionPtr(v *TriggerDefinitionArgs) TriggerDefinitionPtrInput {
+	return (*triggerDefinitionPtrType)(v)
 }
 
-func (*triggerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Trigger)(nil)).Elem()
+func (*triggerDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerDefinition)(nil)).Elem()
 }
 
-func (i *triggerPtrType) ToTriggerPtrOutput() TriggerPtrOutput {
-	return i.ToTriggerPtrOutputWithContext(context.Background())
+func (i *triggerDefinitionPtrType) ToTriggerDefinitionPtrOutput() TriggerDefinitionPtrOutput {
+	return i.ToTriggerDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *triggerPtrType) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerPtrOutput)
+func (i *triggerDefinitionPtrType) ToTriggerDefinitionPtrOutputWithContext(ctx context.Context) TriggerDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerDefinitionPtrOutput)
 }
 
 // Azure data factory nested object which contains information about creating pipeline run
-type TriggerOutput struct{ *pulumi.OutputState }
+type TriggerDefinitionOutput struct{ *pulumi.OutputState }
 
-func (TriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trigger)(nil)).Elem()
+func (TriggerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerDefinition)(nil)).Elem()
 }
 
-func (o TriggerOutput) ToTriggerOutput() TriggerOutput {
+func (o TriggerDefinitionOutput) ToTriggerDefinitionOutput() TriggerDefinitionOutput {
 	return o
 }
 
-func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput {
+func (o TriggerDefinitionOutput) ToTriggerDefinitionOutputWithContext(ctx context.Context) TriggerDefinitionOutput {
 	return o
 }
 
-func (o TriggerOutput) ToTriggerPtrOutput() TriggerPtrOutput {
-	return o.ToTriggerPtrOutputWithContext(context.Background())
+func (o TriggerDefinitionOutput) ToTriggerDefinitionPtrOutput() TriggerDefinitionPtrOutput {
+	return o.ToTriggerDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o TriggerOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return o.ApplyT(func(v Trigger) *Trigger {
+func (o TriggerDefinitionOutput) ToTriggerDefinitionPtrOutputWithContext(ctx context.Context) TriggerDefinitionPtrOutput {
+	return o.ApplyT(func(v TriggerDefinition) *TriggerDefinition {
 		return &v
-	}).(TriggerPtrOutput)
+	}).(TriggerDefinitionPtrOutput)
 }
 
 // List of tags that can be used for describing the trigger.
-func (o TriggerOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v Trigger) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o TriggerDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v TriggerDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
 }
 
 // Trigger description.
-func (o TriggerOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Trigger) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o TriggerDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Trigger type.
-func (o TriggerOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Trigger) string { return v.Type }).(pulumi.StringOutput)
+func (o TriggerDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type TriggerPtrOutput struct{ *pulumi.OutputState }
+type TriggerDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (TriggerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Trigger)(nil)).Elem()
+func (TriggerDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerDefinition)(nil)).Elem()
 }
 
-func (o TriggerPtrOutput) ToTriggerPtrOutput() TriggerPtrOutput {
+func (o TriggerDefinitionPtrOutput) ToTriggerDefinitionPtrOutput() TriggerDefinitionPtrOutput {
 	return o
 }
 
-func (o TriggerPtrOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
+func (o TriggerDefinitionPtrOutput) ToTriggerDefinitionPtrOutputWithContext(ctx context.Context) TriggerDefinitionPtrOutput {
 	return o
 }
 
-func (o TriggerPtrOutput) Elem() TriggerOutput {
-	return o.ApplyT(func(v *Trigger) Trigger { return *v }).(TriggerOutput)
+func (o TriggerDefinitionPtrOutput) Elem() TriggerDefinitionOutput {
+	return o.ApplyT(func(v *TriggerDefinition) TriggerDefinition { return *v }).(TriggerDefinitionOutput)
 }
 
 // List of tags that can be used for describing the trigger.
-func (o TriggerPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *Trigger) []map[string]string {
+func (o TriggerDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *TriggerDefinition) []map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -6743,8 +6743,8 @@ func (o TriggerPtrOutput) Annotations() pulumi.StringMapArrayOutput {
 }
 
 // Trigger description.
-func (o TriggerPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Trigger) *string {
+func (o TriggerDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TriggerDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -6753,8 +6753,8 @@ func (o TriggerPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Trigger type.
-func (o TriggerPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Trigger) *string {
+func (o TriggerDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TriggerDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -7410,16 +7410,18 @@ func init() {
 	pulumi.RegisterOutputType(ActivityDependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ActivityResponseOutput{})
 	pulumi.RegisterOutputType(ActivityResponseArrayOutput{})
-	pulumi.RegisterOutputType(DataFlowOutput{})
-	pulumi.RegisterOutputType(DataFlowPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowTypeOutput{})
+	pulumi.RegisterOutputType(DataFlowDefinitionOutput{})
+	pulumi.RegisterOutputType(DataFlowDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowPropertiesOutput{})
 	pulumi.RegisterOutputType(DataFlowPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowResponseOutput{})
 	pulumi.RegisterOutputType(DataFlowResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DataFlowResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(DatasetOutput{})
-	pulumi.RegisterOutputType(DatasetPtrOutput{})
+	pulumi.RegisterOutputType(DatasetTypeOutput{})
+	pulumi.RegisterOutputType(DatasetDefinitionOutput{})
+	pulumi.RegisterOutputType(DatasetDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DatasetPropertiesOutput{})
 	pulumi.RegisterOutputType(DatasetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatasetResponseOutput{})
@@ -7427,15 +7429,10 @@ func init() {
 	pulumi.RegisterOutputType(DatasetResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DatasetResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FactoryTypeOutput{})
-	pulumi.RegisterOutputType(FactoryDataflowTypeOutput{})
-	pulumi.RegisterOutputType(FactoryDatasetTypeOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityResponseOutput{})
 	pulumi.RegisterOutputType(FactoryIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(FactoryIntegrationRuntimeTypeOutput{})
-	pulumi.RegisterOutputType(FactoryLinkedserviceTypeOutput{})
-	pulumi.RegisterOutputType(FactoryPipelineTypeOutput{})
 	pulumi.RegisterOutputType(FactoryPropertiesOutput{})
 	pulumi.RegisterOutputType(FactoryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FactoryPropertiesResponseOutput{})
@@ -7444,21 +7441,22 @@ func init() {
 	pulumi.RegisterOutputType(FactoryRepoConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FactoryRepoConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(FactoryRepoConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(FactoryTriggerTypeOutput{})
 	pulumi.RegisterOutputType(GlobalParameterDefinitionSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalParameterDefinitionSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalParameterDefinitionSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(GlobalParameterDefinitionSpecificationResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationRuntimeOutput{})
-	pulumi.RegisterOutputType(IntegrationRuntimePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeDefinitionOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeReferenceOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeReferencePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeReferenceResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeResponsePtrOutput{})
-	pulumi.RegisterOutputType(LinkedServiceOutput{})
-	pulumi.RegisterOutputType(LinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceTypeOutput{})
+	pulumi.RegisterOutputType(LinkedServiceDefinitionOutput{})
+	pulumi.RegisterOutputType(LinkedServiceDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceReferenceOutput{})
 	pulumi.RegisterOutputType(LinkedServiceReferencePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceReferenceResponseOutput{})
@@ -7473,16 +7471,18 @@ func init() {
 	pulumi.RegisterOutputType(ParameterValueSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ParameterValueSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(ParameterValueSpecificationResponsePtrOutput{})
-	pulumi.RegisterOutputType(PipelineOutput{})
-	pulumi.RegisterOutputType(PipelinePtrOutput{})
+	pulumi.RegisterOutputType(PipelineTypeOutput{})
+	pulumi.RegisterOutputType(PipelineDefinitionOutput{})
+	pulumi.RegisterOutputType(PipelineDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PipelinePropertiesOutput{})
 	pulumi.RegisterOutputType(PipelinePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipelineResponseOutput{})
 	pulumi.RegisterOutputType(PipelineResponsePtrOutput{})
 	pulumi.RegisterOutputType(PipelineResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(PipelineResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TriggerOutput{})
-	pulumi.RegisterOutputType(TriggerPtrOutput{})
+	pulumi.RegisterOutputType(TriggerTypeOutput{})
+	pulumi.RegisterOutputType(TriggerDefinitionOutput{})
+	pulumi.RegisterOutputType(TriggerDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(TriggerResponseOutput{})
 	pulumi.RegisterOutputType(TriggerResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserPropertyOutput{})

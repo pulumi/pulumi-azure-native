@@ -785,58 +785,76 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IpRuleResponseArrayOutput {
 }
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-type PrivateEndpointConnection struct {
+type PrivateEndpointConnectionType struct {
+	// The name of the private endpoint connection.
+	Name string `pulumi:"name"`
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
 }
 
-// PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionInput` via:
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
 //
-//          PrivateEndpointConnectionArgs{...}
-type PrivateEndpointConnectionInput interface {
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
-	ToPrivateEndpointConnectionOutputWithContext(context.Context) PrivateEndpointConnectionOutput
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-type PrivateEndpointConnectionArgs struct {
+type PrivateEndpointConnectionTypeArgs struct {
+	// The name of the private endpoint connection.
+	Name pulumi.StringInput `pulumi:"name"`
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
-	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
 }
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
-func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
 	return o
+}
+
+// The name of the private endpoint connection.
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// The resource type.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
@@ -1665,190 +1683,6 @@ func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOu
 	}).(QueryKeyResponseOutput)
 }
 
-// Describes an Azure Cognitive Search service and its current state.
-type SearchServiceType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the Search service.
-	Properties SearchServicePropertiesResponse `pulumi:"properties"`
-	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// SearchServiceTypeInput is an input type that accepts SearchServiceTypeArgs and SearchServiceTypeOutput values.
-// You can construct a concrete instance of `SearchServiceTypeInput` via:
-//
-//          SearchServiceTypeArgs{...}
-type SearchServiceTypeInput interface {
-	pulumi.Input
-
-	ToSearchServiceTypeOutput() SearchServiceTypeOutput
-	ToSearchServiceTypeOutputWithContext(context.Context) SearchServiceTypeOutput
-}
-
-// Describes an Azure Cognitive Search service and its current state.
-type SearchServiceTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Search service.
-	Properties SearchServicePropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SearchServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SearchServiceType)(nil)).Elem()
-}
-
-func (i SearchServiceTypeArgs) ToSearchServiceTypeOutput() SearchServiceTypeOutput {
-	return i.ToSearchServiceTypeOutputWithContext(context.Background())
-}
-
-func (i SearchServiceTypeArgs) ToSearchServiceTypeOutputWithContext(ctx context.Context) SearchServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SearchServiceTypeOutput)
-}
-
-// Describes an Azure Cognitive Search service and its current state.
-type SearchServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (SearchServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SearchServiceType)(nil)).Elem()
-}
-
-func (o SearchServiceTypeOutput) ToSearchServiceTypeOutput() SearchServiceTypeOutput {
-	return o
-}
-
-func (o SearchServiceTypeOutput) ToSearchServiceTypeOutputWithContext(ctx context.Context) SearchServiceTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o SearchServiceTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v SearchServiceType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-func (o SearchServiceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SearchServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o SearchServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SearchServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Search service.
-func (o SearchServiceTypeOutput) Properties() SearchServicePropertiesResponseOutput {
-	return o.ApplyT(func(v SearchServiceType) SearchServicePropertiesResponse { return v.Properties }).(SearchServicePropertiesResponseOutput)
-}
-
-// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-func (o SearchServiceTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v SearchServiceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Tags to help categorize the resource in the Azure portal.
-func (o SearchServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SearchServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o SearchServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SearchServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-type SearchServicePrivateEndpointConnectionType struct {
-	// The name of the private endpoint connection.
-	Name string `pulumi:"name"`
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// SearchServicePrivateEndpointConnectionTypeInput is an input type that accepts SearchServicePrivateEndpointConnectionTypeArgs and SearchServicePrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `SearchServicePrivateEndpointConnectionTypeInput` via:
-//
-//          SearchServicePrivateEndpointConnectionTypeArgs{...}
-type SearchServicePrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToSearchServicePrivateEndpointConnectionTypeOutput() SearchServicePrivateEndpointConnectionTypeOutput
-	ToSearchServicePrivateEndpointConnectionTypeOutputWithContext(context.Context) SearchServicePrivateEndpointConnectionTypeOutput
-}
-
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-type SearchServicePrivateEndpointConnectionTypeArgs struct {
-	// The name of the private endpoint connection.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SearchServicePrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SearchServicePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i SearchServicePrivateEndpointConnectionTypeArgs) ToSearchServicePrivateEndpointConnectionTypeOutput() SearchServicePrivateEndpointConnectionTypeOutput {
-	return i.ToSearchServicePrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i SearchServicePrivateEndpointConnectionTypeArgs) ToSearchServicePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) SearchServicePrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SearchServicePrivateEndpointConnectionTypeOutput)
-}
-
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-type SearchServicePrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (SearchServicePrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SearchServicePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o SearchServicePrivateEndpointConnectionTypeOutput) ToSearchServicePrivateEndpointConnectionTypeOutput() SearchServicePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o SearchServicePrivateEndpointConnectionTypeOutput) ToSearchServicePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) SearchServicePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the private endpoint connection.
-func (o SearchServicePrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SearchServicePrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-func (o SearchServicePrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v SearchServicePrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The resource type.
-func (o SearchServicePrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SearchServicePrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Search service.
 type SearchServiceProperties struct {
 	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
@@ -2368,8 +2202,117 @@ func (o SearchServicePropertiesResponsePtrOutput) StatusDetails() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes an Azure Cognitive Search service and its current state.
+type ServiceType struct {
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// Properties of the Search service.
+	Properties SearchServicePropertiesResponse `pulumi:"properties"`
+	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Tags to help categorize the resource in the Azure portal.
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// ServiceTypeInput is an input type that accepts ServiceTypeArgs and ServiceTypeOutput values.
+// You can construct a concrete instance of `ServiceTypeInput` via:
+//
+//          ServiceTypeArgs{...}
+type ServiceTypeInput interface {
+	pulumi.Input
+
+	ToServiceTypeOutput() ServiceTypeOutput
+	ToServiceTypeOutputWithContext(context.Context) ServiceTypeOutput
+}
+
+// Describes an Azure Cognitive Search service and its current state.
+type ServiceTypeArgs struct {
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput `pulumi:"identity"`
+	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Search service.
+	Properties SearchServicePropertiesResponseInput `pulumi:"properties"`
+	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+	Sku SkuResponsePtrInput `pulumi:"sku"`
+	// Tags to help categorize the resource in the Azure portal.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+}
+
+func (i ServiceTypeArgs) ToServiceTypeOutput() ServiceTypeOutput {
+	return i.ToServiceTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeArgs) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeOutput)
+}
+
+// Describes an Azure Cognitive Search service and its current state.
+type ServiceTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+}
+
+func (o ServiceTypeOutput) ToServiceTypeOutput() ServiceTypeOutput {
+	return o
+}
+
+func (o ServiceTypeOutput) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
+	return o
+}
+
+// The identity of the resource.
+func (o ServiceTypeOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v ServiceType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
+func (o ServiceTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Search service.
+func (o ServiceTypeOutput) Properties() SearchServicePropertiesResponseOutput {
+	return o.ApplyT(func(v ServiceType) SearchServicePropertiesResponse { return v.Properties }).(SearchServicePropertiesResponseOutput)
+}
+
+// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+func (o ServiceTypeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v ServiceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Tags to help categorize the resource in the Azure portal.
+func (o ServiceTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o ServiceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-type SearchServiceSharedPrivateLinkResourceType struct {
+type SharedPrivateLinkResourceType struct {
 	// The name of the shared private link resource.
 	Name string `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -2378,19 +2321,19 @@ type SearchServiceSharedPrivateLinkResourceType struct {
 	Type string `pulumi:"type"`
 }
 
-// SearchServiceSharedPrivateLinkResourceTypeInput is an input type that accepts SearchServiceSharedPrivateLinkResourceTypeArgs and SearchServiceSharedPrivateLinkResourceTypeOutput values.
-// You can construct a concrete instance of `SearchServiceSharedPrivateLinkResourceTypeInput` via:
+// SharedPrivateLinkResourceTypeInput is an input type that accepts SharedPrivateLinkResourceTypeArgs and SharedPrivateLinkResourceTypeOutput values.
+// You can construct a concrete instance of `SharedPrivateLinkResourceTypeInput` via:
 //
-//          SearchServiceSharedPrivateLinkResourceTypeArgs{...}
-type SearchServiceSharedPrivateLinkResourceTypeInput interface {
+//          SharedPrivateLinkResourceTypeArgs{...}
+type SharedPrivateLinkResourceTypeInput interface {
 	pulumi.Input
 
-	ToSearchServiceSharedPrivateLinkResourceTypeOutput() SearchServiceSharedPrivateLinkResourceTypeOutput
-	ToSearchServiceSharedPrivateLinkResourceTypeOutputWithContext(context.Context) SearchServiceSharedPrivateLinkResourceTypeOutput
+	ToSharedPrivateLinkResourceTypeOutput() SharedPrivateLinkResourceTypeOutput
+	ToSharedPrivateLinkResourceTypeOutputWithContext(context.Context) SharedPrivateLinkResourceTypeOutput
 }
 
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-type SearchServiceSharedPrivateLinkResourceTypeArgs struct {
+type SharedPrivateLinkResourceTypeArgs struct {
 	// The name of the shared private link resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -2399,103 +2342,46 @@ type SearchServiceSharedPrivateLinkResourceTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (SearchServiceSharedPrivateLinkResourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SearchServiceSharedPrivateLinkResourceType)(nil)).Elem()
+func (SharedPrivateLinkResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourceType)(nil)).Elem()
 }
 
-func (i SearchServiceSharedPrivateLinkResourceTypeArgs) ToSearchServiceSharedPrivateLinkResourceTypeOutput() SearchServiceSharedPrivateLinkResourceTypeOutput {
-	return i.ToSearchServiceSharedPrivateLinkResourceTypeOutputWithContext(context.Background())
+func (i SharedPrivateLinkResourceTypeArgs) ToSharedPrivateLinkResourceTypeOutput() SharedPrivateLinkResourceTypeOutput {
+	return i.ToSharedPrivateLinkResourceTypeOutputWithContext(context.Background())
 }
 
-func (i SearchServiceSharedPrivateLinkResourceTypeArgs) ToSearchServiceSharedPrivateLinkResourceTypeOutputWithContext(ctx context.Context) SearchServiceSharedPrivateLinkResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SearchServiceSharedPrivateLinkResourceTypeOutput)
+func (i SharedPrivateLinkResourceTypeArgs) ToSharedPrivateLinkResourceTypeOutputWithContext(ctx context.Context) SharedPrivateLinkResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceTypeOutput)
 }
 
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-type SearchServiceSharedPrivateLinkResourceTypeOutput struct{ *pulumi.OutputState }
+type SharedPrivateLinkResourceTypeOutput struct{ *pulumi.OutputState }
 
-func (SearchServiceSharedPrivateLinkResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SearchServiceSharedPrivateLinkResourceType)(nil)).Elem()
+func (SharedPrivateLinkResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedPrivateLinkResourceType)(nil)).Elem()
 }
 
-func (o SearchServiceSharedPrivateLinkResourceTypeOutput) ToSearchServiceSharedPrivateLinkResourceTypeOutput() SearchServiceSharedPrivateLinkResourceTypeOutput {
+func (o SharedPrivateLinkResourceTypeOutput) ToSharedPrivateLinkResourceTypeOutput() SharedPrivateLinkResourceTypeOutput {
 	return o
 }
 
-func (o SearchServiceSharedPrivateLinkResourceTypeOutput) ToSearchServiceSharedPrivateLinkResourceTypeOutputWithContext(ctx context.Context) SearchServiceSharedPrivateLinkResourceTypeOutput {
+func (o SharedPrivateLinkResourceTypeOutput) ToSharedPrivateLinkResourceTypeOutputWithContext(ctx context.Context) SharedPrivateLinkResourceTypeOutput {
 	return o
 }
 
 // The name of the shared private link resource.
-func (o SearchServiceSharedPrivateLinkResourceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SearchServiceSharedPrivateLinkResourceType) string { return v.Name }).(pulumi.StringOutput)
+func (o SharedPrivateLinkResourceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-func (o SearchServiceSharedPrivateLinkResourceTypeOutput) Properties() SharedPrivateLinkResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v SearchServiceSharedPrivateLinkResourceType) SharedPrivateLinkResourcePropertiesResponse {
-		return v.Properties
-	}).(SharedPrivateLinkResourcePropertiesResponseOutput)
+func (o SharedPrivateLinkResourceTypeOutput) Properties() SharedPrivateLinkResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceType) SharedPrivateLinkResourcePropertiesResponse { return v.Properties }).(SharedPrivateLinkResourcePropertiesResponseOutput)
 }
 
 // The resource type.
-func (o SearchServiceSharedPrivateLinkResourceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SearchServiceSharedPrivateLinkResourceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-type SharedPrivateLinkResource struct {
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-	Properties *SharedPrivateLinkResourceProperties `pulumi:"properties"`
-}
-
-// SharedPrivateLinkResourceInput is an input type that accepts SharedPrivateLinkResourceArgs and SharedPrivateLinkResourceOutput values.
-// You can construct a concrete instance of `SharedPrivateLinkResourceInput` via:
-//
-//          SharedPrivateLinkResourceArgs{...}
-type SharedPrivateLinkResourceInput interface {
-	pulumi.Input
-
-	ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput
-	ToSharedPrivateLinkResourceOutputWithContext(context.Context) SharedPrivateLinkResourceOutput
-}
-
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-type SharedPrivateLinkResourceArgs struct {
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-	Properties SharedPrivateLinkResourcePropertiesPtrInput `pulumi:"properties"`
-}
-
-func (SharedPrivateLinkResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedPrivateLinkResource)(nil)).Elem()
-}
-
-func (i SharedPrivateLinkResourceArgs) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {
-	return i.ToSharedPrivateLinkResourceOutputWithContext(context.Background())
-}
-
-func (i SharedPrivateLinkResourceArgs) ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceOutput)
-}
-
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
-type SharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
-
-func (SharedPrivateLinkResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedPrivateLinkResource)(nil)).Elem()
-}
-
-func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutput() SharedPrivateLinkResourceOutput {
-	return o
-}
-
-func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutputWithContext(ctx context.Context) SharedPrivateLinkResourceOutput {
-	return o
-}
-
-// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-func (o SharedPrivateLinkResourceOutput) Properties() SharedPrivateLinkResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResource) *SharedPrivateLinkResourceProperties { return v.Properties }).(SharedPrivateLinkResourcePropertiesPtrOutput)
+func (o SharedPrivateLinkResourceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -3292,7 +3178,7 @@ func init() {
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPropertiesOutput{})
@@ -3305,14 +3191,12 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(QueryKeyResponseOutput{})
 	pulumi.RegisterOutputType(QueryKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(SearchServiceTypeOutput{})
-	pulumi.RegisterOutputType(SearchServicePrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(SearchServicePropertiesOutput{})
 	pulumi.RegisterOutputType(SearchServicePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SearchServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SearchServicePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(SearchServiceSharedPrivateLinkResourceTypeOutput{})
-	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
+	pulumi.RegisterOutputType(ServiceTypeOutput{})
+	pulumi.RegisterOutputType(SharedPrivateLinkResourceTypeOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesResponseOutput{})

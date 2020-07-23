@@ -341,6 +341,7 @@ export namespace analysisservices {
          */
         members?: string[];
     }
+
 }
 
 export namespace apimanagement {
@@ -6527,7 +6528,6 @@ export namespace certificateregistration {
          */
         version: number;
     }
-
 }
 
 export namespace cognitiveservices {
@@ -14926,7 +14926,6 @@ export namespace databricks {
          */
         roleDefinitionId: string;
     }
-
 }
 
 export namespace datacatalog {
@@ -16174,6 +16173,7 @@ export namespace datashare {
          */
         vCore: number;
     }
+
 }
 
 export namespace dbformariadb {
@@ -22079,7 +22079,6 @@ export namespace insights {
          */
         WebTest?: string;
     }
-
 }
 
 export namespace iotcentral {
@@ -22114,7 +22113,6 @@ export namespace iotcentral {
          */
         name: string;
     }
-
 }
 
 export namespace keyvault {
@@ -28349,6 +28347,26 @@ export namespace netapp {
 
 export namespace network {
     /**
+     * An A record.
+     */
+    export interface ARecordResponse {
+        /**
+         * The IPv4 address of this A record.
+         */
+        ipv4Address?: string;
+    }
+
+    /**
+     * An AAAA record.
+     */
+    export interface AaaaRecordResponse {
+        /**
+         * The IPv6 address of this AAAA record.
+         */
+        ipv6Address?: string;
+    }
+
+    /**
      * AAD Vpn authentication type related parameters.
      */
     export interface AadAuthenticationParametersResponse {
@@ -30582,6 +30600,16 @@ export namespace network {
          * Flag to control breakout of o365 optimize category.
          */
         optimize?: boolean;
+    }
+
+    /**
+     * A CNAME record.
+     */
+    export interface CnameRecordResponse {
+        /**
+         * The canonical name for this CNAME record.
+         */
+        cname?: string;
     }
 
     /**
@@ -33491,6 +33519,20 @@ export namespace network {
     }
 
     /**
+     * An MX record.
+     */
+    export interface MxRecordResponse {
+        /**
+         * The domain name of the mail host for this MX record.
+         */
+        exchange?: string;
+        /**
+         * The preference value for this MX record.
+         */
+        preference?: number;
+    }
+
+    /**
      * Nat Gateway properties.
      */
     export interface NatGatewayPropertiesFormatResponse {
@@ -34779,6 +34821,16 @@ export namespace network {
     }
 
     /**
+     * A PTR record.
+     */
+    export interface PtrRecordResponse {
+        /**
+         * The PTR target domain name for this PTR record.
+         */
+        ptrdname?: string;
+    }
+
+    /**
      * Contains FQDN of the DNS record associated with the public IP address.
      */
     export interface PublicIPAddressDnsSettingsResponse {
@@ -34962,6 +35014,60 @@ export namespace network {
          * The secret used for this radius server.
          */
         radiusServerSecret?: string;
+    }
+
+    /**
+     * Represents the properties of the records in the record set.
+     */
+    export interface RecordSetPropertiesResponse {
+        /**
+         * The list of A records in the record set.
+         */
+        aRecords?: outputs.network.ARecordResponse[];
+        /**
+         * The list of AAAA records in the record set.
+         */
+        aaaaRecords?: outputs.network.AaaaRecordResponse[];
+        /**
+         * The CNAME record in the record set.
+         */
+        cnameRecord?: outputs.network.CnameRecordResponse;
+        /**
+         * Fully qualified domain name of the record set.
+         */
+        fqdn: string;
+        /**
+         * Is the record set auto-registered in the Private DNS zone through a virtual network link?
+         */
+        isAutoRegistered: boolean;
+        /**
+         * The metadata attached to the record set.
+         */
+        metadata?: {[key: string]: string};
+        /**
+         * The list of MX records in the record set.
+         */
+        mxRecords?: outputs.network.MxRecordResponse[];
+        /**
+         * The list of PTR records in the record set.
+         */
+        ptrRecords?: outputs.network.PtrRecordResponse[];
+        /**
+         * The SOA record in the record set.
+         */
+        soaRecord?: outputs.network.SoaRecordResponse;
+        /**
+         * The list of SRV records in the record set.
+         */
+        srvRecords?: outputs.network.SrvRecordResponse[];
+        /**
+         * The TTL (time-to-live) of the records in the record set.
+         */
+        ttl?: number;
+        /**
+         * The list of TXT records in the record set.
+         */
+        txtRecords?: outputs.network.TxtRecordResponse[];
     }
 
     /**
@@ -35739,6 +35845,62 @@ export namespace network {
     }
 
     /**
+     * An SOA record.
+     */
+    export interface SoaRecordResponse {
+        /**
+         * The email contact for this SOA record.
+         */
+        email?: string;
+        /**
+         * The expire time for this SOA record.
+         */
+        expireTime?: number;
+        /**
+         * The domain name of the authoritative name server for this SOA record.
+         */
+        host?: string;
+        /**
+         * The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+         */
+        minimumTtl?: number;
+        /**
+         * The refresh value for this SOA record.
+         */
+        refreshTime?: number;
+        /**
+         * The retry time for this SOA record.
+         */
+        retryTime?: number;
+        /**
+         * The serial number for this SOA record.
+         */
+        serialNumber?: number;
+    }
+
+    /**
+     * An SRV record.
+     */
+    export interface SrvRecordResponse {
+        /**
+         * The port value for this SRV record.
+         */
+        port?: number;
+        /**
+         * The priority value for this SRV record.
+         */
+        priority?: number;
+        /**
+         * The target domain name for this SRV record.
+         */
+        target?: string;
+        /**
+         * The weight value for this SRV record.
+         */
+        weight?: number;
+    }
+
+    /**
      * List of all Static Routes.
      */
     export interface StaticRouteResponse {
@@ -35940,6 +36102,16 @@ export namespace network {
          * Tunnel name.
          */
         tunnel: string;
+    }
+
+    /**
+     * A TXT record.
+     */
+    export interface TxtRecordResponse {
+        /**
+         * The text value of this TXT record.
+         */
+        value?: string[];
     }
 
     /**
@@ -38240,7 +38412,6 @@ export namespace operationalinsights {
          */
         objectId: string;
     }
-
 }
 
 export namespace peering {
@@ -41714,6 +41885,7 @@ export namespace servicebus {
          */
         sqlExpression?: string;
     }
+
 }
 
 export namespace servicefabric {
@@ -47933,6 +48105,62 @@ export namespace web {
     }
 
     /**
+     * BackupRequest resource specific properties
+     */
+    export interface BackupRequestResponseProperties {
+        /**
+         * Name of the backup.
+         */
+        backupName?: string;
+        /**
+         * Schedule for the backup if it is executed periodically.
+         */
+        backupSchedule?: outputs.web.BackupScheduleResponse;
+        /**
+         * Databases included in the backup.
+         */
+        databases?: outputs.web.DatabaseBackupSettingResponse[];
+        /**
+         * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+         */
+        enabled?: boolean;
+        /**
+         * SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    /**
+     * Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+     */
+    export interface BackupScheduleResponse {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+         */
+        frequencyUnit: string;
+        /**
+         * True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+         */
+        keepAtLeastOneBackup: boolean;
+        /**
+         * Last time when this schedule was triggered.
+         */
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * When the schedule should start working.
+         */
+        startTime?: string;
+    }
+
+    /**
      * Describes the capabilities/features allowed for a specific SKU.
      */
     export interface CapabilityResponse {
@@ -48743,6 +48971,154 @@ export namespace web {
          * Time interval.
          */
         timeInterval?: string;
+    }
+
+    /**
+     * SiteAuthSettings resource specific properties
+     */
+    export interface SiteAuthSettingsResponseProperties {
+        /**
+         * Login parameters to send to the OpenID Connect authorization endpoint when
+         * a user logs in. Each parameter must be in the form "key=value".
+         */
+        additionalLoginParams?: string[];
+        /**
+         * Allowed audience values to consider when validating JWTs issued by 
+         * Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
+         * allowed audience, regardless of this setting.
+         */
+        allowedAudiences?: string[];
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+         * This is an advanced setting typically only needed by Windows Store application backends.
+         * Note that URLs within the current domain are always implicitly allowed.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The Client ID of this relying party application, known as the client_id.
+         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+         * other 3rd party OpenID Connect providers.
+         * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+         */
+        clientId?: string;
+        /**
+         * The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
+         * This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
+         * Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
+         * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+         */
+        clientSecret?: string;
+        /**
+         * An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+         * a replacement for the Client Secret. It is also optional.
+         */
+        clientSecretCertificateThumbprint?: string;
+        /**
+         * The default authentication provider to use when multiple providers are configured.
+         * This setting is only needed if multiple providers are configured and the unauthenticated client
+         * action is set to "RedirectToLoginPage".
+         */
+        defaultProvider?: string;
+        /**
+         * <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+         */
+        enabled?: boolean;
+        /**
+         * The App ID of the Facebook app used for login.
+         * This setting is required for enabling Facebook Login.
+         * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+         */
+        facebookAppId?: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         * This setting is required for enabling Facebook Login.
+         * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+         */
+        facebookAppSecret?: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
+         * This setting is optional.
+         * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+         */
+        facebookOAuthScopes?: string[];
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         * This setting is required for enabling Google Sign-In.
+         * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+         */
+        googleClientId?: string;
+        /**
+         * The client secret associated with the Google web application.
+         * This setting is required for enabling Google Sign-In.
+         * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+         */
+        googleClientSecret?: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
+         * This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+         */
+        googleOAuthScopes?: string[];
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+         * When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * This URI is a case-sensitive identifier for the token issuer.
+         * More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+         */
+        issuer?: string;
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         * This setting is required for enabling Microsoft Account authentication.
+         * Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+         */
+        microsoftAccountClientId?: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         * This setting is required for enabling Microsoft Account authentication.
+         * Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+         */
+        microsoftAccountClientSecret?: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         * This setting is optional. If not specified, "wl.basic" is used as the default scope.
+         * Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         */
+        microsoftAccountOAuthScopes?: string[];
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+         * The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+         */
+        runtimeVersion?: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to
+         * call the token refresh API. The default is 72 hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         *  The default is <code>false</code>.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         * This setting is required for enabling Twitter Sign-In.
+         * Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+         */
+        twitterConsumerKey?: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         * This setting is required for enabling Twitter Sign-In.
+         * Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+         */
+        twitterConsumerSecret?: string;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app.
+         */
+        unauthenticatedClientAction?: string;
+        /**
+         * Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
+         */
+        validateIssuer?: boolean;
     }
 
     /**
@@ -49562,6 +49938,32 @@ export namespace web {
     }
 
     /**
+     * User resource specific properties
+     */
+    export interface UserResponseProperties {
+        /**
+         * Password used for publishing.
+         */
+        publishingPassword?: string;
+        /**
+         * Password hash used for publishing.
+         */
+        publishingPasswordHash?: string;
+        /**
+         * Password hash salt used for publishing.
+         */
+        publishingPasswordHashSalt?: string;
+        /**
+         * Username used for publishing.
+         */
+        publishingUserName: string;
+        /**
+         * Url of SCM site.
+         */
+        scmUri?: string;
+    }
+
+    /**
      * Virtual application in an app.
      */
     export interface VirtualApplicationResponse {
@@ -49782,5 +50184,6 @@ export namespace windowsiot {
          */
         startDate: string;
     }
+
 }
 

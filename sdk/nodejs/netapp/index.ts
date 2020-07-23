@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getNetAppAccount";
-export * from "./getNetAppAccountCapacityPool";
-export * from "./getNetAppAccountCapacityPoolVolume";
-export * from "./getNetAppAccountCapacityPoolVolumeSnapshot";
-export * from "./netAppAccount";
-export * from "./netAppAccountCapacityPool";
-export * from "./netAppAccountCapacityPoolVolume";
-export * from "./netAppAccountCapacityPoolVolumeSnapshot";
+export * from "./account";
+export * from "./getAccount";
+export * from "./getPool";
+export * from "./getSnapshot";
+export * from "./getVolume";
+export * from "./pool";
+export * from "./snapshot";
+export * from "./volume";

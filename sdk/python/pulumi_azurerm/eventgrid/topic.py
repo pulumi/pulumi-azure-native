@@ -83,6 +83,7 @@ class Topic(pulumi.CustomResource):
             * `input_schema_mapping_type` (`pulumi.Input[str]`) - Type of the custom mapping
 
           * `private_endpoint_connections` (`pulumi.Input[list]`)
+            * `name` (`pulumi.Input[str]`) - Name of the resource.
             * `properties` (`pulumi.Input[dict]`) - Properties of the PrivateEndpointConnection.
               * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
               * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
@@ -94,6 +95,8 @@ class Topic(pulumi.CustomResource):
                 * `status` (`pulumi.Input[str]`) - Status of the connection.
 
               * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
+
+            * `type` (`pulumi.Input[str]`) - Type of the resource.
 
           * `public_network_access` (`pulumi.Input[str]`) - This determines if traffic is allowed over public network. By default it is enabled. 
             You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />

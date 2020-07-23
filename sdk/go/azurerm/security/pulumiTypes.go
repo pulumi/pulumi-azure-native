@@ -698,6 +698,91 @@ func (o IotSecuritySolutionTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IotSecuritySolutionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type JitNetworkAccessPolicyType struct {
+	// Kind of the resource
+	Kind *string `pulumi:"kind"`
+	// Location where the resource is stored
+	Location string `pulumi:"location"`
+	// Resource name
+	Name       string                                   `pulumi:"name"`
+	Properties JitNetworkAccessPolicyPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// JitNetworkAccessPolicyTypeInput is an input type that accepts JitNetworkAccessPolicyTypeArgs and JitNetworkAccessPolicyTypeOutput values.
+// You can construct a concrete instance of `JitNetworkAccessPolicyTypeInput` via:
+//
+//          JitNetworkAccessPolicyTypeArgs{...}
+type JitNetworkAccessPolicyTypeInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessPolicyTypeOutput() JitNetworkAccessPolicyTypeOutput
+	ToJitNetworkAccessPolicyTypeOutputWithContext(context.Context) JitNetworkAccessPolicyTypeOutput
+}
+
+type JitNetworkAccessPolicyTypeArgs struct {
+	// Kind of the resource
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Location where the resource is stored
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name       pulumi.StringInput                            `pulumi:"name"`
+	Properties JitNetworkAccessPolicyPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JitNetworkAccessPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPolicyType)(nil)).Elem()
+}
+
+func (i JitNetworkAccessPolicyTypeArgs) ToJitNetworkAccessPolicyTypeOutput() JitNetworkAccessPolicyTypeOutput {
+	return i.ToJitNetworkAccessPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessPolicyTypeArgs) ToJitNetworkAccessPolicyTypeOutputWithContext(ctx context.Context) JitNetworkAccessPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyTypeOutput)
+}
+
+type JitNetworkAccessPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPolicyType)(nil)).Elem()
+}
+
+func (o JitNetworkAccessPolicyTypeOutput) ToJitNetworkAccessPolicyTypeOutput() JitNetworkAccessPolicyTypeOutput {
+	return o
+}
+
+func (o JitNetworkAccessPolicyTypeOutput) ToJitNetworkAccessPolicyTypeOutputWithContext(ctx context.Context) JitNetworkAccessPolicyTypeOutput {
+	return o
+}
+
+// Kind of the resource
+func (o JitNetworkAccessPolicyTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Location where the resource is stored
+func (o JitNetworkAccessPolicyTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o JitNetworkAccessPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o JitNetworkAccessPolicyTypeOutput) Properties() JitNetworkAccessPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyType) JitNetworkAccessPolicyPropertiesResponse { return v.Properties }).(JitNetworkAccessPolicyPropertiesResponseOutput)
+}
+
+// Resource type
+func (o JitNetworkAccessPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type JitNetworkAccessPolicyProperties struct {
 	Requests []JitNetworkAccessRequest `pulumi:"requests"`
 	// Configurations for Microsoft.Compute/virtualMachines resource type.
@@ -2252,93 +2337,6 @@ func (o JitNetworkAccessRequestVirtualMachineResponseArrayOutput) Index(i pulumi
 	}).(JitNetworkAccessRequestVirtualMachineResponseOutput)
 }
 
-type LocationJitNetworkAccessPolicyType struct {
-	// Kind of the resource
-	Kind *string `pulumi:"kind"`
-	// Location where the resource is stored
-	Location string `pulumi:"location"`
-	// Resource name
-	Name       string                                   `pulumi:"name"`
-	Properties JitNetworkAccessPolicyPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// LocationJitNetworkAccessPolicyTypeInput is an input type that accepts LocationJitNetworkAccessPolicyTypeArgs and LocationJitNetworkAccessPolicyTypeOutput values.
-// You can construct a concrete instance of `LocationJitNetworkAccessPolicyTypeInput` via:
-//
-//          LocationJitNetworkAccessPolicyTypeArgs{...}
-type LocationJitNetworkAccessPolicyTypeInput interface {
-	pulumi.Input
-
-	ToLocationJitNetworkAccessPolicyTypeOutput() LocationJitNetworkAccessPolicyTypeOutput
-	ToLocationJitNetworkAccessPolicyTypeOutputWithContext(context.Context) LocationJitNetworkAccessPolicyTypeOutput
-}
-
-type LocationJitNetworkAccessPolicyTypeArgs struct {
-	// Kind of the resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Location where the resource is stored
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name       pulumi.StringInput                            `pulumi:"name"`
-	Properties JitNetworkAccessPolicyPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LocationJitNetworkAccessPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationJitNetworkAccessPolicyType)(nil)).Elem()
-}
-
-func (i LocationJitNetworkAccessPolicyTypeArgs) ToLocationJitNetworkAccessPolicyTypeOutput() LocationJitNetworkAccessPolicyTypeOutput {
-	return i.ToLocationJitNetworkAccessPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i LocationJitNetworkAccessPolicyTypeArgs) ToLocationJitNetworkAccessPolicyTypeOutputWithContext(ctx context.Context) LocationJitNetworkAccessPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationJitNetworkAccessPolicyTypeOutput)
-}
-
-type LocationJitNetworkAccessPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (LocationJitNetworkAccessPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationJitNetworkAccessPolicyType)(nil)).Elem()
-}
-
-func (o LocationJitNetworkAccessPolicyTypeOutput) ToLocationJitNetworkAccessPolicyTypeOutput() LocationJitNetworkAccessPolicyTypeOutput {
-	return o
-}
-
-func (o LocationJitNetworkAccessPolicyTypeOutput) ToLocationJitNetworkAccessPolicyTypeOutputWithContext(ctx context.Context) LocationJitNetworkAccessPolicyTypeOutput {
-	return o
-}
-
-// Kind of the resource
-func (o LocationJitNetworkAccessPolicyTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationJitNetworkAccessPolicyType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Location where the resource is stored
-func (o LocationJitNetworkAccessPolicyTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationJitNetworkAccessPolicyType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o LocationJitNetworkAccessPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationJitNetworkAccessPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o LocationJitNetworkAccessPolicyTypeOutput) Properties() JitNetworkAccessPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v LocationJitNetworkAccessPolicyType) JitNetworkAccessPolicyPropertiesResponse {
-		return v.Properties
-	}).(JitNetworkAccessPolicyPropertiesResponseOutput)
-}
-
-// Resource type
-func (o LocationJitNetworkAccessPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationJitNetworkAccessPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type PortNumber struct {
 }
 
@@ -2967,6 +2965,7 @@ func init() {
 	pulumi.RegisterOutputType(IoTSecuritySolutionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IoTSecuritySolutionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotSecuritySolutionTypeOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessPolicyTypeOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyPropertiesOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyPropertiesResponseOutput{})
@@ -2991,7 +2990,6 @@ func init() {
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseArrayOutput{})
-	pulumi.RegisterOutputType(LocationJitNetworkAccessPolicyTypeOutput{})
 	pulumi.RegisterOutputType(PortNumberOutput{})
 	pulumi.RegisterOutputType(PortNumberResponseOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationListOutput{})

@@ -3424,208 +3424,6 @@ func (o NamespaceAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Description of a NotificationHub Resource.
-type NamespaceNotificationHubType struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of the NotificationHub.
-	Properties NotificationHubPropertiesResponse `pulumi:"properties"`
-	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NamespaceNotificationHubTypeInput is an input type that accepts NamespaceNotificationHubTypeArgs and NamespaceNotificationHubTypeOutput values.
-// You can construct a concrete instance of `NamespaceNotificationHubTypeInput` via:
-//
-//          NamespaceNotificationHubTypeArgs{...}
-type NamespaceNotificationHubTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceNotificationHubTypeOutput() NamespaceNotificationHubTypeOutput
-	ToNamespaceNotificationHubTypeOutputWithContext(context.Context) NamespaceNotificationHubTypeOutput
-}
-
-// Description of a NotificationHub Resource.
-type NamespaceNotificationHubTypeArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the NotificationHub.
-	Properties NotificationHubPropertiesResponseInput `pulumi:"properties"`
-	// The sku of the created namespace
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceNotificationHubTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNotificationHubType)(nil)).Elem()
-}
-
-func (i NamespaceNotificationHubTypeArgs) ToNamespaceNotificationHubTypeOutput() NamespaceNotificationHubTypeOutput {
-	return i.ToNamespaceNotificationHubTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceNotificationHubTypeArgs) ToNamespaceNotificationHubTypeOutputWithContext(ctx context.Context) NamespaceNotificationHubTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNotificationHubTypeOutput)
-}
-
-// Description of a NotificationHub Resource.
-type NamespaceNotificationHubTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceNotificationHubTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNotificationHubType)(nil)).Elem()
-}
-
-func (o NamespaceNotificationHubTypeOutput) ToNamespaceNotificationHubTypeOutput() NamespaceNotificationHubTypeOutput {
-	return o
-}
-
-func (o NamespaceNotificationHubTypeOutput) ToNamespaceNotificationHubTypeOutputWithContext(ctx context.Context) NamespaceNotificationHubTypeOutput {
-	return o
-}
-
-// Resource location
-func (o NamespaceNotificationHubTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o NamespaceNotificationHubTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the NotificationHub.
-func (o NamespaceNotificationHubTypeOutput) Properties() NotificationHubPropertiesResponseOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubType) NotificationHubPropertiesResponse { return v.Properties }).(NotificationHubPropertiesResponseOutput)
-}
-
-// The sku of the created namespace
-func (o NamespaceNotificationHubTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o NamespaceNotificationHubTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o NamespaceNotificationHubTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of a Namespace AuthorizationRules.
-type NamespaceNotificationHubAuthorizationRuleType struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
-	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NamespaceNotificationHubAuthorizationRuleTypeInput is an input type that accepts NamespaceNotificationHubAuthorizationRuleTypeArgs and NamespaceNotificationHubAuthorizationRuleTypeOutput values.
-// You can construct a concrete instance of `NamespaceNotificationHubAuthorizationRuleTypeInput` via:
-//
-//          NamespaceNotificationHubAuthorizationRuleTypeArgs{...}
-type NamespaceNotificationHubAuthorizationRuleTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceNotificationHubAuthorizationRuleTypeOutput() NamespaceNotificationHubAuthorizationRuleTypeOutput
-	ToNamespaceNotificationHubAuthorizationRuleTypeOutputWithContext(context.Context) NamespaceNotificationHubAuthorizationRuleTypeOutput
-}
-
-// Description of a Namespace AuthorizationRules.
-type NamespaceNotificationHubAuthorizationRuleTypeArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties SharedAccessAuthorizationRulePropertiesResponseInput `pulumi:"properties"`
-	// The sku of the created namespace
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceNotificationHubAuthorizationRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNotificationHubAuthorizationRuleType)(nil)).Elem()
-}
-
-func (i NamespaceNotificationHubAuthorizationRuleTypeArgs) ToNamespaceNotificationHubAuthorizationRuleTypeOutput() NamespaceNotificationHubAuthorizationRuleTypeOutput {
-	return i.ToNamespaceNotificationHubAuthorizationRuleTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceNotificationHubAuthorizationRuleTypeArgs) ToNamespaceNotificationHubAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceNotificationHubAuthorizationRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNotificationHubAuthorizationRuleTypeOutput)
-}
-
-// Description of a Namespace AuthorizationRules.
-type NamespaceNotificationHubAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceNotificationHubAuthorizationRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceNotificationHubAuthorizationRuleType)(nil)).Elem()
-}
-
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) ToNamespaceNotificationHubAuthorizationRuleTypeOutput() NamespaceNotificationHubAuthorizationRuleTypeOutput {
-	return o
-}
-
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) ToNamespaceNotificationHubAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceNotificationHubAuthorizationRuleTypeOutput {
-	return o
-}
-
-// Resource location
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubAuthorizationRuleType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Namespace AuthorizationRule.
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) Properties() SharedAccessAuthorizationRulePropertiesResponseOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubAuthorizationRuleType) SharedAccessAuthorizationRulePropertiesResponse {
-		return v.Properties
-	}).(SharedAccessAuthorizationRulePropertiesResponseOutput)
-}
-
-// The sku of the created namespace
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubAuthorizationRuleType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubAuthorizationRuleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o NamespaceNotificationHubAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceNotificationHubAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Namespace properties.
 type NamespaceProperties struct {
 	// The time the namespace was created.
@@ -4367,6 +4165,208 @@ func (o NamespacePropertiesResponsePtrOutput) UpdatedAt() pulumi.StringPtrOutput
 		}
 		return v.UpdatedAt
 	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub Resource.
+type NotificationHubType struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties of the NotificationHub.
+	Properties NotificationHubPropertiesResponse `pulumi:"properties"`
+	// The sku of the created namespace
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// NotificationHubTypeInput is an input type that accepts NotificationHubTypeArgs and NotificationHubTypeOutput values.
+// You can construct a concrete instance of `NotificationHubTypeInput` via:
+//
+//          NotificationHubTypeArgs{...}
+type NotificationHubTypeInput interface {
+	pulumi.Input
+
+	ToNotificationHubTypeOutput() NotificationHubTypeOutput
+	ToNotificationHubTypeOutputWithContext(context.Context) NotificationHubTypeOutput
+}
+
+// Description of a NotificationHub Resource.
+type NotificationHubTypeArgs struct {
+	// Resource location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the NotificationHub.
+	Properties NotificationHubPropertiesResponseInput `pulumi:"properties"`
+	// The sku of the created namespace
+	Sku SkuResponsePtrInput `pulumi:"sku"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NotificationHubTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubType)(nil)).Elem()
+}
+
+func (i NotificationHubTypeArgs) ToNotificationHubTypeOutput() NotificationHubTypeOutput {
+	return i.ToNotificationHubTypeOutputWithContext(context.Background())
+}
+
+func (i NotificationHubTypeArgs) ToNotificationHubTypeOutputWithContext(ctx context.Context) NotificationHubTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubTypeOutput)
+}
+
+// Description of a NotificationHub Resource.
+type NotificationHubTypeOutput struct{ *pulumi.OutputState }
+
+func (NotificationHubTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubType)(nil)).Elem()
+}
+
+func (o NotificationHubTypeOutput) ToNotificationHubTypeOutput() NotificationHubTypeOutput {
+	return o
+}
+
+func (o NotificationHubTypeOutput) ToNotificationHubTypeOutputWithContext(ctx context.Context) NotificationHubTypeOutput {
+	return o
+}
+
+// Resource location
+func (o NotificationHubTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationHubType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o NotificationHubTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationHubType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the NotificationHub.
+func (o NotificationHubTypeOutput) Properties() NotificationHubPropertiesResponseOutput {
+	return o.ApplyT(func(v NotificationHubType) NotificationHubPropertiesResponse { return v.Properties }).(NotificationHubPropertiesResponseOutput)
+}
+
+// The sku of the created namespace
+func (o NotificationHubTypeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o NotificationHubTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v NotificationHubType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o NotificationHubTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationHubType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Description of a Namespace AuthorizationRules.
+type NotificationHubAuthorizationRuleType struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties of the Namespace AuthorizationRule.
+	Properties SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The sku of the created namespace
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// NotificationHubAuthorizationRuleTypeInput is an input type that accepts NotificationHubAuthorizationRuleTypeArgs and NotificationHubAuthorizationRuleTypeOutput values.
+// You can construct a concrete instance of `NotificationHubAuthorizationRuleTypeInput` via:
+//
+//          NotificationHubAuthorizationRuleTypeArgs{...}
+type NotificationHubAuthorizationRuleTypeInput interface {
+	pulumi.Input
+
+	ToNotificationHubAuthorizationRuleTypeOutput() NotificationHubAuthorizationRuleTypeOutput
+	ToNotificationHubAuthorizationRuleTypeOutputWithContext(context.Context) NotificationHubAuthorizationRuleTypeOutput
+}
+
+// Description of a Namespace AuthorizationRules.
+type NotificationHubAuthorizationRuleTypeArgs struct {
+	// Resource location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Namespace AuthorizationRule.
+	Properties SharedAccessAuthorizationRulePropertiesResponseInput `pulumi:"properties"`
+	// The sku of the created namespace
+	Sku SkuResponsePtrInput `pulumi:"sku"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NotificationHubAuthorizationRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubAuthorizationRuleType)(nil)).Elem()
+}
+
+func (i NotificationHubAuthorizationRuleTypeArgs) ToNotificationHubAuthorizationRuleTypeOutput() NotificationHubAuthorizationRuleTypeOutput {
+	return i.ToNotificationHubAuthorizationRuleTypeOutputWithContext(context.Background())
+}
+
+func (i NotificationHubAuthorizationRuleTypeArgs) ToNotificationHubAuthorizationRuleTypeOutputWithContext(ctx context.Context) NotificationHubAuthorizationRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubAuthorizationRuleTypeOutput)
+}
+
+// Description of a Namespace AuthorizationRules.
+type NotificationHubAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (NotificationHubAuthorizationRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubAuthorizationRuleType)(nil)).Elem()
+}
+
+func (o NotificationHubAuthorizationRuleTypeOutput) ToNotificationHubAuthorizationRuleTypeOutput() NotificationHubAuthorizationRuleTypeOutput {
+	return o
+}
+
+func (o NotificationHubAuthorizationRuleTypeOutput) ToNotificationHubAuthorizationRuleTypeOutputWithContext(ctx context.Context) NotificationHubAuthorizationRuleTypeOutput {
+	return o
+}
+
+// Resource location
+func (o NotificationHubAuthorizationRuleTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationHubAuthorizationRuleType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o NotificationHubAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationHubAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Namespace AuthorizationRule.
+func (o NotificationHubAuthorizationRuleTypeOutput) Properties() SharedAccessAuthorizationRulePropertiesResponseOutput {
+	return o.ApplyT(func(v NotificationHubAuthorizationRuleType) SharedAccessAuthorizationRulePropertiesResponse {
+		return v.Properties
+	}).(SharedAccessAuthorizationRulePropertiesResponseOutput)
+}
+
+// The sku of the created namespace
+func (o NotificationHubAuthorizationRuleTypeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubAuthorizationRuleType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o NotificationHubAuthorizationRuleTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v NotificationHubAuthorizationRuleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o NotificationHubAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationHubAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // NotificationHub properties.
@@ -6688,12 +6688,12 @@ func init() {
 	pulumi.RegisterOutputType(MpnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceNotificationHubTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceNotificationHubAuthorizationRuleTypeOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(NotificationHubTypeOutput{})
+	pulumi.RegisterOutputType(NotificationHubAuthorizationRuleTypeOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesResponseOutput{})

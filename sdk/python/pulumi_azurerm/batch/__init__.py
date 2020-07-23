@@ -3,14 +3,14 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .application import *
+from .application_package import *
 from .batch_account import *
-from .batch_account_application import *
-from .batch_account_application_version import *
-from .batch_account_certificate import *
-from .batch_account_pool import *
+from .certificate import *
+from .get_application import *
+from .get_application_package import *
 from .get_batch_account import *
-from .get_batch_account_application import *
-from .get_batch_account_application_version import *
-from .get_batch_account_certificate import *
-from .get_batch_account_pool import *
+from .get_certificate import *
+from .get_pool import *
 from .list_batch_account_keys import *
+from .pool import *

@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func LookupLabaccount(ctx *pulumi.Context, args *LookupLabaccountArgs, opts ...pulumi.InvokeOption) (*LookupLabaccountResult, error) {
-	var rv LookupLabaccountResult
-	err := ctx.Invoke("azurerm:labservices:getLabaccount", args, &rv, opts...)
+func LookupLabAccount(ctx *pulumi.Context, args *LookupLabAccountArgs, opts ...pulumi.InvokeOption) (*LookupLabAccountResult, error) {
+	var rv LookupLabAccountResult
+	err := ctx.Invoke("azurerm:labservices:getLabAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupLabaccountArgs struct {
+type LookupLabAccountArgs struct {
 	// The name of the lab Account.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
@@ -24,7 +24,7 @@ type LookupLabaccountArgs struct {
 }
 
 // Represents a lab account.
-type LookupLabaccountResult struct {
+type LookupLabAccountResult struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

@@ -10,6 +10,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents an environment instance
+type EnvironmentType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the Environment resource
+	Properties EnvironmentPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// EnvironmentTypeInput is an input type that accepts EnvironmentTypeArgs and EnvironmentTypeOutput values.
+// You can construct a concrete instance of `EnvironmentTypeInput` via:
+//
+//          EnvironmentTypeArgs{...}
+type EnvironmentTypeInput interface {
+	pulumi.Input
+
+	ToEnvironmentTypeOutput() EnvironmentTypeOutput
+	ToEnvironmentTypeOutputWithContext(context.Context) EnvironmentTypeOutput
+}
+
+// Represents an environment instance
+type EnvironmentTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the Environment resource
+	Properties EnvironmentPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EnvironmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
+}
+
+func (i EnvironmentTypeArgs) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
+	return i.ToEnvironmentTypeOutputWithContext(context.Background())
+}
+
+func (i EnvironmentTypeArgs) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTypeOutput)
+}
+
+// Represents an environment instance
+type EnvironmentTypeOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
+}
+
+func (o EnvironmentTypeOutput) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
+	return o
+}
+
+func (o EnvironmentTypeOutput) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o EnvironmentTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o EnvironmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the Environment resource
+func (o EnvironmentTypeOutput) Properties() EnvironmentPropertiesResponseOutput {
+	return o.ApplyT(func(v EnvironmentType) EnvironmentPropertiesResponse { return v.Properties }).(EnvironmentPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o EnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o EnvironmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of an environment
 type EnvironmentProperties struct {
 	// The provisioning status of the resource.
@@ -523,6 +614,97 @@ func (o EnvironmentPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.String
 		}
 		return v.UniqueIdentifier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents settings of an environment, from which environment instances would be created
+type EnvironmentSettingType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the Environment Setting resource
+	Properties EnvironmentSettingPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// EnvironmentSettingTypeInput is an input type that accepts EnvironmentSettingTypeArgs and EnvironmentSettingTypeOutput values.
+// You can construct a concrete instance of `EnvironmentSettingTypeInput` via:
+//
+//          EnvironmentSettingTypeArgs{...}
+type EnvironmentSettingTypeInput interface {
+	pulumi.Input
+
+	ToEnvironmentSettingTypeOutput() EnvironmentSettingTypeOutput
+	ToEnvironmentSettingTypeOutputWithContext(context.Context) EnvironmentSettingTypeOutput
+}
+
+// Represents settings of an environment, from which environment instances would be created
+type EnvironmentSettingTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the Environment Setting resource
+	Properties EnvironmentSettingPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EnvironmentSettingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentSettingType)(nil)).Elem()
+}
+
+func (i EnvironmentSettingTypeArgs) ToEnvironmentSettingTypeOutput() EnvironmentSettingTypeOutput {
+	return i.ToEnvironmentSettingTypeOutputWithContext(context.Background())
+}
+
+func (i EnvironmentSettingTypeArgs) ToEnvironmentSettingTypeOutputWithContext(ctx context.Context) EnvironmentSettingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingTypeOutput)
+}
+
+// Represents settings of an environment, from which environment instances would be created
+type EnvironmentSettingTypeOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentSettingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentSettingType)(nil)).Elem()
+}
+
+func (o EnvironmentSettingTypeOutput) ToEnvironmentSettingTypeOutput() EnvironmentSettingTypeOutput {
+	return o
+}
+
+func (o EnvironmentSettingTypeOutput) ToEnvironmentSettingTypeOutputWithContext(ctx context.Context) EnvironmentSettingTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o EnvironmentSettingTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentSettingType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o EnvironmentSettingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentSettingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the Environment Setting resource
+func (o EnvironmentSettingTypeOutput) Properties() EnvironmentSettingPropertiesResponseOutput {
+	return o.ApplyT(func(v EnvironmentSettingType) EnvironmentSettingPropertiesResponse { return v.Properties }).(EnvironmentSettingPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o EnvironmentSettingTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentSettingType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o EnvironmentSettingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentSettingType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of an environment setting
@@ -1304,6 +1486,97 @@ func (o EnvironmentSizeResponseArrayOutput) Index(i pulumi.IntInput) Environment
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentSizeResponse {
 		return vs[0].([]EnvironmentSizeResponse)[vs[1].(int)]
 	}).(EnvironmentSizeResponseOutput)
+}
+
+// Represents an image from the Azure Marketplace
+type GalleryImageType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The gallery image properties
+	Properties GalleryImagePropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// GalleryImageTypeInput is an input type that accepts GalleryImageTypeArgs and GalleryImageTypeOutput values.
+// You can construct a concrete instance of `GalleryImageTypeInput` via:
+//
+//          GalleryImageTypeArgs{...}
+type GalleryImageTypeInput interface {
+	pulumi.Input
+
+	ToGalleryImageTypeOutput() GalleryImageTypeOutput
+	ToGalleryImageTypeOutputWithContext(context.Context) GalleryImageTypeOutput
+}
+
+// Represents an image from the Azure Marketplace
+type GalleryImageTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The gallery image properties
+	Properties GalleryImagePropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GalleryImageTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageType)(nil)).Elem()
+}
+
+func (i GalleryImageTypeArgs) ToGalleryImageTypeOutput() GalleryImageTypeOutput {
+	return i.ToGalleryImageTypeOutputWithContext(context.Background())
+}
+
+func (i GalleryImageTypeArgs) ToGalleryImageTypeOutputWithContext(ctx context.Context) GalleryImageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageTypeOutput)
+}
+
+// Represents an image from the Azure Marketplace
+type GalleryImageTypeOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageType)(nil)).Elem()
+}
+
+func (o GalleryImageTypeOutput) ToGalleryImageTypeOutput() GalleryImageTypeOutput {
+	return o
+}
+
+func (o GalleryImageTypeOutput) ToGalleryImageTypeOutputWithContext(ctx context.Context) GalleryImageTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o GalleryImageTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o GalleryImageTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryImageType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The gallery image properties
+func (o GalleryImageTypeOutput) Properties() GalleryImagePropertiesResponseOutput {
+	return o.ApplyT(func(v GalleryImageType) GalleryImagePropertiesResponse { return v.Properties }).(GalleryImagePropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o GalleryImageTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GalleryImageType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o GalleryImageTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryImageType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The gallery image properties
@@ -2158,6 +2431,188 @@ func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents a lab.
+type LabType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties LabPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// LabTypeInput is an input type that accepts LabTypeArgs and LabTypeOutput values.
+// You can construct a concrete instance of `LabTypeInput` via:
+//
+//          LabTypeArgs{...}
+type LabTypeInput interface {
+	pulumi.Input
+
+	ToLabTypeOutput() LabTypeOutput
+	ToLabTypeOutputWithContext(context.Context) LabTypeOutput
+}
+
+// Represents a lab.
+type LabTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties LabPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LabTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabType)(nil)).Elem()
+}
+
+func (i LabTypeArgs) ToLabTypeOutput() LabTypeOutput {
+	return i.ToLabTypeOutputWithContext(context.Background())
+}
+
+func (i LabTypeArgs) ToLabTypeOutputWithContext(ctx context.Context) LabTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabTypeOutput)
+}
+
+// Represents a lab.
+type LabTypeOutput struct{ *pulumi.OutputState }
+
+func (LabTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabType)(nil)).Elem()
+}
+
+func (o LabTypeOutput) ToLabTypeOutput() LabTypeOutput {
+	return o
+}
+
+func (o LabTypeOutput) ToLabTypeOutputWithContext(ctx context.Context) LabTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o LabTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LabTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LabType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o LabTypeOutput) Properties() LabPropertiesResponseOutput {
+	return o.ApplyT(func(v LabType) LabPropertiesResponse { return v.Properties }).(LabPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o LabTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LabType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Represents a lab account.
+type LabAccountType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties LabAccountPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// LabAccountTypeInput is an input type that accepts LabAccountTypeArgs and LabAccountTypeOutput values.
+// You can construct a concrete instance of `LabAccountTypeInput` via:
+//
+//          LabAccountTypeArgs{...}
+type LabAccountTypeInput interface {
+	pulumi.Input
+
+	ToLabAccountTypeOutput() LabAccountTypeOutput
+	ToLabAccountTypeOutputWithContext(context.Context) LabAccountTypeOutput
+}
+
+// Represents a lab account.
+type LabAccountTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties LabAccountPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LabAccountTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabAccountType)(nil)).Elem()
+}
+
+func (i LabAccountTypeArgs) ToLabAccountTypeOutput() LabAccountTypeOutput {
+	return i.ToLabAccountTypeOutputWithContext(context.Background())
+}
+
+func (i LabAccountTypeArgs) ToLabAccountTypeOutputWithContext(ctx context.Context) LabAccountTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabAccountTypeOutput)
+}
+
+// Represents a lab account.
+type LabAccountTypeOutput struct{ *pulumi.OutputState }
+
+func (LabAccountTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabAccountType)(nil)).Elem()
+}
+
+func (o LabAccountTypeOutput) ToLabAccountTypeOutput() LabAccountTypeOutput {
+	return o
+}
+
+func (o LabAccountTypeOutput) ToLabAccountTypeOutputWithContext(ctx context.Context) LabAccountTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o LabAccountTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabAccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LabAccountTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LabAccountType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o LabAccountTypeOutput) Properties() LabAccountPropertiesResponseOutput {
+	return o.ApplyT(func(v LabAccountType) LabAccountPropertiesResponse { return v.Properties }).(LabAccountPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o LabAccountTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabAccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabAccountTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LabAccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a Lab Account.
@@ -3074,554 +3529,6 @@ func (o LabPropertiesResponsePtrOutput) UserQuota() pulumi.IntPtrOutput {
 		}
 		return &v.UserQuota
 	}).(pulumi.IntPtrOutput)
-}
-
-// Represents a lab account.
-type LabaccountType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabAccountPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabaccountTypeInput is an input type that accepts LabaccountTypeArgs and LabaccountTypeOutput values.
-// You can construct a concrete instance of `LabaccountTypeInput` via:
-//
-//          LabaccountTypeArgs{...}
-type LabaccountTypeInput interface {
-	pulumi.Input
-
-	ToLabaccountTypeOutput() LabaccountTypeOutput
-	ToLabaccountTypeOutputWithContext(context.Context) LabaccountTypeOutput
-}
-
-// Represents a lab account.
-type LabaccountTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabAccountPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabaccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountType)(nil)).Elem()
-}
-
-func (i LabaccountTypeArgs) ToLabaccountTypeOutput() LabaccountTypeOutput {
-	return i.ToLabaccountTypeOutputWithContext(context.Background())
-}
-
-func (i LabaccountTypeArgs) ToLabaccountTypeOutputWithContext(ctx context.Context) LabaccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabaccountTypeOutput)
-}
-
-// Represents a lab account.
-type LabaccountTypeOutput struct{ *pulumi.OutputState }
-
-func (LabaccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountType)(nil)).Elem()
-}
-
-func (o LabaccountTypeOutput) ToLabaccountTypeOutput() LabaccountTypeOutput {
-	return o
-}
-
-func (o LabaccountTypeOutput) ToLabaccountTypeOutputWithContext(ctx context.Context) LabaccountTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabaccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabaccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabaccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabaccountTypeOutput) Properties() LabAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v LabaccountType) LabAccountPropertiesResponse { return v.Properties }).(LabAccountPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabaccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabaccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabaccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents an image from the Azure Marketplace
-type LabaccountGalleryimageType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The gallery image properties
-	Properties GalleryImagePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabaccountGalleryimageTypeInput is an input type that accepts LabaccountGalleryimageTypeArgs and LabaccountGalleryimageTypeOutput values.
-// You can construct a concrete instance of `LabaccountGalleryimageTypeInput` via:
-//
-//          LabaccountGalleryimageTypeArgs{...}
-type LabaccountGalleryimageTypeInput interface {
-	pulumi.Input
-
-	ToLabaccountGalleryimageTypeOutput() LabaccountGalleryimageTypeOutput
-	ToLabaccountGalleryimageTypeOutputWithContext(context.Context) LabaccountGalleryimageTypeOutput
-}
-
-// Represents an image from the Azure Marketplace
-type LabaccountGalleryimageTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The gallery image properties
-	Properties GalleryImagePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabaccountGalleryimageTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountGalleryimageType)(nil)).Elem()
-}
-
-func (i LabaccountGalleryimageTypeArgs) ToLabaccountGalleryimageTypeOutput() LabaccountGalleryimageTypeOutput {
-	return i.ToLabaccountGalleryimageTypeOutputWithContext(context.Background())
-}
-
-func (i LabaccountGalleryimageTypeArgs) ToLabaccountGalleryimageTypeOutputWithContext(ctx context.Context) LabaccountGalleryimageTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabaccountGalleryimageTypeOutput)
-}
-
-// Represents an image from the Azure Marketplace
-type LabaccountGalleryimageTypeOutput struct{ *pulumi.OutputState }
-
-func (LabaccountGalleryimageTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountGalleryimageType)(nil)).Elem()
-}
-
-func (o LabaccountGalleryimageTypeOutput) ToLabaccountGalleryimageTypeOutput() LabaccountGalleryimageTypeOutput {
-	return o
-}
-
-func (o LabaccountGalleryimageTypeOutput) ToLabaccountGalleryimageTypeOutputWithContext(ctx context.Context) LabaccountGalleryimageTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabaccountGalleryimageTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabaccountGalleryimageType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabaccountGalleryimageTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountGalleryimageType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The gallery image properties
-func (o LabaccountGalleryimageTypeOutput) Properties() GalleryImagePropertiesResponseOutput {
-	return o.ApplyT(func(v LabaccountGalleryimageType) GalleryImagePropertiesResponse { return v.Properties }).(GalleryImagePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabaccountGalleryimageTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabaccountGalleryimageType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabaccountGalleryimageTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountGalleryimageType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a lab.
-type LabaccountLabType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabaccountLabTypeInput is an input type that accepts LabaccountLabTypeArgs and LabaccountLabTypeOutput values.
-// You can construct a concrete instance of `LabaccountLabTypeInput` via:
-//
-//          LabaccountLabTypeArgs{...}
-type LabaccountLabTypeInput interface {
-	pulumi.Input
-
-	ToLabaccountLabTypeOutput() LabaccountLabTypeOutput
-	ToLabaccountLabTypeOutputWithContext(context.Context) LabaccountLabTypeOutput
-}
-
-// Represents a lab.
-type LabaccountLabTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabaccountLabTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabType)(nil)).Elem()
-}
-
-func (i LabaccountLabTypeArgs) ToLabaccountLabTypeOutput() LabaccountLabTypeOutput {
-	return i.ToLabaccountLabTypeOutputWithContext(context.Background())
-}
-
-func (i LabaccountLabTypeArgs) ToLabaccountLabTypeOutputWithContext(ctx context.Context) LabaccountLabTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabaccountLabTypeOutput)
-}
-
-// Represents a lab.
-type LabaccountLabTypeOutput struct{ *pulumi.OutputState }
-
-func (LabaccountLabTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabType)(nil)).Elem()
-}
-
-func (o LabaccountLabTypeOutput) ToLabaccountLabTypeOutput() LabaccountLabTypeOutput {
-	return o
-}
-
-func (o LabaccountLabTypeOutput) ToLabaccountLabTypeOutputWithContext(ctx context.Context) LabaccountLabTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabaccountLabTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabaccountLabType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabaccountLabTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabaccountLabTypeOutput) Properties() LabPropertiesResponseOutput {
-	return o.ApplyT(func(v LabaccountLabType) LabPropertiesResponse { return v.Properties }).(LabPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabaccountLabTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabaccountLabType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabaccountLabTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents settings of an environment, from which environment instances would be created
-type LabaccountLabEnvironmentsettingType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the Environment Setting resource
-	Properties EnvironmentSettingPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabaccountLabEnvironmentsettingTypeInput is an input type that accepts LabaccountLabEnvironmentsettingTypeArgs and LabaccountLabEnvironmentsettingTypeOutput values.
-// You can construct a concrete instance of `LabaccountLabEnvironmentsettingTypeInput` via:
-//
-//          LabaccountLabEnvironmentsettingTypeArgs{...}
-type LabaccountLabEnvironmentsettingTypeInput interface {
-	pulumi.Input
-
-	ToLabaccountLabEnvironmentsettingTypeOutput() LabaccountLabEnvironmentsettingTypeOutput
-	ToLabaccountLabEnvironmentsettingTypeOutputWithContext(context.Context) LabaccountLabEnvironmentsettingTypeOutput
-}
-
-// Represents settings of an environment, from which environment instances would be created
-type LabaccountLabEnvironmentsettingTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Environment Setting resource
-	Properties EnvironmentSettingPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabaccountLabEnvironmentsettingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabEnvironmentsettingType)(nil)).Elem()
-}
-
-func (i LabaccountLabEnvironmentsettingTypeArgs) ToLabaccountLabEnvironmentsettingTypeOutput() LabaccountLabEnvironmentsettingTypeOutput {
-	return i.ToLabaccountLabEnvironmentsettingTypeOutputWithContext(context.Background())
-}
-
-func (i LabaccountLabEnvironmentsettingTypeArgs) ToLabaccountLabEnvironmentsettingTypeOutputWithContext(ctx context.Context) LabaccountLabEnvironmentsettingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabaccountLabEnvironmentsettingTypeOutput)
-}
-
-// Represents settings of an environment, from which environment instances would be created
-type LabaccountLabEnvironmentsettingTypeOutput struct{ *pulumi.OutputState }
-
-func (LabaccountLabEnvironmentsettingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabEnvironmentsettingType)(nil)).Elem()
-}
-
-func (o LabaccountLabEnvironmentsettingTypeOutput) ToLabaccountLabEnvironmentsettingTypeOutput() LabaccountLabEnvironmentsettingTypeOutput {
-	return o
-}
-
-func (o LabaccountLabEnvironmentsettingTypeOutput) ToLabaccountLabEnvironmentsettingTypeOutputWithContext(ctx context.Context) LabaccountLabEnvironmentsettingTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabaccountLabEnvironmentsettingTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabaccountLabEnvironmentsettingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Environment Setting resource
-func (o LabaccountLabEnvironmentsettingTypeOutput) Properties() EnvironmentSettingPropertiesResponseOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingType) EnvironmentSettingPropertiesResponse { return v.Properties }).(EnvironmentSettingPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabaccountLabEnvironmentsettingTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabaccountLabEnvironmentsettingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents an environment instance
-type LabaccountLabEnvironmentsettingEnvironmentType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the Environment resource
-	Properties EnvironmentPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabaccountLabEnvironmentsettingEnvironmentTypeInput is an input type that accepts LabaccountLabEnvironmentsettingEnvironmentTypeArgs and LabaccountLabEnvironmentsettingEnvironmentTypeOutput values.
-// You can construct a concrete instance of `LabaccountLabEnvironmentsettingEnvironmentTypeInput` via:
-//
-//          LabaccountLabEnvironmentsettingEnvironmentTypeArgs{...}
-type LabaccountLabEnvironmentsettingEnvironmentTypeInput interface {
-	pulumi.Input
-
-	ToLabaccountLabEnvironmentsettingEnvironmentTypeOutput() LabaccountLabEnvironmentsettingEnvironmentTypeOutput
-	ToLabaccountLabEnvironmentsettingEnvironmentTypeOutputWithContext(context.Context) LabaccountLabEnvironmentsettingEnvironmentTypeOutput
-}
-
-// Represents an environment instance
-type LabaccountLabEnvironmentsettingEnvironmentTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Environment resource
-	Properties EnvironmentPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabaccountLabEnvironmentsettingEnvironmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabEnvironmentsettingEnvironmentType)(nil)).Elem()
-}
-
-func (i LabaccountLabEnvironmentsettingEnvironmentTypeArgs) ToLabaccountLabEnvironmentsettingEnvironmentTypeOutput() LabaccountLabEnvironmentsettingEnvironmentTypeOutput {
-	return i.ToLabaccountLabEnvironmentsettingEnvironmentTypeOutputWithContext(context.Background())
-}
-
-func (i LabaccountLabEnvironmentsettingEnvironmentTypeArgs) ToLabaccountLabEnvironmentsettingEnvironmentTypeOutputWithContext(ctx context.Context) LabaccountLabEnvironmentsettingEnvironmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabaccountLabEnvironmentsettingEnvironmentTypeOutput)
-}
-
-// Represents an environment instance
-type LabaccountLabEnvironmentsettingEnvironmentTypeOutput struct{ *pulumi.OutputState }
-
-func (LabaccountLabEnvironmentsettingEnvironmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabEnvironmentsettingEnvironmentType)(nil)).Elem()
-}
-
-func (o LabaccountLabEnvironmentsettingEnvironmentTypeOutput) ToLabaccountLabEnvironmentsettingEnvironmentTypeOutput() LabaccountLabEnvironmentsettingEnvironmentTypeOutput {
-	return o
-}
-
-func (o LabaccountLabEnvironmentsettingEnvironmentTypeOutput) ToLabaccountLabEnvironmentsettingEnvironmentTypeOutputWithContext(ctx context.Context) LabaccountLabEnvironmentsettingEnvironmentTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabaccountLabEnvironmentsettingEnvironmentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingEnvironmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabaccountLabEnvironmentsettingEnvironmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingEnvironmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Environment resource
-func (o LabaccountLabEnvironmentsettingEnvironmentTypeOutput) Properties() EnvironmentPropertiesResponseOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingEnvironmentType) EnvironmentPropertiesResponse {
-		return v.Properties
-	}).(EnvironmentPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabaccountLabEnvironmentsettingEnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingEnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabaccountLabEnvironmentsettingEnvironmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabEnvironmentsettingEnvironmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The User registered to a lab
-type LabaccountLabUserType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabaccountLabUserTypeInput is an input type that accepts LabaccountLabUserTypeArgs and LabaccountLabUserTypeOutput values.
-// You can construct a concrete instance of `LabaccountLabUserTypeInput` via:
-//
-//          LabaccountLabUserTypeArgs{...}
-type LabaccountLabUserTypeInput interface {
-	pulumi.Input
-
-	ToLabaccountLabUserTypeOutput() LabaccountLabUserTypeOutput
-	ToLabaccountLabUserTypeOutputWithContext(context.Context) LabaccountLabUserTypeOutput
-}
-
-// The User registered to a lab
-type LabaccountLabUserTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabaccountLabUserTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabUserType)(nil)).Elem()
-}
-
-func (i LabaccountLabUserTypeArgs) ToLabaccountLabUserTypeOutput() LabaccountLabUserTypeOutput {
-	return i.ToLabaccountLabUserTypeOutputWithContext(context.Background())
-}
-
-func (i LabaccountLabUserTypeArgs) ToLabaccountLabUserTypeOutputWithContext(ctx context.Context) LabaccountLabUserTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabaccountLabUserTypeOutput)
-}
-
-// The User registered to a lab
-type LabaccountLabUserTypeOutput struct{ *pulumi.OutputState }
-
-func (LabaccountLabUserTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabaccountLabUserType)(nil)).Elem()
-}
-
-func (o LabaccountLabUserTypeOutput) ToLabaccountLabUserTypeOutput() LabaccountLabUserTypeOutput {
-	return o
-}
-
-func (o LabaccountLabUserTypeOutput) ToLabaccountLabUserTypeOutputWithContext(ctx context.Context) LabaccountLabUserTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabaccountLabUserTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabaccountLabUserType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabaccountLabUserTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabUserType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// These are the properties for the user registered under a lab.
-func (o LabaccountLabUserTypeOutput) Properties() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v LabaccountLabUserType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabaccountLabUserTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabaccountLabUserType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabaccountLabUserTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabaccountLabUserType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Details of the status of an operation.
@@ -5630,6 +5537,97 @@ func (o SizeInfoResponseArrayOutput) Index(i pulumi.IntInput) SizeInfoResponseOu
 	}).(SizeInfoResponseOutput)
 }
 
+// The User registered to a lab
+type UserType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// These are the properties for the user registered under a lab.
+	Properties UserPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// UserTypeInput is an input type that accepts UserTypeArgs and UserTypeOutput values.
+// You can construct a concrete instance of `UserTypeInput` via:
+//
+//          UserTypeArgs{...}
+type UserTypeInput interface {
+	pulumi.Input
+
+	ToUserTypeOutput() UserTypeOutput
+	ToUserTypeOutputWithContext(context.Context) UserTypeOutput
+}
+
+// The User registered to a lab
+type UserTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// These are the properties for the user registered under a lab.
+	Properties UserPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UserTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (i UserTypeArgs) ToUserTypeOutput() UserTypeOutput {
+	return i.ToUserTypeOutputWithContext(context.Background())
+}
+
+func (i UserTypeArgs) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTypeOutput)
+}
+
+// The User registered to a lab
+type UserTypeOutput struct{ *pulumi.OutputState }
+
+func (UserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {
+	return o
+}
+
+func (o UserTypeOutput) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o UserTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o UserTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// These are the properties for the user registered under a lab.
+func (o UserTypeOutput) Properties() UserPropertiesResponseOutput {
+	return o.ApplyT(func(v UserType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o UserTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UserType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o UserTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Lab User properties
 type UserProperties struct {
 	// The provisioning status of the resource.
@@ -6288,10 +6286,12 @@ func (o VmStateDetailsResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(EnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentSettingTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingPropertiesOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingPropertiesResponseOutput{})
@@ -6300,6 +6300,7 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentSizeArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseArrayOutput{})
+	pulumi.RegisterOutputType(GalleryImageTypeOutput{})
 	pulumi.RegisterOutputType(GalleryImagePropertiesOutput{})
 	pulumi.RegisterOutputType(GalleryImagePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GalleryImagePropertiesResponseOutput{})
@@ -6307,6 +6308,8 @@ func init() {
 	pulumi.RegisterOutputType(GalleryImageReferenceOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(LabTypeOutput{})
+	pulumi.RegisterOutputType(LabAccountTypeOutput{})
 	pulumi.RegisterOutputType(LabAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(LabAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabAccountPropertiesResponseOutput{})
@@ -6315,12 +6318,6 @@ func init() {
 	pulumi.RegisterOutputType(LabPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabaccountTypeOutput{})
-	pulumi.RegisterOutputType(LabaccountGalleryimageTypeOutput{})
-	pulumi.RegisterOutputType(LabaccountLabTypeOutput{})
-	pulumi.RegisterOutputType(LabaccountLabEnvironmentsettingTypeOutput{})
-	pulumi.RegisterOutputType(LabaccountLabEnvironmentsettingEnvironmentTypeOutput{})
-	pulumi.RegisterOutputType(LabaccountLabUserTypeOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultResponseOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultResponsePtrOutput{})
@@ -6346,6 +6343,7 @@ func init() {
 	pulumi.RegisterOutputType(SizeInfoArrayOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserTypeOutput{})
 	pulumi.RegisterOutputType(UserPropertiesOutput{})
 	pulumi.RegisterOutputType(UserPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponseOutput{})

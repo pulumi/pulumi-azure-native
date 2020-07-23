@@ -13,10 +13,22 @@ namespace Pulumi.AzureRM.EventGrid.Inputs
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the resource.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
         /// Properties of the PrivateEndpointConnection.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.PrivateEndpointConnectionPropertiesResponseArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// Type of the resource.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public PrivateEndpointConnectionArgs()
         {

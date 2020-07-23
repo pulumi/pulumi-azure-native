@@ -3,13 +3,13 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .application import *
+from .application_type import *
+from .application_type_version import *
 from .cluster import *
-from .cluster_application import *
-from .cluster_application_service import *
-from .cluster_application_type import *
-from .cluster_application_type_version import *
+from .get_application import *
+from .get_application_type import *
+from .get_application_type_version import *
 from .get_cluster import *
-from .get_cluster_application import *
-from .get_cluster_application_service import *
-from .get_cluster_application_type import *
-from .get_cluster_application_type_version import *
+from .get_service import *
+from .service import *

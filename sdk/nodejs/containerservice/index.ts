@@ -2,17 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./agentPool";
 export * from "./containerService";
+export * from "./getAgentPool";
 export * from "./getContainerService";
 export * from "./getManagedCluster";
-export * from "./getManagedClusterAgentPool";
-export * from "./getManagedClusterPrivateEndpointConnection";
 export * from "./getOpenShiftManagedCluster";
-export * from "./listManagedClusterAccessProfileCredential";
-export * from "./listManagedClusterClusterAdminCredential";
-export * from "./listManagedClusterClusterMonitoringUserCredential";
-export * from "./listManagedClusterClusterUserCredential";
+export * from "./getPrivateEndpointConnection";
+export * from "./listManagedClusterAccessProfile";
+export * from "./listManagedClusterClusterAdminCredentials";
+export * from "./listManagedClusterClusterMonitoringUserCredentials";
+export * from "./listManagedClusterClusterUserCredentials";
 export * from "./managedCluster";
-export * from "./managedClusterAgentPool";
-export * from "./managedClusterPrivateEndpointConnection";
 export * from "./openShiftManagedCluster";
+export * from "./privateEndpointConnection";

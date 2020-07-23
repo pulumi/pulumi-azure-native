@@ -3,8 +3,8 @@
 
 // Export members:
 export * from "./dataManager";
-export * from "./dataManagerDataServiceJobDefinition";
-export * from "./dataManagerDataStore";
+export * from "./dataStore";
 export * from "./getDataManager";
-export * from "./getDataManagerDataServiceJobDefinition";
-export * from "./getDataManagerDataStore";
+export * from "./getDataStore";
+export * from "./getJobDefinition";
+export * from "./jobDefinition";

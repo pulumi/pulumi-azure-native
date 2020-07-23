@@ -4177,7 +4177,7 @@ export namespace botservice {
     /**
      * Channel definition
      */
-    export interface Channel {
+    export interface ChannelDefinition {
         /**
          * The channel name
          */
@@ -5191,9 +5191,17 @@ export namespace cognitiveservices {
      */
     export interface PrivateEndpointConnection {
         /**
+         * The name of the resource
+         */
+        name: pulumi.Input<string>;
+        /**
          * Resource properties.
          */
-        properties?: pulumi.Input<inputs.cognitiveservices.PrivateEndpointConnectionProperties>;
+        properties: pulumi.Input<inputs.cognitiveservices.PrivateEndpointConnectionPropertiesResponse>;
+        /**
+         * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -5215,9 +5223,55 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Properties of the PrivateEndpointConnectProperties.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The private link resource group ids.
+         */
+        groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: pulumi.Input<inputs.cognitiveservices.PrivateEndpointResponse>;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.cognitiveservices.PrivateLinkServiceConnectionStateResponse>;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: pulumi.Input<string>;
+    }
+
+    /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
     export interface PrivateLinkServiceConnectionState {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
         /**
          * A message indicating if changes on the service provider require any updates on the consumer.
          */
@@ -9758,7 +9812,7 @@ export namespace customerinsights {
     /**
      * Properties of connector.
      */
-    export interface Connector {
+    export interface ConnectorDefinition {
         /**
          * Name of the connector.
          */
@@ -9783,36 +9837,6 @@ export namespace customerinsights {
          * If this is an internal connector.
          */
         isInternal?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * The connector mapping definition.
-     */
-    export interface ConnectorMapping {
-        /**
-         * Type of connector.
-         */
-        connectorType?: pulumi.Input<string>;
-        /**
-         * The description of the connector mapping.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Display name for the connector mapping.
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * Defines which entity type the file should map to.
-         */
-        entityType: pulumi.Input<string>;
-        /**
-         * The mapping entity name.
-         */
-        entityTypeName: pulumi.Input<string>;
-        /**
-         * The properties of the mapping.
-         */
-        mappingProperties: pulumi.Input<inputs.customerinsights.ConnectorMappingProperties>;
     }
 
     /**
@@ -9841,6 +9865,36 @@ export namespace customerinsights {
          * The destination folder where files will be moved to once the import is done.
          */
         destinationFolder?: pulumi.Input<string>;
+    }
+
+    /**
+     * The connector mapping definition.
+     */
+    export interface ConnectorMappingDefinition {
+        /**
+         * Type of connector.
+         */
+        connectorType?: pulumi.Input<string>;
+        /**
+         * The description of the connector mapping.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Display name for the connector mapping.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Defines which entity type the file should map to.
+         */
+        entityType: pulumi.Input<string>;
+        /**
+         * The mapping entity name.
+         */
+        entityTypeName: pulumi.Input<string>;
+        /**
+         * The properties of the mapping.
+         */
+        mappingProperties: pulumi.Input<inputs.customerinsights.ConnectorMappingProperties>;
     }
 
     /**
@@ -10164,7 +10218,7 @@ export namespace customerinsights {
     /**
      * The prediction definition.
      */
-    export interface Prediction {
+    export interface PredictionDefinition {
         /**
          * Whether do auto analyze.
          */
@@ -10518,7 +10572,7 @@ export namespace customerinsights {
     /**
      * The Role Assignment definition.
      */
-    export interface RoleAssignment {
+    export interface RoleAssignmentDefinition {
         /**
          * Widget types set for the assignment.
          */
@@ -10632,7 +10686,7 @@ export namespace customerinsights {
     /**
      * The view in Customer 360 web application.
      */
-    export interface View {
+    export interface ViewDefinition {
         /**
          * View definition.
          */
@@ -11563,7 +11617,7 @@ export namespace datafactory {
     /**
      * Azure Data Factory nested object which contains a flow with data movements and transformations.
      */
-    export interface DataFlow {
+    export interface DataFlowDefinition {
         /**
          * List of tags that can be used for describing the data flow.
          */
@@ -11595,7 +11649,7 @@ export namespace datafactory {
     /**
      * The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
      */
-    export interface Dataset {
+    export interface DatasetDefinition {
         /**
          * List of tags that can be used for describing the Dataset.
          */
@@ -11703,7 +11757,7 @@ export namespace datafactory {
     /**
      * Azure Data Factory nested object which serves as a compute resource for activities.
      */
-    export interface IntegrationRuntime {
+    export interface IntegrationRuntimeDefinition {
         /**
          * Integration runtime description.
          */
@@ -11735,7 +11789,7 @@ export namespace datafactory {
     /**
      * The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
      */
-    export interface LinkedService {
+    export interface LinkedServiceDefinition {
         /**
          * List of tags that can be used for describing the linked service.
          */
@@ -11791,7 +11845,7 @@ export namespace datafactory {
     /**
      * A data factory pipeline.
      */
-    export interface Pipeline {
+    export interface PipelineDefinition {
         /**
          * List of activities in pipeline.
          */
@@ -11839,7 +11893,7 @@ export namespace datafactory {
     /**
      * Azure data factory nested object which contains information about creating pipeline run
      */
-    export interface Trigger {
+    export interface TriggerDefinition {
         /**
          * List of tags that can be used for describing the trigger.
          */
@@ -13097,9 +13151,17 @@ export namespace devices {
      */
     export interface PrivateEndpointConnection {
         /**
+         * The resource name.
+         */
+        name: pulumi.Input<string>;
+        /**
          * The properties of a private endpoint connection
          */
-        properties: pulumi.Input<inputs.devices.PrivateEndpointConnectionProperties>;
+        properties: pulumi.Input<inputs.devices.PrivateEndpointConnectionPropertiesResponse>;
+        /**
+         * The resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -13117,9 +13179,51 @@ export namespace devices {
     }
 
     /**
+     * The properties of a private endpoint connection
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The private endpoint property of a private endpoint connection
+         */
+        privateEndpoint?: pulumi.Input<inputs.devices.PrivateEndpointResponse>;
+        /**
+         * The current state of a private endpoint connection
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.devices.PrivateLinkServiceConnectionStateResponse>;
+    }
+
+    /**
+     * The private endpoint property of a private endpoint connection
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The resource identifier.
+         */
+        id: pulumi.Input<string>;
+    }
+
+    /**
      * The current state of a private endpoint connection
      */
     export interface PrivateLinkServiceConnectionState {
+        /**
+         * Actions required for a private endpoint connection
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The description for the current state of a private endpoint connection
+         */
+        description: pulumi.Input<string>;
+        /**
+         * The status of a private endpoint connection
+         */
+        status: pulumi.Input<string>;
+    }
+
+    /**
+     * The current state of a private endpoint connection
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
         /**
          * Actions required for a private endpoint connection
          */
@@ -15687,6 +15791,24 @@ export namespace eventgrid {
     }
 
     /**
+     * ConnectionState information.
+     */
+    export interface ConnectionStateResponse {
+        /**
+         * Actions required (if any).
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * Description of the connection state.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Status of the connection.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
      * Properties of the Domain.
      */
     export interface DomainProperties {
@@ -15746,9 +15868,17 @@ export namespace eventgrid {
 
     export interface PrivateEndpointConnection {
         /**
+         * Name of the resource.
+         */
+        name: pulumi.Input<string>;
+        /**
          * Properties of the PrivateEndpointConnection.
          */
-        properties?: pulumi.Input<inputs.eventgrid.PrivateEndpointConnectionProperties>;
+        properties: pulumi.Input<inputs.eventgrid.PrivateEndpointConnectionPropertiesResponse>;
+        /**
+         * Type of the resource.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -15771,6 +15901,38 @@ export namespace eventgrid {
          * Provisioning state of the Private Endpoint Connection.
          */
         provisioningState?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * GroupIds from the private link service resource.
+         */
+        groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Private Endpoint resource for this Connection.
+         */
+        privateEndpoint?: pulumi.Input<inputs.eventgrid.PrivateEndpointResponse>;
+        /**
+         * Details about the state of the connection.
+         */
+        privateLinkServiceConnectionState?: pulumi.Input<inputs.eventgrid.ConnectionStateResponse>;
+        /**
+         * Provisioning state of the Private Endpoint Connection.
+         */
+        provisioningState?: pulumi.Input<string>;
+    }
+
+    /**
+     * PrivateEndpoint information.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint.
+         */
+        id?: pulumi.Input<string>;
     }
 
     /**
@@ -22122,6 +22284,26 @@ export namespace netapp {
 
 export namespace network {
     /**
+     * An A record.
+     */
+    export interface ARecord {
+        /**
+         * The IPv4 address of this A record.
+         */
+        ipv4Address?: pulumi.Input<string>;
+    }
+
+    /**
+     * An AAAA record.
+     */
+    export interface AaaaRecord {
+        /**
+         * The IPv6 address of this AAAA record.
+         */
+        ipv6Address?: pulumi.Input<string>;
+    }
+
+    /**
      * AAD Vpn authentication type related parameters.
      */
     export interface AadAuthenticationParameters {
@@ -23976,6 +24158,16 @@ export namespace network {
     }
 
     /**
+     * A CNAME record.
+     */
+    export interface CnameRecord {
+        /**
+         * The canonical name for this CNAME record.
+         */
+        cname?: pulumi.Input<string>;
+    }
+
+    /**
      * Describes the destination of connection monitor.
      */
     export interface ConnectionMonitorDestination {
@@ -24418,17 +24610,13 @@ export namespace network {
      */
     export interface Endpoint {
         /**
-         * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-         */
-        id?: pulumi.Input<string>;
-        /**
          * The name of the resource
          */
         name?: pulumi.Input<string>;
         /**
          * The properties of the Traffic Manager endpoint.
          */
-        properties?: pulumi.Input<inputs.network.EndpointProperties>;
+        properties: pulumi.Input<inputs.network.EndpointPropertiesResponse>;
         /**
          * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
          */
@@ -24489,6 +24677,70 @@ export namespace network {
      * Custom header name and value.
      */
     export interface EndpointPropertiesProperties {
+        /**
+         * Header name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Header value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Class representing a Traffic Manager endpoint properties.
+     */
+    export interface EndpointPropertiesResponse {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesResponseProperties>[]>;
+        /**
+         * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+         */
+        endpointLocation?: pulumi.Input<string>;
+        /**
+         * The monitoring status of the endpoint.
+         */
+        endpointMonitorStatus?: pulumi.Input<string>;
+        /**
+         * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+         */
+        endpointStatus?: pulumi.Input<string>;
+        /**
+         * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+         */
+        geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+         */
+        minChildEndpoints?: pulumi.Input<number>;
+        /**
+         * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+         */
+        subnets?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesResponseProperties>[]>;
+        /**
+         * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+         */
+        targetResourceId?: pulumi.Input<string>;
+        /**
+         * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface EndpointPropertiesResponseProperties {
         /**
          * Header name.
          */
@@ -26264,6 +26516,20 @@ export namespace network {
     }
 
     /**
+     * An MX record.
+     */
+    export interface MxRecord {
+        /**
+         * The domain name of the mail host for this MX record.
+         */
+        exchange?: pulumi.Input<string>;
+        /**
+         * The preference value for this MX record.
+         */
+        preference?: pulumi.Input<number>;
+    }
+
+    /**
      * Nat Gateway properties.
      */
     export interface NatGatewayPropertiesFormat {
@@ -27018,6 +27284,20 @@ export namespace network {
     }
 
     /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableResponse {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceResponse>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * DDoS custom policy properties.
      */
     export interface ProtocolCustomSettingsFormat {
@@ -27037,6 +27317,16 @@ export namespace network {
          * The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
          */
         triggerSensitivityOverride?: pulumi.Input<string>;
+    }
+
+    /**
+     * A PTR record.
+     */
+    export interface PtrRecord {
+        /**
+         * The PTR target domain name for this PTR record.
+         */
+        ptrdname?: pulumi.Input<string>;
     }
 
     /**
@@ -27200,6 +27490,52 @@ export namespace network {
     }
 
     /**
+     * Represents the properties of the records in the record set.
+     */
+    export interface RecordSetProperties {
+        /**
+         * The list of A records in the record set.
+         */
+        aRecords?: pulumi.Input<pulumi.Input<inputs.network.ARecord>[]>;
+        /**
+         * The list of AAAA records in the record set.
+         */
+        aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.AaaaRecord>[]>;
+        /**
+         * The CNAME record in the record set.
+         */
+        cnameRecord?: pulumi.Input<inputs.network.CnameRecord>;
+        /**
+         * The metadata attached to the record set.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The list of MX records in the record set.
+         */
+        mxRecords?: pulumi.Input<pulumi.Input<inputs.network.MxRecord>[]>;
+        /**
+         * The list of PTR records in the record set.
+         */
+        ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.PtrRecord>[]>;
+        /**
+         * The SOA record in the record set.
+         */
+        soaRecord?: pulumi.Input<inputs.network.SoaRecord>;
+        /**
+         * The list of SRV records in the record set.
+         */
+        srvRecords?: pulumi.Input<pulumi.Input<inputs.network.SrvRecord>[]>;
+        /**
+         * The TTL (time-to-live) of the records in the record set.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * The list of TXT records in the record set.
+         */
+        txtRecords?: pulumi.Input<pulumi.Input<inputs.network.TxtRecord>[]>;
+    }
+
+    /**
      * Parameters that define the retention policy for flow log.
      */
     export interface RetentionPolicyParameters {
@@ -27252,9 +27588,9 @@ export namespace network {
      */
     export interface RouteFilterRule {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * Resource location.
          */
@@ -27266,7 +27602,7 @@ export namespace network {
         /**
          * Properties of the route filter rule.
          */
-        properties?: pulumi.Input<inputs.network.RouteFilterRulePropertiesFormat>;
+        properties: pulumi.Input<inputs.network.RouteFilterRulePropertiesFormatResponse>;
     }
 
     /**
@@ -27281,6 +27617,28 @@ export namespace network {
          * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
          */
         communities: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The rule type of the rule.
+         */
+        routeFilterRuleType: pulumi.Input<string>;
+    }
+
+    /**
+     * Route Filter Rule Resource.
+     */
+    export interface RouteFilterRulePropertiesFormatResponse {
+        /**
+         * The access type of the rule.
+         */
+        access: pulumi.Input<string>;
+        /**
+         * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+         */
+        communities: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The provisioning state of the route filter rule resource.
+         */
+        provisioningState: pulumi.Input<string>;
         /**
          * The rule type of the rule.
          */
@@ -27357,6 +27715,24 @@ export namespace network {
          * List of routes that control routing from VirtualHub into a virtual network connection.
          */
         vnetRoutes?: pulumi.Input<inputs.network.VnetRoute>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationResponse {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceResponse>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableResponse>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteResponse>;
     }
 
     /**
@@ -27704,9 +28080,83 @@ export namespace network {
     }
 
     /**
+     * An SOA record.
+     */
+    export interface SoaRecord {
+        /**
+         * The email contact for this SOA record.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The expire time for this SOA record.
+         */
+        expireTime?: pulumi.Input<number>;
+        /**
+         * The domain name of the authoritative name server for this SOA record.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+         */
+        minimumTtl?: pulumi.Input<number>;
+        /**
+         * The refresh value for this SOA record.
+         */
+        refreshTime?: pulumi.Input<number>;
+        /**
+         * The retry time for this SOA record.
+         */
+        retryTime?: pulumi.Input<number>;
+        /**
+         * The serial number for this SOA record.
+         */
+        serialNumber?: pulumi.Input<number>;
+    }
+
+    /**
+     * An SRV record.
+     */
+    export interface SrvRecord {
+        /**
+         * The port value for this SRV record.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The priority value for this SRV record.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The target domain name for this SRV record.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * The weight value for this SRV record.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
      * List of all Static Routes.
      */
     export interface StaticRoute {
+        /**
+         * List of all address prefixes.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the StaticRoute that is unique within a VnetRoute.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The ip address of the next hop.
+         */
+        nextHopIpAddress?: pulumi.Input<string>;
+    }
+
+    /**
+     * List of all Static Routes.
+     */
+    export interface StaticRouteResponse {
         /**
          * List of all address prefixes.
          */
@@ -27860,6 +28310,16 @@ export namespace network {
     }
 
     /**
+     * A TXT record.
+     */
+    export interface TxtRecord {
+        /**
+         * The text value of this TXT record.
+         */
+        value?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Properties of the rule group.
      */
     export interface VirtualApplianceSiteProperties {
@@ -27964,9 +28424,33 @@ export namespace network {
     }
 
     /**
-     * VirtualHubRouteTableV2 Resource.
+     * VirtualHub route.
+     */
+    export interface VirtualHubRoute {
+        /**
+         * List of all addressPrefixes.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * NextHop ip address.
+         */
+        nextHopIpAddress?: pulumi.Input<string>;
+    }
+
+    /**
+     * VirtualHub route table.
      */
     export interface VirtualHubRouteTable {
+        /**
+         * List of all routes.
+         */
+        routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
+    }
+
+    /**
+     * VirtualHubRouteTableV2 Resource.
+     */
+    export interface VirtualHubRouteTableV2 {
         /**
          * A unique read-only string that changes whenever the resource is updated.
          */
@@ -27979,24 +28463,6 @@ export namespace network {
          * Properties of the virtual hub route table v2.
          */
         properties: pulumi.Input<inputs.network.VirtualHubRouteTableV2PropertiesResponse>;
-    }
-
-    /**
-     * VirtualHubRouteTableV2 Resource.
-     */
-    export interface VirtualHubRouteTableV2 {
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Properties of the virtual hub route table v2.
-         */
-        properties?: pulumi.Input<inputs.network.VirtualHubRouteTableV2Properties>;
     }
 
     /**
@@ -28448,9 +28914,9 @@ export namespace network {
      */
     export interface VirtualNetworkPeering {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * The name of the resource that is unique within a resource group. This name can be used to access the resource.
          */
@@ -28458,7 +28924,7 @@ export namespace network {
         /**
          * Properties of the virtual network peering.
          */
-        properties?: pulumi.Input<inputs.network.VirtualNetworkPeeringPropertiesFormat>;
+        properties: pulumi.Input<inputs.network.VirtualNetworkPeeringPropertiesFormatResponse>;
     }
 
     /**
@@ -28489,6 +28955,44 @@ export namespace network {
          * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
          */
         remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResource>;
+        /**
+         * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+         */
+        useRemoteGateways?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Properties of the virtual network peering.
+     */
+    export interface VirtualNetworkPeeringPropertiesFormatResponse {
+        /**
+         * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+         */
+        allowForwardedTraffic?: pulumi.Input<boolean>;
+        /**
+         * If gateway links can be used in remote virtual networking to link to this virtual network.
+         */
+        allowGatewayTransit?: pulumi.Input<boolean>;
+        /**
+         * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+         */
+        allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+        /**
+         * The status of the virtual network peering.
+         */
+        peeringState?: pulumi.Input<string>;
+        /**
+         * The provisioning state of the virtual network peering resource.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * The reference to the remote virtual network address space.
+         */
+        remoteAddressSpace?: pulumi.Input<inputs.network.AddressSpaceResponse>;
+        /**
+         * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+         */
+        remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceResponse>;
         /**
          * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
          */
@@ -28647,6 +29151,16 @@ export namespace network {
          * List of all Static Routes.
          */
         staticRoutes?: pulumi.Input<pulumi.Input<inputs.network.StaticRoute>[]>;
+    }
+
+    /**
+     * List of routes that control routing from VirtualHub into a virtual network connection.
+     */
+    export interface VnetRouteResponse {
+        /**
+         * List of all Static Routes.
+         */
+        staticRoutes?: pulumi.Input<pulumi.Input<inputs.network.StaticRouteResponse>[]>;
     }
 
     /**
@@ -28882,9 +29396,9 @@ export namespace network {
      */
     export interface VpnConnection {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * The name of the resource that is unique within a resource group. This name can be used to access the resource.
          */
@@ -28892,7 +29406,7 @@ export namespace network {
         /**
          * Properties of the VPN connection.
          */
-        properties?: pulumi.Input<inputs.network.VpnConnectionProperties>;
+        properties: pulumi.Input<inputs.network.VpnConnectionPropertiesResponse>;
     }
 
     /**
@@ -28959,6 +29473,84 @@ export namespace network {
          * List of all vpn site link connections to the gateway.
          */
         vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnection>[]>;
+    }
+
+    /**
+     * Parameters for VpnConnection.
+     */
+    export interface VpnConnectionPropertiesResponse {
+        /**
+         * Expected bandwidth in MBPS.
+         */
+        connectionBandwidth?: pulumi.Input<number>;
+        /**
+         * The connection status.
+         */
+        connectionStatus?: pulumi.Input<string>;
+        /**
+         * The dead peer detection timeout for a vpn connection in seconds.
+         */
+        dpdTimeoutSeconds?: pulumi.Input<number>;
+        /**
+         * Egress bytes transferred.
+         */
+        egressBytesTransferred: pulumi.Input<number>;
+        /**
+         * EnableBgp flag.
+         */
+        enableBgp?: pulumi.Input<boolean>;
+        /**
+         * Enable internet security.
+         */
+        enableInternetSecurity?: pulumi.Input<boolean>;
+        /**
+         * EnableBgp flag.
+         */
+        enableRateLimiting?: pulumi.Input<boolean>;
+        /**
+         * Ingress bytes transferred.
+         */
+        ingressBytesTransferred: pulumi.Input<number>;
+        /**
+         * The IPSec Policies to be considered by this connection.
+         */
+        ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyResponse>[]>;
+        /**
+         * The provisioning state of the VPN connection resource.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Id of the connected vpn site.
+         */
+        remoteVpnSite?: pulumi.Input<inputs.network.SubResourceResponse>;
+        /**
+         * The Routing Configuration indicating the associated and propagated route tables on this connection.
+         */
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationResponse>;
+        /**
+         * Routing weight for vpn connection.
+         */
+        routingWeight?: pulumi.Input<number>;
+        /**
+         * SharedKey for the vpn connection.
+         */
+        sharedKey?: pulumi.Input<string>;
+        /**
+         * Use local azure ip to initiate connection.
+         */
+        useLocalAzureIpAddress?: pulumi.Input<boolean>;
+        /**
+         * Enable policy-based traffic selectors.
+         */
+        usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+        /**
+         * Connection protocol used for this connection.
+         */
+        vpnConnectionProtocolType?: pulumi.Input<string>;
+        /**
+         * List of all vpn site link connections to the gateway.
+         */
+        vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnectionResponse>[]>;
     }
 
     /**
@@ -29205,6 +29797,94 @@ export namespace network {
          * Id of the connected vpn site link.
          */
         vpnSiteLink?: pulumi.Input<inputs.network.SubResource>;
+    }
+
+    /**
+     * Parameters for VpnConnection.
+     */
+    export interface VpnSiteLinkConnectionPropertiesResponse {
+        /**
+         * Expected bandwidth in MBPS.
+         */
+        connectionBandwidth?: pulumi.Input<number>;
+        /**
+         * The connection status.
+         */
+        connectionStatus?: pulumi.Input<string>;
+        /**
+         * Egress bytes transferred.
+         */
+        egressBytesTransferred: pulumi.Input<number>;
+        /**
+         * EnableBgp flag.
+         */
+        enableBgp?: pulumi.Input<boolean>;
+        /**
+         * EnableBgp flag.
+         */
+        enableRateLimiting?: pulumi.Input<boolean>;
+        /**
+         * Ingress bytes transferred.
+         */
+        ingressBytesTransferred: pulumi.Input<number>;
+        /**
+         * The IPSec Policies to be considered by this connection.
+         */
+        ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyResponse>[]>;
+        /**
+         * The provisioning state of the VPN site link connection resource.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Routing weight for vpn connection.
+         */
+        routingWeight?: pulumi.Input<number>;
+        /**
+         * SharedKey for the vpn connection.
+         */
+        sharedKey?: pulumi.Input<string>;
+        /**
+         * Use local azure ip to initiate connection.
+         */
+        useLocalAzureIpAddress?: pulumi.Input<boolean>;
+        /**
+         * Enable policy-based traffic selectors.
+         */
+        usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+        /**
+         * Connection protocol used for this connection.
+         */
+        vpnConnectionProtocolType?: pulumi.Input<string>;
+        /**
+         * Id of the connected vpn site link.
+         */
+        vpnSiteLink?: pulumi.Input<inputs.network.SubResourceResponse>;
+    }
+
+    /**
+     * VpnSiteLinkConnection Resource.
+     */
+    export interface VpnSiteLinkConnectionResponse {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: pulumi.Input<string>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Properties of the VPN site link connection.
+         */
+        properties?: pulumi.Input<inputs.network.VpnSiteLinkConnectionPropertiesResponse>;
+        /**
+         * Resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -30549,7 +31229,7 @@ export namespace recoveryservices {
     /**
      * Private Endpoint Connection Response Properties
      */
-    export interface PrivateEndpointConnection {
+    export interface PrivateEndpointConnectionDefinition {
         /**
          * Gets or sets private endpoint associated with the private endpoint connection
          */
@@ -30585,7 +31265,7 @@ export namespace recoveryservices {
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    export interface ProtectionPolicy {
+    export interface ProtectionPolicyDefinition {
         /**
          * This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
          */
@@ -35671,7 +36351,7 @@ export namespace web {
     /**
      * Description of an App Service Environment.
      */
-    export interface AppServiceEnvironment {
+    export interface AppServiceEnvironmentDefinition {
         /**
          * API Management Account associated with the App Service Environment.
          */

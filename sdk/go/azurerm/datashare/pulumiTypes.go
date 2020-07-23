@@ -416,81 +416,8 @@ func (o AccountPropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A share data transfer object.
-type AccountShareType struct {
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Properties on the share
-	Properties SharePropertiesResponse `pulumi:"properties"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-}
-
-// AccountShareTypeInput is an input type that accepts AccountShareTypeArgs and AccountShareTypeOutput values.
-// You can construct a concrete instance of `AccountShareTypeInput` via:
-//
-//          AccountShareTypeArgs{...}
-type AccountShareTypeInput interface {
-	pulumi.Input
-
-	ToAccountShareTypeOutput() AccountShareTypeOutput
-	ToAccountShareTypeOutputWithContext(context.Context) AccountShareTypeOutput
-}
-
-// A share data transfer object.
-type AccountShareTypeArgs struct {
-	// Name of the azure resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties on the share
-	Properties SharePropertiesResponseInput `pulumi:"properties"`
-	// Type of the azure resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountShareTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareType)(nil)).Elem()
-}
-
-func (i AccountShareTypeArgs) ToAccountShareTypeOutput() AccountShareTypeOutput {
-	return i.ToAccountShareTypeOutputWithContext(context.Background())
-}
-
-func (i AccountShareTypeArgs) ToAccountShareTypeOutputWithContext(ctx context.Context) AccountShareTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountShareTypeOutput)
-}
-
-// A share data transfer object.
-type AccountShareTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountShareTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareType)(nil)).Elem()
-}
-
-func (o AccountShareTypeOutput) ToAccountShareTypeOutput() AccountShareTypeOutput {
-	return o
-}
-
-func (o AccountShareTypeOutput) ToAccountShareTypeOutputWithContext(ctx context.Context) AccountShareTypeOutput {
-	return o
-}
-
-// Name of the azure resource
-func (o AccountShareTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties on the share
-func (o AccountShareTypeOutput) Properties() SharePropertiesResponseOutput {
-	return o.ApplyT(func(v AccountShareType) SharePropertiesResponse { return v.Properties }).(SharePropertiesResponseOutput)
-}
-
-// Type of the azure resource
-func (o AccountShareTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // A DataSet data transfer object.
-type AccountShareDataSetType struct {
+type DataSetType struct {
 	// Kind of data set.
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource
@@ -499,19 +426,19 @@ type AccountShareDataSetType struct {
 	Type string `pulumi:"type"`
 }
 
-// AccountShareDataSetTypeInput is an input type that accepts AccountShareDataSetTypeArgs and AccountShareDataSetTypeOutput values.
-// You can construct a concrete instance of `AccountShareDataSetTypeInput` via:
+// DataSetTypeInput is an input type that accepts DataSetTypeArgs and DataSetTypeOutput values.
+// You can construct a concrete instance of `DataSetTypeInput` via:
 //
-//          AccountShareDataSetTypeArgs{...}
-type AccountShareDataSetTypeInput interface {
+//          DataSetTypeArgs{...}
+type DataSetTypeInput interface {
 	pulumi.Input
 
-	ToAccountShareDataSetTypeOutput() AccountShareDataSetTypeOutput
-	ToAccountShareDataSetTypeOutputWithContext(context.Context) AccountShareDataSetTypeOutput
+	ToDataSetTypeOutput() DataSetTypeOutput
+	ToDataSetTypeOutputWithContext(context.Context) DataSetTypeOutput
 }
 
 // A DataSet data transfer object.
-type AccountShareDataSetTypeArgs struct {
+type DataSetTypeArgs struct {
 	// Kind of data set.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Name of the azure resource
@@ -520,196 +447,50 @@ type AccountShareDataSetTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (AccountShareDataSetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareDataSetType)(nil)).Elem()
+func (DataSetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetType)(nil)).Elem()
 }
 
-func (i AccountShareDataSetTypeArgs) ToAccountShareDataSetTypeOutput() AccountShareDataSetTypeOutput {
-	return i.ToAccountShareDataSetTypeOutputWithContext(context.Background())
+func (i DataSetTypeArgs) ToDataSetTypeOutput() DataSetTypeOutput {
+	return i.ToDataSetTypeOutputWithContext(context.Background())
 }
 
-func (i AccountShareDataSetTypeArgs) ToAccountShareDataSetTypeOutputWithContext(ctx context.Context) AccountShareDataSetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountShareDataSetTypeOutput)
+func (i DataSetTypeArgs) ToDataSetTypeOutputWithContext(ctx context.Context) DataSetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetTypeOutput)
 }
 
 // A DataSet data transfer object.
-type AccountShareDataSetTypeOutput struct{ *pulumi.OutputState }
+type DataSetTypeOutput struct{ *pulumi.OutputState }
 
-func (AccountShareDataSetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareDataSetType)(nil)).Elem()
+func (DataSetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetType)(nil)).Elem()
 }
 
-func (o AccountShareDataSetTypeOutput) ToAccountShareDataSetTypeOutput() AccountShareDataSetTypeOutput {
+func (o DataSetTypeOutput) ToDataSetTypeOutput() DataSetTypeOutput {
 	return o
 }
 
-func (o AccountShareDataSetTypeOutput) ToAccountShareDataSetTypeOutputWithContext(ctx context.Context) AccountShareDataSetTypeOutput {
+func (o DataSetTypeOutput) ToDataSetTypeOutputWithContext(ctx context.Context) DataSetTypeOutput {
 	return o
 }
 
 // Kind of data set.
-func (o AccountShareDataSetTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareDataSetType) string { return v.Kind }).(pulumi.StringOutput)
+func (o DataSetTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetType) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Name of the azure resource
-func (o AccountShareDataSetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareDataSetType) string { return v.Name }).(pulumi.StringOutput)
+func (o DataSetTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Type of the azure resource
-func (o AccountShareDataSetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareDataSetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Invitation data transfer object.
-type AccountShareInvitationType struct {
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Properties on the Invitation
-	Properties InvitationPropertiesResponse `pulumi:"properties"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-}
-
-// AccountShareInvitationTypeInput is an input type that accepts AccountShareInvitationTypeArgs and AccountShareInvitationTypeOutput values.
-// You can construct a concrete instance of `AccountShareInvitationTypeInput` via:
-//
-//          AccountShareInvitationTypeArgs{...}
-type AccountShareInvitationTypeInput interface {
-	pulumi.Input
-
-	ToAccountShareInvitationTypeOutput() AccountShareInvitationTypeOutput
-	ToAccountShareInvitationTypeOutputWithContext(context.Context) AccountShareInvitationTypeOutput
-}
-
-// A Invitation data transfer object.
-type AccountShareInvitationTypeArgs struct {
-	// Name of the azure resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties on the Invitation
-	Properties InvitationPropertiesResponseInput `pulumi:"properties"`
-	// Type of the azure resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountShareInvitationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareInvitationType)(nil)).Elem()
-}
-
-func (i AccountShareInvitationTypeArgs) ToAccountShareInvitationTypeOutput() AccountShareInvitationTypeOutput {
-	return i.ToAccountShareInvitationTypeOutputWithContext(context.Background())
-}
-
-func (i AccountShareInvitationTypeArgs) ToAccountShareInvitationTypeOutputWithContext(ctx context.Context) AccountShareInvitationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountShareInvitationTypeOutput)
-}
-
-// A Invitation data transfer object.
-type AccountShareInvitationTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountShareInvitationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareInvitationType)(nil)).Elem()
-}
-
-func (o AccountShareInvitationTypeOutput) ToAccountShareInvitationTypeOutput() AccountShareInvitationTypeOutput {
-	return o
-}
-
-func (o AccountShareInvitationTypeOutput) ToAccountShareInvitationTypeOutputWithContext(ctx context.Context) AccountShareInvitationTypeOutput {
-	return o
-}
-
-// Name of the azure resource
-func (o AccountShareInvitationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareInvitationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties on the Invitation
-func (o AccountShareInvitationTypeOutput) Properties() InvitationPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountShareInvitationType) InvitationPropertiesResponse { return v.Properties }).(InvitationPropertiesResponseOutput)
-}
-
-// Type of the azure resource
-func (o AccountShareInvitationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareInvitationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A share subscription data transfer object.
-type AccountShareSubscriptionType struct {
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Properties on the share subscription
-	Properties ShareSubscriptionPropertiesResponse `pulumi:"properties"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-}
-
-// AccountShareSubscriptionTypeInput is an input type that accepts AccountShareSubscriptionTypeArgs and AccountShareSubscriptionTypeOutput values.
-// You can construct a concrete instance of `AccountShareSubscriptionTypeInput` via:
-//
-//          AccountShareSubscriptionTypeArgs{...}
-type AccountShareSubscriptionTypeInput interface {
-	pulumi.Input
-
-	ToAccountShareSubscriptionTypeOutput() AccountShareSubscriptionTypeOutput
-	ToAccountShareSubscriptionTypeOutputWithContext(context.Context) AccountShareSubscriptionTypeOutput
-}
-
-// A share subscription data transfer object.
-type AccountShareSubscriptionTypeArgs struct {
-	// Name of the azure resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties on the share subscription
-	Properties ShareSubscriptionPropertiesResponseInput `pulumi:"properties"`
-	// Type of the azure resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountShareSubscriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSubscriptionType)(nil)).Elem()
-}
-
-func (i AccountShareSubscriptionTypeArgs) ToAccountShareSubscriptionTypeOutput() AccountShareSubscriptionTypeOutput {
-	return i.ToAccountShareSubscriptionTypeOutputWithContext(context.Background())
-}
-
-func (i AccountShareSubscriptionTypeArgs) ToAccountShareSubscriptionTypeOutputWithContext(ctx context.Context) AccountShareSubscriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountShareSubscriptionTypeOutput)
-}
-
-// A share subscription data transfer object.
-type AccountShareSubscriptionTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountShareSubscriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSubscriptionType)(nil)).Elem()
-}
-
-func (o AccountShareSubscriptionTypeOutput) ToAccountShareSubscriptionTypeOutput() AccountShareSubscriptionTypeOutput {
-	return o
-}
-
-func (o AccountShareSubscriptionTypeOutput) ToAccountShareSubscriptionTypeOutputWithContext(ctx context.Context) AccountShareSubscriptionTypeOutput {
-	return o
-}
-
-// Name of the azure resource
-func (o AccountShareSubscriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties on the share subscription
-func (o AccountShareSubscriptionTypeOutput) Properties() ShareSubscriptionPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionType) ShareSubscriptionPropertiesResponse { return v.Properties }).(ShareSubscriptionPropertiesResponseOutput)
-}
-
-// Type of the azure resource
-func (o AccountShareSubscriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
+func (o DataSetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A data set mapping data transfer object.
-type AccountShareSubscriptionDataSetMappingType struct {
+type DataSetMappingType struct {
 	// Kind of data set mapping.
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource
@@ -718,19 +499,19 @@ type AccountShareSubscriptionDataSetMappingType struct {
 	Type string `pulumi:"type"`
 }
 
-// AccountShareSubscriptionDataSetMappingTypeInput is an input type that accepts AccountShareSubscriptionDataSetMappingTypeArgs and AccountShareSubscriptionDataSetMappingTypeOutput values.
-// You can construct a concrete instance of `AccountShareSubscriptionDataSetMappingTypeInput` via:
+// DataSetMappingTypeInput is an input type that accepts DataSetMappingTypeArgs and DataSetMappingTypeOutput values.
+// You can construct a concrete instance of `DataSetMappingTypeInput` via:
 //
-//          AccountShareSubscriptionDataSetMappingTypeArgs{...}
-type AccountShareSubscriptionDataSetMappingTypeInput interface {
+//          DataSetMappingTypeArgs{...}
+type DataSetMappingTypeInput interface {
 	pulumi.Input
 
-	ToAccountShareSubscriptionDataSetMappingTypeOutput() AccountShareSubscriptionDataSetMappingTypeOutput
-	ToAccountShareSubscriptionDataSetMappingTypeOutputWithContext(context.Context) AccountShareSubscriptionDataSetMappingTypeOutput
+	ToDataSetMappingTypeOutput() DataSetMappingTypeOutput
+	ToDataSetMappingTypeOutputWithContext(context.Context) DataSetMappingTypeOutput
 }
 
 // A data set mapping data transfer object.
-type AccountShareSubscriptionDataSetMappingTypeArgs struct {
+type DataSetMappingTypeArgs struct {
 	// Kind of data set mapping.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Name of the azure resource
@@ -739,192 +520,46 @@ type AccountShareSubscriptionDataSetMappingTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (AccountShareSubscriptionDataSetMappingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSubscriptionDataSetMappingType)(nil)).Elem()
+func (DataSetMappingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetMappingType)(nil)).Elem()
 }
 
-func (i AccountShareSubscriptionDataSetMappingTypeArgs) ToAccountShareSubscriptionDataSetMappingTypeOutput() AccountShareSubscriptionDataSetMappingTypeOutput {
-	return i.ToAccountShareSubscriptionDataSetMappingTypeOutputWithContext(context.Background())
+func (i DataSetMappingTypeArgs) ToDataSetMappingTypeOutput() DataSetMappingTypeOutput {
+	return i.ToDataSetMappingTypeOutputWithContext(context.Background())
 }
 
-func (i AccountShareSubscriptionDataSetMappingTypeArgs) ToAccountShareSubscriptionDataSetMappingTypeOutputWithContext(ctx context.Context) AccountShareSubscriptionDataSetMappingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountShareSubscriptionDataSetMappingTypeOutput)
+func (i DataSetMappingTypeArgs) ToDataSetMappingTypeOutputWithContext(ctx context.Context) DataSetMappingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetMappingTypeOutput)
 }
 
 // A data set mapping data transfer object.
-type AccountShareSubscriptionDataSetMappingTypeOutput struct{ *pulumi.OutputState }
+type DataSetMappingTypeOutput struct{ *pulumi.OutputState }
 
-func (AccountShareSubscriptionDataSetMappingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSubscriptionDataSetMappingType)(nil)).Elem()
+func (DataSetMappingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetMappingType)(nil)).Elem()
 }
 
-func (o AccountShareSubscriptionDataSetMappingTypeOutput) ToAccountShareSubscriptionDataSetMappingTypeOutput() AccountShareSubscriptionDataSetMappingTypeOutput {
+func (o DataSetMappingTypeOutput) ToDataSetMappingTypeOutput() DataSetMappingTypeOutput {
 	return o
 }
 
-func (o AccountShareSubscriptionDataSetMappingTypeOutput) ToAccountShareSubscriptionDataSetMappingTypeOutputWithContext(ctx context.Context) AccountShareSubscriptionDataSetMappingTypeOutput {
+func (o DataSetMappingTypeOutput) ToDataSetMappingTypeOutputWithContext(ctx context.Context) DataSetMappingTypeOutput {
 	return o
 }
 
 // Kind of data set mapping.
-func (o AccountShareSubscriptionDataSetMappingTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionDataSetMappingType) string { return v.Kind }).(pulumi.StringOutput)
+func (o DataSetMappingTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetMappingType) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Name of the azure resource
-func (o AccountShareSubscriptionDataSetMappingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionDataSetMappingType) string { return v.Name }).(pulumi.StringOutput)
+func (o DataSetMappingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetMappingType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Type of the azure resource
-func (o AccountShareSubscriptionDataSetMappingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionDataSetMappingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Trigger data transfer object.
-type AccountShareSubscriptionTriggerType struct {
-	// Kind of synchronization
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-}
-
-// AccountShareSubscriptionTriggerTypeInput is an input type that accepts AccountShareSubscriptionTriggerTypeArgs and AccountShareSubscriptionTriggerTypeOutput values.
-// You can construct a concrete instance of `AccountShareSubscriptionTriggerTypeInput` via:
-//
-//          AccountShareSubscriptionTriggerTypeArgs{...}
-type AccountShareSubscriptionTriggerTypeInput interface {
-	pulumi.Input
-
-	ToAccountShareSubscriptionTriggerTypeOutput() AccountShareSubscriptionTriggerTypeOutput
-	ToAccountShareSubscriptionTriggerTypeOutputWithContext(context.Context) AccountShareSubscriptionTriggerTypeOutput
-}
-
-// A Trigger data transfer object.
-type AccountShareSubscriptionTriggerTypeArgs struct {
-	// Kind of synchronization
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of the azure resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountShareSubscriptionTriggerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSubscriptionTriggerType)(nil)).Elem()
-}
-
-func (i AccountShareSubscriptionTriggerTypeArgs) ToAccountShareSubscriptionTriggerTypeOutput() AccountShareSubscriptionTriggerTypeOutput {
-	return i.ToAccountShareSubscriptionTriggerTypeOutputWithContext(context.Background())
-}
-
-func (i AccountShareSubscriptionTriggerTypeArgs) ToAccountShareSubscriptionTriggerTypeOutputWithContext(ctx context.Context) AccountShareSubscriptionTriggerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountShareSubscriptionTriggerTypeOutput)
-}
-
-// A Trigger data transfer object.
-type AccountShareSubscriptionTriggerTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountShareSubscriptionTriggerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSubscriptionTriggerType)(nil)).Elem()
-}
-
-func (o AccountShareSubscriptionTriggerTypeOutput) ToAccountShareSubscriptionTriggerTypeOutput() AccountShareSubscriptionTriggerTypeOutput {
-	return o
-}
-
-func (o AccountShareSubscriptionTriggerTypeOutput) ToAccountShareSubscriptionTriggerTypeOutputWithContext(ctx context.Context) AccountShareSubscriptionTriggerTypeOutput {
-	return o
-}
-
-// Kind of synchronization
-func (o AccountShareSubscriptionTriggerTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionTriggerType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Name of the azure resource
-func (o AccountShareSubscriptionTriggerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionTriggerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Type of the azure resource
-func (o AccountShareSubscriptionTriggerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSubscriptionTriggerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Synchronization Setting data transfer object.
-type AccountShareSynchronizationSettingType struct {
-	// Kind of synchronization
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-}
-
-// AccountShareSynchronizationSettingTypeInput is an input type that accepts AccountShareSynchronizationSettingTypeArgs and AccountShareSynchronizationSettingTypeOutput values.
-// You can construct a concrete instance of `AccountShareSynchronizationSettingTypeInput` via:
-//
-//          AccountShareSynchronizationSettingTypeArgs{...}
-type AccountShareSynchronizationSettingTypeInput interface {
-	pulumi.Input
-
-	ToAccountShareSynchronizationSettingTypeOutput() AccountShareSynchronizationSettingTypeOutput
-	ToAccountShareSynchronizationSettingTypeOutputWithContext(context.Context) AccountShareSynchronizationSettingTypeOutput
-}
-
-// A Synchronization Setting data transfer object.
-type AccountShareSynchronizationSettingTypeArgs struct {
-	// Kind of synchronization
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of the azure resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountShareSynchronizationSettingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSynchronizationSettingType)(nil)).Elem()
-}
-
-func (i AccountShareSynchronizationSettingTypeArgs) ToAccountShareSynchronizationSettingTypeOutput() AccountShareSynchronizationSettingTypeOutput {
-	return i.ToAccountShareSynchronizationSettingTypeOutputWithContext(context.Background())
-}
-
-func (i AccountShareSynchronizationSettingTypeArgs) ToAccountShareSynchronizationSettingTypeOutputWithContext(ctx context.Context) AccountShareSynchronizationSettingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountShareSynchronizationSettingTypeOutput)
-}
-
-// A Synchronization Setting data transfer object.
-type AccountShareSynchronizationSettingTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountShareSynchronizationSettingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountShareSynchronizationSettingType)(nil)).Elem()
-}
-
-func (o AccountShareSynchronizationSettingTypeOutput) ToAccountShareSynchronizationSettingTypeOutput() AccountShareSynchronizationSettingTypeOutput {
-	return o
-}
-
-func (o AccountShareSynchronizationSettingTypeOutput) ToAccountShareSynchronizationSettingTypeOutputWithContext(ctx context.Context) AccountShareSynchronizationSettingTypeOutput {
-	return o
-}
-
-// Kind of synchronization
-func (o AccountShareSynchronizationSettingTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSynchronizationSettingType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Name of the azure resource
-func (o AccountShareSynchronizationSettingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSynchronizationSettingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Type of the azure resource
-func (o AccountShareSynchronizationSettingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountShareSynchronizationSettingType) string { return v.Type }).(pulumi.StringOutput)
+func (o DataSetMappingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetMappingType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Identity of resource
@@ -1231,6 +866,79 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// A Invitation data transfer object.
+type InvitationType struct {
+	// Name of the azure resource
+	Name string `pulumi:"name"`
+	// Properties on the Invitation
+	Properties InvitationPropertiesResponse `pulumi:"properties"`
+	// Type of the azure resource
+	Type string `pulumi:"type"`
+}
+
+// InvitationTypeInput is an input type that accepts InvitationTypeArgs and InvitationTypeOutput values.
+// You can construct a concrete instance of `InvitationTypeInput` via:
+//
+//          InvitationTypeArgs{...}
+type InvitationTypeInput interface {
+	pulumi.Input
+
+	ToInvitationTypeOutput() InvitationTypeOutput
+	ToInvitationTypeOutputWithContext(context.Context) InvitationTypeOutput
+}
+
+// A Invitation data transfer object.
+type InvitationTypeArgs struct {
+	// Name of the azure resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties on the Invitation
+	Properties InvitationPropertiesResponseInput `pulumi:"properties"`
+	// Type of the azure resource
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (InvitationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvitationType)(nil)).Elem()
+}
+
+func (i InvitationTypeArgs) ToInvitationTypeOutput() InvitationTypeOutput {
+	return i.ToInvitationTypeOutputWithContext(context.Background())
+}
+
+func (i InvitationTypeArgs) ToInvitationTypeOutputWithContext(ctx context.Context) InvitationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvitationTypeOutput)
+}
+
+// A Invitation data transfer object.
+type InvitationTypeOutput struct{ *pulumi.OutputState }
+
+func (InvitationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvitationType)(nil)).Elem()
+}
+
+func (o InvitationTypeOutput) ToInvitationTypeOutput() InvitationTypeOutput {
+	return o
+}
+
+func (o InvitationTypeOutput) ToInvitationTypeOutputWithContext(ctx context.Context) InvitationTypeOutput {
+	return o
+}
+
+// Name of the azure resource
+func (o InvitationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InvitationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties on the Invitation
+func (o InvitationTypeOutput) Properties() InvitationPropertiesResponseOutput {
+	return o.ApplyT(func(v InvitationType) InvitationPropertiesResponse { return v.Properties }).(InvitationPropertiesResponseOutput)
+}
+
+// Type of the azure resource
+func (o InvitationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InvitationType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Invitation property bag.
@@ -1707,6 +1415,79 @@ func (o InvitationPropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A share data transfer object.
+type ShareType struct {
+	// Name of the azure resource
+	Name string `pulumi:"name"`
+	// Properties on the share
+	Properties SharePropertiesResponse `pulumi:"properties"`
+	// Type of the azure resource
+	Type string `pulumi:"type"`
+}
+
+// ShareTypeInput is an input type that accepts ShareTypeArgs and ShareTypeOutput values.
+// You can construct a concrete instance of `ShareTypeInput` via:
+//
+//          ShareTypeArgs{...}
+type ShareTypeInput interface {
+	pulumi.Input
+
+	ToShareTypeOutput() ShareTypeOutput
+	ToShareTypeOutputWithContext(context.Context) ShareTypeOutput
+}
+
+// A share data transfer object.
+type ShareTypeArgs struct {
+	// Name of the azure resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties on the share
+	Properties SharePropertiesResponseInput `pulumi:"properties"`
+	// Type of the azure resource
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ShareTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareType)(nil)).Elem()
+}
+
+func (i ShareTypeArgs) ToShareTypeOutput() ShareTypeOutput {
+	return i.ToShareTypeOutputWithContext(context.Background())
+}
+
+func (i ShareTypeArgs) ToShareTypeOutputWithContext(ctx context.Context) ShareTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareTypeOutput)
+}
+
+// A share data transfer object.
+type ShareTypeOutput struct{ *pulumi.OutputState }
+
+func (ShareTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareType)(nil)).Elem()
+}
+
+func (o ShareTypeOutput) ToShareTypeOutput() ShareTypeOutput {
+	return o
+}
+
+func (o ShareTypeOutput) ToShareTypeOutputWithContext(ctx context.Context) ShareTypeOutput {
+	return o
+}
+
+// Name of the azure resource
+func (o ShareTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties on the share
+func (o ShareTypeOutput) Properties() SharePropertiesResponseOutput {
+	return o.ApplyT(func(v ShareType) SharePropertiesResponse { return v.Properties }).(SharePropertiesResponseOutput)
+}
+
+// Type of the azure resource
+func (o ShareTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Share property bag.
 type ShareProperties struct {
 	// Share description.
@@ -2125,6 +1906,79 @@ func (o SharePropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 		}
 		return &v.UserName
 	}).(pulumi.StringPtrOutput)
+}
+
+// A share subscription data transfer object.
+type ShareSubscriptionType struct {
+	// Name of the azure resource
+	Name string `pulumi:"name"`
+	// Properties on the share subscription
+	Properties ShareSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Type of the azure resource
+	Type string `pulumi:"type"`
+}
+
+// ShareSubscriptionTypeInput is an input type that accepts ShareSubscriptionTypeArgs and ShareSubscriptionTypeOutput values.
+// You can construct a concrete instance of `ShareSubscriptionTypeInput` via:
+//
+//          ShareSubscriptionTypeArgs{...}
+type ShareSubscriptionTypeInput interface {
+	pulumi.Input
+
+	ToShareSubscriptionTypeOutput() ShareSubscriptionTypeOutput
+	ToShareSubscriptionTypeOutputWithContext(context.Context) ShareSubscriptionTypeOutput
+}
+
+// A share subscription data transfer object.
+type ShareSubscriptionTypeArgs struct {
+	// Name of the azure resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties on the share subscription
+	Properties ShareSubscriptionPropertiesResponseInput `pulumi:"properties"`
+	// Type of the azure resource
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ShareSubscriptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSubscriptionType)(nil)).Elem()
+}
+
+func (i ShareSubscriptionTypeArgs) ToShareSubscriptionTypeOutput() ShareSubscriptionTypeOutput {
+	return i.ToShareSubscriptionTypeOutputWithContext(context.Background())
+}
+
+func (i ShareSubscriptionTypeArgs) ToShareSubscriptionTypeOutputWithContext(ctx context.Context) ShareSubscriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareSubscriptionTypeOutput)
+}
+
+// A share subscription data transfer object.
+type ShareSubscriptionTypeOutput struct{ *pulumi.OutputState }
+
+func (ShareSubscriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSubscriptionType)(nil)).Elem()
+}
+
+func (o ShareSubscriptionTypeOutput) ToShareSubscriptionTypeOutput() ShareSubscriptionTypeOutput {
+	return o
+}
+
+func (o ShareSubscriptionTypeOutput) ToShareSubscriptionTypeOutputWithContext(ctx context.Context) ShareSubscriptionTypeOutput {
+	return o
+}
+
+// Name of the azure resource
+func (o ShareSubscriptionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties on the share subscription
+func (o ShareSubscriptionTypeOutput) Properties() ShareSubscriptionPropertiesResponseOutput {
+	return o.ApplyT(func(v ShareSubscriptionType) ShareSubscriptionPropertiesResponse { return v.Properties }).(ShareSubscriptionPropertiesResponseOutput)
+}
+
+// Type of the azure resource
+func (o ShareSubscriptionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Share subscription property bag.
@@ -3322,31 +3176,175 @@ func (o SynchronizationDetailsResponseArrayOutput) Index(i pulumi.IntInput) Sync
 	}).(SynchronizationDetailsResponseOutput)
 }
 
+// A Synchronization Setting data transfer object.
+type SynchronizationSettingType struct {
+	// Kind of synchronization
+	Kind string `pulumi:"kind"`
+	// Name of the azure resource
+	Name string `pulumi:"name"`
+	// Type of the azure resource
+	Type string `pulumi:"type"`
+}
+
+// SynchronizationSettingTypeInput is an input type that accepts SynchronizationSettingTypeArgs and SynchronizationSettingTypeOutput values.
+// You can construct a concrete instance of `SynchronizationSettingTypeInput` via:
+//
+//          SynchronizationSettingTypeArgs{...}
+type SynchronizationSettingTypeInput interface {
+	pulumi.Input
+
+	ToSynchronizationSettingTypeOutput() SynchronizationSettingTypeOutput
+	ToSynchronizationSettingTypeOutputWithContext(context.Context) SynchronizationSettingTypeOutput
+}
+
+// A Synchronization Setting data transfer object.
+type SynchronizationSettingTypeArgs struct {
+	// Kind of synchronization
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Name of the azure resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the azure resource
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SynchronizationSettingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynchronizationSettingType)(nil)).Elem()
+}
+
+func (i SynchronizationSettingTypeArgs) ToSynchronizationSettingTypeOutput() SynchronizationSettingTypeOutput {
+	return i.ToSynchronizationSettingTypeOutputWithContext(context.Background())
+}
+
+func (i SynchronizationSettingTypeArgs) ToSynchronizationSettingTypeOutputWithContext(ctx context.Context) SynchronizationSettingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationSettingTypeOutput)
+}
+
+// A Synchronization Setting data transfer object.
+type SynchronizationSettingTypeOutput struct{ *pulumi.OutputState }
+
+func (SynchronizationSettingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SynchronizationSettingType)(nil)).Elem()
+}
+
+func (o SynchronizationSettingTypeOutput) ToSynchronizationSettingTypeOutput() SynchronizationSettingTypeOutput {
+	return o
+}
+
+func (o SynchronizationSettingTypeOutput) ToSynchronizationSettingTypeOutputWithContext(ctx context.Context) SynchronizationSettingTypeOutput {
+	return o
+}
+
+// Kind of synchronization
+func (o SynchronizationSettingTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationSettingType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o SynchronizationSettingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationSettingType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o SynchronizationSettingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SynchronizationSettingType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A Trigger data transfer object.
+type TriggerType struct {
+	// Kind of synchronization
+	Kind string `pulumi:"kind"`
+	// Name of the azure resource
+	Name string `pulumi:"name"`
+	// Type of the azure resource
+	Type string `pulumi:"type"`
+}
+
+// TriggerTypeInput is an input type that accepts TriggerTypeArgs and TriggerTypeOutput values.
+// You can construct a concrete instance of `TriggerTypeInput` via:
+//
+//          TriggerTypeArgs{...}
+type TriggerTypeInput interface {
+	pulumi.Input
+
+	ToTriggerTypeOutput() TriggerTypeOutput
+	ToTriggerTypeOutputWithContext(context.Context) TriggerTypeOutput
+}
+
+// A Trigger data transfer object.
+type TriggerTypeArgs struct {
+	// Kind of synchronization
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Name of the azure resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the azure resource
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TriggerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (i TriggerTypeArgs) ToTriggerTypeOutput() TriggerTypeOutput {
+	return i.ToTriggerTypeOutputWithContext(context.Background())
+}
+
+func (i TriggerTypeArgs) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTypeOutput)
+}
+
+// A Trigger data transfer object.
+type TriggerTypeOutput struct{ *pulumi.OutputState }
+
+func (TriggerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutput() TriggerTypeOutput {
+	return o
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return o
+}
+
+// Kind of synchronization
+func (o TriggerTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o TriggerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o TriggerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountTypeOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(AccountShareTypeOutput{})
-	pulumi.RegisterOutputType(AccountShareDataSetTypeOutput{})
-	pulumi.RegisterOutputType(AccountShareInvitationTypeOutput{})
-	pulumi.RegisterOutputType(AccountShareSubscriptionTypeOutput{})
-	pulumi.RegisterOutputType(AccountShareSubscriptionDataSetMappingTypeOutput{})
-	pulumi.RegisterOutputType(AccountShareSubscriptionTriggerTypeOutput{})
-	pulumi.RegisterOutputType(AccountShareSynchronizationSettingTypeOutput{})
+	pulumi.RegisterOutputType(DataSetTypeOutput{})
+	pulumi.RegisterOutputType(DataSetMappingTypeOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(InvitationTypeOutput{})
 	pulumi.RegisterOutputType(InvitationPropertiesOutput{})
 	pulumi.RegisterOutputType(InvitationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InvitationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(InvitationPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ShareTypeOutput{})
 	pulumi.RegisterOutputType(SharePropertiesOutput{})
 	pulumi.RegisterOutputType(SharePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SharePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SharePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ShareSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(ShareSubscriptionPropertiesOutput{})
 	pulumi.RegisterOutputType(ShareSubscriptionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ShareSubscriptionPropertiesResponseOutput{})
@@ -3359,4 +3357,6 @@ func init() {
 	pulumi.RegisterOutputType(SourceShareSynchronizationSettingResponseArrayOutput{})
 	pulumi.RegisterOutputType(SynchronizationDetailsResponseOutput{})
 	pulumi.RegisterOutputType(SynchronizationDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(SynchronizationSettingTypeOutput{})
+	pulumi.RegisterOutputType(TriggerTypeOutput{})
 }

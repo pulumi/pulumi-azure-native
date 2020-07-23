@@ -2332,79 +2332,6 @@ func (o PeeringPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The customer's ASN that is registered by the peering service provider.
-type PeeringRegisteredAsnType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties that define a registered ASN.
-	Properties PeeringRegisteredAsnPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// PeeringRegisteredAsnTypeInput is an input type that accepts PeeringRegisteredAsnTypeArgs and PeeringRegisteredAsnTypeOutput values.
-// You can construct a concrete instance of `PeeringRegisteredAsnTypeInput` via:
-//
-//          PeeringRegisteredAsnTypeArgs{...}
-type PeeringRegisteredAsnTypeInput interface {
-	pulumi.Input
-
-	ToPeeringRegisteredAsnTypeOutput() PeeringRegisteredAsnTypeOutput
-	ToPeeringRegisteredAsnTypeOutputWithContext(context.Context) PeeringRegisteredAsnTypeOutput
-}
-
-// The customer's ASN that is registered by the peering service provider.
-type PeeringRegisteredAsnTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties that define a registered ASN.
-	Properties PeeringRegisteredAsnPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PeeringRegisteredAsnTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringRegisteredAsnType)(nil)).Elem()
-}
-
-func (i PeeringRegisteredAsnTypeArgs) ToPeeringRegisteredAsnTypeOutput() PeeringRegisteredAsnTypeOutput {
-	return i.ToPeeringRegisteredAsnTypeOutputWithContext(context.Background())
-}
-
-func (i PeeringRegisteredAsnTypeArgs) ToPeeringRegisteredAsnTypeOutputWithContext(ctx context.Context) PeeringRegisteredAsnTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringRegisteredAsnTypeOutput)
-}
-
-// The customer's ASN that is registered by the peering service provider.
-type PeeringRegisteredAsnTypeOutput struct{ *pulumi.OutputState }
-
-func (PeeringRegisteredAsnTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringRegisteredAsnType)(nil)).Elem()
-}
-
-func (o PeeringRegisteredAsnTypeOutput) ToPeeringRegisteredAsnTypeOutput() PeeringRegisteredAsnTypeOutput {
-	return o
-}
-
-func (o PeeringRegisteredAsnTypeOutput) ToPeeringRegisteredAsnTypeOutputWithContext(ctx context.Context) PeeringRegisteredAsnTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o PeeringRegisteredAsnTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringRegisteredAsnType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties that define a registered ASN.
-func (o PeeringRegisteredAsnTypeOutput) Properties() PeeringRegisteredAsnPropertiesResponseOutput {
-	return o.ApplyT(func(v PeeringRegisteredAsnType) PeeringRegisteredAsnPropertiesResponse { return v.Properties }).(PeeringRegisteredAsnPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o PeeringRegisteredAsnTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringRegisteredAsnType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties that define a registered ASN.
 type PeeringRegisteredAsnProperties struct {
 	// The customer's ASN from which traffic originates.
@@ -2709,79 +2636,6 @@ func (o PeeringRegisteredAsnPropertiesResponsePtrOutput) ProvisioningState() pul
 		}
 		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
-}
-
-// The customer's prefix that is registered by the peering service provider.
-type PeeringRegisteredPrefixType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties that define a registered prefix.
-	Properties PeeringRegisteredPrefixPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// PeeringRegisteredPrefixTypeInput is an input type that accepts PeeringRegisteredPrefixTypeArgs and PeeringRegisteredPrefixTypeOutput values.
-// You can construct a concrete instance of `PeeringRegisteredPrefixTypeInput` via:
-//
-//          PeeringRegisteredPrefixTypeArgs{...}
-type PeeringRegisteredPrefixTypeInput interface {
-	pulumi.Input
-
-	ToPeeringRegisteredPrefixTypeOutput() PeeringRegisteredPrefixTypeOutput
-	ToPeeringRegisteredPrefixTypeOutputWithContext(context.Context) PeeringRegisteredPrefixTypeOutput
-}
-
-// The customer's prefix that is registered by the peering service provider.
-type PeeringRegisteredPrefixTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties that define a registered prefix.
-	Properties PeeringRegisteredPrefixPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PeeringRegisteredPrefixTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringRegisteredPrefixType)(nil)).Elem()
-}
-
-func (i PeeringRegisteredPrefixTypeArgs) ToPeeringRegisteredPrefixTypeOutput() PeeringRegisteredPrefixTypeOutput {
-	return i.ToPeeringRegisteredPrefixTypeOutputWithContext(context.Background())
-}
-
-func (i PeeringRegisteredPrefixTypeArgs) ToPeeringRegisteredPrefixTypeOutputWithContext(ctx context.Context) PeeringRegisteredPrefixTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringRegisteredPrefixTypeOutput)
-}
-
-// The customer's prefix that is registered by the peering service provider.
-type PeeringRegisteredPrefixTypeOutput struct{ *pulumi.OutputState }
-
-func (PeeringRegisteredPrefixTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringRegisteredPrefixType)(nil)).Elem()
-}
-
-func (o PeeringRegisteredPrefixTypeOutput) ToPeeringRegisteredPrefixTypeOutput() PeeringRegisteredPrefixTypeOutput {
-	return o
-}
-
-func (o PeeringRegisteredPrefixTypeOutput) ToPeeringRegisteredPrefixTypeOutputWithContext(ctx context.Context) PeeringRegisteredPrefixTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o PeeringRegisteredPrefixTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringRegisteredPrefixType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties that define a registered prefix.
-func (o PeeringRegisteredPrefixTypeOutput) Properties() PeeringRegisteredPrefixPropertiesResponseOutput {
-	return o.ApplyT(func(v PeeringRegisteredPrefixType) PeeringRegisteredPrefixPropertiesResponse { return v.Properties }).(PeeringRegisteredPrefixPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o PeeringRegisteredPrefixTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringRegisteredPrefixType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties that define a registered prefix.
@@ -3228,79 +3082,6 @@ func (o PeeringServiceTypeOutput) Tags() pulumi.StringMapOutput {
 // The type of the resource.
 func (o PeeringServiceTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PeeringServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The peering service prefix class.
-type PeeringServicePrefixType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Gets or sets the peering prefix properties.
-	Properties PeeringServicePrefixPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// PeeringServicePrefixTypeInput is an input type that accepts PeeringServicePrefixTypeArgs and PeeringServicePrefixTypeOutput values.
-// You can construct a concrete instance of `PeeringServicePrefixTypeInput` via:
-//
-//          PeeringServicePrefixTypeArgs{...}
-type PeeringServicePrefixTypeInput interface {
-	pulumi.Input
-
-	ToPeeringServicePrefixTypeOutput() PeeringServicePrefixTypeOutput
-	ToPeeringServicePrefixTypeOutputWithContext(context.Context) PeeringServicePrefixTypeOutput
-}
-
-// The peering service prefix class.
-type PeeringServicePrefixTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the peering prefix properties.
-	Properties PeeringServicePrefixPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PeeringServicePrefixTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringServicePrefixType)(nil)).Elem()
-}
-
-func (i PeeringServicePrefixTypeArgs) ToPeeringServicePrefixTypeOutput() PeeringServicePrefixTypeOutput {
-	return i.ToPeeringServicePrefixTypeOutputWithContext(context.Background())
-}
-
-func (i PeeringServicePrefixTypeArgs) ToPeeringServicePrefixTypeOutputWithContext(ctx context.Context) PeeringServicePrefixTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixTypeOutput)
-}
-
-// The peering service prefix class.
-type PeeringServicePrefixTypeOutput struct{ *pulumi.OutputState }
-
-func (PeeringServicePrefixTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringServicePrefixType)(nil)).Elem()
-}
-
-func (o PeeringServicePrefixTypeOutput) ToPeeringServicePrefixTypeOutput() PeeringServicePrefixTypeOutput {
-	return o
-}
-
-func (o PeeringServicePrefixTypeOutput) ToPeeringServicePrefixTypeOutputWithContext(ctx context.Context) PeeringServicePrefixTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o PeeringServicePrefixTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringServicePrefixType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the peering prefix properties.
-func (o PeeringServicePrefixTypeOutput) Properties() PeeringServicePrefixPropertiesResponseOutput {
-	return o.ApplyT(func(v PeeringServicePrefixType) PeeringServicePrefixPropertiesResponse { return v.Properties }).(PeeringServicePrefixPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o PeeringServicePrefixTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PeeringServicePrefixType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The details of the event associated with a prefix.
@@ -4861,6 +4642,225 @@ func (o PeeringSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The peering service prefix class.
+type PrefixType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// Gets or sets the peering prefix properties.
+	Properties PeeringServicePrefixPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// PrefixTypeInput is an input type that accepts PrefixTypeArgs and PrefixTypeOutput values.
+// You can construct a concrete instance of `PrefixTypeInput` via:
+//
+//          PrefixTypeArgs{...}
+type PrefixTypeInput interface {
+	pulumi.Input
+
+	ToPrefixTypeOutput() PrefixTypeOutput
+	ToPrefixTypeOutputWithContext(context.Context) PrefixTypeOutput
+}
+
+// The peering service prefix class.
+type PrefixTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets or sets the peering prefix properties.
+	Properties PeeringServicePrefixPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrefixTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixType)(nil)).Elem()
+}
+
+func (i PrefixTypeArgs) ToPrefixTypeOutput() PrefixTypeOutput {
+	return i.ToPrefixTypeOutputWithContext(context.Background())
+}
+
+func (i PrefixTypeArgs) ToPrefixTypeOutputWithContext(ctx context.Context) PrefixTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrefixTypeOutput)
+}
+
+// The peering service prefix class.
+type PrefixTypeOutput struct{ *pulumi.OutputState }
+
+func (PrefixTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefixType)(nil)).Elem()
+}
+
+func (o PrefixTypeOutput) ToPrefixTypeOutput() PrefixTypeOutput {
+	return o
+}
+
+func (o PrefixTypeOutput) ToPrefixTypeOutputWithContext(ctx context.Context) PrefixTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o PrefixTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the peering prefix properties.
+func (o PrefixTypeOutput) Properties() PeeringServicePrefixPropertiesResponseOutput {
+	return o.ApplyT(func(v PrefixType) PeeringServicePrefixPropertiesResponse { return v.Properties }).(PeeringServicePrefixPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o PrefixTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrefixType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The customer's ASN that is registered by the peering service provider.
+type RegisteredAsnType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties that define a registered ASN.
+	Properties PeeringRegisteredAsnPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// RegisteredAsnTypeInput is an input type that accepts RegisteredAsnTypeArgs and RegisteredAsnTypeOutput values.
+// You can construct a concrete instance of `RegisteredAsnTypeInput` via:
+//
+//          RegisteredAsnTypeArgs{...}
+type RegisteredAsnTypeInput interface {
+	pulumi.Input
+
+	ToRegisteredAsnTypeOutput() RegisteredAsnTypeOutput
+	ToRegisteredAsnTypeOutputWithContext(context.Context) RegisteredAsnTypeOutput
+}
+
+// The customer's ASN that is registered by the peering service provider.
+type RegisteredAsnTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties that define a registered ASN.
+	Properties PeeringRegisteredAsnPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RegisteredAsnTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredAsnType)(nil)).Elem()
+}
+
+func (i RegisteredAsnTypeArgs) ToRegisteredAsnTypeOutput() RegisteredAsnTypeOutput {
+	return i.ToRegisteredAsnTypeOutputWithContext(context.Background())
+}
+
+func (i RegisteredAsnTypeArgs) ToRegisteredAsnTypeOutputWithContext(ctx context.Context) RegisteredAsnTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegisteredAsnTypeOutput)
+}
+
+// The customer's ASN that is registered by the peering service provider.
+type RegisteredAsnTypeOutput struct{ *pulumi.OutputState }
+
+func (RegisteredAsnTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredAsnType)(nil)).Elem()
+}
+
+func (o RegisteredAsnTypeOutput) ToRegisteredAsnTypeOutput() RegisteredAsnTypeOutput {
+	return o
+}
+
+func (o RegisteredAsnTypeOutput) ToRegisteredAsnTypeOutputWithContext(ctx context.Context) RegisteredAsnTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o RegisteredAsnTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegisteredAsnType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties that define a registered ASN.
+func (o RegisteredAsnTypeOutput) Properties() PeeringRegisteredAsnPropertiesResponseOutput {
+	return o.ApplyT(func(v RegisteredAsnType) PeeringRegisteredAsnPropertiesResponse { return v.Properties }).(PeeringRegisteredAsnPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o RegisteredAsnTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RegisteredAsnType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The customer's prefix that is registered by the peering service provider.
+type RegisteredPrefixType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties that define a registered prefix.
+	Properties PeeringRegisteredPrefixPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// RegisteredPrefixTypeInput is an input type that accepts RegisteredPrefixTypeArgs and RegisteredPrefixTypeOutput values.
+// You can construct a concrete instance of `RegisteredPrefixTypeInput` via:
+//
+//          RegisteredPrefixTypeArgs{...}
+type RegisteredPrefixTypeInput interface {
+	pulumi.Input
+
+	ToRegisteredPrefixTypeOutput() RegisteredPrefixTypeOutput
+	ToRegisteredPrefixTypeOutputWithContext(context.Context) RegisteredPrefixTypeOutput
+}
+
+// The customer's prefix that is registered by the peering service provider.
+type RegisteredPrefixTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties that define a registered prefix.
+	Properties PeeringRegisteredPrefixPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RegisteredPrefixTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredPrefixType)(nil)).Elem()
+}
+
+func (i RegisteredPrefixTypeArgs) ToRegisteredPrefixTypeOutput() RegisteredPrefixTypeOutput {
+	return i.ToRegisteredPrefixTypeOutputWithContext(context.Background())
+}
+
+func (i RegisteredPrefixTypeArgs) ToRegisteredPrefixTypeOutputWithContext(ctx context.Context) RegisteredPrefixTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegisteredPrefixTypeOutput)
+}
+
+// The customer's prefix that is registered by the peering service provider.
+type RegisteredPrefixTypeOutput struct{ *pulumi.OutputState }
+
+func (RegisteredPrefixTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegisteredPrefixType)(nil)).Elem()
+}
+
+func (o RegisteredPrefixTypeOutput) ToRegisteredPrefixTypeOutput() RegisteredPrefixTypeOutput {
+	return o
+}
+
+func (o RegisteredPrefixTypeOutput) ToRegisteredPrefixTypeOutputWithContext(ctx context.Context) RegisteredPrefixTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o RegisteredPrefixTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegisteredPrefixType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties that define a registered prefix.
+func (o RegisteredPrefixTypeOutput) Properties() PeeringRegisteredPrefixPropertiesResponseOutput {
+	return o.ApplyT(func(v RegisteredPrefixType) PeeringRegisteredPrefixPropertiesResponse { return v.Properties }).(PeeringRegisteredPrefixPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o RegisteredPrefixTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RegisteredPrefixType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The sub resource.
 type SubResource struct {
 	// The identifier of the referenced resource.
@@ -5155,18 +5155,15 @@ func init() {
 	pulumi.RegisterOutputType(PeeringPropertiesExchangeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(PeeringRegisteredAsnTypeOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredAsnPropertiesOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredAsnPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredAsnPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredAsnPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(PeeringRegisteredPrefixTypeOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredPrefixPropertiesOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredPrefixPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredPrefixPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PeeringRegisteredPrefixPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeeringServiceTypeOutput{})
-	pulumi.RegisterOutputType(PeeringServicePrefixTypeOutput{})
 	pulumi.RegisterOutputType(PeeringServicePrefixEventOutput{})
 	pulumi.RegisterOutputType(PeeringServicePrefixEventResponseOutput{})
 	pulumi.RegisterOutputType(PeeringServicePrefixEventResponseArrayOutput{})
@@ -5186,6 +5183,9 @@ func init() {
 	pulumi.RegisterOutputType(PeeringSkuPtrOutput{})
 	pulumi.RegisterOutputType(PeeringSkuResponseOutput{})
 	pulumi.RegisterOutputType(PeeringSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrefixTypeOutput{})
+	pulumi.RegisterOutputType(RegisteredAsnTypeOutput{})
+	pulumi.RegisterOutputType(RegisteredPrefixTypeOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
 	pulumi.RegisterOutputType(SubResourcePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})

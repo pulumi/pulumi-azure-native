@@ -10,6 +10,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The HDInsight cluster application
+type ApplicationType struct {
+	// The ETag for the application
+	Etag *string `pulumi:"etag"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The properties of the application.
+	Properties ApplicationPropertiesResponse `pulumi:"properties"`
+	// The tags for the application.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
+// You can construct a concrete instance of `ApplicationTypeInput` via:
+//
+//          ApplicationTypeArgs{...}
+type ApplicationTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeOutput() ApplicationTypeOutput
+	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
+}
+
+// The HDInsight cluster application
+type ApplicationTypeArgs struct {
+	// The ETag for the application
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the application.
+	Properties ApplicationPropertiesResponseInput `pulumi:"properties"`
+	// The tags for the application.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (i ApplicationTypeArgs) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return i.ToApplicationTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationTypeArgs) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
+}
+
+// The HDInsight cluster application
+type ApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return o
+}
+
+// The ETag for the application
+func (o ApplicationTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the application.
+func (o ApplicationTypeOutput) Properties() ApplicationPropertiesResponseOutput {
+	return o.ApplyT(func(v ApplicationType) ApplicationPropertiesResponse { return v.Properties }).(ApplicationPropertiesResponseOutput)
+}
+
+// The tags for the application.
+func (o ApplicationTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Gets the application SSH endpoint
 type ApplicationGetEndpoint struct {
 	// The destination port to connect to.
@@ -3001,97 +3092,6 @@ func (o ClusterTypeOutput) Tags() pulumi.StringMapOutput {
 // The type of the resource.
 func (o ClusterTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The HDInsight cluster application
-type ClusterApplicationType struct {
-	// The ETag for the application
-	Etag *string `pulumi:"etag"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the application.
-	Properties ApplicationPropertiesResponse `pulumi:"properties"`
-	// The tags for the application.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ClusterApplicationTypeInput is an input type that accepts ClusterApplicationTypeArgs and ClusterApplicationTypeOutput values.
-// You can construct a concrete instance of `ClusterApplicationTypeInput` via:
-//
-//          ClusterApplicationTypeArgs{...}
-type ClusterApplicationTypeInput interface {
-	pulumi.Input
-
-	ToClusterApplicationTypeOutput() ClusterApplicationTypeOutput
-	ToClusterApplicationTypeOutputWithContext(context.Context) ClusterApplicationTypeOutput
-}
-
-// The HDInsight cluster application
-type ClusterApplicationTypeArgs struct {
-	// The ETag for the application
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the application.
-	Properties ApplicationPropertiesResponseInput `pulumi:"properties"`
-	// The tags for the application.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterApplicationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationType)(nil)).Elem()
-}
-
-func (i ClusterApplicationTypeArgs) ToClusterApplicationTypeOutput() ClusterApplicationTypeOutput {
-	return i.ToClusterApplicationTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterApplicationTypeArgs) ToClusterApplicationTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterApplicationTypeOutput)
-}
-
-// The HDInsight cluster application
-type ClusterApplicationTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterApplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationType)(nil)).Elem()
-}
-
-func (o ClusterApplicationTypeOutput) ToClusterApplicationTypeOutput() ClusterApplicationTypeOutput {
-	return o
-}
-
-func (o ClusterApplicationTypeOutput) ToClusterApplicationTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeOutput {
-	return o
-}
-
-// The ETag for the application
-func (o ClusterApplicationTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterApplicationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ClusterApplicationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the application.
-func (o ClusterApplicationTypeOutput) Properties() ApplicationPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterApplicationType) ApplicationPropertiesResponse { return v.Properties }).(ApplicationPropertiesResponseOutput)
-}
-
-// The tags for the application.
-func (o ClusterApplicationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterApplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ClusterApplicationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The cluster create parameters.
@@ -10190,6 +10190,7 @@ func (o VirtualNetworkProfileResponsePtrOutput) Subnet() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationGetEndpointOutput{})
 	pulumi.RegisterOutputType(ApplicationGetEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGetEndpointResponseOutput{})
@@ -10227,7 +10228,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientGroupInfoResponseOutput{})
 	pulumi.RegisterOutputType(ClientGroupInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterTypeOutput{})
-	pulumi.RegisterOutputType(ClusterApplicationTypeOutput{})
 	pulumi.RegisterOutputType(ClusterCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterCreatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterDefinitionOutput{})

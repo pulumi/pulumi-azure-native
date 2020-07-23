@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func ListMediaserviceEdgePolicies(ctx *pulumi.Context, args *ListMediaserviceEdgePoliciesArgs, opts ...pulumi.InvokeOption) (*ListMediaserviceEdgePoliciesResult, error) {
-	var rv ListMediaserviceEdgePoliciesResult
-	err := ctx.Invoke("azurerm:media:listMediaserviceEdgePolicies", args, &rv, opts...)
+func ListMediaServiceEdgePolicies(ctx *pulumi.Context, args *ListMediaServiceEdgePoliciesArgs, opts ...pulumi.InvokeOption) (*ListMediaServiceEdgePoliciesResult, error) {
+	var rv ListMediaServiceEdgePoliciesResult
+	err := ctx.Invoke("azurerm:media:listMediaServiceEdgePolicies", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type ListMediaserviceEdgePoliciesArgs struct {
+type ListMediaServiceEdgePoliciesArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	// Unique identifier of the edge device.
@@ -25,6 +25,6 @@ type ListMediaserviceEdgePoliciesArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-type ListMediaserviceEdgePoliciesResult struct {
+type ListMediaServiceEdgePoliciesResult struct {
 	UsageDataCollectionPolicy *EdgeUsageDataCollectionPolicyResponse `pulumi:"usageDataCollectionPolicy"`
 }

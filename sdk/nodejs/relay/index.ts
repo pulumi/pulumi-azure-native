@@ -2,18 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getHybridConnection";
+export * from "./getHybridConnectionAuthorizationRule";
 export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
-export * from "./getNamespaceHybridConnection";
-export * from "./getNamespaceHybridConnectionAuthorizationRule";
-export * from "./getNamespaceWcfRelay";
-export * from "./getNamespaceWcfRelayAuthorizationRule";
-export * from "./listNamespaceAuthorizationRuleKeys";
-export * from "./listNamespaceHybridConnectionAuthorizationRuleKeys";
-export * from "./listNamespaceWcfRelayAuthorizationRuleKeys";
+export * from "./getWCFRelay";
+export * from "./getWCFRelayAuthorizationRule";
+export * from "./hybridConnection";
+export * from "./hybridConnectionAuthorizationRule";
+export * from "./listHybridConnectionKeys";
+export * from "./listNamespaceKeys";
+export * from "./listWCFRelayKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
-export * from "./namespaceHybridConnection";
-export * from "./namespaceHybridConnectionAuthorizationRule";
-export * from "./namespaceWcfRelay";
-export * from "./namespaceWcfRelayAuthorizationRule";
+export * from "./wcfrelay";
+export * from "./wcfrelayAuthorizationRule";

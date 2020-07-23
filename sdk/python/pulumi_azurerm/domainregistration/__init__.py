@@ -4,6 +4,6 @@
 
 # Export this package's modules as members:
 from .domain import *
-from .domain_domain_ownership_identifier import *
+from .domain_ownership_identifier import *
 from .get_domain import *
-from .get_domain_domain_ownership_identifier import *
+from .get_domain_ownership_identifier import *

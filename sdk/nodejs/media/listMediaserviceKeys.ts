@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function listMediaserviceKeys(args: ListMediaserviceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaserviceKeysResult> {
+export function listMediaServiceKeys(args: ListMediaServiceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceKeysResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,13 +14,13 @@ export function listMediaserviceKeys(args: ListMediaserviceKeysArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media:listMediaserviceKeys", {
+    return pulumi.runtime.invoke("azurerm:media:listMediaServiceKeys", {
         "mediaServiceName": args.mediaServiceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface ListMediaserviceKeysArgs {
+export interface ListMediaServiceKeysArgs {
     /**
      * Name of the Media Service.
      */
@@ -34,7 +34,7 @@ export interface ListMediaserviceKeysArgs {
 /**
  * The response body for a ListKeys API.
  */
-export interface ListMediaserviceKeysResult {
+export interface ListMediaServiceKeysResult {
     /**
      * The primary authorization endpoint.
      */

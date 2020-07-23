@@ -1620,6 +1620,97 @@ func (o ArtifactParameterPropertiesResponseArrayOutput) Index(i pulumi.IntInput)
 }
 
 // Properties of an artifact source.
+type ArtifactSourceType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties ArtifactSourcePropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ArtifactSourceTypeInput is an input type that accepts ArtifactSourceTypeArgs and ArtifactSourceTypeOutput values.
+// You can construct a concrete instance of `ArtifactSourceTypeInput` via:
+//
+//          ArtifactSourceTypeArgs{...}
+type ArtifactSourceTypeInput interface {
+	pulumi.Input
+
+	ToArtifactSourceTypeOutput() ArtifactSourceTypeOutput
+	ToArtifactSourceTypeOutputWithContext(context.Context) ArtifactSourceTypeOutput
+}
+
+// Properties of an artifact source.
+type ArtifactSourceTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties ArtifactSourcePropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ArtifactSourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSourceType)(nil)).Elem()
+}
+
+func (i ArtifactSourceTypeArgs) ToArtifactSourceTypeOutput() ArtifactSourceTypeOutput {
+	return i.ToArtifactSourceTypeOutputWithContext(context.Background())
+}
+
+func (i ArtifactSourceTypeArgs) ToArtifactSourceTypeOutputWithContext(ctx context.Context) ArtifactSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourceTypeOutput)
+}
+
+// Properties of an artifact source.
+type ArtifactSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (ArtifactSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSourceType)(nil)).Elem()
+}
+
+func (o ArtifactSourceTypeOutput) ToArtifactSourceTypeOutput() ArtifactSourceTypeOutput {
+	return o
+}
+
+func (o ArtifactSourceTypeOutput) ToArtifactSourceTypeOutputWithContext(ctx context.Context) ArtifactSourceTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o ArtifactSourceTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactSourceType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ArtifactSourceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ArtifactSourceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o ArtifactSourceTypeOutput) Properties() ArtifactSourcePropertiesResponseOutput {
+	return o.ApplyT(func(v ArtifactSourceType) ArtifactSourcePropertiesResponse { return v.Properties }).(ArtifactSourcePropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o ArtifactSourceTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ArtifactSourceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ArtifactSourceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ArtifactSourceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties of an artifact source.
 type ArtifactSourceProperties struct {
 	// The folder containing Azure Resource Manager templates.
 	ArmTemplateFolderPath *string `pulumi:"armTemplateFolderPath"`
@@ -3667,6 +3758,97 @@ func (o ComputeVmPropertiesResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 		}
 		return v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+// A custom image.
+type CustomImageType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties CustomImagePropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// CustomImageTypeInput is an input type that accepts CustomImageTypeArgs and CustomImageTypeOutput values.
+// You can construct a concrete instance of `CustomImageTypeInput` via:
+//
+//          CustomImageTypeArgs{...}
+type CustomImageTypeInput interface {
+	pulumi.Input
+
+	ToCustomImageTypeOutput() CustomImageTypeOutput
+	ToCustomImageTypeOutputWithContext(context.Context) CustomImageTypeOutput
+}
+
+// A custom image.
+type CustomImageTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties CustomImagePropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CustomImageTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImageType)(nil)).Elem()
+}
+
+func (i CustomImageTypeArgs) ToCustomImageTypeOutput() CustomImageTypeOutput {
+	return i.ToCustomImageTypeOutputWithContext(context.Background())
+}
+
+func (i CustomImageTypeArgs) ToCustomImageTypeOutputWithContext(ctx context.Context) CustomImageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomImageTypeOutput)
+}
+
+// A custom image.
+type CustomImageTypeOutput struct{ *pulumi.OutputState }
+
+func (CustomImageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImageType)(nil)).Elem()
+}
+
+func (o CustomImageTypeOutput) ToCustomImageTypeOutput() CustomImageTypeOutput {
+	return o
+}
+
+func (o CustomImageTypeOutput) ToCustomImageTypeOutputWithContext(ctx context.Context) CustomImageTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o CustomImageTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomImageType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o CustomImageTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomImageType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o CustomImageTypeOutput) Properties() CustomImagePropertiesResponseOutput {
+	return o.ApplyT(func(v CustomImageType) CustomImagePropertiesResponse { return v.Properties }).(CustomImagePropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o CustomImageTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CustomImageType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o CustomImageTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomImageType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a custom image.
@@ -6054,6 +6236,97 @@ func (o DayDetailsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A Disk.
+type DiskType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties DiskPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// DiskTypeInput is an input type that accepts DiskTypeArgs and DiskTypeOutput values.
+// You can construct a concrete instance of `DiskTypeInput` via:
+//
+//          DiskTypeArgs{...}
+type DiskTypeInput interface {
+	pulumi.Input
+
+	ToDiskTypeOutput() DiskTypeOutput
+	ToDiskTypeOutputWithContext(context.Context) DiskTypeOutput
+}
+
+// A Disk.
+type DiskTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties DiskPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DiskTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskType)(nil)).Elem()
+}
+
+func (i DiskTypeArgs) ToDiskTypeOutput() DiskTypeOutput {
+	return i.ToDiskTypeOutputWithContext(context.Background())
+}
+
+func (i DiskTypeArgs) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskTypeOutput)
+}
+
+// A Disk.
+type DiskTypeOutput struct{ *pulumi.OutputState }
+
+func (DiskTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskType)(nil)).Elem()
+}
+
+func (o DiskTypeOutput) ToDiskTypeOutput() DiskTypeOutput {
+	return o
+}
+
+func (o DiskTypeOutput) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o DiskTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o DiskTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o DiskTypeOutput) Properties() DiskPropertiesResponseOutput {
+	return o.ApplyT(func(v DiskType) DiskPropertiesResponse { return v.Properties }).(DiskPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o DiskTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DiskType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o DiskTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of a disk.
 type DiskProperties struct {
 	// When backed by a blob, the name of the VHD blob without extension.
@@ -6605,6 +6878,97 @@ func (o DiskPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutp
 		}
 		return &v.UniqueIdentifier
 	}).(pulumi.StringPtrOutput)
+}
+
+// An environment, which is essentially an ARM template deployment.
+type EnvironmentType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties EnvironmentPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// EnvironmentTypeInput is an input type that accepts EnvironmentTypeArgs and EnvironmentTypeOutput values.
+// You can construct a concrete instance of `EnvironmentTypeInput` via:
+//
+//          EnvironmentTypeArgs{...}
+type EnvironmentTypeInput interface {
+	pulumi.Input
+
+	ToEnvironmentTypeOutput() EnvironmentTypeOutput
+	ToEnvironmentTypeOutputWithContext(context.Context) EnvironmentTypeOutput
+}
+
+// An environment, which is essentially an ARM template deployment.
+type EnvironmentTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties EnvironmentPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EnvironmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
+}
+
+func (i EnvironmentTypeArgs) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
+	return i.ToEnvironmentTypeOutputWithContext(context.Background())
+}
+
+func (i EnvironmentTypeArgs) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTypeOutput)
+}
+
+// An environment, which is essentially an ARM template deployment.
+type EnvironmentTypeOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
+}
+
+func (o EnvironmentTypeOutput) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
+	return o
+}
+
+func (o EnvironmentTypeOutput) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o EnvironmentTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o EnvironmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o EnvironmentTypeOutput) Properties() EnvironmentPropertiesResponseOutput {
+	return o.ApplyT(func(v EnvironmentType) EnvironmentPropertiesResponse { return v.Properties }).(EnvironmentPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o EnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o EnvironmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of an environment deployment.
@@ -7670,6 +8034,97 @@ func (o ExternalSubnetResponseArrayOutput) Index(i pulumi.IntInput) ExternalSubn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalSubnetResponse {
 		return vs[0].([]ExternalSubnetResponse)[vs[1].(int)]
 	}).(ExternalSubnetResponseOutput)
+}
+
+// A formula for creating a VM, specifying an image base and other parameters
+type FormulaType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties FormulaPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// FormulaTypeInput is an input type that accepts FormulaTypeArgs and FormulaTypeOutput values.
+// You can construct a concrete instance of `FormulaTypeInput` via:
+//
+//          FormulaTypeArgs{...}
+type FormulaTypeInput interface {
+	pulumi.Input
+
+	ToFormulaTypeOutput() FormulaTypeOutput
+	ToFormulaTypeOutputWithContext(context.Context) FormulaTypeOutput
+}
+
+// A formula for creating a VM, specifying an image base and other parameters
+type FormulaTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties FormulaPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FormulaTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormulaType)(nil)).Elem()
+}
+
+func (i FormulaTypeArgs) ToFormulaTypeOutput() FormulaTypeOutput {
+	return i.ToFormulaTypeOutputWithContext(context.Background())
+}
+
+func (i FormulaTypeArgs) ToFormulaTypeOutputWithContext(ctx context.Context) FormulaTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormulaTypeOutput)
+}
+
+// A formula for creating a VM, specifying an image base and other parameters
+type FormulaTypeOutput struct{ *pulumi.OutputState }
+
+func (FormulaTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormulaType)(nil)).Elem()
+}
+
+func (o FormulaTypeOutput) ToFormulaTypeOutput() FormulaTypeOutput {
+	return o
+}
+
+func (o FormulaTypeOutput) ToFormulaTypeOutputWithContext(ctx context.Context) FormulaTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o FormulaTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormulaType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o FormulaTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FormulaType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o FormulaTypeOutput) Properties() FormulaPropertiesResponseOutput {
+	return o.ApplyT(func(v FormulaType) FormulaPropertiesResponse { return v.Properties }).(FormulaPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o FormulaTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FormulaType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o FormulaTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FormulaType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a formula.
@@ -8835,6 +9290,97 @@ func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+// A schedule.
+type GlobalScheduleType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties SchedulePropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// GlobalScheduleTypeInput is an input type that accepts GlobalScheduleTypeArgs and GlobalScheduleTypeOutput values.
+// You can construct a concrete instance of `GlobalScheduleTypeInput` via:
+//
+//          GlobalScheduleTypeArgs{...}
+type GlobalScheduleTypeInput interface {
+	pulumi.Input
+
+	ToGlobalScheduleTypeOutput() GlobalScheduleTypeOutput
+	ToGlobalScheduleTypeOutputWithContext(context.Context) GlobalScheduleTypeOutput
+}
+
+// A schedule.
+type GlobalScheduleTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GlobalScheduleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalScheduleType)(nil)).Elem()
+}
+
+func (i GlobalScheduleTypeArgs) ToGlobalScheduleTypeOutput() GlobalScheduleTypeOutput {
+	return i.ToGlobalScheduleTypeOutputWithContext(context.Background())
+}
+
+func (i GlobalScheduleTypeArgs) ToGlobalScheduleTypeOutputWithContext(ctx context.Context) GlobalScheduleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalScheduleTypeOutput)
+}
+
+// A schedule.
+type GlobalScheduleTypeOutput struct{ *pulumi.OutputState }
+
+func (GlobalScheduleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalScheduleType)(nil)).Elem()
+}
+
+func (o GlobalScheduleTypeOutput) ToGlobalScheduleTypeOutput() GlobalScheduleTypeOutput {
+	return o
+}
+
+func (o GlobalScheduleTypeOutput) ToGlobalScheduleTypeOutputWithContext(ctx context.Context) GlobalScheduleTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o GlobalScheduleTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o GlobalScheduleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalScheduleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o GlobalScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
+	return o.ApplyT(func(v GlobalScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o GlobalScheduleTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GlobalScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o GlobalScheduleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalScheduleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of an hourly schedule.
@@ -10272,461 +10818,6 @@ func (o LabAnnouncementPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of an artifact source.
-type LabArtifactsourceType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ArtifactSourcePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabArtifactsourceTypeInput is an input type that accepts LabArtifactsourceTypeArgs and LabArtifactsourceTypeOutput values.
-// You can construct a concrete instance of `LabArtifactsourceTypeInput` via:
-//
-//          LabArtifactsourceTypeArgs{...}
-type LabArtifactsourceTypeInput interface {
-	pulumi.Input
-
-	ToLabArtifactsourceTypeOutput() LabArtifactsourceTypeOutput
-	ToLabArtifactsourceTypeOutputWithContext(context.Context) LabArtifactsourceTypeOutput
-}
-
-// Properties of an artifact source.
-type LabArtifactsourceTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties ArtifactSourcePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabArtifactsourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabArtifactsourceType)(nil)).Elem()
-}
-
-func (i LabArtifactsourceTypeArgs) ToLabArtifactsourceTypeOutput() LabArtifactsourceTypeOutput {
-	return i.ToLabArtifactsourceTypeOutputWithContext(context.Background())
-}
-
-func (i LabArtifactsourceTypeArgs) ToLabArtifactsourceTypeOutputWithContext(ctx context.Context) LabArtifactsourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabArtifactsourceTypeOutput)
-}
-
-// Properties of an artifact source.
-type LabArtifactsourceTypeOutput struct{ *pulumi.OutputState }
-
-func (LabArtifactsourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabArtifactsourceType)(nil)).Elem()
-}
-
-func (o LabArtifactsourceTypeOutput) ToLabArtifactsourceTypeOutput() LabArtifactsourceTypeOutput {
-	return o
-}
-
-func (o LabArtifactsourceTypeOutput) ToLabArtifactsourceTypeOutputWithContext(ctx context.Context) LabArtifactsourceTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabArtifactsourceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabArtifactsourceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabArtifactsourceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabArtifactsourceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabArtifactsourceTypeOutput) Properties() ArtifactSourcePropertiesResponseOutput {
-	return o.ApplyT(func(v LabArtifactsourceType) ArtifactSourcePropertiesResponse { return v.Properties }).(ArtifactSourcePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabArtifactsourceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabArtifactsourceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabArtifactsourceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabArtifactsourceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A custom image.
-type LabCustomimageType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties CustomImagePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabCustomimageTypeInput is an input type that accepts LabCustomimageTypeArgs and LabCustomimageTypeOutput values.
-// You can construct a concrete instance of `LabCustomimageTypeInput` via:
-//
-//          LabCustomimageTypeArgs{...}
-type LabCustomimageTypeInput interface {
-	pulumi.Input
-
-	ToLabCustomimageTypeOutput() LabCustomimageTypeOutput
-	ToLabCustomimageTypeOutputWithContext(context.Context) LabCustomimageTypeOutput
-}
-
-// A custom image.
-type LabCustomimageTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties CustomImagePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabCustomimageTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabCustomimageType)(nil)).Elem()
-}
-
-func (i LabCustomimageTypeArgs) ToLabCustomimageTypeOutput() LabCustomimageTypeOutput {
-	return i.ToLabCustomimageTypeOutputWithContext(context.Background())
-}
-
-func (i LabCustomimageTypeArgs) ToLabCustomimageTypeOutputWithContext(ctx context.Context) LabCustomimageTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabCustomimageTypeOutput)
-}
-
-// A custom image.
-type LabCustomimageTypeOutput struct{ *pulumi.OutputState }
-
-func (LabCustomimageTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabCustomimageType)(nil)).Elem()
-}
-
-func (o LabCustomimageTypeOutput) ToLabCustomimageTypeOutput() LabCustomimageTypeOutput {
-	return o
-}
-
-func (o LabCustomimageTypeOutput) ToLabCustomimageTypeOutputWithContext(ctx context.Context) LabCustomimageTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabCustomimageTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabCustomimageType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabCustomimageTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabCustomimageType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabCustomimageTypeOutput) Properties() CustomImagePropertiesResponseOutput {
-	return o.ApplyT(func(v LabCustomimageType) CustomImagePropertiesResponse { return v.Properties }).(CustomImagePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabCustomimageTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabCustomimageType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabCustomimageTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabCustomimageType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A formula for creating a VM, specifying an image base and other parameters
-type LabFormulaType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties FormulaPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabFormulaTypeInput is an input type that accepts LabFormulaTypeArgs and LabFormulaTypeOutput values.
-// You can construct a concrete instance of `LabFormulaTypeInput` via:
-//
-//          LabFormulaTypeArgs{...}
-type LabFormulaTypeInput interface {
-	pulumi.Input
-
-	ToLabFormulaTypeOutput() LabFormulaTypeOutput
-	ToLabFormulaTypeOutputWithContext(context.Context) LabFormulaTypeOutput
-}
-
-// A formula for creating a VM, specifying an image base and other parameters
-type LabFormulaTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties FormulaPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabFormulaTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabFormulaType)(nil)).Elem()
-}
-
-func (i LabFormulaTypeArgs) ToLabFormulaTypeOutput() LabFormulaTypeOutput {
-	return i.ToLabFormulaTypeOutputWithContext(context.Background())
-}
-
-func (i LabFormulaTypeArgs) ToLabFormulaTypeOutputWithContext(ctx context.Context) LabFormulaTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabFormulaTypeOutput)
-}
-
-// A formula for creating a VM, specifying an image base and other parameters
-type LabFormulaTypeOutput struct{ *pulumi.OutputState }
-
-func (LabFormulaTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabFormulaType)(nil)).Elem()
-}
-
-func (o LabFormulaTypeOutput) ToLabFormulaTypeOutput() LabFormulaTypeOutput {
-	return o
-}
-
-func (o LabFormulaTypeOutput) ToLabFormulaTypeOutputWithContext(ctx context.Context) LabFormulaTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabFormulaTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabFormulaType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabFormulaTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabFormulaType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabFormulaTypeOutput) Properties() FormulaPropertiesResponseOutput {
-	return o.ApplyT(func(v LabFormulaType) FormulaPropertiesResponse { return v.Properties }).(FormulaPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabFormulaTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabFormulaType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabFormulaTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabFormulaType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A notification.
-type LabNotificationchannelType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties NotificationChannelPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabNotificationchannelTypeInput is an input type that accepts LabNotificationchannelTypeArgs and LabNotificationchannelTypeOutput values.
-// You can construct a concrete instance of `LabNotificationchannelTypeInput` via:
-//
-//          LabNotificationchannelTypeArgs{...}
-type LabNotificationchannelTypeInput interface {
-	pulumi.Input
-
-	ToLabNotificationchannelTypeOutput() LabNotificationchannelTypeOutput
-	ToLabNotificationchannelTypeOutputWithContext(context.Context) LabNotificationchannelTypeOutput
-}
-
-// A notification.
-type LabNotificationchannelTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties NotificationChannelPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabNotificationchannelTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabNotificationchannelType)(nil)).Elem()
-}
-
-func (i LabNotificationchannelTypeArgs) ToLabNotificationchannelTypeOutput() LabNotificationchannelTypeOutput {
-	return i.ToLabNotificationchannelTypeOutputWithContext(context.Background())
-}
-
-func (i LabNotificationchannelTypeArgs) ToLabNotificationchannelTypeOutputWithContext(ctx context.Context) LabNotificationchannelTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabNotificationchannelTypeOutput)
-}
-
-// A notification.
-type LabNotificationchannelTypeOutput struct{ *pulumi.OutputState }
-
-func (LabNotificationchannelTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabNotificationchannelType)(nil)).Elem()
-}
-
-func (o LabNotificationchannelTypeOutput) ToLabNotificationchannelTypeOutput() LabNotificationchannelTypeOutput {
-	return o
-}
-
-func (o LabNotificationchannelTypeOutput) ToLabNotificationchannelTypeOutputWithContext(ctx context.Context) LabNotificationchannelTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabNotificationchannelTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabNotificationchannelType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabNotificationchannelTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabNotificationchannelType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabNotificationchannelTypeOutput) Properties() NotificationChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v LabNotificationchannelType) NotificationChannelPropertiesResponse { return v.Properties }).(NotificationChannelPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabNotificationchannelTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabNotificationchannelType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabNotificationchannelTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabNotificationchannelType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Policy.
-type LabPolicysetPolicyType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties PolicyPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabPolicysetPolicyTypeInput is an input type that accepts LabPolicysetPolicyTypeArgs and LabPolicysetPolicyTypeOutput values.
-// You can construct a concrete instance of `LabPolicysetPolicyTypeInput` via:
-//
-//          LabPolicysetPolicyTypeArgs{...}
-type LabPolicysetPolicyTypeInput interface {
-	pulumi.Input
-
-	ToLabPolicysetPolicyTypeOutput() LabPolicysetPolicyTypeOutput
-	ToLabPolicysetPolicyTypeOutputWithContext(context.Context) LabPolicysetPolicyTypeOutput
-}
-
-// A Policy.
-type LabPolicysetPolicyTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties PolicyPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabPolicysetPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabPolicysetPolicyType)(nil)).Elem()
-}
-
-func (i LabPolicysetPolicyTypeArgs) ToLabPolicysetPolicyTypeOutput() LabPolicysetPolicyTypeOutput {
-	return i.ToLabPolicysetPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i LabPolicysetPolicyTypeArgs) ToLabPolicysetPolicyTypeOutputWithContext(ctx context.Context) LabPolicysetPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabPolicysetPolicyTypeOutput)
-}
-
-// A Policy.
-type LabPolicysetPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (LabPolicysetPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabPolicysetPolicyType)(nil)).Elem()
-}
-
-func (o LabPolicysetPolicyTypeOutput) ToLabPolicysetPolicyTypeOutput() LabPolicysetPolicyTypeOutput {
-	return o
-}
-
-func (o LabPolicysetPolicyTypeOutput) ToLabPolicysetPolicyTypeOutputWithContext(ctx context.Context) LabPolicysetPolicyTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabPolicysetPolicyTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabPolicysetPolicyType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabPolicysetPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPolicysetPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabPolicysetPolicyTypeOutput) Properties() PolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v LabPolicysetPolicyType) PolicyPropertiesResponse { return v.Properties }).(PolicyPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabPolicysetPolicyTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabPolicysetPolicyType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabPolicysetPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPolicysetPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of a lab.
 type LabProperties struct {
 	// The properties of any lab announcement associated with this lab
@@ -11505,188 +11596,6 @@ func (o LabPropertiesResponsePtrOutput) VmCreationResourceGroup() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A schedule.
-type LabScheduleType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabScheduleTypeInput is an input type that accepts LabScheduleTypeArgs and LabScheduleTypeOutput values.
-// You can construct a concrete instance of `LabScheduleTypeInput` via:
-//
-//          LabScheduleTypeArgs{...}
-type LabScheduleTypeInput interface {
-	pulumi.Input
-
-	ToLabScheduleTypeOutput() LabScheduleTypeOutput
-	ToLabScheduleTypeOutputWithContext(context.Context) LabScheduleTypeOutput
-}
-
-// A schedule.
-type LabScheduleTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabScheduleType)(nil)).Elem()
-}
-
-func (i LabScheduleTypeArgs) ToLabScheduleTypeOutput() LabScheduleTypeOutput {
-	return i.ToLabScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i LabScheduleTypeArgs) ToLabScheduleTypeOutputWithContext(ctx context.Context) LabScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabScheduleTypeOutput)
-}
-
-// A schedule.
-type LabScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (LabScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabScheduleType)(nil)).Elem()
-}
-
-func (o LabScheduleTypeOutput) ToLabScheduleTypeOutput() LabScheduleTypeOutput {
-	return o
-}
-
-func (o LabScheduleTypeOutput) ToLabScheduleTypeOutputWithContext(ctx context.Context) LabScheduleTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabScheduleTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v LabScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabScheduleTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabScheduleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A container for a managed identity to execute DevTest lab services.
-type LabServicerunnerType struct {
-	// The identity of the resource.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabServicerunnerTypeInput is an input type that accepts LabServicerunnerTypeArgs and LabServicerunnerTypeOutput values.
-// You can construct a concrete instance of `LabServicerunnerTypeInput` via:
-//
-//          LabServicerunnerTypeArgs{...}
-type LabServicerunnerTypeInput interface {
-	pulumi.Input
-
-	ToLabServicerunnerTypeOutput() LabServicerunnerTypeOutput
-	ToLabServicerunnerTypeOutputWithContext(context.Context) LabServicerunnerTypeOutput
-}
-
-// A container for a managed identity to execute DevTest lab services.
-type LabServicerunnerTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityPropertiesResponsePtrInput `pulumi:"identity"`
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabServicerunnerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabServicerunnerType)(nil)).Elem()
-}
-
-func (i LabServicerunnerTypeArgs) ToLabServicerunnerTypeOutput() LabServicerunnerTypeOutput {
-	return i.ToLabServicerunnerTypeOutputWithContext(context.Background())
-}
-
-func (i LabServicerunnerTypeArgs) ToLabServicerunnerTypeOutputWithContext(ctx context.Context) LabServicerunnerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabServicerunnerTypeOutput)
-}
-
-// A container for a managed identity to execute DevTest lab services.
-type LabServicerunnerTypeOutput struct{ *pulumi.OutputState }
-
-func (LabServicerunnerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabServicerunnerType)(nil)).Elem()
-}
-
-func (o LabServicerunnerTypeOutput) ToLabServicerunnerTypeOutput() LabServicerunnerTypeOutput {
-	return o
-}
-
-func (o LabServicerunnerTypeOutput) ToLabServicerunnerTypeOutputWithContext(ctx context.Context) LabServicerunnerTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o LabServicerunnerTypeOutput) Identity() IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabServicerunnerType) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
-}
-
-// The location of the resource.
-func (o LabServicerunnerTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabServicerunnerType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabServicerunnerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabServicerunnerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The tags of the resource.
-func (o LabServicerunnerTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabServicerunnerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabServicerunnerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabServicerunnerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of a lab's support banner
 type LabSupportProperties struct {
 	// Is the lab support banner active/enabled at this time?
@@ -11991,552 +11900,6 @@ func (o LabSupportPropertiesResponsePtrOutput) Markdown() pulumi.StringPtrOutput
 		}
 		return v.Markdown
 	}).(pulumi.StringPtrOutput)
-}
-
-// Profile of a lab user.
-type LabUserType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties UserPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabUserTypeInput is an input type that accepts LabUserTypeArgs and LabUserTypeOutput values.
-// You can construct a concrete instance of `LabUserTypeInput` via:
-//
-//          LabUserTypeArgs{...}
-type LabUserTypeInput interface {
-	pulumi.Input
-
-	ToLabUserTypeOutput() LabUserTypeOutput
-	ToLabUserTypeOutputWithContext(context.Context) LabUserTypeOutput
-}
-
-// Profile of a lab user.
-type LabUserTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties UserPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabUserTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserType)(nil)).Elem()
-}
-
-func (i LabUserTypeArgs) ToLabUserTypeOutput() LabUserTypeOutput {
-	return i.ToLabUserTypeOutputWithContext(context.Background())
-}
-
-func (i LabUserTypeArgs) ToLabUserTypeOutputWithContext(ctx context.Context) LabUserTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabUserTypeOutput)
-}
-
-// Profile of a lab user.
-type LabUserTypeOutput struct{ *pulumi.OutputState }
-
-func (LabUserTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserType)(nil)).Elem()
-}
-
-func (o LabUserTypeOutput) ToLabUserTypeOutput() LabUserTypeOutput {
-	return o
-}
-
-func (o LabUserTypeOutput) ToLabUserTypeOutputWithContext(ctx context.Context) LabUserTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabUserTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabUserType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabUserTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabUserTypeOutput) Properties() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v LabUserType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabUserTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabUserType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabUserTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Disk.
-type LabUserDiskType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties DiskPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabUserDiskTypeInput is an input type that accepts LabUserDiskTypeArgs and LabUserDiskTypeOutput values.
-// You can construct a concrete instance of `LabUserDiskTypeInput` via:
-//
-//          LabUserDiskTypeArgs{...}
-type LabUserDiskTypeInput interface {
-	pulumi.Input
-
-	ToLabUserDiskTypeOutput() LabUserDiskTypeOutput
-	ToLabUserDiskTypeOutputWithContext(context.Context) LabUserDiskTypeOutput
-}
-
-// A Disk.
-type LabUserDiskTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties DiskPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabUserDiskTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserDiskType)(nil)).Elem()
-}
-
-func (i LabUserDiskTypeArgs) ToLabUserDiskTypeOutput() LabUserDiskTypeOutput {
-	return i.ToLabUserDiskTypeOutputWithContext(context.Background())
-}
-
-func (i LabUserDiskTypeArgs) ToLabUserDiskTypeOutputWithContext(ctx context.Context) LabUserDiskTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabUserDiskTypeOutput)
-}
-
-// A Disk.
-type LabUserDiskTypeOutput struct{ *pulumi.OutputState }
-
-func (LabUserDiskTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserDiskType)(nil)).Elem()
-}
-
-func (o LabUserDiskTypeOutput) ToLabUserDiskTypeOutput() LabUserDiskTypeOutput {
-	return o
-}
-
-func (o LabUserDiskTypeOutput) ToLabUserDiskTypeOutputWithContext(ctx context.Context) LabUserDiskTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabUserDiskTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabUserDiskType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabUserDiskTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserDiskType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabUserDiskTypeOutput) Properties() DiskPropertiesResponseOutput {
-	return o.ApplyT(func(v LabUserDiskType) DiskPropertiesResponse { return v.Properties }).(DiskPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabUserDiskTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabUserDiskType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabUserDiskTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserDiskType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An environment, which is essentially an ARM template deployment.
-type LabUserEnvironmentType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties EnvironmentPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabUserEnvironmentTypeInput is an input type that accepts LabUserEnvironmentTypeArgs and LabUserEnvironmentTypeOutput values.
-// You can construct a concrete instance of `LabUserEnvironmentTypeInput` via:
-//
-//          LabUserEnvironmentTypeArgs{...}
-type LabUserEnvironmentTypeInput interface {
-	pulumi.Input
-
-	ToLabUserEnvironmentTypeOutput() LabUserEnvironmentTypeOutput
-	ToLabUserEnvironmentTypeOutputWithContext(context.Context) LabUserEnvironmentTypeOutput
-}
-
-// An environment, which is essentially an ARM template deployment.
-type LabUserEnvironmentTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties EnvironmentPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabUserEnvironmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserEnvironmentType)(nil)).Elem()
-}
-
-func (i LabUserEnvironmentTypeArgs) ToLabUserEnvironmentTypeOutput() LabUserEnvironmentTypeOutput {
-	return i.ToLabUserEnvironmentTypeOutputWithContext(context.Background())
-}
-
-func (i LabUserEnvironmentTypeArgs) ToLabUserEnvironmentTypeOutputWithContext(ctx context.Context) LabUserEnvironmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabUserEnvironmentTypeOutput)
-}
-
-// An environment, which is essentially an ARM template deployment.
-type LabUserEnvironmentTypeOutput struct{ *pulumi.OutputState }
-
-func (LabUserEnvironmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserEnvironmentType)(nil)).Elem()
-}
-
-func (o LabUserEnvironmentTypeOutput) ToLabUserEnvironmentTypeOutput() LabUserEnvironmentTypeOutput {
-	return o
-}
-
-func (o LabUserEnvironmentTypeOutput) ToLabUserEnvironmentTypeOutputWithContext(ctx context.Context) LabUserEnvironmentTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabUserEnvironmentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabUserEnvironmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabUserEnvironmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserEnvironmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabUserEnvironmentTypeOutput) Properties() EnvironmentPropertiesResponseOutput {
-	return o.ApplyT(func(v LabUserEnvironmentType) EnvironmentPropertiesResponse { return v.Properties }).(EnvironmentPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabUserEnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabUserEnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabUserEnvironmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserEnvironmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A secret.
-type LabUserSecretType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SecretPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabUserSecretTypeInput is an input type that accepts LabUserSecretTypeArgs and LabUserSecretTypeOutput values.
-// You can construct a concrete instance of `LabUserSecretTypeInput` via:
-//
-//          LabUserSecretTypeArgs{...}
-type LabUserSecretTypeInput interface {
-	pulumi.Input
-
-	ToLabUserSecretTypeOutput() LabUserSecretTypeOutput
-	ToLabUserSecretTypeOutputWithContext(context.Context) LabUserSecretTypeOutput
-}
-
-// A secret.
-type LabUserSecretTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties SecretPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabUserSecretTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserSecretType)(nil)).Elem()
-}
-
-func (i LabUserSecretTypeArgs) ToLabUserSecretTypeOutput() LabUserSecretTypeOutput {
-	return i.ToLabUserSecretTypeOutputWithContext(context.Background())
-}
-
-func (i LabUserSecretTypeArgs) ToLabUserSecretTypeOutputWithContext(ctx context.Context) LabUserSecretTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabUserSecretTypeOutput)
-}
-
-// A secret.
-type LabUserSecretTypeOutput struct{ *pulumi.OutputState }
-
-func (LabUserSecretTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserSecretType)(nil)).Elem()
-}
-
-func (o LabUserSecretTypeOutput) ToLabUserSecretTypeOutput() LabUserSecretTypeOutput {
-	return o
-}
-
-func (o LabUserSecretTypeOutput) ToLabUserSecretTypeOutputWithContext(ctx context.Context) LabUserSecretTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabUserSecretTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabUserSecretType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabUserSecretTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserSecretType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabUserSecretTypeOutput) Properties() SecretPropertiesResponseOutput {
-	return o.ApplyT(func(v LabUserSecretType) SecretPropertiesResponse { return v.Properties }).(SecretPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabUserSecretTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabUserSecretType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabUserSecretTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserSecretType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Service Fabric.
-type LabUserServicefabricType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServiceFabricPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabUserServicefabricTypeInput is an input type that accepts LabUserServicefabricTypeArgs and LabUserServicefabricTypeOutput values.
-// You can construct a concrete instance of `LabUserServicefabricTypeInput` via:
-//
-//          LabUserServicefabricTypeArgs{...}
-type LabUserServicefabricTypeInput interface {
-	pulumi.Input
-
-	ToLabUserServicefabricTypeOutput() LabUserServicefabricTypeOutput
-	ToLabUserServicefabricTypeOutputWithContext(context.Context) LabUserServicefabricTypeOutput
-}
-
-// A Service Fabric.
-type LabUserServicefabricTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServiceFabricPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabUserServicefabricTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserServicefabricType)(nil)).Elem()
-}
-
-func (i LabUserServicefabricTypeArgs) ToLabUserServicefabricTypeOutput() LabUserServicefabricTypeOutput {
-	return i.ToLabUserServicefabricTypeOutputWithContext(context.Background())
-}
-
-func (i LabUserServicefabricTypeArgs) ToLabUserServicefabricTypeOutputWithContext(ctx context.Context) LabUserServicefabricTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabUserServicefabricTypeOutput)
-}
-
-// A Service Fabric.
-type LabUserServicefabricTypeOutput struct{ *pulumi.OutputState }
-
-func (LabUserServicefabricTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserServicefabricType)(nil)).Elem()
-}
-
-func (o LabUserServicefabricTypeOutput) ToLabUserServicefabricTypeOutput() LabUserServicefabricTypeOutput {
-	return o
-}
-
-func (o LabUserServicefabricTypeOutput) ToLabUserServicefabricTypeOutputWithContext(ctx context.Context) LabUserServicefabricTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabUserServicefabricTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabUserServicefabricType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabUserServicefabricTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserServicefabricType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabUserServicefabricTypeOutput) Properties() ServiceFabricPropertiesResponseOutput {
-	return o.ApplyT(func(v LabUserServicefabricType) ServiceFabricPropertiesResponse { return v.Properties }).(ServiceFabricPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabUserServicefabricTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabUserServicefabricType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabUserServicefabricTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserServicefabricType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A schedule.
-type LabUserServicefabricScheduleType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabUserServicefabricScheduleTypeInput is an input type that accepts LabUserServicefabricScheduleTypeArgs and LabUserServicefabricScheduleTypeOutput values.
-// You can construct a concrete instance of `LabUserServicefabricScheduleTypeInput` via:
-//
-//          LabUserServicefabricScheduleTypeArgs{...}
-type LabUserServicefabricScheduleTypeInput interface {
-	pulumi.Input
-
-	ToLabUserServicefabricScheduleTypeOutput() LabUserServicefabricScheduleTypeOutput
-	ToLabUserServicefabricScheduleTypeOutputWithContext(context.Context) LabUserServicefabricScheduleTypeOutput
-}
-
-// A schedule.
-type LabUserServicefabricScheduleTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabUserServicefabricScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserServicefabricScheduleType)(nil)).Elem()
-}
-
-func (i LabUserServicefabricScheduleTypeArgs) ToLabUserServicefabricScheduleTypeOutput() LabUserServicefabricScheduleTypeOutput {
-	return i.ToLabUserServicefabricScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i LabUserServicefabricScheduleTypeArgs) ToLabUserServicefabricScheduleTypeOutputWithContext(ctx context.Context) LabUserServicefabricScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabUserServicefabricScheduleTypeOutput)
-}
-
-// A schedule.
-type LabUserServicefabricScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (LabUserServicefabricScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabUserServicefabricScheduleType)(nil)).Elem()
-}
-
-func (o LabUserServicefabricScheduleTypeOutput) ToLabUserServicefabricScheduleTypeOutput() LabUserServicefabricScheduleTypeOutput {
-	return o
-}
-
-func (o LabUserServicefabricScheduleTypeOutput) ToLabUserServicefabricScheduleTypeOutputWithContext(ctx context.Context) LabUserServicefabricScheduleTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabUserServicefabricScheduleTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabUserServicefabricScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabUserServicefabricScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserServicefabricScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabUserServicefabricScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v LabUserServicefabricScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabUserServicefabricScheduleTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabUserServicefabricScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabUserServicefabricScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabUserServicefabricScheduleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a VHD in the lab.
@@ -15999,279 +15362,6 @@ func (o LabVirtualMachinePropertiesResponsePtrOutput) VirtualMachineCreationSour
 	}).(pulumi.StringPtrOutput)
 }
 
-// A virtual machine.
-type LabVirtualmachineType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabVirtualMachinePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabVirtualmachineTypeInput is an input type that accepts LabVirtualmachineTypeArgs and LabVirtualmachineTypeOutput values.
-// You can construct a concrete instance of `LabVirtualmachineTypeInput` via:
-//
-//          LabVirtualmachineTypeArgs{...}
-type LabVirtualmachineTypeInput interface {
-	pulumi.Input
-
-	ToLabVirtualmachineTypeOutput() LabVirtualmachineTypeOutput
-	ToLabVirtualmachineTypeOutputWithContext(context.Context) LabVirtualmachineTypeOutput
-}
-
-// A virtual machine.
-type LabVirtualmachineTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabVirtualMachinePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabVirtualmachineTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualmachineType)(nil)).Elem()
-}
-
-func (i LabVirtualmachineTypeArgs) ToLabVirtualmachineTypeOutput() LabVirtualmachineTypeOutput {
-	return i.ToLabVirtualmachineTypeOutputWithContext(context.Background())
-}
-
-func (i LabVirtualmachineTypeArgs) ToLabVirtualmachineTypeOutputWithContext(ctx context.Context) LabVirtualmachineTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualmachineTypeOutput)
-}
-
-// A virtual machine.
-type LabVirtualmachineTypeOutput struct{ *pulumi.OutputState }
-
-func (LabVirtualmachineTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualmachineType)(nil)).Elem()
-}
-
-func (o LabVirtualmachineTypeOutput) ToLabVirtualmachineTypeOutput() LabVirtualmachineTypeOutput {
-	return o
-}
-
-func (o LabVirtualmachineTypeOutput) ToLabVirtualmachineTypeOutputWithContext(ctx context.Context) LabVirtualmachineTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabVirtualmachineTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualmachineType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabVirtualmachineTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabVirtualmachineType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabVirtualmachineTypeOutput) Properties() LabVirtualMachinePropertiesResponseOutput {
-	return o.ApplyT(func(v LabVirtualmachineType) LabVirtualMachinePropertiesResponse { return v.Properties }).(LabVirtualMachinePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabVirtualmachineTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabVirtualmachineType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabVirtualmachineTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabVirtualmachineType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A schedule.
-type LabVirtualmachineScheduleType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabVirtualmachineScheduleTypeInput is an input type that accepts LabVirtualmachineScheduleTypeArgs and LabVirtualmachineScheduleTypeOutput values.
-// You can construct a concrete instance of `LabVirtualmachineScheduleTypeInput` via:
-//
-//          LabVirtualmachineScheduleTypeArgs{...}
-type LabVirtualmachineScheduleTypeInput interface {
-	pulumi.Input
-
-	ToLabVirtualmachineScheduleTypeOutput() LabVirtualmachineScheduleTypeOutput
-	ToLabVirtualmachineScheduleTypeOutputWithContext(context.Context) LabVirtualmachineScheduleTypeOutput
-}
-
-// A schedule.
-type LabVirtualmachineScheduleTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabVirtualmachineScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualmachineScheduleType)(nil)).Elem()
-}
-
-func (i LabVirtualmachineScheduleTypeArgs) ToLabVirtualmachineScheduleTypeOutput() LabVirtualmachineScheduleTypeOutput {
-	return i.ToLabVirtualmachineScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i LabVirtualmachineScheduleTypeArgs) ToLabVirtualmachineScheduleTypeOutputWithContext(ctx context.Context) LabVirtualmachineScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualmachineScheduleTypeOutput)
-}
-
-// A schedule.
-type LabVirtualmachineScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (LabVirtualmachineScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualmachineScheduleType)(nil)).Elem()
-}
-
-func (o LabVirtualmachineScheduleTypeOutput) ToLabVirtualmachineScheduleTypeOutput() LabVirtualmachineScheduleTypeOutput {
-	return o
-}
-
-func (o LabVirtualmachineScheduleTypeOutput) ToLabVirtualmachineScheduleTypeOutputWithContext(ctx context.Context) LabVirtualmachineScheduleTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabVirtualmachineScheduleTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualmachineScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabVirtualmachineScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabVirtualmachineScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabVirtualmachineScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v LabVirtualmachineScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabVirtualmachineScheduleTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabVirtualmachineScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabVirtualmachineScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabVirtualmachineScheduleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A virtual network.
-type LabVirtualnetworkType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties VirtualNetworkPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabVirtualnetworkTypeInput is an input type that accepts LabVirtualnetworkTypeArgs and LabVirtualnetworkTypeOutput values.
-// You can construct a concrete instance of `LabVirtualnetworkTypeInput` via:
-//
-//          LabVirtualnetworkTypeArgs{...}
-type LabVirtualnetworkTypeInput interface {
-	pulumi.Input
-
-	ToLabVirtualnetworkTypeOutput() LabVirtualnetworkTypeOutput
-	ToLabVirtualnetworkTypeOutputWithContext(context.Context) LabVirtualnetworkTypeOutput
-}
-
-// A virtual network.
-type LabVirtualnetworkTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties VirtualNetworkPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabVirtualnetworkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualnetworkType)(nil)).Elem()
-}
-
-func (i LabVirtualnetworkTypeArgs) ToLabVirtualnetworkTypeOutput() LabVirtualnetworkTypeOutput {
-	return i.ToLabVirtualnetworkTypeOutputWithContext(context.Background())
-}
-
-func (i LabVirtualnetworkTypeArgs) ToLabVirtualnetworkTypeOutputWithContext(ctx context.Context) LabVirtualnetworkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualnetworkTypeOutput)
-}
-
-// A virtual network.
-type LabVirtualnetworkTypeOutput struct{ *pulumi.OutputState }
-
-func (LabVirtualnetworkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualnetworkType)(nil)).Elem()
-}
-
-func (o LabVirtualnetworkTypeOutput) ToLabVirtualnetworkTypeOutput() LabVirtualnetworkTypeOutput {
-	return o
-}
-
-func (o LabVirtualnetworkTypeOutput) ToLabVirtualnetworkTypeOutputWithContext(ctx context.Context) LabVirtualnetworkTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabVirtualnetworkTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualnetworkType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabVirtualnetworkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabVirtualnetworkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabVirtualnetworkTypeOutput) Properties() VirtualNetworkPropertiesResponseOutput {
-	return o.ApplyT(func(v LabVirtualnetworkType) VirtualNetworkPropertiesResponse { return v.Properties }).(VirtualNetworkPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabVirtualnetworkTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabVirtualnetworkType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabVirtualnetworkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabVirtualnetworkType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Information about a Linux OS.
 type LinuxOsInfo struct {
 	// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
@@ -17114,6 +16204,97 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) VirtualNetworkId() pulumi.S
 		}
 		return v.VirtualNetworkId
 	}).(pulumi.StringPtrOutput)
+}
+
+// A notification.
+type NotificationChannelType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties NotificationChannelPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// NotificationChannelTypeInput is an input type that accepts NotificationChannelTypeArgs and NotificationChannelTypeOutput values.
+// You can construct a concrete instance of `NotificationChannelTypeInput` via:
+//
+//          NotificationChannelTypeArgs{...}
+type NotificationChannelTypeInput interface {
+	pulumi.Input
+
+	ToNotificationChannelTypeOutput() NotificationChannelTypeOutput
+	ToNotificationChannelTypeOutputWithContext(context.Context) NotificationChannelTypeOutput
+}
+
+// A notification.
+type NotificationChannelTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties NotificationChannelPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NotificationChannelTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelType)(nil)).Elem()
+}
+
+func (i NotificationChannelTypeArgs) ToNotificationChannelTypeOutput() NotificationChannelTypeOutput {
+	return i.ToNotificationChannelTypeOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelTypeArgs) ToNotificationChannelTypeOutputWithContext(ctx context.Context) NotificationChannelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelTypeOutput)
+}
+
+// A notification.
+type NotificationChannelTypeOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelType)(nil)).Elem()
+}
+
+func (o NotificationChannelTypeOutput) ToNotificationChannelTypeOutput() NotificationChannelTypeOutput {
+	return o
+}
+
+func (o NotificationChannelTypeOutput) ToNotificationChannelTypeOutputWithContext(ctx context.Context) NotificationChannelTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o NotificationChannelTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationChannelType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o NotificationChannelTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationChannelType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o NotificationChannelTypeOutput) Properties() NotificationChannelPropertiesResponseOutput {
+	return o.ApplyT(func(v NotificationChannelType) NotificationChannelPropertiesResponse { return v.Properties }).(NotificationChannelPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o NotificationChannelTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v NotificationChannelType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o NotificationChannelTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationChannelType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a schedule.
@@ -18013,6 +17194,97 @@ func (o NotificationSettingsResponsePtrOutput) WebhookUrl() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// A Policy.
+type PolicyType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties PolicyPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// PolicyTypeInput is an input type that accepts PolicyTypeArgs and PolicyTypeOutput values.
+// You can construct a concrete instance of `PolicyTypeInput` via:
+//
+//          PolicyTypeArgs{...}
+type PolicyTypeInput interface {
+	pulumi.Input
+
+	ToPolicyTypeOutput() PolicyTypeOutput
+	ToPolicyTypeOutputWithContext(context.Context) PolicyTypeOutput
+}
+
+// A Policy.
+type PolicyTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties PolicyPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (i PolicyTypeArgs) ToPolicyTypeOutput() PolicyTypeOutput {
+	return i.ToPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i PolicyTypeArgs) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTypeOutput)
+}
+
+// A Policy.
+type PolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutput() PolicyTypeOutput {
+	return o
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o PolicyTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o PolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o PolicyTypeOutput) Properties() PolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v PolicyType) PolicyPropertiesResponse { return v.Properties }).(PolicyPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o PolicyTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PolicyType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o PolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of a Policy.
 type PolicyProperties struct {
 	// The description of the policy.
@@ -18750,14 +18022,10 @@ func (o PortResponseArrayOutput) Index(i pulumi.IntInput) PortResponseOutput {
 type ScheduleType struct {
 	// The location of the resource.
 	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
 	// The properties of the resource.
-	Properties SchedulePropertiesResponse `pulumi:"properties"`
+	Properties ScheduleProperties `pulumi:"properties"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
 }
 
 // ScheduleTypeInput is an input type that accepts ScheduleTypeArgs and ScheduleTypeOutput values.
@@ -18775,14 +18043,10 @@ type ScheduleTypeInput interface {
 type ScheduleTypeArgs struct {
 	// The location of the resource.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The properties of the resource.
-	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
+	Properties SchedulePropertiesInput `pulumi:"properties"`
 	// The tags of the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ScheduleTypeArgs) ElementType() reflect.Type {
@@ -18868,24 +18132,14 @@ func (o ScheduleTypeOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource.
-func (o ScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The properties of the resource.
-func (o ScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v ScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
+func (o ScheduleTypeOutput) Properties() SchedulePropertiesOutput {
+	return o.ApplyT(func(v ScheduleType) ScheduleProperties { return v.Properties }).(SchedulePropertiesOutput)
 }
 
 // The tags of the resource.
 func (o ScheduleTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ScheduleTypePtrOutput struct{ *pulumi.OutputState }
@@ -18916,24 +18170,14 @@ func (o ScheduleTypePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource.
-func (o ScheduleTypePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The properties of the resource.
-func (o ScheduleTypePtrOutput) Properties() SchedulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ScheduleType) *SchedulePropertiesResponse {
+func (o ScheduleTypePtrOutput) Properties() SchedulePropertiesPtrOutput {
+	return o.ApplyT(func(v *ScheduleType) *ScheduleProperties {
 		if v == nil {
 			return nil
 		}
 		return &v.Properties
-	}).(SchedulePropertiesResponsePtrOutput)
+	}).(SchedulePropertiesPtrOutput)
 }
 
 // The tags of the resource.
@@ -18944,16 +18188,6 @@ func (o ScheduleTypePtrOutput) Tags() pulumi.StringMapOutput {
 		}
 		return v.Tags
 	}).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ScheduleTypePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Properties for creating a schedule.
@@ -20615,6 +19849,97 @@ func (o ScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScheduleResponseOu
 	}).(ScheduleResponseOutput)
 }
 
+// A secret.
+type SecretType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties SecretPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// SecretTypeInput is an input type that accepts SecretTypeArgs and SecretTypeOutput values.
+// You can construct a concrete instance of `SecretTypeInput` via:
+//
+//          SecretTypeArgs{...}
+type SecretTypeInput interface {
+	pulumi.Input
+
+	ToSecretTypeOutput() SecretTypeOutput
+	ToSecretTypeOutputWithContext(context.Context) SecretTypeOutput
+}
+
+// A secret.
+type SecretTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties SecretPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SecretTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretType)(nil)).Elem()
+}
+
+func (i SecretTypeArgs) ToSecretTypeOutput() SecretTypeOutput {
+	return i.ToSecretTypeOutputWithContext(context.Background())
+}
+
+func (i SecretTypeArgs) ToSecretTypeOutputWithContext(ctx context.Context) SecretTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretTypeOutput)
+}
+
+// A secret.
+type SecretTypeOutput struct{ *pulumi.OutputState }
+
+func (SecretTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretType)(nil)).Elem()
+}
+
+func (o SecretTypeOutput) ToSecretTypeOutput() SecretTypeOutput {
+	return o
+}
+
+func (o SecretTypeOutput) ToSecretTypeOutputWithContext(ctx context.Context) SecretTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o SecretTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o SecretTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o SecretTypeOutput) Properties() SecretPropertiesResponseOutput {
+	return o.ApplyT(func(v SecretType) SecretPropertiesResponse { return v.Properties }).(SecretPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o SecretTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SecretType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o SecretTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of a secret.
 type SecretProperties struct {
 	// The value of the secret for secret creation.
@@ -20919,6 +20244,97 @@ func (o SecretPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutput {
 		}
 		return v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+// A Service Fabric.
+type ServiceFabricType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties ServiceFabricPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ServiceFabricTypeInput is an input type that accepts ServiceFabricTypeArgs and ServiceFabricTypeOutput values.
+// You can construct a concrete instance of `ServiceFabricTypeInput` via:
+//
+//          ServiceFabricTypeArgs{...}
+type ServiceFabricTypeInput interface {
+	pulumi.Input
+
+	ToServiceFabricTypeOutput() ServiceFabricTypeOutput
+	ToServiceFabricTypeOutputWithContext(context.Context) ServiceFabricTypeOutput
+}
+
+// A Service Fabric.
+type ServiceFabricTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties ServiceFabricPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceFabricTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricType)(nil)).Elem()
+}
+
+func (i ServiceFabricTypeArgs) ToServiceFabricTypeOutput() ServiceFabricTypeOutput {
+	return i.ToServiceFabricTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceFabricTypeArgs) ToServiceFabricTypeOutputWithContext(ctx context.Context) ServiceFabricTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFabricTypeOutput)
+}
+
+// A Service Fabric.
+type ServiceFabricTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceFabricTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricType)(nil)).Elem()
+}
+
+func (o ServiceFabricTypeOutput) ToServiceFabricTypeOutput() ServiceFabricTypeOutput {
+	return o
+}
+
+func (o ServiceFabricTypeOutput) ToServiceFabricTypeOutputWithContext(ctx context.Context) ServiceFabricTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o ServiceFabricTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFabricType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceFabricTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceFabricType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o ServiceFabricTypeOutput) Properties() ServiceFabricPropertiesResponseOutput {
+	return o.ApplyT(func(v ServiceFabricType) ServiceFabricPropertiesResponse { return v.Properties }).(ServiceFabricPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o ServiceFabricTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceFabricType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceFabricTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceFabricType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a service fabric.
@@ -21282,6 +20698,188 @@ func (o ServiceFabricPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.Stri
 		}
 		return &v.UniqueIdentifier
 	}).(pulumi.StringPtrOutput)
+}
+
+// A schedule.
+type ServiceFabricScheduleType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties SchedulePropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ServiceFabricScheduleTypeInput is an input type that accepts ServiceFabricScheduleTypeArgs and ServiceFabricScheduleTypeOutput values.
+// You can construct a concrete instance of `ServiceFabricScheduleTypeInput` via:
+//
+//          ServiceFabricScheduleTypeArgs{...}
+type ServiceFabricScheduleTypeInput interface {
+	pulumi.Input
+
+	ToServiceFabricScheduleTypeOutput() ServiceFabricScheduleTypeOutput
+	ToServiceFabricScheduleTypeOutputWithContext(context.Context) ServiceFabricScheduleTypeOutput
+}
+
+// A schedule.
+type ServiceFabricScheduleTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceFabricScheduleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricScheduleType)(nil)).Elem()
+}
+
+func (i ServiceFabricScheduleTypeArgs) ToServiceFabricScheduleTypeOutput() ServiceFabricScheduleTypeOutput {
+	return i.ToServiceFabricScheduleTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceFabricScheduleTypeArgs) ToServiceFabricScheduleTypeOutputWithContext(ctx context.Context) ServiceFabricScheduleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFabricScheduleTypeOutput)
+}
+
+// A schedule.
+type ServiceFabricScheduleTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceFabricScheduleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFabricScheduleType)(nil)).Elem()
+}
+
+func (o ServiceFabricScheduleTypeOutput) ToServiceFabricScheduleTypeOutput() ServiceFabricScheduleTypeOutput {
+	return o
+}
+
+func (o ServiceFabricScheduleTypeOutput) ToServiceFabricScheduleTypeOutputWithContext(ctx context.Context) ServiceFabricScheduleTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o ServiceFabricScheduleTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFabricScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceFabricScheduleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceFabricScheduleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o ServiceFabricScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
+	return o.ApplyT(func(v ServiceFabricScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o ServiceFabricScheduleTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceFabricScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceFabricScheduleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceFabricScheduleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A container for a managed identity to execute DevTest lab services.
+type ServiceRunnerType struct {
+	// The identity of the resource.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ServiceRunnerTypeInput is an input type that accepts ServiceRunnerTypeArgs and ServiceRunnerTypeOutput values.
+// You can construct a concrete instance of `ServiceRunnerTypeInput` via:
+//
+//          ServiceRunnerTypeArgs{...}
+type ServiceRunnerTypeInput interface {
+	pulumi.Input
+
+	ToServiceRunnerTypeOutput() ServiceRunnerTypeOutput
+	ToServiceRunnerTypeOutputWithContext(context.Context) ServiceRunnerTypeOutput
+}
+
+// A container for a managed identity to execute DevTest lab services.
+type ServiceRunnerTypeArgs struct {
+	// The identity of the resource.
+	Identity IdentityPropertiesResponsePtrInput `pulumi:"identity"`
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceRunnerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRunnerType)(nil)).Elem()
+}
+
+func (i ServiceRunnerTypeArgs) ToServiceRunnerTypeOutput() ServiceRunnerTypeOutput {
+	return i.ToServiceRunnerTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceRunnerTypeArgs) ToServiceRunnerTypeOutputWithContext(ctx context.Context) ServiceRunnerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceRunnerTypeOutput)
+}
+
+// A container for a managed identity to execute DevTest lab services.
+type ServiceRunnerTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceRunnerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRunnerType)(nil)).Elem()
+}
+
+func (o ServiceRunnerTypeOutput) ToServiceRunnerTypeOutput() ServiceRunnerTypeOutput {
+	return o
+}
+
+func (o ServiceRunnerTypeOutput) ToServiceRunnerTypeOutputWithContext(ctx context.Context) ServiceRunnerTypeOutput {
+	return o
+}
+
+// The identity of the resource.
+func (o ServiceRunnerTypeOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ServiceRunnerType) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o ServiceRunnerTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRunnerType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceRunnerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRunnerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o ServiceRunnerTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceRunnerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceRunnerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRunnerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a virtual machine that determine how it is connected to a load balancer.
@@ -22352,6 +21950,97 @@ func (o SubnetSharedPublicIpAddressConfigurationResponsePtrOutput) AllowedPorts(
 		}
 		return v.AllowedPorts
 	}).(PortResponseArrayOutput)
+}
+
+// Profile of a lab user.
+type UserType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties UserPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// UserTypeInput is an input type that accepts UserTypeArgs and UserTypeOutput values.
+// You can construct a concrete instance of `UserTypeInput` via:
+//
+//          UserTypeArgs{...}
+type UserTypeInput interface {
+	pulumi.Input
+
+	ToUserTypeOutput() UserTypeOutput
+	ToUserTypeOutputWithContext(context.Context) UserTypeOutput
+}
+
+// Profile of a lab user.
+type UserTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties UserPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UserTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (i UserTypeArgs) ToUserTypeOutput() UserTypeOutput {
+	return i.ToUserTypeOutputWithContext(context.Background())
+}
+
+func (i UserTypeArgs) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTypeOutput)
+}
+
+// Profile of a lab user.
+type UserTypeOutput struct{ *pulumi.OutputState }
+
+func (UserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {
+	return o
+}
+
+func (o UserTypeOutput) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o UserTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o UserTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o UserTypeOutput) Properties() UserPropertiesResponseOutput {
+	return o.ApplyT(func(v UserType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o UserTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UserType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o UserTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Identity attributes of a lab user.
@@ -23443,6 +23132,279 @@ func (o UserSecretStoreResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A virtual machine.
+type VirtualMachineType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties LabVirtualMachinePropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// VirtualMachineTypeInput is an input type that accepts VirtualMachineTypeArgs and VirtualMachineTypeOutput values.
+// You can construct a concrete instance of `VirtualMachineTypeInput` via:
+//
+//          VirtualMachineTypeArgs{...}
+type VirtualMachineTypeInput interface {
+	pulumi.Input
+
+	ToVirtualMachineTypeOutput() VirtualMachineTypeOutput
+	ToVirtualMachineTypeOutputWithContext(context.Context) VirtualMachineTypeOutput
+}
+
+// A virtual machine.
+type VirtualMachineTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties LabVirtualMachinePropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualMachineTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineType)(nil)).Elem()
+}
+
+func (i VirtualMachineTypeArgs) ToVirtualMachineTypeOutput() VirtualMachineTypeOutput {
+	return i.ToVirtualMachineTypeOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineTypeArgs) ToVirtualMachineTypeOutputWithContext(ctx context.Context) VirtualMachineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineTypeOutput)
+}
+
+// A virtual machine.
+type VirtualMachineTypeOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineType)(nil)).Elem()
+}
+
+func (o VirtualMachineTypeOutput) ToVirtualMachineTypeOutput() VirtualMachineTypeOutput {
+	return o
+}
+
+func (o VirtualMachineTypeOutput) ToVirtualMachineTypeOutputWithContext(ctx context.Context) VirtualMachineTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o VirtualMachineTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o VirtualMachineTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o VirtualMachineTypeOutput) Properties() LabVirtualMachinePropertiesResponseOutput {
+	return o.ApplyT(func(v VirtualMachineType) LabVirtualMachinePropertiesResponse { return v.Properties }).(LabVirtualMachinePropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o VirtualMachineTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VirtualMachineType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o VirtualMachineTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A schedule.
+type VirtualMachineScheduleType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties SchedulePropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// VirtualMachineScheduleTypeInput is an input type that accepts VirtualMachineScheduleTypeArgs and VirtualMachineScheduleTypeOutput values.
+// You can construct a concrete instance of `VirtualMachineScheduleTypeInput` via:
+//
+//          VirtualMachineScheduleTypeArgs{...}
+type VirtualMachineScheduleTypeInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScheduleTypeOutput() VirtualMachineScheduleTypeOutput
+	ToVirtualMachineScheduleTypeOutputWithContext(context.Context) VirtualMachineScheduleTypeOutput
+}
+
+// A schedule.
+type VirtualMachineScheduleTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualMachineScheduleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScheduleType)(nil)).Elem()
+}
+
+func (i VirtualMachineScheduleTypeArgs) ToVirtualMachineScheduleTypeOutput() VirtualMachineScheduleTypeOutput {
+	return i.ToVirtualMachineScheduleTypeOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScheduleTypeArgs) ToVirtualMachineScheduleTypeOutputWithContext(ctx context.Context) VirtualMachineScheduleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScheduleTypeOutput)
+}
+
+// A schedule.
+type VirtualMachineScheduleTypeOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScheduleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScheduleType)(nil)).Elem()
+}
+
+func (o VirtualMachineScheduleTypeOutput) ToVirtualMachineScheduleTypeOutput() VirtualMachineScheduleTypeOutput {
+	return o
+}
+
+func (o VirtualMachineScheduleTypeOutput) ToVirtualMachineScheduleTypeOutputWithContext(ctx context.Context) VirtualMachineScheduleTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o VirtualMachineScheduleTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScheduleType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o VirtualMachineScheduleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScheduleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o VirtualMachineScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
+	return o.ApplyT(func(v VirtualMachineScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o VirtualMachineScheduleTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VirtualMachineScheduleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o VirtualMachineScheduleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScheduleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A virtual network.
+type VirtualNetworkType struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties VirtualNetworkPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// VirtualNetworkTypeInput is an input type that accepts VirtualNetworkTypeArgs and VirtualNetworkTypeOutput values.
+// You can construct a concrete instance of `VirtualNetworkTypeInput` via:
+//
+//          VirtualNetworkTypeArgs{...}
+type VirtualNetworkTypeInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkTypeOutput() VirtualNetworkTypeOutput
+	ToVirtualNetworkTypeOutputWithContext(context.Context) VirtualNetworkTypeOutput
+}
+
+// A virtual network.
+type VirtualNetworkTypeArgs struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties VirtualNetworkPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualNetworkTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkType)(nil)).Elem()
+}
+
+func (i VirtualNetworkTypeArgs) ToVirtualNetworkTypeOutput() VirtualNetworkTypeOutput {
+	return i.ToVirtualNetworkTypeOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkTypeArgs) ToVirtualNetworkTypeOutputWithContext(ctx context.Context) VirtualNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkTypeOutput)
+}
+
+// A virtual network.
+type VirtualNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkType)(nil)).Elem()
+}
+
+func (o VirtualNetworkTypeOutput) ToVirtualNetworkTypeOutput() VirtualNetworkTypeOutput {
+	return o
+}
+
+func (o VirtualNetworkTypeOutput) ToVirtualNetworkTypeOutputWithContext(ctx context.Context) VirtualNetworkTypeOutput {
+	return o
+}
+
+// The location of the resource.
+func (o VirtualNetworkTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o VirtualNetworkTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o VirtualNetworkTypeOutput) Properties() VirtualNetworkPropertiesResponseOutput {
+	return o.ApplyT(func(v VirtualNetworkType) VirtualNetworkPropertiesResponse { return v.Properties }).(VirtualNetworkPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o VirtualNetworkTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VirtualNetworkType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o VirtualNetworkTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of a virtual network.
 type VirtualNetworkProperties struct {
 	// The allowed subnets of the virtual network.
@@ -24498,6 +24460,7 @@ func init() {
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(ArtifactSourceTypeOutput{})
 	pulumi.RegisterOutputType(ArtifactSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ArtifactSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactSourcePropertiesResponseOutput{})
@@ -24521,6 +24484,7 @@ func init() {
 	pulumi.RegisterOutputType(ComputeVmPropertiesOutput{})
 	pulumi.RegisterOutputType(ComputeVmPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ComputeVmPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(CustomImageTypeOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesCustomOutput{})
@@ -24549,10 +24513,12 @@ func init() {
 	pulumi.RegisterOutputType(DayDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DayDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DayDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(DiskTypeOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeploymentPropertiesResponseOutput{})
@@ -24568,6 +24534,7 @@ func init() {
 	pulumi.RegisterOutputType(ExternalSubnetOutput{})
 	pulumi.RegisterOutputType(ExternalSubnetResponseOutput{})
 	pulumi.RegisterOutputType(ExternalSubnetResponseArrayOutput{})
+	pulumi.RegisterOutputType(FormulaTypeOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmOutput{})
@@ -24580,6 +24547,7 @@ func init() {
 	pulumi.RegisterOutputType(GalleryImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(GlobalScheduleTypeOutput{})
 	pulumi.RegisterOutputType(HourDetailsOutput{})
 	pulumi.RegisterOutputType(HourDetailsPtrOutput{})
 	pulumi.RegisterOutputType(HourDetailsResponseOutput{})
@@ -24597,27 +24565,14 @@ func init() {
 	pulumi.RegisterOutputType(LabAnnouncementPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabAnnouncementPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabAnnouncementPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabArtifactsourceTypeOutput{})
-	pulumi.RegisterOutputType(LabCustomimageTypeOutput{})
-	pulumi.RegisterOutputType(LabFormulaTypeOutput{})
-	pulumi.RegisterOutputType(LabNotificationchannelTypeOutput{})
-	pulumi.RegisterOutputType(LabPolicysetPolicyTypeOutput{})
 	pulumi.RegisterOutputType(LabPropertiesOutput{})
 	pulumi.RegisterOutputType(LabPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabScheduleTypeOutput{})
-	pulumi.RegisterOutputType(LabServicerunnerTypeOutput{})
 	pulumi.RegisterOutputType(LabSupportPropertiesOutput{})
 	pulumi.RegisterOutputType(LabSupportPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabSupportPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabSupportPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabUserTypeOutput{})
-	pulumi.RegisterOutputType(LabUserDiskTypeOutput{})
-	pulumi.RegisterOutputType(LabUserEnvironmentTypeOutput{})
-	pulumi.RegisterOutputType(LabUserSecretTypeOutput{})
-	pulumi.RegisterOutputType(LabUserServicefabricTypeOutput{})
-	pulumi.RegisterOutputType(LabUserServicefabricScheduleTypeOutput{})
 	pulumi.RegisterOutputType(LabVhdResponseOutput{})
 	pulumi.RegisterOutputType(LabVhdResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterOutput{})
@@ -24632,9 +24587,6 @@ func init() {
 	pulumi.RegisterOutputType(LabVirtualMachinePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachinePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachinePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabVirtualmachineTypeOutput{})
-	pulumi.RegisterOutputType(LabVirtualmachineScheduleTypeOutput{})
-	pulumi.RegisterOutputType(LabVirtualnetworkTypeOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoPtrOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoResponseOutput{})
@@ -24643,6 +24595,7 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(NotificationChannelTypeOutput{})
 	pulumi.RegisterOutputType(NotificationChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(NotificationChannelPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NotificationChannelPropertiesResponseOutput{})
@@ -24651,6 +24604,7 @@ func init() {
 	pulumi.RegisterOutputType(NotificationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(PolicyTypeOutput{})
 	pulumi.RegisterOutputType(PolicyPropertiesOutput{})
 	pulumi.RegisterOutputType(PolicyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyPropertiesResponseOutput{})
@@ -24676,14 +24630,18 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseArrayOutput{})
+	pulumi.RegisterOutputType(SecretTypeOutput{})
 	pulumi.RegisterOutputType(SecretPropertiesOutput{})
 	pulumi.RegisterOutputType(SecretPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SecretPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SecretPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceFabricTypeOutput{})
 	pulumi.RegisterOutputType(ServiceFabricPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceFabricPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceFabricPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServiceFabricPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceFabricScheduleTypeOutput{})
+	pulumi.RegisterOutputType(ServiceRunnerTypeOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationResponseOutput{})
@@ -24700,6 +24658,7 @@ func init() {
 	pulumi.RegisterOutputType(SubnetSharedPublicIpAddressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubnetSharedPublicIpAddressConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SubnetSharedPublicIpAddressConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserTypeOutput{})
 	pulumi.RegisterOutputType(UserIdentityOutput{})
 	pulumi.RegisterOutputType(UserIdentityPtrOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
@@ -24712,6 +24671,9 @@ func init() {
 	pulumi.RegisterOutputType(UserSecretStorePtrOutput{})
 	pulumi.RegisterOutputType(UserSecretStoreResponseOutput{})
 	pulumi.RegisterOutputType(UserSecretStoreResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineTypeOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScheduleTypeOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkTypeOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPropertiesOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPropertiesResponseOutput{})

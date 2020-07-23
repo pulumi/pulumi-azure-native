@@ -3,6 +3,6 @@
 
 // Export members:
 export * from "./getIotSecuritySolution";
-export * from "./getLocationJitNetworkAccessPolicy";
+export * from "./getJitNetworkAccessPolicy";
 export * from "./iotSecuritySolution";
-export * from "./locationJitNetworkAccessPolicy";
+export * from "./jitNetworkAccessPolicy";

@@ -4,12 +4,12 @@
 
 # Export this package's modules as members:
 from .component import *
-from .component_exportconfiguration import *
-from .component_favorite import *
+from .export_configuration import *
+from .favorite import *
 from .get_component import *
-from .get_component_exportconfiguration import *
-from .get_component_favorite import *
+from .get_export_configuration import *
+from .get_favorite import *
 from .get_metric_alert import *
-from .get_webtest import *
+from .get_web_test import *
 from .metric_alert import *
-from .webtest import *
+from .web_test import *

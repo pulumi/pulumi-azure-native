@@ -3,11 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .bot_service import *
-from .bot_service_channel import *
-from .bot_service_connection import *
-from .get_bot_service import *
-from .get_bot_service_channel import *
-from .get_bot_service_connection import *
-from .list_bot_service_channel_channel_with_keys import *
-from .list_bot_service_connection_with_secrets import *
+from .bot import *
+from .bot_connection import *
+from .channel import *
+from .get_bot import *
+from .get_bot_connection import *
+from .get_channel import *
+from .list_bot_connection_with_secrets import *
+from .list_channel_with_keys import *

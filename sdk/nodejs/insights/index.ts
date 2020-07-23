@@ -3,12 +3,12 @@
 
 // Export members:
 export * from "./component";
-export * from "./componentExportconfiguration";
-export * from "./componentFavorite";
+export * from "./exportConfiguration";
+export * from "./favorite";
 export * from "./getComponent";
-export * from "./getComponentExportconfiguration";
-export * from "./getComponentFavorite";
+export * from "./getExportConfiguration";
+export * from "./getFavorite";
 export * from "./getMetricAlert";
-export * from "./getWebtest";
+export * from "./getWebTest";
 export * from "./metricAlert";
-export * from "./webtest";
+export * from "./webTest";

@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.LabServices
 {
-    public static class GetLabaccount
+    public static class GetLabAccount
     {
-        public static Task<GetLabaccountResult> InvokeAsync(GetLabaccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabaccountResult>("azurerm:labservices:getLabaccount", args ?? new GetLabaccountArgs(), options.WithVersion());
+        public static Task<GetLabAccountResult> InvokeAsync(GetLabAccountArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountResult>("azurerm:labservices:getLabAccount", args ?? new GetLabAccountArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetLabaccountArgs : Pulumi.InvokeArgs
+    public sealed class GetLabAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lab Account.
@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.LabServices
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetLabaccountArgs()
+        public GetLabAccountArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetLabaccountResult
+    public sealed class GetLabAccountResult
     {
         /// <summary>
         /// The location of the resource.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.LabServices
         public readonly string Type;
 
         [OutputConstructor]
-        private GetLabaccountResult(
+        private GetLabAccountResult(
             string? location,
 
             string name,

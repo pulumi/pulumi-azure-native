@@ -3,18 +3,18 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_hybrid_connection import *
+from .get_hybrid_connection_authorization_rule import *
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
-from .get_namespace_hybrid_connection import *
-from .get_namespace_hybrid_connection_authorization_rule import *
-from .get_namespace_wcf_relay import *
-from .get_namespace_wcf_relay_authorization_rule import *
-from .list_namespace_authorization_rule_keys import *
-from .list_namespace_hybrid_connection_authorization_rule_keys import *
-from .list_namespace_wcf_relay_authorization_rule_keys import *
+from .get_wcf_relay import *
+from .get_wcf_relay_authorization_rule import *
+from .hybrid_connection import *
+from .hybrid_connection_authorization_rule import *
+from .list_hybrid_connection_keys import *
+from .list_namespace_keys import *
+from .list_wcf_relay_keys import *
 from .namespace import *
 from .namespace_authorization_rule import *
-from .namespace_hybrid_connection import *
-from .namespace_hybrid_connection_authorization_rule import *
-from .namespace_wcf_relay import *
-from .namespace_wcf_relay_authorization_rule import *
+from .wcf_relay import *
+from .wcf_relay_authorization_rule import *

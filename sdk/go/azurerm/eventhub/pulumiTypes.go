@@ -1100,6 +1100,79 @@ func (o CaptureDescriptionResponsePtrOutput) SkipEmptyArchives() pulumi.BoolPtrO
 }
 
 // Single item in List or Get Consumer group operation
+type ConsumerGroupType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Single item in List or Get Consumer group operation
+	Properties ConsumerGroupResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// ConsumerGroupTypeInput is an input type that accepts ConsumerGroupTypeArgs and ConsumerGroupTypeOutput values.
+// You can construct a concrete instance of `ConsumerGroupTypeInput` via:
+//
+//          ConsumerGroupTypeArgs{...}
+type ConsumerGroupTypeInput interface {
+	pulumi.Input
+
+	ToConsumerGroupTypeOutput() ConsumerGroupTypeOutput
+	ToConsumerGroupTypeOutputWithContext(context.Context) ConsumerGroupTypeOutput
+}
+
+// Single item in List or Get Consumer group operation
+type ConsumerGroupTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Single item in List or Get Consumer group operation
+	Properties ConsumerGroupResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ConsumerGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroupType)(nil)).Elem()
+}
+
+func (i ConsumerGroupTypeArgs) ToConsumerGroupTypeOutput() ConsumerGroupTypeOutput {
+	return i.ToConsumerGroupTypeOutputWithContext(context.Background())
+}
+
+func (i ConsumerGroupTypeArgs) ToConsumerGroupTypeOutputWithContext(ctx context.Context) ConsumerGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupTypeOutput)
+}
+
+// Single item in List or Get Consumer group operation
+type ConsumerGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (ConsumerGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsumerGroupType)(nil)).Elem()
+}
+
+func (o ConsumerGroupTypeOutput) ToConsumerGroupTypeOutput() ConsumerGroupTypeOutput {
+	return o
+}
+
+func (o ConsumerGroupTypeOutput) ToConsumerGroupTypeOutputWithContext(ctx context.Context) ConsumerGroupTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ConsumerGroupTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsumerGroupType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Single item in List or Get Consumer group operation
+func (o ConsumerGroupTypeOutput) Properties() ConsumerGroupResponsePropertiesOutput {
+	return o.ApplyT(func(v ConsumerGroupType) ConsumerGroupResponseProperties { return v.Properties }).(ConsumerGroupResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o ConsumerGroupTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsumerGroupType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Single item in List or Get Consumer group operation
 type ConsumerGroupProperties struct {
 	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
 	UserMetadata *string `pulumi:"userMetadata"`
@@ -2137,6 +2210,79 @@ func (o DestinationResponsePropertiesPtrOutput) StorageAccountResourceId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Single item in List or Get Alias(Disaster Recovery configuration) operation
+type DisasterRecoveryConfigType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+	Properties ArmDisasterRecoveryResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// DisasterRecoveryConfigTypeInput is an input type that accepts DisasterRecoveryConfigTypeArgs and DisasterRecoveryConfigTypeOutput values.
+// You can construct a concrete instance of `DisasterRecoveryConfigTypeInput` via:
+//
+//          DisasterRecoveryConfigTypeArgs{...}
+type DisasterRecoveryConfigTypeInput interface {
+	pulumi.Input
+
+	ToDisasterRecoveryConfigTypeOutput() DisasterRecoveryConfigTypeOutput
+	ToDisasterRecoveryConfigTypeOutputWithContext(context.Context) DisasterRecoveryConfigTypeOutput
+}
+
+// Single item in List or Get Alias(Disaster Recovery configuration) operation
+type DisasterRecoveryConfigTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+	Properties ArmDisasterRecoveryResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DisasterRecoveryConfigTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigType)(nil)).Elem()
+}
+
+func (i DisasterRecoveryConfigTypeArgs) ToDisasterRecoveryConfigTypeOutput() DisasterRecoveryConfigTypeOutput {
+	return i.ToDisasterRecoveryConfigTypeOutputWithContext(context.Background())
+}
+
+func (i DisasterRecoveryConfigTypeArgs) ToDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) DisasterRecoveryConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigTypeOutput)
+}
+
+// Single item in List or Get Alias(Disaster Recovery configuration) operation
+type DisasterRecoveryConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (DisasterRecoveryConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigType)(nil)).Elem()
+}
+
+func (o DisasterRecoveryConfigTypeOutput) ToDisasterRecoveryConfigTypeOutput() DisasterRecoveryConfigTypeOutput {
+	return o
+}
+
+func (o DisasterRecoveryConfigTypeOutput) ToDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) DisasterRecoveryConfigTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o DisasterRecoveryConfigTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+func (o DisasterRecoveryConfigTypeOutput) Properties() ArmDisasterRecoveryResponsePropertiesOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigType) ArmDisasterRecoveryResponseProperties { return v.Properties }).(ArmDisasterRecoveryResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o DisasterRecoveryConfigTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Namespace properties supplied for create namespace operation.
 type EHNamespaceProperties struct {
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
@@ -2574,6 +2720,152 @@ func (o EHNamespaceResponsePropertiesPtrOutput) UpdatedAt() pulumi.StringPtrOutp
 		}
 		return &v.UpdatedAt
 	}).(pulumi.StringPtrOutput)
+}
+
+// Single item in List or Get Event Hub operation
+type EventHubType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties supplied to the Create Or Update Event Hub operation.
+	Properties EventhubResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// EventHubTypeInput is an input type that accepts EventHubTypeArgs and EventHubTypeOutput values.
+// You can construct a concrete instance of `EventHubTypeInput` via:
+//
+//          EventHubTypeArgs{...}
+type EventHubTypeInput interface {
+	pulumi.Input
+
+	ToEventHubTypeOutput() EventHubTypeOutput
+	ToEventHubTypeOutputWithContext(context.Context) EventHubTypeOutput
+}
+
+// Single item in List or Get Event Hub operation
+type EventHubTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties supplied to the Create Or Update Event Hub operation.
+	Properties EventhubResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventHubTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubType)(nil)).Elem()
+}
+
+func (i EventHubTypeArgs) ToEventHubTypeOutput() EventHubTypeOutput {
+	return i.ToEventHubTypeOutputWithContext(context.Background())
+}
+
+func (i EventHubTypeArgs) ToEventHubTypeOutputWithContext(ctx context.Context) EventHubTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubTypeOutput)
+}
+
+// Single item in List or Get Event Hub operation
+type EventHubTypeOutput struct{ *pulumi.OutputState }
+
+func (EventHubTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubType)(nil)).Elem()
+}
+
+func (o EventHubTypeOutput) ToEventHubTypeOutput() EventHubTypeOutput {
+	return o
+}
+
+func (o EventHubTypeOutput) ToEventHubTypeOutputWithContext(ctx context.Context) EventHubTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o EventHubTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties supplied to the Create Or Update Event Hub operation.
+func (o EventHubTypeOutput) Properties() EventhubResponsePropertiesOutput {
+	return o.ApplyT(func(v EventHubType) EventhubResponseProperties { return v.Properties }).(EventhubResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o EventHubTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Single item in a List or Get AuthorizationRule operation
+type EventHubAuthorizationRuleType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties supplied to create or update AuthorizationRule
+	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// EventHubAuthorizationRuleTypeInput is an input type that accepts EventHubAuthorizationRuleTypeArgs and EventHubAuthorizationRuleTypeOutput values.
+// You can construct a concrete instance of `EventHubAuthorizationRuleTypeInput` via:
+//
+//          EventHubAuthorizationRuleTypeArgs{...}
+type EventHubAuthorizationRuleTypeInput interface {
+	pulumi.Input
+
+	ToEventHubAuthorizationRuleTypeOutput() EventHubAuthorizationRuleTypeOutput
+	ToEventHubAuthorizationRuleTypeOutputWithContext(context.Context) EventHubAuthorizationRuleTypeOutput
+}
+
+// Single item in a List or Get AuthorizationRule operation
+type EventHubAuthorizationRuleTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties supplied to create or update AuthorizationRule
+	Properties AuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventHubAuthorizationRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubAuthorizationRuleType)(nil)).Elem()
+}
+
+func (i EventHubAuthorizationRuleTypeArgs) ToEventHubAuthorizationRuleTypeOutput() EventHubAuthorizationRuleTypeOutput {
+	return i.ToEventHubAuthorizationRuleTypeOutputWithContext(context.Background())
+}
+
+func (i EventHubAuthorizationRuleTypeArgs) ToEventHubAuthorizationRuleTypeOutputWithContext(ctx context.Context) EventHubAuthorizationRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleTypeOutput)
+}
+
+// Single item in a List or Get AuthorizationRule operation
+type EventHubAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (EventHubAuthorizationRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubAuthorizationRuleType)(nil)).Elem()
+}
+
+func (o EventHubAuthorizationRuleTypeOutput) ToEventHubAuthorizationRuleTypeOutput() EventHubAuthorizationRuleTypeOutput {
+	return o
+}
+
+func (o EventHubAuthorizationRuleTypeOutput) ToEventHubAuthorizationRuleTypeOutputWithContext(ctx context.Context) EventHubAuthorizationRuleTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o EventHubAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties supplied to create or update AuthorizationRule
+func (o EventHubAuthorizationRuleTypeOutput) Properties() AuthorizationRuleResponsePropertiesOutput {
+	return o.ApplyT(func(v EventHubAuthorizationRuleType) AuthorizationRuleResponseProperties { return v.Properties }).(AuthorizationRuleResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o EventHubAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties supplied to the Create Or Update Event Hub operation.
@@ -3361,300 +3653,6 @@ func (o NamespaceAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
-type NamespaceDisasterRecoveryConfigType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceDisasterRecoveryConfigTypeInput is an input type that accepts NamespaceDisasterRecoveryConfigTypeArgs and NamespaceDisasterRecoveryConfigTypeOutput values.
-// You can construct a concrete instance of `NamespaceDisasterRecoveryConfigTypeInput` via:
-//
-//          NamespaceDisasterRecoveryConfigTypeArgs{...}
-type NamespaceDisasterRecoveryConfigTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceDisasterRecoveryConfigTypeOutput() NamespaceDisasterRecoveryConfigTypeOutput
-	ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(context.Context) NamespaceDisasterRecoveryConfigTypeOutput
-}
-
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
-type NamespaceDisasterRecoveryConfigTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceDisasterRecoveryConfigTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceDisasterRecoveryConfigType)(nil)).Elem()
-}
-
-func (i NamespaceDisasterRecoveryConfigTypeArgs) ToNamespaceDisasterRecoveryConfigTypeOutput() NamespaceDisasterRecoveryConfigTypeOutput {
-	return i.ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceDisasterRecoveryConfigTypeArgs) ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigTypeOutput)
-}
-
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
-type NamespaceDisasterRecoveryConfigTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceDisasterRecoveryConfigTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceDisasterRecoveryConfigType)(nil)).Elem()
-}
-
-func (o NamespaceDisasterRecoveryConfigTypeOutput) ToNamespaceDisasterRecoveryConfigTypeOutput() NamespaceDisasterRecoveryConfigTypeOutput {
-	return o
-}
-
-func (o NamespaceDisasterRecoveryConfigTypeOutput) ToNamespaceDisasterRecoveryConfigTypeOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceDisasterRecoveryConfigTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceDisasterRecoveryConfigType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-func (o NamespaceDisasterRecoveryConfigTypeOutput) Properties() ArmDisasterRecoveryResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceDisasterRecoveryConfigType) ArmDisasterRecoveryResponseProperties { return v.Properties }).(ArmDisasterRecoveryResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceDisasterRecoveryConfigTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceDisasterRecoveryConfigType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Single item in List or Get Event Hub operation
-type NamespaceEventhubType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventhubResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceEventhubTypeInput is an input type that accepts NamespaceEventhubTypeArgs and NamespaceEventhubTypeOutput values.
-// You can construct a concrete instance of `NamespaceEventhubTypeInput` via:
-//
-//          NamespaceEventhubTypeArgs{...}
-type NamespaceEventhubTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceEventhubTypeOutput() NamespaceEventhubTypeOutput
-	ToNamespaceEventhubTypeOutputWithContext(context.Context) NamespaceEventhubTypeOutput
-}
-
-// Single item in List or Get Event Hub operation
-type NamespaceEventhubTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventhubResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceEventhubTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceEventhubType)(nil)).Elem()
-}
-
-func (i NamespaceEventhubTypeArgs) ToNamespaceEventhubTypeOutput() NamespaceEventhubTypeOutput {
-	return i.ToNamespaceEventhubTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceEventhubTypeArgs) ToNamespaceEventhubTypeOutputWithContext(ctx context.Context) NamespaceEventhubTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceEventhubTypeOutput)
-}
-
-// Single item in List or Get Event Hub operation
-type NamespaceEventhubTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceEventhubTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceEventhubType)(nil)).Elem()
-}
-
-func (o NamespaceEventhubTypeOutput) ToNamespaceEventhubTypeOutput() NamespaceEventhubTypeOutput {
-	return o
-}
-
-func (o NamespaceEventhubTypeOutput) ToNamespaceEventhubTypeOutputWithContext(ctx context.Context) NamespaceEventhubTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceEventhubTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceEventhubType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties supplied to the Create Or Update Event Hub operation.
-func (o NamespaceEventhubTypeOutput) Properties() EventhubResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceEventhubType) EventhubResponseProperties { return v.Properties }).(EventhubResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceEventhubTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceEventhubType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Single item in a List or Get AuthorizationRule operation
-type NamespaceEventhubAuthorizationRuleType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties supplied to create or update AuthorizationRule
-	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceEventhubAuthorizationRuleTypeInput is an input type that accepts NamespaceEventhubAuthorizationRuleTypeArgs and NamespaceEventhubAuthorizationRuleTypeOutput values.
-// You can construct a concrete instance of `NamespaceEventhubAuthorizationRuleTypeInput` via:
-//
-//          NamespaceEventhubAuthorizationRuleTypeArgs{...}
-type NamespaceEventhubAuthorizationRuleTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceEventhubAuthorizationRuleTypeOutput() NamespaceEventhubAuthorizationRuleTypeOutput
-	ToNamespaceEventhubAuthorizationRuleTypeOutputWithContext(context.Context) NamespaceEventhubAuthorizationRuleTypeOutput
-}
-
-// Single item in a List or Get AuthorizationRule operation
-type NamespaceEventhubAuthorizationRuleTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties supplied to create or update AuthorizationRule
-	Properties AuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceEventhubAuthorizationRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceEventhubAuthorizationRuleType)(nil)).Elem()
-}
-
-func (i NamespaceEventhubAuthorizationRuleTypeArgs) ToNamespaceEventhubAuthorizationRuleTypeOutput() NamespaceEventhubAuthorizationRuleTypeOutput {
-	return i.ToNamespaceEventhubAuthorizationRuleTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceEventhubAuthorizationRuleTypeArgs) ToNamespaceEventhubAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceEventhubAuthorizationRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceEventhubAuthorizationRuleTypeOutput)
-}
-
-// Single item in a List or Get AuthorizationRule operation
-type NamespaceEventhubAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceEventhubAuthorizationRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceEventhubAuthorizationRuleType)(nil)).Elem()
-}
-
-func (o NamespaceEventhubAuthorizationRuleTypeOutput) ToNamespaceEventhubAuthorizationRuleTypeOutput() NamespaceEventhubAuthorizationRuleTypeOutput {
-	return o
-}
-
-func (o NamespaceEventhubAuthorizationRuleTypeOutput) ToNamespaceEventhubAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceEventhubAuthorizationRuleTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceEventhubAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceEventhubAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties supplied to create or update AuthorizationRule
-func (o NamespaceEventhubAuthorizationRuleTypeOutput) Properties() AuthorizationRuleResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceEventhubAuthorizationRuleType) AuthorizationRuleResponseProperties {
-		return v.Properties
-	}).(AuthorizationRuleResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceEventhubAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceEventhubAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Single item in List or Get Consumer group operation
-type NamespaceEventhubConsumergroupType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Single item in List or Get Consumer group operation
-	Properties ConsumerGroupResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceEventhubConsumergroupTypeInput is an input type that accepts NamespaceEventhubConsumergroupTypeArgs and NamespaceEventhubConsumergroupTypeOutput values.
-// You can construct a concrete instance of `NamespaceEventhubConsumergroupTypeInput` via:
-//
-//          NamespaceEventhubConsumergroupTypeArgs{...}
-type NamespaceEventhubConsumergroupTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceEventhubConsumergroupTypeOutput() NamespaceEventhubConsumergroupTypeOutput
-	ToNamespaceEventhubConsumergroupTypeOutputWithContext(context.Context) NamespaceEventhubConsumergroupTypeOutput
-}
-
-// Single item in List or Get Consumer group operation
-type NamespaceEventhubConsumergroupTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Single item in List or Get Consumer group operation
-	Properties ConsumerGroupResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceEventhubConsumergroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceEventhubConsumergroupType)(nil)).Elem()
-}
-
-func (i NamespaceEventhubConsumergroupTypeArgs) ToNamespaceEventhubConsumergroupTypeOutput() NamespaceEventhubConsumergroupTypeOutput {
-	return i.ToNamespaceEventhubConsumergroupTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceEventhubConsumergroupTypeArgs) ToNamespaceEventhubConsumergroupTypeOutputWithContext(ctx context.Context) NamespaceEventhubConsumergroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceEventhubConsumergroupTypeOutput)
-}
-
-// Single item in List or Get Consumer group operation
-type NamespaceEventhubConsumergroupTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceEventhubConsumergroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceEventhubConsumergroupType)(nil)).Elem()
-}
-
-func (o NamespaceEventhubConsumergroupTypeOutput) ToNamespaceEventhubConsumergroupTypeOutput() NamespaceEventhubConsumergroupTypeOutput {
-	return o
-}
-
-func (o NamespaceEventhubConsumergroupTypeOutput) ToNamespaceEventhubConsumergroupTypeOutputWithContext(ctx context.Context) NamespaceEventhubConsumergroupTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceEventhubConsumergroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceEventhubConsumergroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Single item in List or Get Consumer group operation
-func (o NamespaceEventhubConsumergroupTypeOutput) Properties() ConsumerGroupResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceEventhubConsumergroupType) ConsumerGroupResponseProperties { return v.Properties }).(ConsumerGroupResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceEventhubConsumergroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceEventhubConsumergroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Namespace supplied for create or update Namespace operation
 type NamespaceProperties struct {
 	// The time the Namespace was created.
@@ -4331,6 +4329,7 @@ func init() {
 	pulumi.RegisterOutputType(CaptureDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConsumerGroupTypeOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupPropertiesOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupPropertiesResponseOutput{})
@@ -4344,10 +4343,13 @@ func init() {
 	pulumi.RegisterOutputType(DestinationResponsePtrOutput{})
 	pulumi.RegisterOutputType(DestinationResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DestinationResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DisasterRecoveryConfigTypeOutput{})
 	pulumi.RegisterOutputType(EHNamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(EHNamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EHNamespaceResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(EHNamespaceResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EventHubTypeOutput{})
+	pulumi.RegisterOutputType(EventHubAuthorizationRuleTypeOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EventhubPropertiesOutput{})
@@ -4356,10 +4358,6 @@ func init() {
 	pulumi.RegisterOutputType(EventhubResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceDisasterRecoveryConfigTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceEventhubTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceEventhubAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceEventhubConsumergroupTypeOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesOutput{})

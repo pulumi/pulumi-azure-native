@@ -11,7 +11,7 @@ import (
 )
 
 // An Application Insights web test definition.
-type Webtest struct {
+type WebTest struct {
 	pulumi.CustomResourceState
 
 	// The kind of web test that this web test watches. Choices are ping and multistep.
@@ -28,9 +28,9 @@ type Webtest struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
-// NewWebtest registers a new resource with the given unique name, arguments, and options.
-func NewWebtest(ctx *pulumi.Context,
-	name string, args *WebtestArgs, opts ...pulumi.ResourceOption) (*Webtest, error) {
+// NewWebTest registers a new resource with the given unique name, arguments, and options.
+func NewWebTest(ctx *pulumi.Context,
+	name string, args *WebTestArgs, opts ...pulumi.ResourceOption) (*WebTest, error) {
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -41,30 +41,30 @@ func NewWebtest(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil {
-		args = &WebtestArgs{}
+		args = &WebTestArgs{}
 	}
-	var resource Webtest
-	err := ctx.RegisterResource("azurerm:insights:Webtest", name, args, &resource, opts...)
+	var resource WebTest
+	err := ctx.RegisterResource("azurerm:insights:WebTest", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetWebtest gets an existing Webtest resource's state with the given name, ID, and optional
+// GetWebTest gets an existing WebTest resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetWebtest(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *WebtestState, opts ...pulumi.ResourceOption) (*Webtest, error) {
-	var resource Webtest
-	err := ctx.ReadResource("azurerm:insights:Webtest", name, id, state, &resource, opts...)
+func GetWebTest(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *WebTestState, opts ...pulumi.ResourceOption) (*WebTest, error) {
+	var resource WebTest
+	err := ctx.ReadResource("azurerm:insights:WebTest", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering Webtest resources.
-type webtestState struct {
+// Input properties used for looking up and filtering WebTest resources.
+type webTestState struct {
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -79,7 +79,7 @@ type webtestState struct {
 	Type *string `pulumi:"type"`
 }
 
-type WebtestState struct {
+type WebTestState struct {
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrInput
 	// Resource location
@@ -94,11 +94,11 @@ type WebtestState struct {
 	Type pulumi.StringPtrInput
 }
 
-func (WebtestState) ElementType() reflect.Type {
-	return reflect.TypeOf((*webtestState)(nil)).Elem()
+func (WebTestState) ElementType() reflect.Type {
+	return reflect.TypeOf((*webTestState)(nil)).Elem()
 }
 
-type webtestArgs struct {
+type webTestArgs struct {
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -113,8 +113,8 @@ type webtestArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// The set of arguments for constructing a Webtest resource.
-type WebtestArgs struct {
+// The set of arguments for constructing a WebTest resource.
+type WebTestArgs struct {
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrInput
 	// Resource location
@@ -129,6 +129,6 @@ type WebtestArgs struct {
 	Tags pulumi.StringMapInput
 }
 
-func (WebtestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*webtestArgs)(nil)).Elem()
+func (WebTestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*webTestArgs)(nil)).Elem()
 }

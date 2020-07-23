@@ -11,7 +11,7 @@ import (
 )
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-type CachType struct {
+type CacheType struct {
 	// The identity of the cache, if configured.
 	Identity *CacheIdentityResponse `pulumi:"identity"`
 	// Region name string.
@@ -28,19 +28,19 @@ type CachType struct {
 	Type string `pulumi:"type"`
 }
 
-// CachTypeInput is an input type that accepts CachTypeArgs and CachTypeOutput values.
-// You can construct a concrete instance of `CachTypeInput` via:
+// CacheTypeInput is an input type that accepts CacheTypeArgs and CacheTypeOutput values.
+// You can construct a concrete instance of `CacheTypeInput` via:
 //
-//          CachTypeArgs{...}
-type CachTypeInput interface {
+//          CacheTypeArgs{...}
+type CacheTypeInput interface {
 	pulumi.Input
 
-	ToCachTypeOutput() CachTypeOutput
-	ToCachTypeOutputWithContext(context.Context) CachTypeOutput
+	ToCacheTypeOutput() CacheTypeOutput
+	ToCacheTypeOutputWithContext(context.Context) CacheTypeOutput
 }
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-type CachTypeArgs struct {
+type CacheTypeArgs struct {
 	// The identity of the cache, if configured.
 	Identity CacheIdentityResponsePtrInput `pulumi:"identity"`
 	// Region name string.
@@ -57,139 +57,66 @@ type CachTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (CachTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachType)(nil)).Elem()
+func (CacheTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheType)(nil)).Elem()
 }
 
-func (i CachTypeArgs) ToCachTypeOutput() CachTypeOutput {
-	return i.ToCachTypeOutputWithContext(context.Background())
+func (i CacheTypeArgs) ToCacheTypeOutput() CacheTypeOutput {
+	return i.ToCacheTypeOutputWithContext(context.Background())
 }
 
-func (i CachTypeArgs) ToCachTypeOutputWithContext(ctx context.Context) CachTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachTypeOutput)
+func (i CacheTypeArgs) ToCacheTypeOutputWithContext(ctx context.Context) CacheTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheTypeOutput)
 }
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-type CachTypeOutput struct{ *pulumi.OutputState }
+type CacheTypeOutput struct{ *pulumi.OutputState }
 
-func (CachTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachType)(nil)).Elem()
+func (CacheTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheType)(nil)).Elem()
 }
 
-func (o CachTypeOutput) ToCachTypeOutput() CachTypeOutput {
+func (o CacheTypeOutput) ToCacheTypeOutput() CacheTypeOutput {
 	return o
 }
 
-func (o CachTypeOutput) ToCachTypeOutputWithContext(ctx context.Context) CachTypeOutput {
+func (o CacheTypeOutput) ToCacheTypeOutputWithContext(ctx context.Context) CacheTypeOutput {
 	return o
 }
 
 // The identity of the cache, if configured.
-func (o CachTypeOutput) Identity() CacheIdentityResponsePtrOutput {
-	return o.ApplyT(func(v CachType) *CacheIdentityResponse { return v.Identity }).(CacheIdentityResponsePtrOutput)
+func (o CacheTypeOutput) Identity() CacheIdentityResponsePtrOutput {
+	return o.ApplyT(func(v CacheType) *CacheIdentityResponse { return v.Identity }).(CacheIdentityResponsePtrOutput)
 }
 
 // Region name string.
-func (o CachTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CachType) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o CacheTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Name of Cache.
-func (o CachTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CachType) string { return v.Name }).(pulumi.StringOutput)
+func (o CacheTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Properties of the Cache.
-func (o CachTypeOutput) Properties() CacheResponsePropertiesOutput {
-	return o.ApplyT(func(v CachType) CacheResponseProperties { return v.Properties }).(CacheResponsePropertiesOutput)
+func (o CacheTypeOutput) Properties() CacheResponsePropertiesOutput {
+	return o.ApplyT(func(v CacheType) CacheResponseProperties { return v.Properties }).(CacheResponsePropertiesOutput)
 }
 
 // SKU for the Cache.
-func (o CachTypeOutput) Sku() CacheResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v CachType) *CacheResponseProperties { return v.Sku }).(CacheResponsePropertiesPtrOutput)
+func (o CacheTypeOutput) Sku() CacheResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v CacheType) *CacheResponseProperties { return v.Sku }).(CacheResponsePropertiesPtrOutput)
 }
 
 // ARM tags as name/value pairs.
-func (o CachTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CachType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o CacheTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CacheType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Type of the Cache; Microsoft.StorageCache/Cache
-func (o CachTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CachType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Type of the Storage Target.
-type CachStorageTargetType struct {
-	// Name of the Storage Target.
-	Name string `pulumi:"name"`
-	// StorageTarget properties
-	Properties StorageTargetPropertiesResponse `pulumi:"properties"`
-	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-	Type string `pulumi:"type"`
-}
-
-// CachStorageTargetTypeInput is an input type that accepts CachStorageTargetTypeArgs and CachStorageTargetTypeOutput values.
-// You can construct a concrete instance of `CachStorageTargetTypeInput` via:
-//
-//          CachStorageTargetTypeArgs{...}
-type CachStorageTargetTypeInput interface {
-	pulumi.Input
-
-	ToCachStorageTargetTypeOutput() CachStorageTargetTypeOutput
-	ToCachStorageTargetTypeOutputWithContext(context.Context) CachStorageTargetTypeOutput
-}
-
-// Type of the Storage Target.
-type CachStorageTargetTypeArgs struct {
-	// Name of the Storage Target.
-	Name pulumi.StringInput `pulumi:"name"`
-	// StorageTarget properties
-	Properties StorageTargetPropertiesResponseInput `pulumi:"properties"`
-	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CachStorageTargetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachStorageTargetType)(nil)).Elem()
-}
-
-func (i CachStorageTargetTypeArgs) ToCachStorageTargetTypeOutput() CachStorageTargetTypeOutput {
-	return i.ToCachStorageTargetTypeOutputWithContext(context.Background())
-}
-
-func (i CachStorageTargetTypeArgs) ToCachStorageTargetTypeOutputWithContext(ctx context.Context) CachStorageTargetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachStorageTargetTypeOutput)
-}
-
-// Type of the Storage Target.
-type CachStorageTargetTypeOutput struct{ *pulumi.OutputState }
-
-func (CachStorageTargetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachStorageTargetType)(nil)).Elem()
-}
-
-func (o CachStorageTargetTypeOutput) ToCachStorageTargetTypeOutput() CachStorageTargetTypeOutput {
-	return o
-}
-
-func (o CachStorageTargetTypeOutput) ToCachStorageTargetTypeOutputWithContext(ctx context.Context) CachStorageTargetTypeOutput {
-	return o
-}
-
-// Name of the Storage Target.
-func (o CachStorageTargetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CachStorageTargetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// StorageTarget properties
-func (o CachStorageTargetTypeOutput) Properties() StorageTargetPropertiesResponseOutput {
-	return o.ApplyT(func(v CachStorageTargetType) StorageTargetPropertiesResponse { return v.Properties }).(StorageTargetPropertiesResponseOutput)
-}
-
-// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-func (o CachStorageTargetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CachStorageTargetType) string { return v.Type }).(pulumi.StringOutput)
+func (o CacheTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Cache encryption settings.
@@ -3781,6 +3708,79 @@ func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Type of the Storage Target.
+type StorageTargetType struct {
+	// Name of the Storage Target.
+	Name string `pulumi:"name"`
+	// StorageTarget properties
+	Properties StorageTargetPropertiesResponse `pulumi:"properties"`
+	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+	Type string `pulumi:"type"`
+}
+
+// StorageTargetTypeInput is an input type that accepts StorageTargetTypeArgs and StorageTargetTypeOutput values.
+// You can construct a concrete instance of `StorageTargetTypeInput` via:
+//
+//          StorageTargetTypeArgs{...}
+type StorageTargetTypeInput interface {
+	pulumi.Input
+
+	ToStorageTargetTypeOutput() StorageTargetTypeOutput
+	ToStorageTargetTypeOutputWithContext(context.Context) StorageTargetTypeOutput
+}
+
+// Type of the Storage Target.
+type StorageTargetTypeArgs struct {
+	// Name of the Storage Target.
+	Name pulumi.StringInput `pulumi:"name"`
+	// StorageTarget properties
+	Properties StorageTargetPropertiesResponseInput `pulumi:"properties"`
+	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageTargetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageTargetType)(nil)).Elem()
+}
+
+func (i StorageTargetTypeArgs) ToStorageTargetTypeOutput() StorageTargetTypeOutput {
+	return i.ToStorageTargetTypeOutputWithContext(context.Background())
+}
+
+func (i StorageTargetTypeArgs) ToStorageTargetTypeOutputWithContext(ctx context.Context) StorageTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetTypeOutput)
+}
+
+// Type of the Storage Target.
+type StorageTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageTargetType)(nil)).Elem()
+}
+
+func (o StorageTargetTypeOutput) ToStorageTargetTypeOutput() StorageTargetTypeOutput {
+	return o
+}
+
+func (o StorageTargetTypeOutput) ToStorageTargetTypeOutputWithContext(ctx context.Context) StorageTargetTypeOutput {
+	return o
+}
+
+// Name of the Storage Target.
+func (o StorageTargetTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageTargetType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// StorageTarget properties
+func (o StorageTargetTypeOutput) Properties() StorageTargetPropertiesResponseOutput {
+	return o.ApplyT(func(v StorageTargetType) StorageTargetPropertiesResponse { return v.Properties }).(StorageTargetPropertiesResponseOutput)
+}
+
+// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+func (o StorageTargetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageTargetType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of the Storage Target.
 type StorageTargetProperties struct {
 	// Properties when targetType is clfs.
@@ -4776,8 +4776,7 @@ func (o UnknownTargetResponsePtrOutput) UnknownMap() UnknownPropertiesResponsePt
 }
 
 func init() {
-	pulumi.RegisterOutputType(CachTypeOutput{})
-	pulumi.RegisterOutputType(CachStorageTargetTypeOutput{})
+	pulumi.RegisterOutputType(CacheTypeOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsResponseOutput{})
@@ -4825,6 +4824,7 @@ func init() {
 	pulumi.RegisterOutputType(Nfs3TargetPtrOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageTargetTypeOutput{})
 	pulumi.RegisterOutputType(StorageTargetPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageTargetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageTargetPropertiesResponseOutput{})

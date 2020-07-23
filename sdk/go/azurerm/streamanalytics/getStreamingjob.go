@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func LookupStreamingjob(ctx *pulumi.Context, args *LookupStreamingjobArgs, opts ...pulumi.InvokeOption) (*LookupStreamingjobResult, error) {
-	var rv LookupStreamingjobResult
-	err := ctx.Invoke("azurerm:streamanalytics:getStreamingjob", args, &rv, opts...)
+func LookupStreamingJob(ctx *pulumi.Context, args *LookupStreamingJobArgs, opts ...pulumi.InvokeOption) (*LookupStreamingJobResult, error) {
+	var rv LookupStreamingJobResult
+	err := ctx.Invoke("azurerm:streamanalytics:getStreamingJob", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupStreamingjobArgs struct {
+type LookupStreamingJobArgs struct {
 	// The name of the streaming job.
 	Name string `pulumi:"name"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -24,7 +24,7 @@ type LookupStreamingjobArgs struct {
 }
 
 // A streaming job object, containing all information associated with the named streaming job.
-type LookupStreamingjobResult struct {
+type LookupStreamingJobResult struct {
 	// Resource location. Required on PUT (CreateOrReplace) requests.
 	Location *string `pulumi:"location"`
 	// Resource name

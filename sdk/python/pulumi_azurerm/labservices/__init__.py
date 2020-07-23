@@ -3,15 +3,15 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_labaccount import *
-from .get_labaccount_galleryimage import *
-from .get_labaccount_lab import *
-from .get_labaccount_lab_environmentsetting import *
-from .get_labaccount_lab_environmentsetting_environment import *
-from .get_labaccount_lab_user import *
-from .labaccount import *
-from .labaccount_galleryimage import *
-from .labaccount_lab import *
-from .labaccount_lab_environmentsetting import *
-from .labaccount_lab_environmentsetting_environment import *
-from .labaccount_lab_user import *
+from .environment import *
+from .environment_setting import *
+from .gallery_image import *
+from .get_environment import *
+from .get_environment_setting import *
+from .get_gallery_image import *
+from .get_lab import *
+from .get_lab_account import *
+from .get_user import *
+from .lab import *
+from .lab_account import *
+from .user import *

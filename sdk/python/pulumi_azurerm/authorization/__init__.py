@@ -3,9 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_lock import *
-from .get_policy_definition import *
-from .get_policy_set_definition import *
-from .lock import *
-from .policy_definition import *
-from .policy_set_definition import *
+from .get_management_lock_at_resource_group_level import *
+from .get_policy_definition_at_management_group import *
+from .get_policy_set_definition_at_management_group import *
+from .management_lock_at_resource_group_level import *
+from .policy_definition_at_management_group import *
+from .policy_set_definition_at_management_group import *

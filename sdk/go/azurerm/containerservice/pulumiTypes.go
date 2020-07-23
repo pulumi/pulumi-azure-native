@@ -65,6 +65,79 @@ func (o AccessProfileResponseOutput) KubeConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessProfileResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
 }
 
+// Agent Pool.
+type AgentPoolType struct {
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name string `pulumi:"name"`
+	// Properties of an agent pool.
+	Properties ManagedClusterAgentPoolProfilePropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// AgentPoolTypeInput is an input type that accepts AgentPoolTypeArgs and AgentPoolTypeOutput values.
+// You can construct a concrete instance of `AgentPoolTypeInput` via:
+//
+//          AgentPoolTypeArgs{...}
+type AgentPoolTypeInput interface {
+	pulumi.Input
+
+	ToAgentPoolTypeOutput() AgentPoolTypeOutput
+	ToAgentPoolTypeOutputWithContext(context.Context) AgentPoolTypeOutput
+}
+
+// Agent Pool.
+type AgentPoolTypeArgs struct {
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of an agent pool.
+	Properties ManagedClusterAgentPoolProfilePropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AgentPoolTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
+}
+
+func (i AgentPoolTypeArgs) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
+	return i.ToAgentPoolTypeOutputWithContext(context.Background())
+}
+
+func (i AgentPoolTypeArgs) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolTypeOutput)
+}
+
+// Agent Pool.
+type AgentPoolTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentPoolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
+}
+
+func (o AgentPoolTypeOutput) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
+	return o
+}
+
+func (o AgentPoolTypeOutput) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
+	return o
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o AgentPoolTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPoolType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of an agent pool.
+func (o AgentPoolTypeOutput) Properties() ManagedClusterAgentPoolProfilePropertiesResponseOutput {
+	return o.ApplyT(func(v AgentPoolType) ManagedClusterAgentPoolProfilePropertiesResponse { return v.Properties }).(ManagedClusterAgentPoolProfilePropertiesResponseOutput)
+}
+
+// Resource type
+func (o AgentPoolTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentPoolType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Settings for upgrading an agentpool
 type AgentPoolUpgradeSettings struct {
 	// Count or percentage of additional nodes to be added during upgrade. If empty uses AKS default
@@ -6638,81 +6711,6 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateClus
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Agent Pool.
-type ManagedClusterAgentPoolType struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name string `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ManagedClusterAgentPoolTypeInput is an input type that accepts ManagedClusterAgentPoolTypeArgs and ManagedClusterAgentPoolTypeOutput values.
-// You can construct a concrete instance of `ManagedClusterAgentPoolTypeInput` via:
-//
-//          ManagedClusterAgentPoolTypeArgs{...}
-type ManagedClusterAgentPoolTypeInput interface {
-	pulumi.Input
-
-	ToManagedClusterAgentPoolTypeOutput() ManagedClusterAgentPoolTypeOutput
-	ToManagedClusterAgentPoolTypeOutputWithContext(context.Context) ManagedClusterAgentPoolTypeOutput
-}
-
-// Agent Pool.
-type ManagedClusterAgentPoolTypeArgs struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagedClusterAgentPoolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterAgentPoolType)(nil)).Elem()
-}
-
-func (i ManagedClusterAgentPoolTypeArgs) ToManagedClusterAgentPoolTypeOutput() ManagedClusterAgentPoolTypeOutput {
-	return i.ToManagedClusterAgentPoolTypeOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAgentPoolTypeArgs) ToManagedClusterAgentPoolTypeOutputWithContext(ctx context.Context) ManagedClusterAgentPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolTypeOutput)
-}
-
-// Agent Pool.
-type ManagedClusterAgentPoolTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagedClusterAgentPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterAgentPoolType)(nil)).Elem()
-}
-
-func (o ManagedClusterAgentPoolTypeOutput) ToManagedClusterAgentPoolTypeOutput() ManagedClusterAgentPoolTypeOutput {
-	return o
-}
-
-func (o ManagedClusterAgentPoolTypeOutput) ToManagedClusterAgentPoolTypeOutputWithContext(ctx context.Context) ManagedClusterAgentPoolTypeOutput {
-	return o
-}
-
-// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-func (o ManagedClusterAgentPoolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of an agent pool.
-func (o ManagedClusterAgentPoolTypeOutput) Properties() ManagedClusterAgentPoolProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolType) ManagedClusterAgentPoolProfilePropertiesResponse {
-		return v.Properties
-	}).(ManagedClusterAgentPoolProfilePropertiesResponseOutput)
-}
-
-// Resource type
-func (o ManagedClusterAgentPoolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfile struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
@@ -9555,81 +9553,6 @@ func (o ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput) Count() pu
 		}
 		return v.Count
 	}).(pulumi.IntPtrOutput)
-}
-
-// A private endpoint connection
-type ManagedClusterPrivateEndpointConnectionType struct {
-	// The name of the private endpoint connection.
-	Name string `pulumi:"name"`
-	// The properties of a private endpoint connection.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// ManagedClusterPrivateEndpointConnectionTypeInput is an input type that accepts ManagedClusterPrivateEndpointConnectionTypeArgs and ManagedClusterPrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `ManagedClusterPrivateEndpointConnectionTypeInput` via:
-//
-//          ManagedClusterPrivateEndpointConnectionTypeArgs{...}
-type ManagedClusterPrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToManagedClusterPrivateEndpointConnectionTypeOutput() ManagedClusterPrivateEndpointConnectionTypeOutput
-	ToManagedClusterPrivateEndpointConnectionTypeOutputWithContext(context.Context) ManagedClusterPrivateEndpointConnectionTypeOutput
-}
-
-// A private endpoint connection
-type ManagedClusterPrivateEndpointConnectionTypeArgs struct {
-	// The name of the private endpoint connection.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a private endpoint connection.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagedClusterPrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i ManagedClusterPrivateEndpointConnectionTypeArgs) ToManagedClusterPrivateEndpointConnectionTypeOutput() ManagedClusterPrivateEndpointConnectionTypeOutput {
-	return i.ToManagedClusterPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterPrivateEndpointConnectionTypeArgs) ToManagedClusterPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) ManagedClusterPrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPrivateEndpointConnectionTypeOutput)
-}
-
-// A private endpoint connection
-type ManagedClusterPrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagedClusterPrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o ManagedClusterPrivateEndpointConnectionTypeOutput) ToManagedClusterPrivateEndpointConnectionTypeOutput() ManagedClusterPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o ManagedClusterPrivateEndpointConnectionTypeOutput) ToManagedClusterPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) ManagedClusterPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the private endpoint connection.
-func (o ManagedClusterPrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterPrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a private endpoint connection.
-func (o ManagedClusterPrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagedClusterPrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The resource type.
-func (o ManagedClusterPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterPrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of the managed cluster.
@@ -14532,6 +14455,79 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A private endpoint connection
+type PrivateEndpointConnectionType struct {
+	// The name of the private endpoint connection.
+	Name string `pulumi:"name"`
+	// The properties of a private endpoint connection.
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionTypeArgs struct {
+	// The name of the private endpoint connection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of a private endpoint connection.
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+// The name of the private endpoint connection.
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a private endpoint connection.
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// The resource type.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of a private endpoint connection.
 type PrivateEndpointConnectionProperties struct {
 	// The resource of private endpoint.
@@ -16119,6 +16115,7 @@ func (o SpotMaxPriceResponsePtrOutput) Elem() SpotMaxPriceResponseOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AccessProfileResponseOutput{})
+	pulumi.RegisterOutputType(AgentPoolTypeOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(AgentPoolUpgradeSettingsResponseOutput{})
@@ -16195,7 +16192,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(ManagedClusterAgentPoolTypeOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfilePropertiesOutput{})
@@ -16216,7 +16212,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ManagedClusterPrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesPropertiesOutput{})
@@ -16272,6 +16267,7 @@ func init() {
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})

@@ -98,7 +98,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             * `ttl` (`pulumi.Input[float]`) - The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
 
           * `endpoints` (`pulumi.Input[list]`) - The list of endpoints in the Traffic Manager profile.
-            * `id` (`pulumi.Input[str]`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
             * `name` (`pulumi.Input[str]`) - The name of the resource
             * `properties` (`pulumi.Input[dict]`) - The properties of the Traffic Manager endpoint.
               * `custom_headers` (`pulumi.Input[list]`) - List of custom headers.

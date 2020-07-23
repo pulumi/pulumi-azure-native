@@ -73,7 +73,7 @@ const vnet = new azurerm.network.VirtualNetwork("vnet", {
     },
 });
 
-const subnet = new azurerm.network.VirtualNetworkSubnet("subnet2", {
+const subnet = new azurerm.network.Subnet("subnet2", {
     resourceGroupName: resourceGroup.name,
     name: "subnet2",
     virtualNetworkName: vnet.name,
@@ -139,7 +139,7 @@ const appServicePlan  = new azurerm.web.AppServicePlan("app-plan", {
     },
 });
 
-const appService = new azurerm.web.AppService("app", {
+const appService = new azurerm.web.WebApp("app", {
     resourceGroupName: resourceGroup.name,
     name: "pulumiapp2418a",
     location: "westus2",

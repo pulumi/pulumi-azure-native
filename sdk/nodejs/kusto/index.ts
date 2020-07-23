@@ -2,18 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./attachedDatabaseConfiguration";
 export * from "./cluster";
-export * from "./clusterAttachedDatabaseConfiguration";
-export * from "./clusterDatabase";
-export * from "./clusterDatabaseDataConnection";
-export * from "./clusterDatabasePrincipalAssignment";
 export * from "./clusterPrincipalAssignment";
+export * from "./dataConnection";
+export * from "./database";
+export * from "./databasePrincipalAssignment";
+export * from "./getAttachedDatabaseConfiguration";
 export * from "./getCluster";
-export * from "./getClusterAttachedDatabaseConfiguration";
-export * from "./getClusterDatabase";
-export * from "./getClusterDatabaseDataConnection";
-export * from "./getClusterDatabasePrincipalAssignment";
 export * from "./getClusterPrincipalAssignment";
-export * from "./listClusterDatabasePrincipals";
+export * from "./getDataConnection";
+export * from "./getDatabase";
+export * from "./getDatabasePrincipalAssignment";
 export * from "./listClusterFollowerDatabases";
 export * from "./listClusterLanguageExtensions";
+export * from "./listDatabasePrincipals";

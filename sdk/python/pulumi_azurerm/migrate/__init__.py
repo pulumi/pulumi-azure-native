@@ -3,13 +3,13 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .assessment_project import *
-from .assessment_project_group import *
-from .assessment_project_group_assessment import *
-from .assessment_project_hypervcollector import *
-from .assessment_project_vmwarecollector import *
-from .get_assessment_project import *
-from .get_assessment_project_group import *
-from .get_assessment_project_group_assessment import *
-from .get_assessment_project_hypervcollector import *
-from .get_assessment_project_vmwarecollector import *
+from .assessment import *
+from .get_assessment import *
+from .get_group import *
+from .get_hyper_v_collector import *
+from .get_project import *
+from .get_v_mware_collector import *
+from .group import *
+from .hyper_v_collector import *
+from .project import *
+from .v_mware_collector import *

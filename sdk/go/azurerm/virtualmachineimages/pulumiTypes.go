@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-type ImageTemplateType struct {
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The properties of the image template
-	Properties ImageTemplatePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ImageTemplateTypeInput is an input type that accepts ImageTemplateTypeArgs and ImageTemplateTypeOutput values.
-// You can construct a concrete instance of `ImageTemplateTypeInput` via:
-//
-//          ImageTemplateTypeArgs{...}
-type ImageTemplateTypeInput interface {
-	pulumi.Input
-
-	ToImageTemplateTypeOutput() ImageTemplateTypeOutput
-	ToImageTemplateTypeOutputWithContext(context.Context) ImageTemplateTypeOutput
-}
-
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-type ImageTemplateTypeArgs struct {
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentityResponseInput `pulumi:"identity"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the image template
-	Properties ImageTemplatePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ImageTemplateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateType)(nil)).Elem()
-}
-
-func (i ImageTemplateTypeArgs) ToImageTemplateTypeOutput() ImageTemplateTypeOutput {
-	return i.ToImageTemplateTypeOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateTypeArgs) ToImageTemplateTypeOutputWithContext(ctx context.Context) ImageTemplateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateTypeOutput)
-}
-
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-type ImageTemplateTypeOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateType)(nil)).Elem()
-}
-
-func (o ImageTemplateTypeOutput) ToImageTemplateTypeOutput() ImageTemplateTypeOutput {
-	return o
-}
-
-func (o ImageTemplateTypeOutput) ToImageTemplateTypeOutputWithContext(ctx context.Context) ImageTemplateTypeOutput {
-	return o
-}
-
-// The identity of the image template, if configured.
-func (o ImageTemplateTypeOutput) Identity() ImageTemplateIdentityResponseOutput {
-	return o.ApplyT(func(v ImageTemplateType) ImageTemplateIdentityResponse { return v.Identity }).(ImageTemplateIdentityResponseOutput)
-}
-
-// Resource location
-func (o ImageTemplateTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ImageTemplateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the image template
-func (o ImageTemplateTypeOutput) Properties() ImageTemplatePropertiesResponseOutput {
-	return o.ApplyT(func(v ImageTemplateType) ImageTemplatePropertiesResponse { return v.Properties }).(ImageTemplatePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ImageTemplateTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ImageTemplateType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ImageTemplateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Describes a unit of image customization
 type ImageTemplateCustomizer struct {
 	// Friendly Name to provide context on what this customization step does
@@ -2477,6 +2377,106 @@ func (o ProvisioningErrorResponsePtrOutput) ProvisioningErrorCode() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+type VirtualMachineImageTemplateType struct {
+	// The identity of the image template, if configured.
+	Identity ImageTemplateIdentityResponse `pulumi:"identity"`
+	// Resource location
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// The properties of the image template
+	Properties ImageTemplatePropertiesResponse `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// VirtualMachineImageTemplateTypeInput is an input type that accepts VirtualMachineImageTemplateTypeArgs and VirtualMachineImageTemplateTypeOutput values.
+// You can construct a concrete instance of `VirtualMachineImageTemplateTypeInput` via:
+//
+//          VirtualMachineImageTemplateTypeArgs{...}
+type VirtualMachineImageTemplateTypeInput interface {
+	pulumi.Input
+
+	ToVirtualMachineImageTemplateTypeOutput() VirtualMachineImageTemplateTypeOutput
+	ToVirtualMachineImageTemplateTypeOutputWithContext(context.Context) VirtualMachineImageTemplateTypeOutput
+}
+
+// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+type VirtualMachineImageTemplateTypeArgs struct {
+	// The identity of the image template, if configured.
+	Identity ImageTemplateIdentityResponseInput `pulumi:"identity"`
+	// Resource location
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the image template
+	Properties ImageTemplatePropertiesResponseInput `pulumi:"properties"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualMachineImageTemplateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineImageTemplateType)(nil)).Elem()
+}
+
+func (i VirtualMachineImageTemplateTypeArgs) ToVirtualMachineImageTemplateTypeOutput() VirtualMachineImageTemplateTypeOutput {
+	return i.ToVirtualMachineImageTemplateTypeOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineImageTemplateTypeArgs) ToVirtualMachineImageTemplateTypeOutputWithContext(ctx context.Context) VirtualMachineImageTemplateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineImageTemplateTypeOutput)
+}
+
+// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+type VirtualMachineImageTemplateTypeOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineImageTemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineImageTemplateType)(nil)).Elem()
+}
+
+func (o VirtualMachineImageTemplateTypeOutput) ToVirtualMachineImageTemplateTypeOutput() VirtualMachineImageTemplateTypeOutput {
+	return o
+}
+
+func (o VirtualMachineImageTemplateTypeOutput) ToVirtualMachineImageTemplateTypeOutputWithContext(ctx context.Context) VirtualMachineImageTemplateTypeOutput {
+	return o
+}
+
+// The identity of the image template, if configured.
+func (o VirtualMachineImageTemplateTypeOutput) Identity() ImageTemplateIdentityResponseOutput {
+	return o.ApplyT(func(v VirtualMachineImageTemplateType) ImageTemplateIdentityResponse { return v.Identity }).(ImageTemplateIdentityResponseOutput)
+}
+
+// Resource location
+func (o VirtualMachineImageTemplateTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineImageTemplateType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineImageTemplateTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineImageTemplateType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the image template
+func (o VirtualMachineImageTemplateTypeOutput) Properties() ImageTemplatePropertiesResponseOutput {
+	return o.ApplyT(func(v VirtualMachineImageTemplateType) ImageTemplatePropertiesResponse { return v.Properties }).(ImageTemplatePropertiesResponseOutput)
+}
+
+// Resource tags
+func (o VirtualMachineImageTemplateTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VirtualMachineImageTemplateType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineImageTemplateTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineImageTemplateType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Virtual Network configuration.
 type VirtualNetworkConfig struct {
 	// Resource id of a pre-existing subnet.
@@ -2746,7 +2746,6 @@ func (o VirtualNetworkConfigResponsePtrOutput) SubnetId() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(ImageTemplateTypeOutput{})
 	pulumi.RegisterOutputType(ImageTemplateCustomizerOutput{})
 	pulumi.RegisterOutputType(ImageTemplateCustomizerArrayOutput{})
 	pulumi.RegisterOutputType(ImageTemplateCustomizerResponseOutput{})
@@ -2777,6 +2776,7 @@ func init() {
 	pulumi.RegisterOutputType(ProvisioningErrorOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponseOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineImageTemplateTypeOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigResponseOutput{})

@@ -3,19 +3,19 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_iot_hub import *
-from .get_iot_hub_certificate import *
-from .get_iot_hub_event_hub_endpoint_consumer_group import *
-from .get_iot_hub_private_endpoint_connection import *
-from .get_provisioning_service import *
-from .get_provisioning_service_certificate import *
-from .iot_hub import *
-from .iot_hub_certificate import *
-from .iot_hub_event_hub_endpoint_consumer_group import *
-from .iot_hub_private_endpoint_connection import *
-from .list_iot_hub_iot_hub_key_keys import *
-from .list_iot_hub_keys import *
-from .list_provisioning_service_key_keys import *
-from .list_provisioning_service_keys import *
-from .provisioning_service import *
-from .provisioning_service_certificate import *
+from .certificate import *
+from .dps_certificate import *
+from .get_certificate import *
+from .get_dps_certificate import *
+from .get_iot_dps_resource import *
+from .get_iot_hub_resource import *
+from .get_iot_hub_resource_event_hub_consumer_group import *
+from .get_private_endpoint_connection import *
+from .iot_dps_resource import *
+from .iot_hub_resource import *
+from .iot_hub_resource_event_hub_consumer_group import *
+from .list_iot_dps_resource_keys import *
+from .list_iot_dps_resource_keys_for_key_name import *
+from .list_iot_hub_resource_keys import *
+from .list_iot_hub_resource_keys_for_key_name import *
+from .private_endpoint_connection import *

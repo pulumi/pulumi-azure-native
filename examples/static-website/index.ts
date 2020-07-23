@@ -57,7 +57,7 @@ const cdn =  new azurerm.cdn.Profile("website-cdn", {
     },
 });
 
-const endpoint = new azurerm.cdn.ProfileEndpoint("website-cdn-ep", {
+const endpoint = new azurerm.cdn.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
     profileName: cdn.name,
     name: "pulumi-static-website-ep",

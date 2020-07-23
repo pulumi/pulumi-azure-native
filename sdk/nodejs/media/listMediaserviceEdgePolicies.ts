@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function listMediaserviceEdgePolicies(args: ListMediaserviceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaserviceEdgePoliciesResult> {
+export function listMediaServiceEdgePolicies(args: ListMediaServiceEdgePoliciesArgs, opts?: pulumi.InvokeOptions): Promise<ListMediaServiceEdgePoliciesResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,14 +14,14 @@ export function listMediaserviceEdgePolicies(args: ListMediaserviceEdgePoliciesA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media:listMediaserviceEdgePolicies", {
+    return pulumi.runtime.invoke("azurerm:media:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,
         "deviceId": args.deviceId,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface ListMediaserviceEdgePoliciesArgs {
+export interface ListMediaServiceEdgePoliciesArgs {
     /**
      * The Media Services account name.
      */
@@ -36,6 +36,6 @@ export interface ListMediaserviceEdgePoliciesArgs {
     readonly resourceGroupName: string;
 }
 
-export interface ListMediaserviceEdgePoliciesResult {
+export interface ListMediaServiceEdgePoliciesResult {
     readonly usageDataCollectionPolicy?: outputs.media.EdgeUsageDataCollectionPolicyResponse;
 }

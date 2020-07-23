@@ -2,5 +2,5 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getIoTApp";
-export * from "./ioTApp";
+export * from "./app";
+export * from "./getApp";

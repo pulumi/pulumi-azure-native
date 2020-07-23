@@ -4696,7 +4696,7 @@ func (o WorkspaceProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInp
 }
 
 // Peerings in a VirtualNetwork resource
-type WorkspaceVirtualNetworkPeeringType struct {
+type VNetPeeringType struct {
 	// Name of the virtual network peering resource
 	Name string `pulumi:"name"`
 	// List of properties for vNet Peering
@@ -4705,19 +4705,19 @@ type WorkspaceVirtualNetworkPeeringType struct {
 	Type string `pulumi:"type"`
 }
 
-// WorkspaceVirtualNetworkPeeringTypeInput is an input type that accepts WorkspaceVirtualNetworkPeeringTypeArgs and WorkspaceVirtualNetworkPeeringTypeOutput values.
-// You can construct a concrete instance of `WorkspaceVirtualNetworkPeeringTypeInput` via:
+// VNetPeeringTypeInput is an input type that accepts VNetPeeringTypeArgs and VNetPeeringTypeOutput values.
+// You can construct a concrete instance of `VNetPeeringTypeInput` via:
 //
-//          WorkspaceVirtualNetworkPeeringTypeArgs{...}
-type WorkspaceVirtualNetworkPeeringTypeInput interface {
+//          VNetPeeringTypeArgs{...}
+type VNetPeeringTypeInput interface {
 	pulumi.Input
 
-	ToWorkspaceVirtualNetworkPeeringTypeOutput() WorkspaceVirtualNetworkPeeringTypeOutput
-	ToWorkspaceVirtualNetworkPeeringTypeOutputWithContext(context.Context) WorkspaceVirtualNetworkPeeringTypeOutput
+	ToVNetPeeringTypeOutput() VNetPeeringTypeOutput
+	ToVNetPeeringTypeOutputWithContext(context.Context) VNetPeeringTypeOutput
 }
 
 // Peerings in a VirtualNetwork resource
-type WorkspaceVirtualNetworkPeeringTypeArgs struct {
+type VNetPeeringTypeArgs struct {
 	// Name of the virtual network peering resource
 	Name pulumi.StringInput `pulumi:"name"`
 	// List of properties for vNet Peering
@@ -4726,48 +4726,46 @@ type WorkspaceVirtualNetworkPeeringTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (WorkspaceVirtualNetworkPeeringTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceVirtualNetworkPeeringType)(nil)).Elem()
+func (VNetPeeringTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VNetPeeringType)(nil)).Elem()
 }
 
-func (i WorkspaceVirtualNetworkPeeringTypeArgs) ToWorkspaceVirtualNetworkPeeringTypeOutput() WorkspaceVirtualNetworkPeeringTypeOutput {
-	return i.ToWorkspaceVirtualNetworkPeeringTypeOutputWithContext(context.Background())
+func (i VNetPeeringTypeArgs) ToVNetPeeringTypeOutput() VNetPeeringTypeOutput {
+	return i.ToVNetPeeringTypeOutputWithContext(context.Background())
 }
 
-func (i WorkspaceVirtualNetworkPeeringTypeArgs) ToWorkspaceVirtualNetworkPeeringTypeOutputWithContext(ctx context.Context) WorkspaceVirtualNetworkPeeringTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVirtualNetworkPeeringTypeOutput)
+func (i VNetPeeringTypeArgs) ToVNetPeeringTypeOutputWithContext(ctx context.Context) VNetPeeringTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VNetPeeringTypeOutput)
 }
 
 // Peerings in a VirtualNetwork resource
-type WorkspaceVirtualNetworkPeeringTypeOutput struct{ *pulumi.OutputState }
+type VNetPeeringTypeOutput struct{ *pulumi.OutputState }
 
-func (WorkspaceVirtualNetworkPeeringTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceVirtualNetworkPeeringType)(nil)).Elem()
+func (VNetPeeringTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VNetPeeringType)(nil)).Elem()
 }
 
-func (o WorkspaceVirtualNetworkPeeringTypeOutput) ToWorkspaceVirtualNetworkPeeringTypeOutput() WorkspaceVirtualNetworkPeeringTypeOutput {
+func (o VNetPeeringTypeOutput) ToVNetPeeringTypeOutput() VNetPeeringTypeOutput {
 	return o
 }
 
-func (o WorkspaceVirtualNetworkPeeringTypeOutput) ToWorkspaceVirtualNetworkPeeringTypeOutputWithContext(ctx context.Context) WorkspaceVirtualNetworkPeeringTypeOutput {
+func (o VNetPeeringTypeOutput) ToVNetPeeringTypeOutputWithContext(ctx context.Context) VNetPeeringTypeOutput {
 	return o
 }
 
 // Name of the virtual network peering resource
-func (o WorkspaceVirtualNetworkPeeringTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceVirtualNetworkPeeringType) string { return v.Name }).(pulumi.StringOutput)
+func (o VNetPeeringTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VNetPeeringType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // List of properties for vNet Peering
-func (o WorkspaceVirtualNetworkPeeringTypeOutput) Properties() VirtualNetworkPeeringPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v WorkspaceVirtualNetworkPeeringType) VirtualNetworkPeeringPropertiesFormatResponse {
-		return v.Properties
-	}).(VirtualNetworkPeeringPropertiesFormatResponseOutput)
+func (o VNetPeeringTypeOutput) Properties() VirtualNetworkPeeringPropertiesFormatResponseOutput {
+	return o.ApplyT(func(v VNetPeeringType) VirtualNetworkPeeringPropertiesFormatResponse { return v.Properties }).(VirtualNetworkPeeringPropertiesFormatResponseOutput)
 }
 
 // type of the virtual network peering resource
-func (o WorkspaceVirtualNetworkPeeringTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceVirtualNetworkPeeringType) string { return v.Type }).(pulumi.StringOutput)
+func (o VNetPeeringTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VNetPeeringType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {
@@ -4824,5 +4822,5 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseArrayOutput{})
-	pulumi.RegisterOutputType(WorkspaceVirtualNetworkPeeringTypeOutput{})
+	pulumi.RegisterOutputType(VNetPeeringTypeOutput{})
 }

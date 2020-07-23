@@ -12,7 +12,7 @@ namespace Pulumi.AzureRM.Network
     /// <summary>
     /// P2SVpnGateway Resource.
     /// </summary>
-    public partial class P2svpnGateway : Pulumi.CustomResource
+    public partial class P2sVpnGateway : Pulumi.CustomResource
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -52,19 +52,19 @@ namespace Pulumi.AzureRM.Network
 
 
         /// <summary>
-        /// Create a P2svpnGateway resource with the given unique name, arguments, and options.
+        /// Create a P2sVpnGateway resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public P2svpnGateway(string name, P2svpnGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:network:P2svpnGateway", name, args ?? new P2svpnGatewayArgs(), MakeResourceOptions(options, ""))
+        public P2sVpnGateway(string name, P2sVpnGatewayArgs args, CustomResourceOptions? options = null)
+            : base("azurerm:network:P2sVpnGateway", name, args ?? new P2sVpnGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private P2svpnGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:network:P2svpnGateway", name, null, MakeResourceOptions(options, id))
+        private P2sVpnGateway(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:network:P2sVpnGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,20 +80,20 @@ namespace Pulumi.AzureRM.Network
             return merged;
         }
         /// <summary>
-        /// Get an existing P2svpnGateway resource's state with the given name, ID, and optional extra
+        /// Get an existing P2sVpnGateway resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static P2svpnGateway Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static P2sVpnGateway Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new P2svpnGateway(name, id, options);
+            return new P2sVpnGateway(name, id, options);
         }
     }
 
-    public sealed class P2svpnGatewayArgs : Pulumi.ResourceArgs
+    public sealed class P2sVpnGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID.
@@ -137,7 +137,7 @@ namespace Pulumi.AzureRM.Network
             set => _tags = value;
         }
 
-        public P2svpnGatewayArgs()
+        public P2sVpnGatewayArgs()
         {
         }
     }

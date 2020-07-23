@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func LookupP2svpnGateway(ctx *pulumi.Context, args *LookupP2svpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupP2svpnGatewayResult, error) {
-	var rv LookupP2svpnGatewayResult
-	err := ctx.Invoke("azurerm:network:getP2svpnGateway", args, &rv, opts...)
+func LookupP2sVpnGateway(ctx *pulumi.Context, args *LookupP2sVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupP2sVpnGatewayResult, error) {
+	var rv LookupP2sVpnGatewayResult
+	err := ctx.Invoke("azurerm:network:getP2sVpnGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupP2svpnGatewayArgs struct {
+type LookupP2sVpnGatewayArgs struct {
 	// The name of the gateway.
 	Name string `pulumi:"name"`
 	// The resource group name of the P2SVpnGateway.
@@ -24,7 +24,7 @@ type LookupP2svpnGatewayArgs struct {
 }
 
 // P2SVpnGateway Resource.
-type LookupP2svpnGatewayResult struct {
+type LookupP2sVpnGatewayResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource location.

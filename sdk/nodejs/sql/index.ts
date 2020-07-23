@@ -2,17 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./database";
+export * from "./disasterRecoveryConfiguration";
+export * from "./elasticPool";
+export * from "./firewallRule";
+export * from "./getDatabase";
+export * from "./getDisasterRecoveryConfiguration";
+export * from "./getElasticPool";
+export * from "./getFirewallRule";
 export * from "./getServer";
-export * from "./getServerAdministrator";
+export * from "./getServerAzureADAdministrator";
 export * from "./getServerCommunicationLink";
-export * from "./getServerDatabase";
-export * from "./getServerDisasterRecoveryConfiguration";
-export * from "./getServerElasticPool";
-export * from "./getServerFirewallRule";
 export * from "./server";
-export * from "./serverAdministrator";
+export * from "./serverAzureADAdministrator";
 export * from "./serverCommunicationLink";
-export * from "./serverDatabase";
-export * from "./serverDisasterRecoveryConfiguration";
-export * from "./serverElasticPool";
-export * from "./serverFirewallRule";

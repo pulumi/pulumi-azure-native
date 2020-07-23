@@ -11,27 +11,21 @@ namespace Pulumi.AzureRM.Network.Inputs
 {
 
     /// <summary>
-    /// VirtualHubRouteTableV2 Resource.
+    /// VirtualHub route table.
     /// </summary>
     public sealed class VirtualHubRouteTableArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
+        [Input("routes")]
+        private InputList<Inputs.VirtualHubRouteArgs>? _routes;
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// List of all routes.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Properties of the virtual hub route table v2.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualHubRouteTableV2PropertiesResponseArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.VirtualHubRouteArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRouteArgs>());
+            set => _routes = value;
+        }
 
         public VirtualHubRouteTableArgs()
         {

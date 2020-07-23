@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_server import *
+from .get_server_details import *
 from .list_server_gateway_status import *
-from .server import *
+from .server_details import *

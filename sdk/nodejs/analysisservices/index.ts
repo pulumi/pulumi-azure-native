@@ -2,6 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getServer";
+export * from "./getServerDetails";
 export * from "./listServerGatewayStatus";
-export * from "./server";
+export * from "./serverDetails";

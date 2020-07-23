@@ -1147,7 +1147,7 @@ func (o DomainTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Domain ownership Identifier.
-type DomainDomainOwnershipIdentifierType struct {
+type DomainOwnershipIdentifierType struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
@@ -1158,19 +1158,19 @@ type DomainDomainOwnershipIdentifierType struct {
 	Type string `pulumi:"type"`
 }
 
-// DomainDomainOwnershipIdentifierTypeInput is an input type that accepts DomainDomainOwnershipIdentifierTypeArgs and DomainDomainOwnershipIdentifierTypeOutput values.
-// You can construct a concrete instance of `DomainDomainOwnershipIdentifierTypeInput` via:
+// DomainOwnershipIdentifierTypeInput is an input type that accepts DomainOwnershipIdentifierTypeArgs and DomainOwnershipIdentifierTypeOutput values.
+// You can construct a concrete instance of `DomainOwnershipIdentifierTypeInput` via:
 //
-//          DomainDomainOwnershipIdentifierTypeArgs{...}
-type DomainDomainOwnershipIdentifierTypeInput interface {
+//          DomainOwnershipIdentifierTypeArgs{...}
+type DomainOwnershipIdentifierTypeInput interface {
 	pulumi.Input
 
-	ToDomainDomainOwnershipIdentifierTypeOutput() DomainDomainOwnershipIdentifierTypeOutput
-	ToDomainDomainOwnershipIdentifierTypeOutputWithContext(context.Context) DomainDomainOwnershipIdentifierTypeOutput
+	ToDomainOwnershipIdentifierTypeOutput() DomainOwnershipIdentifierTypeOutput
+	ToDomainOwnershipIdentifierTypeOutputWithContext(context.Context) DomainOwnershipIdentifierTypeOutput
 }
 
 // Domain ownership Identifier.
-type DomainDomainOwnershipIdentifierTypeArgs struct {
+type DomainOwnershipIdentifierTypeArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Name.
@@ -1181,53 +1181,51 @@ type DomainDomainOwnershipIdentifierTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (DomainDomainOwnershipIdentifierTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDomainOwnershipIdentifierType)(nil)).Elem()
+func (DomainOwnershipIdentifierTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOwnershipIdentifierType)(nil)).Elem()
 }
 
-func (i DomainDomainOwnershipIdentifierTypeArgs) ToDomainDomainOwnershipIdentifierTypeOutput() DomainDomainOwnershipIdentifierTypeOutput {
-	return i.ToDomainDomainOwnershipIdentifierTypeOutputWithContext(context.Background())
+func (i DomainOwnershipIdentifierTypeArgs) ToDomainOwnershipIdentifierTypeOutput() DomainOwnershipIdentifierTypeOutput {
+	return i.ToDomainOwnershipIdentifierTypeOutputWithContext(context.Background())
 }
 
-func (i DomainDomainOwnershipIdentifierTypeArgs) ToDomainDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) DomainDomainOwnershipIdentifierTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainOwnershipIdentifierTypeOutput)
+func (i DomainOwnershipIdentifierTypeArgs) ToDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) DomainOwnershipIdentifierTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOwnershipIdentifierTypeOutput)
 }
 
 // Domain ownership Identifier.
-type DomainDomainOwnershipIdentifierTypeOutput struct{ *pulumi.OutputState }
+type DomainOwnershipIdentifierTypeOutput struct{ *pulumi.OutputState }
 
-func (DomainDomainOwnershipIdentifierTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainDomainOwnershipIdentifierType)(nil)).Elem()
+func (DomainOwnershipIdentifierTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOwnershipIdentifierType)(nil)).Elem()
 }
 
-func (o DomainDomainOwnershipIdentifierTypeOutput) ToDomainDomainOwnershipIdentifierTypeOutput() DomainDomainOwnershipIdentifierTypeOutput {
+func (o DomainOwnershipIdentifierTypeOutput) ToDomainOwnershipIdentifierTypeOutput() DomainOwnershipIdentifierTypeOutput {
 	return o
 }
 
-func (o DomainDomainOwnershipIdentifierTypeOutput) ToDomainDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) DomainDomainOwnershipIdentifierTypeOutput {
+func (o DomainOwnershipIdentifierTypeOutput) ToDomainOwnershipIdentifierTypeOutputWithContext(ctx context.Context) DomainOwnershipIdentifierTypeOutput {
 	return o
 }
 
 // Kind of resource.
-func (o DomainDomainOwnershipIdentifierTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainDomainOwnershipIdentifierType) *string { return v.Kind }).(pulumi.StringPtrOutput)
+func (o DomainOwnershipIdentifierTypeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainOwnershipIdentifierType) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 // Resource Name.
-func (o DomainDomainOwnershipIdentifierTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainDomainOwnershipIdentifierType) string { return v.Name }).(pulumi.StringOutput)
+func (o DomainOwnershipIdentifierTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainOwnershipIdentifierType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // DomainOwnershipIdentifier resource specific properties
-func (o DomainDomainOwnershipIdentifierTypeOutput) Properties() DomainOwnershipIdentifierResponsePropertiesOutput {
-	return o.ApplyT(func(v DomainDomainOwnershipIdentifierType) DomainOwnershipIdentifierResponseProperties {
-		return v.Properties
-	}).(DomainOwnershipIdentifierResponsePropertiesOutput)
+func (o DomainOwnershipIdentifierTypeOutput) Properties() DomainOwnershipIdentifierResponsePropertiesOutput {
+	return o.ApplyT(func(v DomainOwnershipIdentifierType) DomainOwnershipIdentifierResponseProperties { return v.Properties }).(DomainOwnershipIdentifierResponsePropertiesOutput)
 }
 
 // Resource type.
-func (o DomainDomainOwnershipIdentifierTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainDomainOwnershipIdentifierType) string { return v.Type }).(pulumi.StringOutput)
+func (o DomainOwnershipIdentifierTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainOwnershipIdentifierType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // DomainOwnershipIdentifier resource specific properties
@@ -2912,7 +2910,7 @@ func init() {
 	pulumi.RegisterOutputType(ContactResponseOutput{})
 	pulumi.RegisterOutputType(ContactResponsePtrOutput{})
 	pulumi.RegisterOutputType(DomainTypeOutput{})
-	pulumi.RegisterOutputType(DomainDomainOwnershipIdentifierTypeOutput{})
+	pulumi.RegisterOutputType(DomainOwnershipIdentifierTypeOutput{})
 	pulumi.RegisterOutputType(DomainOwnershipIdentifierPropertiesOutput{})
 	pulumi.RegisterOutputType(DomainOwnershipIdentifierPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DomainOwnershipIdentifierResponsePropertiesOutput{})

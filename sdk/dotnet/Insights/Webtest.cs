@@ -12,7 +12,7 @@ namespace Pulumi.AzureRM.Insights
     /// <summary>
     /// An Application Insights web test definition.
     /// </summary>
-    public partial class Webtest : Pulumi.CustomResource
+    public partial class WebTest : Pulumi.CustomResource
     {
         /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
@@ -52,19 +52,19 @@ namespace Pulumi.AzureRM.Insights
 
 
         /// <summary>
-        /// Create a Webtest resource with the given unique name, arguments, and options.
+        /// Create a WebTest resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Webtest(string name, WebtestArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:insights:Webtest", name, args ?? new WebtestArgs(), MakeResourceOptions(options, ""))
+        public WebTest(string name, WebTestArgs args, CustomResourceOptions? options = null)
+            : base("azurerm:insights:WebTest", name, args ?? new WebTestArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Webtest(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:insights:Webtest", name, null, MakeResourceOptions(options, id))
+        private WebTest(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:insights:WebTest", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,20 +80,20 @@ namespace Pulumi.AzureRM.Insights
             return merged;
         }
         /// <summary>
-        /// Get an existing Webtest resource's state with the given name, ID, and optional extra
+        /// Get an existing WebTest resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Webtest Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static WebTest Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Webtest(name, id, options);
+            return new WebTest(name, id, options);
         }
     }
 
-    public sealed class WebtestArgs : Pulumi.ResourceArgs
+    public sealed class WebTestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
@@ -137,7 +137,7 @@ namespace Pulumi.AzureRM.Insights
             set => _tags = value;
         }
 
-        public WebtestArgs()
+        public WebTestArgs()
         {
         }
     }

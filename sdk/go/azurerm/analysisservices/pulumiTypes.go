@@ -1683,106 +1683,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents an instance of an Analysis Services resource.
-type ServerType struct {
-	// Location of the Analysis Services resource.
-	Location string `pulumi:"location"`
-	// The name of the Analysis Services resource.
-	Name string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties AnalysisServicesServerPropertiesResponse `pulumi:"properties"`
-	// The SKU of the Analysis Services resource.
-	Sku ResourceSkuResponse `pulumi:"sku"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the Analysis Services resource.
-	Type string `pulumi:"type"`
-}
-
-// ServerTypeInput is an input type that accepts ServerTypeArgs and ServerTypeOutput values.
-// You can construct a concrete instance of `ServerTypeInput` via:
-//
-//          ServerTypeArgs{...}
-type ServerTypeInput interface {
-	pulumi.Input
-
-	ToServerTypeOutput() ServerTypeOutput
-	ToServerTypeOutputWithContext(context.Context) ServerTypeOutput
-}
-
-// Represents an instance of an Analysis Services resource.
-type ServerTypeArgs struct {
-	// Location of the Analysis Services resource.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the Analysis Services resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties AnalysisServicesServerPropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the Analysis Services resource.
-	Sku ResourceSkuResponseInput `pulumi:"sku"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the Analysis Services resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerType)(nil)).Elem()
-}
-
-func (i ServerTypeArgs) ToServerTypeOutput() ServerTypeOutput {
-	return i.ToServerTypeOutputWithContext(context.Background())
-}
-
-func (i ServerTypeArgs) ToServerTypeOutputWithContext(ctx context.Context) ServerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerTypeOutput)
-}
-
-// Represents an instance of an Analysis Services resource.
-type ServerTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerType)(nil)).Elem()
-}
-
-func (o ServerTypeOutput) ToServerTypeOutput() ServerTypeOutput {
-	return o
-}
-
-func (o ServerTypeOutput) ToServerTypeOutputWithContext(ctx context.Context) ServerTypeOutput {
-	return o
-}
-
-// Location of the Analysis Services resource.
-func (o ServerTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the Analysis Services resource.
-func (o ServerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the provision operation request.
-func (o ServerTypeOutput) Properties() AnalysisServicesServerPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerType) AnalysisServicesServerPropertiesResponse { return v.Properties }).(AnalysisServicesServerPropertiesResponseOutput)
-}
-
-// The SKU of the Analysis Services resource.
-func (o ServerTypeOutput) Sku() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v ServerType) ResourceSkuResponse { return v.Sku }).(ResourceSkuResponseOutput)
-}
-
-// Key-value pairs of additional resource provisioning properties.
-func (o ServerTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the Analysis Services resource.
-func (o ServerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // An array of administrator user identities.
 type ServerAdministrators struct {
 	// An array of administrator user identities.
@@ -2051,6 +1951,106 @@ func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents an instance of an Analysis Services resource.
+type ServerDetailsType struct {
+	// Location of the Analysis Services resource.
+	Location string `pulumi:"location"`
+	// The name of the Analysis Services resource.
+	Name string `pulumi:"name"`
+	// Properties of the provision operation request.
+	Properties AnalysisServicesServerPropertiesResponse `pulumi:"properties"`
+	// The SKU of the Analysis Services resource.
+	Sku ResourceSkuResponse `pulumi:"sku"`
+	// Key-value pairs of additional resource provisioning properties.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the Analysis Services resource.
+	Type string `pulumi:"type"`
+}
+
+// ServerDetailsTypeInput is an input type that accepts ServerDetailsTypeArgs and ServerDetailsTypeOutput values.
+// You can construct a concrete instance of `ServerDetailsTypeInput` via:
+//
+//          ServerDetailsTypeArgs{...}
+type ServerDetailsTypeInput interface {
+	pulumi.Input
+
+	ToServerDetailsTypeOutput() ServerDetailsTypeOutput
+	ToServerDetailsTypeOutputWithContext(context.Context) ServerDetailsTypeOutput
+}
+
+// Represents an instance of an Analysis Services resource.
+type ServerDetailsTypeArgs struct {
+	// Location of the Analysis Services resource.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the Analysis Services resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the provision operation request.
+	Properties AnalysisServicesServerPropertiesResponseInput `pulumi:"properties"`
+	// The SKU of the Analysis Services resource.
+	Sku ResourceSkuResponseInput `pulumi:"sku"`
+	// Key-value pairs of additional resource provisioning properties.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the Analysis Services resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServerDetailsTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDetailsType)(nil)).Elem()
+}
+
+func (i ServerDetailsTypeArgs) ToServerDetailsTypeOutput() ServerDetailsTypeOutput {
+	return i.ToServerDetailsTypeOutputWithContext(context.Background())
+}
+
+func (i ServerDetailsTypeArgs) ToServerDetailsTypeOutputWithContext(ctx context.Context) ServerDetailsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerDetailsTypeOutput)
+}
+
+// Represents an instance of an Analysis Services resource.
+type ServerDetailsTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerDetailsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDetailsType)(nil)).Elem()
+}
+
+func (o ServerDetailsTypeOutput) ToServerDetailsTypeOutput() ServerDetailsTypeOutput {
+	return o
+}
+
+func (o ServerDetailsTypeOutput) ToServerDetailsTypeOutputWithContext(ctx context.Context) ServerDetailsTypeOutput {
+	return o
+}
+
+// Location of the Analysis Services resource.
+func (o ServerDetailsTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerDetailsType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the Analysis Services resource.
+func (o ServerDetailsTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerDetailsType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the provision operation request.
+func (o ServerDetailsTypeOutput) Properties() AnalysisServicesServerPropertiesResponseOutput {
+	return o.ApplyT(func(v ServerDetailsType) AnalysisServicesServerPropertiesResponse { return v.Properties }).(AnalysisServicesServerPropertiesResponseOutput)
+}
+
+// The SKU of the Analysis Services resource.
+func (o ServerDetailsTypeOutput) Sku() ResourceSkuResponseOutput {
+	return o.ApplyT(func(v ServerDetailsType) ResourceSkuResponse { return v.Sku }).(ResourceSkuResponseOutput)
+}
+
+// Key-value pairs of additional resource provisioning properties.
+func (o ServerDetailsTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServerDetailsType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the Analysis Services resource.
+func (o ServerDetailsTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerDetailsType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnalysisServicesServerPropertiesOutput{})
 	pulumi.RegisterOutputType(AnalysisServicesServerPropertiesPtrOutput{})
@@ -2072,9 +2072,9 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerTypeOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsPtrOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsResponseOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerDetailsTypeOutput{})
 }

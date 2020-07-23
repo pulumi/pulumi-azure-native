@@ -3,12 +3,12 @@
 
 // Export members:
 export * from "./getPeering";
-export * from "./getPeeringRegisteredAsn";
-export * from "./getPeeringRegisteredPrefix";
 export * from "./getPeeringService";
-export * from "./getPeeringServicePrefix";
+export * from "./getPrefix";
+export * from "./getRegisteredAsn";
+export * from "./getRegisteredPrefix";
 export * from "./peering";
-export * from "./peeringRegisteredAsn";
-export * from "./peeringRegisteredPrefix";
 export * from "./peeringService";
-export * from "./peeringServicePrefix";
+export * from "./prefix";
+export * from "./registeredAsn";
+export * from "./registeredPrefix";

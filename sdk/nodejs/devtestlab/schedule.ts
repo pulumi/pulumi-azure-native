@@ -70,6 +70,9 @@ export class Schedule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ScheduleArgs | undefined;
+            if (!args || args.labName === undefined) {
+                throw new Error("Missing required property 'labName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -79,6 +82,7 @@ export class Schedule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -101,6 +105,10 @@ export class Schedule extends pulumi.CustomResource {
  * The set of arguments for constructing a Schedule resource.
  */
 export interface ScheduleArgs {
+    /**
+     * The name of the lab.
+     */
+    readonly labName: pulumi.Input<string>;
     /**
      * The location of the resource.
      */

@@ -5103,7 +5103,7 @@ func (o RegistryPropertiesResponsePtrOutput) StorageAccount() StorageAccountProp
 }
 
 // An object that represents a replication for a container registry.
-type RegistryReplicationType struct {
+type ReplicationType struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.
@@ -5116,19 +5116,19 @@ type RegistryReplicationType struct {
 	Type string `pulumi:"type"`
 }
 
-// RegistryReplicationTypeInput is an input type that accepts RegistryReplicationTypeArgs and RegistryReplicationTypeOutput values.
-// You can construct a concrete instance of `RegistryReplicationTypeInput` via:
+// ReplicationTypeInput is an input type that accepts ReplicationTypeArgs and ReplicationTypeOutput values.
+// You can construct a concrete instance of `ReplicationTypeInput` via:
 //
-//          RegistryReplicationTypeArgs{...}
-type RegistryReplicationTypeInput interface {
+//          ReplicationTypeArgs{...}
+type ReplicationTypeInput interface {
 	pulumi.Input
 
-	ToRegistryReplicationTypeOutput() RegistryReplicationTypeOutput
-	ToRegistryReplicationTypeOutputWithContext(context.Context) RegistryReplicationTypeOutput
+	ToReplicationTypeOutput() ReplicationTypeOutput
+	ToReplicationTypeOutputWithContext(context.Context) ReplicationTypeOutput
 }
 
 // An object that represents a replication for a container registry.
-type RegistryReplicationTypeArgs struct {
+type ReplicationTypeArgs struct {
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the resource.
@@ -5141,250 +5141,56 @@ type RegistryReplicationTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (RegistryReplicationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryReplicationType)(nil)).Elem()
+func (ReplicationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationType)(nil)).Elem()
 }
 
-func (i RegistryReplicationTypeArgs) ToRegistryReplicationTypeOutput() RegistryReplicationTypeOutput {
-	return i.ToRegistryReplicationTypeOutputWithContext(context.Background())
+func (i ReplicationTypeArgs) ToReplicationTypeOutput() ReplicationTypeOutput {
+	return i.ToReplicationTypeOutputWithContext(context.Background())
 }
 
-func (i RegistryReplicationTypeArgs) ToRegistryReplicationTypeOutputWithContext(ctx context.Context) RegistryReplicationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryReplicationTypeOutput)
+func (i ReplicationTypeArgs) ToReplicationTypeOutputWithContext(ctx context.Context) ReplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTypeOutput)
 }
 
 // An object that represents a replication for a container registry.
-type RegistryReplicationTypeOutput struct{ *pulumi.OutputState }
+type ReplicationTypeOutput struct{ *pulumi.OutputState }
 
-func (RegistryReplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryReplicationType)(nil)).Elem()
+func (ReplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationType)(nil)).Elem()
 }
 
-func (o RegistryReplicationTypeOutput) ToRegistryReplicationTypeOutput() RegistryReplicationTypeOutput {
+func (o ReplicationTypeOutput) ToReplicationTypeOutput() ReplicationTypeOutput {
 	return o
 }
 
-func (o RegistryReplicationTypeOutput) ToRegistryReplicationTypeOutputWithContext(ctx context.Context) RegistryReplicationTypeOutput {
+func (o ReplicationTypeOutput) ToReplicationTypeOutputWithContext(ctx context.Context) ReplicationTypeOutput {
 	return o
 }
 
 // The location of the resource. This cannot be changed after the resource is created.
-func (o RegistryReplicationTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryReplicationType) string { return v.Location }).(pulumi.StringOutput)
+func (o ReplicationTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the resource.
-func (o RegistryReplicationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryReplicationType) string { return v.Name }).(pulumi.StringOutput)
+func (o ReplicationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The properties of the replication.
-func (o RegistryReplicationTypeOutput) Properties() ReplicationPropertiesResponseOutput {
-	return o.ApplyT(func(v RegistryReplicationType) ReplicationPropertiesResponse { return v.Properties }).(ReplicationPropertiesResponseOutput)
+func (o ReplicationTypeOutput) Properties() ReplicationPropertiesResponseOutput {
+	return o.ApplyT(func(v ReplicationType) ReplicationPropertiesResponse { return v.Properties }).(ReplicationPropertiesResponseOutput)
 }
 
 // The tags of the resource.
-func (o RegistryReplicationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RegistryReplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o ReplicationTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ReplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the resource.
-func (o RegistryReplicationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryReplicationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The task that has the ARM resource and task properties.
-// The task will have all information to schedule a run against it.
-type RegistryTaskType struct {
-	// Identity for the resource.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of a task.
-	Properties TaskPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// RegistryTaskTypeInput is an input type that accepts RegistryTaskTypeArgs and RegistryTaskTypeOutput values.
-// You can construct a concrete instance of `RegistryTaskTypeInput` via:
-//
-//          RegistryTaskTypeArgs{...}
-type RegistryTaskTypeInput interface {
-	pulumi.Input
-
-	ToRegistryTaskTypeOutput() RegistryTaskTypeOutput
-	ToRegistryTaskTypeOutputWithContext(context.Context) RegistryTaskTypeOutput
-}
-
-// The task that has the ARM resource and task properties.
-// The task will have all information to schedule a run against it.
-type RegistryTaskTypeArgs struct {
-	// Identity for the resource.
-	Identity IdentityPropertiesResponsePtrInput `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a task.
-	Properties TaskPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RegistryTaskTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryTaskType)(nil)).Elem()
-}
-
-func (i RegistryTaskTypeArgs) ToRegistryTaskTypeOutput() RegistryTaskTypeOutput {
-	return i.ToRegistryTaskTypeOutputWithContext(context.Background())
-}
-
-func (i RegistryTaskTypeArgs) ToRegistryTaskTypeOutputWithContext(ctx context.Context) RegistryTaskTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskTypeOutput)
-}
-
-// The task that has the ARM resource and task properties.
-// The task will have all information to schedule a run against it.
-type RegistryTaskTypeOutput struct{ *pulumi.OutputState }
-
-func (RegistryTaskTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryTaskType)(nil)).Elem()
-}
-
-func (o RegistryTaskTypeOutput) ToRegistryTaskTypeOutput() RegistryTaskTypeOutput {
-	return o
-}
-
-func (o RegistryTaskTypeOutput) ToRegistryTaskTypeOutputWithContext(ctx context.Context) RegistryTaskTypeOutput {
-	return o
-}
-
-// Identity for the resource.
-func (o RegistryTaskTypeOutput) Identity() IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistryTaskType) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
-}
-
-// The location of the resource. This cannot be changed after the resource is created.
-func (o RegistryTaskTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryTaskType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o RegistryTaskTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryTaskType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a task.
-func (o RegistryTaskTypeOutput) Properties() TaskPropertiesResponseOutput {
-	return o.ApplyT(func(v RegistryTaskType) TaskPropertiesResponse { return v.Properties }).(TaskPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o RegistryTaskTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RegistryTaskType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o RegistryTaskTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryTaskType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An object that represents a webhook for a container registry.
-type RegistryWebhookType struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the webhook.
-	Properties WebhookPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// RegistryWebhookTypeInput is an input type that accepts RegistryWebhookTypeArgs and RegistryWebhookTypeOutput values.
-// You can construct a concrete instance of `RegistryWebhookTypeInput` via:
-//
-//          RegistryWebhookTypeArgs{...}
-type RegistryWebhookTypeInput interface {
-	pulumi.Input
-
-	ToRegistryWebhookTypeOutput() RegistryWebhookTypeOutput
-	ToRegistryWebhookTypeOutputWithContext(context.Context) RegistryWebhookTypeOutput
-}
-
-// An object that represents a webhook for a container registry.
-type RegistryWebhookTypeArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the webhook.
-	Properties WebhookPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RegistryWebhookTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebhookType)(nil)).Elem()
-}
-
-func (i RegistryWebhookTypeArgs) ToRegistryWebhookTypeOutput() RegistryWebhookTypeOutput {
-	return i.ToRegistryWebhookTypeOutputWithContext(context.Background())
-}
-
-func (i RegistryWebhookTypeArgs) ToRegistryWebhookTypeOutputWithContext(ctx context.Context) RegistryWebhookTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryWebhookTypeOutput)
-}
-
-// An object that represents a webhook for a container registry.
-type RegistryWebhookTypeOutput struct{ *pulumi.OutputState }
-
-func (RegistryWebhookTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryWebhookType)(nil)).Elem()
-}
-
-func (o RegistryWebhookTypeOutput) ToRegistryWebhookTypeOutput() RegistryWebhookTypeOutput {
-	return o
-}
-
-func (o RegistryWebhookTypeOutput) ToRegistryWebhookTypeOutputWithContext(ctx context.Context) RegistryWebhookTypeOutput {
-	return o
-}
-
-// The location of the resource. This cannot be changed after the resource is created.
-func (o RegistryWebhookTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryWebhookType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o RegistryWebhookTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryWebhookType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the webhook.
-func (o RegistryWebhookTypeOutput) Properties() WebhookPropertiesResponseOutput {
-	return o.ApplyT(func(v RegistryWebhookType) WebhookPropertiesResponse { return v.Properties }).(WebhookPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o RegistryWebhookTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RegistryWebhookType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o RegistryWebhookTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryWebhookType) string { return v.Type }).(pulumi.StringOutput)
+func (o ReplicationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of a replication.
@@ -8110,6 +7916,109 @@ func (o TargetResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The task that has the ARM resource and task properties.
+// The task will have all information to schedule a run against it.
+type TaskType struct {
+	// Identity for the resource.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of a task.
+	Properties TaskPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// TaskTypeInput is an input type that accepts TaskTypeArgs and TaskTypeOutput values.
+// You can construct a concrete instance of `TaskTypeInput` via:
+//
+//          TaskTypeArgs{...}
+type TaskTypeInput interface {
+	pulumi.Input
+
+	ToTaskTypeOutput() TaskTypeOutput
+	ToTaskTypeOutputWithContext(context.Context) TaskTypeOutput
+}
+
+// The task that has the ARM resource and task properties.
+// The task will have all information to schedule a run against it.
+type TaskTypeArgs struct {
+	// Identity for the resource.
+	Identity IdentityPropertiesResponsePtrInput `pulumi:"identity"`
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of a task.
+	Properties TaskPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TaskTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskType)(nil)).Elem()
+}
+
+func (i TaskTypeArgs) ToTaskTypeOutput() TaskTypeOutput {
+	return i.ToTaskTypeOutputWithContext(context.Background())
+}
+
+func (i TaskTypeArgs) ToTaskTypeOutputWithContext(ctx context.Context) TaskTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTypeOutput)
+}
+
+// The task that has the ARM resource and task properties.
+// The task will have all information to schedule a run against it.
+type TaskTypeOutput struct{ *pulumi.OutputState }
+
+func (TaskTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskType)(nil)).Elem()
+}
+
+func (o TaskTypeOutput) ToTaskTypeOutput() TaskTypeOutput {
+	return o
+}
+
+func (o TaskTypeOutput) ToTaskTypeOutputWithContext(ctx context.Context) TaskTypeOutput {
+	return o
+}
+
+// Identity for the resource.
+func (o TaskTypeOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v TaskType) *IdentityPropertiesResponse { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o TaskTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o TaskTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a task.
+func (o TaskTypeOutput) Properties() TaskPropertiesResponseOutput {
+	return o.ApplyT(func(v TaskType) TaskPropertiesResponse { return v.Properties }).(TaskPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o TaskTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TaskType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o TaskTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties of a task.
 type TaskProperties struct {
 	// The machine configuration of the run agent.
@@ -10092,6 +10001,97 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 	}).(VirtualNetworkRuleResponseOutput)
 }
 
+// An object that represents a webhook for a container registry.
+type WebhookType struct {
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location string `pulumi:"location"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties of the webhook.
+	Properties WebhookPropertiesResponse `pulumi:"properties"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// WebhookTypeInput is an input type that accepts WebhookTypeArgs and WebhookTypeOutput values.
+// You can construct a concrete instance of `WebhookTypeInput` via:
+//
+//          WebhookTypeArgs{...}
+type WebhookTypeInput interface {
+	pulumi.Input
+
+	ToWebhookTypeOutput() WebhookTypeOutput
+	ToWebhookTypeOutputWithContext(context.Context) WebhookTypeOutput
+}
+
+// An object that represents a webhook for a container registry.
+type WebhookTypeArgs struct {
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the webhook.
+	Properties WebhookPropertiesResponseInput `pulumi:"properties"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebhookTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookType)(nil)).Elem()
+}
+
+func (i WebhookTypeArgs) ToWebhookTypeOutput() WebhookTypeOutput {
+	return i.ToWebhookTypeOutputWithContext(context.Background())
+}
+
+func (i WebhookTypeArgs) ToWebhookTypeOutputWithContext(ctx context.Context) WebhookTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookTypeOutput)
+}
+
+// An object that represents a webhook for a container registry.
+type WebhookTypeOutput struct{ *pulumi.OutputState }
+
+func (WebhookTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookType)(nil)).Elem()
+}
+
+func (o WebhookTypeOutput) ToWebhookTypeOutput() WebhookTypeOutput {
+	return o
+}
+
+func (o WebhookTypeOutput) ToWebhookTypeOutputWithContext(ctx context.Context) WebhookTypeOutput {
+	return o
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o WebhookTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o WebhookTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the webhook.
+func (o WebhookTypeOutput) Properties() WebhookPropertiesResponseOutput {
+	return o.ApplyT(func(v WebhookType) WebhookPropertiesResponse { return v.Properties }).(WebhookPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o WebhookTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebhookType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o WebhookTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The parameters for creating the properties of a webhook.
 type WebhookPropertiesCreateParameters struct {
 	// The list of actions that trigger the webhook to post notifications.
@@ -10554,9 +10554,7 @@ func init() {
 	pulumi.RegisterOutputType(RegistryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegistryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RegistryPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(RegistryReplicationTypeOutput{})
-	pulumi.RegisterOutputType(RegistryTaskTypeOutput{})
-	pulumi.RegisterOutputType(RegistryWebhookTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationPropertiesOutput{})
 	pulumi.RegisterOutputType(ReplicationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationPropertiesResponseOutput{})
@@ -10592,6 +10590,7 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TargetResponseOutput{})
 	pulumi.RegisterOutputType(TargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(TaskTypeOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponseOutput{})
@@ -10616,6 +10615,7 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(WebhookTypeOutput{})
 	pulumi.RegisterOutputType(WebhookPropertiesCreateParametersOutput{})
 	pulumi.RegisterOutputType(WebhookPropertiesCreateParametersPtrOutput{})
 	pulumi.RegisterOutputType(WebhookPropertiesResponseOutput{})

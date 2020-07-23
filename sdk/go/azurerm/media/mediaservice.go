@@ -11,7 +11,7 @@ import (
 )
 
 // A Media Services account.
-type Mediaservice struct {
+type MediaService struct {
 	pulumi.CustomResourceState
 
 	// The Managed Identity for the Media Services account.
@@ -28,9 +28,9 @@ type Mediaservice struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
-// NewMediaservice registers a new resource with the given unique name, arguments, and options.
-func NewMediaservice(ctx *pulumi.Context,
-	name string, args *MediaserviceArgs, opts ...pulumi.ResourceOption) (*Mediaservice, error) {
+// NewMediaService registers a new resource with the given unique name, arguments, and options.
+func NewMediaService(ctx *pulumi.Context,
+	name string, args *MediaServiceArgs, opts ...pulumi.ResourceOption) (*MediaService, error) {
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -41,30 +41,30 @@ func NewMediaservice(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil {
-		args = &MediaserviceArgs{}
+		args = &MediaServiceArgs{}
 	}
-	var resource Mediaservice
-	err := ctx.RegisterResource("azurerm:media:Mediaservice", name, args, &resource, opts...)
+	var resource MediaService
+	err := ctx.RegisterResource("azurerm:media:MediaService", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetMediaservice gets an existing Mediaservice resource's state with the given name, ID, and optional
+// GetMediaService gets an existing MediaService resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetMediaservice(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *MediaserviceState, opts ...pulumi.ResourceOption) (*Mediaservice, error) {
-	var resource Mediaservice
-	err := ctx.ReadResource("azurerm:media:Mediaservice", name, id, state, &resource, opts...)
+func GetMediaService(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *MediaServiceState, opts ...pulumi.ResourceOption) (*MediaService, error) {
+	var resource MediaService
+	err := ctx.ReadResource("azurerm:media:MediaService", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering Mediaservice resources.
-type mediaserviceState struct {
+// Input properties used for looking up and filtering MediaService resources.
+type mediaServiceState struct {
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -79,7 +79,7 @@ type mediaserviceState struct {
 	Type *string `pulumi:"type"`
 }
 
-type MediaserviceState struct {
+type MediaServiceState struct {
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityResponsePtrInput
 	// The geo-location where the resource lives
@@ -94,11 +94,11 @@ type MediaserviceState struct {
 	Type pulumi.StringPtrInput
 }
 
-func (MediaserviceState) ElementType() reflect.Type {
-	return reflect.TypeOf((*mediaserviceState)(nil)).Elem()
+func (MediaServiceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*mediaServiceState)(nil)).Elem()
 }
 
-type mediaserviceArgs struct {
+type mediaServiceArgs struct {
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
@@ -113,8 +113,8 @@ type mediaserviceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// The set of arguments for constructing a Mediaservice resource.
-type MediaserviceArgs struct {
+// The set of arguments for constructing a MediaService resource.
+type MediaServiceArgs struct {
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityPtrInput
 	// The geo-location where the resource lives
@@ -129,6 +129,6 @@ type MediaserviceArgs struct {
 	Tags pulumi.StringMapInput
 }
 
-func (MediaserviceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*mediaserviceArgs)(nil)).Elem()
+func (MediaServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*mediaServiceArgs)(nil)).Elem()
 }

@@ -3,18 +3,18 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .data_flow import *
+from .dataset import *
 from .factory import *
-from .factory_dataflow import *
-from .factory_dataset import *
-from .factory_integration_runtime import *
-from .factory_linkedservice import *
-from .factory_pipeline import *
-from .factory_trigger import *
+from .get_data_flow import *
+from .get_dataset import *
 from .get_factory import *
-from .get_factory_dataflow import *
-from .get_factory_dataset import *
-from .get_factory_integration_runtime import *
-from .get_factory_linkedservice import *
-from .get_factory_pipeline import *
-from .get_factory_trigger import *
-from .list_factory_integration_runtime_auth_keys import *
+from .get_integration_runtime import *
+from .get_linked_service import *
+from .get_pipeline import *
+from .get_trigger import *
+from .integration_runtime import *
+from .linked_service import *
+from .list_integration_runtime_auth_keys import *
+from .pipeline import *
+from .trigger import *

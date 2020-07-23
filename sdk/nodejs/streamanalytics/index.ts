@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getStreamingjob";
-export * from "./getStreamingjobFunction";
-export * from "./getStreamingjobInput";
-export * from "./getStreamingjobOutput";
-export * from "./streamingjob";
-export * from "./streamingjobFunction";
-export * from "./streamingjobInput";
-export * from "./streamingjobOutput";
+export * from "./function";
+export * from "./getFunction";
+export * from "./getInput";
+export * from "./getOutput";
+export * from "./getStreamingJob";
+export * from "./input";
+export * from "./output";
+export * from "./streamingJob";

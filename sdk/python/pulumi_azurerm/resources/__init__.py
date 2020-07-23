@@ -4,4 +4,6 @@
 
 # Export this package's modules as members:
 from .deployment import *
+from .deployment_at_management_group_scope import *
 from .get_deployment import *
+from .get_deployment_at_management_group_scope import *

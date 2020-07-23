@@ -3114,6 +3114,79 @@ func (o ChainerSettingsResponsePtrOutput) PythonScriptFilePath() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about a Cluster.
+type ClusterType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties associated with the Cluster.
+	Properties ClusterPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
+// You can construct a concrete instance of `ClusterTypeInput` via:
+//
+//          ClusterTypeArgs{...}
+type ClusterTypeInput interface {
+	pulumi.Input
+
+	ToClusterTypeOutput() ClusterTypeOutput
+	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
+}
+
+// Information about a Cluster.
+type ClusterTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the Cluster.
+	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ClusterTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterType)(nil)).Elem()
+}
+
+func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
+	return i.ToClusterTypeOutputWithContext(context.Background())
+}
+
+func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
+}
+
+// Information about a Cluster.
+type ClusterTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterType)(nil)).Elem()
+}
+
+func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
+	return o
+}
+
+func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o ClusterTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the Cluster.
+func (o ClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
+	return o.ApplyT(func(v ClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o ClusterTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties of a Cluster.
 type ClusterBaseProperties struct {
 	// Setup to be performed on each compute node in the cluster.
@@ -5482,6 +5555,79 @@ func (o EnvironmentVariableWithSecretValueResponseArrayOutput) Index(i pulumi.In
 	}).(EnvironmentVariableWithSecretValueResponseOutput)
 }
 
+// Experiment information.
+type ExperimentType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties associated with the experiment.
+	Properties ExperimentPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ExperimentTypeInput is an input type that accepts ExperimentTypeArgs and ExperimentTypeOutput values.
+// You can construct a concrete instance of `ExperimentTypeInput` via:
+//
+//          ExperimentTypeArgs{...}
+type ExperimentTypeInput interface {
+	pulumi.Input
+
+	ToExperimentTypeOutput() ExperimentTypeOutput
+	ToExperimentTypeOutputWithContext(context.Context) ExperimentTypeOutput
+}
+
+// Experiment information.
+type ExperimentTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the experiment.
+	Properties ExperimentPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ExperimentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentType)(nil)).Elem()
+}
+
+func (i ExperimentTypeArgs) ToExperimentTypeOutput() ExperimentTypeOutput {
+	return i.ToExperimentTypeOutputWithContext(context.Background())
+}
+
+func (i ExperimentTypeArgs) ToExperimentTypeOutputWithContext(ctx context.Context) ExperimentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTypeOutput)
+}
+
+// Experiment information.
+type ExperimentTypeOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentType)(nil)).Elem()
+}
+
+func (o ExperimentTypeOutput) ToExperimentTypeOutput() ExperimentTypeOutput {
+	return o
+}
+
+func (o ExperimentTypeOutput) ToExperimentTypeOutputWithContext(ctx context.Context) ExperimentTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o ExperimentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the experiment.
+func (o ExperimentTypeOutput) Properties() ExperimentPropertiesResponseOutput {
+	return o.ApplyT(func(v ExperimentType) ExperimentPropertiesResponse { return v.Properties }).(ExperimentPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o ExperimentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Experiment properties.
 type ExperimentPropertiesResponse struct {
 	// Time when the Experiment was created.
@@ -5932,6 +6078,79 @@ func (o FileResponseArrayOutput) Index(i pulumi.IntInput) FileResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileResponse {
 		return vs[0].([]FileResponse)[vs[1].(int)]
 	}).(FileResponseOutput)
+}
+
+// File Server information.
+type FileServerType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// File Server properties.
+	Properties FileServerPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// FileServerTypeInput is an input type that accepts FileServerTypeArgs and FileServerTypeOutput values.
+// You can construct a concrete instance of `FileServerTypeInput` via:
+//
+//          FileServerTypeArgs{...}
+type FileServerTypeInput interface {
+	pulumi.Input
+
+	ToFileServerTypeOutput() FileServerTypeOutput
+	ToFileServerTypeOutputWithContext(context.Context) FileServerTypeOutput
+}
+
+// File Server information.
+type FileServerTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// File Server properties.
+	Properties FileServerPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FileServerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServerType)(nil)).Elem()
+}
+
+func (i FileServerTypeArgs) ToFileServerTypeOutput() FileServerTypeOutput {
+	return i.ToFileServerTypeOutputWithContext(context.Background())
+}
+
+func (i FileServerTypeArgs) ToFileServerTypeOutputWithContext(ctx context.Context) FileServerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileServerTypeOutput)
+}
+
+// File Server information.
+type FileServerTypeOutput struct{ *pulumi.OutputState }
+
+func (FileServerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileServerType)(nil)).Elem()
+}
+
+func (o FileServerTypeOutput) ToFileServerTypeOutput() FileServerTypeOutput {
+	return o
+}
+
+func (o FileServerTypeOutput) ToFileServerTypeOutputWithContext(ctx context.Context) FileServerTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o FileServerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FileServerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// File Server properties.
+func (o FileServerTypeOutput) Properties() FileServerPropertiesResponseOutput {
+	return o.ApplyT(func(v FileServerType) FileServerPropertiesResponse { return v.Properties }).(FileServerPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o FileServerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FileServerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of a file server.
@@ -8008,6 +8227,79 @@ func (o InputDirectoryResponseArrayOutput) Index(i pulumi.IntInput) InputDirecto
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputDirectoryResponse {
 		return vs[0].([]InputDirectoryResponse)[vs[1].(int)]
 	}).(InputDirectoryResponseOutput)
+}
+
+// Information about a Job.
+type JobType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties associated with the Job.
+	Properties JobPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
+// You can construct a concrete instance of `JobTypeInput` via:
+//
+//          JobTypeArgs{...}
+type JobTypeInput interface {
+	pulumi.Input
+
+	ToJobTypeOutput() JobTypeOutput
+	ToJobTypeOutputWithContext(context.Context) JobTypeOutput
+}
+
+// Information about a Job.
+type JobTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the Job.
+	Properties JobPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobType)(nil)).Elem()
+}
+
+func (i JobTypeArgs) ToJobTypeOutput() JobTypeOutput {
+	return i.ToJobTypeOutputWithContext(context.Background())
+}
+
+func (i JobTypeArgs) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTypeOutput)
+}
+
+// Information about a Job.
+type JobTypeOutput struct{ *pulumi.OutputState }
+
+func (JobTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobType)(nil)).Elem()
+}
+
+func (o JobTypeOutput) ToJobTypeOutput() JobTypeOutput {
+	return o
+}
+
+func (o JobTypeOutput) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o JobTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the Job.
+func (o JobTypeOutput) Properties() JobPropertiesResponseOutput {
+	return o.ApplyT(func(v JobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o JobTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of a Batch AI Job.
@@ -15643,298 +15935,6 @@ func (o WorkspaceTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Information about a Cluster.
-type WorkspaceClusterType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the Cluster.
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceClusterTypeInput is an input type that accepts WorkspaceClusterTypeArgs and WorkspaceClusterTypeOutput values.
-// You can construct a concrete instance of `WorkspaceClusterTypeInput` via:
-//
-//          WorkspaceClusterTypeArgs{...}
-type WorkspaceClusterTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceClusterTypeOutput() WorkspaceClusterTypeOutput
-	ToWorkspaceClusterTypeOutputWithContext(context.Context) WorkspaceClusterTypeOutput
-}
-
-// Information about a Cluster.
-type WorkspaceClusterTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the Cluster.
-	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceClusterType)(nil)).Elem()
-}
-
-func (i WorkspaceClusterTypeArgs) ToWorkspaceClusterTypeOutput() WorkspaceClusterTypeOutput {
-	return i.ToWorkspaceClusterTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceClusterTypeArgs) ToWorkspaceClusterTypeOutputWithContext(ctx context.Context) WorkspaceClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceClusterTypeOutput)
-}
-
-// Information about a Cluster.
-type WorkspaceClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceClusterType)(nil)).Elem()
-}
-
-func (o WorkspaceClusterTypeOutput) ToWorkspaceClusterTypeOutput() WorkspaceClusterTypeOutput {
-	return o
-}
-
-func (o WorkspaceClusterTypeOutput) ToWorkspaceClusterTypeOutputWithContext(ctx context.Context) WorkspaceClusterTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o WorkspaceClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the Cluster.
-func (o WorkspaceClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o WorkspaceClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Experiment information.
-type WorkspaceExperimentType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the experiment.
-	Properties ExperimentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceExperimentTypeInput is an input type that accepts WorkspaceExperimentTypeArgs and WorkspaceExperimentTypeOutput values.
-// You can construct a concrete instance of `WorkspaceExperimentTypeInput` via:
-//
-//          WorkspaceExperimentTypeArgs{...}
-type WorkspaceExperimentTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceExperimentTypeOutput() WorkspaceExperimentTypeOutput
-	ToWorkspaceExperimentTypeOutputWithContext(context.Context) WorkspaceExperimentTypeOutput
-}
-
-// Experiment information.
-type WorkspaceExperimentTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the experiment.
-	Properties ExperimentPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceExperimentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceExperimentType)(nil)).Elem()
-}
-
-func (i WorkspaceExperimentTypeArgs) ToWorkspaceExperimentTypeOutput() WorkspaceExperimentTypeOutput {
-	return i.ToWorkspaceExperimentTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceExperimentTypeArgs) ToWorkspaceExperimentTypeOutputWithContext(ctx context.Context) WorkspaceExperimentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceExperimentTypeOutput)
-}
-
-// Experiment information.
-type WorkspaceExperimentTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceExperimentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceExperimentType)(nil)).Elem()
-}
-
-func (o WorkspaceExperimentTypeOutput) ToWorkspaceExperimentTypeOutput() WorkspaceExperimentTypeOutput {
-	return o
-}
-
-func (o WorkspaceExperimentTypeOutput) ToWorkspaceExperimentTypeOutputWithContext(ctx context.Context) WorkspaceExperimentTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o WorkspaceExperimentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceExperimentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the experiment.
-func (o WorkspaceExperimentTypeOutput) Properties() ExperimentPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceExperimentType) ExperimentPropertiesResponse { return v.Properties }).(ExperimentPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o WorkspaceExperimentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceExperimentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Information about a Job.
-type WorkspaceExperimentJobType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the Job.
-	Properties JobPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceExperimentJobTypeInput is an input type that accepts WorkspaceExperimentJobTypeArgs and WorkspaceExperimentJobTypeOutput values.
-// You can construct a concrete instance of `WorkspaceExperimentJobTypeInput` via:
-//
-//          WorkspaceExperimentJobTypeArgs{...}
-type WorkspaceExperimentJobTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceExperimentJobTypeOutput() WorkspaceExperimentJobTypeOutput
-	ToWorkspaceExperimentJobTypeOutputWithContext(context.Context) WorkspaceExperimentJobTypeOutput
-}
-
-// Information about a Job.
-type WorkspaceExperimentJobTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the Job.
-	Properties JobPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceExperimentJobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceExperimentJobType)(nil)).Elem()
-}
-
-func (i WorkspaceExperimentJobTypeArgs) ToWorkspaceExperimentJobTypeOutput() WorkspaceExperimentJobTypeOutput {
-	return i.ToWorkspaceExperimentJobTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceExperimentJobTypeArgs) ToWorkspaceExperimentJobTypeOutputWithContext(ctx context.Context) WorkspaceExperimentJobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceExperimentJobTypeOutput)
-}
-
-// Information about a Job.
-type WorkspaceExperimentJobTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceExperimentJobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceExperimentJobType)(nil)).Elem()
-}
-
-func (o WorkspaceExperimentJobTypeOutput) ToWorkspaceExperimentJobTypeOutput() WorkspaceExperimentJobTypeOutput {
-	return o
-}
-
-func (o WorkspaceExperimentJobTypeOutput) ToWorkspaceExperimentJobTypeOutputWithContext(ctx context.Context) WorkspaceExperimentJobTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o WorkspaceExperimentJobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceExperimentJobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the Job.
-func (o WorkspaceExperimentJobTypeOutput) Properties() JobPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceExperimentJobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o WorkspaceExperimentJobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceExperimentJobType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// File Server information.
-type WorkspaceFileServerType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// File Server properties.
-	Properties FileServerPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceFileServerTypeInput is an input type that accepts WorkspaceFileServerTypeArgs and WorkspaceFileServerTypeOutput values.
-// You can construct a concrete instance of `WorkspaceFileServerTypeInput` via:
-//
-//          WorkspaceFileServerTypeArgs{...}
-type WorkspaceFileServerTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceFileServerTypeOutput() WorkspaceFileServerTypeOutput
-	ToWorkspaceFileServerTypeOutputWithContext(context.Context) WorkspaceFileServerTypeOutput
-}
-
-// File Server information.
-type WorkspaceFileServerTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// File Server properties.
-	Properties FileServerPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceFileServerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceFileServerType)(nil)).Elem()
-}
-
-func (i WorkspaceFileServerTypeArgs) ToWorkspaceFileServerTypeOutput() WorkspaceFileServerTypeOutput {
-	return i.ToWorkspaceFileServerTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceFileServerTypeArgs) ToWorkspaceFileServerTypeOutputWithContext(ctx context.Context) WorkspaceFileServerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFileServerTypeOutput)
-}
-
-// File Server information.
-type WorkspaceFileServerTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceFileServerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceFileServerType)(nil)).Elem()
-}
-
-func (o WorkspaceFileServerTypeOutput) ToWorkspaceFileServerTypeOutput() WorkspaceFileServerTypeOutput {
-	return o
-}
-
-func (o WorkspaceFileServerTypeOutput) ToWorkspaceFileServerTypeOutputWithContext(ctx context.Context) WorkspaceFileServerTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o WorkspaceFileServerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceFileServerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// File Server properties.
-func (o WorkspaceFileServerTypeOutput) Properties() FileServerPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceFileServerType) FileServerPropertiesResponse { return v.Properties }).(FileServerPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o WorkspaceFileServerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceFileServerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Workspace specific properties.
 type WorkspacePropertiesResponse struct {
 	// Time when the Workspace was created.
@@ -16144,6 +16144,7 @@ func init() {
 	pulumi.RegisterOutputType(ChainerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChainerSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ChainerSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ClusterTypeOutput{})
 	pulumi.RegisterOutputType(ClusterBasePropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterBasePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
@@ -16172,12 +16173,14 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentVariableWithSecretValueArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableWithSecretValueResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableWithSecretValueResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExperimentTypeOutput{})
 	pulumi.RegisterOutputType(ExperimentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ExperimentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FileResponseOutput{})
 	pulumi.RegisterOutputType(FileResponseArrayOutput{})
+	pulumi.RegisterOutputType(FileServerTypeOutput{})
 	pulumi.RegisterOutputType(FileServerBasePropertiesOutput{})
 	pulumi.RegisterOutputType(FileServerBasePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesResponseOutput{})
@@ -16202,6 +16205,7 @@ func init() {
 	pulumi.RegisterOutputType(InputDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(InputDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(InputDirectoryResponseArrayOutput{})
+	pulumi.RegisterOutputType(JobTypeOutput{})
 	pulumi.RegisterOutputType(JobBasePropertiesOutput{})
 	pulumi.RegisterOutputType(JobBasePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobBasePropertiesPropertiesOutput{})
@@ -16287,10 +16291,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceClusterTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceExperimentTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceExperimentJobTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceFileServerTypeOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponsePtrOutput{})
 }

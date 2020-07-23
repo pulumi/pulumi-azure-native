@@ -2,14 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./application";
+export * from "./applicationPackage";
 export * from "./batchAccount";
-export * from "./batchAccountApplication";
-export * from "./batchAccountApplicationVersion";
-export * from "./batchAccountCertificate";
-export * from "./batchAccountPool";
+export * from "./certificate";
+export * from "./getApplication";
+export * from "./getApplicationPackage";
 export * from "./getBatchAccount";
-export * from "./getBatchAccountApplication";
-export * from "./getBatchAccountApplicationVersion";
-export * from "./getBatchAccountCertificate";
-export * from "./getBatchAccountPool";
+export * from "./getCertificate";
+export * from "./getPool";
 export * from "./listBatchAccountKeys";
+export * from "./pool";

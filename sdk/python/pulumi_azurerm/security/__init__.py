@@ -4,6 +4,6 @@
 
 # Export this package's modules as members:
 from .get_iot_security_solution import *
-from .get_location_jit_network_access_policy import *
+from .get_jit_network_access_policy import *
 from .iot_security_solution import *
-from .location_jit_network_access_policy import *
+from .jit_network_access_policy import *

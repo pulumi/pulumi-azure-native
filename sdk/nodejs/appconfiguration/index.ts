@@ -3,7 +3,7 @@
 
 // Export members:
 export * from "./configurationStore";
-export * from "./configurationStorePrivateEndpointConnection";
 export * from "./getConfigurationStore";
-export * from "./getConfigurationStorePrivateEndpointConnection";
+export * from "./getPrivateEndpointConnection";
 export * from "./listConfigurationStoreKeyValue";
+export * from "./privateEndpointConnection";

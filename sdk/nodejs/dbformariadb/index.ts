@@ -2,13 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./database";
+export * from "./firewallRule";
+export * from "./getDatabase";
+export * from "./getFirewallRule";
+export * from "./getPrivateEndpointConnection";
 export * from "./getServer";
-export * from "./getServerDatabase";
-export * from "./getServerFirewallRule";
-export * from "./getServerPrivateEndpointConnection";
-export * from "./getServerVirtualNetworkRule";
+export * from "./getVirtualNetworkRule";
+export * from "./privateEndpointConnection";
 export * from "./server";
-export * from "./serverDatabase";
-export * from "./serverFirewallRule";
-export * from "./serverPrivateEndpointConnection";
-export * from "./serverVirtualNetworkRule";
+export * from "./virtualNetworkRule";

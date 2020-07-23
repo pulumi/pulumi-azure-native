@@ -3,11 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .get_streamingjob import *
-from .get_streamingjob_function import *
-from .get_streamingjob_input import *
-from .get_streamingjob_output import *
-from .streamingjob import *
-from .streamingjob_function import *
-from .streamingjob_input import *
-from .streamingjob_output import *
+from .function import *
+from .get_function import *
+from .get_input import *
+from .get_output import *
+from .get_streaming_job import *
+from .input import *
+from .output import *
+from .streaming_job import *

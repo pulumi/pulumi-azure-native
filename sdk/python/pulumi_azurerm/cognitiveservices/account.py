@@ -148,13 +148,18 @@ class Account(pulumi.CustomResource):
               * `state` (`pulumi.Input[str]`) - Gets the state of virtual network rule.
 
           * `private_endpoint_connections` (`pulumi.Input[list]`) - The private endpoint connection associated with the Cognitive Services account.
+            * `name` (`pulumi.Input[str]`) - The name of the resource
             * `properties` (`pulumi.Input[dict]`) - Resource properties.
               * `group_ids` (`pulumi.Input[list]`) - The private link resource group ids.
               * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
+                * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint
+
               * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
                 * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
                 * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
                 * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+
+            * `type` (`pulumi.Input[str]`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 
           * `public_network_access` (`pulumi.Input[str]`) - Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
           * `user_owned_storage` (`pulumi.Input[list]`) - The storage accounts for this resource.
