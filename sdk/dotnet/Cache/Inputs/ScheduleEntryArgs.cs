@@ -11,7 +11,7 @@ namespace Pulumi.AzureRM.Cache.Inputs
 {
 
     /// <summary>
-    /// Patch schedule entry for a Premium Redis Cache.
+    /// Patch schedule entry for a Redis Cache.
     /// </summary>
     public sealed class ScheduleEntryArgs : Pulumi.ResourceArgs
     {

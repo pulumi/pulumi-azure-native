@@ -13,13 +13,7 @@ class GetProfileEndpointOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        """
-        Resource location.
-        """
+    def __init__(__self__, name=None, properties=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -31,12 +25,6 @@ class GetProfileEndpointOriginResult:
         __self__.properties = properties
         """
         The JSON object that contains the properties of the origin.
-        """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
-        """
-        Resource tags.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,10 +40,8 @@ class AwaitableGetProfileEndpointOriginResult(GetProfileEndpointOriginResult):
         if False:
             yield self
         return GetProfileEndpointOriginResult(
-            location=self.location,
             name=self.name,
             properties=self.properties,
-            tags=self.tags,
             type=self.type)
 
 
@@ -80,8 +66,6 @@ def get_profile_endpoint_origin(endpoint_name=None, name=None, profile_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:cdn:getProfileEndpointOrigin', __args__, opts=opts).value
 
     return AwaitableGetProfileEndpointOriginResult(
-        location=__ret__.get('location'),
         name=__ret__.get('name'),
         properties=__ret__.get('properties'),
-        tags=__ret__.get('tags'),
         type=__ret__.get('type'))

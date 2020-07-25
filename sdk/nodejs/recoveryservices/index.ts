@@ -4,7 +4,6 @@
 // Export members:
 export * from "./getVault";
 export * from "./getVaultBackupPolicy";
-export * from "./getVaultPrivateEndpointConnection";
 export * from "./getVaultReplicationFabric";
 export * from "./getVaultReplicationFabricReplicationNetworkReplicationNetworkMapping";
 export * from "./getVaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem";
@@ -17,7 +16,6 @@ export * from "./getVaultReplicationPolicy";
 export * from "./getVaultReplicationRecoveryPlan";
 export * from "./vault";
 export * from "./vaultBackupPolicy";
-export * from "./vaultPrivateEndpointConnection";
 export * from "./vaultReplicationFabric";
 export * from "./vaultReplicationFabricReplicationNetworkReplicationNetworkMapping";
 export * from "./vaultReplicationFabricReplicationProtectionContainerReplicationMigrationItem";

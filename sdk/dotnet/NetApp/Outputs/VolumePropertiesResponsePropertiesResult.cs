@@ -17,11 +17,19 @@ namespace Pulumi.AzureRM.NetApp.Outputs
         /// Replication properties
         /// </summary>
         public readonly Outputs.ReplicationObjectResponseResult? Replication;
+        /// <summary>
+        /// Snapshot properties.
+        /// </summary>
+        public readonly Outputs.VolumeSnapshotPropertiesResponseResult? Snapshot;
 
         [OutputConstructor]
-        private VolumePropertiesResponsePropertiesResult(Outputs.ReplicationObjectResponseResult? replication)
+        private VolumePropertiesResponsePropertiesResult(
+            Outputs.ReplicationObjectResponseResult? replication,
+
+            Outputs.VolumeSnapshotPropertiesResponseResult? snapshot)
         {
             Replication = replication;
+            Snapshot = snapshot;
         }
     }
 }

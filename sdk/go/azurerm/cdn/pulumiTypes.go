@@ -8327,14 +8327,10 @@ func (o ProfileEndpointCustomDomainTypeOutput) Type() pulumi.StringOutput {
 
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 type ProfileEndpointOriginType struct {
-	// Resource location.
-	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The JSON object that contains the properties of the origin.
 	Properties OriginPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -8352,14 +8348,10 @@ type ProfileEndpointOriginTypeInput interface {
 
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 type ProfileEndpointOriginTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The JSON object that contains the properties of the origin.
 	Properties OriginPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -8391,11 +8383,6 @@ func (o ProfileEndpointOriginTypeOutput) ToProfileEndpointOriginTypeOutputWithCo
 	return o
 }
 
-// Resource location.
-func (o ProfileEndpointOriginTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileEndpointOriginType) string { return v.Location }).(pulumi.StringOutput)
-}
-
 // Resource name.
 func (o ProfileEndpointOriginTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileEndpointOriginType) string { return v.Name }).(pulumi.StringOutput)
@@ -8404,11 +8391,6 @@ func (o ProfileEndpointOriginTypeOutput) Name() pulumi.StringOutput {
 // The JSON object that contains the properties of the origin.
 func (o ProfileEndpointOriginTypeOutput) Properties() OriginPropertiesResponseOutput {
 	return o.ApplyT(func(v ProfileEndpointOriginType) OriginPropertiesResponse { return v.Properties }).(OriginPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ProfileEndpointOriginTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileEndpointOriginType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Resource type.

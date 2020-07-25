@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.NetApp.Outputs
         /// </summary>
         public readonly string? ActiveDirectoryId;
         /// <summary>
+        /// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        /// </summary>
+        public readonly ImmutableArray<string> BackupOperators;
+        /// <summary>
         /// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         /// </summary>
         public readonly string? Dns;
@@ -54,6 +58,8 @@ namespace Pulumi.AzureRM.NetApp.Outputs
         private ActiveDirectoryResponseResult(
             string? activeDirectoryId,
 
+            ImmutableArray<string> backupOperators,
+
             string? dns,
 
             string? domain,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureRM.NetApp.Outputs
             string? username)
         {
             ActiveDirectoryId = activeDirectoryId;
+            BackupOperators = backupOperators;
             Dns = dns;
             Domain = domain;
             OrganizationalUnit = organizationalUnit;
