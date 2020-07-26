@@ -656,6 +656,8 @@ func (o AccountPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 type ActiveDirectory struct {
 	// Id of the Active Directory
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
+	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+	BackupOperators []string `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 	Dns *string `pulumi:"dns"`
 	// Name of the Active Directory domain
@@ -689,6 +691,8 @@ type ActiveDirectoryInput interface {
 type ActiveDirectoryArgs struct {
 	// Id of the Active Directory
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
+	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 	Dns pulumi.StringPtrInput `pulumi:"dns"`
 	// Name of the Active Directory domain
@@ -764,6 +768,11 @@ func (o ActiveDirectoryOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
+// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+func (o ActiveDirectoryOutput) BackupOperators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectory) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
+}
+
 // Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 func (o ActiveDirectoryOutput) Dns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Dns }).(pulumi.StringPtrOutput)
@@ -828,6 +837,8 @@ func (o ActiveDirectoryArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryOutp
 type ActiveDirectoryResponse struct {
 	// Id of the Active Directory
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
+	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+	BackupOperators []string `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 	Dns *string `pulumi:"dns"`
 	// Name of the Active Directory domain
@@ -861,6 +872,8 @@ type ActiveDirectoryResponseInput interface {
 type ActiveDirectoryResponseArgs struct {
 	// Id of the Active Directory
 	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
+	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
 	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 	Dns pulumi.StringPtrInput `pulumi:"dns"`
 	// Name of the Active Directory domain
@@ -934,6 +947,11 @@ func (o ActiveDirectoryResponseOutput) ToActiveDirectoryResponseOutputWithContex
 // Id of the Active Directory
 func (o ActiveDirectoryResponseOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+func (o ActiveDirectoryResponseOutput) BackupOperators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectoryResponse) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
 }
 
 // Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
@@ -2318,8 +2336,6 @@ func (o ResourceTagsResponsePtrOutput) Elem() ResourceTagsResponseOutput {
 
 // Snapshot properties
 type SnapshotProperties struct {
-	// UUID v4 used to identify the FileSystem
-	FileSystemId *string `pulumi:"fileSystemId"`
 }
 
 // SnapshotPropertiesInput is an input type that accepts SnapshotPropertiesArgs and SnapshotPropertiesOutput values.
@@ -2335,8 +2351,6 @@ type SnapshotPropertiesInput interface {
 
 // Snapshot properties
 type SnapshotPropertiesArgs struct {
-	// UUID v4 used to identify the FileSystem
-	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
 }
 
 func (SnapshotPropertiesArgs) ElementType() reflect.Type {
@@ -2417,11 +2431,6 @@ func (o SnapshotPropertiesOutput) ToSnapshotPropertiesPtrOutputWithContext(ctx c
 	}).(SnapshotPropertiesPtrOutput)
 }
 
-// UUID v4 used to identify the FileSystem
-func (o SnapshotPropertiesOutput) FileSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
-}
-
 type SnapshotPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPropertiesPtrOutput) ElementType() reflect.Type {
@@ -2440,22 +2449,10 @@ func (o SnapshotPropertiesPtrOutput) Elem() SnapshotPropertiesOutput {
 	return o.ApplyT(func(v *SnapshotProperties) SnapshotProperties { return *v }).(SnapshotPropertiesOutput)
 }
 
-// UUID v4 used to identify the FileSystem
-func (o SnapshotPropertiesPtrOutput) FileSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileSystemId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Snapshot properties
 type SnapshotPropertiesResponse struct {
 	// The creation date of the snapshot
 	Created string `pulumi:"created"`
-	// UUID v4 used to identify the FileSystem
-	FileSystemId *string `pulumi:"fileSystemId"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
 	// UUID v4 used to identify the Snapshot
@@ -2477,8 +2474,6 @@ type SnapshotPropertiesResponseInput interface {
 type SnapshotPropertiesResponseArgs struct {
 	// The creation date of the snapshot
 	Created pulumi.StringInput `pulumi:"created"`
-	// UUID v4 used to identify the FileSystem
-	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// UUID v4 used to identify the Snapshot
@@ -2568,11 +2563,6 @@ func (o SnapshotPropertiesResponseOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotPropertiesResponse) string { return v.Created }).(pulumi.StringOutput)
 }
 
-// UUID v4 used to identify the FileSystem
-func (o SnapshotPropertiesResponseOutput) FileSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotPropertiesResponse) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
-}
-
 // Azure lifecycle management
 func (o SnapshotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -2608,16 +2598,6 @@ func (o SnapshotPropertiesResponsePtrOutput) Created() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Created
-	}).(pulumi.StringPtrOutput)
-}
-
-// UUID v4 used to identify the FileSystem
-func (o SnapshotPropertiesResponsePtrOutput) FileSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SnapshotPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileSystemId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2657,6 +2637,8 @@ type VolumeProperties struct {
 	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`
+	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
@@ -2694,6 +2676,8 @@ type VolumePropertiesArgs struct {
 	ProtocolTypes pulumi.StringArrayInput `pulumi:"protocolTypes"`
 	// The service level of the file system
 	ServiceLevel pulumi.StringPtrInput `pulumi:"serviceLevel"`
+	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SnapshotDirectoryVisible pulumi.BoolPtrInput `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
@@ -2817,6 +2801,11 @@ func (o VolumePropertiesOutput) ServiceLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeProperties) *string { return v.ServiceLevel }).(pulumi.StringPtrOutput)
 }
 
+// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+func (o VolumePropertiesOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeProperties) *bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
+}
+
 // UUID v4 or resource identifier used to identify the Snapshot.
 func (o VolumePropertiesOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeProperties) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
@@ -2925,6 +2914,16 @@ func (o VolumePropertiesPtrOutput) ServiceLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+func (o VolumePropertiesPtrOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotDirectoryVisible
+	}).(pulumi.BoolPtrOutput)
+}
+
 // UUID v4 or resource identifier used to identify the Snapshot.
 func (o VolumePropertiesPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeProperties) *string {
@@ -2969,6 +2968,8 @@ func (o VolumePropertiesPtrOutput) VolumeType() pulumi.StringPtrOutput {
 type VolumePropertiesProperties struct {
 	// Replication properties
 	Replication *ReplicationObject `pulumi:"replication"`
+	// Snapshot properties.
+	Snapshot *VolumeSnapshotProperties `pulumi:"snapshot"`
 }
 
 // VolumePropertiesPropertiesInput is an input type that accepts VolumePropertiesPropertiesArgs and VolumePropertiesPropertiesOutput values.
@@ -2986,6 +2987,8 @@ type VolumePropertiesPropertiesInput interface {
 type VolumePropertiesPropertiesArgs struct {
 	// Replication properties
 	Replication ReplicationObjectPtrInput `pulumi:"replication"`
+	// Snapshot properties.
+	Snapshot VolumeSnapshotPropertiesPtrInput `pulumi:"snapshot"`
 }
 
 func (VolumePropertiesPropertiesArgs) ElementType() reflect.Type {
@@ -3071,6 +3074,11 @@ func (o VolumePropertiesPropertiesOutput) Replication() ReplicationObjectPtrOutp
 	return o.ApplyT(func(v VolumePropertiesProperties) *ReplicationObject { return v.Replication }).(ReplicationObjectPtrOutput)
 }
 
+// Snapshot properties.
+func (o VolumePropertiesPropertiesOutput) Snapshot() VolumeSnapshotPropertiesPtrOutput {
+	return o.ApplyT(func(v VolumePropertiesProperties) *VolumeSnapshotProperties { return v.Snapshot }).(VolumeSnapshotPropertiesPtrOutput)
+}
+
 type VolumePropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesPropertiesPtrOutput) ElementType() reflect.Type {
@@ -3099,6 +3107,16 @@ func (o VolumePropertiesPropertiesPtrOutput) Replication() ReplicationObjectPtrO
 	}).(ReplicationObjectPtrOutput)
 }
 
+// Snapshot properties.
+func (o VolumePropertiesPropertiesPtrOutput) Snapshot() VolumeSnapshotPropertiesPtrOutput {
+	return o.ApplyT(func(v *VolumePropertiesProperties) *VolumeSnapshotProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Snapshot
+	}).(VolumeSnapshotPropertiesPtrOutput)
+}
+
 // Volume properties
 type VolumePropertiesResponse struct {
 	// Unique Baremetal Tenant Identifier.
@@ -3121,6 +3139,8 @@ type VolumePropertiesResponse struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The service level of the file system
 	ServiceLevel *string `pulumi:"serviceLevel"`
+	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
@@ -3164,6 +3184,8 @@ type VolumePropertiesResponseArgs struct {
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The service level of the file system
 	ServiceLevel pulumi.StringPtrInput `pulumi:"serviceLevel"`
+	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SnapshotDirectoryVisible pulumi.BoolPtrInput `pulumi:"snapshotDirectoryVisible"`
 	// UUID v4 or resource identifier used to identify the Snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
@@ -3300,6 +3322,11 @@ func (o VolumePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput 
 // The service level of the file system
 func (o VolumePropertiesResponseOutput) ServiceLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumePropertiesResponse) *string { return v.ServiceLevel }).(pulumi.StringPtrOutput)
+}
+
+// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+func (o VolumePropertiesResponseOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumePropertiesResponse) *bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
 }
 
 // UUID v4 or resource identifier used to identify the Snapshot.
@@ -3440,6 +3467,16 @@ func (o VolumePropertiesResponsePtrOutput) ServiceLevel() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
+func (o VolumePropertiesResponsePtrOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumePropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotDirectoryVisible
+	}).(pulumi.BoolPtrOutput)
+}
+
 // UUID v4 or resource identifier used to identify the Snapshot.
 func (o VolumePropertiesResponsePtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponse) *string {
@@ -3484,6 +3521,8 @@ func (o VolumePropertiesResponsePtrOutput) VolumeType() pulumi.StringPtrOutput {
 type VolumePropertiesResponseProperties struct {
 	// Replication properties
 	Replication *ReplicationObjectResponse `pulumi:"replication"`
+	// Snapshot properties.
+	Snapshot *VolumeSnapshotPropertiesResponse `pulumi:"snapshot"`
 }
 
 // VolumePropertiesResponsePropertiesInput is an input type that accepts VolumePropertiesResponsePropertiesArgs and VolumePropertiesResponsePropertiesOutput values.
@@ -3501,6 +3540,8 @@ type VolumePropertiesResponsePropertiesInput interface {
 type VolumePropertiesResponsePropertiesArgs struct {
 	// Replication properties
 	Replication ReplicationObjectResponsePtrInput `pulumi:"replication"`
+	// Snapshot properties.
+	Snapshot VolumeSnapshotPropertiesResponsePtrInput `pulumi:"snapshot"`
 }
 
 func (VolumePropertiesResponsePropertiesArgs) ElementType() reflect.Type {
@@ -3586,6 +3627,11 @@ func (o VolumePropertiesResponsePropertiesOutput) Replication() ReplicationObjec
 	return o.ApplyT(func(v VolumePropertiesResponseProperties) *ReplicationObjectResponse { return v.Replication }).(ReplicationObjectResponsePtrOutput)
 }
 
+// Snapshot properties.
+func (o VolumePropertiesResponsePropertiesOutput) Snapshot() VolumeSnapshotPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v VolumePropertiesResponseProperties) *VolumeSnapshotPropertiesResponse { return v.Snapshot }).(VolumeSnapshotPropertiesResponsePtrOutput)
+}
+
 type VolumePropertiesResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponsePropertiesPtrOutput) ElementType() reflect.Type {
@@ -3612,6 +3658,284 @@ func (o VolumePropertiesResponsePropertiesPtrOutput) Replication() ReplicationOb
 		}
 		return v.Replication
 	}).(ReplicationObjectResponsePtrOutput)
+}
+
+// Snapshot properties.
+func (o VolumePropertiesResponsePropertiesPtrOutput) Snapshot() VolumeSnapshotPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *VolumePropertiesResponseProperties) *VolumeSnapshotPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Snapshot
+	}).(VolumeSnapshotPropertiesResponsePtrOutput)
+}
+
+// Volume Snapshot Properties
+type VolumeSnapshotProperties struct {
+	// Snapshot Policy ResourceId
+	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
+}
+
+// VolumeSnapshotPropertiesInput is an input type that accepts VolumeSnapshotPropertiesArgs and VolumeSnapshotPropertiesOutput values.
+// You can construct a concrete instance of `VolumeSnapshotPropertiesInput` via:
+//
+//          VolumeSnapshotPropertiesArgs{...}
+type VolumeSnapshotPropertiesInput interface {
+	pulumi.Input
+
+	ToVolumeSnapshotPropertiesOutput() VolumeSnapshotPropertiesOutput
+	ToVolumeSnapshotPropertiesOutputWithContext(context.Context) VolumeSnapshotPropertiesOutput
+}
+
+// Volume Snapshot Properties
+type VolumeSnapshotPropertiesArgs struct {
+	// Snapshot Policy ResourceId
+	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
+}
+
+func (VolumeSnapshotPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnapshotProperties)(nil)).Elem()
+}
+
+func (i VolumeSnapshotPropertiesArgs) ToVolumeSnapshotPropertiesOutput() VolumeSnapshotPropertiesOutput {
+	return i.ToVolumeSnapshotPropertiesOutputWithContext(context.Background())
+}
+
+func (i VolumeSnapshotPropertiesArgs) ToVolumeSnapshotPropertiesOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesOutput)
+}
+
+func (i VolumeSnapshotPropertiesArgs) ToVolumeSnapshotPropertiesPtrOutput() VolumeSnapshotPropertiesPtrOutput {
+	return i.ToVolumeSnapshotPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeSnapshotPropertiesArgs) ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesOutput).ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx)
+}
+
+// VolumeSnapshotPropertiesPtrInput is an input type that accepts VolumeSnapshotPropertiesArgs, VolumeSnapshotPropertiesPtr and VolumeSnapshotPropertiesPtrOutput values.
+// You can construct a concrete instance of `VolumeSnapshotPropertiesPtrInput` via:
+//
+//          VolumeSnapshotPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeSnapshotPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVolumeSnapshotPropertiesPtrOutput() VolumeSnapshotPropertiesPtrOutput
+	ToVolumeSnapshotPropertiesPtrOutputWithContext(context.Context) VolumeSnapshotPropertiesPtrOutput
+}
+
+type volumeSnapshotPropertiesPtrType VolumeSnapshotPropertiesArgs
+
+func VolumeSnapshotPropertiesPtr(v *VolumeSnapshotPropertiesArgs) VolumeSnapshotPropertiesPtrInput {
+	return (*volumeSnapshotPropertiesPtrType)(v)
+}
+
+func (*volumeSnapshotPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnapshotProperties)(nil)).Elem()
+}
+
+func (i *volumeSnapshotPropertiesPtrType) ToVolumeSnapshotPropertiesPtrOutput() VolumeSnapshotPropertiesPtrOutput {
+	return i.ToVolumeSnapshotPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeSnapshotPropertiesPtrType) ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesPtrOutput)
+}
+
+// Volume Snapshot Properties
+type VolumeSnapshotPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnapshotPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnapshotProperties)(nil)).Elem()
+}
+
+func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesOutput() VolumeSnapshotPropertiesOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutput() VolumeSnapshotPropertiesPtrOutput {
+	return o.ToVolumeSnapshotPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesPtrOutput {
+	return o.ApplyT(func(v VolumeSnapshotProperties) *VolumeSnapshotProperties {
+		return &v
+	}).(VolumeSnapshotPropertiesPtrOutput)
+}
+
+// Snapshot Policy ResourceId
+func (o VolumeSnapshotPropertiesOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnapshotProperties) *string { return v.SnapshotPolicyId }).(pulumi.StringPtrOutput)
+}
+
+type VolumeSnapshotPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnapshotPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnapshotProperties)(nil)).Elem()
+}
+
+func (o VolumeSnapshotPropertiesPtrOutput) ToVolumeSnapshotPropertiesPtrOutput() VolumeSnapshotPropertiesPtrOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesPtrOutput) ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesPtrOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesPtrOutput) Elem() VolumeSnapshotPropertiesOutput {
+	return o.ApplyT(func(v *VolumeSnapshotProperties) VolumeSnapshotProperties { return *v }).(VolumeSnapshotPropertiesOutput)
+}
+
+// Snapshot Policy ResourceId
+func (o VolumeSnapshotPropertiesPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnapshotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Volume Snapshot Properties
+type VolumeSnapshotPropertiesResponse struct {
+	// Snapshot Policy ResourceId
+	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
+}
+
+// VolumeSnapshotPropertiesResponseInput is an input type that accepts VolumeSnapshotPropertiesResponseArgs and VolumeSnapshotPropertiesResponseOutput values.
+// You can construct a concrete instance of `VolumeSnapshotPropertiesResponseInput` via:
+//
+//          VolumeSnapshotPropertiesResponseArgs{...}
+type VolumeSnapshotPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToVolumeSnapshotPropertiesResponseOutput() VolumeSnapshotPropertiesResponseOutput
+	ToVolumeSnapshotPropertiesResponseOutputWithContext(context.Context) VolumeSnapshotPropertiesResponseOutput
+}
+
+// Volume Snapshot Properties
+type VolumeSnapshotPropertiesResponseArgs struct {
+	// Snapshot Policy ResourceId
+	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
+}
+
+func (VolumeSnapshotPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnapshotPropertiesResponse)(nil)).Elem()
+}
+
+func (i VolumeSnapshotPropertiesResponseArgs) ToVolumeSnapshotPropertiesResponseOutput() VolumeSnapshotPropertiesResponseOutput {
+	return i.ToVolumeSnapshotPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i VolumeSnapshotPropertiesResponseArgs) ToVolumeSnapshotPropertiesResponseOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesResponseOutput)
+}
+
+func (i VolumeSnapshotPropertiesResponseArgs) ToVolumeSnapshotPropertiesResponsePtrOutput() VolumeSnapshotPropertiesResponsePtrOutput {
+	return i.ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VolumeSnapshotPropertiesResponseArgs) ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesResponseOutput).ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// VolumeSnapshotPropertiesResponsePtrInput is an input type that accepts VolumeSnapshotPropertiesResponseArgs, VolumeSnapshotPropertiesResponsePtr and VolumeSnapshotPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `VolumeSnapshotPropertiesResponsePtrInput` via:
+//
+//          VolumeSnapshotPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeSnapshotPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToVolumeSnapshotPropertiesResponsePtrOutput() VolumeSnapshotPropertiesResponsePtrOutput
+	ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(context.Context) VolumeSnapshotPropertiesResponsePtrOutput
+}
+
+type volumeSnapshotPropertiesResponsePtrType VolumeSnapshotPropertiesResponseArgs
+
+func VolumeSnapshotPropertiesResponsePtr(v *VolumeSnapshotPropertiesResponseArgs) VolumeSnapshotPropertiesResponsePtrInput {
+	return (*volumeSnapshotPropertiesResponsePtrType)(v)
+}
+
+func (*volumeSnapshotPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnapshotPropertiesResponse)(nil)).Elem()
+}
+
+func (i *volumeSnapshotPropertiesResponsePtrType) ToVolumeSnapshotPropertiesResponsePtrOutput() VolumeSnapshotPropertiesResponsePtrOutput {
+	return i.ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *volumeSnapshotPropertiesResponsePtrType) ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesResponsePtrOutput)
+}
+
+// Volume Snapshot Properties
+type VolumeSnapshotPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnapshotPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnapshotPropertiesResponse)(nil)).Elem()
+}
+
+func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesResponseOutput() VolumeSnapshotPropertiesResponseOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesResponseOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponseOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesResponsePtrOutput() VolumeSnapshotPropertiesResponsePtrOutput {
+	return o.ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v VolumeSnapshotPropertiesResponse) *VolumeSnapshotPropertiesResponse {
+		return &v
+	}).(VolumeSnapshotPropertiesResponsePtrOutput)
+}
+
+// Snapshot Policy ResourceId
+func (o VolumeSnapshotPropertiesResponseOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnapshotPropertiesResponse) *string { return v.SnapshotPolicyId }).(pulumi.StringPtrOutput)
+}
+
+type VolumeSnapshotPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnapshotPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnapshotPropertiesResponse)(nil)).Elem()
+}
+
+func (o VolumeSnapshotPropertiesResponsePtrOutput) ToVolumeSnapshotPropertiesResponsePtrOutput() VolumeSnapshotPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesResponsePtrOutput) ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o VolumeSnapshotPropertiesResponsePtrOutput) Elem() VolumeSnapshotPropertiesResponseOutput {
+	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) VolumeSnapshotPropertiesResponse { return *v }).(VolumeSnapshotPropertiesResponseOutput)
+}
+
+// Snapshot Policy ResourceId
+func (o VolumeSnapshotPropertiesResponsePtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotPolicyId
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -3655,4 +3979,8 @@ func init() {
 	pulumi.RegisterOutputType(VolumePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VolumeSnapshotPropertiesOutput{})
+	pulumi.RegisterOutputType(VolumeSnapshotPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VolumeSnapshotPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(VolumeSnapshotPropertiesResponsePtrOutput{})
 }

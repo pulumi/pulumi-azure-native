@@ -35,15 +35,15 @@ class Vault(pulumi.CustomResource):
       * `private_endpoint_connections` (`list`) - List of private endpoint connection.
         * `id` (`str`) - Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
         * `properties` (`dict`) - Private Endpoint Connection Response Properties.
-          * `private_endpoint` (`dict`) - Gets or sets private endpoint associated with the private endpoint connection
-            * `id` (`str`) - Gets or sets id
+          * `private_endpoint` (`dict`) - The Private Endpoint network resource that is linked to the Private Endpoint connection.
+            * `id` (`str`) - Gets or sets id.
 
-          * `private_link_service_connection_state` (`dict`) - Gets or sets private link service connection state
-            * `action_required` (`str`) - Gets or sets actions required
-            * `description` (`str`) - Gets or sets description
-            * `status` (`str`) - Gets or sets the status
+          * `private_link_service_connection_state` (`dict`) - Gets or sets private link service connection state.
+            * `actions_required` (`str`) - Gets or sets actions required.
+            * `description` (`str`) - Gets or sets description.
+            * `status` (`str`) - Gets or sets the status.
 
-          * `provisioning_state` (`str`) - Gets or sets provisioning state of the private endpoint connection
+          * `provisioning_state` (`str`) - Gets or sets provisioning state of the private endpoint connection.
 
       * `private_endpoint_state_for_backup` (`str`) - Private endpoint state for backup.
       * `private_endpoint_state_for_site_recovery` (`str`) - Private endpoint state for site recovery.

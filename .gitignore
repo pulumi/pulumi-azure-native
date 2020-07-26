@@ -4,7 +4,6 @@ Pulumi.*.yaml
 yarn.lock
 package-lock.json
 .idea/
-azure-rest-api-specs/
 **/bin/
 **/obj/
 /provider/cmd/pulumi-resource-azurerm/schema.go
