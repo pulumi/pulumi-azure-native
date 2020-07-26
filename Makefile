@@ -29,7 +29,7 @@ generate:: generate_schema
 	rm -rf sdk/go/azurerm
 	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
 	echo "Generating Pulumi Schema & SDK..."
-	$(CODEGEN) nodejs,python,go,dotnet
+	$(CODEGEN) schema,nodejs,python,go,dotnet
 	echo "Finished generating Schema & SDK."
 	cd ${PACKDIR}/nodejs/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json && \
