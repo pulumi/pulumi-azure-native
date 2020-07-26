@@ -103,30 +103,7 @@ func SwaggerLocations() ([]string, error) {
 	// Sorting alphabetically means the schemas with the latest API version are the last.
 	sort.Strings(files)
 
-	// Deduplicate files of the same provider having the same name.
-	latest := map[string]string{}
-	for _, file := range files {
-		parts := strings.Split(file, "/")
-		length := len(parts)
-		provider := parts[length-4]
-		apiVersion := parts[length-2]
-		filename := parts[length-1]
-
-		if v, ok := blessedVersions[provider]; ok && v != apiVersion {
-			continue
-		}
-
-		key := provider + "/" + filename
-		latest[key] = file
-	}
-
-	var locations []string
-	for _, file := range latest {
-		locations = append(locations, file)
-	}
-	sort.Strings(locations)
-
-	return locations, nil
+	return files, nil
 }
 
 // ResourceProvider returns a provider name given resource's PUT path.
@@ -145,8 +122,8 @@ func ResourceProvider(path string) string {
 		}
 	}
 
-	// TODO: this may cause some undesired resources in the index namespace, but it looks okay for now.
-	return "index"
+	// TODO: this may cause some undesired resources in the Resources namespace, but it looks okay for now.
+	return "Resources"
 }
 
 var verbReplacer *strings.Replacer

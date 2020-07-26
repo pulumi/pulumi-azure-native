@@ -16,7 +16,7 @@
     {
       "name": "createshare-containerinstance2",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-02-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "westus2",
       "properties": {
         "containers": [
@@ -44,8 +44,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": "0.5",
-                  "memoryInGb": "0.7"
+                  "cpu": 0.5,
+                  "memoryInGB": 0.7
                 }
               }
             }
@@ -74,8 +74,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": "0.5",
-                  "memoryInGb": "0.7"
+                  "cpu": 0.5,
+                  "memoryInGB": 0.7
                 }
               }
             }
@@ -88,7 +88,7 @@
     {
       "name": "wordpress-containerinstance",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-02-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "westus2",
       "properties": {
         "containers": [
@@ -98,7 +98,7 @@
               "image": "wordpress:4.9-apache",
               "ports": [
                 {
-                  "protocol": "Tcp",
+                  "protocol": "TCP",
                   "port": 80
                 }
               ],
@@ -120,8 +120,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": "0.5",
-                  "memoryInGb": "0.7"
+                  "cpu": 0.5,
+                  "memoryInGB": 0.7
                 }
               }
             }
@@ -132,7 +132,7 @@
               "image": "mysql:5.6",
               "ports": [
                 {
-                  "protocol": "Tcp",
+                  "protocol": "TCP",
                   "port": 3306
                 }
               ],
@@ -150,8 +150,8 @@
               ],
               "resources": {
                 "requests": {
-                  "cpu": "0.5",
-                  "memoryInGb": "0.7"
+                  "cpu": 0.5,
+                  "memoryInGB": 0.7
                 }
               }
             }
@@ -178,7 +178,7 @@
         "ipAddress": {
           "ports": [
             {
-              "protocol": "Tcp",
+              "protocol": "TCP",
               "port": 80
             }
           ],

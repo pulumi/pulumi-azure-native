@@ -58,8 +58,8 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 
 			prov := provider.ResourceProvider(key)
 			if prov != "" {
-				module := strings.ToLower(prov)
-				csharpNamespaces[module] = prov
+				module := gen.providerToModule(prov)
+				csharpNamespaces[module] = fmt.Sprintf("%s.V%s", prov, gen.apiVersion())
 			}
 
 			gen.genResources(key, &path)
@@ -68,6 +68,8 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	}
 
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
+		// TODO: switch off the k8s compatibility mode (currently needed for Node.js submodules).
+		"compatibility": "kubernetes20",
 		"dependencies": map[string]string{
 			"@pulumi/pulumi": "^2.0.0",
 		},
@@ -108,7 +110,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		return
 	}
 
-	module := strings.ToLower(prov)
+	module := g.providerToModule(prov)
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
 
 	// Generate the resource.
@@ -220,8 +222,7 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 		return
 	}
 
-	module := strings.ToLower(prov)
-
+	module := g.providerToModule(prov)
 	gen := moduleGenerator{
 		pkg:           g.pkg,
 		metadata:      g.metadata,
@@ -268,6 +269,17 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 		PostParameters: request.parameters,
 	}
 	g.metadata.Invokes[functionTok] = f
+}
+
+// apiVersion returns the module version from the Azure API spec version (e.g. `2020-07-01` => `v20200701`).
+func (g *packageGenerator) apiVersion() string {
+	// TODO: get rid of beta1 replacement: it was added to match the k8s compatibility regex.
+	return strings.ReplaceAll(strings.ReplaceAll(g.swagger.Info.Version, "-", ""), "preview", "beta1")
+}
+
+// providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
+func (g *packageGenerator) providerToModule(prov string) string {
+	return fmt.Sprintf("%s/v%s", strings.ToLower(prov), g.apiVersion())
 }
 
 type moduleGenerator struct {

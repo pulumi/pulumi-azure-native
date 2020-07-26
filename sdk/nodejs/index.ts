@@ -2,11 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getResource";
-export * from "./getResourceGroup";
 export * from "./provider";
-export * from "./resource";
-export * from "./resourceGroup";
 
 // Export sub-modules:
 import * as aad from "./aad";
