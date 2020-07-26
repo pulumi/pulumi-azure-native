@@ -29,12 +29,29 @@ type AzureApiParameter struct {
 	Location string `json:"location"`
 	// Source defines the value source: "method" (resource arguments) or "client" (provider configuration).
 	Source string `json:"source,omitempty"`
-	// Requires is true for mandatory parameters.
+	// IsRequired is true for mandatory parameters.
 	IsRequired bool `json:"required,omitempty"`
-	// Properties contains the names of properties for a body-placed parameter.
-	Properties []string `json:"properties,omitempty"`
-	// RequiredProperties contains the names of required properties for a body-placed parameter.
-	RequiredProperties []string `json:"requiredProperties,omitempty"`
+	// Value contains metadata for path/query parameters.
+	Value *AzureApiProperty `json:"value"`
+	// Body contains metadata for the body parameter.
+	Body *AzureApiType `json:"body,omitempty"`
+}
+
+// AzureApiProperty represents validation constraints for a single parameter or body property.
+type AzureApiProperty struct {
+	Type      string            `json:"type,omitempty"`
+	Items     *AzureApiProperty `json:"items,omitempty"`
+	Enum      []string          `json:"enum,omitempty"`
+	Ref       string            `json:"$ref,omitempty"`
+	MinLength *int64            `json:"minLength,omitempty"`
+	MaxLength *int64            `json:"maxLength,omitempty"`
+	Pattern   string            `json:"pattern,omitempty"`
+}
+
+// AzureApiType represents the shape of an object property.
+type AzureApiType struct {
+	Properties         map[string]AzureApiProperty `json:"properties,omitempty"`
+	RequiredProperties []string                    `json:"required,omitempty"`
 }
 
 // AzureApiResource is a resource in Azure REST API.
@@ -55,6 +72,7 @@ type AzureApiInvoke struct {
 
 // AzureApiMetadata is a collection of all resources and functions in the Azure REST API surface.
 type AzureApiMetadata struct {
+	Types     map[string]AzureApiType     `json:"types"`
 	Resources map[string]AzureApiResource `json:"resources"`
 	Invokes   map[string]AzureApiInvoke   `json:"invokes"`
 }

@@ -4,7 +4,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
+// http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -21,6 +21,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
 	"time"
 
@@ -182,9 +183,186 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Check(%s)", k.name, urn)
 	glog.V(9).Infof("%s executing", label)
+	var failures []*rpc.CheckFailure
 
+	// Deserialize RPC inputs.
 	newResInputs := req.GetNews()
-	return &rpc.CheckResponse{Inputs: newResInputs, Failures: nil}, nil
+	inputs, err := plugin.UnmarshalProperties(newResInputs, plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	resourceKey := string(urn.Type())
+	res, ok := k.resourceMap.Resources[resourceKey]
+	if !ok {
+		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+	}
+
+	inputMap := inputs.Mappable()
+	nameParam := nameParameter(res.Path)
+
+	// Validate inputs against PUT parameters.
+	for _, param := range res.PutParameters {
+		if param.Name == "subscriptionId" || param.Name == "api-version" {
+			// These parameters are supplied by the provider, not user's code.
+			continue
+		}
+
+		if param.Location == "body" {
+			// Body parameter is a collection of properties, so validate all properties in its type.
+			for _, failure := range k.validateType("", param.Body, inputMap) {
+				failures = append(failures, failure)
+			}
+
+			continue
+		}
+
+		name := param.Name
+		if param.Name == nameParam {
+			name = "name"
+		}
+
+		if value, has := inputMap[name]; has {
+			// Check if the value matches the parameter constraints (recursively).
+			for _, failure := range k.validateProperty(name, param.Value, value) {
+				failures = append(failures, failure)
+			}
+		} else if param.IsRequired {
+			// Report a missing required parameter.
+			failures = append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("missing required property '%s'", name),
+			})
+		}
+	}
+
+	return &rpc.CheckResponse{Inputs: newResInputs, Failures: failures}, nil
+}
+
+// validateType checks the all properties and required properties of the given type and value map.
+func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map[string]interface{}) []*rpc.CheckFailure {
+	var failures []*rpc.CheckFailure
+
+	for _, name := range typ.RequiredProperties {
+		if _, has := values[name]; !has {
+			propCtx := name
+			if ctx != "" {
+				propCtx = fmt.Sprintf("%s.%s", ctx, name)
+			}
+			failures = append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("missing required property '%s.%s'", propCtx, name),
+			})
+		}
+	}
+
+	for name, prop := range typ.Properties {
+		value, ok := values[name]
+		if !ok {
+			continue
+		}
+
+		propCtx := name
+		if ctx != "" {
+			propCtx = fmt.Sprintf("%s.%s", ctx, name)
+		}
+		for _, failure := range k.validateProperty(propCtx, &prop, value) {
+			failures = append(failures, failure)
+		}
+	}
+	return failures
+}
+
+// validateProperty checks the property value against its metadata.
+func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, value interface{}) []*rpc.CheckFailure {
+	var failures []*rpc.CheckFailure
+
+	if _, ok := value.(resource.Computed); ok {
+		return failures
+	}
+
+	switch value := value.(type) {
+	case resource.Computed:
+		// Skip an unresolved value.
+		return failures
+	case map[string]interface{}:
+		if prop.Ref == "" {
+			return failures
+		}
+
+		// Typed object: validate all properties by looking up its type definition.
+		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
+		typ := k.resourceMap.Types[typeName]
+
+		for _, failure := range k.validateType(ctx, &typ, value) {
+			failures = append(failures, failure)
+		}
+	case []interface{}:
+		if prop.Type != "array" {
+			return append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("'%s' should be of type '%s' but got an array", ctx, prop.Type),
+			})
+		}
+
+		// Array: validate each item.
+		for index, item := range value {
+			itemCtx := fmt.Sprintf("%s[%d]", ctx, index)
+			for _, failure := range k.validateProperty(itemCtx, prop.Items, item) {
+				failures = append(failures, failure)
+			}
+		}
+	case string:
+		if prop.Type != "string" {
+			return append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("'%s' should be of type '%s' but got a string", ctx, prop.Type),
+			})
+		}
+
+		// Validate a string according to https://swagger.io/docs/specification/data-models/data-types/#string
+
+		// Validate min/max length and RegEx pattern (apply to empty strings too).
+		length := int64(len(value))
+		if prop.MinLength != nil && length < *prop.MinLength {
+			failures = append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("'%s' is too short (%d): at least %d characters required", ctx, length, *prop.MinLength),
+			})
+		}
+		if prop.MaxLength != nil && length > *prop.MaxLength {
+			failures = append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("'%s' is too long (%d): at most %d characters allowed", ctx, length, *prop.MaxLength),
+			})
+		}
+		if prop.Pattern != "" {
+			pattern := regexp.MustCompile(prop.Pattern)
+			if !pattern.MatchString(value) {
+				failures = append(failures, &rpc.CheckFailure{
+					Reason: fmt.Sprintf("'%s' does not match expression '%s'", ctx, prop.Pattern),
+				})
+			}
+		}
+
+		// For closed enums, check that the value belongs to the list.
+		if len(prop.Enum) > 0 {
+			found := false
+			possible := ""
+			for _, v := range prop.Enum {
+				if possible != "" {
+					possible += ","
+				}
+				possible += fmt.Sprintf("'%s'", v)
+				if v == value {
+					found = true
+				}
+			}
+			if !found {
+				failures = append(failures, &rpc.CheckFailure{
+					Reason: fmt.Sprintf("'%s' is '%s' but expected one of [%s]", ctx, value, possible),
+				})
+			}
+		}
+	}
+
+	return failures
 }
 
 func (k *azurermProvider) GetSchema(ctx context.Context, req *rpc.GetSchemaRequest) (*rpc.GetSchemaResponse, error) {
@@ -267,7 +445,7 @@ func (k *azurermProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*
 		return nil, errors.Wrapf(err, "cannot check existence of resource %v: %s", id, err.Error())
 	}
 
-	//  Submit the `PUT` against the ARM endpoint
+	// Submit the `PUT` against the ARM endpoint
 	outputs, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		return nil, err
@@ -362,7 +540,7 @@ func (k *azurermProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*
 	}, nil
 }
 
-// Delete tears down an existing resource with the given ID.  If it fails, the resource is assumed
+// Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
 // to still exist.
 func (k *azurermProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
 	urn := resource.URN(req.GetUrn())
@@ -425,7 +603,7 @@ func (k *azurermProvider) azureCreateOrUpdate(
 		return nil, err
 	}
 	// TODO: Some APIs are explicitly marked `x-ms-long-running-operation` and possibly we should only do the
-	// Future+WaitForCompletion+GetResult steps in that case.  Though in general it appears to be safe to do these
+	// Future+WaitForCompletion+GetResult steps in that case. Though in general it appears to be safe to do these
 	// always.
 	future, err := azure.NewFutureFromResponse(resp)
 	if err != nil {
@@ -589,12 +767,12 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 
 	for _, param := range parameters {
 		if param.Location == "body" {
-			for _, name := range param.RequiredProperties {
+			for _, name := range param.Body.RequiredProperties {
 				if _, has := methodInputs[name]; !has {
 					return "", nil, nil, fmt.Errorf("missing required property '%s' in '%s'", name, param.Name)
 				}
 			}
-			for _, name := range param.Properties {
+			for name, _ := range param.Body.Properties {
 				if value, has := methodInputs[name]; has {
 					params["body"][name] = value
 				}
