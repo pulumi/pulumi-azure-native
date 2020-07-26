@@ -224,18 +224,16 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 			name = "name"
 		}
 
-		// Check if a required parameter has a value.
-		value, has := inputMap[name]
-		if param.IsRequired && !has {
+		if value, has := inputMap[name]; has {
+			// Check if the value matches the parameter constraints (recursively).
+			for _, failure := range k.validateProperty(name, param.Value, value) {
+				failures = append(failures, failure)
+			}
+		} else if param.IsRequired {
+			// Report a missing required parameter.
 			failures = append(failures, &rpc.CheckFailure{
 				Reason: fmt.Sprintf("missing required property '%s'", name),
 			})
-			continue
-		}
-
-		// Check if the value matches the parameter constraints (recursively).
-		for _, failure := range k.validateProperty(name, param.Value, value) {
-			failures = append(failures, failure)
 		}
 	}
 
@@ -248,8 +246,12 @@ func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map
 
 	for _, name := range typ.RequiredProperties {
 		if _, has := values[name]; !has {
+			propCtx := name
+			if ctx != "" {
+				propCtx = fmt.Sprintf("%s.%s", ctx, name)
+			}
 			failures = append(failures, &rpc.CheckFailure{
-				Reason: fmt.Sprintf("missing required property '%s.%s'", ctx, name),
+				Reason: fmt.Sprintf("missing required property '%s.%s'", propCtx, name),
 			})
 		}
 	}
@@ -315,11 +317,10 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, v
 				Reason: fmt.Sprintf("'%s' should be of type '%s' but got a string", ctx, prop.Type),
 			})
 		}
-		if value == "" {
-			return failures
-		}
 
-		// String: validate min/max length and RegEx pattern.
+		// Validate a string according to https://swagger.io/docs/specification/data-models/data-types/#string
+
+		// Validate min/max length and RegEx pattern (apply to empty strings too).
 		length := int64(len(value))
 		if prop.MinLength != nil && length < *prop.MinLength {
 			failures = append(failures, &rpc.CheckFailure{
@@ -339,6 +340,8 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, v
 				})
 			}
 		}
+
+		// For closed enums, check that the value belongs to the list.
 		if len(prop.Enum) > 0 {
 			found := false
 			possible := ""
