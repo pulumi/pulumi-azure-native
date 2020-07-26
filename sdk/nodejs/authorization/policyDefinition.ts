@@ -62,13 +62,9 @@ export class PolicyDefinition extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PolicyDefinitionArgs | undefined;
-            if (!args || args.managementGroupId === undefined) {
-                throw new Error("Missing required property 'managementGroupId'");
-            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["type"] = undefined /*out*/;
@@ -88,10 +84,6 @@ export class PolicyDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyDefinition resource.
  */
 export interface PolicyDefinitionArgs {
-    /**
-     * The ID of the management group.
-     */
-    readonly managementGroupId: pulumi.Input<string>;
     /**
      * The name of the policy definition to create.
      */

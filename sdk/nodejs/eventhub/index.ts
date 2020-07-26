@@ -2,18 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./consumerGroup";
+export * from "./disasterRecoveryConfig";
+export * from "./eventHub";
+export * from "./eventHubAuthorizationRule";
+export * from "./getConsumerGroup";
+export * from "./getDisasterRecoveryConfig";
+export * from "./getEventHub";
+export * from "./getEventHubAuthorizationRule";
 export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
-export * from "./getNamespaceDisasterRecoveryConfig";
-export * from "./getNamespaceEventhub";
-export * from "./getNamespaceEventhubAuthorizationRule";
-export * from "./getNamespaceEventhubConsumergroup";
-export * from "./listNamespaceAuthorizationRuleKeys";
-export * from "./listNamespaceDisasterRecoveryConfigAuthorizationRuleKeys";
-export * from "./listNamespaceEventhubAuthorizationRuleKeys";
+export * from "./listDisasterRecoveryConfigKeys";
+export * from "./listEventHubKeys";
+export * from "./listNamespaceKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
-export * from "./namespaceDisasterRecoveryConfig";
-export * from "./namespaceEventhub";
-export * from "./namespaceEventhubAuthorizationRule";
-export * from "./namespaceEventhubConsumergroup";

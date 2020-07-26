@@ -3,15 +3,15 @@
 
 // Export members:
 export * from "./getRegistry";
-export * from "./getRegistryReplication";
-export * from "./getRegistryTask";
-export * from "./getRegistryWebhook";
+export * from "./getReplication";
+export * from "./getTask";
+export * from "./getWebhook";
 export * from "./listRegistryBuildSourceUploadUrl";
 export * from "./listRegistryCredentials";
-export * from "./listRegistryRunLogSasUrl";
-export * from "./listRegistryTaskDetails";
-export * from "./listRegistryWebhookEvents";
+export * from "./listRunLogSasUrl";
+export * from "./listTaskDetails";
+export * from "./listWebhookEvents";
 export * from "./registry";
-export * from "./registryReplication";
-export * from "./registryTask";
-export * from "./registryWebhook";
+export * from "./replication";
+export * from "./task";
+export * from "./webhook";

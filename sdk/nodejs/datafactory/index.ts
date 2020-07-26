@@ -2,18 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./dataFlow";
+export * from "./dataset";
 export * from "./factory";
-export * from "./factoryDataflow";
-export * from "./factoryDataset";
-export * from "./factoryIntegrationRuntime";
-export * from "./factoryLinkedservice";
-export * from "./factoryPipeline";
-export * from "./factoryTrigger";
+export * from "./getDataFlow";
+export * from "./getDataset";
 export * from "./getFactory";
-export * from "./getFactoryDataflow";
-export * from "./getFactoryDataset";
-export * from "./getFactoryIntegrationRuntime";
-export * from "./getFactoryLinkedservice";
-export * from "./getFactoryPipeline";
-export * from "./getFactoryTrigger";
-export * from "./listFactoryIntegrationRuntimeAuthKeys";
+export * from "./getIntegrationRuntime";
+export * from "./getLinkedService";
+export * from "./getPipeline";
+export * from "./getTrigger";
+export * from "./integrationRuntime";
+export * from "./linkedService";
+export * from "./listIntegrationRuntimeAuthKeys";
+export * from "./pipeline";
+export * from "./trigger";

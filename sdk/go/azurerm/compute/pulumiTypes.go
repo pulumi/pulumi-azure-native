@@ -5990,6 +5990,106 @@ func (o DataDiskResponseArrayOutput) Index(i pulumi.IntInput) DataDiskResponseOu
 	}).(DataDiskResponseOutput)
 }
 
+// Specifies information about the Dedicated host.
+type DedicatedHostType struct {
+	// Resource location
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Properties of the dedicated host.
+	Properties DedicatedHostPropertiesResponse `pulumi:"properties"`
+	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
+	Sku SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// DedicatedHostTypeInput is an input type that accepts DedicatedHostTypeArgs and DedicatedHostTypeOutput values.
+// You can construct a concrete instance of `DedicatedHostTypeInput` via:
+//
+//          DedicatedHostTypeArgs{...}
+type DedicatedHostTypeInput interface {
+	pulumi.Input
+
+	ToDedicatedHostTypeOutput() DedicatedHostTypeOutput
+	ToDedicatedHostTypeOutputWithContext(context.Context) DedicatedHostTypeOutput
+}
+
+// Specifies information about the Dedicated host.
+type DedicatedHostTypeArgs struct {
+	// Resource location
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the dedicated host.
+	Properties DedicatedHostPropertiesResponseInput `pulumi:"properties"`
+	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
+	Sku SkuResponseInput `pulumi:"sku"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DedicatedHostTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHostType)(nil)).Elem()
+}
+
+func (i DedicatedHostTypeArgs) ToDedicatedHostTypeOutput() DedicatedHostTypeOutput {
+	return i.ToDedicatedHostTypeOutputWithContext(context.Background())
+}
+
+func (i DedicatedHostTypeArgs) ToDedicatedHostTypeOutputWithContext(ctx context.Context) DedicatedHostTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostTypeOutput)
+}
+
+// Specifies information about the Dedicated host.
+type DedicatedHostTypeOutput struct{ *pulumi.OutputState }
+
+func (DedicatedHostTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHostType)(nil)).Elem()
+}
+
+func (o DedicatedHostTypeOutput) ToDedicatedHostTypeOutput() DedicatedHostTypeOutput {
+	return o
+}
+
+func (o DedicatedHostTypeOutput) ToDedicatedHostTypeOutputWithContext(ctx context.Context) DedicatedHostTypeOutput {
+	return o
+}
+
+// Resource location
+func (o DedicatedHostTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v DedicatedHostType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o DedicatedHostTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DedicatedHostType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the dedicated host.
+func (o DedicatedHostTypeOutput) Properties() DedicatedHostPropertiesResponseOutput {
+	return o.ApplyT(func(v DedicatedHostType) DedicatedHostPropertiesResponse { return v.Properties }).(DedicatedHostPropertiesResponseOutput)
+}
+
+// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
+func (o DedicatedHostTypeOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v DedicatedHostType) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource tags
+func (o DedicatedHostTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DedicatedHostType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o DedicatedHostTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DedicatedHostType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Represents the dedicated host unutilized capacity in terms of a specific VM size.
 type DedicatedHostAllocatableVM struct {
 	// Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
@@ -6476,6 +6576,106 @@ func (o DedicatedHostAvailableCapacityResponsePtrOutput) AllocatableVMs() Dedica
 		}
 		return v.AllocatableVMs
 	}).(DedicatedHostAllocatableVMResponseArrayOutput)
+}
+
+// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+type DedicatedHostGroupType struct {
+	// Resource location
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Dedicated Host Group Properties.
+	Properties DedicatedHostGroupPropertiesResponse `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+	Zones []string `pulumi:"zones"`
+}
+
+// DedicatedHostGroupTypeInput is an input type that accepts DedicatedHostGroupTypeArgs and DedicatedHostGroupTypeOutput values.
+// You can construct a concrete instance of `DedicatedHostGroupTypeInput` via:
+//
+//          DedicatedHostGroupTypeArgs{...}
+type DedicatedHostGroupTypeInput interface {
+	pulumi.Input
+
+	ToDedicatedHostGroupTypeOutput() DedicatedHostGroupTypeOutput
+	ToDedicatedHostGroupTypeOutputWithContext(context.Context) DedicatedHostGroupTypeOutput
+}
+
+// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+type DedicatedHostGroupTypeArgs struct {
+	// Resource location
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Dedicated Host Group Properties.
+	Properties DedicatedHostGroupPropertiesResponseInput `pulumi:"properties"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (DedicatedHostGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHostGroupType)(nil)).Elem()
+}
+
+func (i DedicatedHostGroupTypeArgs) ToDedicatedHostGroupTypeOutput() DedicatedHostGroupTypeOutput {
+	return i.ToDedicatedHostGroupTypeOutputWithContext(context.Background())
+}
+
+func (i DedicatedHostGroupTypeArgs) ToDedicatedHostGroupTypeOutputWithContext(ctx context.Context) DedicatedHostGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostGroupTypeOutput)
+}
+
+// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+type DedicatedHostGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (DedicatedHostGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHostGroupType)(nil)).Elem()
+}
+
+func (o DedicatedHostGroupTypeOutput) ToDedicatedHostGroupTypeOutput() DedicatedHostGroupTypeOutput {
+	return o
+}
+
+func (o DedicatedHostGroupTypeOutput) ToDedicatedHostGroupTypeOutputWithContext(ctx context.Context) DedicatedHostGroupTypeOutput {
+	return o
+}
+
+// Resource location
+func (o DedicatedHostGroupTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v DedicatedHostGroupType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o DedicatedHostGroupTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DedicatedHostGroupType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Dedicated Host Group Properties.
+func (o DedicatedHostGroupTypeOutput) Properties() DedicatedHostGroupPropertiesResponseOutput {
+	return o.ApplyT(func(v DedicatedHostGroupType) DedicatedHostGroupPropertiesResponse { return v.Properties }).(DedicatedHostGroupPropertiesResponseOutput)
+}
+
+// Resource tags
+func (o DedicatedHostGroupTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DedicatedHostGroupType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o DedicatedHostGroupTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DedicatedHostGroupType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+func (o DedicatedHostGroupTypeOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DedicatedHostGroupType) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 type DedicatedHostGroupInstanceView struct {
@@ -18636,6 +18836,90 @@ func (o GalleryPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Guest configuration assignment is an association between a machine and guest configuration.
+type GuestConfigurationAssignmentType struct {
+	// Region where the VM is located.
+	Location *string `pulumi:"location"`
+	// Name of the guest configuration assignment.
+	Name *string `pulumi:"name"`
+	// Properties of the Guest configuration assignment.
+	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// GuestConfigurationAssignmentTypeInput is an input type that accepts GuestConfigurationAssignmentTypeArgs and GuestConfigurationAssignmentTypeOutput values.
+// You can construct a concrete instance of `GuestConfigurationAssignmentTypeInput` via:
+//
+//          GuestConfigurationAssignmentTypeArgs{...}
+type GuestConfigurationAssignmentTypeInput interface {
+	pulumi.Input
+
+	ToGuestConfigurationAssignmentTypeOutput() GuestConfigurationAssignmentTypeOutput
+	ToGuestConfigurationAssignmentTypeOutputWithContext(context.Context) GuestConfigurationAssignmentTypeOutput
+}
+
+// Guest configuration assignment is an association between a machine and guest configuration.
+type GuestConfigurationAssignmentTypeArgs struct {
+	// Region where the VM is located.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Name of the guest configuration assignment.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Properties of the Guest configuration assignment.
+	Properties GuestConfigurationAssignmentPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GuestConfigurationAssignmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationAssignmentType)(nil)).Elem()
+}
+
+func (i GuestConfigurationAssignmentTypeArgs) ToGuestConfigurationAssignmentTypeOutput() GuestConfigurationAssignmentTypeOutput {
+	return i.ToGuestConfigurationAssignmentTypeOutputWithContext(context.Background())
+}
+
+func (i GuestConfigurationAssignmentTypeArgs) ToGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) GuestConfigurationAssignmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentTypeOutput)
+}
+
+// Guest configuration assignment is an association between a machine and guest configuration.
+type GuestConfigurationAssignmentTypeOutput struct{ *pulumi.OutputState }
+
+func (GuestConfigurationAssignmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationAssignmentType)(nil)).Elem()
+}
+
+func (o GuestConfigurationAssignmentTypeOutput) ToGuestConfigurationAssignmentTypeOutput() GuestConfigurationAssignmentTypeOutput {
+	return o
+}
+
+func (o GuestConfigurationAssignmentTypeOutput) ToGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) GuestConfigurationAssignmentTypeOutput {
+	return o
+}
+
+// Region where the VM is located.
+func (o GuestConfigurationAssignmentTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o GuestConfigurationAssignmentTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the Guest configuration assignment.
+func (o GuestConfigurationAssignmentTypeOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentType) GuestConfigurationAssignmentPropertiesResponse {
+		return v.Properties
+	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o GuestConfigurationAssignmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Guest configuration assignment properties.
 type GuestConfigurationAssignmentProperties struct {
 	// The source which initiated the guest configuration assignment. Ex: Azure Policy
@@ -19830,206 +20114,6 @@ func (o HardwareProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 		}
 		return v.VmSize
 	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-type HostGroupType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Dedicated Host Group Properties.
-	Properties DedicatedHostGroupPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-	Zones []string `pulumi:"zones"`
-}
-
-// HostGroupTypeInput is an input type that accepts HostGroupTypeArgs and HostGroupTypeOutput values.
-// You can construct a concrete instance of `HostGroupTypeInput` via:
-//
-//          HostGroupTypeArgs{...}
-type HostGroupTypeInput interface {
-	pulumi.Input
-
-	ToHostGroupTypeOutput() HostGroupTypeOutput
-	ToHostGroupTypeOutputWithContext(context.Context) HostGroupTypeOutput
-}
-
-// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-type HostGroupTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Dedicated Host Group Properties.
-	Properties DedicatedHostGroupPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
-}
-
-func (HostGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostGroupType)(nil)).Elem()
-}
-
-func (i HostGroupTypeArgs) ToHostGroupTypeOutput() HostGroupTypeOutput {
-	return i.ToHostGroupTypeOutputWithContext(context.Background())
-}
-
-func (i HostGroupTypeArgs) ToHostGroupTypeOutputWithContext(ctx context.Context) HostGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostGroupTypeOutput)
-}
-
-// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-type HostGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (HostGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostGroupType)(nil)).Elem()
-}
-
-func (o HostGroupTypeOutput) ToHostGroupTypeOutput() HostGroupTypeOutput {
-	return o
-}
-
-func (o HostGroupTypeOutput) ToHostGroupTypeOutputWithContext(ctx context.Context) HostGroupTypeOutput {
-	return o
-}
-
-// Resource location
-func (o HostGroupTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v HostGroupType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o HostGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HostGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Dedicated Host Group Properties.
-func (o HostGroupTypeOutput) Properties() DedicatedHostGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v HostGroupType) DedicatedHostGroupPropertiesResponse { return v.Properties }).(DedicatedHostGroupPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o HostGroupTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v HostGroupType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o HostGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HostGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-func (o HostGroupTypeOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v HostGroupType) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
-// Specifies information about the Dedicated host.
-type HostGroupHostType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of the dedicated host.
-	Properties DedicatedHostPropertiesResponse `pulumi:"properties"`
-	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// HostGroupHostTypeInput is an input type that accepts HostGroupHostTypeArgs and HostGroupHostTypeOutput values.
-// You can construct a concrete instance of `HostGroupHostTypeInput` via:
-//
-//          HostGroupHostTypeArgs{...}
-type HostGroupHostTypeInput interface {
-	pulumi.Input
-
-	ToHostGroupHostTypeOutput() HostGroupHostTypeOutput
-	ToHostGroupHostTypeOutputWithContext(context.Context) HostGroupHostTypeOutput
-}
-
-// Specifies information about the Dedicated host.
-type HostGroupHostTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the dedicated host.
-	Properties DedicatedHostPropertiesResponseInput `pulumi:"properties"`
-	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HostGroupHostTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostGroupHostType)(nil)).Elem()
-}
-
-func (i HostGroupHostTypeArgs) ToHostGroupHostTypeOutput() HostGroupHostTypeOutput {
-	return i.ToHostGroupHostTypeOutputWithContext(context.Background())
-}
-
-func (i HostGroupHostTypeArgs) ToHostGroupHostTypeOutputWithContext(ctx context.Context) HostGroupHostTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostGroupHostTypeOutput)
-}
-
-// Specifies information about the Dedicated host.
-type HostGroupHostTypeOutput struct{ *pulumi.OutputState }
-
-func (HostGroupHostTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostGroupHostType)(nil)).Elem()
-}
-
-func (o HostGroupHostTypeOutput) ToHostGroupHostTypeOutput() HostGroupHostTypeOutput {
-	return o
-}
-
-func (o HostGroupHostTypeOutput) ToHostGroupHostTypeOutputWithContext(ctx context.Context) HostGroupHostTypeOutput {
-	return o
-}
-
-// Resource location
-func (o HostGroupHostTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v HostGroupHostType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o HostGroupHostTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HostGroupHostType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the dedicated host.
-func (o HostGroupHostTypeOutput) Properties() DedicatedHostPropertiesResponseOutput {
-	return o.ApplyT(func(v HostGroupHostType) DedicatedHostPropertiesResponse { return v.Properties }).(DedicatedHostPropertiesResponseOutput)
-}
-
-// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
-func (o HostGroupHostTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v HostGroupHostType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Resource tags
-func (o HostGroupHostTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v HostGroupHostType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o HostGroupHostTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HostGroupHostType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -42208,90 +42292,6 @@ func (o VirtualMachinePropertiesResponsePtrOutput) VmId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Guest configuration assignment is an association between a machine and guest configuration.
-type VirtualMachineProviderGuestConfigurationAssignmentType struct {
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// VirtualMachineProviderGuestConfigurationAssignmentTypeInput is an input type that accepts VirtualMachineProviderGuestConfigurationAssignmentTypeArgs and VirtualMachineProviderGuestConfigurationAssignmentTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineProviderGuestConfigurationAssignmentTypeInput` via:
-//
-//          VirtualMachineProviderGuestConfigurationAssignmentTypeArgs{...}
-type VirtualMachineProviderGuestConfigurationAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineProviderGuestConfigurationAssignmentTypeOutput() VirtualMachineProviderGuestConfigurationAssignmentTypeOutput
-	ToVirtualMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(context.Context) VirtualMachineProviderGuestConfigurationAssignmentTypeOutput
-}
-
-// Guest configuration assignment is an association between a machine and guest configuration.
-type VirtualMachineProviderGuestConfigurationAssignmentTypeArgs struct {
-	// Region where the VM is located.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualMachineProviderGuestConfigurationAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineProviderGuestConfigurationAssignmentType)(nil)).Elem()
-}
-
-func (i VirtualMachineProviderGuestConfigurationAssignmentTypeArgs) ToVirtualMachineProviderGuestConfigurationAssignmentTypeOutput() VirtualMachineProviderGuestConfigurationAssignmentTypeOutput {
-	return i.ToVirtualMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineProviderGuestConfigurationAssignmentTypeArgs) ToVirtualMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) VirtualMachineProviderGuestConfigurationAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineProviderGuestConfigurationAssignmentTypeOutput)
-}
-
-// Guest configuration assignment is an association between a machine and guest configuration.
-type VirtualMachineProviderGuestConfigurationAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineProviderGuestConfigurationAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineProviderGuestConfigurationAssignmentType)(nil)).Elem()
-}
-
-func (o VirtualMachineProviderGuestConfigurationAssignmentTypeOutput) ToVirtualMachineProviderGuestConfigurationAssignmentTypeOutput() VirtualMachineProviderGuestConfigurationAssignmentTypeOutput {
-	return o
-}
-
-func (o VirtualMachineProviderGuestConfigurationAssignmentTypeOutput) ToVirtualMachineProviderGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) VirtualMachineProviderGuestConfigurationAssignmentTypeOutput {
-	return o
-}
-
-// Region where the VM is located.
-func (o VirtualMachineProviderGuestConfigurationAssignmentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineProviderGuestConfigurationAssignmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Name of the guest configuration assignment.
-func (o VirtualMachineProviderGuestConfigurationAssignmentTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineProviderGuestConfigurationAssignmentType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Properties of the Guest configuration assignment.
-func (o VirtualMachineProviderGuestConfigurationAssignmentTypeOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineProviderGuestConfigurationAssignmentType) GuestConfigurationAssignmentPropertiesResponse {
-		return v.Properties
-	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o VirtualMachineProviderGuestConfigurationAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineProviderGuestConfigurationAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Describes a Virtual Machine Scale Set.
 type VirtualMachineScaleSetType struct {
 	// The identity of the virtual machine scale set, if configured.
@@ -50101,6 +50101,235 @@ func (o VirtualMachineScaleSetStorageProfileResponsePtrOutput) OsDisk() VirtualM
 	}).(VirtualMachineScaleSetOSDiskResponsePtrOutput)
 }
 
+// Describes a virtual machine scale set virtual machine.
+type VirtualMachineScaleSetVMType struct {
+	// The virtual machine instance ID.
+	InstanceId string `pulumi:"instanceId"`
+	// Resource location
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+	Plan *PlanResponse `pulumi:"plan"`
+	// Describes the properties of a virtual machine scale set virtual machine.
+	Properties VirtualMachineScaleSetVMPropertiesResponse `pulumi:"properties"`
+	// The virtual machine child extension resources.
+	Resources []VirtualMachineExtensionResponse `pulumi:"resources"`
+	// The virtual machine SKU.
+	Sku SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+	// The virtual machine zones.
+	Zones []string `pulumi:"zones"`
+}
+
+// VirtualMachineScaleSetVMTypeInput is an input type that accepts VirtualMachineScaleSetVMTypeArgs and VirtualMachineScaleSetVMTypeOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetVMTypeInput` via:
+//
+//          VirtualMachineScaleSetVMTypeArgs{...}
+type VirtualMachineScaleSetVMTypeInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetVMTypeOutput() VirtualMachineScaleSetVMTypeOutput
+	ToVirtualMachineScaleSetVMTypeOutputWithContext(context.Context) VirtualMachineScaleSetVMTypeOutput
+}
+
+// Describes a virtual machine scale set virtual machine.
+type VirtualMachineScaleSetVMTypeArgs struct {
+	// The virtual machine instance ID.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Resource location
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+	Plan PlanResponsePtrInput `pulumi:"plan"`
+	// Describes the properties of a virtual machine scale set virtual machine.
+	Properties VirtualMachineScaleSetVMPropertiesResponseInput `pulumi:"properties"`
+	// The virtual machine child extension resources.
+	Resources VirtualMachineExtensionResponseArrayInput `pulumi:"resources"`
+	// The virtual machine SKU.
+	Sku SkuResponseInput `pulumi:"sku"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+	// The virtual machine zones.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (VirtualMachineScaleSetVMTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMType)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetVMTypeArgs) ToVirtualMachineScaleSetVMTypeOutput() VirtualMachineScaleSetVMTypeOutput {
+	return i.ToVirtualMachineScaleSetVMTypeOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetVMTypeArgs) ToVirtualMachineScaleSetVMTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMTypeOutput)
+}
+
+// Describes a virtual machine scale set virtual machine.
+type VirtualMachineScaleSetVMTypeOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetVMTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMType)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetVMTypeOutput) ToVirtualMachineScaleSetVMTypeOutput() VirtualMachineScaleSetVMTypeOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetVMTypeOutput) ToVirtualMachineScaleSetVMTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMTypeOutput {
+	return o
+}
+
+// The virtual machine instance ID.
+func (o VirtualMachineScaleSetVMTypeOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o VirtualMachineScaleSetVMTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineScaleSetVMTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+func (o VirtualMachineScaleSetVMTypeOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// Describes the properties of a virtual machine scale set virtual machine.
+func (o VirtualMachineScaleSetVMTypeOutput) Properties() VirtualMachineScaleSetVMPropertiesResponseOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) VirtualMachineScaleSetVMPropertiesResponse { return v.Properties }).(VirtualMachineScaleSetVMPropertiesResponseOutput)
+}
+
+// The virtual machine child extension resources.
+func (o VirtualMachineScaleSetVMTypeOutput) Resources() VirtualMachineExtensionResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) []VirtualMachineExtensionResponse { return v.Resources }).(VirtualMachineExtensionResponseArrayOutput)
+}
+
+// The virtual machine SKU.
+func (o VirtualMachineScaleSetVMTypeOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) SkuResponse { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource tags
+func (o VirtualMachineScaleSetVMTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineScaleSetVMTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The virtual machine zones.
+func (o VirtualMachineScaleSetVMTypeOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMType) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+// Describes a Virtual Machine Extension.
+type VirtualMachineScaleSetVMExtensionType struct {
+	// Resource location
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Describes the properties of a Virtual Machine Extension.
+	Properties VirtualMachineExtensionPropertiesResponse `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// VirtualMachineScaleSetVMExtensionTypeInput is an input type that accepts VirtualMachineScaleSetVMExtensionTypeArgs and VirtualMachineScaleSetVMExtensionTypeOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetVMExtensionTypeInput` via:
+//
+//          VirtualMachineScaleSetVMExtensionTypeArgs{...}
+type VirtualMachineScaleSetVMExtensionTypeInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetVMExtensionTypeOutput() VirtualMachineScaleSetVMExtensionTypeOutput
+	ToVirtualMachineScaleSetVMExtensionTypeOutputWithContext(context.Context) VirtualMachineScaleSetVMExtensionTypeOutput
+}
+
+// Describes a Virtual Machine Extension.
+type VirtualMachineScaleSetVMExtensionTypeArgs struct {
+	// Resource location
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Describes the properties of a Virtual Machine Extension.
+	Properties VirtualMachineExtensionPropertiesResponseInput `pulumi:"properties"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualMachineScaleSetVMExtensionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMExtensionType)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetVMExtensionTypeArgs) ToVirtualMachineScaleSetVMExtensionTypeOutput() VirtualMachineScaleSetVMExtensionTypeOutput {
+	return i.ToVirtualMachineScaleSetVMExtensionTypeOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetVMExtensionTypeArgs) ToVirtualMachineScaleSetVMExtensionTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMExtensionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMExtensionTypeOutput)
+}
+
+// Describes a Virtual Machine Extension.
+type VirtualMachineScaleSetVMExtensionTypeOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetVMExtensionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetVMExtensionType)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetVMExtensionTypeOutput) ToVirtualMachineScaleSetVMExtensionTypeOutput() VirtualMachineScaleSetVMExtensionTypeOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetVMExtensionTypeOutput) ToVirtualMachineScaleSetVMExtensionTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMExtensionTypeOutput {
+	return o
+}
+
+// Resource location
+func (o VirtualMachineScaleSetVMExtensionTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMExtensionType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineScaleSetVMExtensionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMExtensionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the properties of a Virtual Machine Extension.
+func (o VirtualMachineScaleSetVMExtensionTypeOutput) Properties() VirtualMachineExtensionPropertiesResponseOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMExtensionType) VirtualMachineExtensionPropertiesResponse {
+		return v.Properties
+	}).(VirtualMachineExtensionPropertiesResponseOutput)
+}
+
+// Resource tags
+func (o VirtualMachineScaleSetVMExtensionTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMExtensionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineScaleSetVMExtensionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetVMExtensionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The instance view of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMInstanceView struct {
 	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
@@ -52601,237 +52830,6 @@ func (o VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput) ProtectFromSc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes a Virtual Machine Extension.
-type VirtualMachineScaleSetVirtualMachineExtensionType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Extension.
-	Properties VirtualMachineExtensionPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// VirtualMachineScaleSetVirtualMachineExtensionTypeInput is an input type that accepts VirtualMachineScaleSetVirtualMachineExtensionTypeArgs and VirtualMachineScaleSetVirtualMachineExtensionTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetVirtualMachineExtensionTypeInput` via:
-//
-//          VirtualMachineScaleSetVirtualMachineExtensionTypeArgs{...}
-type VirtualMachineScaleSetVirtualMachineExtensionTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetVirtualMachineExtensionTypeOutput() VirtualMachineScaleSetVirtualMachineExtensionTypeOutput
-	ToVirtualMachineScaleSetVirtualMachineExtensionTypeOutputWithContext(context.Context) VirtualMachineScaleSetVirtualMachineExtensionTypeOutput
-}
-
-// Describes a Virtual Machine Extension.
-type VirtualMachineScaleSetVirtualMachineExtensionTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Extension.
-	Properties VirtualMachineExtensionPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualMachineScaleSetVirtualMachineExtensionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVirtualMachineExtensionType)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetVirtualMachineExtensionTypeArgs) ToVirtualMachineScaleSetVirtualMachineExtensionTypeOutput() VirtualMachineScaleSetVirtualMachineExtensionTypeOutput {
-	return i.ToVirtualMachineScaleSetVirtualMachineExtensionTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetVirtualMachineExtensionTypeArgs) ToVirtualMachineScaleSetVirtualMachineExtensionTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVirtualMachineExtensionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVirtualMachineExtensionTypeOutput)
-}
-
-// Describes a Virtual Machine Extension.
-type VirtualMachineScaleSetVirtualMachineExtensionTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVirtualMachineExtensionType)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) ToVirtualMachineScaleSetVirtualMachineExtensionTypeOutput() VirtualMachineScaleSetVirtualMachineExtensionTypeOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) ToVirtualMachineScaleSetVirtualMachineExtensionTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVirtualMachineExtensionTypeOutput {
-	return o
-}
-
-// Resource location
-func (o VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualMachineExtensionType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualMachineExtensionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Describes the properties of a Virtual Machine Extension.
-func (o VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) Properties() VirtualMachineExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualMachineExtensionType) VirtualMachineExtensionPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineExtensionPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualMachineExtensionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o VirtualMachineScaleSetVirtualMachineExtensionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualMachineExtensionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Describes a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVirtualmachineType struct {
-	// The virtual machine instance ID.
-	InstanceId string `pulumi:"instanceId"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Describes the properties of a virtual machine scale set virtual machine.
-	Properties VirtualMachineScaleSetVMPropertiesResponse `pulumi:"properties"`
-	// The virtual machine child extension resources.
-	Resources []VirtualMachineExtensionResponse `pulumi:"resources"`
-	// The virtual machine SKU.
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The virtual machine zones.
-	Zones []string `pulumi:"zones"`
-}
-
-// VirtualMachineScaleSetVirtualmachineTypeInput is an input type that accepts VirtualMachineScaleSetVirtualmachineTypeArgs and VirtualMachineScaleSetVirtualmachineTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetVirtualmachineTypeInput` via:
-//
-//          VirtualMachineScaleSetVirtualmachineTypeArgs{...}
-type VirtualMachineScaleSetVirtualmachineTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetVirtualmachineTypeOutput() VirtualMachineScaleSetVirtualmachineTypeOutput
-	ToVirtualMachineScaleSetVirtualmachineTypeOutputWithContext(context.Context) VirtualMachineScaleSetVirtualmachineTypeOutput
-}
-
-// Describes a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVirtualmachineTypeArgs struct {
-	// The virtual machine instance ID.
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// Describes the properties of a virtual machine scale set virtual machine.
-	Properties VirtualMachineScaleSetVMPropertiesResponseInput `pulumi:"properties"`
-	// The virtual machine child extension resources.
-	Resources VirtualMachineExtensionResponseArrayInput `pulumi:"resources"`
-	// The virtual machine SKU.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-	// The virtual machine zones.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
-}
-
-func (VirtualMachineScaleSetVirtualmachineTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVirtualmachineType)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetVirtualmachineTypeArgs) ToVirtualMachineScaleSetVirtualmachineTypeOutput() VirtualMachineScaleSetVirtualmachineTypeOutput {
-	return i.ToVirtualMachineScaleSetVirtualmachineTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetVirtualmachineTypeArgs) ToVirtualMachineScaleSetVirtualmachineTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVirtualmachineTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVirtualmachineTypeOutput)
-}
-
-// Describes a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVirtualmachineTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetVirtualmachineTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVirtualmachineType)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) ToVirtualMachineScaleSetVirtualmachineTypeOutput() VirtualMachineScaleSetVirtualmachineTypeOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) ToVirtualMachineScaleSetVirtualmachineTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVirtualmachineTypeOutput {
-	return o
-}
-
-// The virtual machine instance ID.
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) string { return v.InstanceId }).(pulumi.StringOutput)
-}
-
-// Resource location
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// Describes the properties of a virtual machine scale set virtual machine.
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Properties() VirtualMachineScaleSetVMPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) VirtualMachineScaleSetVMPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineScaleSetVMPropertiesResponseOutput)
-}
-
-// The virtual machine child extension resources.
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Resources() VirtualMachineExtensionResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) []VirtualMachineExtensionResponse { return v.Resources }).(VirtualMachineExtensionResponseArrayOutput)
-}
-
-// The virtual machine SKU.
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Resource tags
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The virtual machine zones.
-func (o VirtualMachineScaleSetVirtualmachineTypeOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVirtualmachineType) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
 // Describes Windows Remote Management configuration of the VM
 type WinRMConfiguration struct {
 	// The list of Windows Remote Management listeners
@@ -53856,6 +53854,7 @@ func init() {
 	pulumi.RegisterOutputType(DataDiskImageEncryptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataDiskResponseOutput{})
 	pulumi.RegisterOutputType(DataDiskResponseArrayOutput{})
+	pulumi.RegisterOutputType(DedicatedHostTypeOutput{})
 	pulumi.RegisterOutputType(DedicatedHostAllocatableVMOutput{})
 	pulumi.RegisterOutputType(DedicatedHostAllocatableVMArrayOutput{})
 	pulumi.RegisterOutputType(DedicatedHostAllocatableVMResponseOutput{})
@@ -53864,6 +53863,7 @@ func init() {
 	pulumi.RegisterOutputType(DedicatedHostAvailableCapacityPtrOutput{})
 	pulumi.RegisterOutputType(DedicatedHostAvailableCapacityResponseOutput{})
 	pulumi.RegisterOutputType(DedicatedHostAvailableCapacityResponsePtrOutput{})
+	pulumi.RegisterOutputType(DedicatedHostGroupTypeOutput{})
 	pulumi.RegisterOutputType(DedicatedHostGroupInstanceViewOutput{})
 	pulumi.RegisterOutputType(DedicatedHostGroupInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(DedicatedHostGroupInstanceViewResponsePtrOutput{})
@@ -54004,6 +54004,7 @@ func init() {
 	pulumi.RegisterOutputType(GalleryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GalleryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GalleryPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GuestConfigurationAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesResponseOutput{})
@@ -54016,8 +54017,6 @@ func init() {
 	pulumi.RegisterOutputType(HardwareProfilePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponseOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(HostGroupTypeOutput{})
-	pulumi.RegisterOutputType(HostGroupHostTypeOutput{})
 	pulumi.RegisterOutputType(ImageTypeOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskArrayOutput{})
@@ -54280,7 +54279,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachinePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineProviderGuestConfigurationAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetTypeOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskArrayOutput{})
@@ -54362,6 +54360,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetStorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetStorageProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetVMTypeOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetVMExtensionTypeOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMInstanceViewOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMInstanceViewResponsePtrOutput{})
@@ -54381,8 +54381,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProtectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetVirtualMachineExtensionTypeOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetVirtualmachineTypeOutput{})
 	pulumi.RegisterOutputType(WinRMConfigurationOutput{})
 	pulumi.RegisterOutputType(WinRMConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WinRMConfigurationResponseOutput{})

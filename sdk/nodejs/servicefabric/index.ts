@@ -2,13 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./application";
+export * from "./applicationType";
+export * from "./applicationTypeVersion";
 export * from "./cluster";
-export * from "./clusterApplication";
-export * from "./clusterApplicationService";
-export * from "./clusterApplicationType";
-export * from "./clusterApplicationTypeVersion";
+export * from "./getApplication";
+export * from "./getApplicationType";
+export * from "./getApplicationTypeVersion";
 export * from "./getCluster";
-export * from "./getClusterApplication";
-export * from "./getClusterApplicationService";
-export * from "./getClusterApplicationType";
-export * from "./getClusterApplicationTypeVersion";
+export * from "./getService";
+export * from "./service";

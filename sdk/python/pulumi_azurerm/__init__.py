@@ -3,11 +3,18 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_resource import *
+from .get_resource_group import *
 from .provider import *
+from .resource import *
+from .resource_group import *
 
 # Make subpackages available:
 from . import (
     aad,
+    aadiam,
+    advisor,
+    alertsmanagement,
     analysisservices,
     apimanagement,
     appconfiguration,
@@ -17,16 +24,18 @@ from . import (
     azurestack,
     batch,
     batchai,
+    billing,
     botservice,
     cache,
     cdn,
     certificateregistration,
     cognitiveservices,
     compute,
+    consumption,
     containerinstance,
     containerregistry,
     containerservice,
-    core,
+    costmanagement,
     customerinsights,
     databox,
     databoxedge,
@@ -61,6 +70,8 @@ from . import (
     machinelearningservices,
     maintenance,
     managedidentity,
+    managedservices,
+    management,
     maps,
     media,
     migrate,
@@ -72,6 +83,7 @@ from . import (
     operationalinsights,
     peering,
     policyinsights,
+    portal,
     powerbi,
     powerbidedicated,
     recoveryservices,
@@ -84,6 +96,7 @@ from . import (
     servicebus,
     servicefabric,
     signalrservice,
+    softwareplan,
     solutions,
     sql,
     storage,

@@ -5,6 +5,82 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+/**
+ * Identity for the resource.
+ */
+export interface Identity {
+    /**
+     * The identity type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+     */
+    userAssignedIdentities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+/**
+ * Plan for the resource.
+ */
+export interface Plan {
+    /**
+     * The plan ID.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The offer ID.
+     */
+    product?: pulumi.Input<string>;
+    /**
+     * The promotion code.
+     */
+    promotionCode?: pulumi.Input<string>;
+    /**
+     * The publisher ID.
+     */
+    publisher?: pulumi.Input<string>;
+    /**
+     * The plan's version.
+     */
+    version?: pulumi.Input<string>;
+}
+
+/**
+ * The resource group properties.
+ */
+export interface ResourceGroupProperties {
+}
+
+/**
+ * SKU for the resource.
+ */
+export interface Sku {
+    /**
+     * The SKU capacity.
+     */
+    capacity?: pulumi.Input<number>;
+    /**
+     * The SKU family.
+     */
+    family?: pulumi.Input<string>;
+    /**
+     * The SKU model.
+     */
+    model?: pulumi.Input<string>;
+    /**
+     * The SKU name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The SKU size.
+     */
+    size?: pulumi.Input<string>;
+    /**
+     * The SKU tier.
+     */
+    tier?: pulumi.Input<string>;
+}
+
 export namespace aad {
     /**
      * Domain Security Settings
@@ -106,6 +182,187 @@ export namespace aad {
          * The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
          */
         subnetId?: pulumi.Input<string>;
+    }
+
+}
+
+export namespace aadiam {
+    /**
+     * The diagnostic settings.
+     */
+    export interface DiagnosticSettings {
+        /**
+         * The resource Id for the event hub authorization rule.
+         */
+        eventHubAuthorizationRuleId?: pulumi.Input<string>;
+        /**
+         * The name of the event hub. If none is specified, the default event hub will be selected.
+         */
+        eventHubName?: pulumi.Input<string>;
+        /**
+         * The list of logs settings.
+         */
+        logs?: pulumi.Input<pulumi.Input<inputs.aadiam.LogSettings>[]>;
+        /**
+         * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+         */
+        serviceBusRuleId?: pulumi.Input<string>;
+        /**
+         * The resource ID of the storage account to which you would like to send Diagnostic Logs.
+         */
+        storageAccountId?: pulumi.Input<string>;
+        /**
+         * The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+         */
+        workspaceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+     */
+    export interface LogSettings {
+        /**
+         * Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        category?: pulumi.Input<string>;
+        /**
+         * A value indicating whether this log is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The retention policy for this log.
+         */
+        retentionPolicy?: pulumi.Input<inputs.aadiam.RetentionPolicy>;
+    }
+
+    /**
+     * Specifies the retention policy for the log.
+     */
+    export interface RetentionPolicy {
+        /**
+         * The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+         */
+        days: pulumi.Input<number>;
+        /**
+         * A value indicating whether the retention policy is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+}
+
+export namespace advisor {
+    /**
+     * The properties of the suppression.
+     */
+    export interface SuppressionProperties {
+        /**
+         * The GUID of the suppression.
+         */
+        suppressionId?: pulumi.Input<string>;
+        /**
+         * The duration for which the suppression is valid.
+         */
+        ttl?: pulumi.Input<string>;
+    }
+
+}
+
+export namespace alertsmanagement {
+    /**
+     * The Action Groups information, used by the alert rule.
+     */
+    export interface ActionGroupsInformation {
+        /**
+         * An optional custom email subject to use in email notifications.
+         */
+        customEmailSubject?: pulumi.Input<string>;
+        /**
+         * An optional custom web-hook payload to use in web-hook notifications.
+         */
+        customWebhookPayload?: pulumi.Input<string>;
+        /**
+         * The Action Group resource IDs.
+         */
+        groupIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The alert rule properties.
+     */
+    export interface AlertRuleProperties {
+        /**
+         * The alert rule actions.
+         */
+        actionGroups: pulumi.Input<inputs.alertsmanagement.ActionGroupsInformation>;
+        /**
+         * The alert rule description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The alert rule's detector.
+         */
+        detector: pulumi.Input<inputs.alertsmanagement.Detector>;
+        /**
+         * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+         */
+        frequency: pulumi.Input<string>;
+        /**
+         * The alert rule resources scope.
+         */
+        scope: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The alert rule severity.
+         */
+        severity: pulumi.Input<string>;
+        /**
+         * The alert rule state.
+         */
+        state: pulumi.Input<string>;
+        /**
+         * The alert rule throttling information.
+         */
+        throttling?: pulumi.Input<inputs.alertsmanagement.ThrottlingInformation>;
+    }
+
+    /**
+     * The detector information. By default this is not populated, unless it's specified in expandDetector
+     */
+    export interface Detector {
+        /**
+         * The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The detector id.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+         */
+        imagePaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The detector's parameters.'
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+         */
+        supportedResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Optional throttling information for the alert rule.
+     */
+    export interface ThrottlingInformation {
+        /**
+         * The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+         */
+        duration?: pulumi.Input<string>;
     }
 
 }
@@ -1781,6 +2038,16 @@ export namespace appconfiguration {
 
 export namespace authorization {
     /**
+     * Identity for the resource.
+     */
+    export interface Identity {
+        /**
+         * The identity type. This is the only required field when adding a system assigned identity to a resource.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
      * Lock owner properties.
      */
     export interface ManagementLockOwner {
@@ -1818,6 +2085,58 @@ export namespace authorization {
      * The parameter values for the policy rule. The keys are the parameter names.
      */
     export interface ParameterValues {
+    }
+
+    /**
+     * Role definition permissions.
+     */
+    export interface Permission {
+        /**
+         * Allowed actions.
+         */
+        actions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Denied actions.
+         */
+        notActions?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The policy assignment properties.
+     */
+    export interface PolicyAssignmentProperties {
+        /**
+         * This message will be part of response in case of policy violation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of the policy assignment.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+         */
+        enforcementMode?: pulumi.Input<string>;
+        /**
+         * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The policy's excluded scopes.
+         */
+        notScopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The parameter values for the assigned policy rule. The keys are the parameter names.
+         */
+        parameters?: pulumi.Input<inputs.authorization.ParameterValues>;
+        /**
+         * The ID of the policy definition or policy set definition being assigned.
+         */
+        policyDefinitionId?: pulumi.Input<string>;
+        /**
+         * The scope for the policy assignment.
+         */
+        scope?: pulumi.Input<string>;
     }
 
     /**
@@ -1934,6 +2253,60 @@ export namespace authorization {
          * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
          */
         policyType?: pulumi.Input<string>;
+    }
+
+    /**
+     * The policy sku. This property is optional, obsolete, and will be ignored.
+     */
+    export interface PolicySku {
+        /**
+         * The name of the policy sku. Possible values are A0 and A1.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The policy sku tier. Possible values are Free and Standard.
+         */
+        tier?: pulumi.Input<string>;
+    }
+
+    /**
+     * Role assignment properties.
+     */
+    export interface RoleAssignmentProperties {
+        /**
+         * The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The role definition ID used in the role assignment.
+         */
+        roleDefinitionId: pulumi.Input<string>;
+    }
+
+    /**
+     * Role definition properties.
+     */
+    export interface RoleDefinitionProperties {
+        /**
+         * Role definition assignable scopes.
+         */
+        assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The role definition description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Role definition permissions.
+         */
+        permissions?: pulumi.Input<pulumi.Input<inputs.authorization.Permission>[]>;
+        /**
+         * The role name.
+         */
+        roleName?: pulumi.Input<string>;
+        /**
+         * The role type.
+         */
+        type?: pulumi.Input<string>;
     }
 
 }
@@ -4127,6 +4500,9 @@ export namespace batchai {
 
 }
 
+export namespace billing {
+}
+
 export namespace botservice {
     /**
      * The parameters to provide for the Bot.
@@ -4177,7 +4553,7 @@ export namespace botservice {
     /**
      * Channel definition
      */
-    export interface Channel {
+    export interface ChannelDefinition {
         /**
          * The channel name
          */
@@ -5191,9 +5567,17 @@ export namespace cognitiveservices {
      */
     export interface PrivateEndpointConnection {
         /**
+         * The name of the resource
+         */
+        name: pulumi.Input<string>;
+        /**
          * Resource properties.
          */
-        properties?: pulumi.Input<inputs.cognitiveservices.PrivateEndpointConnectionProperties>;
+        properties: pulumi.Input<inputs.cognitiveservices.PrivateEndpointConnectionPropertiesResponse>;
+        /**
+         * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -5215,9 +5599,55 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Properties of the PrivateEndpointConnectProperties.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The private link resource group ids.
+         */
+        groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The resource of private end point.
+         */
+        privateEndpoint?: pulumi.Input<inputs.cognitiveservices.PrivateEndpointResponse>;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.cognitiveservices.PrivateLinkServiceConnectionStateResponse>;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint
+         */
+        id: pulumi.Input<string>;
+    }
+
+    /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
     export interface PrivateLinkServiceConnectionState {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionRequired?: pulumi.Input<string>;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
         /**
          * A message indicating if changes on the service provider require any updates on the consumer.
          */
@@ -7798,6 +8228,107 @@ export namespace compute {
 
 }
 
+export namespace consumption {
+    /**
+     * The comparison expression to be used in the budgets.
+     */
+    export interface BudgetComparisonExpression {
+        /**
+         * The name of the column to use in comparison.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Array of values to use for comparison
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * May be used to filter budgets by resource group, resource, or meter.
+     */
+    export interface BudgetFilter {
+        /**
+         * The logical "AND" expression. Must have at least 2 items.
+         */
+        and?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetFilterProperties>[]>;
+        /**
+         * Has comparison expression for a dimension
+         */
+        dimensions?: pulumi.Input<inputs.consumption.BudgetComparisonExpression>;
+        /**
+         * The logical "NOT" expression.
+         */
+        not?: pulumi.Input<inputs.consumption.BudgetFilterProperties>;
+        /**
+         * Has comparison expression for a tag
+         */
+        tags?: pulumi.Input<inputs.consumption.BudgetComparisonExpression>;
+    }
+
+    /**
+     * The Dimensions or Tags to filter a budget by.
+     */
+    export interface BudgetFilterProperties {
+        /**
+         * Has comparison expression for a dimension
+         */
+        dimensions?: pulumi.Input<inputs.consumption.BudgetComparisonExpression>;
+        /**
+         * Has comparison expression for a tag
+         */
+        tags?: pulumi.Input<inputs.consumption.BudgetComparisonExpression>;
+    }
+
+    /**
+     * The properties of the budget.
+     */
+    export interface BudgetProperties {
+        /**
+         * The total amount of cost to track with the budget
+         */
+        amount: pulumi.Input<number>;
+        /**
+         * The category of the budget, whether the budget tracks cost or usage.
+         */
+        category: pulumi.Input<string>;
+        /**
+         * May be used to filter budgets by resource group, resource, or meter.
+         */
+        filter?: pulumi.Input<inputs.consumption.BudgetFilter>;
+        /**
+         * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+         */
+        notifications?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
+         */
+        timeGrain: pulumi.Input<string>;
+        /**
+         * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+         */
+        timePeriod: pulumi.Input<inputs.consumption.BudgetTimePeriod>;
+    }
+
+    /**
+     * The start and end date for a budget.
+     */
+    export interface BudgetTimePeriod {
+        /**
+         * The end date for the budget. If not provided, we default this to 10 years from the start date.
+         */
+        endDate?: pulumi.Input<string>;
+        /**
+         * The start date for the budget.
+         */
+        startDate: pulumi.Input<string>;
+    }
+
+}
+
 export namespace containerinstance {
     /**
      * The properties of the Azure File volume. Azure File shares are mounted as volumes.
@@ -9727,11 +10258,375 @@ export namespace containerservice {
 
 }
 
-export namespace core {
+export namespace costmanagement {
     /**
-     * The resource group properties.
+     * The definition for data in the export.
      */
-    export interface ResourceGroupProperties {
+    export interface ExportDataset {
+        /**
+         * The export dataset configuration.
+         */
+        configuration?: pulumi.Input<inputs.costmanagement.ExportDatasetConfiguration>;
+        /**
+         * The granularity of rows in the export. Currently only 'Daily' is supported.
+         */
+        granularity?: pulumi.Input<string>;
+    }
+
+    /**
+     * The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+     */
+    export interface ExportDatasetConfiguration {
+        /**
+         * Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+         */
+        columns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The definition of an export.
+     */
+    export interface ExportDefinition {
+        /**
+         * The definition for data in the export.
+         */
+        dataSet?: pulumi.Input<inputs.costmanagement.ExportDataset>;
+        /**
+         * Has time period for pulling data for the export.
+         */
+        timePeriod?: pulumi.Input<inputs.costmanagement.ExportTimePeriod>;
+        /**
+         * The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+         */
+        timeframe: pulumi.Input<string>;
+        /**
+         * The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+     */
+    export interface ExportDeliveryDestination {
+        /**
+         * The name of the container where exports will be uploaded.
+         */
+        container: pulumi.Input<string>;
+        /**
+         * The resource id of the storage account where exports will be delivered.
+         */
+        resourceId: pulumi.Input<string>;
+        /**
+         * The name of the directory where exports will be uploaded.
+         */
+        rootFolderPath?: pulumi.Input<string>;
+    }
+
+    /**
+     * The delivery information associated with a export.
+     */
+    export interface ExportDeliveryInfo {
+        /**
+         * Has destination for the export being delivered.
+         */
+        destination: pulumi.Input<inputs.costmanagement.ExportDeliveryDestination>;
+    }
+
+    /**
+     * Result of listing the execution history of an export.
+     */
+    export interface ExportExecutionListResult {
+    }
+
+    /**
+     * The properties of the export.
+     */
+    export interface ExportProperties {
+        /**
+         * Has the definition for the export.
+         */
+        definition: pulumi.Input<inputs.costmanagement.ExportDefinition>;
+        /**
+         * Has delivery information for the export.
+         */
+        deliveryInfo: pulumi.Input<inputs.costmanagement.ExportDeliveryInfo>;
+        /**
+         * The format of the export being delivered. Currently only 'Csv' is supported.
+         */
+        format?: pulumi.Input<string>;
+        /**
+         * If requested, has the most recent execution history for the export.
+         */
+        runHistory?: pulumi.Input<inputs.costmanagement.ExportExecutionListResult>;
+        /**
+         * Has schedule information for the export.
+         */
+        schedule?: pulumi.Input<inputs.costmanagement.ExportSchedule>;
+    }
+
+    /**
+     * The start and end date for recurrence schedule.
+     */
+    export interface ExportRecurrencePeriod {
+        /**
+         * The start date of recurrence.
+         */
+        from: pulumi.Input<string>;
+        /**
+         * The end date of recurrence.
+         */
+        to?: pulumi.Input<string>;
+    }
+
+    /**
+     * The schedule associated with the export.
+     */
+    export interface ExportSchedule {
+        /**
+         * The schedule recurrence.
+         */
+        recurrence: pulumi.Input<string>;
+        /**
+         * Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+         */
+        recurrencePeriod?: pulumi.Input<inputs.costmanagement.ExportRecurrencePeriod>;
+        /**
+         * The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
+     * The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
+     */
+    export interface ExportTimePeriod {
+        /**
+         * The start date for export data.
+         */
+        from: pulumi.Input<string>;
+        /**
+         * The end date for export data.
+         */
+        to: pulumi.Input<string>;
+    }
+
+    /**
+     * Each KPI must contain a 'type' and 'enabled' key.
+     */
+    export interface KpiProperties {
+        /**
+         * show the KPI in the UI?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * ID of resource related to metric (budget).
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * KPI type (Forecast, Budget).
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * Each pivot must contain a 'type' and 'name'.
+     */
+    export interface PivotProperties {
+        /**
+         * Data field to show in view.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Data type to show in view.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * The comparison expression to be used in the report.
+     */
+    export interface ReportConfigComparisonExpression {
+        /**
+         * The name of the column to use in comparison.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Array of values to use for comparison
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The definition of data present in the report.
+     */
+    export interface ReportConfigDataset {
+        /**
+         * Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+         */
+        aggregation?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+         */
+        configuration?: pulumi.Input<inputs.costmanagement.ReportConfigDatasetConfiguration>;
+        /**
+         * Has filter expression to use in the report.
+         */
+        filter?: pulumi.Input<inputs.costmanagement.ReportConfigFilter>;
+        /**
+         * The granularity of rows in the report.
+         */
+        granularity?: pulumi.Input<string>;
+        /**
+         * Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+         */
+        grouping?: pulumi.Input<pulumi.Input<inputs.costmanagement.ReportConfigGrouping>[]>;
+        /**
+         * Array of order by expression to use in the report.
+         */
+        sorting?: pulumi.Input<pulumi.Input<inputs.costmanagement.ReportConfigSorting>[]>;
+    }
+
+    /**
+     * The configuration of dataset in the report.
+     */
+    export interface ReportConfigDatasetConfiguration {
+        /**
+         * Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+         */
+        columns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The definition of a report config.
+     */
+    export interface ReportConfigDefinition {
+        /**
+         * Has definition for data in this report config.
+         */
+        dataset?: pulumi.Input<inputs.costmanagement.ReportConfigDataset>;
+        /**
+         * Has time period for pulling data for the report.
+         */
+        timePeriod?: pulumi.Input<inputs.costmanagement.ReportConfigTimePeriod>;
+        /**
+         * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+         */
+        timeframe: pulumi.Input<string>;
+        /**
+         * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * The filter expression to be used in the report.
+     */
+    export interface ReportConfigFilter {
+        /**
+         * The logical "AND" expression. Must have at least 2 items.
+         */
+        and?: pulumi.Input<pulumi.Input<inputs.costmanagement.ReportConfigFilter>[]>;
+        /**
+         * Has comparison expression for a dimension
+         */
+        dimension?: pulumi.Input<inputs.costmanagement.ReportConfigComparisonExpression>;
+        /**
+         * The logical "NOT" expression.
+         */
+        not?: pulumi.Input<inputs.costmanagement.ReportConfigFilter>;
+        /**
+         * The logical "OR" expression. Must have at least 2 items.
+         */
+        or?: pulumi.Input<pulumi.Input<inputs.costmanagement.ReportConfigFilter>[]>;
+        /**
+         * Has comparison expression for a tag
+         */
+        tag?: pulumi.Input<inputs.costmanagement.ReportConfigComparisonExpression>;
+    }
+
+    /**
+     * The group by expression to be used in the report.
+     */
+    export interface ReportConfigGrouping {
+        /**
+         * The name of the column to group. This version supports subscription lowest possible grain.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Has type of the column to group.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * The order by expression to be used in the report.
+     */
+    export interface ReportConfigSorting {
+        /**
+         * Direction of sort.
+         */
+        direction?: pulumi.Input<string>;
+        /**
+         * The name of the column to sort.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * The start and end date for pulling data for the report.
+     */
+    export interface ReportConfigTimePeriod {
+        /**
+         * The start date to pull data from.
+         */
+        from: pulumi.Input<string>;
+        /**
+         * The end date to pull data to.
+         */
+        to: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of the view.
+     */
+    export interface ViewProperties {
+        /**
+         * Show costs accumulated over time.
+         */
+        accumulated?: pulumi.Input<string>;
+        /**
+         * Chart type of the main view in Cost Analysis. Required.
+         */
+        chart?: pulumi.Input<string>;
+        /**
+         * User input name of the view. Required.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * List of KPIs to show in Cost Analysis UI.
+         */
+        kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.KpiProperties>[]>;
+        /**
+         * Metric to use when displaying costs.
+         */
+        metric?: pulumi.Input<string>;
+        /**
+         * Configuration of 3 sub-views in the Cost Analysis UI.
+         */
+        pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.PivotProperties>[]>;
+        /**
+         * Query body configuration. Required.
+         */
+        query?: pulumi.Input<inputs.costmanagement.ReportConfigDefinition>;
+        /**
+         * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+         */
+        scope?: pulumi.Input<string>;
     }
 
 }
@@ -9758,7 +10653,7 @@ export namespace customerinsights {
     /**
      * Properties of connector.
      */
-    export interface Connector {
+    export interface ConnectorDefinition {
         /**
          * Name of the connector.
          */
@@ -9783,36 +10678,6 @@ export namespace customerinsights {
          * If this is an internal connector.
          */
         isInternal?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * The connector mapping definition.
-     */
-    export interface ConnectorMapping {
-        /**
-         * Type of connector.
-         */
-        connectorType?: pulumi.Input<string>;
-        /**
-         * The description of the connector mapping.
-         */
-        description?: pulumi.Input<string>;
-        /**
-         * Display name for the connector mapping.
-         */
-        displayName?: pulumi.Input<string>;
-        /**
-         * Defines which entity type the file should map to.
-         */
-        entityType: pulumi.Input<string>;
-        /**
-         * The mapping entity name.
-         */
-        entityTypeName: pulumi.Input<string>;
-        /**
-         * The properties of the mapping.
-         */
-        mappingProperties: pulumi.Input<inputs.customerinsights.ConnectorMappingProperties>;
     }
 
     /**
@@ -9841,6 +10706,36 @@ export namespace customerinsights {
          * The destination folder where files will be moved to once the import is done.
          */
         destinationFolder?: pulumi.Input<string>;
+    }
+
+    /**
+     * The connector mapping definition.
+     */
+    export interface ConnectorMappingDefinition {
+        /**
+         * Type of connector.
+         */
+        connectorType?: pulumi.Input<string>;
+        /**
+         * The description of the connector mapping.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Display name for the connector mapping.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * Defines which entity type the file should map to.
+         */
+        entityType: pulumi.Input<string>;
+        /**
+         * The mapping entity name.
+         */
+        entityTypeName: pulumi.Input<string>;
+        /**
+         * The properties of the mapping.
+         */
+        mappingProperties: pulumi.Input<inputs.customerinsights.ConnectorMappingProperties>;
     }
 
     /**
@@ -10164,7 +11059,7 @@ export namespace customerinsights {
     /**
      * The prediction definition.
      */
-    export interface Prediction {
+    export interface PredictionDefinition {
         /**
          * Whether do auto analyze.
          */
@@ -10518,7 +11413,7 @@ export namespace customerinsights {
     /**
      * The Role Assignment definition.
      */
-    export interface RoleAssignment {
+    export interface RoleAssignmentDefinition {
         /**
          * Widget types set for the assignment.
          */
@@ -10632,7 +11527,7 @@ export namespace customerinsights {
     /**
      * The view in Customer 360 web application.
      */
-    export interface View {
+    export interface ViewDefinition {
         /**
          * View definition.
          */
@@ -11563,7 +12458,7 @@ export namespace datafactory {
     /**
      * Azure Data Factory nested object which contains a flow with data movements and transformations.
      */
-    export interface DataFlow {
+    export interface DataFlowDefinition {
         /**
          * List of tags that can be used for describing the data flow.
          */
@@ -11595,7 +12490,7 @@ export namespace datafactory {
     /**
      * The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
      */
-    export interface Dataset {
+    export interface DatasetDefinition {
         /**
          * List of tags that can be used for describing the Dataset.
          */
@@ -11703,7 +12598,7 @@ export namespace datafactory {
     /**
      * Azure Data Factory nested object which serves as a compute resource for activities.
      */
-    export interface IntegrationRuntime {
+    export interface IntegrationRuntimeDefinition {
         /**
          * Integration runtime description.
          */
@@ -11735,7 +12630,7 @@ export namespace datafactory {
     /**
      * The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
      */
-    export interface LinkedService {
+    export interface LinkedServiceDefinition {
         /**
          * List of tags that can be used for describing the linked service.
          */
@@ -11791,7 +12686,7 @@ export namespace datafactory {
     /**
      * A data factory pipeline.
      */
-    export interface Pipeline {
+    export interface PipelineDefinition {
         /**
          * List of activities in pipeline.
          */
@@ -11839,7 +12734,7 @@ export namespace datafactory {
     /**
      * Azure data factory nested object which contains information about creating pipeline run
      */
-    export interface Trigger {
+    export interface TriggerDefinition {
         /**
          * List of tags that can be used for describing the trigger.
          */
@@ -13097,9 +13992,17 @@ export namespace devices {
      */
     export interface PrivateEndpointConnection {
         /**
+         * The resource name.
+         */
+        name: pulumi.Input<string>;
+        /**
          * The properties of a private endpoint connection
          */
-        properties: pulumi.Input<inputs.devices.PrivateEndpointConnectionProperties>;
+        properties: pulumi.Input<inputs.devices.PrivateEndpointConnectionPropertiesResponse>;
+        /**
+         * The resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -13117,9 +14020,51 @@ export namespace devices {
     }
 
     /**
+     * The properties of a private endpoint connection
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The private endpoint property of a private endpoint connection
+         */
+        privateEndpoint?: pulumi.Input<inputs.devices.PrivateEndpointResponse>;
+        /**
+         * The current state of a private endpoint connection
+         */
+        privateLinkServiceConnectionState: pulumi.Input<inputs.devices.PrivateLinkServiceConnectionStateResponse>;
+    }
+
+    /**
+     * The private endpoint property of a private endpoint connection
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The resource identifier.
+         */
+        id: pulumi.Input<string>;
+    }
+
+    /**
      * The current state of a private endpoint connection
      */
     export interface PrivateLinkServiceConnectionState {
+        /**
+         * Actions required for a private endpoint connection
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * The description for the current state of a private endpoint connection
+         */
+        description: pulumi.Input<string>;
+        /**
+         * The status of a private endpoint connection
+         */
+        status: pulumi.Input<string>;
+    }
+
+    /**
+     * The current state of a private endpoint connection
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
         /**
          * Actions required for a private endpoint connection
          */
@@ -15669,6 +16614,20 @@ export namespace domainregistration {
 
 export namespace eventgrid {
     /**
+     * This is the base type that represents an advanced filter. To configure an advanced filter, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class such as BoolEqualsAdvancedFilter, NumberInAdvancedFilter, StringEqualsAdvancedFilter etc. depending on the type of the key based on which you want to filter.
+     */
+    export interface AdvancedFilter {
+        /**
+         * The field/property in the event based on which you want to filter.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+         */
+        operatorType: pulumi.Input<string>;
+    }
+
+    /**
      * ConnectionState information.
      */
     export interface ConnectionState {
@@ -15684,6 +16643,34 @@ export namespace eventgrid {
          * Status of the connection.
          */
         status?: pulumi.Input<string>;
+    }
+
+    /**
+     * ConnectionState information.
+     */
+    export interface ConnectionStateResponse {
+        /**
+         * Actions required (if any).
+         */
+        actionsRequired?: pulumi.Input<string>;
+        /**
+         * Description of the connection state.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Status of the connection.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
+     */
+    export interface DeadLetterDestination {
+        /**
+         * Type of the endpoint for the dead letter destination
+         */
+        endpointType: pulumi.Input<string>;
     }
 
     /**
@@ -15711,6 +16698,80 @@ export namespace eventgrid {
          * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
          */
         publicNetworkAccess?: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about the destination for an event subscription.
+     */
+    export interface EventSubscriptionDestination {
+        /**
+         * Type of the endpoint for the event subscription destination.
+         */
+        endpointType: pulumi.Input<string>;
+    }
+
+    /**
+     * Filter for the Event Subscription.
+     */
+    export interface EventSubscriptionFilter {
+        /**
+         * An array of advanced filters that are used for filtering event subscriptions.
+         */
+        advancedFilters?: pulumi.Input<pulumi.Input<inputs.eventgrid.AdvancedFilter>[]>;
+        /**
+         * A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+         */
+        includedEventTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+         * should be compared in a case sensitive manner.
+         */
+        isSubjectCaseSensitive?: pulumi.Input<boolean>;
+        /**
+         * An optional string to filter events for an event subscription based on a resource path prefix.
+         * The format of this depends on the publisher of the events.
+         * Wildcard characters are not supported in this path.
+         */
+        subjectBeginsWith?: pulumi.Input<string>;
+        /**
+         * An optional string to filter events for an event subscription based on a resource path suffix.
+         * Wildcard characters are not supported in this path.
+         */
+        subjectEndsWith?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the Event Subscription.
+     */
+    export interface EventSubscriptionProperties {
+        /**
+         * The DeadLetter destination of the event subscription.
+         */
+        deadLetterDestination?: pulumi.Input<inputs.eventgrid.DeadLetterDestination>;
+        /**
+         * Information about the destination where events have to be delivered for the event subscription.
+         */
+        destination?: pulumi.Input<inputs.eventgrid.EventSubscriptionDestination>;
+        /**
+         * The event delivery schema for the event subscription.
+         */
+        eventDeliverySchema?: pulumi.Input<string>;
+        /**
+         * Expiration time of the event subscription.
+         */
+        expirationTimeUtc?: pulumi.Input<string>;
+        /**
+         * Information about the filter for the event subscription.
+         */
+        filter?: pulumi.Input<inputs.eventgrid.EventSubscriptionFilter>;
+        /**
+         * List of user defined labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+         */
+        retryPolicy?: pulumi.Input<inputs.eventgrid.RetryPolicy>;
     }
 
     export interface InboundIpRule {
@@ -15746,9 +16807,17 @@ export namespace eventgrid {
 
     export interface PrivateEndpointConnection {
         /**
+         * Name of the resource.
+         */
+        name: pulumi.Input<string>;
+        /**
          * Properties of the PrivateEndpointConnection.
          */
-        properties?: pulumi.Input<inputs.eventgrid.PrivateEndpointConnectionProperties>;
+        properties: pulumi.Input<inputs.eventgrid.PrivateEndpointConnectionPropertiesResponse>;
+        /**
+         * Type of the resource.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -15771,6 +16840,52 @@ export namespace eventgrid {
          * Provisioning state of the Private Endpoint Connection.
          */
         provisioningState?: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of the private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * GroupIds from the private link service resource.
+         */
+        groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Private Endpoint resource for this Connection.
+         */
+        privateEndpoint?: pulumi.Input<inputs.eventgrid.PrivateEndpointResponse>;
+        /**
+         * Details about the state of the connection.
+         */
+        privateLinkServiceConnectionState?: pulumi.Input<inputs.eventgrid.ConnectionStateResponse>;
+        /**
+         * Provisioning state of the Private Endpoint Connection.
+         */
+        provisioningState?: pulumi.Input<string>;
+    }
+
+    /**
+     * PrivateEndpoint information.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for Private Endpoint.
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Information about the retry policy for an event subscription.
+     */
+    export interface RetryPolicy {
+        /**
+         * Time To Live (in minutes) for events.
+         */
+        eventTimeToLiveInMinutes?: pulumi.Input<number>;
+        /**
+         * Maximum number of delivery retry attempts for events.
+         */
+        maxDeliveryAttempts?: pulumi.Input<number>;
     }
 
     /**
@@ -17200,6 +18315,176 @@ export namespace importexport {
 
 export namespace insights {
     /**
+     * Action descriptor.
+     */
+    export interface Action {
+    }
+
+    /**
+     * An Azure action group.
+     */
+    export interface ActionGroupDefinition {
+        /**
+         * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+         */
+        armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.insights.ArmRoleReceiver>[]>;
+        /**
+         * The list of AutomationRunbook receivers that are part of this action group.
+         */
+        automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.AutomationRunbookReceiver>[]>;
+        /**
+         * The list of AzureAppPush receivers that are part of this action group.
+         */
+        azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.AzureAppPushReceiver>[]>;
+        /**
+         * The list of azure function receivers that are part of this action group.
+         */
+        azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.insights.AzureFunctionReceiver>[]>;
+        /**
+         * The list of email receivers that are part of this action group.
+         */
+        emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.EmailReceiver>[]>;
+        /**
+         * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The short name of the action group. This will be used in SMS messages.
+         */
+        groupShortName: pulumi.Input<string>;
+        /**
+         * The list of ITSM receivers that are part of this action group.
+         */
+        itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.ItsmReceiver>[]>;
+        /**
+         * The list of logic app receivers that are part of this action group.
+         */
+        logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.insights.LogicAppReceiver>[]>;
+        /**
+         * The list of SMS receivers that are part of this action group.
+         */
+        smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.SmsReceiver>[]>;
+        /**
+         * The list of voice receivers that are part of this action group.
+         */
+        voiceReceivers?: pulumi.Input<pulumi.Input<inputs.insights.VoiceReceiver>[]>;
+        /**
+         * The list of webhook receivers that are part of this action group.
+         */
+        webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.WebhookReceiver>[]>;
+    }
+
+    /**
+     * A pointer to an Azure Action Group.
+     */
+    export interface ActivityLogAlertActionGroup {
+        /**
+         * The resourceId of the action group. This cannot be null or empty.
+         */
+        actionGroupId: pulumi.Input<string>;
+        /**
+         * the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+         */
+        webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * A list of activity log alert actions.
+     */
+    export interface ActivityLogAlertActionList {
+        /**
+         * The list of activity log alerts.
+         */
+        actionGroups?: pulumi.Input<pulumi.Input<inputs.insights.ActivityLogAlertActionGroup>[]>;
+    }
+
+    /**
+     * An Activity Log alert condition that is met when all its member conditions are met.
+     */
+    export interface ActivityLogAlertAllOfCondition {
+        /**
+         * The list of activity log alert conditions.
+         */
+        allOf: pulumi.Input<pulumi.Input<inputs.insights.ActivityLogAlertLeafCondition>[]>;
+    }
+
+    /**
+     * An Azure activity log alert.
+     */
+    export interface ActivityLogAlertDefinition {
+        /**
+         * The actions that will activate when the condition is met.
+         */
+        actions: pulumi.Input<inputs.insights.ActivityLogAlertActionList>;
+        /**
+         * The condition that will cause this alert to activate.
+         */
+        condition: pulumi.Input<inputs.insights.ActivityLogAlertAllOfCondition>;
+        /**
+         * A description of this activity log alert.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+         */
+        scopes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * An Activity Log alert condition that is met by comparing an activity log field and value.
+     */
+    export interface ActivityLogAlertLeafCondition {
+        /**
+         * The field value will be compared to this value (case-insensitive) to determine if the condition is met.
+         */
+        equals: pulumi.Input<string>;
+        /**
+         * The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+         */
+        field: pulumi.Input<string>;
+    }
+
+    /**
+     * An alert rule.
+     */
+    export interface AlertRuleDefinition {
+        /**
+         * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+         */
+        actions?: pulumi.Input<pulumi.Input<inputs.insights.RuleAction>[]>;
+        /**
+         * the condition that results in the alert rule being activated.
+         */
+        condition: pulumi.Input<inputs.insights.RuleCondition>;
+        /**
+         * the description of the alert rule that will be included in the alert email.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * the flag that indicates whether the alert rule is enabled.
+         */
+        isEnabled: pulumi.Input<boolean>;
+        /**
+         * the name of the alert rule.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+     */
+    export interface ApplicationInsightsComponentAnalyticsItemProperties {
+        /**
+         * A function alias, used when the type of the item is Function
+         */
+        functionAlias?: pulumi.Input<string>;
+    }
+
+    /**
      * Properties that define an Application Insights component resource.
      */
     export interface ApplicationInsightsComponentProperties {
@@ -17239,6 +18524,304 @@ export namespace insights {
          * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
          */
         SamplingPercentage?: pulumi.Input<number>;
+    }
+
+    /**
+     * An arm role receiver.
+     */
+    export interface ArmRoleReceiver {
+        /**
+         * The name of the arm role receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The arm role id.
+         */
+        roleId: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The Azure Automation Runbook notification receiver.
+     */
+    export interface AutomationRunbookReceiver {
+        /**
+         * The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+         */
+        automationAccountId: pulumi.Input<string>;
+        /**
+         * Indicates whether this instance is global runbook.
+         */
+        isGlobalRunbook: pulumi.Input<boolean>;
+        /**
+         * Indicates name of the webhook.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The name for this runbook.
+         */
+        runbookName: pulumi.Input<string>;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri?: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: pulumi.Input<boolean>;
+        /**
+         * The resource id for webhook linked to this runbook.
+         */
+        webhookResourceId: pulumi.Input<string>;
+    }
+
+    /**
+     * Autoscale notification.
+     */
+    export interface AutoscaleNotification {
+        /**
+         * the email notification.
+         */
+        email?: pulumi.Input<inputs.insights.EmailNotification>;
+        /**
+         * the operation associated with the notification and its value must be "scale"
+         */
+        operation: pulumi.Input<string>;
+        /**
+         * the collection of webhook notifications.
+         */
+        webhooks?: pulumi.Input<pulumi.Input<inputs.insights.WebhookNotification>[]>;
+    }
+
+    /**
+     * Autoscale profile.
+     */
+    export interface AutoscaleProfile {
+        /**
+         * the number of instances that can be used during this profile.
+         */
+        capacity: pulumi.Input<inputs.insights.ScaleCapacity>;
+        /**
+         * the specific date-time for the profile. This element is not used if the Recurrence element is used.
+         */
+        fixedDate?: pulumi.Input<inputs.insights.TimeWindow>;
+        /**
+         * the name of the profile.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+         */
+        recurrence?: pulumi.Input<inputs.insights.Recurrence>;
+        /**
+         * the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+         */
+        rules: pulumi.Input<pulumi.Input<inputs.insights.ScaleRule>[]>;
+    }
+
+    /**
+     * A setting that contains all of the configuration for the automatic scaling of a resource.
+     */
+    export interface AutoscaleSettingDefinition {
+        /**
+         * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * the name of the autoscale setting.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * the collection of notifications.
+         */
+        notifications?: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleNotification>[]>;
+        /**
+         * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+         */
+        profiles: pulumi.Input<pulumi.Input<inputs.insights.AutoscaleProfile>[]>;
+        /**
+         * the resource identifier of the resource that the autoscale setting should be added to.
+         */
+        targetResourceUri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The Azure mobile App push notification receiver.
+     */
+    export interface AzureAppPushReceiver {
+        /**
+         * The email address registered for the Azure mobile app.
+         */
+        emailAddress: pulumi.Input<string>;
+        /**
+         * The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * An azure function receiver.
+     */
+    export interface AzureFunctionReceiver {
+        /**
+         * The azure resource id of the function app.
+         */
+        functionAppResourceId: pulumi.Input<string>;
+        /**
+         * The function name in the function app.
+         */
+        functionName: pulumi.Input<string>;
+        /**
+         * The http trigger url where http request sent to.
+         */
+        httpTriggerUrl: pulumi.Input<string>;
+        /**
+         * The name of the azure function receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Email notification of an autoscale event.
+     */
+    export interface EmailNotification {
+        /**
+         * the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
+         */
+        customEmails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * a value indicating whether to send email to subscription administrator.
+         */
+        sendToSubscriptionAdministrator?: pulumi.Input<boolean>;
+        /**
+         * a value indicating whether to send email to subscription co-administrators.
+         */
+        sendToSubscriptionCoAdministrators?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * An email receiver.
+     */
+    export interface EmailReceiver {
+        /**
+         * The email address of this receiver.
+         */
+        emailAddress: pulumi.Input<string>;
+        /**
+         * The name of the email receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: pulumi.Input<boolean>;
+    }
+
+    /**
+     * An Itsm receiver.
+     */
+    export interface ItsmReceiver {
+        /**
+         * Unique identification of ITSM connection among multiple defined in above workspace.
+         */
+        connectionId: pulumi.Input<string>;
+        /**
+         * The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+         */
+        region: pulumi.Input<string>;
+        /**
+         * JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+         */
+        ticketConfiguration: pulumi.Input<string>;
+        /**
+         * OMS LA instance identifier.
+         */
+        workspaceId: pulumi.Input<string>;
+    }
+
+    /**
+     * The log profile properties.
+     */
+    export interface LogProfileProperties {
+        /**
+         * the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+         */
+        categories: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+         */
+        locations: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * the retention policy for the events in the log.
+         */
+        retentionPolicy: pulumi.Input<inputs.insights.RetentionPolicy>;
+        /**
+         * The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+         */
+        serviceBusRuleId?: pulumi.Input<string>;
+        /**
+         * the resource id of the storage account to which you would like to send the Activity Log.
+         */
+        storageAccountId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Log Search Rule Definition
+     */
+    export interface LogSearchRule {
+        /**
+         * Action needs to be taken on rule execution.
+         */
+        action: pulumi.Input<inputs.insights.Action>;
+        /**
+         * The description of the Log Search rule.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+         */
+        enabled?: pulumi.Input<string>;
+        /**
+         * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+         */
+        schedule?: pulumi.Input<inputs.insights.Schedule>;
+        /**
+         * Data Source against which rule will Query Data
+         */
+        source: pulumi.Input<inputs.insights.Source>;
+    }
+
+    /**
+     * A logic app receiver.
+     */
+    export interface LogicAppReceiver {
+        /**
+         * The callback url where http request sent to.
+         */
+        callbackUrl: pulumi.Input<string>;
+        /**
+         * The name of the logic app receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The azure resource id of the logic app receiver.
+         */
+        resourceId: pulumi.Input<string>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: pulumi.Input<boolean>;
     }
 
     /**
@@ -17312,6 +18895,290 @@ export namespace insights {
     }
 
     /**
+     * The trigger that results in a scaling action.
+     */
+    export interface MetricTrigger {
+        /**
+         * List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.insights.ScaleRuleMetricDimension>[]>;
+        /**
+         * the name of the metric that defines what the rule monitors.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * the namespace of the metric that defines what the rule monitors.
+         */
+        metricNamespace?: pulumi.Input<string>;
+        /**
+         * the resource identifier of the resource the rule monitors.
+         */
+        metricResourceUri: pulumi.Input<string>;
+        /**
+         * the operator that is used to compare the metric data and the threshold.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * the metric statistic type. How the metrics from multiple instances are combined.
+         */
+        statistic: pulumi.Input<string>;
+        /**
+         * the threshold of the metric that triggers the scale action.
+         */
+        threshold: pulumi.Input<number>;
+        /**
+         * time aggregation type. How the data that is collected should be combined over time. The default value is Average.
+         */
+        timeAggregation: pulumi.Input<string>;
+        /**
+         * the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
+         */
+        timeGrain: pulumi.Input<string>;
+        /**
+         * the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
+         */
+        timeWindow: pulumi.Input<string>;
+    }
+
+    /**
+     * The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+     */
+    export interface Recurrence {
+        /**
+         * the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
+         */
+        frequency: pulumi.Input<string>;
+        /**
+         * the scheduling constraints for when the profile begins.
+         */
+        schedule: pulumi.Input<inputs.insights.RecurrentSchedule>;
+    }
+
+    /**
+     * The scheduling constraints for when the profile begins.
+     */
+    export interface RecurrentSchedule {
+        /**
+         * the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
+         */
+        days: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
+         */
+        hours: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * A collection of minutes at which the profile takes effect at.
+         */
+        minutes: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+         */
+        timeZone: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the retention policy for the log.
+     */
+    export interface RetentionPolicy {
+        /**
+         * the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+         */
+        days: pulumi.Input<number>;
+        /**
+         * a value indicating whether the retention policy is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    export interface RuleAction {
+    }
+
+    /**
+     * The condition that results in the alert rule being activated.
+     */
+    export interface RuleCondition {
+        /**
+         * the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+         */
+        dataSource?: pulumi.Input<inputs.insights.RuleDataSource>;
+    }
+
+    /**
+     * The resource from which the rule collects its data.
+     */
+    export interface RuleDataSource {
+        /**
+         * the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+         */
+        resourceUri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The parameters for the scaling action.
+     */
+    export interface ScaleAction {
+        /**
+         * the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
+         */
+        cooldown: pulumi.Input<string>;
+        /**
+         * the scale direction. Whether the scaling action increases or decreases the number of instances.
+         */
+        direction: pulumi.Input<string>;
+        /**
+         * the type of action that should occur when the scale rule fires.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * The number of instances that can be used during this profile.
+     */
+    export interface ScaleCapacity {
+        /**
+         * the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
+         */
+        default: pulumi.Input<string>;
+        /**
+         * the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
+         */
+        maximum: pulumi.Input<string>;
+        /**
+         * the minimum number of instances for the resource.
+         */
+        minimum: pulumi.Input<string>;
+    }
+
+    /**
+     * A rule that provide the triggers and parameters for the scaling action.
+     */
+    export interface ScaleRule {
+        /**
+         * the trigger that results in a scaling action.
+         */
+        metricTrigger: pulumi.Input<inputs.insights.MetricTrigger>;
+        /**
+         * the parameters for the scaling action.
+         */
+        scaleAction: pulumi.Input<inputs.insights.ScaleAction>;
+    }
+
+    /**
+     * Specifies an auto scale rule metric dimension.
+     */
+    export interface ScaleRuleMetricDimension {
+        /**
+         * Name of the dimension.
+         */
+        DimensionName: pulumi.Input<string>;
+        /**
+         * the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
+         */
+        Operator: pulumi.Input<string>;
+        /**
+         * list of dimension values. For example: ["App1","App2"].
+         */
+        Values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Defines how often to run the search and the time interval.
+     */
+    export interface Schedule {
+        /**
+         * frequency (in minutes) at which rule condition should be evaluated.
+         */
+        frequencyInMinutes: pulumi.Input<number>;
+        /**
+         * Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+         */
+        timeWindowInMinutes: pulumi.Input<number>;
+    }
+
+    /**
+     * An SMS receiver.
+     */
+    export interface SmsReceiver {
+        /**
+         * The country code of the SMS receiver.
+         */
+        countryCode: pulumi.Input<string>;
+        /**
+         * The name of the SMS receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The phone number of the SMS receiver.
+         */
+        phoneNumber: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the log search query.
+     */
+    export interface Source {
+        /**
+         * List of  Resource referred into query
+         */
+        authorizedResources?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The resource uri over which log search query is to be run.
+         */
+        dataSourceId: pulumi.Input<string>;
+        /**
+         * Log search query. Required for action type - AlertingAction
+         */
+        query?: pulumi.Input<string>;
+        /**
+         * Set value to 'ResultCount' .
+         */
+        queryType?: pulumi.Input<string>;
+    }
+
+    /**
+     * A specific date-time for the profile.
+     */
+    export interface TimeWindow {
+        /**
+         * the end time for the profile in ISO 8601 format.
+         */
+        end: pulumi.Input<string>;
+        /**
+         * the start time for the profile in ISO 8601 format.
+         */
+        start: pulumi.Input<string>;
+        /**
+         * the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+         */
+        timeZone?: pulumi.Input<string>;
+    }
+
+    /**
+     * A voice receiver.
+     */
+    export interface VoiceReceiver {
+        /**
+         * The country code of the voice receiver.
+         */
+        countryCode: pulumi.Input<string>;
+        /**
+         * The name of the voice receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The phone number of the voice receiver.
+         */
+        phoneNumber: pulumi.Input<string>;
+    }
+
+    /**
      * Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
      */
     export interface WebTestGeolocation {
@@ -17375,6 +19242,96 @@ export namespace insights {
          * The XML specification of a WebTest to run against an application.
          */
         WebTest?: pulumi.Input<string>;
+    }
+
+    /**
+     * Webhook notification of an autoscale event.
+     */
+    export interface WebhookNotification {
+        /**
+         * a property bag of settings. This value can be empty.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * the service address to receive the notification.
+         */
+        serviceUri?: pulumi.Input<string>;
+    }
+
+    /**
+     * A webhook receiver.
+     */
+    export interface WebhookReceiver {
+        /**
+         * Indicates the identifier uri for aad auth.
+         */
+        identifierUri?: pulumi.Input<string>;
+        /**
+         * The name of the webhook receiver. Names must be unique across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates the webhook app object Id for aad auth.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri: pulumi.Input<string>;
+        /**
+         * Indicates the tenant id for aad auth.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Indicates whether or not use AAD authentication.
+         */
+        useAadAuth?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Properties that contain a workbook.
+     */
+    export interface WorkbookProperties {
+        /**
+         * Workbook category, as defined by the user at creation time.
+         */
+        category: pulumi.Input<string>;
+        /**
+         * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+         */
+        kind: pulumi.Input<string>;
+        /**
+         * The user-defined name of the workbook.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Configuration of this particular workbook. Configuration data is a string containing valid JSON
+         */
+        serializedData: pulumi.Input<string>;
+        /**
+         * Optional resourceId for a source resource.
+         */
+        sourceResourceId?: pulumi.Input<string>;
+        /**
+         * A list of 0 or more tags that are associated with this workbook definition
+         */
+        tags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Unique user id of the specific user that owns this workbook.
+         */
+        userId: pulumi.Input<string>;
+        /**
+         * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+         */
+        version?: pulumi.Input<string>;
+        /**
+         * Internally assigned unique id of the workbook definition.
+         */
+        workbookId: pulumi.Input<string>;
     }
 
 }
@@ -20783,6 +22740,350 @@ export namespace maintenance {
 export namespace managedidentity {
 }
 
+export namespace managedservices {
+    /**
+     * Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
+     */
+    export interface Authorization {
+        /**
+         * Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+         */
+        roleDefinitionId: pulumi.Input<string>;
+    }
+
+    /**
+     * Plan details for the managed services.
+     */
+    export interface Plan {
+        /**
+         * The plan name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The product code.
+         */
+        product: pulumi.Input<string>;
+        /**
+         * The publisher ID.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * The plan's version.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of a registration assignment.
+     */
+    export interface RegistrationAssignmentProperties {
+        /**
+         * Fully qualified path of the registration definition.
+         */
+        registrationDefinitionId: pulumi.Input<string>;
+    }
+
+    /**
+     * Properties of a registration definition.
+     */
+    export interface RegistrationDefinitionProperties {
+        /**
+         * Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+         */
+        authorizations: pulumi.Input<pulumi.Input<inputs.managedservices.Authorization>[]>;
+        /**
+         * Description of the registration definition.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Id of the managedBy tenant.
+         */
+        managedByTenantId: pulumi.Input<string>;
+        /**
+         * Name of the registration definition.
+         */
+        registrationDefinitionName?: pulumi.Input<string>;
+    }
+
+}
+
+export namespace management {
+    /**
+     * The details of a management group used during creation.
+     */
+    export interface CreateManagementGroupDetails {
+        /**
+         * (Optional) The ID of the parent management group used during creation.
+         */
+        parent?: pulumi.Input<inputs.management.CreateParentGroupInfo>;
+    }
+
+    /**
+     * The generic properties of a management group used during creation.
+     */
+    export interface CreateManagementGroupProperties {
+        /**
+         * The details of a management group used during creation.
+         */
+        details?: pulumi.Input<inputs.management.CreateManagementGroupDetails>;
+        /**
+         * The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+         */
+        displayName?: pulumi.Input<string>;
+    }
+
+    /**
+     * The properties of the request to create or update Management Group settings
+     */
+    export interface CreateOrUpdateSettingsProperties {
+        /**
+         * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+         */
+        defaultManagementGroup?: pulumi.Input<string>;
+        /**
+         * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+         */
+        requireAuthorizationForGroupCreation?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * (Optional) The ID of the parent management group used during creation.
+     */
+    export interface CreateParentGroupInfo {
+        /**
+         * The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * The debug setting.
+     */
+    export interface DebugSetting {
+        /**
+         * Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
+         */
+        detailLevel?: pulumi.Input<string>;
+    }
+
+    /**
+     * Deployment properties.
+     */
+    export interface DeploymentProperties {
+        /**
+         * The debug setting of the deployment.
+         */
+        debugSetting?: pulumi.Input<inputs.management.DebugSetting>;
+        /**
+         * The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * The deployment on error behavior.
+         */
+        onErrorDeployment?: pulumi.Input<inputs.management.OnErrorDeployment>;
+        /**
+         * Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parametersLink?: pulumi.Input<inputs.management.ParametersLink>;
+        /**
+         * The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
+         */
+        template?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The URI of the template. Use either the templateLink property or the template property, but not both.
+         */
+        templateLink?: pulumi.Input<inputs.management.TemplateLink>;
+    }
+
+    /**
+     * Deployment on error behavior.
+     */
+    export interface OnErrorDeployment {
+        /**
+         * The deployment to be used on error case.
+         */
+        deploymentName?: pulumi.Input<string>;
+        /**
+         * The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * The parameter definitions for parameters used in the policy. The keys are the parameter names.
+     */
+    export interface ParameterDefinitions {
+    }
+
+    /**
+     * The parameter values for the policy rule. The keys are the parameter names.
+     */
+    export interface ParameterValues {
+    }
+
+    /**
+     * Entity representing the reference to the deployment parameters.
+     */
+    export interface ParametersLink {
+        /**
+         * If included, must match the ContentVersion in the template.
+         */
+        contentVersion?: pulumi.Input<string>;
+        /**
+         * The URI of the parameters file.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    /**
+     * The policy definition group.
+     */
+    export interface PolicyDefinitionGroup {
+        /**
+         * A resource ID of a resource that contains additional metadata about the group.
+         */
+        additionalMetadataId?: pulumi.Input<string>;
+        /**
+         * The group's category.
+         */
+        category?: pulumi.Input<string>;
+        /**
+         * The group's description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The group's display name.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * The name of the group.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * The policy definition properties.
+     */
+    export interface PolicyDefinitionProperties {
+        /**
+         * The policy definition description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of the policy definition.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+         */
+        mode?: pulumi.Input<string>;
+        /**
+         * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+         */
+        parameters?: pulumi.Input<inputs.management.ParameterDefinitions>;
+        /**
+         * The policy rule.
+         */
+        policyRule?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+         */
+        policyType?: pulumi.Input<string>;
+    }
+
+    /**
+     * The policy definition reference.
+     */
+    export interface PolicyDefinitionReference {
+        /**
+         * The name of the groups that this policy definition reference belongs to.
+         */
+        groupNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The parameter values for the referenced policy rule. The keys are the parameter names.
+         */
+        parameters?: pulumi.Input<inputs.management.ParameterValues>;
+        /**
+         * The ID of the policy definition or policy set definition.
+         */
+        policyDefinitionId: pulumi.Input<string>;
+        /**
+         * A unique id (within the policy set definition) for this policy definition reference.
+         */
+        policyDefinitionReferenceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * The policy set definition properties.
+     */
+    export interface PolicySetDefinitionProperties {
+        /**
+         * The policy set definition description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of the policy set definition.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The policy set definition parameters that can be used in policy definition references.
+         */
+        parameters?: pulumi.Input<inputs.management.ParameterDefinitions>;
+        /**
+         * The metadata describing groups of policy definition references within the policy set definition.
+         */
+        policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.management.PolicyDefinitionGroup>[]>;
+        /**
+         * An array of policy definition references.
+         */
+        policyDefinitions: pulumi.Input<pulumi.Input<inputs.management.PolicyDefinitionReference>[]>;
+        /**
+         * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+         */
+        policyType?: pulumi.Input<string>;
+    }
+
+    /**
+     * Entity representing the reference to the template.
+     */
+    export interface TemplateLink {
+        /**
+         * If included, must match the ContentVersion in the template.
+         */
+        contentVersion?: pulumi.Input<string>;
+        /**
+         * The resource id of a Template Spec. Use either the id or uri property, but not both.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+         */
+        relativePath?: pulumi.Input<string>;
+        /**
+         * The URI of the template to deploy. Use either the uri or id property, but not both.
+         */
+        uri?: pulumi.Input<string>;
+    }
+
+}
+
 export namespace maps {
     /**
      * The SKU of the Maps Account.
@@ -20794,6 +23095,9 @@ export namespace maps {
         name: pulumi.Input<string>;
     }
 
+}
+
+export namespace marketplace {
 }
 
 export namespace media {
@@ -22121,6 +24425,26 @@ export namespace netapp {
 }
 
 export namespace network {
+    /**
+     * An A record.
+     */
+    export interface ARecord {
+        /**
+         * The IPv4 address of this A record.
+         */
+        ipv4Address?: pulumi.Input<string>;
+    }
+
+    /**
+     * An AAAA record.
+     */
+    export interface AaaaRecord {
+        /**
+         * The IPv6 address of this AAAA record.
+         */
+        ipv6Address?: pulumi.Input<string>;
+    }
+
     /**
      * AAD Vpn authentication type related parameters.
      */
@@ -23976,6 +26300,16 @@ export namespace network {
     }
 
     /**
+     * A CNAME record.
+     */
+    export interface CnameRecord {
+        /**
+         * The canonical name for this CNAME record.
+         */
+        cname?: pulumi.Input<string>;
+    }
+
+    /**
      * Describes the destination of connection monitor.
      */
     export interface ConnectionMonitorDestination {
@@ -24418,17 +26752,13 @@ export namespace network {
      */
     export interface Endpoint {
         /**
-         * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-         */
-        id?: pulumi.Input<string>;
-        /**
          * The name of the resource
          */
         name?: pulumi.Input<string>;
         /**
          * The properties of the Traffic Manager endpoint.
          */
-        properties?: pulumi.Input<inputs.network.EndpointProperties>;
+        properties: pulumi.Input<inputs.network.EndpointPropertiesResponse>;
         /**
          * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
          */
@@ -24489,6 +26819,70 @@ export namespace network {
      * Custom header name and value.
      */
     export interface EndpointPropertiesProperties {
+        /**
+         * Header name.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Header value.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Class representing a Traffic Manager endpoint properties.
+     */
+    export interface EndpointPropertiesResponse {
+        /**
+         * List of custom headers.
+         */
+        customHeaders?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesResponseProperties>[]>;
+        /**
+         * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+         */
+        endpointLocation?: pulumi.Input<string>;
+        /**
+         * The monitoring status of the endpoint.
+         */
+        endpointMonitorStatus?: pulumi.Input<string>;
+        /**
+         * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+         */
+        endpointStatus?: pulumi.Input<string>;
+        /**
+         * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+         */
+        geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+         */
+        minChildEndpoints?: pulumi.Input<number>;
+        /**
+         * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+         */
+        subnets?: pulumi.Input<pulumi.Input<inputs.network.EndpointPropertiesResponseProperties>[]>;
+        /**
+         * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+         */
+        targetResourceId?: pulumi.Input<string>;
+        /**
+         * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
+     * Custom header name and value.
+     */
+    export interface EndpointPropertiesResponseProperties {
         /**
          * Header name.
          */
@@ -26264,6 +28658,20 @@ export namespace network {
     }
 
     /**
+     * An MX record.
+     */
+    export interface MxRecord {
+        /**
+         * The domain name of the mail host for this MX record.
+         */
+        exchange?: pulumi.Input<string>;
+        /**
+         * The preference value for this MX record.
+         */
+        preference?: pulumi.Input<number>;
+    }
+
+    /**
      * Nat Gateway properties.
      */
     export interface NatGatewayPropertiesFormat {
@@ -27018,6 +29426,20 @@ export namespace network {
     }
 
     /**
+     * The list of RouteTables to advertise the routes to.
+     */
+    export interface PropagatedRouteTableResponse {
+        /**
+         * The list of resource ids of all the RouteTables.
+         */
+        ids?: pulumi.Input<pulumi.Input<inputs.network.SubResourceResponse>[]>;
+        /**
+         * The list of labels.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * DDoS custom policy properties.
      */
     export interface ProtocolCustomSettingsFormat {
@@ -27037,6 +29459,16 @@ export namespace network {
          * The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
          */
         triggerSensitivityOverride?: pulumi.Input<string>;
+    }
+
+    /**
+     * A PTR record.
+     */
+    export interface PtrRecord {
+        /**
+         * The PTR target domain name for this PTR record.
+         */
+        ptrdname?: pulumi.Input<string>;
     }
 
     /**
@@ -27200,6 +29632,52 @@ export namespace network {
     }
 
     /**
+     * Represents the properties of the records in the record set.
+     */
+    export interface RecordSetProperties {
+        /**
+         * The list of A records in the record set.
+         */
+        aRecords?: pulumi.Input<pulumi.Input<inputs.network.ARecord>[]>;
+        /**
+         * The list of AAAA records in the record set.
+         */
+        aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.AaaaRecord>[]>;
+        /**
+         * The CNAME record in the record set.
+         */
+        cnameRecord?: pulumi.Input<inputs.network.CnameRecord>;
+        /**
+         * The metadata attached to the record set.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The list of MX records in the record set.
+         */
+        mxRecords?: pulumi.Input<pulumi.Input<inputs.network.MxRecord>[]>;
+        /**
+         * The list of PTR records in the record set.
+         */
+        ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.PtrRecord>[]>;
+        /**
+         * The SOA record in the record set.
+         */
+        soaRecord?: pulumi.Input<inputs.network.SoaRecord>;
+        /**
+         * The list of SRV records in the record set.
+         */
+        srvRecords?: pulumi.Input<pulumi.Input<inputs.network.SrvRecord>[]>;
+        /**
+         * The TTL (time-to-live) of the records in the record set.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * The list of TXT records in the record set.
+         */
+        txtRecords?: pulumi.Input<pulumi.Input<inputs.network.TxtRecord>[]>;
+    }
+
+    /**
      * Parameters that define the retention policy for flow log.
      */
     export interface RetentionPolicyParameters {
@@ -27252,9 +29730,9 @@ export namespace network {
      */
     export interface RouteFilterRule {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * Resource location.
          */
@@ -27266,7 +29744,7 @@ export namespace network {
         /**
          * Properties of the route filter rule.
          */
-        properties?: pulumi.Input<inputs.network.RouteFilterRulePropertiesFormat>;
+        properties: pulumi.Input<inputs.network.RouteFilterRulePropertiesFormatResponse>;
     }
 
     /**
@@ -27281,6 +29759,28 @@ export namespace network {
          * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
          */
         communities: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The rule type of the rule.
+         */
+        routeFilterRuleType: pulumi.Input<string>;
+    }
+
+    /**
+     * Route Filter Rule Resource.
+     */
+    export interface RouteFilterRulePropertiesFormatResponse {
+        /**
+         * The access type of the rule.
+         */
+        access: pulumi.Input<string>;
+        /**
+         * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+         */
+        communities: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The provisioning state of the route filter rule resource.
+         */
+        provisioningState: pulumi.Input<string>;
         /**
          * The rule type of the rule.
          */
@@ -27357,6 +29857,24 @@ export namespace network {
          * List of routes that control routing from VirtualHub into a virtual network connection.
          */
         vnetRoutes?: pulumi.Input<inputs.network.VnetRoute>;
+    }
+
+    /**
+     * Routing Configuration indicating the associated and propagated route tables for this connection.
+     */
+    export interface RoutingConfigurationResponse {
+        /**
+         * The resource id RouteTable associated with this RoutingConfiguration.
+         */
+        associatedRouteTable?: pulumi.Input<inputs.network.SubResourceResponse>;
+        /**
+         * The list of RouteTables to advertise the routes to.
+         */
+        propagatedRouteTables?: pulumi.Input<inputs.network.PropagatedRouteTableResponse>;
+        /**
+         * List of routes that control routing from VirtualHub into a virtual network connection.
+         */
+        vnetRoutes?: pulumi.Input<inputs.network.VnetRouteResponse>;
     }
 
     /**
@@ -27704,9 +30222,83 @@ export namespace network {
     }
 
     /**
+     * An SOA record.
+     */
+    export interface SoaRecord {
+        /**
+         * The email contact for this SOA record.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The expire time for this SOA record.
+         */
+        expireTime?: pulumi.Input<number>;
+        /**
+         * The domain name of the authoritative name server for this SOA record.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+         */
+        minimumTtl?: pulumi.Input<number>;
+        /**
+         * The refresh value for this SOA record.
+         */
+        refreshTime?: pulumi.Input<number>;
+        /**
+         * The retry time for this SOA record.
+         */
+        retryTime?: pulumi.Input<number>;
+        /**
+         * The serial number for this SOA record.
+         */
+        serialNumber?: pulumi.Input<number>;
+    }
+
+    /**
+     * An SRV record.
+     */
+    export interface SrvRecord {
+        /**
+         * The port value for this SRV record.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The priority value for this SRV record.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The target domain name for this SRV record.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * The weight value for this SRV record.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    /**
      * List of all Static Routes.
      */
     export interface StaticRoute {
+        /**
+         * List of all address prefixes.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the StaticRoute that is unique within a VnetRoute.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The ip address of the next hop.
+         */
+        nextHopIpAddress?: pulumi.Input<string>;
+    }
+
+    /**
+     * List of all Static Routes.
+     */
+    export interface StaticRouteResponse {
         /**
          * List of all address prefixes.
          */
@@ -27860,6 +30452,16 @@ export namespace network {
     }
 
     /**
+     * A TXT record.
+     */
+    export interface TxtRecord {
+        /**
+         * The text value of this TXT record.
+         */
+        value?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Properties of the rule group.
      */
     export interface VirtualApplianceSiteProperties {
@@ -27964,9 +30566,33 @@ export namespace network {
     }
 
     /**
-     * VirtualHubRouteTableV2 Resource.
+     * VirtualHub route.
+     */
+    export interface VirtualHubRoute {
+        /**
+         * List of all addressPrefixes.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * NextHop ip address.
+         */
+        nextHopIpAddress?: pulumi.Input<string>;
+    }
+
+    /**
+     * VirtualHub route table.
      */
     export interface VirtualHubRouteTable {
+        /**
+         * List of all routes.
+         */
+        routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
+    }
+
+    /**
+     * VirtualHubRouteTableV2 Resource.
+     */
+    export interface VirtualHubRouteTableV2 {
         /**
          * A unique read-only string that changes whenever the resource is updated.
          */
@@ -27979,24 +30605,6 @@ export namespace network {
          * Properties of the virtual hub route table v2.
          */
         properties: pulumi.Input<inputs.network.VirtualHubRouteTableV2PropertiesResponse>;
-    }
-
-    /**
-     * VirtualHubRouteTableV2 Resource.
-     */
-    export interface VirtualHubRouteTableV2 {
-        /**
-         * Resource ID.
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * Properties of the virtual hub route table v2.
-         */
-        properties?: pulumi.Input<inputs.network.VirtualHubRouteTableV2Properties>;
     }
 
     /**
@@ -28448,9 +31056,9 @@ export namespace network {
      */
     export interface VirtualNetworkPeering {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * The name of the resource that is unique within a resource group. This name can be used to access the resource.
          */
@@ -28458,7 +31066,7 @@ export namespace network {
         /**
          * Properties of the virtual network peering.
          */
-        properties?: pulumi.Input<inputs.network.VirtualNetworkPeeringPropertiesFormat>;
+        properties: pulumi.Input<inputs.network.VirtualNetworkPeeringPropertiesFormatResponse>;
     }
 
     /**
@@ -28489,6 +31097,44 @@ export namespace network {
          * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
          */
         remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResource>;
+        /**
+         * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+         */
+        useRemoteGateways?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Properties of the virtual network peering.
+     */
+    export interface VirtualNetworkPeeringPropertiesFormatResponse {
+        /**
+         * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+         */
+        allowForwardedTraffic?: pulumi.Input<boolean>;
+        /**
+         * If gateway links can be used in remote virtual networking to link to this virtual network.
+         */
+        allowGatewayTransit?: pulumi.Input<boolean>;
+        /**
+         * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+         */
+        allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+        /**
+         * The status of the virtual network peering.
+         */
+        peeringState?: pulumi.Input<string>;
+        /**
+         * The provisioning state of the virtual network peering resource.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * The reference to the remote virtual network address space.
+         */
+        remoteAddressSpace?: pulumi.Input<inputs.network.AddressSpaceResponse>;
+        /**
+         * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+         */
+        remoteVirtualNetwork?: pulumi.Input<inputs.network.SubResourceResponse>;
         /**
          * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
          */
@@ -28647,6 +31293,16 @@ export namespace network {
          * List of all Static Routes.
          */
         staticRoutes?: pulumi.Input<pulumi.Input<inputs.network.StaticRoute>[]>;
+    }
+
+    /**
+     * List of routes that control routing from VirtualHub into a virtual network connection.
+     */
+    export interface VnetRouteResponse {
+        /**
+         * List of all Static Routes.
+         */
+        staticRoutes?: pulumi.Input<pulumi.Input<inputs.network.StaticRouteResponse>[]>;
     }
 
     /**
@@ -28882,9 +31538,9 @@ export namespace network {
      */
     export interface VpnConnection {
         /**
-         * Resource ID.
+         * A unique read-only string that changes whenever the resource is updated.
          */
-        id?: pulumi.Input<string>;
+        etag: pulumi.Input<string>;
         /**
          * The name of the resource that is unique within a resource group. This name can be used to access the resource.
          */
@@ -28892,7 +31548,7 @@ export namespace network {
         /**
          * Properties of the VPN connection.
          */
-        properties?: pulumi.Input<inputs.network.VpnConnectionProperties>;
+        properties: pulumi.Input<inputs.network.VpnConnectionPropertiesResponse>;
     }
 
     /**
@@ -28959,6 +31615,84 @@ export namespace network {
          * List of all vpn site link connections to the gateway.
          */
         vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnection>[]>;
+    }
+
+    /**
+     * Parameters for VpnConnection.
+     */
+    export interface VpnConnectionPropertiesResponse {
+        /**
+         * Expected bandwidth in MBPS.
+         */
+        connectionBandwidth?: pulumi.Input<number>;
+        /**
+         * The connection status.
+         */
+        connectionStatus?: pulumi.Input<string>;
+        /**
+         * The dead peer detection timeout for a vpn connection in seconds.
+         */
+        dpdTimeoutSeconds?: pulumi.Input<number>;
+        /**
+         * Egress bytes transferred.
+         */
+        egressBytesTransferred: pulumi.Input<number>;
+        /**
+         * EnableBgp flag.
+         */
+        enableBgp?: pulumi.Input<boolean>;
+        /**
+         * Enable internet security.
+         */
+        enableInternetSecurity?: pulumi.Input<boolean>;
+        /**
+         * EnableBgp flag.
+         */
+        enableRateLimiting?: pulumi.Input<boolean>;
+        /**
+         * Ingress bytes transferred.
+         */
+        ingressBytesTransferred: pulumi.Input<number>;
+        /**
+         * The IPSec Policies to be considered by this connection.
+         */
+        ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyResponse>[]>;
+        /**
+         * The provisioning state of the VPN connection resource.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Id of the connected vpn site.
+         */
+        remoteVpnSite?: pulumi.Input<inputs.network.SubResourceResponse>;
+        /**
+         * The Routing Configuration indicating the associated and propagated route tables on this connection.
+         */
+        routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationResponse>;
+        /**
+         * Routing weight for vpn connection.
+         */
+        routingWeight?: pulumi.Input<number>;
+        /**
+         * SharedKey for the vpn connection.
+         */
+        sharedKey?: pulumi.Input<string>;
+        /**
+         * Use local azure ip to initiate connection.
+         */
+        useLocalAzureIpAddress?: pulumi.Input<boolean>;
+        /**
+         * Enable policy-based traffic selectors.
+         */
+        usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+        /**
+         * Connection protocol used for this connection.
+         */
+        vpnConnectionProtocolType?: pulumi.Input<string>;
+        /**
+         * List of all vpn site link connections to the gateway.
+         */
+        vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnectionResponse>[]>;
     }
 
     /**
@@ -29205,6 +31939,94 @@ export namespace network {
          * Id of the connected vpn site link.
          */
         vpnSiteLink?: pulumi.Input<inputs.network.SubResource>;
+    }
+
+    /**
+     * Parameters for VpnConnection.
+     */
+    export interface VpnSiteLinkConnectionPropertiesResponse {
+        /**
+         * Expected bandwidth in MBPS.
+         */
+        connectionBandwidth?: pulumi.Input<number>;
+        /**
+         * The connection status.
+         */
+        connectionStatus?: pulumi.Input<string>;
+        /**
+         * Egress bytes transferred.
+         */
+        egressBytesTransferred: pulumi.Input<number>;
+        /**
+         * EnableBgp flag.
+         */
+        enableBgp?: pulumi.Input<boolean>;
+        /**
+         * EnableBgp flag.
+         */
+        enableRateLimiting?: pulumi.Input<boolean>;
+        /**
+         * Ingress bytes transferred.
+         */
+        ingressBytesTransferred: pulumi.Input<number>;
+        /**
+         * The IPSec Policies to be considered by this connection.
+         */
+        ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyResponse>[]>;
+        /**
+         * The provisioning state of the VPN site link connection resource.
+         */
+        provisioningState: pulumi.Input<string>;
+        /**
+         * Routing weight for vpn connection.
+         */
+        routingWeight?: pulumi.Input<number>;
+        /**
+         * SharedKey for the vpn connection.
+         */
+        sharedKey?: pulumi.Input<string>;
+        /**
+         * Use local azure ip to initiate connection.
+         */
+        useLocalAzureIpAddress?: pulumi.Input<boolean>;
+        /**
+         * Enable policy-based traffic selectors.
+         */
+        usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+        /**
+         * Connection protocol used for this connection.
+         */
+        vpnConnectionProtocolType?: pulumi.Input<string>;
+        /**
+         * Id of the connected vpn site link.
+         */
+        vpnSiteLink?: pulumi.Input<inputs.network.SubResourceResponse>;
+    }
+
+    /**
+     * VpnSiteLinkConnection Resource.
+     */
+    export interface VpnSiteLinkConnectionResponse {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: pulumi.Input<string>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Properties of the VPN site link connection.
+         */
+        properties?: pulumi.Input<inputs.network.VpnSiteLinkConnectionPropertiesResponse>;
+        /**
+         * Resource type.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -30016,6 +32838,24 @@ export namespace peering {
     }
 
     /**
+     * The contact detail class.
+     */
+    export interface ContactDetail {
+        /**
+         * The e-mail address of the contact.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The phone number of the contact.
+         */
+        phone?: pulumi.Input<string>;
+        /**
+         * The role of the contact.
+         */
+        role?: pulumi.Input<string>;
+    }
+
+    /**
      * The properties that define a direct connection.
      */
     export interface DirectConnection {
@@ -30061,6 +32901,28 @@ export namespace peering {
          * The PeeringDB.com ID of the facility at which the connection has to be set up.
          */
         peeringDBFacilityId?: pulumi.Input<number>;
+    }
+
+    /**
+     * The properties that define a peer's ASN.
+     */
+    export interface PeerAsnProperties {
+        /**
+         * The Autonomous System Number (ASN) of the peer.
+         */
+        peerAsn?: pulumi.Input<number>;
+        /**
+         * The contact details of the peer.
+         */
+        peerContactDetail?: pulumi.Input<pulumi.Input<inputs.peering.ContactDetail>[]>;
+        /**
+         * The name of the peer.
+         */
+        peerName?: pulumi.Input<string>;
+        /**
+         * The validation state of the ASN associated with the peer.
+         */
+        validationState?: pulumi.Input<string>;
     }
 
     /**
@@ -30236,6 +33098,85 @@ export namespace policyinsights {
          * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
          */
         resourceDiscoveryMode?: pulumi.Input<string>;
+    }
+
+}
+
+export namespace portal {
+    /**
+     * Cloud shell properties for creating a console.
+     */
+    export interface ConsoleCreateProperties {
+        /**
+         * The operating system type of the cloud shell.
+         */
+        osType: pulumi.Input<string>;
+        /**
+         * Provisioning state of the console.
+         */
+        provisioningState?: pulumi.Input<string>;
+        /**
+         * Uri of the console.
+         */
+        uri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The storage profile of the user settings.
+     */
+    export interface StorageProfile {
+        /**
+         * Size of file share
+         */
+        diskSizeInGB?: pulumi.Input<number>;
+        /**
+         * Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
+         */
+        fileShareName?: pulumi.Input<string>;
+        /**
+         * Full resource ID of storage account.
+         */
+        storageAccountResourceId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Settings for terminal appearance.
+     */
+    export interface TerminalSettings {
+        /**
+         * Size of terminal font.
+         */
+        fontSize?: pulumi.Input<string>;
+        /**
+         * Style of terminal font.
+         */
+        fontStyle?: pulumi.Input<string>;
+    }
+
+    /**
+     * The cloud shell user settings properties.
+     */
+    export interface UserProperties {
+        /**
+         * The preferred location of the cloud shell.
+         */
+        preferredLocation: pulumi.Input<string>;
+        /**
+         * The operating system type of the cloud shell. Deprecated, use preferredShellType.
+         */
+        preferredOsType: pulumi.Input<string>;
+        /**
+         * The shell type of the cloud shell.
+         */
+        preferredShellType: pulumi.Input<string>;
+        /**
+         * The storage profile of the user settings.
+         */
+        storageProfile: pulumi.Input<inputs.portal.StorageProfile>;
+        /**
+         * Settings for terminal appearance.
+         */
+        terminalSettings: pulumi.Input<inputs.portal.TerminalSettings>;
     }
 
 }
@@ -30549,7 +33490,7 @@ export namespace recoveryservices {
     /**
      * Private Endpoint Connection Response Properties
      */
-    export interface PrivateEndpointConnection {
+    export interface PrivateEndpointConnectionDefinition {
         /**
          * Gets or sets private endpoint associated with the private endpoint connection
          */
@@ -30585,7 +33526,7 @@ export namespace recoveryservices {
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    export interface ProtectionPolicy {
+    export interface ProtectionPolicyDefinition {
         /**
          * This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
          */
@@ -31039,6 +33980,13 @@ export namespace resources {
          * The URI of the parameters file.
          */
         uri: pulumi.Input<string>;
+    }
+
+    /**
+     * A dictionary of name and value pairs.
+     */
+    export interface Tags {
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -31560,6 +34508,104 @@ export namespace search {
 
 export namespace security {
     /**
+     * A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+     */
+    export interface AllowlistCustomAlertRule {
+        /**
+         * The values to allow. The format of the values depends on the rule type.
+         */
+        allowlistValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: pulumi.Input<boolean>;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: pulumi.Input<string>;
+    }
+
+    /**
+     * Represents a VM/server group and set of rules to be allowed running on a machine
+     */
+    export interface AppWhitelistingGroupData {
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        enforcementMode?: pulumi.Input<string>;
+        pathRecommendations?: pulumi.Input<inputs.security.PathRecommendations>;
+        /**
+         * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+         */
+        protectionMode?: pulumi.Input<inputs.security.ProtectionMode>;
+        vmRecommendations?: pulumi.Input<inputs.security.VmRecommendations>;
+    }
+
+    /**
+     * Links relevant to the assessment
+     */
+    export interface AssessmentLinks {
+    }
+
+    /**
+     * The result of the assessment
+     */
+    export interface AssessmentStatus {
+        /**
+         * Programmatic code for the cause of the assessment status
+         */
+        cause?: pulumi.Input<string>;
+        /**
+         * Programmatic code for the status of the assessment
+         */
+        code: pulumi.Input<string>;
+        /**
+         * Human readable description of the assessment status
+         */
+        description?: pulumi.Input<string>;
+    }
+
+    /**
+     * A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+     */
+    export interface DenylistCustomAlertRule {
+        /**
+         * The values to deny. The format of the values depends on the rule type.
+         */
+        denylistValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: pulumi.Input<boolean>;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: pulumi.Input<string>;
+    }
+
+    /**
+     * describes properties of a security group.
+     */
+    export interface DeviceSecurityGroupProperties {
+        /**
+         * The allow-list custom alert rules.
+         */
+        allowlistRules?: pulumi.Input<pulumi.Input<inputs.security.AllowlistCustomAlertRule>[]>;
+        /**
+         * The deny-list custom alert rules.
+         */
+        denylistRules?: pulumi.Input<pulumi.Input<inputs.security.DenylistCustomAlertRule>[]>;
+        /**
+         * The list of custom alert threshold rules.
+         */
+        thresholdRules?: pulumi.Input<pulumi.Input<inputs.security.ThresholdCustomAlertRule>[]>;
+        /**
+         * The list of custom alert time-window rules.
+         */
+        timeWindowRules?: pulumi.Input<pulumi.Input<inputs.security.TimeWindowCustomAlertRule>[]>;
+    }
+
+    /**
      * Security Solution setting data
      */
     export interface IoTSecuritySolutionProperties {
@@ -31696,13 +34742,202 @@ export namespace security {
         ports: pulumi.Input<pulumi.Input<inputs.security.JitNetworkAccessRequestPort>[]>;
     }
 
+    export interface PathRecommendations {
+    }
+
     export interface PortNumber {
+    }
+
+    /**
+     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+     */
+    export interface ProtectionMode {
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        exe?: pulumi.Input<string>;
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        executable?: pulumi.Input<string>;
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        msi?: pulumi.Input<string>;
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        script?: pulumi.Input<string>;
     }
 
     /**
      * List of the configuration status for each recommendation type.
      */
     export interface RecommendationConfigurationList {
+    }
+
+    /**
+     * Details of the resource that was assessed
+     */
+    export interface ResourceDetails {
+        /**
+         * The platform where the assessed resource resides
+         */
+        source: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the partner that created the assessment
+     */
+    export interface SecurityAssessmentMetadataPartnerData {
+        /**
+         * Name of the company of the partner
+         */
+        partnerName: pulumi.Input<string>;
+        /**
+         * Name of the product of the partner that created the assessment
+         */
+        productName?: pulumi.Input<string>;
+        /**
+         * Secret to authenticate the partner and verify it created the assessment - write only
+         */
+        secret: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes properties of an assessment metadata.
+     */
+    export interface SecurityAssessmentMetadataProperties {
+        /**
+         * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+         */
+        assessmentType: pulumi.Input<string>;
+        category?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Human readable description of the assessment
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * User friendly display name of the assessment
+         */
+        displayName: pulumi.Input<string>;
+        /**
+         * The implementation effort required to remediate this assessment
+         */
+        implementationEffort?: pulumi.Input<string>;
+        /**
+         * Describes the partner that created the assessment
+         */
+        partnerData?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPartnerData>;
+        /**
+         * True if this assessment is in preview release status
+         */
+        preview?: pulumi.Input<boolean>;
+        /**
+         * Human readable description of what you should do to mitigate this security issue
+         */
+        remediationDescription?: pulumi.Input<string>;
+        /**
+         * The severity level of the assessment
+         */
+        severity: pulumi.Input<string>;
+        threats?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The user impact of the assessment
+         */
+        userImpact?: pulumi.Input<string>;
+    }
+
+    /**
+     * Data regarding 3rd party partner integration
+     */
+    export interface SecurityAssessmentPartnerData {
+        /**
+         * Name of the company of the partner
+         */
+        partnerName: pulumi.Input<string>;
+        /**
+         * secret to authenticate the partner - write only
+         */
+        secret: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes properties of an assessment.
+     */
+    export interface SecurityAssessmentProperties {
+        /**
+         * Additional data regarding the assessment
+         */
+        additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Links relevant to the assessment
+         */
+        links?: pulumi.Input<inputs.security.AssessmentLinks>;
+        /**
+         * Describes properties of an assessment metadata.
+         */
+        metadata?: pulumi.Input<inputs.security.SecurityAssessmentMetadataProperties>;
+        /**
+         * Data regarding 3rd party partner integration
+         */
+        partnersData?: pulumi.Input<inputs.security.SecurityAssessmentPartnerData>;
+        /**
+         * Details of the resource that was assessed
+         */
+        resourceDetails: pulumi.Input<inputs.security.ResourceDetails>;
+        /**
+         * The result of the assessment
+         */
+        status: pulumi.Input<inputs.security.AssessmentStatus>;
+    }
+
+    /**
+     * A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+     */
+    export interface ThresholdCustomAlertRule {
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: pulumi.Input<boolean>;
+        /**
+         * The maximum threshold.
+         */
+        maxThreshold: pulumi.Input<number>;
+        /**
+         * The minimum threshold.
+         */
+        minThreshold: pulumi.Input<number>;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: pulumi.Input<string>;
+    }
+
+    /**
+     * A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+     */
+    export interface TimeWindowCustomAlertRule {
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: pulumi.Input<boolean>;
+        /**
+         * The maximum threshold.
+         */
+        maxThreshold: pulumi.Input<number>;
+        /**
+         * The minimum threshold.
+         */
+        minThreshold: pulumi.Input<number>;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: pulumi.Input<string>;
+        /**
+         * The time window size in iso8601 format.
+         */
+        timeWindowSize: pulumi.Input<string>;
     }
 
     /**
@@ -31717,6 +34952,9 @@ export namespace security {
          * List of Azure subscription ids on which the user defined resources query should be executed.
          */
         querySubscriptions: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VmRecommendations {
     }
 
 }
@@ -33024,6 +36262,25 @@ export namespace signalrservice {
          * For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
          */
         urlTemplate: pulumi.Input<string>;
+    }
+
+}
+
+export namespace softwareplan {
+    /**
+     * Hybrid use benefit properties
+     */
+    export interface HybridUseBenefitProperties {
+    }
+
+    /**
+     * The SKU to be applied for this resource
+     */
+    export interface Sku {
+        /**
+         * Name of the SKU to be applied
+         */
+        name?: pulumi.Input<string>;
     }
 
 }
@@ -35671,7 +38928,7 @@ export namespace web {
     /**
      * Description of an App Service Environment.
      */
-    export interface AppServiceEnvironment {
+    export interface AppServiceEnvironmentDefinition {
         /**
          * API Management Account associated with the App Service Environment.
          */

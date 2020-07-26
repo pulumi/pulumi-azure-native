@@ -4,7 +4,7 @@
 
 # Export this package's modules as members:
 from .account import *
-from .account_private_endpoint_connection import *
 from .get_account import *
-from .get_account_private_endpoint_connection import *
+from .get_private_endpoint_connection import *
 from .list_account_keys import *
+from .private_endpoint_connection import *

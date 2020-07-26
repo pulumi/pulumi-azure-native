@@ -9,31 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Represents a lab account.
  */
-export class Labaccount extends pulumi.CustomResource {
+export class LabAccount extends pulumi.CustomResource {
     /**
-     * Get an existing Labaccount resource's state with the given name, ID, and optional extra
+     * Get an existing LabAccount resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Labaccount {
-        return new Labaccount(name, undefined, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LabAccount {
+        return new LabAccount(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:labservices:Labaccount';
+    public static readonly __pulumiType = 'azurerm:labservices:LabAccount';
 
     /**
-     * Returns true if the given object is an instance of Labaccount.  This is designed to work even
+     * Returns true if the given object is an instance of LabAccount.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Labaccount {
+    public static isInstance(obj: any): obj is LabAccount {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Labaccount.__pulumiType;
+        return obj['__pulumiType'] === LabAccount.__pulumiType;
     }
 
     /**
@@ -58,18 +58,18 @@ export class Labaccount extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a Labaccount resource with the given unique name, arguments, and options.
+     * Create a LabAccount resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LabaccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: LabAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: LabaccountArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, argsOrState?: LabAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as LabaccountArgs | undefined;
+            const args = argsOrState as LabAccountArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -90,14 +90,14 @@ export class Labaccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(Labaccount.__pulumiType, name, inputs, opts);
+        super(LabAccount.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a Labaccount resource.
+ * The set of arguments for constructing a LabAccount resource.
  */
-export interface LabaccountArgs {
+export interface LabAccountArgs {
     /**
      * The location of the resource.
      */

@@ -10,6 +10,225 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+type FirewallRuleType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// redis cache firewall rule properties
+	Properties RedisFirewallRulePropertiesResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// FirewallRuleTypeInput is an input type that accepts FirewallRuleTypeArgs and FirewallRuleTypeOutput values.
+// You can construct a concrete instance of `FirewallRuleTypeInput` via:
+//
+//          FirewallRuleTypeArgs{...}
+type FirewallRuleTypeInput interface {
+	pulumi.Input
+
+	ToFirewallRuleTypeOutput() FirewallRuleTypeOutput
+	ToFirewallRuleTypeOutputWithContext(context.Context) FirewallRuleTypeOutput
+}
+
+// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+type FirewallRuleTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// redis cache firewall rule properties
+	Properties RedisFirewallRulePropertiesResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
+}
+
+func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
+	return i.ToFirewallRuleTypeOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleTypeOutput)
+}
+
+// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+type FirewallRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
+}
+
+func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
+	return o
+}
+
+func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o FirewallRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// redis cache firewall rule properties
+func (o FirewallRuleTypeOutput) Properties() RedisFirewallRulePropertiesResponseOutput {
+	return o.ApplyT(func(v FirewallRuleType) RedisFirewallRulePropertiesResponse { return v.Properties }).(RedisFirewallRulePropertiesResponseOutput)
+}
+
+// Resource type.
+func (o FirewallRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Response to put/get linked server (with properties) for Redis cache.
+type LinkedServerType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the linked server.
+	Properties RedisLinkedServerPropertiesResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// LinkedServerTypeInput is an input type that accepts LinkedServerTypeArgs and LinkedServerTypeOutput values.
+// You can construct a concrete instance of `LinkedServerTypeInput` via:
+//
+//          LinkedServerTypeArgs{...}
+type LinkedServerTypeInput interface {
+	pulumi.Input
+
+	ToLinkedServerTypeOutput() LinkedServerTypeOutput
+	ToLinkedServerTypeOutputWithContext(context.Context) LinkedServerTypeOutput
+}
+
+// Response to put/get linked server (with properties) for Redis cache.
+type LinkedServerTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the linked server.
+	Properties RedisLinkedServerPropertiesResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LinkedServerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServerType)(nil)).Elem()
+}
+
+func (i LinkedServerTypeArgs) ToLinkedServerTypeOutput() LinkedServerTypeOutput {
+	return i.ToLinkedServerTypeOutputWithContext(context.Background())
+}
+
+func (i LinkedServerTypeArgs) ToLinkedServerTypeOutputWithContext(ctx context.Context) LinkedServerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerTypeOutput)
+}
+
+// Response to put/get linked server (with properties) for Redis cache.
+type LinkedServerTypeOutput struct{ *pulumi.OutputState }
+
+func (LinkedServerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServerType)(nil)).Elem()
+}
+
+func (o LinkedServerTypeOutput) ToLinkedServerTypeOutput() LinkedServerTypeOutput {
+	return o
+}
+
+func (o LinkedServerTypeOutput) ToLinkedServerTypeOutputWithContext(ctx context.Context) LinkedServerTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o LinkedServerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the linked server.
+func (o LinkedServerTypeOutput) Properties() RedisLinkedServerPropertiesResponseOutput {
+	return o.ApplyT(func(v LinkedServerType) RedisLinkedServerPropertiesResponse { return v.Properties }).(RedisLinkedServerPropertiesResponseOutput)
+}
+
+// Resource type.
+func (o LinkedServerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Response to put/get patch schedules for Redis cache.
+type PatchScheduleType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// List of patch schedules for a Redis cache.
+	Properties ScheduleEntriesResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// PatchScheduleTypeInput is an input type that accepts PatchScheduleTypeArgs and PatchScheduleTypeOutput values.
+// You can construct a concrete instance of `PatchScheduleTypeInput` via:
+//
+//          PatchScheduleTypeArgs{...}
+type PatchScheduleTypeInput interface {
+	pulumi.Input
+
+	ToPatchScheduleTypeOutput() PatchScheduleTypeOutput
+	ToPatchScheduleTypeOutputWithContext(context.Context) PatchScheduleTypeOutput
+}
+
+// Response to put/get patch schedules for Redis cache.
+type PatchScheduleTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of patch schedules for a Redis cache.
+	Properties ScheduleEntriesResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PatchScheduleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchScheduleType)(nil)).Elem()
+}
+
+func (i PatchScheduleTypeArgs) ToPatchScheduleTypeOutput() PatchScheduleTypeOutput {
+	return i.ToPatchScheduleTypeOutputWithContext(context.Background())
+}
+
+func (i PatchScheduleTypeArgs) ToPatchScheduleTypeOutputWithContext(ctx context.Context) PatchScheduleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchScheduleTypeOutput)
+}
+
+// Response to put/get patch schedules for Redis cache.
+type PatchScheduleTypeOutput struct{ *pulumi.OutputState }
+
+func (PatchScheduleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchScheduleType)(nil)).Elem()
+}
+
+func (o PatchScheduleTypeOutput) ToPatchScheduleTypeOutput() PatchScheduleTypeOutput {
+	return o
+}
+
+func (o PatchScheduleTypeOutput) ToPatchScheduleTypeOutputWithContext(ctx context.Context) PatchScheduleTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o PatchScheduleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PatchScheduleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of patch schedules for a Redis cache.
+func (o PatchScheduleTypeOutput) Properties() ScheduleEntriesResponseOutput {
+	return o.ApplyT(func(v PatchScheduleType) ScheduleEntriesResponse { return v.Properties }).(ScheduleEntriesResponseOutput)
+}
+
+// Resource type.
+func (o PatchScheduleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PatchScheduleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // A single Redis item in List or Get Operation.
 type RedisType struct {
 	// The geo-location where the resource lives
@@ -530,79 +749,6 @@ func (o RedisCreatePropertiesPtrOutput) TenantSettings() pulumi.StringMapOutput 
 	}).(pulumi.StringMapOutput)
 }
 
-// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-type RedisFirewallRuleType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// redis cache firewall rule properties
-	Properties RedisFirewallRulePropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RedisFirewallRuleTypeInput is an input type that accepts RedisFirewallRuleTypeArgs and RedisFirewallRuleTypeOutput values.
-// You can construct a concrete instance of `RedisFirewallRuleTypeInput` via:
-//
-//          RedisFirewallRuleTypeArgs{...}
-type RedisFirewallRuleTypeInput interface {
-	pulumi.Input
-
-	ToRedisFirewallRuleTypeOutput() RedisFirewallRuleTypeOutput
-	ToRedisFirewallRuleTypeOutputWithContext(context.Context) RedisFirewallRuleTypeOutput
-}
-
-// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-type RedisFirewallRuleTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// redis cache firewall rule properties
-	Properties RedisFirewallRulePropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RedisFirewallRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisFirewallRuleType)(nil)).Elem()
-}
-
-func (i RedisFirewallRuleTypeArgs) ToRedisFirewallRuleTypeOutput() RedisFirewallRuleTypeOutput {
-	return i.ToRedisFirewallRuleTypeOutputWithContext(context.Background())
-}
-
-func (i RedisFirewallRuleTypeArgs) ToRedisFirewallRuleTypeOutputWithContext(ctx context.Context) RedisFirewallRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisFirewallRuleTypeOutput)
-}
-
-// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-type RedisFirewallRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (RedisFirewallRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisFirewallRuleType)(nil)).Elem()
-}
-
-func (o RedisFirewallRuleTypeOutput) ToRedisFirewallRuleTypeOutput() RedisFirewallRuleTypeOutput {
-	return o
-}
-
-func (o RedisFirewallRuleTypeOutput) ToRedisFirewallRuleTypeOutputWithContext(ctx context.Context) RedisFirewallRuleTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RedisFirewallRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisFirewallRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// redis cache firewall rule properties
-func (o RedisFirewallRuleTypeOutput) Properties() RedisFirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v RedisFirewallRuleType) RedisFirewallRulePropertiesResponse { return v.Properties }).(RedisFirewallRulePropertiesResponseOutput)
-}
-
-// Resource type.
-func (o RedisFirewallRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisFirewallRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Specifies a range of IP addresses permitted to connect to the cache
 type RedisFirewallRuleProperties struct {
 	// highest IP address included in the range
@@ -907,79 +1053,6 @@ func (o RedisFirewallRulePropertiesResponsePtrOutput) StartIP() pulumi.StringPtr
 		}
 		return &v.StartIP
 	}).(pulumi.StringPtrOutput)
-}
-
-// Response to put/get linked server (with properties) for Redis cache.
-type RedisLinkedServerType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the linked server.
-	Properties RedisLinkedServerPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RedisLinkedServerTypeInput is an input type that accepts RedisLinkedServerTypeArgs and RedisLinkedServerTypeOutput values.
-// You can construct a concrete instance of `RedisLinkedServerTypeInput` via:
-//
-//          RedisLinkedServerTypeArgs{...}
-type RedisLinkedServerTypeInput interface {
-	pulumi.Input
-
-	ToRedisLinkedServerTypeOutput() RedisLinkedServerTypeOutput
-	ToRedisLinkedServerTypeOutputWithContext(context.Context) RedisLinkedServerTypeOutput
-}
-
-// Response to put/get linked server (with properties) for Redis cache.
-type RedisLinkedServerTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the linked server.
-	Properties RedisLinkedServerPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RedisLinkedServerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServerType)(nil)).Elem()
-}
-
-func (i RedisLinkedServerTypeArgs) ToRedisLinkedServerTypeOutput() RedisLinkedServerTypeOutput {
-	return i.ToRedisLinkedServerTypeOutputWithContext(context.Background())
-}
-
-func (i RedisLinkedServerTypeArgs) ToRedisLinkedServerTypeOutputWithContext(ctx context.Context) RedisLinkedServerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerTypeOutput)
-}
-
-// Response to put/get linked server (with properties) for Redis cache.
-type RedisLinkedServerTypeOutput struct{ *pulumi.OutputState }
-
-func (RedisLinkedServerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServerType)(nil)).Elem()
-}
-
-func (o RedisLinkedServerTypeOutput) ToRedisLinkedServerTypeOutput() RedisLinkedServerTypeOutput {
-	return o
-}
-
-func (o RedisLinkedServerTypeOutput) ToRedisLinkedServerTypeOutputWithContext(ctx context.Context) RedisLinkedServerTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RedisLinkedServerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisLinkedServerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the linked server.
-func (o RedisLinkedServerTypeOutput) Properties() RedisLinkedServerPropertiesResponseOutput {
-	return o.ApplyT(func(v RedisLinkedServerType) RedisLinkedServerPropertiesResponse { return v.Properties }).(RedisLinkedServerPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o RedisLinkedServerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisLinkedServerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Create properties for a linked server
@@ -1443,79 +1516,6 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RedisLinkedServerResponse {
 		return vs[0].([]RedisLinkedServerResponse)[vs[1].(int)]
 	}).(RedisLinkedServerResponseOutput)
-}
-
-// Response to put/get patch schedules for Redis cache.
-type RedisPatchScheduleType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// List of patch schedules for a Redis cache.
-	Properties ScheduleEntriesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RedisPatchScheduleTypeInput is an input type that accepts RedisPatchScheduleTypeArgs and RedisPatchScheduleTypeOutput values.
-// You can construct a concrete instance of `RedisPatchScheduleTypeInput` via:
-//
-//          RedisPatchScheduleTypeArgs{...}
-type RedisPatchScheduleTypeInput interface {
-	pulumi.Input
-
-	ToRedisPatchScheduleTypeOutput() RedisPatchScheduleTypeOutput
-	ToRedisPatchScheduleTypeOutputWithContext(context.Context) RedisPatchScheduleTypeOutput
-}
-
-// Response to put/get patch schedules for Redis cache.
-type RedisPatchScheduleTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of patch schedules for a Redis cache.
-	Properties ScheduleEntriesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RedisPatchScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisPatchScheduleType)(nil)).Elem()
-}
-
-func (i RedisPatchScheduleTypeArgs) ToRedisPatchScheduleTypeOutput() RedisPatchScheduleTypeOutput {
-	return i.ToRedisPatchScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i RedisPatchScheduleTypeArgs) ToRedisPatchScheduleTypeOutputWithContext(ctx context.Context) RedisPatchScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisPatchScheduleTypeOutput)
-}
-
-// Response to put/get patch schedules for Redis cache.
-type RedisPatchScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (RedisPatchScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisPatchScheduleType)(nil)).Elem()
-}
-
-func (o RedisPatchScheduleTypeOutput) ToRedisPatchScheduleTypeOutput() RedisPatchScheduleTypeOutput {
-	return o
-}
-
-func (o RedisPatchScheduleTypeOutput) ToRedisPatchScheduleTypeOutputWithContext(ctx context.Context) RedisPatchScheduleTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RedisPatchScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisPatchScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// List of patch schedules for a Redis cache.
-func (o RedisPatchScheduleTypeOutput) Properties() ScheduleEntriesResponseOutput {
-	return o.ApplyT(func(v RedisPatchScheduleType) ScheduleEntriesResponse { return v.Properties }).(ScheduleEntriesResponseOutput)
-}
-
-// Resource type.
-func (o RedisPatchScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisPatchScheduleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of the redis cache.
@@ -2767,24 +2767,24 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(FirewallRuleTypeOutput{})
+	pulumi.RegisterOutputType(LinkedServerTypeOutput{})
+	pulumi.RegisterOutputType(PatchScheduleTypeOutput{})
 	pulumi.RegisterOutputType(RedisTypeOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponseOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(RedisCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(RedisCreatePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RedisFirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(RedisFirewallRulePropertiesOutput{})
 	pulumi.RegisterOutputType(RedisFirewallRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RedisFirewallRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RedisFirewallRulePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(RedisLinkedServerTypeOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerCreatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseOutput{})
 	pulumi.RegisterOutputType(RedisLinkedServerResponseArrayOutput{})
-	pulumi.RegisterOutputType(RedisPatchScheduleTypeOutput{})
 	pulumi.RegisterOutputType(RedisPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RedisPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleEntriesOutput{})

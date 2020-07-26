@@ -2,13 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./actionGroup";
+export * from "./activityLogAlert";
+export * from "./alertRule";
+export * from "./analyticsItem";
+export * from "./autoscaleSetting";
 export * from "./component";
-export * from "./componentExportconfiguration";
-export * from "./componentFavorite";
+export * from "./exportConfiguration";
+export * from "./favorite";
+export * from "./getActionGroup";
+export * from "./getActivityLogAlert";
+export * from "./getAlertRule";
+export * from "./getAnalyticsItem";
+export * from "./getAutoscaleSetting";
 export * from "./getComponent";
-export * from "./getComponentExportconfiguration";
-export * from "./getComponentFavorite";
+export * from "./getExportConfiguration";
+export * from "./getFavorite";
+export * from "./getLogProfile";
 export * from "./getMetricAlert";
-export * from "./getWebtest";
+export * from "./getScheduledQueryRule";
+export * from "./getWebTest";
+export * from "./getWorkbook";
+export * from "./logProfile";
 export * from "./metricAlert";
-export * from "./webtest";
+export * from "./scheduledQueryRule";
+export * from "./webTest";
+export * from "./workbook";

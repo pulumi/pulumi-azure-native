@@ -2,8 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./customerSubscription";
+export * from "./getCustomerSubscription";
 export * from "./getRegistration";
-export * from "./getRegistrationCustomerSubscription";
-export * from "./listRegistrationProductDetails";
+export * from "./listProductDetails";
 export * from "./registration";
-export * from "./registrationCustomerSubscription";

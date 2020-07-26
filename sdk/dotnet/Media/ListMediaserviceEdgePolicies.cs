@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Media
 {
-    public static class ListMediaserviceEdgePolicies
+    public static class ListMediaServiceEdgePolicies
     {
-        public static Task<ListMediaserviceEdgePoliciesResult> InvokeAsync(ListMediaserviceEdgePoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaserviceEdgePoliciesResult>("azurerm:media:listMediaserviceEdgePolicies", args ?? new ListMediaserviceEdgePoliciesArgs(), options.WithVersion());
+        public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azurerm:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
     }
 
 
-    public sealed class ListMediaserviceEdgePoliciesArgs : Pulumi.InvokeArgs
+    public sealed class ListMediaServiceEdgePoliciesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Media Services account name.
@@ -36,19 +36,19 @@ namespace Pulumi.AzureRM.Media
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public ListMediaserviceEdgePoliciesArgs()
+        public ListMediaServiceEdgePoliciesArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class ListMediaserviceEdgePoliciesResult
+    public sealed class ListMediaServiceEdgePoliciesResult
     {
         public readonly Outputs.EdgeUsageDataCollectionPolicyResponseResult? UsageDataCollectionPolicy;
 
         [OutputConstructor]
-        private ListMediaserviceEdgePoliciesResult(Outputs.EdgeUsageDataCollectionPolicyResponseResult? usageDataCollectionPolicy)
+        private ListMediaServiceEdgePoliciesResult(Outputs.EdgeUsageDataCollectionPolicyResponseResult? usageDataCollectionPolicy)
         {
             UsageDataCollectionPolicy = usageDataCollectionPolicy;
         }

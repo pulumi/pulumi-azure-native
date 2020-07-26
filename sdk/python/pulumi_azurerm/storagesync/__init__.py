@@ -3,15 +3,15 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .cloud_endpoint import *
+from .get_cloud_endpoint import *
+from .get_private_endpoint_connection import *
+from .get_registered_server import *
+from .get_server_endpoint import *
 from .get_storage_sync_service import *
-from .get_storage_sync_service_private_endpoint_connection import *
-from .get_storage_sync_service_registered_server import *
-from .get_storage_sync_service_sync_group import *
-from .get_storage_sync_service_sync_group_cloud_endpoint import *
-from .get_storage_sync_service_sync_group_server_endpoint import *
+from .get_sync_group import *
+from .private_endpoint_connection import *
+from .registered_server import *
+from .server_endpoint import *
 from .storage_sync_service import *
-from .storage_sync_service_private_endpoint_connection import *
-from .storage_sync_service_registered_server import *
-from .storage_sync_service_sync_group import *
-from .storage_sync_service_sync_group_cloud_endpoint import *
-from .storage_sync_service_sync_group_server_endpoint import *
+from .sync_group import *

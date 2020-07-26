@@ -278,6 +278,152 @@ func (o AuthorizationRuleResponsePropertiesPtrOutput) Rights() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// Description of hybrid connection resource.
+type HybridConnectionType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the HybridConnection.
+	Properties HybridConnectionResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// HybridConnectionTypeInput is an input type that accepts HybridConnectionTypeArgs and HybridConnectionTypeOutput values.
+// You can construct a concrete instance of `HybridConnectionTypeInput` via:
+//
+//          HybridConnectionTypeArgs{...}
+type HybridConnectionTypeInput interface {
+	pulumi.Input
+
+	ToHybridConnectionTypeOutput() HybridConnectionTypeOutput
+	ToHybridConnectionTypeOutputWithContext(context.Context) HybridConnectionTypeOutput
+}
+
+// Description of hybrid connection resource.
+type HybridConnectionTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the HybridConnection.
+	Properties HybridConnectionResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (HybridConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionType)(nil)).Elem()
+}
+
+func (i HybridConnectionTypeArgs) ToHybridConnectionTypeOutput() HybridConnectionTypeOutput {
+	return i.ToHybridConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionTypeArgs) ToHybridConnectionTypeOutputWithContext(ctx context.Context) HybridConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionTypeOutput)
+}
+
+// Description of hybrid connection resource.
+type HybridConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionType)(nil)).Elem()
+}
+
+func (o HybridConnectionTypeOutput) ToHybridConnectionTypeOutput() HybridConnectionTypeOutput {
+	return o
+}
+
+func (o HybridConnectionTypeOutput) ToHybridConnectionTypeOutputWithContext(ctx context.Context) HybridConnectionTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o HybridConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the HybridConnection.
+func (o HybridConnectionTypeOutput) Properties() HybridConnectionResponsePropertiesOutput {
+	return o.ApplyT(func(v HybridConnectionType) HybridConnectionResponseProperties { return v.Properties }).(HybridConnectionResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o HybridConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Description of a namespace authorization rule.
+type HybridConnectionAuthorizationRuleType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Authorization rule properties.
+	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// HybridConnectionAuthorizationRuleTypeInput is an input type that accepts HybridConnectionAuthorizationRuleTypeArgs and HybridConnectionAuthorizationRuleTypeOutput values.
+// You can construct a concrete instance of `HybridConnectionAuthorizationRuleTypeInput` via:
+//
+//          HybridConnectionAuthorizationRuleTypeArgs{...}
+type HybridConnectionAuthorizationRuleTypeInput interface {
+	pulumi.Input
+
+	ToHybridConnectionAuthorizationRuleTypeOutput() HybridConnectionAuthorizationRuleTypeOutput
+	ToHybridConnectionAuthorizationRuleTypeOutputWithContext(context.Context) HybridConnectionAuthorizationRuleTypeOutput
+}
+
+// Description of a namespace authorization rule.
+type HybridConnectionAuthorizationRuleTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Authorization rule properties.
+	Properties AuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (HybridConnectionAuthorizationRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionAuthorizationRuleType)(nil)).Elem()
+}
+
+func (i HybridConnectionAuthorizationRuleTypeArgs) ToHybridConnectionAuthorizationRuleTypeOutput() HybridConnectionAuthorizationRuleTypeOutput {
+	return i.ToHybridConnectionAuthorizationRuleTypeOutputWithContext(context.Background())
+}
+
+func (i HybridConnectionAuthorizationRuleTypeArgs) ToHybridConnectionAuthorizationRuleTypeOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleTypeOutput)
+}
+
+// Description of a namespace authorization rule.
+type HybridConnectionAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (HybridConnectionAuthorizationRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridConnectionAuthorizationRuleType)(nil)).Elem()
+}
+
+func (o HybridConnectionAuthorizationRuleTypeOutput) ToHybridConnectionAuthorizationRuleTypeOutput() HybridConnectionAuthorizationRuleTypeOutput {
+	return o
+}
+
+func (o HybridConnectionAuthorizationRuleTypeOutput) ToHybridConnectionAuthorizationRuleTypeOutputWithContext(ctx context.Context) HybridConnectionAuthorizationRuleTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o HybridConnectionAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Authorization rule properties.
+func (o HybridConnectionAuthorizationRuleTypeOutput) Properties() AuthorizationRuleResponsePropertiesOutput {
+	return o.ApplyT(func(v HybridConnectionAuthorizationRuleType) AuthorizationRuleResponseProperties { return v.Properties }).(AuthorizationRuleResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o HybridConnectionAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridConnectionAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of the HybridConnection.
 type HybridConnectionProperties struct {
 	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
@@ -812,302 +958,6 @@ func (o NamespaceAuthorizationRuleTypeOutput) Properties() AuthorizationRuleResp
 // Resource type.
 func (o NamespaceAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of hybrid connection resource.
-type NamespaceHybridConnectionType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the HybridConnection.
-	Properties HybridConnectionResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceHybridConnectionTypeInput is an input type that accepts NamespaceHybridConnectionTypeArgs and NamespaceHybridConnectionTypeOutput values.
-// You can construct a concrete instance of `NamespaceHybridConnectionTypeInput` via:
-//
-//          NamespaceHybridConnectionTypeArgs{...}
-type NamespaceHybridConnectionTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceHybridConnectionTypeOutput() NamespaceHybridConnectionTypeOutput
-	ToNamespaceHybridConnectionTypeOutputWithContext(context.Context) NamespaceHybridConnectionTypeOutput
-}
-
-// Description of hybrid connection resource.
-type NamespaceHybridConnectionTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the HybridConnection.
-	Properties HybridConnectionResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceHybridConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceHybridConnectionType)(nil)).Elem()
-}
-
-func (i NamespaceHybridConnectionTypeArgs) ToNamespaceHybridConnectionTypeOutput() NamespaceHybridConnectionTypeOutput {
-	return i.ToNamespaceHybridConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceHybridConnectionTypeArgs) ToNamespaceHybridConnectionTypeOutputWithContext(ctx context.Context) NamespaceHybridConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceHybridConnectionTypeOutput)
-}
-
-// Description of hybrid connection resource.
-type NamespaceHybridConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceHybridConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceHybridConnectionType)(nil)).Elem()
-}
-
-func (o NamespaceHybridConnectionTypeOutput) ToNamespaceHybridConnectionTypeOutput() NamespaceHybridConnectionTypeOutput {
-	return o
-}
-
-func (o NamespaceHybridConnectionTypeOutput) ToNamespaceHybridConnectionTypeOutputWithContext(ctx context.Context) NamespaceHybridConnectionTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceHybridConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceHybridConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the HybridConnection.
-func (o NamespaceHybridConnectionTypeOutput) Properties() HybridConnectionResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceHybridConnectionType) HybridConnectionResponseProperties { return v.Properties }).(HybridConnectionResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceHybridConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceHybridConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of a namespace authorization rule.
-type NamespaceHybridConnectionAuthorizationRuleType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Authorization rule properties.
-	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceHybridConnectionAuthorizationRuleTypeInput is an input type that accepts NamespaceHybridConnectionAuthorizationRuleTypeArgs and NamespaceHybridConnectionAuthorizationRuleTypeOutput values.
-// You can construct a concrete instance of `NamespaceHybridConnectionAuthorizationRuleTypeInput` via:
-//
-//          NamespaceHybridConnectionAuthorizationRuleTypeArgs{...}
-type NamespaceHybridConnectionAuthorizationRuleTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceHybridConnectionAuthorizationRuleTypeOutput() NamespaceHybridConnectionAuthorizationRuleTypeOutput
-	ToNamespaceHybridConnectionAuthorizationRuleTypeOutputWithContext(context.Context) NamespaceHybridConnectionAuthorizationRuleTypeOutput
-}
-
-// Description of a namespace authorization rule.
-type NamespaceHybridConnectionAuthorizationRuleTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Authorization rule properties.
-	Properties AuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceHybridConnectionAuthorizationRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceHybridConnectionAuthorizationRuleType)(nil)).Elem()
-}
-
-func (i NamespaceHybridConnectionAuthorizationRuleTypeArgs) ToNamespaceHybridConnectionAuthorizationRuleTypeOutput() NamespaceHybridConnectionAuthorizationRuleTypeOutput {
-	return i.ToNamespaceHybridConnectionAuthorizationRuleTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceHybridConnectionAuthorizationRuleTypeArgs) ToNamespaceHybridConnectionAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceHybridConnectionAuthorizationRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceHybridConnectionAuthorizationRuleTypeOutput)
-}
-
-// Description of a namespace authorization rule.
-type NamespaceHybridConnectionAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceHybridConnectionAuthorizationRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceHybridConnectionAuthorizationRuleType)(nil)).Elem()
-}
-
-func (o NamespaceHybridConnectionAuthorizationRuleTypeOutput) ToNamespaceHybridConnectionAuthorizationRuleTypeOutput() NamespaceHybridConnectionAuthorizationRuleTypeOutput {
-	return o
-}
-
-func (o NamespaceHybridConnectionAuthorizationRuleTypeOutput) ToNamespaceHybridConnectionAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceHybridConnectionAuthorizationRuleTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceHybridConnectionAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceHybridConnectionAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Authorization rule properties.
-func (o NamespaceHybridConnectionAuthorizationRuleTypeOutput) Properties() AuthorizationRuleResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceHybridConnectionAuthorizationRuleType) AuthorizationRuleResponseProperties {
-		return v.Properties
-	}).(AuthorizationRuleResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceHybridConnectionAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceHybridConnectionAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of the WCF relay resource.
-type NamespaceWcfRelayType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the WCF relay.
-	Properties WcfRelayResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceWcfRelayTypeInput is an input type that accepts NamespaceWcfRelayTypeArgs and NamespaceWcfRelayTypeOutput values.
-// You can construct a concrete instance of `NamespaceWcfRelayTypeInput` via:
-//
-//          NamespaceWcfRelayTypeArgs{...}
-type NamespaceWcfRelayTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceWcfRelayTypeOutput() NamespaceWcfRelayTypeOutput
-	ToNamespaceWcfRelayTypeOutputWithContext(context.Context) NamespaceWcfRelayTypeOutput
-}
-
-// Description of the WCF relay resource.
-type NamespaceWcfRelayTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the WCF relay.
-	Properties WcfRelayResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceWcfRelayTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceWcfRelayType)(nil)).Elem()
-}
-
-func (i NamespaceWcfRelayTypeArgs) ToNamespaceWcfRelayTypeOutput() NamespaceWcfRelayTypeOutput {
-	return i.ToNamespaceWcfRelayTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceWcfRelayTypeArgs) ToNamespaceWcfRelayTypeOutputWithContext(ctx context.Context) NamespaceWcfRelayTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceWcfRelayTypeOutput)
-}
-
-// Description of the WCF relay resource.
-type NamespaceWcfRelayTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceWcfRelayTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceWcfRelayType)(nil)).Elem()
-}
-
-func (o NamespaceWcfRelayTypeOutput) ToNamespaceWcfRelayTypeOutput() NamespaceWcfRelayTypeOutput {
-	return o
-}
-
-func (o NamespaceWcfRelayTypeOutput) ToNamespaceWcfRelayTypeOutputWithContext(ctx context.Context) NamespaceWcfRelayTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceWcfRelayTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceWcfRelayType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the WCF relay.
-func (o NamespaceWcfRelayTypeOutput) Properties() WcfRelayResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceWcfRelayType) WcfRelayResponseProperties { return v.Properties }).(WcfRelayResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceWcfRelayTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceWcfRelayType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Description of a namespace authorization rule.
-type NamespaceWcfRelayAuthorizationRuleType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Authorization rule properties.
-	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// NamespaceWcfRelayAuthorizationRuleTypeInput is an input type that accepts NamespaceWcfRelayAuthorizationRuleTypeArgs and NamespaceWcfRelayAuthorizationRuleTypeOutput values.
-// You can construct a concrete instance of `NamespaceWcfRelayAuthorizationRuleTypeInput` via:
-//
-//          NamespaceWcfRelayAuthorizationRuleTypeArgs{...}
-type NamespaceWcfRelayAuthorizationRuleTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceWcfRelayAuthorizationRuleTypeOutput() NamespaceWcfRelayAuthorizationRuleTypeOutput
-	ToNamespaceWcfRelayAuthorizationRuleTypeOutputWithContext(context.Context) NamespaceWcfRelayAuthorizationRuleTypeOutput
-}
-
-// Description of a namespace authorization rule.
-type NamespaceWcfRelayAuthorizationRuleTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Authorization rule properties.
-	Properties AuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NamespaceWcfRelayAuthorizationRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceWcfRelayAuthorizationRuleType)(nil)).Elem()
-}
-
-func (i NamespaceWcfRelayAuthorizationRuleTypeArgs) ToNamespaceWcfRelayAuthorizationRuleTypeOutput() NamespaceWcfRelayAuthorizationRuleTypeOutput {
-	return i.ToNamespaceWcfRelayAuthorizationRuleTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceWcfRelayAuthorizationRuleTypeArgs) ToNamespaceWcfRelayAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceWcfRelayAuthorizationRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceWcfRelayAuthorizationRuleTypeOutput)
-}
-
-// Description of a namespace authorization rule.
-type NamespaceWcfRelayAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceWcfRelayAuthorizationRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceWcfRelayAuthorizationRuleType)(nil)).Elem()
-}
-
-func (o NamespaceWcfRelayAuthorizationRuleTypeOutput) ToNamespaceWcfRelayAuthorizationRuleTypeOutput() NamespaceWcfRelayAuthorizationRuleTypeOutput {
-	return o
-}
-
-func (o NamespaceWcfRelayAuthorizationRuleTypeOutput) ToNamespaceWcfRelayAuthorizationRuleTypeOutputWithContext(ctx context.Context) NamespaceWcfRelayAuthorizationRuleTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o NamespaceWcfRelayAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceWcfRelayAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Authorization rule properties.
-func (o NamespaceWcfRelayAuthorizationRuleTypeOutput) Properties() AuthorizationRuleResponsePropertiesOutput {
-	return o.ApplyT(func(v NamespaceWcfRelayAuthorizationRuleType) AuthorizationRuleResponseProperties {
-		return v.Properties
-	}).(AuthorizationRuleResponsePropertiesOutput)
-}
-
-// Resource type.
-func (o NamespaceWcfRelayAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespaceWcfRelayAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of the namespace.
@@ -1737,6 +1587,152 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Description of the WCF relay resource.
+type WCFRelayType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the WCF relay.
+	Properties WcfRelayResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WCFRelayTypeInput is an input type that accepts WCFRelayTypeArgs and WCFRelayTypeOutput values.
+// You can construct a concrete instance of `WCFRelayTypeInput` via:
+//
+//          WCFRelayTypeArgs{...}
+type WCFRelayTypeInput interface {
+	pulumi.Input
+
+	ToWCFRelayTypeOutput() WCFRelayTypeOutput
+	ToWCFRelayTypeOutputWithContext(context.Context) WCFRelayTypeOutput
+}
+
+// Description of the WCF relay resource.
+type WCFRelayTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the WCF relay.
+	Properties WcfRelayResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WCFRelayTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayType)(nil)).Elem()
+}
+
+func (i WCFRelayTypeArgs) ToWCFRelayTypeOutput() WCFRelayTypeOutput {
+	return i.ToWCFRelayTypeOutputWithContext(context.Background())
+}
+
+func (i WCFRelayTypeArgs) ToWCFRelayTypeOutputWithContext(ctx context.Context) WCFRelayTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayTypeOutput)
+}
+
+// Description of the WCF relay resource.
+type WCFRelayTypeOutput struct{ *pulumi.OutputState }
+
+func (WCFRelayTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayType)(nil)).Elem()
+}
+
+func (o WCFRelayTypeOutput) ToWCFRelayTypeOutput() WCFRelayTypeOutput {
+	return o
+}
+
+func (o WCFRelayTypeOutput) ToWCFRelayTypeOutputWithContext(ctx context.Context) WCFRelayTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o WCFRelayTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WCFRelayType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the WCF relay.
+func (o WCFRelayTypeOutput) Properties() WcfRelayResponsePropertiesOutput {
+	return o.ApplyT(func(v WCFRelayType) WcfRelayResponseProperties { return v.Properties }).(WcfRelayResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WCFRelayTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WCFRelayType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Description of a namespace authorization rule.
+type WCFRelayAuthorizationRuleType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Authorization rule properties.
+	Properties AuthorizationRuleResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// WCFRelayAuthorizationRuleTypeInput is an input type that accepts WCFRelayAuthorizationRuleTypeArgs and WCFRelayAuthorizationRuleTypeOutput values.
+// You can construct a concrete instance of `WCFRelayAuthorizationRuleTypeInput` via:
+//
+//          WCFRelayAuthorizationRuleTypeArgs{...}
+type WCFRelayAuthorizationRuleTypeInput interface {
+	pulumi.Input
+
+	ToWCFRelayAuthorizationRuleTypeOutput() WCFRelayAuthorizationRuleTypeOutput
+	ToWCFRelayAuthorizationRuleTypeOutputWithContext(context.Context) WCFRelayAuthorizationRuleTypeOutput
+}
+
+// Description of a namespace authorization rule.
+type WCFRelayAuthorizationRuleTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Authorization rule properties.
+	Properties AuthorizationRuleResponsePropertiesInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WCFRelayAuthorizationRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayAuthorizationRuleType)(nil)).Elem()
+}
+
+func (i WCFRelayAuthorizationRuleTypeArgs) ToWCFRelayAuthorizationRuleTypeOutput() WCFRelayAuthorizationRuleTypeOutput {
+	return i.ToWCFRelayAuthorizationRuleTypeOutputWithContext(context.Background())
+}
+
+func (i WCFRelayAuthorizationRuleTypeArgs) ToWCFRelayAuthorizationRuleTypeOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayAuthorizationRuleTypeOutput)
+}
+
+// Description of a namespace authorization rule.
+type WCFRelayAuthorizationRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (WCFRelayAuthorizationRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WCFRelayAuthorizationRuleType)(nil)).Elem()
+}
+
+func (o WCFRelayAuthorizationRuleTypeOutput) ToWCFRelayAuthorizationRuleTypeOutput() WCFRelayAuthorizationRuleTypeOutput {
+	return o
+}
+
+func (o WCFRelayAuthorizationRuleTypeOutput) ToWCFRelayAuthorizationRuleTypeOutputWithContext(ctx context.Context) WCFRelayAuthorizationRuleTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o WCFRelayAuthorizationRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WCFRelayAuthorizationRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Authorization rule properties.
+func (o WCFRelayAuthorizationRuleTypeOutput) Properties() AuthorizationRuleResponsePropertiesOutput {
+	return o.ApplyT(func(v WCFRelayAuthorizationRuleType) AuthorizationRuleResponseProperties { return v.Properties }).(AuthorizationRuleResponsePropertiesOutput)
+}
+
+// Resource type.
+func (o WCFRelayAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WCFRelayAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of the WCF relay.
 type WcfRelayProperties struct {
 	// WCF relay type.
@@ -2200,16 +2196,14 @@ func init() {
 	pulumi.RegisterOutputType(AuthorizationRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizationRuleResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AuthorizationRuleResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(HybridConnectionTypeOutput{})
+	pulumi.RegisterOutputType(HybridConnectionAuthorizationRuleTypeOutput{})
 	pulumi.RegisterOutputType(HybridConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(HybridConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(HybridConnectionResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceHybridConnectionTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceHybridConnectionAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceWcfRelayTypeOutput{})
-	pulumi.RegisterOutputType(NamespaceWcfRelayAuthorizationRuleTypeOutput{})
 	pulumi.RegisterOutputType(RelayNamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(RelayNamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RelayNamespacePropertiesResponseOutput{})
@@ -2218,6 +2212,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(WCFRelayTypeOutput{})
+	pulumi.RegisterOutputType(WCFRelayAuthorizationRuleTypeOutput{})
 	pulumi.RegisterOutputType(WcfRelayPropertiesOutput{})
 	pulumi.RegisterOutputType(WcfRelayPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WcfRelayResponsePropertiesOutput{})

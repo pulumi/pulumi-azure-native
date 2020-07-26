@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The description of the Windows IoT Device Service.
-type DeviceServiceType struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of a Windows IoT Device Service.
-	Properties DeviceServicePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// DeviceServiceTypeInput is an input type that accepts DeviceServiceTypeArgs and DeviceServiceTypeOutput values.
-// You can construct a concrete instance of `DeviceServiceTypeInput` via:
-//
-//          DeviceServiceTypeArgs{...}
-type DeviceServiceTypeInput interface {
-	pulumi.Input
-
-	ToDeviceServiceTypeOutput() DeviceServiceTypeOutput
-	ToDeviceServiceTypeOutputWithContext(context.Context) DeviceServiceTypeOutput
-}
-
-// The description of the Windows IoT Device Service.
-type DeviceServiceTypeArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a Windows IoT Device Service.
-	Properties DeviceServicePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DeviceServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceServiceType)(nil)).Elem()
-}
-
-func (i DeviceServiceTypeArgs) ToDeviceServiceTypeOutput() DeviceServiceTypeOutput {
-	return i.ToDeviceServiceTypeOutputWithContext(context.Background())
-}
-
-func (i DeviceServiceTypeArgs) ToDeviceServiceTypeOutputWithContext(ctx context.Context) DeviceServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceServiceTypeOutput)
-}
-
-// The description of the Windows IoT Device Service.
-type DeviceServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (DeviceServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceServiceType)(nil)).Elem()
-}
-
-func (o DeviceServiceTypeOutput) ToDeviceServiceTypeOutput() DeviceServiceTypeOutput {
-	return o
-}
-
-func (o DeviceServiceTypeOutput) ToDeviceServiceTypeOutputWithContext(ctx context.Context) DeviceServiceTypeOutput {
-	return o
-}
-
-// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-func (o DeviceServiceTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceServiceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o DeviceServiceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o DeviceServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeviceServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a Windows IoT Device Service.
-func (o DeviceServiceTypeOutput) Properties() DeviceServicePropertiesResponseOutput {
-	return o.ApplyT(func(v DeviceServiceType) DeviceServicePropertiesResponse { return v.Properties }).(DeviceServicePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o DeviceServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeviceServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o DeviceServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeviceServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a Windows IoT Device Service.
 type DeviceServicePropertiesResponse struct {
 	// Windows IoT Device Service OEM AAD domain
@@ -320,8 +220,108 @@ func (o DeviceServicePropertiesResponsePtrOutput) StartDate() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The description of the Windows IoT Device Service.
+type ServiceType struct {
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag *string `pulumi:"etag"`
+	// The Azure Region where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The properties of a Windows IoT Device Service.
+	Properties DeviceServicePropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ServiceTypeInput is an input type that accepts ServiceTypeArgs and ServiceTypeOutput values.
+// You can construct a concrete instance of `ServiceTypeInput` via:
+//
+//          ServiceTypeArgs{...}
+type ServiceTypeInput interface {
+	pulumi.Input
+
+	ToServiceTypeOutput() ServiceTypeOutput
+	ToServiceTypeOutputWithContext(context.Context) ServiceTypeOutput
+}
+
+// The description of the Windows IoT Device Service.
+type ServiceTypeArgs struct {
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// The Azure Region where the resource lives
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of a Windows IoT Device Service.
+	Properties DeviceServicePropertiesResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+}
+
+func (i ServiceTypeArgs) ToServiceTypeOutput() ServiceTypeOutput {
+	return i.ToServiceTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeArgs) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeOutput)
+}
+
+// The description of the Windows IoT Device Service.
+type ServiceTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+}
+
+func (o ServiceTypeOutput) ToServiceTypeOutput() ServiceTypeOutput {
+	return o
+}
+
+func (o ServiceTypeOutput) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
+	return o
+}
+
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o ServiceTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o ServiceTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ServiceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a Windows IoT Device Service.
+func (o ServiceTypeOutput) Properties() DeviceServicePropertiesResponseOutput {
+	return o.ApplyT(func(v ServiceType) DeviceServicePropertiesResponse { return v.Properties }).(DeviceServicePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o ServiceTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(DeviceServiceTypeOutput{})
 	pulumi.RegisterOutputType(DeviceServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DeviceServicePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeOutput{})
 }

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./certificateOrder";
-export * from "./certificateOrderCertificate";
-export * from "./getCertificateOrder";
-export * from "./getCertificateOrderCertificate";
+export * from "./appServiceCertificateOrder";
+export * from "./appServiceCertificateOrderCertificate";
+export * from "./getAppServiceCertificateOrder";
+export * from "./getAppServiceCertificateOrderCertificate";

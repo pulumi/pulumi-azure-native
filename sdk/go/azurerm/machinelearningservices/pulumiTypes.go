@@ -1906,6 +1906,115 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Machine Learning compute object wrapped into ARM resource envelope.
+type MachineLearningComputeType struct {
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// Specifies the location of the resource.
+	Location *string `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name string `pulumi:"name"`
+	// Compute properties
+	Properties ComputeResponse `pulumi:"properties"`
+	// The sku of the workspace.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// MachineLearningComputeTypeInput is an input type that accepts MachineLearningComputeTypeArgs and MachineLearningComputeTypeOutput values.
+// You can construct a concrete instance of `MachineLearningComputeTypeInput` via:
+//
+//          MachineLearningComputeTypeArgs{...}
+type MachineLearningComputeTypeInput interface {
+	pulumi.Input
+
+	ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput
+	ToMachineLearningComputeTypeOutputWithContext(context.Context) MachineLearningComputeTypeOutput
+}
+
+// Machine Learning compute object wrapped into ARM resource envelope.
+type MachineLearningComputeTypeArgs struct {
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput `pulumi:"identity"`
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Compute properties
+	Properties ComputeResponseInput `pulumi:"properties"`
+	// The sku of the workspace.
+	Sku SkuResponsePtrInput `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MachineLearningComputeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningComputeType)(nil)).Elem()
+}
+
+func (i MachineLearningComputeTypeArgs) ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput {
+	return i.ToMachineLearningComputeTypeOutputWithContext(context.Background())
+}
+
+func (i MachineLearningComputeTypeArgs) ToMachineLearningComputeTypeOutputWithContext(ctx context.Context) MachineLearningComputeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningComputeTypeOutput)
+}
+
+// Machine Learning compute object wrapped into ARM resource envelope.
+type MachineLearningComputeTypeOutput struct{ *pulumi.OutputState }
+
+func (MachineLearningComputeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningComputeType)(nil)).Elem()
+}
+
+func (o MachineLearningComputeTypeOutput) ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput {
+	return o
+}
+
+func (o MachineLearningComputeTypeOutput) ToMachineLearningComputeTypeOutputWithContext(ctx context.Context) MachineLearningComputeTypeOutput {
+	return o
+}
+
+// The identity of the resource.
+func (o MachineLearningComputeTypeOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v MachineLearningComputeType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o MachineLearningComputeTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineLearningComputeType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o MachineLearningComputeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineLearningComputeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Compute properties
+func (o MachineLearningComputeTypeOutput) Properties() ComputeResponseOutput {
+	return o.ApplyT(func(v MachineLearningComputeType) ComputeResponse { return v.Properties }).(ComputeResponseOutput)
+}
+
+// The sku of the workspace.
+func (o MachineLearningComputeTypeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v MachineLearningComputeType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o MachineLearningComputeTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MachineLearningComputeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o MachineLearningComputeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineLearningComputeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Wrapper for error response to follow ARM guidelines.
 type MachineLearningServiceError struct {
 }
@@ -2838,94 +2947,112 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 }
 
 // The Private Endpoint Connection resource.
-type PrivateEndpointConnection struct {
+type PrivateEndpointConnectionType struct {
 	// The identity of the resource.
-	Identity *Identity `pulumi:"identity"`
+	Identity *IdentityResponse `pulumi:"identity"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name string `pulumi:"name"`
 	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 	// The sku of the workspace.
-	Sku *Sku `pulumi:"sku"`
+	Sku *SkuResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type string `pulumi:"type"`
 }
 
-// PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionInput` via:
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
 //
-//          PrivateEndpointConnectionArgs{...}
-type PrivateEndpointConnectionInput interface {
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
-	ToPrivateEndpointConnectionOutputWithContext(context.Context) PrivateEndpointConnectionOutput
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
 // The Private Endpoint Connection resource.
-type PrivateEndpointConnectionArgs struct {
+type PrivateEndpointConnectionTypeArgs struct {
 	// The identity of the resource.
-	Identity IdentityPtrInput `pulumi:"identity"`
+	Identity IdentityResponsePtrInput `pulumi:"identity"`
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
 	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
 	// The sku of the workspace.
-	Sku SkuPtrInput `pulumi:"sku"`
+	Sku SkuResponsePtrInput `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
-	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
 }
 
 // The Private Endpoint Connection resource.
-type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
-func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
 	return o
 }
 
 // The identity of the resource.
-func (o PrivateEndpointConnectionOutput) Identity() IdentityPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *Identity { return v.Identity }).(IdentityPtrOutput)
+func (o PrivateEndpointConnectionTypeOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // Specifies the location of the resource.
-func (o PrivateEndpointConnectionOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Resource properties.
-func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
 // The sku of the workspace.
-func (o PrivateEndpointConnectionOutput) Sku() SkuPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *Sku { return v.Sku }).(SkuPtrOutput)
+func (o PrivateEndpointConnectionTypeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
 }
 
 // Contains resource tags defined as key/value pairs.
-func (o PrivateEndpointConnectionOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o PrivateEndpointConnectionTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of the PrivateEndpointConnectProperties.
@@ -4997,115 +5124,6 @@ func (o WorkspaceTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Machine Learning compute object wrapped into ARM resource envelope.
-type WorkspaceComputeType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Compute properties
-	Properties ComputeResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceComputeTypeInput is an input type that accepts WorkspaceComputeTypeArgs and WorkspaceComputeTypeOutput values.
-// You can construct a concrete instance of `WorkspaceComputeTypeInput` via:
-//
-//          WorkspaceComputeTypeArgs{...}
-type WorkspaceComputeTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceComputeTypeOutput() WorkspaceComputeTypeOutput
-	ToWorkspaceComputeTypeOutputWithContext(context.Context) WorkspaceComputeTypeOutput
-}
-
-// Machine Learning compute object wrapped into ARM resource envelope.
-type WorkspaceComputeTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Compute properties
-	Properties ComputeResponseInput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceComputeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceComputeType)(nil)).Elem()
-}
-
-func (i WorkspaceComputeTypeArgs) ToWorkspaceComputeTypeOutput() WorkspaceComputeTypeOutput {
-	return i.ToWorkspaceComputeTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceComputeTypeArgs) ToWorkspaceComputeTypeOutputWithContext(ctx context.Context) WorkspaceComputeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceComputeTypeOutput)
-}
-
-// Machine Learning compute object wrapped into ARM resource envelope.
-type WorkspaceComputeTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceComputeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceComputeType)(nil)).Elem()
-}
-
-func (o WorkspaceComputeTypeOutput) ToWorkspaceComputeTypeOutput() WorkspaceComputeTypeOutput {
-	return o
-}
-
-func (o WorkspaceComputeTypeOutput) ToWorkspaceComputeTypeOutputWithContext(ctx context.Context) WorkspaceComputeTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o WorkspaceComputeTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceComputeType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o WorkspaceComputeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceComputeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o WorkspaceComputeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceComputeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Compute properties
-func (o WorkspaceComputeTypeOutput) Properties() ComputeResponseOutput {
-	return o.ApplyT(func(v WorkspaceComputeType) ComputeResponse { return v.Properties }).(ComputeResponseOutput)
-}
-
-// The sku of the workspace.
-func (o WorkspaceComputeTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceComputeType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o WorkspaceComputeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspaceComputeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o WorkspaceComputeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceComputeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Workspace connection.
 type WorkspaceConnectionType struct {
 	// Friendly name of the workspace connection.
@@ -5559,117 +5577,6 @@ func (o WorkspaceConnectionPropsResponsePtrOutput) Value() pulumi.StringPtrOutpu
 		}
 		return v.Value
 	}).(pulumi.StringPtrOutput)
-}
-
-// The Private Endpoint Connection resource.
-type WorkspacePrivateEndpointConnectionType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspacePrivateEndpointConnectionTypeInput is an input type that accepts WorkspacePrivateEndpointConnectionTypeArgs and WorkspacePrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `WorkspacePrivateEndpointConnectionTypeInput` via:
-//
-//          WorkspacePrivateEndpointConnectionTypeArgs{...}
-type WorkspacePrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToWorkspacePrivateEndpointConnectionTypeOutput() WorkspacePrivateEndpointConnectionTypeOutput
-	ToWorkspacePrivateEndpointConnectionTypeOutputWithContext(context.Context) WorkspacePrivateEndpointConnectionTypeOutput
-}
-
-// The Private Endpoint Connection resource.
-type WorkspacePrivateEndpointConnectionTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspacePrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspacePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i WorkspacePrivateEndpointConnectionTypeArgs) ToWorkspacePrivateEndpointConnectionTypeOutput() WorkspacePrivateEndpointConnectionTypeOutput {
-	return i.ToWorkspacePrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspacePrivateEndpointConnectionTypeArgs) ToWorkspacePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePrivateEndpointConnectionTypeOutput)
-}
-
-// The Private Endpoint Connection resource.
-type WorkspacePrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspacePrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspacePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o WorkspacePrivateEndpointConnectionTypeOutput) ToWorkspacePrivateEndpointConnectionTypeOutput() WorkspacePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o WorkspacePrivateEndpointConnectionTypeOutput) ToWorkspacePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) WorkspacePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o WorkspacePrivateEndpointConnectionTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v WorkspacePrivateEndpointConnectionType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o WorkspacePrivateEndpointConnectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspacePrivateEndpointConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o WorkspacePrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspacePrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o WorkspacePrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspacePrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The sku of the workspace.
-func (o WorkspacePrivateEndpointConnectionTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v WorkspacePrivateEndpointConnectionType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o WorkspacePrivateEndpointConnectionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspacePrivateEndpointConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o WorkspacePrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspacePrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of a machine learning workspace.
@@ -6519,6 +6426,7 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MachineLearningComputeTypeOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseArrayOutput{})
@@ -6534,7 +6442,7 @@ func init() {
 	pulumi.RegisterOutputType(PasswordResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
@@ -6561,13 +6469,11 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceComputeTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})

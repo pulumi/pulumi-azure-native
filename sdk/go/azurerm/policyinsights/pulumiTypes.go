@@ -147,7 +147,7 @@ func (o ErrorDefinitionResponseArrayOutput) Index(i pulumi.IntInput) ErrorDefini
 }
 
 // The remediation definition.
-type RemediationType struct {
+type RemediationAtManagementGroupType struct {
 	// The name of the remediation.
 	Name string `pulumi:"name"`
 	// Properties for the remediation.
@@ -156,19 +156,19 @@ type RemediationType struct {
 	Type string `pulumi:"type"`
 }
 
-// RemediationTypeInput is an input type that accepts RemediationTypeArgs and RemediationTypeOutput values.
-// You can construct a concrete instance of `RemediationTypeInput` via:
+// RemediationAtManagementGroupTypeInput is an input type that accepts RemediationAtManagementGroupTypeArgs and RemediationAtManagementGroupTypeOutput values.
+// You can construct a concrete instance of `RemediationAtManagementGroupTypeInput` via:
 //
-//          RemediationTypeArgs{...}
-type RemediationTypeInput interface {
+//          RemediationAtManagementGroupTypeArgs{...}
+type RemediationAtManagementGroupTypeInput interface {
 	pulumi.Input
 
-	ToRemediationTypeOutput() RemediationTypeOutput
-	ToRemediationTypeOutputWithContext(context.Context) RemediationTypeOutput
+	ToRemediationAtManagementGroupTypeOutput() RemediationAtManagementGroupTypeOutput
+	ToRemediationAtManagementGroupTypeOutputWithContext(context.Context) RemediationAtManagementGroupTypeOutput
 }
 
 // The remediation definition.
-type RemediationTypeArgs struct {
+type RemediationAtManagementGroupTypeArgs struct {
 	// The name of the remediation.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Properties for the remediation.
@@ -177,46 +177,265 @@ type RemediationTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (RemediationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationType)(nil)).Elem()
+func (RemediationAtManagementGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtManagementGroupType)(nil)).Elem()
 }
 
-func (i RemediationTypeArgs) ToRemediationTypeOutput() RemediationTypeOutput {
-	return i.ToRemediationTypeOutputWithContext(context.Background())
+func (i RemediationAtManagementGroupTypeArgs) ToRemediationAtManagementGroupTypeOutput() RemediationAtManagementGroupTypeOutput {
+	return i.ToRemediationAtManagementGroupTypeOutputWithContext(context.Background())
 }
 
-func (i RemediationTypeArgs) ToRemediationTypeOutputWithContext(ctx context.Context) RemediationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationTypeOutput)
+func (i RemediationAtManagementGroupTypeArgs) ToRemediationAtManagementGroupTypeOutputWithContext(ctx context.Context) RemediationAtManagementGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtManagementGroupTypeOutput)
 }
 
 // The remediation definition.
-type RemediationTypeOutput struct{ *pulumi.OutputState }
+type RemediationAtManagementGroupTypeOutput struct{ *pulumi.OutputState }
 
-func (RemediationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationType)(nil)).Elem()
+func (RemediationAtManagementGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtManagementGroupType)(nil)).Elem()
 }
 
-func (o RemediationTypeOutput) ToRemediationTypeOutput() RemediationTypeOutput {
+func (o RemediationAtManagementGroupTypeOutput) ToRemediationAtManagementGroupTypeOutput() RemediationAtManagementGroupTypeOutput {
 	return o
 }
 
-func (o RemediationTypeOutput) ToRemediationTypeOutputWithContext(ctx context.Context) RemediationTypeOutput {
+func (o RemediationAtManagementGroupTypeOutput) ToRemediationAtManagementGroupTypeOutputWithContext(ctx context.Context) RemediationAtManagementGroupTypeOutput {
 	return o
 }
 
 // The name of the remediation.
-func (o RemediationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationType) string { return v.Name }).(pulumi.StringOutput)
+func (o RemediationAtManagementGroupTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Properties for the remediation.
-func (o RemediationTypeOutput) Properties() RemediationPropertiesResponseOutput {
-	return o.ApplyT(func(v RemediationType) RemediationPropertiesResponse { return v.Properties }).(RemediationPropertiesResponseOutput)
+func (o RemediationAtManagementGroupTypeOutput) Properties() RemediationPropertiesResponseOutput {
+	return o.ApplyT(func(v RemediationAtManagementGroupType) RemediationPropertiesResponse { return v.Properties }).(RemediationPropertiesResponseOutput)
 }
 
 // The type of the remediation.
-func (o RemediationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationType) string { return v.Type }).(pulumi.StringOutput)
+func (o RemediationAtManagementGroupTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The remediation definition.
+type RemediationAtResourceType struct {
+	// The name of the remediation.
+	Name string `pulumi:"name"`
+	// Properties for the remediation.
+	Properties RemediationPropertiesResponse `pulumi:"properties"`
+	// The type of the remediation.
+	Type string `pulumi:"type"`
+}
+
+// RemediationAtResourceTypeInput is an input type that accepts RemediationAtResourceTypeArgs and RemediationAtResourceTypeOutput values.
+// You can construct a concrete instance of `RemediationAtResourceTypeInput` via:
+//
+//          RemediationAtResourceTypeArgs{...}
+type RemediationAtResourceTypeInput interface {
+	pulumi.Input
+
+	ToRemediationAtResourceTypeOutput() RemediationAtResourceTypeOutput
+	ToRemediationAtResourceTypeOutputWithContext(context.Context) RemediationAtResourceTypeOutput
+}
+
+// The remediation definition.
+type RemediationAtResourceTypeArgs struct {
+	// The name of the remediation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties for the remediation.
+	Properties RemediationPropertiesResponseInput `pulumi:"properties"`
+	// The type of the remediation.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RemediationAtResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtResourceType)(nil)).Elem()
+}
+
+func (i RemediationAtResourceTypeArgs) ToRemediationAtResourceTypeOutput() RemediationAtResourceTypeOutput {
+	return i.ToRemediationAtResourceTypeOutputWithContext(context.Background())
+}
+
+func (i RemediationAtResourceTypeArgs) ToRemediationAtResourceTypeOutputWithContext(ctx context.Context) RemediationAtResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtResourceTypeOutput)
+}
+
+// The remediation definition.
+type RemediationAtResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (RemediationAtResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtResourceType)(nil)).Elem()
+}
+
+func (o RemediationAtResourceTypeOutput) ToRemediationAtResourceTypeOutput() RemediationAtResourceTypeOutput {
+	return o
+}
+
+func (o RemediationAtResourceTypeOutput) ToRemediationAtResourceTypeOutputWithContext(ctx context.Context) RemediationAtResourceTypeOutput {
+	return o
+}
+
+// The name of the remediation.
+func (o RemediationAtResourceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtResourceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties for the remediation.
+func (o RemediationAtResourceTypeOutput) Properties() RemediationPropertiesResponseOutput {
+	return o.ApplyT(func(v RemediationAtResourceType) RemediationPropertiesResponse { return v.Properties }).(RemediationPropertiesResponseOutput)
+}
+
+// The type of the remediation.
+func (o RemediationAtResourceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtResourceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The remediation definition.
+type RemediationAtResourceGroupType struct {
+	// The name of the remediation.
+	Name string `pulumi:"name"`
+	// Properties for the remediation.
+	Properties RemediationPropertiesResponse `pulumi:"properties"`
+	// The type of the remediation.
+	Type string `pulumi:"type"`
+}
+
+// RemediationAtResourceGroupTypeInput is an input type that accepts RemediationAtResourceGroupTypeArgs and RemediationAtResourceGroupTypeOutput values.
+// You can construct a concrete instance of `RemediationAtResourceGroupTypeInput` via:
+//
+//          RemediationAtResourceGroupTypeArgs{...}
+type RemediationAtResourceGroupTypeInput interface {
+	pulumi.Input
+
+	ToRemediationAtResourceGroupTypeOutput() RemediationAtResourceGroupTypeOutput
+	ToRemediationAtResourceGroupTypeOutputWithContext(context.Context) RemediationAtResourceGroupTypeOutput
+}
+
+// The remediation definition.
+type RemediationAtResourceGroupTypeArgs struct {
+	// The name of the remediation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties for the remediation.
+	Properties RemediationPropertiesResponseInput `pulumi:"properties"`
+	// The type of the remediation.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RemediationAtResourceGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtResourceGroupType)(nil)).Elem()
+}
+
+func (i RemediationAtResourceGroupTypeArgs) ToRemediationAtResourceGroupTypeOutput() RemediationAtResourceGroupTypeOutput {
+	return i.ToRemediationAtResourceGroupTypeOutputWithContext(context.Background())
+}
+
+func (i RemediationAtResourceGroupTypeArgs) ToRemediationAtResourceGroupTypeOutputWithContext(ctx context.Context) RemediationAtResourceGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtResourceGroupTypeOutput)
+}
+
+// The remediation definition.
+type RemediationAtResourceGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (RemediationAtResourceGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtResourceGroupType)(nil)).Elem()
+}
+
+func (o RemediationAtResourceGroupTypeOutput) ToRemediationAtResourceGroupTypeOutput() RemediationAtResourceGroupTypeOutput {
+	return o
+}
+
+func (o RemediationAtResourceGroupTypeOutput) ToRemediationAtResourceGroupTypeOutputWithContext(ctx context.Context) RemediationAtResourceGroupTypeOutput {
+	return o
+}
+
+// The name of the remediation.
+func (o RemediationAtResourceGroupTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtResourceGroupType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties for the remediation.
+func (o RemediationAtResourceGroupTypeOutput) Properties() RemediationPropertiesResponseOutput {
+	return o.ApplyT(func(v RemediationAtResourceGroupType) RemediationPropertiesResponse { return v.Properties }).(RemediationPropertiesResponseOutput)
+}
+
+// The type of the remediation.
+func (o RemediationAtResourceGroupTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtResourceGroupType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The remediation definition.
+type RemediationAtSubscriptionType struct {
+	// The name of the remediation.
+	Name string `pulumi:"name"`
+	// Properties for the remediation.
+	Properties RemediationPropertiesResponse `pulumi:"properties"`
+	// The type of the remediation.
+	Type string `pulumi:"type"`
+}
+
+// RemediationAtSubscriptionTypeInput is an input type that accepts RemediationAtSubscriptionTypeArgs and RemediationAtSubscriptionTypeOutput values.
+// You can construct a concrete instance of `RemediationAtSubscriptionTypeInput` via:
+//
+//          RemediationAtSubscriptionTypeArgs{...}
+type RemediationAtSubscriptionTypeInput interface {
+	pulumi.Input
+
+	ToRemediationAtSubscriptionTypeOutput() RemediationAtSubscriptionTypeOutput
+	ToRemediationAtSubscriptionTypeOutputWithContext(context.Context) RemediationAtSubscriptionTypeOutput
+}
+
+// The remediation definition.
+type RemediationAtSubscriptionTypeArgs struct {
+	// The name of the remediation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties for the remediation.
+	Properties RemediationPropertiesResponseInput `pulumi:"properties"`
+	// The type of the remediation.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RemediationAtSubscriptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtSubscriptionType)(nil)).Elem()
+}
+
+func (i RemediationAtSubscriptionTypeArgs) ToRemediationAtSubscriptionTypeOutput() RemediationAtSubscriptionTypeOutput {
+	return i.ToRemediationAtSubscriptionTypeOutputWithContext(context.Background())
+}
+
+func (i RemediationAtSubscriptionTypeArgs) ToRemediationAtSubscriptionTypeOutputWithContext(ctx context.Context) RemediationAtSubscriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtSubscriptionTypeOutput)
+}
+
+// The remediation definition.
+type RemediationAtSubscriptionTypeOutput struct{ *pulumi.OutputState }
+
+func (RemediationAtSubscriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationAtSubscriptionType)(nil)).Elem()
+}
+
+func (o RemediationAtSubscriptionTypeOutput) ToRemediationAtSubscriptionTypeOutput() RemediationAtSubscriptionTypeOutput {
+	return o
+}
+
+func (o RemediationAtSubscriptionTypeOutput) ToRemediationAtSubscriptionTypeOutputWithContext(ctx context.Context) RemediationAtSubscriptionTypeOutput {
+	return o
+}
+
+// The name of the remediation.
+func (o RemediationAtSubscriptionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties for the remediation.
+func (o RemediationAtSubscriptionTypeOutput) Properties() RemediationPropertiesResponseOutput {
+	return o.ApplyT(func(v RemediationAtSubscriptionType) RemediationPropertiesResponse { return v.Properties }).(RemediationPropertiesResponseOutput)
+}
+
+// The type of the remediation.
+func (o RemediationAtSubscriptionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationAtSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Details of a single deployment created by the remediation.
@@ -1429,7 +1648,10 @@ func (o TypedErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) TypedErrorIn
 func init() {
 	pulumi.RegisterOutputType(ErrorDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(RemediationTypeOutput{})
+	pulumi.RegisterOutputType(RemediationAtManagementGroupTypeOutput{})
+	pulumi.RegisterOutputType(RemediationAtResourceTypeOutput{})
+	pulumi.RegisterOutputType(RemediationAtResourceGroupTypeOutput{})
+	pulumi.RegisterOutputType(RemediationAtSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentResponseOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentResponseArrayOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentSummaryOutput{})

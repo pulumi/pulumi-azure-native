@@ -355,81 +355,8 @@ func (o DataManagerTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DataManagerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Job Definition.
-type DataManagerDataServiceJobDefinitionType struct {
-	// Name of the object.
-	Name string `pulumi:"name"`
-	// JobDefinition properties.
-	Properties JobDefinitionPropertiesResponse `pulumi:"properties"`
-	// Type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataManagerDataServiceJobDefinitionTypeInput is an input type that accepts DataManagerDataServiceJobDefinitionTypeArgs and DataManagerDataServiceJobDefinitionTypeOutput values.
-// You can construct a concrete instance of `DataManagerDataServiceJobDefinitionTypeInput` via:
-//
-//          DataManagerDataServiceJobDefinitionTypeArgs{...}
-type DataManagerDataServiceJobDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToDataManagerDataServiceJobDefinitionTypeOutput() DataManagerDataServiceJobDefinitionTypeOutput
-	ToDataManagerDataServiceJobDefinitionTypeOutputWithContext(context.Context) DataManagerDataServiceJobDefinitionTypeOutput
-}
-
-// Job Definition.
-type DataManagerDataServiceJobDefinitionTypeArgs struct {
-	// Name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// JobDefinition properties.
-	Properties JobDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// Type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataManagerDataServiceJobDefinitionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManagerDataServiceJobDefinitionType)(nil)).Elem()
-}
-
-func (i DataManagerDataServiceJobDefinitionTypeArgs) ToDataManagerDataServiceJobDefinitionTypeOutput() DataManagerDataServiceJobDefinitionTypeOutput {
-	return i.ToDataManagerDataServiceJobDefinitionTypeOutputWithContext(context.Background())
-}
-
-func (i DataManagerDataServiceJobDefinitionTypeArgs) ToDataManagerDataServiceJobDefinitionTypeOutputWithContext(ctx context.Context) DataManagerDataServiceJobDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataManagerDataServiceJobDefinitionTypeOutput)
-}
-
-// Job Definition.
-type DataManagerDataServiceJobDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (DataManagerDataServiceJobDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManagerDataServiceJobDefinitionType)(nil)).Elem()
-}
-
-func (o DataManagerDataServiceJobDefinitionTypeOutput) ToDataManagerDataServiceJobDefinitionTypeOutput() DataManagerDataServiceJobDefinitionTypeOutput {
-	return o
-}
-
-func (o DataManagerDataServiceJobDefinitionTypeOutput) ToDataManagerDataServiceJobDefinitionTypeOutputWithContext(ctx context.Context) DataManagerDataServiceJobDefinitionTypeOutput {
-	return o
-}
-
-// Name of the object.
-func (o DataManagerDataServiceJobDefinitionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataManagerDataServiceJobDefinitionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// JobDefinition properties.
-func (o DataManagerDataServiceJobDefinitionTypeOutput) Properties() JobDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v DataManagerDataServiceJobDefinitionType) JobDefinitionPropertiesResponse { return v.Properties }).(JobDefinitionPropertiesResponseOutput)
-}
-
-// Type of the object.
-func (o DataManagerDataServiceJobDefinitionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataManagerDataServiceJobDefinitionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Data store.
-type DataManagerDataStoreType struct {
+type DataStoreType struct {
 	// Name of the object.
 	Name string `pulumi:"name"`
 	// DataStore properties.
@@ -438,19 +365,19 @@ type DataManagerDataStoreType struct {
 	Type string `pulumi:"type"`
 }
 
-// DataManagerDataStoreTypeInput is an input type that accepts DataManagerDataStoreTypeArgs and DataManagerDataStoreTypeOutput values.
-// You can construct a concrete instance of `DataManagerDataStoreTypeInput` via:
+// DataStoreTypeInput is an input type that accepts DataStoreTypeArgs and DataStoreTypeOutput values.
+// You can construct a concrete instance of `DataStoreTypeInput` via:
 //
-//          DataManagerDataStoreTypeArgs{...}
-type DataManagerDataStoreTypeInput interface {
+//          DataStoreTypeArgs{...}
+type DataStoreTypeInput interface {
 	pulumi.Input
 
-	ToDataManagerDataStoreTypeOutput() DataManagerDataStoreTypeOutput
-	ToDataManagerDataStoreTypeOutputWithContext(context.Context) DataManagerDataStoreTypeOutput
+	ToDataStoreTypeOutput() DataStoreTypeOutput
+	ToDataStoreTypeOutputWithContext(context.Context) DataStoreTypeOutput
 }
 
 // Data store.
-type DataManagerDataStoreTypeArgs struct {
+type DataStoreTypeArgs struct {
 	// Name of the object.
 	Name pulumi.StringInput `pulumi:"name"`
 	// DataStore properties.
@@ -459,46 +386,46 @@ type DataManagerDataStoreTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (DataManagerDataStoreTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManagerDataStoreType)(nil)).Elem()
+func (DataStoreTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStoreType)(nil)).Elem()
 }
 
-func (i DataManagerDataStoreTypeArgs) ToDataManagerDataStoreTypeOutput() DataManagerDataStoreTypeOutput {
-	return i.ToDataManagerDataStoreTypeOutputWithContext(context.Background())
+func (i DataStoreTypeArgs) ToDataStoreTypeOutput() DataStoreTypeOutput {
+	return i.ToDataStoreTypeOutputWithContext(context.Background())
 }
 
-func (i DataManagerDataStoreTypeArgs) ToDataManagerDataStoreTypeOutputWithContext(ctx context.Context) DataManagerDataStoreTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataManagerDataStoreTypeOutput)
+func (i DataStoreTypeArgs) ToDataStoreTypeOutputWithContext(ctx context.Context) DataStoreTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataStoreTypeOutput)
 }
 
 // Data store.
-type DataManagerDataStoreTypeOutput struct{ *pulumi.OutputState }
+type DataStoreTypeOutput struct{ *pulumi.OutputState }
 
-func (DataManagerDataStoreTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataManagerDataStoreType)(nil)).Elem()
+func (DataStoreTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStoreType)(nil)).Elem()
 }
 
-func (o DataManagerDataStoreTypeOutput) ToDataManagerDataStoreTypeOutput() DataManagerDataStoreTypeOutput {
+func (o DataStoreTypeOutput) ToDataStoreTypeOutput() DataStoreTypeOutput {
 	return o
 }
 
-func (o DataManagerDataStoreTypeOutput) ToDataManagerDataStoreTypeOutputWithContext(ctx context.Context) DataManagerDataStoreTypeOutput {
+func (o DataStoreTypeOutput) ToDataStoreTypeOutputWithContext(ctx context.Context) DataStoreTypeOutput {
 	return o
 }
 
 // Name of the object.
-func (o DataManagerDataStoreTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataManagerDataStoreType) string { return v.Name }).(pulumi.StringOutput)
+func (o DataStoreTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataStoreType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // DataStore properties.
-func (o DataManagerDataStoreTypeOutput) Properties() DataStorePropertiesResponseOutput {
-	return o.ApplyT(func(v DataManagerDataStoreType) DataStorePropertiesResponse { return v.Properties }).(DataStorePropertiesResponseOutput)
+func (o DataStoreTypeOutput) Properties() DataStorePropertiesResponseOutput {
+	return o.ApplyT(func(v DataStoreType) DataStorePropertiesResponse { return v.Properties }).(DataStorePropertiesResponseOutput)
 }
 
 // Type of the object.
-func (o DataManagerDataStoreTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataManagerDataStoreType) string { return v.Type }).(pulumi.StringOutput)
+func (o DataStoreTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataStoreType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Data Store for sources and sinks
@@ -919,6 +846,79 @@ func (o DataStorePropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 		}
 		return &v.State
 	}).(pulumi.StringPtrOutput)
+}
+
+// Job Definition.
+type JobDefinitionType struct {
+	// Name of the object.
+	Name string `pulumi:"name"`
+	// JobDefinition properties.
+	Properties JobDefinitionPropertiesResponse `pulumi:"properties"`
+	// Type of the object.
+	Type string `pulumi:"type"`
+}
+
+// JobDefinitionTypeInput is an input type that accepts JobDefinitionTypeArgs and JobDefinitionTypeOutput values.
+// You can construct a concrete instance of `JobDefinitionTypeInput` via:
+//
+//          JobDefinitionTypeArgs{...}
+type JobDefinitionTypeInput interface {
+	pulumi.Input
+
+	ToJobDefinitionTypeOutput() JobDefinitionTypeOutput
+	ToJobDefinitionTypeOutputWithContext(context.Context) JobDefinitionTypeOutput
+}
+
+// Job Definition.
+type JobDefinitionTypeArgs struct {
+	// Name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JobDefinition properties.
+	Properties JobDefinitionPropertiesResponseInput `pulumi:"properties"`
+	// Type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobDefinitionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionType)(nil)).Elem()
+}
+
+func (i JobDefinitionTypeArgs) ToJobDefinitionTypeOutput() JobDefinitionTypeOutput {
+	return i.ToJobDefinitionTypeOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionTypeArgs) ToJobDefinitionTypeOutputWithContext(ctx context.Context) JobDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTypeOutput)
+}
+
+// Job Definition.
+type JobDefinitionTypeOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionType)(nil)).Elem()
+}
+
+func (o JobDefinitionTypeOutput) ToJobDefinitionTypeOutput() JobDefinitionTypeOutput {
+	return o
+}
+
+func (o JobDefinitionTypeOutput) ToJobDefinitionTypeOutputWithContext(ctx context.Context) JobDefinitionTypeOutput {
+	return o
+}
+
+// Name of the object.
+func (o JobDefinitionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// JobDefinition properties.
+func (o JobDefinitionTypeOutput) Properties() JobDefinitionPropertiesResponseOutput {
+	return o.ApplyT(func(v JobDefinitionType) JobDefinitionPropertiesResponse { return v.Properties }).(JobDefinitionPropertiesResponseOutput)
+}
+
+// Type of the object.
+func (o JobDefinitionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Job Definition
@@ -2023,12 +2023,12 @@ func init() {
 	pulumi.RegisterOutputType(CustomerSecretResponseOutput{})
 	pulumi.RegisterOutputType(CustomerSecretResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataManagerTypeOutput{})
-	pulumi.RegisterOutputType(DataManagerDataServiceJobDefinitionTypeOutput{})
-	pulumi.RegisterOutputType(DataManagerDataStoreTypeOutput{})
+	pulumi.RegisterOutputType(DataStoreTypeOutput{})
 	pulumi.RegisterOutputType(DataStorePropertiesOutput{})
 	pulumi.RegisterOutputType(DataStorePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataStorePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DataStorePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(JobDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionPropertiesResponseOutput{})

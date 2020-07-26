@@ -12,7 +12,7 @@ namespace Pulumi.AzureRM.Media
     /// <summary>
     /// A Media Services account.
     /// </summary>
-    public partial class Mediaservice : Pulumi.CustomResource
+    public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>
         /// The Managed Identity for the Media Services account.
@@ -52,19 +52,19 @@ namespace Pulumi.AzureRM.Media
 
 
         /// <summary>
-        /// Create a Mediaservice resource with the given unique name, arguments, and options.
+        /// Create a MediaService resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Mediaservice(string name, MediaserviceArgs args, CustomResourceOptions? options = null)
-            : base("azurerm:media:Mediaservice", name, args ?? new MediaserviceArgs(), MakeResourceOptions(options, ""))
+        public MediaService(string name, MediaServiceArgs args, CustomResourceOptions? options = null)
+            : base("azurerm:media:MediaService", name, args ?? new MediaServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Mediaservice(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azurerm:media:Mediaservice", name, null, MakeResourceOptions(options, id))
+        private MediaService(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azurerm:media:MediaService", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -80,20 +80,20 @@ namespace Pulumi.AzureRM.Media
             return merged;
         }
         /// <summary>
-        /// Get an existing Mediaservice resource's state with the given name, ID, and optional extra
+        /// Get an existing MediaService resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Mediaservice Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static MediaService Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new Mediaservice(name, id, options);
+            return new MediaService(name, id, options);
         }
     }
 
-    public sealed class MediaserviceArgs : Pulumi.ResourceArgs
+    public sealed class MediaServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Managed Identity for the Media Services account.
@@ -137,7 +137,7 @@ namespace Pulumi.AzureRM.Media
             set => _tags = value;
         }
 
-        public MediaserviceArgs()
+        public MediaServiceArgs()
         {
         }
     }

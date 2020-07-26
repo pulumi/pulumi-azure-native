@@ -293,6 +293,79 @@ func (o AdditionalLocationResponseArrayOutput) Index(i pulumi.IntInput) Addition
 	}).(AdditionalLocationResponseOutput)
 }
 
+// Api details.
+type ApiType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Api entity contract properties.
+	Properties ApiContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiTypeInput is an input type that accepts ApiTypeArgs and ApiTypeOutput values.
+// You can construct a concrete instance of `ApiTypeInput` via:
+//
+//          ApiTypeArgs{...}
+type ApiTypeInput interface {
+	pulumi.Input
+
+	ToApiTypeOutput() ApiTypeOutput
+	ToApiTypeOutputWithContext(context.Context) ApiTypeOutput
+}
+
+// Api details.
+type ApiTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Api entity contract properties.
+	Properties ApiContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiType)(nil)).Elem()
+}
+
+func (i ApiTypeArgs) ToApiTypeOutput() ApiTypeOutput {
+	return i.ToApiTypeOutputWithContext(context.Background())
+}
+
+func (i ApiTypeArgs) ToApiTypeOutputWithContext(ctx context.Context) ApiTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiTypeOutput)
+}
+
+// Api details.
+type ApiTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiType)(nil)).Elem()
+}
+
+func (o ApiTypeOutput) ToApiTypeOutput() ApiTypeOutput {
+	return o
+}
+
+func (o ApiTypeOutput) ToApiTypeOutputWithContext(ctx context.Context) ApiTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Api entity contract properties.
+func (o ApiTypeOutput) Properties() ApiContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiType) ApiContractPropertiesResponse { return v.Properties }).(ApiContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Api Entity Properties
 type ApiContractPropertiesResponse struct {
 	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
@@ -1429,6 +1502,416 @@ func (o ApiCreateOrUpdatePropertiesPropertiesPtrOutput) WsdlServiceName() pulumi
 		}
 		return v.WsdlServiceName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Diagnostic details.
+type ApiDiagnosticType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Diagnostic entity contract properties.
+	Properties DiagnosticContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiDiagnosticTypeInput is an input type that accepts ApiDiagnosticTypeArgs and ApiDiagnosticTypeOutput values.
+// You can construct a concrete instance of `ApiDiagnosticTypeInput` via:
+//
+//          ApiDiagnosticTypeArgs{...}
+type ApiDiagnosticTypeInput interface {
+	pulumi.Input
+
+	ToApiDiagnosticTypeOutput() ApiDiagnosticTypeOutput
+	ToApiDiagnosticTypeOutputWithContext(context.Context) ApiDiagnosticTypeOutput
+}
+
+// Diagnostic details.
+type ApiDiagnosticTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Diagnostic entity contract properties.
+	Properties DiagnosticContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiDiagnosticTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticType)(nil)).Elem()
+}
+
+func (i ApiDiagnosticTypeArgs) ToApiDiagnosticTypeOutput() ApiDiagnosticTypeOutput {
+	return i.ToApiDiagnosticTypeOutputWithContext(context.Background())
+}
+
+func (i ApiDiagnosticTypeArgs) ToApiDiagnosticTypeOutputWithContext(ctx context.Context) ApiDiagnosticTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticTypeOutput)
+}
+
+// Diagnostic details.
+type ApiDiagnosticTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiDiagnosticTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDiagnosticType)(nil)).Elem()
+}
+
+func (o ApiDiagnosticTypeOutput) ToApiDiagnosticTypeOutput() ApiDiagnosticTypeOutput {
+	return o
+}
+
+func (o ApiDiagnosticTypeOutput) ToApiDiagnosticTypeOutputWithContext(ctx context.Context) ApiDiagnosticTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiDiagnosticTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Diagnostic entity contract properties.
+func (o ApiDiagnosticTypeOutput) Properties() DiagnosticContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiDiagnosticType) DiagnosticContractPropertiesResponse { return v.Properties }).(DiagnosticContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiDiagnosticTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiDiagnosticType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Issue Contract details.
+type ApiIssueType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Issue.
+	Properties IssueContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiIssueTypeInput is an input type that accepts ApiIssueTypeArgs and ApiIssueTypeOutput values.
+// You can construct a concrete instance of `ApiIssueTypeInput` via:
+//
+//          ApiIssueTypeArgs{...}
+type ApiIssueTypeInput interface {
+	pulumi.Input
+
+	ToApiIssueTypeOutput() ApiIssueTypeOutput
+	ToApiIssueTypeOutputWithContext(context.Context) ApiIssueTypeOutput
+}
+
+// Issue Contract details.
+type ApiIssueTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Issue.
+	Properties IssueContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiIssueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueType)(nil)).Elem()
+}
+
+func (i ApiIssueTypeArgs) ToApiIssueTypeOutput() ApiIssueTypeOutput {
+	return i.ToApiIssueTypeOutputWithContext(context.Background())
+}
+
+func (i ApiIssueTypeArgs) ToApiIssueTypeOutputWithContext(ctx context.Context) ApiIssueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueTypeOutput)
+}
+
+// Issue Contract details.
+type ApiIssueTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiIssueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueType)(nil)).Elem()
+}
+
+func (o ApiIssueTypeOutput) ToApiIssueTypeOutput() ApiIssueTypeOutput {
+	return o
+}
+
+func (o ApiIssueTypeOutput) ToApiIssueTypeOutputWithContext(ctx context.Context) ApiIssueTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiIssueTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiIssueType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Issue.
+func (o ApiIssueTypeOutput) Properties() IssueContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiIssueType) IssueContractPropertiesResponse { return v.Properties }).(IssueContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiIssueTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiIssueType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Issue Attachment Contract details.
+type ApiIssueAttachmentType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Issue Attachment.
+	Properties IssueAttachmentContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiIssueAttachmentTypeInput is an input type that accepts ApiIssueAttachmentTypeArgs and ApiIssueAttachmentTypeOutput values.
+// You can construct a concrete instance of `ApiIssueAttachmentTypeInput` via:
+//
+//          ApiIssueAttachmentTypeArgs{...}
+type ApiIssueAttachmentTypeInput interface {
+	pulumi.Input
+
+	ToApiIssueAttachmentTypeOutput() ApiIssueAttachmentTypeOutput
+	ToApiIssueAttachmentTypeOutputWithContext(context.Context) ApiIssueAttachmentTypeOutput
+}
+
+// Issue Attachment Contract details.
+type ApiIssueAttachmentTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Issue Attachment.
+	Properties IssueAttachmentContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiIssueAttachmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueAttachmentType)(nil)).Elem()
+}
+
+func (i ApiIssueAttachmentTypeArgs) ToApiIssueAttachmentTypeOutput() ApiIssueAttachmentTypeOutput {
+	return i.ToApiIssueAttachmentTypeOutputWithContext(context.Background())
+}
+
+func (i ApiIssueAttachmentTypeArgs) ToApiIssueAttachmentTypeOutputWithContext(ctx context.Context) ApiIssueAttachmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueAttachmentTypeOutput)
+}
+
+// Issue Attachment Contract details.
+type ApiIssueAttachmentTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiIssueAttachmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueAttachmentType)(nil)).Elem()
+}
+
+func (o ApiIssueAttachmentTypeOutput) ToApiIssueAttachmentTypeOutput() ApiIssueAttachmentTypeOutput {
+	return o
+}
+
+func (o ApiIssueAttachmentTypeOutput) ToApiIssueAttachmentTypeOutputWithContext(ctx context.Context) ApiIssueAttachmentTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiIssueAttachmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiIssueAttachmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Issue Attachment.
+func (o ApiIssueAttachmentTypeOutput) Properties() IssueAttachmentContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiIssueAttachmentType) IssueAttachmentContractPropertiesResponse { return v.Properties }).(IssueAttachmentContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiIssueAttachmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiIssueAttachmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Issue Comment Contract details.
+type ApiIssueCommentType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Issue Comment.
+	Properties IssueCommentContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiIssueCommentTypeInput is an input type that accepts ApiIssueCommentTypeArgs and ApiIssueCommentTypeOutput values.
+// You can construct a concrete instance of `ApiIssueCommentTypeInput` via:
+//
+//          ApiIssueCommentTypeArgs{...}
+type ApiIssueCommentTypeInput interface {
+	pulumi.Input
+
+	ToApiIssueCommentTypeOutput() ApiIssueCommentTypeOutput
+	ToApiIssueCommentTypeOutputWithContext(context.Context) ApiIssueCommentTypeOutput
+}
+
+// Issue Comment Contract details.
+type ApiIssueCommentTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Issue Comment.
+	Properties IssueCommentContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiIssueCommentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueCommentType)(nil)).Elem()
+}
+
+func (i ApiIssueCommentTypeArgs) ToApiIssueCommentTypeOutput() ApiIssueCommentTypeOutput {
+	return i.ToApiIssueCommentTypeOutputWithContext(context.Background())
+}
+
+func (i ApiIssueCommentTypeArgs) ToApiIssueCommentTypeOutputWithContext(ctx context.Context) ApiIssueCommentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueCommentTypeOutput)
+}
+
+// Issue Comment Contract details.
+type ApiIssueCommentTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiIssueCommentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiIssueCommentType)(nil)).Elem()
+}
+
+func (o ApiIssueCommentTypeOutput) ToApiIssueCommentTypeOutput() ApiIssueCommentTypeOutput {
+	return o
+}
+
+func (o ApiIssueCommentTypeOutput) ToApiIssueCommentTypeOutputWithContext(ctx context.Context) ApiIssueCommentTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiIssueCommentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiIssueCommentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Issue Comment.
+func (o ApiIssueCommentTypeOutput) Properties() IssueCommentContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiIssueCommentType) IssueCommentContractPropertiesResponse { return v.Properties }).(IssueCommentContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiIssueCommentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiIssueCommentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A single API Management service resource in List or Get response.
+type ApiManagementServiceType struct {
+	// ETag of the resource.
+	Etag string `pulumi:"etag"`
+	// Managed service identity of the Api Management service.
+	Identity *ApiManagementServiceIdentityResponse `pulumi:"identity"`
+	// Resource location.
+	Location string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the API Management service.
+	Properties ApiManagementServicePropertiesResponse `pulumi:"properties"`
+	// SKU properties of the API Management service.
+	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type for API Management resource is set to Microsoft.ApiManagement.
+	Type string `pulumi:"type"`
+}
+
+// ApiManagementServiceTypeInput is an input type that accepts ApiManagementServiceTypeArgs and ApiManagementServiceTypeOutput values.
+// You can construct a concrete instance of `ApiManagementServiceTypeInput` via:
+//
+//          ApiManagementServiceTypeArgs{...}
+type ApiManagementServiceTypeInput interface {
+	pulumi.Input
+
+	ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput
+	ToApiManagementServiceTypeOutputWithContext(context.Context) ApiManagementServiceTypeOutput
+}
+
+// A single API Management service resource in List or Get response.
+type ApiManagementServiceTypeArgs struct {
+	// ETag of the resource.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Managed service identity of the Api Management service.
+	Identity ApiManagementServiceIdentityResponsePtrInput `pulumi:"identity"`
+	// Resource location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the API Management service.
+	Properties ApiManagementServicePropertiesResponseInput `pulumi:"properties"`
+	// SKU properties of the API Management service.
+	Sku ApiManagementServiceSkuPropertiesResponseInput `pulumi:"sku"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type for API Management resource is set to Microsoft.ApiManagement.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiManagementServiceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiManagementServiceType)(nil)).Elem()
+}
+
+func (i ApiManagementServiceTypeArgs) ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput {
+	return i.ToApiManagementServiceTypeOutputWithContext(context.Background())
+}
+
+func (i ApiManagementServiceTypeArgs) ToApiManagementServiceTypeOutputWithContext(ctx context.Context) ApiManagementServiceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceTypeOutput)
+}
+
+// A single API Management service resource in List or Get response.
+type ApiManagementServiceTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiManagementServiceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiManagementServiceType)(nil)).Elem()
+}
+
+func (o ApiManagementServiceTypeOutput) ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput {
+	return o
+}
+
+func (o ApiManagementServiceTypeOutput) ToApiManagementServiceTypeOutputWithContext(ctx context.Context) ApiManagementServiceTypeOutput {
+	return o
+}
+
+// ETag of the resource.
+func (o ApiManagementServiceTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Managed service identity of the Api Management service.
+func (o ApiManagementServiceTypeOutput) Identity() ApiManagementServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) *ApiManagementServiceIdentityResponse { return v.Identity }).(ApiManagementServiceIdentityResponsePtrOutput)
+}
+
+// Resource location.
+func (o ApiManagementServiceTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ApiManagementServiceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the API Management service.
+func (o ApiManagementServiceTypeOutput) Properties() ApiManagementServicePropertiesResponseOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) ApiManagementServicePropertiesResponse { return v.Properties }).(ApiManagementServicePropertiesResponseOutput)
+}
+
+// SKU properties of the API Management service.
+func (o ApiManagementServiceTypeOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) ApiManagementServiceSkuPropertiesResponse { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o ApiManagementServiceTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type for API Management resource is set to Microsoft.ApiManagement.
+func (o ApiManagementServiceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Identity properties of the Api Management service resource.
@@ -3014,6 +3497,298 @@ func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Name() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// Api Operation details.
+type ApiOperationType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Operation Contract.
+	Properties OperationContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiOperationTypeInput is an input type that accepts ApiOperationTypeArgs and ApiOperationTypeOutput values.
+// You can construct a concrete instance of `ApiOperationTypeInput` via:
+//
+//          ApiOperationTypeArgs{...}
+type ApiOperationTypeInput interface {
+	pulumi.Input
+
+	ToApiOperationTypeOutput() ApiOperationTypeOutput
+	ToApiOperationTypeOutputWithContext(context.Context) ApiOperationTypeOutput
+}
+
+// Api Operation details.
+type ApiOperationTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Operation Contract.
+	Properties OperationContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiOperationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationType)(nil)).Elem()
+}
+
+func (i ApiOperationTypeArgs) ToApiOperationTypeOutput() ApiOperationTypeOutput {
+	return i.ToApiOperationTypeOutputWithContext(context.Background())
+}
+
+func (i ApiOperationTypeArgs) ToApiOperationTypeOutputWithContext(ctx context.Context) ApiOperationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTypeOutput)
+}
+
+// Api Operation details.
+type ApiOperationTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationType)(nil)).Elem()
+}
+
+func (o ApiOperationTypeOutput) ToApiOperationTypeOutput() ApiOperationTypeOutput {
+	return o
+}
+
+func (o ApiOperationTypeOutput) ToApiOperationTypeOutputWithContext(ctx context.Context) ApiOperationTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiOperationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOperationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Operation Contract.
+func (o ApiOperationTypeOutput) Properties() OperationContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiOperationType) OperationContractPropertiesResponse { return v.Properties }).(OperationContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiOperationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOperationType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Policy Contract details.
+type ApiOperationPolicyType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiOperationPolicyTypeInput is an input type that accepts ApiOperationPolicyTypeArgs and ApiOperationPolicyTypeOutput values.
+// You can construct a concrete instance of `ApiOperationPolicyTypeInput` via:
+//
+//          ApiOperationPolicyTypeArgs{...}
+type ApiOperationPolicyTypeInput interface {
+	pulumi.Input
+
+	ToApiOperationPolicyTypeOutput() ApiOperationPolicyTypeOutput
+	ToApiOperationPolicyTypeOutputWithContext(context.Context) ApiOperationPolicyTypeOutput
+}
+
+// Policy Contract details.
+type ApiOperationPolicyTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiOperationPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationPolicyType)(nil)).Elem()
+}
+
+func (i ApiOperationPolicyTypeArgs) ToApiOperationPolicyTypeOutput() ApiOperationPolicyTypeOutput {
+	return i.ToApiOperationPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ApiOperationPolicyTypeArgs) ToApiOperationPolicyTypeOutputWithContext(ctx context.Context) ApiOperationPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyTypeOutput)
+}
+
+// Policy Contract details.
+type ApiOperationPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiOperationPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOperationPolicyType)(nil)).Elem()
+}
+
+func (o ApiOperationPolicyTypeOutput) ToApiOperationPolicyTypeOutput() ApiOperationPolicyTypeOutput {
+	return o
+}
+
+func (o ApiOperationPolicyTypeOutput) ToApiOperationPolicyTypeOutputWithContext(ctx context.Context) ApiOperationPolicyTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiOperationPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOperationPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Policy.
+func (o ApiOperationPolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiOperationPolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiOperationPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOperationPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Policy Contract details.
+type ApiPolicyType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiPolicyTypeInput is an input type that accepts ApiPolicyTypeArgs and ApiPolicyTypeOutput values.
+// You can construct a concrete instance of `ApiPolicyTypeInput` via:
+//
+//          ApiPolicyTypeArgs{...}
+type ApiPolicyTypeInput interface {
+	pulumi.Input
+
+	ToApiPolicyTypeOutput() ApiPolicyTypeOutput
+	ToApiPolicyTypeOutputWithContext(context.Context) ApiPolicyTypeOutput
+}
+
+// Policy Contract details.
+type ApiPolicyTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiPolicyType)(nil)).Elem()
+}
+
+func (i ApiPolicyTypeArgs) ToApiPolicyTypeOutput() ApiPolicyTypeOutput {
+	return i.ToApiPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ApiPolicyTypeArgs) ToApiPolicyTypeOutputWithContext(ctx context.Context) ApiPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyTypeOutput)
+}
+
+// Policy Contract details.
+type ApiPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiPolicyType)(nil)).Elem()
+}
+
+func (o ApiPolicyTypeOutput) ToApiPolicyTypeOutput() ApiPolicyTypeOutput {
+	return o
+}
+
+func (o ApiPolicyTypeOutput) ToApiPolicyTypeOutputWithContext(ctx context.Context) ApiPolicyTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Policy.
+func (o ApiPolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiPolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// ApiRelease details.
+type ApiReleaseType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// ApiRelease entity contract properties.
+	Properties ApiReleaseContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiReleaseTypeInput is an input type that accepts ApiReleaseTypeArgs and ApiReleaseTypeOutput values.
+// You can construct a concrete instance of `ApiReleaseTypeInput` via:
+//
+//          ApiReleaseTypeArgs{...}
+type ApiReleaseTypeInput interface {
+	pulumi.Input
+
+	ToApiReleaseTypeOutput() ApiReleaseTypeOutput
+	ToApiReleaseTypeOutputWithContext(context.Context) ApiReleaseTypeOutput
+}
+
+// ApiRelease details.
+type ApiReleaseTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// ApiRelease entity contract properties.
+	Properties ApiReleaseContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiReleaseTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiReleaseType)(nil)).Elem()
+}
+
+func (i ApiReleaseTypeArgs) ToApiReleaseTypeOutput() ApiReleaseTypeOutput {
+	return i.ToApiReleaseTypeOutputWithContext(context.Background())
+}
+
+func (i ApiReleaseTypeArgs) ToApiReleaseTypeOutputWithContext(ctx context.Context) ApiReleaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseTypeOutput)
+}
+
+// ApiRelease details.
+type ApiReleaseTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiReleaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiReleaseType)(nil)).Elem()
+}
+
+func (o ApiReleaseTypeOutput) ToApiReleaseTypeOutput() ApiReleaseTypeOutput {
+	return o
+}
+
+func (o ApiReleaseTypeOutput) ToApiReleaseTypeOutputWithContext(ctx context.Context) ApiReleaseTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiReleaseTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiReleaseType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// ApiRelease entity contract properties.
+func (o ApiReleaseTypeOutput) Properties() ApiReleaseContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiReleaseType) ApiReleaseContractPropertiesResponse { return v.Properties }).(ApiReleaseContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiReleaseTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiReleaseType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // API Release details
 type ApiReleaseContractProperties struct {
 	// Identifier of the API the release belongs to.
@@ -3358,6 +4133,152 @@ func (o ApiReleaseContractPropertiesResponsePtrOutput) UpdatedDateTime() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Schema Contract details.
+type ApiSchemaType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Schema.
+	Properties SchemaContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiSchemaTypeInput is an input type that accepts ApiSchemaTypeArgs and ApiSchemaTypeOutput values.
+// You can construct a concrete instance of `ApiSchemaTypeInput` via:
+//
+//          ApiSchemaTypeArgs{...}
+type ApiSchemaTypeInput interface {
+	pulumi.Input
+
+	ToApiSchemaTypeOutput() ApiSchemaTypeOutput
+	ToApiSchemaTypeOutputWithContext(context.Context) ApiSchemaTypeOutput
+}
+
+// Schema Contract details.
+type ApiSchemaTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Schema.
+	Properties SchemaContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiSchemaTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiSchemaType)(nil)).Elem()
+}
+
+func (i ApiSchemaTypeArgs) ToApiSchemaTypeOutput() ApiSchemaTypeOutput {
+	return i.ToApiSchemaTypeOutputWithContext(context.Background())
+}
+
+func (i ApiSchemaTypeArgs) ToApiSchemaTypeOutputWithContext(ctx context.Context) ApiSchemaTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaTypeOutput)
+}
+
+// Schema Contract details.
+type ApiSchemaTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiSchemaTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiSchemaType)(nil)).Elem()
+}
+
+func (o ApiSchemaTypeOutput) ToApiSchemaTypeOutput() ApiSchemaTypeOutput {
+	return o
+}
+
+func (o ApiSchemaTypeOutput) ToApiSchemaTypeOutputWithContext(ctx context.Context) ApiSchemaTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiSchemaTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiSchemaType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Schema.
+func (o ApiSchemaTypeOutput) Properties() SchemaContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiSchemaType) SchemaContractPropertiesResponse { return v.Properties }).(SchemaContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiSchemaTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiSchemaType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Contract details.
+type ApiTagDescriptionType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// TagDescription entity contract properties.
+	Properties TagDescriptionContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiTagDescriptionTypeInput is an input type that accepts ApiTagDescriptionTypeArgs and ApiTagDescriptionTypeOutput values.
+// You can construct a concrete instance of `ApiTagDescriptionTypeInput` via:
+//
+//          ApiTagDescriptionTypeArgs{...}
+type ApiTagDescriptionTypeInput interface {
+	pulumi.Input
+
+	ToApiTagDescriptionTypeOutput() ApiTagDescriptionTypeOutput
+	ToApiTagDescriptionTypeOutputWithContext(context.Context) ApiTagDescriptionTypeOutput
+}
+
+// Contract details.
+type ApiTagDescriptionTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// TagDescription entity contract properties.
+	Properties TagDescriptionContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiTagDescriptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTagDescriptionType)(nil)).Elem()
+}
+
+func (i ApiTagDescriptionTypeArgs) ToApiTagDescriptionTypeOutput() ApiTagDescriptionTypeOutput {
+	return i.ToApiTagDescriptionTypeOutputWithContext(context.Background())
+}
+
+func (i ApiTagDescriptionTypeArgs) ToApiTagDescriptionTypeOutputWithContext(ctx context.Context) ApiTagDescriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiTagDescriptionTypeOutput)
+}
+
+// Contract details.
+type ApiTagDescriptionTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiTagDescriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTagDescriptionType)(nil)).Elem()
+}
+
+func (o ApiTagDescriptionTypeOutput) ToApiTagDescriptionTypeOutput() ApiTagDescriptionTypeOutput {
+	return o
+}
+
+func (o ApiTagDescriptionTypeOutput) ToApiTagDescriptionTypeOutputWithContext(ctx context.Context) ApiTagDescriptionTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiTagDescriptionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiTagDescriptionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// TagDescription entity contract properties.
+func (o ApiTagDescriptionTypeOutput) Properties() TagDescriptionContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiTagDescriptionType) TagDescriptionContractPropertiesResponse { return v.Properties }).(TagDescriptionContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiTagDescriptionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiTagDescriptionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Control Plane Apis version constraint for the API Management service.
 type ApiVersionConstraint struct {
 	// Limit control plane API calls to API Management service with version equal to or newer than this value.
@@ -3624,6 +4545,79 @@ func (o ApiVersionConstraintResponsePtrOutput) MinApiVersion() pulumi.StringPtrO
 		}
 		return v.MinApiVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Api Version Set Contract details.
+type ApiVersionSetType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Api VersionSet contract properties.
+	Properties ApiVersionSetContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ApiVersionSetTypeInput is an input type that accepts ApiVersionSetTypeArgs and ApiVersionSetTypeOutput values.
+// You can construct a concrete instance of `ApiVersionSetTypeInput` via:
+//
+//          ApiVersionSetTypeArgs{...}
+type ApiVersionSetTypeInput interface {
+	pulumi.Input
+
+	ToApiVersionSetTypeOutput() ApiVersionSetTypeOutput
+	ToApiVersionSetTypeOutputWithContext(context.Context) ApiVersionSetTypeOutput
+}
+
+// Api Version Set Contract details.
+type ApiVersionSetTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Api VersionSet contract properties.
+	Properties ApiVersionSetContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApiVersionSetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiVersionSetType)(nil)).Elem()
+}
+
+func (i ApiVersionSetTypeArgs) ToApiVersionSetTypeOutput() ApiVersionSetTypeOutput {
+	return i.ToApiVersionSetTypeOutputWithContext(context.Background())
+}
+
+func (i ApiVersionSetTypeArgs) ToApiVersionSetTypeOutputWithContext(ctx context.Context) ApiVersionSetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetTypeOutput)
+}
+
+// Api Version Set Contract details.
+type ApiVersionSetTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiVersionSetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiVersionSetType)(nil)).Elem()
+}
+
+func (o ApiVersionSetTypeOutput) ToApiVersionSetTypeOutput() ApiVersionSetTypeOutput {
+	return o
+}
+
+func (o ApiVersionSetTypeOutput) ToApiVersionSetTypeOutputWithContext(ctx context.Context) ApiVersionSetTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ApiVersionSetTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiVersionSetType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Api VersionSet contract properties.
+func (o ApiVersionSetTypeOutput) Properties() ApiVersionSetContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ApiVersionSetType) ApiVersionSetContractPropertiesResponse { return v.Properties }).(ApiVersionSetContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiVersionSetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiVersionSetType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // An API Version Set contains the common configuration for a set of API Versions relating
@@ -4814,6 +5808,79 @@ func (o AuthenticationSettingsContractResponsePtrOutput) Openid() OpenIdAuthenti
 	}).(OpenIdAuthenticationSettingsContractResponsePtrOutput)
 }
 
+// External OAuth authorization server settings.
+type AuthorizationServerType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the External OAuth authorization server Contract.
+	Properties AuthorizationServerContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// AuthorizationServerTypeInput is an input type that accepts AuthorizationServerTypeArgs and AuthorizationServerTypeOutput values.
+// You can construct a concrete instance of `AuthorizationServerTypeInput` via:
+//
+//          AuthorizationServerTypeArgs{...}
+type AuthorizationServerTypeInput interface {
+	pulumi.Input
+
+	ToAuthorizationServerTypeOutput() AuthorizationServerTypeOutput
+	ToAuthorizationServerTypeOutputWithContext(context.Context) AuthorizationServerTypeOutput
+}
+
+// External OAuth authorization server settings.
+type AuthorizationServerTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the External OAuth authorization server Contract.
+	Properties AuthorizationServerContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AuthorizationServerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationServerType)(nil)).Elem()
+}
+
+func (i AuthorizationServerTypeArgs) ToAuthorizationServerTypeOutput() AuthorizationServerTypeOutput {
+	return i.ToAuthorizationServerTypeOutputWithContext(context.Background())
+}
+
+func (i AuthorizationServerTypeArgs) ToAuthorizationServerTypeOutputWithContext(ctx context.Context) AuthorizationServerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerTypeOutput)
+}
+
+// External OAuth authorization server settings.
+type AuthorizationServerTypeOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationServerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationServerType)(nil)).Elem()
+}
+
+func (o AuthorizationServerTypeOutput) ToAuthorizationServerTypeOutput() AuthorizationServerTypeOutput {
+	return o
+}
+
+func (o AuthorizationServerTypeOutput) ToAuthorizationServerTypeOutputWithContext(ctx context.Context) AuthorizationServerTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o AuthorizationServerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizationServerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the External OAuth authorization server Contract.
+func (o AuthorizationServerTypeOutput) Properties() AuthorizationServerContractPropertiesResponseOutput {
+	return o.ApplyT(func(v AuthorizationServerType) AuthorizationServerContractPropertiesResponse { return v.Properties }).(AuthorizationServerContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o AuthorizationServerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizationServerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // External OAuth authorization server settings Properties.
 type AuthorizationServerContractProperties struct {
 	// OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
@@ -5656,6 +6723,79 @@ func (o AuthorizationServerContractPropertiesResponsePtrOutput) TokenEndpoint() 
 		}
 		return v.TokenEndpoint
 	}).(pulumi.StringPtrOutput)
+}
+
+// Backend details.
+type BackendType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Backend entity contract properties.
+	Properties BackendContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// BackendTypeInput is an input type that accepts BackendTypeArgs and BackendTypeOutput values.
+// You can construct a concrete instance of `BackendTypeInput` via:
+//
+//          BackendTypeArgs{...}
+type BackendTypeInput interface {
+	pulumi.Input
+
+	ToBackendTypeOutput() BackendTypeOutput
+	ToBackendTypeOutputWithContext(context.Context) BackendTypeOutput
+}
+
+// Backend details.
+type BackendTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Backend entity contract properties.
+	Properties BackendContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BackendTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendType)(nil)).Elem()
+}
+
+func (i BackendTypeArgs) ToBackendTypeOutput() BackendTypeOutput {
+	return i.ToBackendTypeOutputWithContext(context.Background())
+}
+
+func (i BackendTypeArgs) ToBackendTypeOutputWithContext(ctx context.Context) BackendTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackendTypeOutput)
+}
+
+// Backend details.
+type BackendTypeOutput struct{ *pulumi.OutputState }
+
+func (BackendTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendType)(nil)).Elem()
+}
+
+func (o BackendTypeOutput) ToBackendTypeOutput() BackendTypeOutput {
+	return o
+}
+
+func (o BackendTypeOutput) ToBackendTypeOutputWithContext(ctx context.Context) BackendTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o BackendTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Backend entity contract properties.
+func (o BackendTypeOutput) Properties() BackendContractPropertiesResponseOutput {
+	return o.ApplyT(func(v BackendType) BackendContractPropertiesResponse { return v.Properties }).(BackendContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o BackendTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BackendType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Authorization header information.
@@ -8534,6 +9674,79 @@ func (o BodyDiagnosticSettingsResponsePtrOutput) Bytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Cache details.
+type CacheType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Cache properties details.
+	Properties CacheContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// CacheTypeInput is an input type that accepts CacheTypeArgs and CacheTypeOutput values.
+// You can construct a concrete instance of `CacheTypeInput` via:
+//
+//          CacheTypeArgs{...}
+type CacheTypeInput interface {
+	pulumi.Input
+
+	ToCacheTypeOutput() CacheTypeOutput
+	ToCacheTypeOutputWithContext(context.Context) CacheTypeOutput
+}
+
+// Cache details.
+type CacheTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Cache properties details.
+	Properties CacheContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CacheTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheType)(nil)).Elem()
+}
+
+func (i CacheTypeArgs) ToCacheTypeOutput() CacheTypeOutput {
+	return i.ToCacheTypeOutputWithContext(context.Background())
+}
+
+func (i CacheTypeArgs) ToCacheTypeOutputWithContext(ctx context.Context) CacheTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheTypeOutput)
+}
+
+// Cache details.
+type CacheTypeOutput struct{ *pulumi.OutputState }
+
+func (CacheTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheType)(nil)).Elem()
+}
+
+func (o CacheTypeOutput) ToCacheTypeOutput() CacheTypeOutput {
+	return o
+}
+
+func (o CacheTypeOutput) ToCacheTypeOutputWithContext(ctx context.Context) CacheTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o CacheTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Cache properties details.
+func (o CacheTypeOutput) Properties() CacheContractPropertiesResponseOutput {
+	return o.ApplyT(func(v CacheType) CacheContractPropertiesResponse { return v.Properties }).(CacheContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o CacheTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of the Cache contract.
 type CacheContractProperties struct {
 	// Runtime connection string to cache
@@ -8876,6 +10089,79 @@ func (o CacheContractPropertiesResponsePtrOutput) ResourceId() pulumi.StringPtrO
 		}
 		return v.ResourceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Certificate details.
+type CertificateType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Certificate properties details.
+	Properties CertificateContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// CertificateTypeInput is an input type that accepts CertificateTypeArgs and CertificateTypeOutput values.
+// You can construct a concrete instance of `CertificateTypeInput` via:
+//
+//          CertificateTypeArgs{...}
+type CertificateTypeInput interface {
+	pulumi.Input
+
+	ToCertificateTypeOutput() CertificateTypeOutput
+	ToCertificateTypeOutputWithContext(context.Context) CertificateTypeOutput
+}
+
+// Certificate details.
+type CertificateTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Certificate properties details.
+	Properties CertificateContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CertificateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateType)(nil)).Elem()
+}
+
+func (i CertificateTypeArgs) ToCertificateTypeOutput() CertificateTypeOutput {
+	return i.ToCertificateTypeOutputWithContext(context.Background())
+}
+
+func (i CertificateTypeArgs) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTypeOutput)
+}
+
+// Certificate details.
+type CertificateTypeOutput struct{ *pulumi.OutputState }
+
+func (CertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateType)(nil)).Elem()
+}
+
+func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
+	return o
+}
+
+func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o CertificateTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Certificate properties details.
+func (o CertificateTypeOutput) Properties() CertificateContractPropertiesResponseOutput {
+	return o.ApplyT(func(v CertificateType) CertificateContractPropertiesResponse { return v.Properties }).(CertificateContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o CertificateTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Certificate configuration which consist of non-trusted intermediates and root certificates.
@@ -9801,6 +11087,79 @@ func (o CertificateInformationResponsePtrOutput) Thumbprint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Content type contract details.
+type ContentItemType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the content item.
+	Properties ContentItemContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ContentItemTypeInput is an input type that accepts ContentItemTypeArgs and ContentItemTypeOutput values.
+// You can construct a concrete instance of `ContentItemTypeInput` via:
+//
+//          ContentItemTypeArgs{...}
+type ContentItemTypeInput interface {
+	pulumi.Input
+
+	ToContentItemTypeOutput() ContentItemTypeOutput
+	ToContentItemTypeOutputWithContext(context.Context) ContentItemTypeOutput
+}
+
+// Content type contract details.
+type ContentItemTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the content item.
+	Properties ContentItemContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContentItemTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentItemType)(nil)).Elem()
+}
+
+func (i ContentItemTypeArgs) ToContentItemTypeOutput() ContentItemTypeOutput {
+	return i.ToContentItemTypeOutputWithContext(context.Background())
+}
+
+func (i ContentItemTypeArgs) ToContentItemTypeOutputWithContext(ctx context.Context) ContentItemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentItemTypeOutput)
+}
+
+// Content type contract details.
+type ContentItemTypeOutput struct{ *pulumi.OutputState }
+
+func (ContentItemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentItemType)(nil)).Elem()
+}
+
+func (o ContentItemTypeOutput) ToContentItemTypeOutput() ContentItemTypeOutput {
+	return o
+}
+
+func (o ContentItemTypeOutput) ToContentItemTypeOutputWithContext(ctx context.Context) ContentItemTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ContentItemTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentItemType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the content item.
+func (o ContentItemTypeOutput) Properties() ContentItemContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ContentItemType) ContentItemContractPropertiesResponse { return v.Properties }).(ContentItemContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ContentItemTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentItemType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type ContentItemContractPropertiesResponse struct {
 }
 
@@ -9911,6 +11270,79 @@ func (o ContentItemContractPropertiesResponsePtrOutput) ToContentItemContractPro
 
 func (o ContentItemContractPropertiesResponsePtrOutput) Elem() ContentItemContractPropertiesResponseOutput {
 	return o.ApplyT(func(v *ContentItemContractPropertiesResponse) ContentItemContractPropertiesResponse { return *v }).(ContentItemContractPropertiesResponseOutput)
+}
+
+// Content type contract details.
+type ContentTypeType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the content type.
+	Properties ContentTypeContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ContentTypeTypeInput is an input type that accepts ContentTypeTypeArgs and ContentTypeTypeOutput values.
+// You can construct a concrete instance of `ContentTypeTypeInput` via:
+//
+//          ContentTypeTypeArgs{...}
+type ContentTypeTypeInput interface {
+	pulumi.Input
+
+	ToContentTypeTypeOutput() ContentTypeTypeOutput
+	ToContentTypeTypeOutputWithContext(context.Context) ContentTypeTypeOutput
+}
+
+// Content type contract details.
+type ContentTypeTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the content type.
+	Properties ContentTypeContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContentTypeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentTypeType)(nil)).Elem()
+}
+
+func (i ContentTypeTypeArgs) ToContentTypeTypeOutput() ContentTypeTypeOutput {
+	return i.ToContentTypeTypeOutputWithContext(context.Background())
+}
+
+func (i ContentTypeTypeArgs) ToContentTypeTypeOutputWithContext(ctx context.Context) ContentTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentTypeTypeOutput)
+}
+
+// Content type contract details.
+type ContentTypeTypeOutput struct{ *pulumi.OutputState }
+
+func (ContentTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentTypeType)(nil)).Elem()
+}
+
+func (o ContentTypeTypeOutput) ToContentTypeTypeOutput() ContentTypeTypeOutput {
+	return o
+}
+
+func (o ContentTypeTypeOutput) ToContentTypeTypeOutputWithContext(ctx context.Context) ContentTypeTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ContentTypeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentTypeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the content type.
+func (o ContentTypeTypeOutput) Properties() ContentTypeContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ContentTypeType) ContentTypeContractPropertiesResponse { return v.Properties }).(ContentTypeContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ContentTypeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentTypeType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ContentTypeContractPropertiesResponse struct {
@@ -10118,6 +11550,79 @@ func (o ContentTypeContractPropertiesResponsePtrOutput) Version() pulumi.StringP
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+// Diagnostic details.
+type DiagnosticType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Diagnostic entity contract properties.
+	Properties DiagnosticContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// DiagnosticTypeInput is an input type that accepts DiagnosticTypeArgs and DiagnosticTypeOutput values.
+// You can construct a concrete instance of `DiagnosticTypeInput` via:
+//
+//          DiagnosticTypeArgs{...}
+type DiagnosticTypeInput interface {
+	pulumi.Input
+
+	ToDiagnosticTypeOutput() DiagnosticTypeOutput
+	ToDiagnosticTypeOutputWithContext(context.Context) DiagnosticTypeOutput
+}
+
+// Diagnostic details.
+type DiagnosticTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Diagnostic entity contract properties.
+	Properties DiagnosticContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DiagnosticTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticType)(nil)).Elem()
+}
+
+func (i DiagnosticTypeArgs) ToDiagnosticTypeOutput() DiagnosticTypeOutput {
+	return i.ToDiagnosticTypeOutputWithContext(context.Background())
+}
+
+func (i DiagnosticTypeArgs) ToDiagnosticTypeOutputWithContext(ctx context.Context) DiagnosticTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticTypeOutput)
+}
+
+// Diagnostic details.
+type DiagnosticTypeOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticType)(nil)).Elem()
+}
+
+func (o DiagnosticTypeOutput) ToDiagnosticTypeOutput() DiagnosticTypeOutput {
+	return o
+}
+
+func (o DiagnosticTypeOutput) ToDiagnosticTypeOutputWithContext(ctx context.Context) DiagnosticTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o DiagnosticTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Diagnostic entity contract properties.
+func (o DiagnosticTypeOutput) Properties() DiagnosticContractPropertiesResponseOutput {
+	return o.ApplyT(func(v DiagnosticType) DiagnosticContractPropertiesResponse { return v.Properties }).(DiagnosticContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o DiagnosticTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Diagnostic Entity Properties
@@ -10652,6 +12157,79 @@ func (o DiagnosticContractPropertiesResponsePtrOutput) Verbosity() pulumi.String
 		}
 		return v.Verbosity
 	}).(pulumi.StringPtrOutput)
+}
+
+// Email Template details.
+type EmailTemplateType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Email Template entity contract properties.
+	Properties EmailTemplateContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// EmailTemplateTypeInput is an input type that accepts EmailTemplateTypeArgs and EmailTemplateTypeOutput values.
+// You can construct a concrete instance of `EmailTemplateTypeInput` via:
+//
+//          EmailTemplateTypeArgs{...}
+type EmailTemplateTypeInput interface {
+	pulumi.Input
+
+	ToEmailTemplateTypeOutput() EmailTemplateTypeOutput
+	ToEmailTemplateTypeOutputWithContext(context.Context) EmailTemplateTypeOutput
+}
+
+// Email Template details.
+type EmailTemplateTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Email Template entity contract properties.
+	Properties EmailTemplateContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EmailTemplateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplateType)(nil)).Elem()
+}
+
+func (i EmailTemplateTypeArgs) ToEmailTemplateTypeOutput() EmailTemplateTypeOutput {
+	return i.ToEmailTemplateTypeOutputWithContext(context.Background())
+}
+
+func (i EmailTemplateTypeArgs) ToEmailTemplateTypeOutputWithContext(ctx context.Context) EmailTemplateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateTypeOutput)
+}
+
+// Email Template details.
+type EmailTemplateTypeOutput struct{ *pulumi.OutputState }
+
+func (EmailTemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplateType)(nil)).Elem()
+}
+
+func (o EmailTemplateTypeOutput) ToEmailTemplateTypeOutput() EmailTemplateTypeOutput {
+	return o
+}
+
+func (o EmailTemplateTypeOutput) ToEmailTemplateTypeOutputWithContext(ctx context.Context) EmailTemplateTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o EmailTemplateTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EmailTemplateType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Email Template entity contract properties.
+func (o EmailTemplateTypeOutput) Properties() EmailTemplateContractPropertiesResponseOutput {
+	return o.ApplyT(func(v EmailTemplateType) EmailTemplateContractPropertiesResponse { return v.Properties }).(EmailTemplateContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o EmailTemplateTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EmailTemplateType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Email Template Contract properties.
@@ -11333,6 +12911,79 @@ func (o EmailTemplateUpdateParameterPropertiesPtrOutput) Title() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Gateway details.
+type GatewayType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Gateway details.
+	Properties GatewayContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// GatewayTypeInput is an input type that accepts GatewayTypeArgs and GatewayTypeOutput values.
+// You can construct a concrete instance of `GatewayTypeInput` via:
+//
+//          GatewayTypeArgs{...}
+type GatewayTypeInput interface {
+	pulumi.Input
+
+	ToGatewayTypeOutput() GatewayTypeOutput
+	ToGatewayTypeOutputWithContext(context.Context) GatewayTypeOutput
+}
+
+// Gateway details.
+type GatewayTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gateway details.
+	Properties GatewayContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GatewayTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayType)(nil)).Elem()
+}
+
+func (i GatewayTypeArgs) ToGatewayTypeOutput() GatewayTypeOutput {
+	return i.ToGatewayTypeOutputWithContext(context.Background())
+}
+
+func (i GatewayTypeArgs) ToGatewayTypeOutputWithContext(ctx context.Context) GatewayTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTypeOutput)
+}
+
+// Gateway details.
+type GatewayTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayType)(nil)).Elem()
+}
+
+func (o GatewayTypeOutput) ToGatewayTypeOutput() GatewayTypeOutput {
+	return o
+}
+
+func (o GatewayTypeOutput) ToGatewayTypeOutputWithContext(ctx context.Context) GatewayTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o GatewayTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gateway details.
+func (o GatewayTypeOutput) Properties() GatewayContractPropertiesResponseOutput {
+	return o.ApplyT(func(v GatewayType) GatewayContractPropertiesResponse { return v.Properties }).(GatewayContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o GatewayTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of the Gateway contract.
 type GatewayContractProperties struct {
 	// Gateway description
@@ -11637,6 +13288,81 @@ func (o GatewayContractPropertiesResponsePtrOutput) LocationData() ResourceLocat
 		}
 		return v.LocationData
 	}).(ResourceLocationDataContractResponsePtrOutput)
+}
+
+// Gateway hostname configuration details.
+type GatewayHostnameConfigurationType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Gateway hostname configuration details.
+	Properties GatewayHostnameConfigurationContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// GatewayHostnameConfigurationTypeInput is an input type that accepts GatewayHostnameConfigurationTypeArgs and GatewayHostnameConfigurationTypeOutput values.
+// You can construct a concrete instance of `GatewayHostnameConfigurationTypeInput` via:
+//
+//          GatewayHostnameConfigurationTypeArgs{...}
+type GatewayHostnameConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToGatewayHostnameConfigurationTypeOutput() GatewayHostnameConfigurationTypeOutput
+	ToGatewayHostnameConfigurationTypeOutputWithContext(context.Context) GatewayHostnameConfigurationTypeOutput
+}
+
+// Gateway hostname configuration details.
+type GatewayHostnameConfigurationTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gateway hostname configuration details.
+	Properties GatewayHostnameConfigurationContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GatewayHostnameConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayHostnameConfigurationType)(nil)).Elem()
+}
+
+func (i GatewayHostnameConfigurationTypeArgs) ToGatewayHostnameConfigurationTypeOutput() GatewayHostnameConfigurationTypeOutput {
+	return i.ToGatewayHostnameConfigurationTypeOutputWithContext(context.Background())
+}
+
+func (i GatewayHostnameConfigurationTypeArgs) ToGatewayHostnameConfigurationTypeOutputWithContext(ctx context.Context) GatewayHostnameConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostnameConfigurationTypeOutput)
+}
+
+// Gateway hostname configuration details.
+type GatewayHostnameConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayHostnameConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayHostnameConfigurationType)(nil)).Elem()
+}
+
+func (o GatewayHostnameConfigurationTypeOutput) ToGatewayHostnameConfigurationTypeOutput() GatewayHostnameConfigurationTypeOutput {
+	return o
+}
+
+func (o GatewayHostnameConfigurationTypeOutput) ToGatewayHostnameConfigurationTypeOutputWithContext(ctx context.Context) GatewayHostnameConfigurationTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o GatewayHostnameConfigurationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayHostnameConfigurationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gateway hostname configuration details.
+func (o GatewayHostnameConfigurationTypeOutput) Properties() GatewayHostnameConfigurationContractPropertiesResponseOutput {
+	return o.ApplyT(func(v GatewayHostnameConfigurationType) GatewayHostnameConfigurationContractPropertiesResponse {
+		return v.Properties
+	}).(GatewayHostnameConfigurationContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o GatewayHostnameConfigurationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayHostnameConfigurationType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Gateway hostname configuration details.
@@ -11987,6 +13713,79 @@ func (o GatewayHostnameConfigurationContractPropertiesResponsePtrOutput) Negotia
 		}
 		return v.NegotiateClientCertificate
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Contract details.
+type GroupType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Group entity contract properties.
+	Properties GroupContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// GroupTypeInput is an input type that accepts GroupTypeArgs and GroupTypeOutput values.
+// You can construct a concrete instance of `GroupTypeInput` via:
+//
+//          GroupTypeArgs{...}
+type GroupTypeInput interface {
+	pulumi.Input
+
+	ToGroupTypeOutput() GroupTypeOutput
+	ToGroupTypeOutputWithContext(context.Context) GroupTypeOutput
+}
+
+// Contract details.
+type GroupTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Group entity contract properties.
+	Properties GroupContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupType)(nil)).Elem()
+}
+
+func (i GroupTypeArgs) ToGroupTypeOutput() GroupTypeOutput {
+	return i.ToGroupTypeOutputWithContext(context.Background())
+}
+
+func (i GroupTypeArgs) ToGroupTypeOutputWithContext(ctx context.Context) GroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupTypeOutput)
+}
+
+// Contract details.
+type GroupTypeOutput struct{ *pulumi.OutputState }
+
+func (GroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupType)(nil)).Elem()
+}
+
+func (o GroupTypeOutput) ToGroupTypeOutput() GroupTypeOutput {
+	return o
+}
+
+func (o GroupTypeOutput) ToGroupTypeOutputWithContext(ctx context.Context) GroupTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o GroupTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Group entity contract properties.
+func (o GroupTypeOutput) Properties() GroupContractPropertiesResponseOutput {
+	return o.ApplyT(func(v GroupType) GroupContractPropertiesResponse { return v.Properties }).(GroupContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o GroupTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Group contract Properties.
@@ -13065,6 +14864,79 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutp
 		}
 		return v.Headers
 	}).(pulumi.StringArrayOutput)
+}
+
+// Identity Provider details.
+type IdentityProviderType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Identity Provider contract properties.
+	Properties IdentityProviderContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// IdentityProviderTypeInput is an input type that accepts IdentityProviderTypeArgs and IdentityProviderTypeOutput values.
+// You can construct a concrete instance of `IdentityProviderTypeInput` via:
+//
+//          IdentityProviderTypeArgs{...}
+type IdentityProviderTypeInput interface {
+	pulumi.Input
+
+	ToIdentityProviderTypeOutput() IdentityProviderTypeOutput
+	ToIdentityProviderTypeOutputWithContext(context.Context) IdentityProviderTypeOutput
+}
+
+// Identity Provider details.
+type IdentityProviderTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Identity Provider contract properties.
+	Properties IdentityProviderContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IdentityProviderTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderType)(nil)).Elem()
+}
+
+func (i IdentityProviderTypeArgs) ToIdentityProviderTypeOutput() IdentityProviderTypeOutput {
+	return i.ToIdentityProviderTypeOutputWithContext(context.Background())
+}
+
+func (i IdentityProviderTypeArgs) ToIdentityProviderTypeOutputWithContext(ctx context.Context) IdentityProviderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderTypeOutput)
+}
+
+// Identity Provider details.
+type IdentityProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (IdentityProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProviderType)(nil)).Elem()
+}
+
+func (o IdentityProviderTypeOutput) ToIdentityProviderTypeOutput() IdentityProviderTypeOutput {
+	return o
+}
+
+func (o IdentityProviderTypeOutput) ToIdentityProviderTypeOutputWithContext(ctx context.Context) IdentityProviderTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o IdentityProviderTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identity Provider contract properties.
+func (o IdentityProviderTypeOutput) Properties() IdentityProviderContractPropertiesResponseOutput {
+	return o.ApplyT(func(v IdentityProviderType) IdentityProviderContractPropertiesResponse { return v.Properties }).(IdentityProviderContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o IdentityProviderTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityProviderType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The external Identity Providers like Facebook, Google, Microsoft, Twitter or Azure Active Directory which can be used to enable access to the API Management service developer portal for all users.
@@ -14827,6 +16699,79 @@ func (o IssueContractPropertiesResponsePtrOutput) UserId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Logger details.
+type LoggerType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Logger entity contract properties.
+	Properties LoggerContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// LoggerTypeInput is an input type that accepts LoggerTypeArgs and LoggerTypeOutput values.
+// You can construct a concrete instance of `LoggerTypeInput` via:
+//
+//          LoggerTypeArgs{...}
+type LoggerTypeInput interface {
+	pulumi.Input
+
+	ToLoggerTypeOutput() LoggerTypeOutput
+	ToLoggerTypeOutputWithContext(context.Context) LoggerTypeOutput
+}
+
+// Logger details.
+type LoggerTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Logger entity contract properties.
+	Properties LoggerContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LoggerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerType)(nil)).Elem()
+}
+
+func (i LoggerTypeArgs) ToLoggerTypeOutput() LoggerTypeOutput {
+	return i.ToLoggerTypeOutputWithContext(context.Background())
+}
+
+func (i LoggerTypeArgs) ToLoggerTypeOutputWithContext(ctx context.Context) LoggerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggerTypeOutput)
+}
+
+// Logger details.
+type LoggerTypeOutput struct{ *pulumi.OutputState }
+
+func (LoggerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggerType)(nil)).Elem()
+}
+
+func (o LoggerTypeOutput) ToLoggerTypeOutput() LoggerTypeOutput {
+	return o
+}
+
+func (o LoggerTypeOutput) ToLoggerTypeOutputWithContext(ctx context.Context) LoggerTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o LoggerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LoggerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Logger entity contract properties.
+func (o LoggerTypeOutput) Properties() LoggerContractPropertiesResponseOutput {
+	return o.ApplyT(func(v LoggerType) LoggerContractPropertiesResponse { return v.Properties }).(LoggerContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o LoggerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LoggerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The Logger entity in API Management represents an event sink that you can use to log API Management events. Currently the Logger entity supports logging API Management events to Azure Event Hubs.
 type LoggerContractProperties struct {
 	// The name and SendRule connection string of the event hub for azureEventHub logger.
@@ -15253,6 +17198,79 @@ func (o LoggerContractPropertiesResponsePtrOutput) ResourceId() pulumi.StringPtr
 		}
 		return v.ResourceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// NamedValue details.
+type NamedValueType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// NamedValue entity contract properties.
+	Properties NamedValueContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// NamedValueTypeInput is an input type that accepts NamedValueTypeArgs and NamedValueTypeOutput values.
+// You can construct a concrete instance of `NamedValueTypeInput` via:
+//
+//          NamedValueTypeArgs{...}
+type NamedValueTypeInput interface {
+	pulumi.Input
+
+	ToNamedValueTypeOutput() NamedValueTypeOutput
+	ToNamedValueTypeOutputWithContext(context.Context) NamedValueTypeOutput
+}
+
+// NamedValue details.
+type NamedValueTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// NamedValue entity contract properties.
+	Properties NamedValueContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NamedValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValueType)(nil)).Elem()
+}
+
+func (i NamedValueTypeArgs) ToNamedValueTypeOutput() NamedValueTypeOutput {
+	return i.ToNamedValueTypeOutputWithContext(context.Background())
+}
+
+func (i NamedValueTypeArgs) ToNamedValueTypeOutputWithContext(ctx context.Context) NamedValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamedValueTypeOutput)
+}
+
+// NamedValue details.
+type NamedValueTypeOutput struct{ *pulumi.OutputState }
+
+func (NamedValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamedValueType)(nil)).Elem()
+}
+
+func (o NamedValueTypeOutput) ToNamedValueTypeOutput() NamedValueTypeOutput {
+	return o
+}
+
+func (o NamedValueTypeOutput) ToNamedValueTypeOutputWithContext(ctx context.Context) NamedValueTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o NamedValueTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NamedValueType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// NamedValue entity contract properties.
+func (o NamedValueTypeOutput) Properties() NamedValueContractPropertiesResponseOutput {
+	return o.ApplyT(func(v NamedValueType) NamedValueContractPropertiesResponse { return v.Properties }).(NamedValueContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o NamedValueTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NamedValueType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // NamedValue Contract properties.
@@ -16251,6 +18269,79 @@ func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) OpenidProviderId(
 		}
 		return v.OpenidProviderId
 	}).(pulumi.StringPtrOutput)
+}
+
+// OpenId Connect Provider details.
+type OpenIdConnectProviderType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// OpenId Connect Provider contract properties.
+	Properties OpenidConnectProviderContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// OpenIdConnectProviderTypeInput is an input type that accepts OpenIdConnectProviderTypeArgs and OpenIdConnectProviderTypeOutput values.
+// You can construct a concrete instance of `OpenIdConnectProviderTypeInput` via:
+//
+//          OpenIdConnectProviderTypeArgs{...}
+type OpenIdConnectProviderTypeInput interface {
+	pulumi.Input
+
+	ToOpenIdConnectProviderTypeOutput() OpenIdConnectProviderTypeOutput
+	ToOpenIdConnectProviderTypeOutputWithContext(context.Context) OpenIdConnectProviderTypeOutput
+}
+
+// OpenId Connect Provider details.
+type OpenIdConnectProviderTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// OpenId Connect Provider contract properties.
+	Properties OpenidConnectProviderContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OpenIdConnectProviderTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenIdConnectProviderType)(nil)).Elem()
+}
+
+func (i OpenIdConnectProviderTypeArgs) ToOpenIdConnectProviderTypeOutput() OpenIdConnectProviderTypeOutput {
+	return i.ToOpenIdConnectProviderTypeOutputWithContext(context.Background())
+}
+
+func (i OpenIdConnectProviderTypeArgs) ToOpenIdConnectProviderTypeOutputWithContext(ctx context.Context) OpenIdConnectProviderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderTypeOutput)
+}
+
+// OpenId Connect Provider details.
+type OpenIdConnectProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (OpenIdConnectProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenIdConnectProviderType)(nil)).Elem()
+}
+
+func (o OpenIdConnectProviderTypeOutput) ToOpenIdConnectProviderTypeOutput() OpenIdConnectProviderTypeOutput {
+	return o
+}
+
+func (o OpenIdConnectProviderTypeOutput) ToOpenIdConnectProviderTypeOutputWithContext(ctx context.Context) OpenIdConnectProviderTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o OpenIdConnectProviderTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenIdConnectProviderType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// OpenId Connect Provider contract properties.
+func (o OpenIdConnectProviderTypeOutput) Properties() OpenidConnectProviderContractPropertiesResponseOutput {
+	return o.ApplyT(func(v OpenIdConnectProviderType) OpenidConnectProviderContractPropertiesResponse { return v.Properties }).(OpenidConnectProviderContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o OpenIdConnectProviderTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenIdConnectProviderType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // OpenID Connect Providers Contract.
@@ -17805,6 +19896,79 @@ func (o PipelineDiagnosticSettingsResponsePtrOutput) Response() HttpMessageDiagn
 	}).(HttpMessageDiagnosticResponsePtrOutput)
 }
 
+// Policy Contract details.
+type PolicyType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// PolicyTypeInput is an input type that accepts PolicyTypeArgs and PolicyTypeOutput values.
+// You can construct a concrete instance of `PolicyTypeInput` via:
+//
+//          PolicyTypeArgs{...}
+type PolicyTypeInput interface {
+	pulumi.Input
+
+	ToPolicyTypeOutput() PolicyTypeOutput
+	ToPolicyTypeOutputWithContext(context.Context) PolicyTypeOutput
+}
+
+// Policy Contract details.
+type PolicyTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (i PolicyTypeArgs) ToPolicyTypeOutput() PolicyTypeOutput {
+	return i.ToPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i PolicyTypeArgs) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTypeOutput)
+}
+
+// Policy Contract details.
+type PolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutput() PolicyTypeOutput {
+	return o
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o PolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Policy.
+func (o PolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
+	return o.ApplyT(func(v PolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o PolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Policy contract Properties.
 type PolicyContractProperties struct {
 	// Format of the policyContent.
@@ -18109,6 +20273,79 @@ func (o PolicyContractPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutpu
 		}
 		return &v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+// Product details.
+type ProductType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Product entity contract properties.
+	Properties ProductContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ProductTypeInput is an input type that accepts ProductTypeArgs and ProductTypeOutput values.
+// You can construct a concrete instance of `ProductTypeInput` via:
+//
+//          ProductTypeArgs{...}
+type ProductTypeInput interface {
+	pulumi.Input
+
+	ToProductTypeOutput() ProductTypeOutput
+	ToProductTypeOutputWithContext(context.Context) ProductTypeOutput
+}
+
+// Product details.
+type ProductTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Product entity contract properties.
+	Properties ProductContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProductTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductType)(nil)).Elem()
+}
+
+func (i ProductTypeArgs) ToProductTypeOutput() ProductTypeOutput {
+	return i.ToProductTypeOutputWithContext(context.Background())
+}
+
+func (i ProductTypeArgs) ToProductTypeOutputWithContext(ctx context.Context) ProductTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductTypeOutput)
+}
+
+// Product details.
+type ProductTypeOutput struct{ *pulumi.OutputState }
+
+func (ProductTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductType)(nil)).Elem()
+}
+
+func (o ProductTypeOutput) ToProductTypeOutput() ProductTypeOutput {
+	return o
+}
+
+func (o ProductTypeOutput) ToProductTypeOutputWithContext(ctx context.Context) ProductTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ProductTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Product entity contract properties.
+func (o ProductTypeOutput) Properties() ProductContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ProductType) ProductContractPropertiesResponse { return v.Properties }).(ProductContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ProductTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Product profile.
@@ -18605,6 +20842,152 @@ func (o ProductContractPropertiesResponsePtrOutput) Terms() pulumi.StringPtrOutp
 		}
 		return v.Terms
 	}).(pulumi.StringPtrOutput)
+}
+
+// Policy Contract details.
+type ProductPolicyType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// ProductPolicyTypeInput is an input type that accepts ProductPolicyTypeArgs and ProductPolicyTypeOutput values.
+// You can construct a concrete instance of `ProductPolicyTypeInput` via:
+//
+//          ProductPolicyTypeArgs{...}
+type ProductPolicyTypeInput interface {
+	pulumi.Input
+
+	ToProductPolicyTypeOutput() ProductPolicyTypeOutput
+	ToProductPolicyTypeOutputWithContext(context.Context) ProductPolicyTypeOutput
+}
+
+// Policy Contract details.
+type ProductPolicyTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Policy.
+	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProductPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductPolicyType)(nil)).Elem()
+}
+
+func (i ProductPolicyTypeArgs) ToProductPolicyTypeOutput() ProductPolicyTypeOutput {
+	return i.ToProductPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ProductPolicyTypeArgs) ToProductPolicyTypeOutputWithContext(ctx context.Context) ProductPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyTypeOutput)
+}
+
+// Policy Contract details.
+type ProductPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ProductPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductPolicyType)(nil)).Elem()
+}
+
+func (o ProductPolicyTypeOutput) ToProductPolicyTypeOutput() ProductPolicyTypeOutput {
+	return o
+}
+
+func (o ProductPolicyTypeOutput) ToProductPolicyTypeOutputWithContext(ctx context.Context) ProductPolicyTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ProductPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Policy.
+func (o ProductPolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
+	return o.ApplyT(func(v ProductPolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o ProductPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Property details.
+type PropertyType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Property entity contract properties.
+	Properties PropertyContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// PropertyTypeInput is an input type that accepts PropertyTypeArgs and PropertyTypeOutput values.
+// You can construct a concrete instance of `PropertyTypeInput` via:
+//
+//          PropertyTypeArgs{...}
+type PropertyTypeInput interface {
+	pulumi.Input
+
+	ToPropertyTypeOutput() PropertyTypeOutput
+	ToPropertyTypeOutputWithContext(context.Context) PropertyTypeOutput
+}
+
+// Property details.
+type PropertyTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Property entity contract properties.
+	Properties PropertyContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PropertyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyType)(nil)).Elem()
+}
+
+func (i PropertyTypeArgs) ToPropertyTypeOutput() PropertyTypeOutput {
+	return i.ToPropertyTypeOutputWithContext(context.Background())
+}
+
+func (i PropertyTypeArgs) ToPropertyTypeOutputWithContext(ctx context.Context) PropertyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyTypeOutput)
+}
+
+// Property details.
+type PropertyTypeOutput struct{ *pulumi.OutputState }
+
+func (PropertyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyType)(nil)).Elem()
+}
+
+func (o PropertyTypeOutput) ToPropertyTypeOutput() PropertyTypeOutput {
+	return o
+}
+
+func (o PropertyTypeOutput) ToPropertyTypeOutputWithContext(ctx context.Context) PropertyTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o PropertyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PropertyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Property entity contract properties.
+func (o PropertyTypeOutput) Properties() PropertyContractPropertiesResponseOutput {
+	return o.ApplyT(func(v PropertyType) PropertyContractPropertiesResponse { return v.Properties }).(PropertyContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o PropertyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PropertyType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Property Contract properties.
@@ -21197,2541 +23580,8 @@ func (o SchemaDocumentPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A single API Management service resource in List or Get response.
-type ServiceType struct {
-	// ETag of the resource.
-	Etag string `pulumi:"etag"`
-	// Managed service identity of the Api Management service.
-	Identity *ApiManagementServiceIdentityResponse `pulumi:"identity"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the API Management service.
-	Properties ApiManagementServicePropertiesResponse `pulumi:"properties"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type for API Management resource is set to Microsoft.ApiManagement.
-	Type string `pulumi:"type"`
-}
-
-// ServiceTypeInput is an input type that accepts ServiceTypeArgs and ServiceTypeOutput values.
-// You can construct a concrete instance of `ServiceTypeInput` via:
-//
-//          ServiceTypeArgs{...}
-type ServiceTypeInput interface {
-	pulumi.Input
-
-	ToServiceTypeOutput() ServiceTypeOutput
-	ToServiceTypeOutputWithContext(context.Context) ServiceTypeOutput
-}
-
-// A single API Management service resource in List or Get response.
-type ServiceTypeArgs struct {
-	// ETag of the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Managed service identity of the Api Management service.
-	Identity ApiManagementServiceIdentityResponsePtrInput `pulumi:"identity"`
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the API Management service.
-	Properties ApiManagementServicePropertiesResponseInput `pulumi:"properties"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponseInput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type for API Management resource is set to Microsoft.ApiManagement.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
-}
-
-func (i ServiceTypeArgs) ToServiceTypeOutput() ServiceTypeOutput {
-	return i.ToServiceTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeArgs) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeOutput)
-}
-
-// A single API Management service resource in List or Get response.
-type ServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutput() ServiceTypeOutput {
-	return o
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return o
-}
-
-// ETag of the resource.
-func (o ServiceTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Managed service identity of the Api Management service.
-func (o ServiceTypeOutput) Identity() ApiManagementServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ServiceType) *ApiManagementServiceIdentityResponse { return v.Identity }).(ApiManagementServiceIdentityResponsePtrOutput)
-}
-
-// Resource location.
-func (o ServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the API Management service.
-func (o ServiceTypeOutput) Properties() ApiManagementServicePropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceType) ApiManagementServicePropertiesResponse { return v.Properties }).(ApiManagementServicePropertiesResponseOutput)
-}
-
-// SKU properties of the API Management service.
-func (o ServiceTypeOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceType) ApiManagementServiceSkuPropertiesResponse { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type for API Management resource is set to Microsoft.ApiManagement.
-func (o ServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Api details.
-type ServiceApiType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Api entity contract properties.
-	Properties ApiContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiTypeInput is an input type that accepts ServiceApiTypeArgs and ServiceApiTypeOutput values.
-// You can construct a concrete instance of `ServiceApiTypeInput` via:
-//
-//          ServiceApiTypeArgs{...}
-type ServiceApiTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiTypeOutput() ServiceApiTypeOutput
-	ToServiceApiTypeOutputWithContext(context.Context) ServiceApiTypeOutput
-}
-
-// Api details.
-type ServiceApiTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Api entity contract properties.
-	Properties ApiContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiType)(nil)).Elem()
-}
-
-func (i ServiceApiTypeArgs) ToServiceApiTypeOutput() ServiceApiTypeOutput {
-	return i.ToServiceApiTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiTypeArgs) ToServiceApiTypeOutputWithContext(ctx context.Context) ServiceApiTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiTypeOutput)
-}
-
-// Api details.
-type ServiceApiTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiType)(nil)).Elem()
-}
-
-func (o ServiceApiTypeOutput) ToServiceApiTypeOutput() ServiceApiTypeOutput {
-	return o
-}
-
-func (o ServiceApiTypeOutput) ToServiceApiTypeOutputWithContext(ctx context.Context) ServiceApiTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Api entity contract properties.
-func (o ServiceApiTypeOutput) Properties() ApiContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiType) ApiContractPropertiesResponse { return v.Properties }).(ApiContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Diagnostic details.
-type ServiceApiDiagnosticType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiDiagnosticTypeInput is an input type that accepts ServiceApiDiagnosticTypeArgs and ServiceApiDiagnosticTypeOutput values.
-// You can construct a concrete instance of `ServiceApiDiagnosticTypeInput` via:
-//
-//          ServiceApiDiagnosticTypeArgs{...}
-type ServiceApiDiagnosticTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiDiagnosticTypeOutput() ServiceApiDiagnosticTypeOutput
-	ToServiceApiDiagnosticTypeOutputWithContext(context.Context) ServiceApiDiagnosticTypeOutput
-}
-
-// Diagnostic details.
-type ServiceApiDiagnosticTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiDiagnosticTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiDiagnosticType)(nil)).Elem()
-}
-
-func (i ServiceApiDiagnosticTypeArgs) ToServiceApiDiagnosticTypeOutput() ServiceApiDiagnosticTypeOutput {
-	return i.ToServiceApiDiagnosticTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiDiagnosticTypeArgs) ToServiceApiDiagnosticTypeOutputWithContext(ctx context.Context) ServiceApiDiagnosticTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiDiagnosticTypeOutput)
-}
-
-// Diagnostic details.
-type ServiceApiDiagnosticTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiDiagnosticTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiDiagnosticType)(nil)).Elem()
-}
-
-func (o ServiceApiDiagnosticTypeOutput) ToServiceApiDiagnosticTypeOutput() ServiceApiDiagnosticTypeOutput {
-	return o
-}
-
-func (o ServiceApiDiagnosticTypeOutput) ToServiceApiDiagnosticTypeOutputWithContext(ctx context.Context) ServiceApiDiagnosticTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiDiagnosticTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiDiagnosticType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Diagnostic entity contract properties.
-func (o ServiceApiDiagnosticTypeOutput) Properties() DiagnosticContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiDiagnosticType) DiagnosticContractPropertiesResponse { return v.Properties }).(DiagnosticContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiDiagnosticTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiDiagnosticType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Issue Contract details.
-type ServiceApiIssueType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Issue.
-	Properties IssueContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiIssueTypeInput is an input type that accepts ServiceApiIssueTypeArgs and ServiceApiIssueTypeOutput values.
-// You can construct a concrete instance of `ServiceApiIssueTypeInput` via:
-//
-//          ServiceApiIssueTypeArgs{...}
-type ServiceApiIssueTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiIssueTypeOutput() ServiceApiIssueTypeOutput
-	ToServiceApiIssueTypeOutputWithContext(context.Context) ServiceApiIssueTypeOutput
-}
-
-// Issue Contract details.
-type ServiceApiIssueTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Issue.
-	Properties IssueContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiIssueTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiIssueType)(nil)).Elem()
-}
-
-func (i ServiceApiIssueTypeArgs) ToServiceApiIssueTypeOutput() ServiceApiIssueTypeOutput {
-	return i.ToServiceApiIssueTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiIssueTypeArgs) ToServiceApiIssueTypeOutputWithContext(ctx context.Context) ServiceApiIssueTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiIssueTypeOutput)
-}
-
-// Issue Contract details.
-type ServiceApiIssueTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiIssueTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiIssueType)(nil)).Elem()
-}
-
-func (o ServiceApiIssueTypeOutput) ToServiceApiIssueTypeOutput() ServiceApiIssueTypeOutput {
-	return o
-}
-
-func (o ServiceApiIssueTypeOutput) ToServiceApiIssueTypeOutputWithContext(ctx context.Context) ServiceApiIssueTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiIssueTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiIssueType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Issue.
-func (o ServiceApiIssueTypeOutput) Properties() IssueContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiIssueType) IssueContractPropertiesResponse { return v.Properties }).(IssueContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiIssueTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiIssueType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Issue Attachment Contract details.
-type ServiceApiIssueAttachmentType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Issue Attachment.
-	Properties IssueAttachmentContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiIssueAttachmentTypeInput is an input type that accepts ServiceApiIssueAttachmentTypeArgs and ServiceApiIssueAttachmentTypeOutput values.
-// You can construct a concrete instance of `ServiceApiIssueAttachmentTypeInput` via:
-//
-//          ServiceApiIssueAttachmentTypeArgs{...}
-type ServiceApiIssueAttachmentTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiIssueAttachmentTypeOutput() ServiceApiIssueAttachmentTypeOutput
-	ToServiceApiIssueAttachmentTypeOutputWithContext(context.Context) ServiceApiIssueAttachmentTypeOutput
-}
-
-// Issue Attachment Contract details.
-type ServiceApiIssueAttachmentTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Issue Attachment.
-	Properties IssueAttachmentContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiIssueAttachmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiIssueAttachmentType)(nil)).Elem()
-}
-
-func (i ServiceApiIssueAttachmentTypeArgs) ToServiceApiIssueAttachmentTypeOutput() ServiceApiIssueAttachmentTypeOutput {
-	return i.ToServiceApiIssueAttachmentTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiIssueAttachmentTypeArgs) ToServiceApiIssueAttachmentTypeOutputWithContext(ctx context.Context) ServiceApiIssueAttachmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiIssueAttachmentTypeOutput)
-}
-
-// Issue Attachment Contract details.
-type ServiceApiIssueAttachmentTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiIssueAttachmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiIssueAttachmentType)(nil)).Elem()
-}
-
-func (o ServiceApiIssueAttachmentTypeOutput) ToServiceApiIssueAttachmentTypeOutput() ServiceApiIssueAttachmentTypeOutput {
-	return o
-}
-
-func (o ServiceApiIssueAttachmentTypeOutput) ToServiceApiIssueAttachmentTypeOutputWithContext(ctx context.Context) ServiceApiIssueAttachmentTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiIssueAttachmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiIssueAttachmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Issue Attachment.
-func (o ServiceApiIssueAttachmentTypeOutput) Properties() IssueAttachmentContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiIssueAttachmentType) IssueAttachmentContractPropertiesResponse { return v.Properties }).(IssueAttachmentContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiIssueAttachmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiIssueAttachmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Issue Comment Contract details.
-type ServiceApiIssueCommentType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Issue Comment.
-	Properties IssueCommentContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiIssueCommentTypeInput is an input type that accepts ServiceApiIssueCommentTypeArgs and ServiceApiIssueCommentTypeOutput values.
-// You can construct a concrete instance of `ServiceApiIssueCommentTypeInput` via:
-//
-//          ServiceApiIssueCommentTypeArgs{...}
-type ServiceApiIssueCommentTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiIssueCommentTypeOutput() ServiceApiIssueCommentTypeOutput
-	ToServiceApiIssueCommentTypeOutputWithContext(context.Context) ServiceApiIssueCommentTypeOutput
-}
-
-// Issue Comment Contract details.
-type ServiceApiIssueCommentTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Issue Comment.
-	Properties IssueCommentContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiIssueCommentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiIssueCommentType)(nil)).Elem()
-}
-
-func (i ServiceApiIssueCommentTypeArgs) ToServiceApiIssueCommentTypeOutput() ServiceApiIssueCommentTypeOutput {
-	return i.ToServiceApiIssueCommentTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiIssueCommentTypeArgs) ToServiceApiIssueCommentTypeOutputWithContext(ctx context.Context) ServiceApiIssueCommentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiIssueCommentTypeOutput)
-}
-
-// Issue Comment Contract details.
-type ServiceApiIssueCommentTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiIssueCommentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiIssueCommentType)(nil)).Elem()
-}
-
-func (o ServiceApiIssueCommentTypeOutput) ToServiceApiIssueCommentTypeOutput() ServiceApiIssueCommentTypeOutput {
-	return o
-}
-
-func (o ServiceApiIssueCommentTypeOutput) ToServiceApiIssueCommentTypeOutputWithContext(ctx context.Context) ServiceApiIssueCommentTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiIssueCommentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiIssueCommentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Issue Comment.
-func (o ServiceApiIssueCommentTypeOutput) Properties() IssueCommentContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiIssueCommentType) IssueCommentContractPropertiesResponse { return v.Properties }).(IssueCommentContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiIssueCommentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiIssueCommentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Api Operation details.
-type ServiceApiOperationType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Operation Contract.
-	Properties OperationContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiOperationTypeInput is an input type that accepts ServiceApiOperationTypeArgs and ServiceApiOperationTypeOutput values.
-// You can construct a concrete instance of `ServiceApiOperationTypeInput` via:
-//
-//          ServiceApiOperationTypeArgs{...}
-type ServiceApiOperationTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiOperationTypeOutput() ServiceApiOperationTypeOutput
-	ToServiceApiOperationTypeOutputWithContext(context.Context) ServiceApiOperationTypeOutput
-}
-
-// Api Operation details.
-type ServiceApiOperationTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Operation Contract.
-	Properties OperationContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiOperationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiOperationType)(nil)).Elem()
-}
-
-func (i ServiceApiOperationTypeArgs) ToServiceApiOperationTypeOutput() ServiceApiOperationTypeOutput {
-	return i.ToServiceApiOperationTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiOperationTypeArgs) ToServiceApiOperationTypeOutputWithContext(ctx context.Context) ServiceApiOperationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiOperationTypeOutput)
-}
-
-// Api Operation details.
-type ServiceApiOperationTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiOperationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiOperationType)(nil)).Elem()
-}
-
-func (o ServiceApiOperationTypeOutput) ToServiceApiOperationTypeOutput() ServiceApiOperationTypeOutput {
-	return o
-}
-
-func (o ServiceApiOperationTypeOutput) ToServiceApiOperationTypeOutputWithContext(ctx context.Context) ServiceApiOperationTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiOperationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiOperationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Operation Contract.
-func (o ServiceApiOperationTypeOutput) Properties() OperationContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiOperationType) OperationContractPropertiesResponse { return v.Properties }).(OperationContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiOperationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiOperationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Policy Contract details.
-type ServiceApiOperationPolicyType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiOperationPolicyTypeInput is an input type that accepts ServiceApiOperationPolicyTypeArgs and ServiceApiOperationPolicyTypeOutput values.
-// You can construct a concrete instance of `ServiceApiOperationPolicyTypeInput` via:
-//
-//          ServiceApiOperationPolicyTypeArgs{...}
-type ServiceApiOperationPolicyTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiOperationPolicyTypeOutput() ServiceApiOperationPolicyTypeOutput
-	ToServiceApiOperationPolicyTypeOutputWithContext(context.Context) ServiceApiOperationPolicyTypeOutput
-}
-
-// Policy Contract details.
-type ServiceApiOperationPolicyTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiOperationPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiOperationPolicyType)(nil)).Elem()
-}
-
-func (i ServiceApiOperationPolicyTypeArgs) ToServiceApiOperationPolicyTypeOutput() ServiceApiOperationPolicyTypeOutput {
-	return i.ToServiceApiOperationPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiOperationPolicyTypeArgs) ToServiceApiOperationPolicyTypeOutputWithContext(ctx context.Context) ServiceApiOperationPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiOperationPolicyTypeOutput)
-}
-
-// Policy Contract details.
-type ServiceApiOperationPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiOperationPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiOperationPolicyType)(nil)).Elem()
-}
-
-func (o ServiceApiOperationPolicyTypeOutput) ToServiceApiOperationPolicyTypeOutput() ServiceApiOperationPolicyTypeOutput {
-	return o
-}
-
-func (o ServiceApiOperationPolicyTypeOutput) ToServiceApiOperationPolicyTypeOutputWithContext(ctx context.Context) ServiceApiOperationPolicyTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiOperationPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiOperationPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Policy.
-func (o ServiceApiOperationPolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiOperationPolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiOperationPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiOperationPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Tag Contract details.
-type ServiceApiOperationTagType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiOperationTagTypeInput is an input type that accepts ServiceApiOperationTagTypeArgs and ServiceApiOperationTagTypeOutput values.
-// You can construct a concrete instance of `ServiceApiOperationTagTypeInput` via:
-//
-//          ServiceApiOperationTagTypeArgs{...}
-type ServiceApiOperationTagTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiOperationTagTypeOutput() ServiceApiOperationTagTypeOutput
-	ToServiceApiOperationTagTypeOutputWithContext(context.Context) ServiceApiOperationTagTypeOutput
-}
-
-// Tag Contract details.
-type ServiceApiOperationTagTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiOperationTagTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiOperationTagType)(nil)).Elem()
-}
-
-func (i ServiceApiOperationTagTypeArgs) ToServiceApiOperationTagTypeOutput() ServiceApiOperationTagTypeOutput {
-	return i.ToServiceApiOperationTagTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiOperationTagTypeArgs) ToServiceApiOperationTagTypeOutputWithContext(ctx context.Context) ServiceApiOperationTagTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiOperationTagTypeOutput)
-}
-
-// Tag Contract details.
-type ServiceApiOperationTagTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiOperationTagTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiOperationTagType)(nil)).Elem()
-}
-
-func (o ServiceApiOperationTagTypeOutput) ToServiceApiOperationTagTypeOutput() ServiceApiOperationTagTypeOutput {
-	return o
-}
-
-func (o ServiceApiOperationTagTypeOutput) ToServiceApiOperationTagTypeOutputWithContext(ctx context.Context) ServiceApiOperationTagTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiOperationTagTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiOperationTagType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Tag entity contract properties.
-func (o ServiceApiOperationTagTypeOutput) Properties() TagContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiOperationTagType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiOperationTagTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiOperationTagType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Policy Contract details.
-type ServiceApiPolicyType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiPolicyTypeInput is an input type that accepts ServiceApiPolicyTypeArgs and ServiceApiPolicyTypeOutput values.
-// You can construct a concrete instance of `ServiceApiPolicyTypeInput` via:
-//
-//          ServiceApiPolicyTypeArgs{...}
-type ServiceApiPolicyTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiPolicyTypeOutput() ServiceApiPolicyTypeOutput
-	ToServiceApiPolicyTypeOutputWithContext(context.Context) ServiceApiPolicyTypeOutput
-}
-
-// Policy Contract details.
-type ServiceApiPolicyTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiPolicyType)(nil)).Elem()
-}
-
-func (i ServiceApiPolicyTypeArgs) ToServiceApiPolicyTypeOutput() ServiceApiPolicyTypeOutput {
-	return i.ToServiceApiPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiPolicyTypeArgs) ToServiceApiPolicyTypeOutputWithContext(ctx context.Context) ServiceApiPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiPolicyTypeOutput)
-}
-
-// Policy Contract details.
-type ServiceApiPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiPolicyType)(nil)).Elem()
-}
-
-func (o ServiceApiPolicyTypeOutput) ToServiceApiPolicyTypeOutput() ServiceApiPolicyTypeOutput {
-	return o
-}
-
-func (o ServiceApiPolicyTypeOutput) ToServiceApiPolicyTypeOutputWithContext(ctx context.Context) ServiceApiPolicyTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Policy.
-func (o ServiceApiPolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiPolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// ApiRelease details.
-type ServiceApiReleaseType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// ApiRelease entity contract properties.
-	Properties ApiReleaseContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiReleaseTypeInput is an input type that accepts ServiceApiReleaseTypeArgs and ServiceApiReleaseTypeOutput values.
-// You can construct a concrete instance of `ServiceApiReleaseTypeInput` via:
-//
-//          ServiceApiReleaseTypeArgs{...}
-type ServiceApiReleaseTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiReleaseTypeOutput() ServiceApiReleaseTypeOutput
-	ToServiceApiReleaseTypeOutputWithContext(context.Context) ServiceApiReleaseTypeOutput
-}
-
-// ApiRelease details.
-type ServiceApiReleaseTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// ApiRelease entity contract properties.
-	Properties ApiReleaseContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiReleaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiReleaseType)(nil)).Elem()
-}
-
-func (i ServiceApiReleaseTypeArgs) ToServiceApiReleaseTypeOutput() ServiceApiReleaseTypeOutput {
-	return i.ToServiceApiReleaseTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiReleaseTypeArgs) ToServiceApiReleaseTypeOutputWithContext(ctx context.Context) ServiceApiReleaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiReleaseTypeOutput)
-}
-
-// ApiRelease details.
-type ServiceApiReleaseTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiReleaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiReleaseType)(nil)).Elem()
-}
-
-func (o ServiceApiReleaseTypeOutput) ToServiceApiReleaseTypeOutput() ServiceApiReleaseTypeOutput {
-	return o
-}
-
-func (o ServiceApiReleaseTypeOutput) ToServiceApiReleaseTypeOutputWithContext(ctx context.Context) ServiceApiReleaseTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiReleaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiReleaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// ApiRelease entity contract properties.
-func (o ServiceApiReleaseTypeOutput) Properties() ApiReleaseContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiReleaseType) ApiReleaseContractPropertiesResponse { return v.Properties }).(ApiReleaseContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiReleaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiReleaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Schema Contract details.
-type ServiceApiSchemaType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Schema.
-	Properties SchemaContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiSchemaTypeInput is an input type that accepts ServiceApiSchemaTypeArgs and ServiceApiSchemaTypeOutput values.
-// You can construct a concrete instance of `ServiceApiSchemaTypeInput` via:
-//
-//          ServiceApiSchemaTypeArgs{...}
-type ServiceApiSchemaTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiSchemaTypeOutput() ServiceApiSchemaTypeOutput
-	ToServiceApiSchemaTypeOutputWithContext(context.Context) ServiceApiSchemaTypeOutput
-}
-
-// Schema Contract details.
-type ServiceApiSchemaTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Schema.
-	Properties SchemaContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiSchemaTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiSchemaType)(nil)).Elem()
-}
-
-func (i ServiceApiSchemaTypeArgs) ToServiceApiSchemaTypeOutput() ServiceApiSchemaTypeOutput {
-	return i.ToServiceApiSchemaTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiSchemaTypeArgs) ToServiceApiSchemaTypeOutputWithContext(ctx context.Context) ServiceApiSchemaTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiSchemaTypeOutput)
-}
-
-// Schema Contract details.
-type ServiceApiSchemaTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiSchemaTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiSchemaType)(nil)).Elem()
-}
-
-func (o ServiceApiSchemaTypeOutput) ToServiceApiSchemaTypeOutput() ServiceApiSchemaTypeOutput {
-	return o
-}
-
-func (o ServiceApiSchemaTypeOutput) ToServiceApiSchemaTypeOutputWithContext(ctx context.Context) ServiceApiSchemaTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiSchemaTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiSchemaType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Schema.
-func (o ServiceApiSchemaTypeOutput) Properties() SchemaContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiSchemaType) SchemaContractPropertiesResponse { return v.Properties }).(SchemaContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiSchemaTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiSchemaType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Tag Contract details.
-type ServiceApiTagType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiTagTypeInput is an input type that accepts ServiceApiTagTypeArgs and ServiceApiTagTypeOutput values.
-// You can construct a concrete instance of `ServiceApiTagTypeInput` via:
-//
-//          ServiceApiTagTypeArgs{...}
-type ServiceApiTagTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiTagTypeOutput() ServiceApiTagTypeOutput
-	ToServiceApiTagTypeOutputWithContext(context.Context) ServiceApiTagTypeOutput
-}
-
-// Tag Contract details.
-type ServiceApiTagTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiTagTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiTagType)(nil)).Elem()
-}
-
-func (i ServiceApiTagTypeArgs) ToServiceApiTagTypeOutput() ServiceApiTagTypeOutput {
-	return i.ToServiceApiTagTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiTagTypeArgs) ToServiceApiTagTypeOutputWithContext(ctx context.Context) ServiceApiTagTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiTagTypeOutput)
-}
-
-// Tag Contract details.
-type ServiceApiTagTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiTagTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiTagType)(nil)).Elem()
-}
-
-func (o ServiceApiTagTypeOutput) ToServiceApiTagTypeOutput() ServiceApiTagTypeOutput {
-	return o
-}
-
-func (o ServiceApiTagTypeOutput) ToServiceApiTagTypeOutputWithContext(ctx context.Context) ServiceApiTagTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiTagTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiTagType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Tag entity contract properties.
-func (o ServiceApiTagTypeOutput) Properties() TagContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiTagType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiTagTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiTagType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Contract details.
-type ServiceApiTagDescriptionType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// TagDescription entity contract properties.
-	Properties TagDescriptionContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiTagDescriptionTypeInput is an input type that accepts ServiceApiTagDescriptionTypeArgs and ServiceApiTagDescriptionTypeOutput values.
-// You can construct a concrete instance of `ServiceApiTagDescriptionTypeInput` via:
-//
-//          ServiceApiTagDescriptionTypeArgs{...}
-type ServiceApiTagDescriptionTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiTagDescriptionTypeOutput() ServiceApiTagDescriptionTypeOutput
-	ToServiceApiTagDescriptionTypeOutputWithContext(context.Context) ServiceApiTagDescriptionTypeOutput
-}
-
-// Contract details.
-type ServiceApiTagDescriptionTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// TagDescription entity contract properties.
-	Properties TagDescriptionContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiTagDescriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiTagDescriptionType)(nil)).Elem()
-}
-
-func (i ServiceApiTagDescriptionTypeArgs) ToServiceApiTagDescriptionTypeOutput() ServiceApiTagDescriptionTypeOutput {
-	return i.ToServiceApiTagDescriptionTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiTagDescriptionTypeArgs) ToServiceApiTagDescriptionTypeOutputWithContext(ctx context.Context) ServiceApiTagDescriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiTagDescriptionTypeOutput)
-}
-
-// Contract details.
-type ServiceApiTagDescriptionTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiTagDescriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiTagDescriptionType)(nil)).Elem()
-}
-
-func (o ServiceApiTagDescriptionTypeOutput) ToServiceApiTagDescriptionTypeOutput() ServiceApiTagDescriptionTypeOutput {
-	return o
-}
-
-func (o ServiceApiTagDescriptionTypeOutput) ToServiceApiTagDescriptionTypeOutputWithContext(ctx context.Context) ServiceApiTagDescriptionTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiTagDescriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiTagDescriptionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// TagDescription entity contract properties.
-func (o ServiceApiTagDescriptionTypeOutput) Properties() TagDescriptionContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiTagDescriptionType) TagDescriptionContractPropertiesResponse { return v.Properties }).(TagDescriptionContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiTagDescriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiTagDescriptionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Api Version Set Contract details.
-type ServiceApiVersionSetType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Api VersionSet contract properties.
-	Properties ApiVersionSetContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceApiVersionSetTypeInput is an input type that accepts ServiceApiVersionSetTypeArgs and ServiceApiVersionSetTypeOutput values.
-// You can construct a concrete instance of `ServiceApiVersionSetTypeInput` via:
-//
-//          ServiceApiVersionSetTypeArgs{...}
-type ServiceApiVersionSetTypeInput interface {
-	pulumi.Input
-
-	ToServiceApiVersionSetTypeOutput() ServiceApiVersionSetTypeOutput
-	ToServiceApiVersionSetTypeOutputWithContext(context.Context) ServiceApiVersionSetTypeOutput
-}
-
-// Api Version Set Contract details.
-type ServiceApiVersionSetTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Api VersionSet contract properties.
-	Properties ApiVersionSetContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceApiVersionSetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiVersionSetType)(nil)).Elem()
-}
-
-func (i ServiceApiVersionSetTypeArgs) ToServiceApiVersionSetTypeOutput() ServiceApiVersionSetTypeOutput {
-	return i.ToServiceApiVersionSetTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceApiVersionSetTypeArgs) ToServiceApiVersionSetTypeOutputWithContext(ctx context.Context) ServiceApiVersionSetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiVersionSetTypeOutput)
-}
-
-// Api Version Set Contract details.
-type ServiceApiVersionSetTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceApiVersionSetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceApiVersionSetType)(nil)).Elem()
-}
-
-func (o ServiceApiVersionSetTypeOutput) ToServiceApiVersionSetTypeOutput() ServiceApiVersionSetTypeOutput {
-	return o
-}
-
-func (o ServiceApiVersionSetTypeOutput) ToServiceApiVersionSetTypeOutputWithContext(ctx context.Context) ServiceApiVersionSetTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceApiVersionSetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiVersionSetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Api VersionSet contract properties.
-func (o ServiceApiVersionSetTypeOutput) Properties() ApiVersionSetContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceApiVersionSetType) ApiVersionSetContractPropertiesResponse { return v.Properties }).(ApiVersionSetContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceApiVersionSetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceApiVersionSetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// External OAuth authorization server settings.
-type ServiceAuthorizationServerType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the External OAuth authorization server Contract.
-	Properties AuthorizationServerContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceAuthorizationServerTypeInput is an input type that accepts ServiceAuthorizationServerTypeArgs and ServiceAuthorizationServerTypeOutput values.
-// You can construct a concrete instance of `ServiceAuthorizationServerTypeInput` via:
-//
-//          ServiceAuthorizationServerTypeArgs{...}
-type ServiceAuthorizationServerTypeInput interface {
-	pulumi.Input
-
-	ToServiceAuthorizationServerTypeOutput() ServiceAuthorizationServerTypeOutput
-	ToServiceAuthorizationServerTypeOutputWithContext(context.Context) ServiceAuthorizationServerTypeOutput
-}
-
-// External OAuth authorization server settings.
-type ServiceAuthorizationServerTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the External OAuth authorization server Contract.
-	Properties AuthorizationServerContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceAuthorizationServerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAuthorizationServerType)(nil)).Elem()
-}
-
-func (i ServiceAuthorizationServerTypeArgs) ToServiceAuthorizationServerTypeOutput() ServiceAuthorizationServerTypeOutput {
-	return i.ToServiceAuthorizationServerTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceAuthorizationServerTypeArgs) ToServiceAuthorizationServerTypeOutputWithContext(ctx context.Context) ServiceAuthorizationServerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthorizationServerTypeOutput)
-}
-
-// External OAuth authorization server settings.
-type ServiceAuthorizationServerTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceAuthorizationServerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAuthorizationServerType)(nil)).Elem()
-}
-
-func (o ServiceAuthorizationServerTypeOutput) ToServiceAuthorizationServerTypeOutput() ServiceAuthorizationServerTypeOutput {
-	return o
-}
-
-func (o ServiceAuthorizationServerTypeOutput) ToServiceAuthorizationServerTypeOutputWithContext(ctx context.Context) ServiceAuthorizationServerTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceAuthorizationServerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceAuthorizationServerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the External OAuth authorization server Contract.
-func (o ServiceAuthorizationServerTypeOutput) Properties() AuthorizationServerContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceAuthorizationServerType) AuthorizationServerContractPropertiesResponse {
-		return v.Properties
-	}).(AuthorizationServerContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceAuthorizationServerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceAuthorizationServerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Backend details.
-type ServiceBackendType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Backend entity contract properties.
-	Properties BackendContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceBackendTypeInput is an input type that accepts ServiceBackendTypeArgs and ServiceBackendTypeOutput values.
-// You can construct a concrete instance of `ServiceBackendTypeInput` via:
-//
-//          ServiceBackendTypeArgs{...}
-type ServiceBackendTypeInput interface {
-	pulumi.Input
-
-	ToServiceBackendTypeOutput() ServiceBackendTypeOutput
-	ToServiceBackendTypeOutputWithContext(context.Context) ServiceBackendTypeOutput
-}
-
-// Backend details.
-type ServiceBackendTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Backend entity contract properties.
-	Properties BackendContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceBackendTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceBackendType)(nil)).Elem()
-}
-
-func (i ServiceBackendTypeArgs) ToServiceBackendTypeOutput() ServiceBackendTypeOutput {
-	return i.ToServiceBackendTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceBackendTypeArgs) ToServiceBackendTypeOutputWithContext(ctx context.Context) ServiceBackendTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceBackendTypeOutput)
-}
-
-// Backend details.
-type ServiceBackendTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceBackendTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceBackendType)(nil)).Elem()
-}
-
-func (o ServiceBackendTypeOutput) ToServiceBackendTypeOutput() ServiceBackendTypeOutput {
-	return o
-}
-
-func (o ServiceBackendTypeOutput) ToServiceBackendTypeOutputWithContext(ctx context.Context) ServiceBackendTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceBackendTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceBackendType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Backend entity contract properties.
-func (o ServiceBackendTypeOutput) Properties() BackendContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceBackendType) BackendContractPropertiesResponse { return v.Properties }).(BackendContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceBackendTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceBackendType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Cache details.
-type ServiceCachType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Cache properties details.
-	Properties CacheContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceCachTypeInput is an input type that accepts ServiceCachTypeArgs and ServiceCachTypeOutput values.
-// You can construct a concrete instance of `ServiceCachTypeInput` via:
-//
-//          ServiceCachTypeArgs{...}
-type ServiceCachTypeInput interface {
-	pulumi.Input
-
-	ToServiceCachTypeOutput() ServiceCachTypeOutput
-	ToServiceCachTypeOutputWithContext(context.Context) ServiceCachTypeOutput
-}
-
-// Cache details.
-type ServiceCachTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Cache properties details.
-	Properties CacheContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceCachTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCachType)(nil)).Elem()
-}
-
-func (i ServiceCachTypeArgs) ToServiceCachTypeOutput() ServiceCachTypeOutput {
-	return i.ToServiceCachTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceCachTypeArgs) ToServiceCachTypeOutputWithContext(ctx context.Context) ServiceCachTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCachTypeOutput)
-}
-
-// Cache details.
-type ServiceCachTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceCachTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCachType)(nil)).Elem()
-}
-
-func (o ServiceCachTypeOutput) ToServiceCachTypeOutput() ServiceCachTypeOutput {
-	return o
-}
-
-func (o ServiceCachTypeOutput) ToServiceCachTypeOutputWithContext(ctx context.Context) ServiceCachTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceCachTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCachType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Cache properties details.
-func (o ServiceCachTypeOutput) Properties() CacheContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceCachType) CacheContractPropertiesResponse { return v.Properties }).(CacheContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceCachTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCachType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Certificate details.
-type ServiceCertificateType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Certificate properties details.
-	Properties CertificateContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceCertificateTypeInput is an input type that accepts ServiceCertificateTypeArgs and ServiceCertificateTypeOutput values.
-// You can construct a concrete instance of `ServiceCertificateTypeInput` via:
-//
-//          ServiceCertificateTypeArgs{...}
-type ServiceCertificateTypeInput interface {
-	pulumi.Input
-
-	ToServiceCertificateTypeOutput() ServiceCertificateTypeOutput
-	ToServiceCertificateTypeOutputWithContext(context.Context) ServiceCertificateTypeOutput
-}
-
-// Certificate details.
-type ServiceCertificateTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Certificate properties details.
-	Properties CertificateContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceCertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCertificateType)(nil)).Elem()
-}
-
-func (i ServiceCertificateTypeArgs) ToServiceCertificateTypeOutput() ServiceCertificateTypeOutput {
-	return i.ToServiceCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceCertificateTypeArgs) ToServiceCertificateTypeOutputWithContext(ctx context.Context) ServiceCertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceCertificateTypeOutput)
-}
-
-// Certificate details.
-type ServiceCertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceCertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceCertificateType)(nil)).Elem()
-}
-
-func (o ServiceCertificateTypeOutput) ToServiceCertificateTypeOutput() ServiceCertificateTypeOutput {
-	return o
-}
-
-func (o ServiceCertificateTypeOutput) ToServiceCertificateTypeOutputWithContext(ctx context.Context) ServiceCertificateTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceCertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Certificate properties details.
-func (o ServiceCertificateTypeOutput) Properties() CertificateContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceCertificateType) CertificateContractPropertiesResponse { return v.Properties }).(CertificateContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceCertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Content type contract details.
-type ServiceContentTypeType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the content type.
-	Properties ContentTypeContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceContentTypeTypeInput is an input type that accepts ServiceContentTypeTypeArgs and ServiceContentTypeTypeOutput values.
-// You can construct a concrete instance of `ServiceContentTypeTypeInput` via:
-//
-//          ServiceContentTypeTypeArgs{...}
-type ServiceContentTypeTypeInput interface {
-	pulumi.Input
-
-	ToServiceContentTypeTypeOutput() ServiceContentTypeTypeOutput
-	ToServiceContentTypeTypeOutputWithContext(context.Context) ServiceContentTypeTypeOutput
-}
-
-// Content type contract details.
-type ServiceContentTypeTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the content type.
-	Properties ContentTypeContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceContentTypeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceContentTypeType)(nil)).Elem()
-}
-
-func (i ServiceContentTypeTypeArgs) ToServiceContentTypeTypeOutput() ServiceContentTypeTypeOutput {
-	return i.ToServiceContentTypeTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceContentTypeTypeArgs) ToServiceContentTypeTypeOutputWithContext(ctx context.Context) ServiceContentTypeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceContentTypeTypeOutput)
-}
-
-// Content type contract details.
-type ServiceContentTypeTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceContentTypeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceContentTypeType)(nil)).Elem()
-}
-
-func (o ServiceContentTypeTypeOutput) ToServiceContentTypeTypeOutput() ServiceContentTypeTypeOutput {
-	return o
-}
-
-func (o ServiceContentTypeTypeOutput) ToServiceContentTypeTypeOutputWithContext(ctx context.Context) ServiceContentTypeTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceContentTypeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceContentTypeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the content type.
-func (o ServiceContentTypeTypeOutput) Properties() ContentTypeContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceContentTypeType) ContentTypeContractPropertiesResponse { return v.Properties }).(ContentTypeContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceContentTypeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceContentTypeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Content type contract details.
-type ServiceContentTypeContentItemType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the content item.
-	Properties ContentItemContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceContentTypeContentItemTypeInput is an input type that accepts ServiceContentTypeContentItemTypeArgs and ServiceContentTypeContentItemTypeOutput values.
-// You can construct a concrete instance of `ServiceContentTypeContentItemTypeInput` via:
-//
-//          ServiceContentTypeContentItemTypeArgs{...}
-type ServiceContentTypeContentItemTypeInput interface {
-	pulumi.Input
-
-	ToServiceContentTypeContentItemTypeOutput() ServiceContentTypeContentItemTypeOutput
-	ToServiceContentTypeContentItemTypeOutputWithContext(context.Context) ServiceContentTypeContentItemTypeOutput
-}
-
-// Content type contract details.
-type ServiceContentTypeContentItemTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the content item.
-	Properties ContentItemContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceContentTypeContentItemTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceContentTypeContentItemType)(nil)).Elem()
-}
-
-func (i ServiceContentTypeContentItemTypeArgs) ToServiceContentTypeContentItemTypeOutput() ServiceContentTypeContentItemTypeOutput {
-	return i.ToServiceContentTypeContentItemTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceContentTypeContentItemTypeArgs) ToServiceContentTypeContentItemTypeOutputWithContext(ctx context.Context) ServiceContentTypeContentItemTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceContentTypeContentItemTypeOutput)
-}
-
-// Content type contract details.
-type ServiceContentTypeContentItemTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceContentTypeContentItemTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceContentTypeContentItemType)(nil)).Elem()
-}
-
-func (o ServiceContentTypeContentItemTypeOutput) ToServiceContentTypeContentItemTypeOutput() ServiceContentTypeContentItemTypeOutput {
-	return o
-}
-
-func (o ServiceContentTypeContentItemTypeOutput) ToServiceContentTypeContentItemTypeOutputWithContext(ctx context.Context) ServiceContentTypeContentItemTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceContentTypeContentItemTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceContentTypeContentItemType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the content item.
-func (o ServiceContentTypeContentItemTypeOutput) Properties() ContentItemContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceContentTypeContentItemType) ContentItemContractPropertiesResponse { return v.Properties }).(ContentItemContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceContentTypeContentItemTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceContentTypeContentItemType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Diagnostic details.
-type ServiceDiagnosticType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceDiagnosticTypeInput is an input type that accepts ServiceDiagnosticTypeArgs and ServiceDiagnosticTypeOutput values.
-// You can construct a concrete instance of `ServiceDiagnosticTypeInput` via:
-//
-//          ServiceDiagnosticTypeArgs{...}
-type ServiceDiagnosticTypeInput interface {
-	pulumi.Input
-
-	ToServiceDiagnosticTypeOutput() ServiceDiagnosticTypeOutput
-	ToServiceDiagnosticTypeOutputWithContext(context.Context) ServiceDiagnosticTypeOutput
-}
-
-// Diagnostic details.
-type ServiceDiagnosticTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceDiagnosticTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceDiagnosticType)(nil)).Elem()
-}
-
-func (i ServiceDiagnosticTypeArgs) ToServiceDiagnosticTypeOutput() ServiceDiagnosticTypeOutput {
-	return i.ToServiceDiagnosticTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceDiagnosticTypeArgs) ToServiceDiagnosticTypeOutputWithContext(ctx context.Context) ServiceDiagnosticTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceDiagnosticTypeOutput)
-}
-
-// Diagnostic details.
-type ServiceDiagnosticTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceDiagnosticTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceDiagnosticType)(nil)).Elem()
-}
-
-func (o ServiceDiagnosticTypeOutput) ToServiceDiagnosticTypeOutput() ServiceDiagnosticTypeOutput {
-	return o
-}
-
-func (o ServiceDiagnosticTypeOutput) ToServiceDiagnosticTypeOutputWithContext(ctx context.Context) ServiceDiagnosticTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceDiagnosticTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceDiagnosticType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Diagnostic entity contract properties.
-func (o ServiceDiagnosticTypeOutput) Properties() DiagnosticContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceDiagnosticType) DiagnosticContractPropertiesResponse { return v.Properties }).(DiagnosticContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceDiagnosticTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceDiagnosticType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Gateway details.
-type ServiceGatewayType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Gateway details.
-	Properties GatewayContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceGatewayTypeInput is an input type that accepts ServiceGatewayTypeArgs and ServiceGatewayTypeOutput values.
-// You can construct a concrete instance of `ServiceGatewayTypeInput` via:
-//
-//          ServiceGatewayTypeArgs{...}
-type ServiceGatewayTypeInput interface {
-	pulumi.Input
-
-	ToServiceGatewayTypeOutput() ServiceGatewayTypeOutput
-	ToServiceGatewayTypeOutputWithContext(context.Context) ServiceGatewayTypeOutput
-}
-
-// Gateway details.
-type ServiceGatewayTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gateway details.
-	Properties GatewayContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceGatewayTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceGatewayType)(nil)).Elem()
-}
-
-func (i ServiceGatewayTypeArgs) ToServiceGatewayTypeOutput() ServiceGatewayTypeOutput {
-	return i.ToServiceGatewayTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceGatewayTypeArgs) ToServiceGatewayTypeOutputWithContext(ctx context.Context) ServiceGatewayTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayTypeOutput)
-}
-
-// Gateway details.
-type ServiceGatewayTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceGatewayTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceGatewayType)(nil)).Elem()
-}
-
-func (o ServiceGatewayTypeOutput) ToServiceGatewayTypeOutput() ServiceGatewayTypeOutput {
-	return o
-}
-
-func (o ServiceGatewayTypeOutput) ToServiceGatewayTypeOutputWithContext(ctx context.Context) ServiceGatewayTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceGatewayTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceGatewayType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gateway details.
-func (o ServiceGatewayTypeOutput) Properties() GatewayContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceGatewayType) GatewayContractPropertiesResponse { return v.Properties }).(GatewayContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceGatewayTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceGatewayType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Gateway hostname configuration details.
-type ServiceGatewayHostnameConfigurationType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Gateway hostname configuration details.
-	Properties GatewayHostnameConfigurationContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceGatewayHostnameConfigurationTypeInput is an input type that accepts ServiceGatewayHostnameConfigurationTypeArgs and ServiceGatewayHostnameConfigurationTypeOutput values.
-// You can construct a concrete instance of `ServiceGatewayHostnameConfigurationTypeInput` via:
-//
-//          ServiceGatewayHostnameConfigurationTypeArgs{...}
-type ServiceGatewayHostnameConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToServiceGatewayHostnameConfigurationTypeOutput() ServiceGatewayHostnameConfigurationTypeOutput
-	ToServiceGatewayHostnameConfigurationTypeOutputWithContext(context.Context) ServiceGatewayHostnameConfigurationTypeOutput
-}
-
-// Gateway hostname configuration details.
-type ServiceGatewayHostnameConfigurationTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gateway hostname configuration details.
-	Properties GatewayHostnameConfigurationContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceGatewayHostnameConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceGatewayHostnameConfigurationType)(nil)).Elem()
-}
-
-func (i ServiceGatewayHostnameConfigurationTypeArgs) ToServiceGatewayHostnameConfigurationTypeOutput() ServiceGatewayHostnameConfigurationTypeOutput {
-	return i.ToServiceGatewayHostnameConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceGatewayHostnameConfigurationTypeArgs) ToServiceGatewayHostnameConfigurationTypeOutputWithContext(ctx context.Context) ServiceGatewayHostnameConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceGatewayHostnameConfigurationTypeOutput)
-}
-
-// Gateway hostname configuration details.
-type ServiceGatewayHostnameConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceGatewayHostnameConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceGatewayHostnameConfigurationType)(nil)).Elem()
-}
-
-func (o ServiceGatewayHostnameConfigurationTypeOutput) ToServiceGatewayHostnameConfigurationTypeOutput() ServiceGatewayHostnameConfigurationTypeOutput {
-	return o
-}
-
-func (o ServiceGatewayHostnameConfigurationTypeOutput) ToServiceGatewayHostnameConfigurationTypeOutputWithContext(ctx context.Context) ServiceGatewayHostnameConfigurationTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceGatewayHostnameConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceGatewayHostnameConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gateway hostname configuration details.
-func (o ServiceGatewayHostnameConfigurationTypeOutput) Properties() GatewayHostnameConfigurationContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceGatewayHostnameConfigurationType) GatewayHostnameConfigurationContractPropertiesResponse {
-		return v.Properties
-	}).(GatewayHostnameConfigurationContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceGatewayHostnameConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceGatewayHostnameConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Contract details.
-type ServiceGroupType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Group entity contract properties.
-	Properties GroupContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceGroupTypeInput is an input type that accepts ServiceGroupTypeArgs and ServiceGroupTypeOutput values.
-// You can construct a concrete instance of `ServiceGroupTypeInput` via:
-//
-//          ServiceGroupTypeArgs{...}
-type ServiceGroupTypeInput interface {
-	pulumi.Input
-
-	ToServiceGroupTypeOutput() ServiceGroupTypeOutput
-	ToServiceGroupTypeOutputWithContext(context.Context) ServiceGroupTypeOutput
-}
-
-// Contract details.
-type ServiceGroupTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Group entity contract properties.
-	Properties GroupContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceGroupType)(nil)).Elem()
-}
-
-func (i ServiceGroupTypeArgs) ToServiceGroupTypeOutput() ServiceGroupTypeOutput {
-	return i.ToServiceGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceGroupTypeArgs) ToServiceGroupTypeOutputWithContext(ctx context.Context) ServiceGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceGroupTypeOutput)
-}
-
-// Contract details.
-type ServiceGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceGroupType)(nil)).Elem()
-}
-
-func (o ServiceGroupTypeOutput) ToServiceGroupTypeOutput() ServiceGroupTypeOutput {
-	return o
-}
-
-func (o ServiceGroupTypeOutput) ToServiceGroupTypeOutputWithContext(ctx context.Context) ServiceGroupTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Group entity contract properties.
-func (o ServiceGroupTypeOutput) Properties() GroupContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceGroupType) GroupContractPropertiesResponse { return v.Properties }).(GroupContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Identity Provider details.
-type ServiceIdentityProviderType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Identity Provider contract properties.
-	Properties IdentityProviderContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceIdentityProviderTypeInput is an input type that accepts ServiceIdentityProviderTypeArgs and ServiceIdentityProviderTypeOutput values.
-// You can construct a concrete instance of `ServiceIdentityProviderTypeInput` via:
-//
-//          ServiceIdentityProviderTypeArgs{...}
-type ServiceIdentityProviderTypeInput interface {
-	pulumi.Input
-
-	ToServiceIdentityProviderTypeOutput() ServiceIdentityProviderTypeOutput
-	ToServiceIdentityProviderTypeOutputWithContext(context.Context) ServiceIdentityProviderTypeOutput
-}
-
-// Identity Provider details.
-type ServiceIdentityProviderTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Identity Provider contract properties.
-	Properties IdentityProviderContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceIdentityProviderTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceIdentityProviderType)(nil)).Elem()
-}
-
-func (i ServiceIdentityProviderTypeArgs) ToServiceIdentityProviderTypeOutput() ServiceIdentityProviderTypeOutput {
-	return i.ToServiceIdentityProviderTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceIdentityProviderTypeArgs) ToServiceIdentityProviderTypeOutputWithContext(ctx context.Context) ServiceIdentityProviderTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityProviderTypeOutput)
-}
-
-// Identity Provider details.
-type ServiceIdentityProviderTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceIdentityProviderTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceIdentityProviderType)(nil)).Elem()
-}
-
-func (o ServiceIdentityProviderTypeOutput) ToServiceIdentityProviderTypeOutput() ServiceIdentityProviderTypeOutput {
-	return o
-}
-
-func (o ServiceIdentityProviderTypeOutput) ToServiceIdentityProviderTypeOutputWithContext(ctx context.Context) ServiceIdentityProviderTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceIdentityProviderTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceIdentityProviderType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Identity Provider contract properties.
-func (o ServiceIdentityProviderTypeOutput) Properties() IdentityProviderContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceIdentityProviderType) IdentityProviderContractPropertiesResponse { return v.Properties }).(IdentityProviderContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceIdentityProviderTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceIdentityProviderType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Logger details.
-type ServiceLoggerType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Logger entity contract properties.
-	Properties LoggerContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceLoggerTypeInput is an input type that accepts ServiceLoggerTypeArgs and ServiceLoggerTypeOutput values.
-// You can construct a concrete instance of `ServiceLoggerTypeInput` via:
-//
-//          ServiceLoggerTypeArgs{...}
-type ServiceLoggerTypeInput interface {
-	pulumi.Input
-
-	ToServiceLoggerTypeOutput() ServiceLoggerTypeOutput
-	ToServiceLoggerTypeOutputWithContext(context.Context) ServiceLoggerTypeOutput
-}
-
-// Logger details.
-type ServiceLoggerTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Logger entity contract properties.
-	Properties LoggerContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceLoggerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoggerType)(nil)).Elem()
-}
-
-func (i ServiceLoggerTypeArgs) ToServiceLoggerTypeOutput() ServiceLoggerTypeOutput {
-	return i.ToServiceLoggerTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceLoggerTypeArgs) ToServiceLoggerTypeOutputWithContext(ctx context.Context) ServiceLoggerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoggerTypeOutput)
-}
-
-// Logger details.
-type ServiceLoggerTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoggerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoggerType)(nil)).Elem()
-}
-
-func (o ServiceLoggerTypeOutput) ToServiceLoggerTypeOutput() ServiceLoggerTypeOutput {
-	return o
-}
-
-func (o ServiceLoggerTypeOutput) ToServiceLoggerTypeOutputWithContext(ctx context.Context) ServiceLoggerTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceLoggerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceLoggerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Logger entity contract properties.
-func (o ServiceLoggerTypeOutput) Properties() LoggerContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceLoggerType) LoggerContractPropertiesResponse { return v.Properties }).(LoggerContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceLoggerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceLoggerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// NamedValue details.
-type ServiceNamedValueType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// NamedValue entity contract properties.
-	Properties NamedValueContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceNamedValueTypeInput is an input type that accepts ServiceNamedValueTypeArgs and ServiceNamedValueTypeOutput values.
-// You can construct a concrete instance of `ServiceNamedValueTypeInput` via:
-//
-//          ServiceNamedValueTypeArgs{...}
-type ServiceNamedValueTypeInput interface {
-	pulumi.Input
-
-	ToServiceNamedValueTypeOutput() ServiceNamedValueTypeOutput
-	ToServiceNamedValueTypeOutputWithContext(context.Context) ServiceNamedValueTypeOutput
-}
-
-// NamedValue details.
-type ServiceNamedValueTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// NamedValue entity contract properties.
-	Properties NamedValueContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceNamedValueTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNamedValueType)(nil)).Elem()
-}
-
-func (i ServiceNamedValueTypeArgs) ToServiceNamedValueTypeOutput() ServiceNamedValueTypeOutput {
-	return i.ToServiceNamedValueTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceNamedValueTypeArgs) ToServiceNamedValueTypeOutputWithContext(ctx context.Context) ServiceNamedValueTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceNamedValueTypeOutput)
-}
-
-// NamedValue details.
-type ServiceNamedValueTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceNamedValueTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNamedValueType)(nil)).Elem()
-}
-
-func (o ServiceNamedValueTypeOutput) ToServiceNamedValueTypeOutput() ServiceNamedValueTypeOutput {
-	return o
-}
-
-func (o ServiceNamedValueTypeOutput) ToServiceNamedValueTypeOutputWithContext(ctx context.Context) ServiceNamedValueTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceNamedValueTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceNamedValueType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// NamedValue entity contract properties.
-func (o ServiceNamedValueTypeOutput) Properties() NamedValueContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceNamedValueType) NamedValueContractPropertiesResponse { return v.Properties }).(NamedValueContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceNamedValueTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceNamedValueType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// OpenId Connect Provider details.
-type ServiceOpenidConnectProviderType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// OpenId Connect Provider contract properties.
-	Properties OpenidConnectProviderContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceOpenidConnectProviderTypeInput is an input type that accepts ServiceOpenidConnectProviderTypeArgs and ServiceOpenidConnectProviderTypeOutput values.
-// You can construct a concrete instance of `ServiceOpenidConnectProviderTypeInput` via:
-//
-//          ServiceOpenidConnectProviderTypeArgs{...}
-type ServiceOpenidConnectProviderTypeInput interface {
-	pulumi.Input
-
-	ToServiceOpenidConnectProviderTypeOutput() ServiceOpenidConnectProviderTypeOutput
-	ToServiceOpenidConnectProviderTypeOutputWithContext(context.Context) ServiceOpenidConnectProviderTypeOutput
-}
-
-// OpenId Connect Provider details.
-type ServiceOpenidConnectProviderTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// OpenId Connect Provider contract properties.
-	Properties OpenidConnectProviderContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceOpenidConnectProviderTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceOpenidConnectProviderType)(nil)).Elem()
-}
-
-func (i ServiceOpenidConnectProviderTypeArgs) ToServiceOpenidConnectProviderTypeOutput() ServiceOpenidConnectProviderTypeOutput {
-	return i.ToServiceOpenidConnectProviderTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceOpenidConnectProviderTypeArgs) ToServiceOpenidConnectProviderTypeOutputWithContext(ctx context.Context) ServiceOpenidConnectProviderTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceOpenidConnectProviderTypeOutput)
-}
-
-// OpenId Connect Provider details.
-type ServiceOpenidConnectProviderTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceOpenidConnectProviderTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceOpenidConnectProviderType)(nil)).Elem()
-}
-
-func (o ServiceOpenidConnectProviderTypeOutput) ToServiceOpenidConnectProviderTypeOutput() ServiceOpenidConnectProviderTypeOutput {
-	return o
-}
-
-func (o ServiceOpenidConnectProviderTypeOutput) ToServiceOpenidConnectProviderTypeOutputWithContext(ctx context.Context) ServiceOpenidConnectProviderTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceOpenidConnectProviderTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceOpenidConnectProviderType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// OpenId Connect Provider contract properties.
-func (o ServiceOpenidConnectProviderTypeOutput) Properties() OpenidConnectProviderContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceOpenidConnectProviderType) OpenidConnectProviderContractPropertiesResponse {
-		return v.Properties
-	}).(OpenidConnectProviderContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceOpenidConnectProviderTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceOpenidConnectProviderType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Policy Contract details.
-type ServicePolicyType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServicePolicyTypeInput is an input type that accepts ServicePolicyTypeArgs and ServicePolicyTypeOutput values.
-// You can construct a concrete instance of `ServicePolicyTypeInput` via:
-//
-//          ServicePolicyTypeArgs{...}
-type ServicePolicyTypeInput interface {
-	pulumi.Input
-
-	ToServicePolicyTypeOutput() ServicePolicyTypeOutput
-	ToServicePolicyTypeOutputWithContext(context.Context) ServicePolicyTypeOutput
-}
-
-// Policy Contract details.
-type ServicePolicyTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServicePolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePolicyType)(nil)).Elem()
-}
-
-func (i ServicePolicyTypeArgs) ToServicePolicyTypeOutput() ServicePolicyTypeOutput {
-	return i.ToServicePolicyTypeOutputWithContext(context.Background())
-}
-
-func (i ServicePolicyTypeArgs) ToServicePolicyTypeOutputWithContext(ctx context.Context) ServicePolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePolicyTypeOutput)
-}
-
-// Policy Contract details.
-type ServicePolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (ServicePolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePolicyType)(nil)).Elem()
-}
-
-func (o ServicePolicyTypeOutput) ToServicePolicyTypeOutput() ServicePolicyTypeOutput {
-	return o
-}
-
-func (o ServicePolicyTypeOutput) ToServicePolicyTypeOutputWithContext(ctx context.Context) ServicePolicyTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServicePolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Policy.
-func (o ServicePolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServicePolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServicePolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Product details.
-type ServiceProductType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Product entity contract properties.
-	Properties ProductContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceProductTypeInput is an input type that accepts ServiceProductTypeArgs and ServiceProductTypeOutput values.
-// You can construct a concrete instance of `ServiceProductTypeInput` via:
-//
-//          ServiceProductTypeArgs{...}
-type ServiceProductTypeInput interface {
-	pulumi.Input
-
-	ToServiceProductTypeOutput() ServiceProductTypeOutput
-	ToServiceProductTypeOutputWithContext(context.Context) ServiceProductTypeOutput
-}
-
-// Product details.
-type ServiceProductTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Product entity contract properties.
-	Properties ProductContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceProductTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProductType)(nil)).Elem()
-}
-
-func (i ServiceProductTypeArgs) ToServiceProductTypeOutput() ServiceProductTypeOutput {
-	return i.ToServiceProductTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceProductTypeArgs) ToServiceProductTypeOutputWithContext(ctx context.Context) ServiceProductTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProductTypeOutput)
-}
-
-// Product details.
-type ServiceProductTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceProductTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProductType)(nil)).Elem()
-}
-
-func (o ServiceProductTypeOutput) ToServiceProductTypeOutput() ServiceProductTypeOutput {
-	return o
-}
-
-func (o ServiceProductTypeOutput) ToServiceProductTypeOutputWithContext(ctx context.Context) ServiceProductTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceProductTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProductType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Product entity contract properties.
-func (o ServiceProductTypeOutput) Properties() ProductContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceProductType) ProductContractPropertiesResponse { return v.Properties }).(ProductContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceProductTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProductType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Policy Contract details.
-type ServiceProductPolicyType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceProductPolicyTypeInput is an input type that accepts ServiceProductPolicyTypeArgs and ServiceProductPolicyTypeOutput values.
-// You can construct a concrete instance of `ServiceProductPolicyTypeInput` via:
-//
-//          ServiceProductPolicyTypeArgs{...}
-type ServiceProductPolicyTypeInput interface {
-	pulumi.Input
-
-	ToServiceProductPolicyTypeOutput() ServiceProductPolicyTypeOutput
-	ToServiceProductPolicyTypeOutputWithContext(context.Context) ServiceProductPolicyTypeOutput
-}
-
-// Policy Contract details.
-type ServiceProductPolicyTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceProductPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProductPolicyType)(nil)).Elem()
-}
-
-func (i ServiceProductPolicyTypeArgs) ToServiceProductPolicyTypeOutput() ServiceProductPolicyTypeOutput {
-	return i.ToServiceProductPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceProductPolicyTypeArgs) ToServiceProductPolicyTypeOutputWithContext(ctx context.Context) ServiceProductPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProductPolicyTypeOutput)
-}
-
-// Policy Contract details.
-type ServiceProductPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceProductPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProductPolicyType)(nil)).Elem()
-}
-
-func (o ServiceProductPolicyTypeOutput) ToServiceProductPolicyTypeOutput() ServiceProductPolicyTypeOutput {
-	return o
-}
-
-func (o ServiceProductPolicyTypeOutput) ToServiceProductPolicyTypeOutputWithContext(ctx context.Context) ServiceProductPolicyTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceProductPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProductPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Policy.
-func (o ServiceProductPolicyTypeOutput) Properties() PolicyContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceProductPolicyType) PolicyContractPropertiesResponse { return v.Properties }).(PolicyContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceProductPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProductPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Tag Contract details.
-type ServiceProductTagType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceProductTagTypeInput is an input type that accepts ServiceProductTagTypeArgs and ServiceProductTagTypeOutput values.
-// You can construct a concrete instance of `ServiceProductTagTypeInput` via:
-//
-//          ServiceProductTagTypeArgs{...}
-type ServiceProductTagTypeInput interface {
-	pulumi.Input
-
-	ToServiceProductTagTypeOutput() ServiceProductTagTypeOutput
-	ToServiceProductTagTypeOutputWithContext(context.Context) ServiceProductTagTypeOutput
-}
-
-// Tag Contract details.
-type ServiceProductTagTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceProductTagTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProductTagType)(nil)).Elem()
-}
-
-func (i ServiceProductTagTypeArgs) ToServiceProductTagTypeOutput() ServiceProductTagTypeOutput {
-	return i.ToServiceProductTagTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceProductTagTypeArgs) ToServiceProductTagTypeOutputWithContext(ctx context.Context) ServiceProductTagTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProductTagTypeOutput)
-}
-
-// Tag Contract details.
-type ServiceProductTagTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceProductTagTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProductTagType)(nil)).Elem()
-}
-
-func (o ServiceProductTagTypeOutput) ToServiceProductTagTypeOutput() ServiceProductTagTypeOutput {
-	return o
-}
-
-func (o ServiceProductTagTypeOutput) ToServiceProductTagTypeOutputWithContext(ctx context.Context) ServiceProductTagTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceProductTagTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProductTagType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Tag entity contract properties.
-func (o ServiceProductTagTypeOutput) Properties() TagContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceProductTagType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceProductTagTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProductTagType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Property details.
-type ServicePropertyType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Property entity contract properties.
-	Properties PropertyContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServicePropertyTypeInput is an input type that accepts ServicePropertyTypeArgs and ServicePropertyTypeOutput values.
-// You can construct a concrete instance of `ServicePropertyTypeInput` via:
-//
-//          ServicePropertyTypeArgs{...}
-type ServicePropertyTypeInput interface {
-	pulumi.Input
-
-	ToServicePropertyTypeOutput() ServicePropertyTypeOutput
-	ToServicePropertyTypeOutputWithContext(context.Context) ServicePropertyTypeOutput
-}
-
-// Property details.
-type ServicePropertyTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Property entity contract properties.
-	Properties PropertyContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServicePropertyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePropertyType)(nil)).Elem()
-}
-
-func (i ServicePropertyTypeArgs) ToServicePropertyTypeOutput() ServicePropertyTypeOutput {
-	return i.ToServicePropertyTypeOutputWithContext(context.Background())
-}
-
-func (i ServicePropertyTypeArgs) ToServicePropertyTypeOutputWithContext(ctx context.Context) ServicePropertyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePropertyTypeOutput)
-}
-
-// Property details.
-type ServicePropertyTypeOutput struct{ *pulumi.OutputState }
-
-func (ServicePropertyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePropertyType)(nil)).Elem()
-}
-
-func (o ServicePropertyTypeOutput) ToServicePropertyTypeOutput() ServicePropertyTypeOutput {
-	return o
-}
-
-func (o ServicePropertyTypeOutput) ToServicePropertyTypeOutputWithContext(ctx context.Context) ServicePropertyTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServicePropertyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePropertyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Property entity contract properties.
-func (o ServicePropertyTypeOutput) Properties() PropertyContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServicePropertyType) PropertyContractPropertiesResponse { return v.Properties }).(PropertyContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServicePropertyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePropertyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Subscription details.
-type ServiceSubscriptionType struct {
+type SubscriptionType struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Subscription contract properties.
@@ -23740,19 +23590,19 @@ type ServiceSubscriptionType struct {
 	Type string `pulumi:"type"`
 }
 
-// ServiceSubscriptionTypeInput is an input type that accepts ServiceSubscriptionTypeArgs and ServiceSubscriptionTypeOutput values.
-// You can construct a concrete instance of `ServiceSubscriptionTypeInput` via:
+// SubscriptionTypeInput is an input type that accepts SubscriptionTypeArgs and SubscriptionTypeOutput values.
+// You can construct a concrete instance of `SubscriptionTypeInput` via:
 //
-//          ServiceSubscriptionTypeArgs{...}
-type ServiceSubscriptionTypeInput interface {
+//          SubscriptionTypeArgs{...}
+type SubscriptionTypeInput interface {
 	pulumi.Input
 
-	ToServiceSubscriptionTypeOutput() ServiceSubscriptionTypeOutput
-	ToServiceSubscriptionTypeOutputWithContext(context.Context) ServiceSubscriptionTypeOutput
+	ToSubscriptionTypeOutput() SubscriptionTypeOutput
+	ToSubscriptionTypeOutputWithContext(context.Context) SubscriptionTypeOutput
 }
 
 // Subscription details.
-type ServiceSubscriptionTypeArgs struct {
+type SubscriptionTypeArgs struct {
 	// Resource name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Subscription contract properties.
@@ -23761,265 +23611,46 @@ type ServiceSubscriptionTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ServiceSubscriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceSubscriptionType)(nil)).Elem()
+func (SubscriptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionType)(nil)).Elem()
 }
 
-func (i ServiceSubscriptionTypeArgs) ToServiceSubscriptionTypeOutput() ServiceSubscriptionTypeOutput {
-	return i.ToServiceSubscriptionTypeOutputWithContext(context.Background())
+func (i SubscriptionTypeArgs) ToSubscriptionTypeOutput() SubscriptionTypeOutput {
+	return i.ToSubscriptionTypeOutputWithContext(context.Background())
 }
 
-func (i ServiceSubscriptionTypeArgs) ToServiceSubscriptionTypeOutputWithContext(ctx context.Context) ServiceSubscriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSubscriptionTypeOutput)
+func (i SubscriptionTypeArgs) ToSubscriptionTypeOutputWithContext(ctx context.Context) SubscriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionTypeOutput)
 }
 
 // Subscription details.
-type ServiceSubscriptionTypeOutput struct{ *pulumi.OutputState }
+type SubscriptionTypeOutput struct{ *pulumi.OutputState }
 
-func (ServiceSubscriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceSubscriptionType)(nil)).Elem()
+func (SubscriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionType)(nil)).Elem()
 }
 
-func (o ServiceSubscriptionTypeOutput) ToServiceSubscriptionTypeOutput() ServiceSubscriptionTypeOutput {
+func (o SubscriptionTypeOutput) ToSubscriptionTypeOutput() SubscriptionTypeOutput {
 	return o
 }
 
-func (o ServiceSubscriptionTypeOutput) ToServiceSubscriptionTypeOutputWithContext(ctx context.Context) ServiceSubscriptionTypeOutput {
+func (o SubscriptionTypeOutput) ToSubscriptionTypeOutputWithContext(ctx context.Context) SubscriptionTypeOutput {
 	return o
 }
 
 // Resource name.
-func (o ServiceSubscriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
+func (o SubscriptionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Subscription contract properties.
-func (o ServiceSubscriptionTypeOutput) Properties() SubscriptionContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceSubscriptionType) SubscriptionContractPropertiesResponse { return v.Properties }).(SubscriptionContractPropertiesResponseOutput)
+func (o SubscriptionTypeOutput) Properties() SubscriptionContractPropertiesResponseOutput {
+	return o.ApplyT(func(v SubscriptionType) SubscriptionContractPropertiesResponse { return v.Properties }).(SubscriptionContractPropertiesResponseOutput)
 }
 
 // Resource type for API Management resource.
-func (o ServiceSubscriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Tag Contract details.
-type ServiceTagType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceTagTypeInput is an input type that accepts ServiceTagTypeArgs and ServiceTagTypeOutput values.
-// You can construct a concrete instance of `ServiceTagTypeInput` via:
-//
-//          ServiceTagTypeArgs{...}
-type ServiceTagTypeInput interface {
-	pulumi.Input
-
-	ToServiceTagTypeOutput() ServiceTagTypeOutput
-	ToServiceTagTypeOutputWithContext(context.Context) ServiceTagTypeOutput
-}
-
-// Tag Contract details.
-type ServiceTagTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Tag entity contract properties.
-	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceTagTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTagType)(nil)).Elem()
-}
-
-func (i ServiceTagTypeArgs) ToServiceTagTypeOutput() ServiceTagTypeOutput {
-	return i.ToServiceTagTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceTagTypeArgs) ToServiceTagTypeOutputWithContext(ctx context.Context) ServiceTagTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagTypeOutput)
-}
-
-// Tag Contract details.
-type ServiceTagTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceTagTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTagType)(nil)).Elem()
-}
-
-func (o ServiceTagTypeOutput) ToServiceTagTypeOutput() ServiceTagTypeOutput {
-	return o
-}
-
-func (o ServiceTagTypeOutput) ToServiceTagTypeOutputWithContext(ctx context.Context) ServiceTagTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceTagTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTagType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Tag entity contract properties.
-func (o ServiceTagTypeOutput) Properties() TagContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceTagType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceTagTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTagType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Email Template details.
-type ServiceTemplateType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Email Template entity contract properties.
-	Properties EmailTemplateContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceTemplateTypeInput is an input type that accepts ServiceTemplateTypeArgs and ServiceTemplateTypeOutput values.
-// You can construct a concrete instance of `ServiceTemplateTypeInput` via:
-//
-//          ServiceTemplateTypeArgs{...}
-type ServiceTemplateTypeInput interface {
-	pulumi.Input
-
-	ToServiceTemplateTypeOutput() ServiceTemplateTypeOutput
-	ToServiceTemplateTypeOutputWithContext(context.Context) ServiceTemplateTypeOutput
-}
-
-// Email Template details.
-type ServiceTemplateTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Email Template entity contract properties.
-	Properties EmailTemplateContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceTemplateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTemplateType)(nil)).Elem()
-}
-
-func (i ServiceTemplateTypeArgs) ToServiceTemplateTypeOutput() ServiceTemplateTypeOutput {
-	return i.ToServiceTemplateTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceTemplateTypeArgs) ToServiceTemplateTypeOutputWithContext(ctx context.Context) ServiceTemplateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTemplateTypeOutput)
-}
-
-// Email Template details.
-type ServiceTemplateTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceTemplateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTemplateType)(nil)).Elem()
-}
-
-func (o ServiceTemplateTypeOutput) ToServiceTemplateTypeOutput() ServiceTemplateTypeOutput {
-	return o
-}
-
-func (o ServiceTemplateTypeOutput) ToServiceTemplateTypeOutputWithContext(ctx context.Context) ServiceTemplateTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceTemplateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTemplateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Email Template entity contract properties.
-func (o ServiceTemplateTypeOutput) Properties() EmailTemplateContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceTemplateType) EmailTemplateContractPropertiesResponse { return v.Properties }).(EmailTemplateContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceTemplateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceTemplateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User details.
-type ServiceUserType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// User entity contract properties.
-	Properties UserContractPropertiesResponse `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-}
-
-// ServiceUserTypeInput is an input type that accepts ServiceUserTypeArgs and ServiceUserTypeOutput values.
-// You can construct a concrete instance of `ServiceUserTypeInput` via:
-//
-//          ServiceUserTypeArgs{...}
-type ServiceUserTypeInput interface {
-	pulumi.Input
-
-	ToServiceUserTypeOutput() ServiceUserTypeOutput
-	ToServiceUserTypeOutputWithContext(context.Context) ServiceUserTypeOutput
-}
-
-// User details.
-type ServiceUserTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// User entity contract properties.
-	Properties UserContractPropertiesResponseInput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceUserTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceUserType)(nil)).Elem()
-}
-
-func (i ServiceUserTypeArgs) ToServiceUserTypeOutput() ServiceUserTypeOutput {
-	return i.ToServiceUserTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceUserTypeArgs) ToServiceUserTypeOutputWithContext(ctx context.Context) ServiceUserTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceUserTypeOutput)
-}
-
-// User details.
-type ServiceUserTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceUserTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceUserType)(nil)).Elem()
-}
-
-func (o ServiceUserTypeOutput) ToServiceUserTypeOutput() ServiceUserTypeOutput {
-	return o
-}
-
-func (o ServiceUserTypeOutput) ToServiceUserTypeOutputWithContext(ctx context.Context) ServiceUserTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServiceUserTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceUserType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// User entity contract properties.
-func (o ServiceUserTypeOutput) Properties() UserContractPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceUserType) UserContractPropertiesResponse { return v.Properties }).(UserContractPropertiesResponseOutput)
-}
-
-// Resource type for API Management resource.
-func (o ServiceUserTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceUserType) string { return v.Type }).(pulumi.StringOutput)
+func (o SubscriptionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Subscription details.
@@ -24940,6 +24571,298 @@ func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) Query() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// Tag Contract details.
+type TagType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// TagTypeInput is an input type that accepts TagTypeArgs and TagTypeOutput values.
+// You can construct a concrete instance of `TagTypeInput` via:
+//
+//          TagTypeArgs{...}
+type TagTypeInput interface {
+	pulumi.Input
+
+	ToTagTypeOutput() TagTypeOutput
+	ToTagTypeOutputWithContext(context.Context) TagTypeOutput
+}
+
+// Tag Contract details.
+type TagTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TagTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagType)(nil)).Elem()
+}
+
+func (i TagTypeArgs) ToTagTypeOutput() TagTypeOutput {
+	return i.ToTagTypeOutputWithContext(context.Background())
+}
+
+func (i TagTypeArgs) ToTagTypeOutputWithContext(ctx context.Context) TagTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagTypeOutput)
+}
+
+// Tag Contract details.
+type TagTypeOutput struct{ *pulumi.OutputState }
+
+func (TagTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagType)(nil)).Elem()
+}
+
+func (o TagTypeOutput) ToTagTypeOutput() TagTypeOutput {
+	return o
+}
+
+func (o TagTypeOutput) ToTagTypeOutputWithContext(ctx context.Context) TagTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o TagTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tag entity contract properties.
+func (o TagTypeOutput) Properties() TagContractPropertiesResponseOutput {
+	return o.ApplyT(func(v TagType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o TagTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TagType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Tag Contract details.
+type TagByApiType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// TagByApiTypeInput is an input type that accepts TagByApiTypeArgs and TagByApiTypeOutput values.
+// You can construct a concrete instance of `TagByApiTypeInput` via:
+//
+//          TagByApiTypeArgs{...}
+type TagByApiTypeInput interface {
+	pulumi.Input
+
+	ToTagByApiTypeOutput() TagByApiTypeOutput
+	ToTagByApiTypeOutputWithContext(context.Context) TagByApiTypeOutput
+}
+
+// Tag Contract details.
+type TagByApiTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TagByApiTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByApiType)(nil)).Elem()
+}
+
+func (i TagByApiTypeArgs) ToTagByApiTypeOutput() TagByApiTypeOutput {
+	return i.ToTagByApiTypeOutputWithContext(context.Background())
+}
+
+func (i TagByApiTypeArgs) ToTagByApiTypeOutputWithContext(ctx context.Context) TagByApiTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagByApiTypeOutput)
+}
+
+// Tag Contract details.
+type TagByApiTypeOutput struct{ *pulumi.OutputState }
+
+func (TagByApiTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByApiType)(nil)).Elem()
+}
+
+func (o TagByApiTypeOutput) ToTagByApiTypeOutput() TagByApiTypeOutput {
+	return o
+}
+
+func (o TagByApiTypeOutput) ToTagByApiTypeOutputWithContext(ctx context.Context) TagByApiTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o TagByApiTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagByApiType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tag entity contract properties.
+func (o TagByApiTypeOutput) Properties() TagContractPropertiesResponseOutput {
+	return o.ApplyT(func(v TagByApiType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o TagByApiTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TagByApiType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Tag Contract details.
+type TagByOperationType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// TagByOperationTypeInput is an input type that accepts TagByOperationTypeArgs and TagByOperationTypeOutput values.
+// You can construct a concrete instance of `TagByOperationTypeInput` via:
+//
+//          TagByOperationTypeArgs{...}
+type TagByOperationTypeInput interface {
+	pulumi.Input
+
+	ToTagByOperationTypeOutput() TagByOperationTypeOutput
+	ToTagByOperationTypeOutputWithContext(context.Context) TagByOperationTypeOutput
+}
+
+// Tag Contract details.
+type TagByOperationTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TagByOperationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByOperationType)(nil)).Elem()
+}
+
+func (i TagByOperationTypeArgs) ToTagByOperationTypeOutput() TagByOperationTypeOutput {
+	return i.ToTagByOperationTypeOutputWithContext(context.Background())
+}
+
+func (i TagByOperationTypeArgs) ToTagByOperationTypeOutputWithContext(ctx context.Context) TagByOperationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagByOperationTypeOutput)
+}
+
+// Tag Contract details.
+type TagByOperationTypeOutput struct{ *pulumi.OutputState }
+
+func (TagByOperationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByOperationType)(nil)).Elem()
+}
+
+func (o TagByOperationTypeOutput) ToTagByOperationTypeOutput() TagByOperationTypeOutput {
+	return o
+}
+
+func (o TagByOperationTypeOutput) ToTagByOperationTypeOutputWithContext(ctx context.Context) TagByOperationTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o TagByOperationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagByOperationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tag entity contract properties.
+func (o TagByOperationTypeOutput) Properties() TagContractPropertiesResponseOutput {
+	return o.ApplyT(func(v TagByOperationType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o TagByOperationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TagByOperationType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Tag Contract details.
+type TagByProductType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// TagByProductTypeInput is an input type that accepts TagByProductTypeArgs and TagByProductTypeOutput values.
+// You can construct a concrete instance of `TagByProductTypeInput` via:
+//
+//          TagByProductTypeArgs{...}
+type TagByProductTypeInput interface {
+	pulumi.Input
+
+	ToTagByProductTypeOutput() TagByProductTypeOutput
+	ToTagByProductTypeOutputWithContext(context.Context) TagByProductTypeOutput
+}
+
+// Tag Contract details.
+type TagByProductTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Tag entity contract properties.
+	Properties TagContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TagByProductTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByProductType)(nil)).Elem()
+}
+
+func (i TagByProductTypeArgs) ToTagByProductTypeOutput() TagByProductTypeOutput {
+	return i.ToTagByProductTypeOutputWithContext(context.Background())
+}
+
+func (i TagByProductTypeArgs) ToTagByProductTypeOutputWithContext(ctx context.Context) TagByProductTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagByProductTypeOutput)
+}
+
+// Tag Contract details.
+type TagByProductTypeOutput struct{ *pulumi.OutputState }
+
+func (TagByProductTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagByProductType)(nil)).Elem()
+}
+
+func (o TagByProductTypeOutput) ToTagByProductTypeOutput() TagByProductTypeOutput {
+	return o
+}
+
+func (o TagByProductTypeOutput) ToTagByProductTypeOutputWithContext(ctx context.Context) TagByProductTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o TagByProductTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagByProductType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tag entity contract properties.
+func (o TagByProductTypeOutput) Properties() TagContractPropertiesResponseOutput {
+	return o.ApplyT(func(v TagByProductType) TagContractPropertiesResponse { return v.Properties }).(TagContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o TagByProductTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TagByProductType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Tag contract Properties.
 type TagContractProperties struct {
 	// Tag name.
@@ -25806,6 +25729,79 @@ func (o TokenBodyParameterContractResponseArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TokenBodyParameterContractResponse {
 		return vs[0].([]TokenBodyParameterContractResponse)[vs[1].(int)]
 	}).(TokenBodyParameterContractResponseOutput)
+}
+
+// User details.
+type UserType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// User entity contract properties.
+	Properties UserContractPropertiesResponse `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type string `pulumi:"type"`
+}
+
+// UserTypeInput is an input type that accepts UserTypeArgs and UserTypeOutput values.
+// You can construct a concrete instance of `UserTypeInput` via:
+//
+//          UserTypeArgs{...}
+type UserTypeInput interface {
+	pulumi.Input
+
+	ToUserTypeOutput() UserTypeOutput
+	ToUserTypeOutputWithContext(context.Context) UserTypeOutput
+}
+
+// User details.
+type UserTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// User entity contract properties.
+	Properties UserContractPropertiesResponseInput `pulumi:"properties"`
+	// Resource type for API Management resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UserTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (i UserTypeArgs) ToUserTypeOutput() UserTypeOutput {
+	return i.ToUserTypeOutputWithContext(context.Background())
+}
+
+func (i UserTypeArgs) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTypeOutput)
+}
+
+// User details.
+type UserTypeOutput struct{ *pulumi.OutputState }
+
+func (UserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {
+	return o
+}
+
+func (o UserTypeOutput) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o UserTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// User entity contract properties.
+func (o UserTypeOutput) Properties() UserContractPropertiesResponseOutput {
+	return o.ApplyT(func(v UserType) UserContractPropertiesResponse { return v.Properties }).(UserContractPropertiesResponseOutput)
+}
+
+// Resource type for API Management resource.
+func (o UserTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // User profile.
@@ -27108,12 +27104,18 @@ func init() {
 	pulumi.RegisterOutputType(AdditionalLocationArrayOutput{})
 	pulumi.RegisterOutputType(AdditionalLocationResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalLocationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApiTypeOutput{})
 	pulumi.RegisterOutputType(ApiContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApiContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiCreateOrUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(ApiCreateOrUpdatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApiCreateOrUpdatePropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(ApiCreateOrUpdatePropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ApiDiagnosticTypeOutput{})
+	pulumi.RegisterOutputType(ApiIssueTypeOutput{})
+	pulumi.RegisterOutputType(ApiIssueAttachmentTypeOutput{})
+	pulumi.RegisterOutputType(ApiIssueCommentTypeOutput{})
+	pulumi.RegisterOutputType(ApiManagementServiceTypeOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceIdentityResponseOutput{})
@@ -27126,14 +27128,21 @@ func init() {
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiOperationTypeOutput{})
+	pulumi.RegisterOutputType(ApiOperationPolicyTypeOutput{})
+	pulumi.RegisterOutputType(ApiPolicyTypeOutput{})
+	pulumi.RegisterOutputType(ApiReleaseTypeOutput{})
 	pulumi.RegisterOutputType(ApiReleaseContractPropertiesOutput{})
 	pulumi.RegisterOutputType(ApiReleaseContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApiReleaseContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApiReleaseContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiSchemaTypeOutput{})
+	pulumi.RegisterOutputType(ApiTagDescriptionTypeOutput{})
 	pulumi.RegisterOutputType(ApiVersionConstraintOutput{})
 	pulumi.RegisterOutputType(ApiVersionConstraintPtrOutput{})
 	pulumi.RegisterOutputType(ApiVersionConstraintResponseOutput{})
 	pulumi.RegisterOutputType(ApiVersionConstraintResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiVersionSetTypeOutput{})
 	pulumi.RegisterOutputType(ApiVersionSetContractDetailsOutput{})
 	pulumi.RegisterOutputType(ApiVersionSetContractDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ApiVersionSetContractDetailsResponseOutput{})
@@ -27146,10 +27155,12 @@ func init() {
 	pulumi.RegisterOutputType(AuthenticationSettingsContractPtrOutput{})
 	pulumi.RegisterOutputType(AuthenticationSettingsContractResponseOutput{})
 	pulumi.RegisterOutputType(AuthenticationSettingsContractResponsePtrOutput{})
+	pulumi.RegisterOutputType(AuthorizationServerTypeOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerContractPropertiesOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationServerContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(BackendTypeOutput{})
 	pulumi.RegisterOutputType(BackendAuthorizationHeaderCredentialsOutput{})
 	pulumi.RegisterOutputType(BackendAuthorizationHeaderCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(BackendAuthorizationHeaderCredentialsResponseOutput{})
@@ -27182,10 +27193,12 @@ func init() {
 	pulumi.RegisterOutputType(BodyDiagnosticSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BodyDiagnosticSettingsResponseOutput{})
 	pulumi.RegisterOutputType(BodyDiagnosticSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheTypeOutput{})
 	pulumi.RegisterOutputType(CacheContractPropertiesOutput{})
 	pulumi.RegisterOutputType(CacheContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CacheContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CacheContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(CertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificateConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(CertificateConfigurationResponseOutput{})
@@ -27198,14 +27211,18 @@ func init() {
 	pulumi.RegisterOutputType(CertificateInformationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponseOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContentItemTypeOutput{})
 	pulumi.RegisterOutputType(ContentItemContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContentItemContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContentTypeTypeOutput{})
 	pulumi.RegisterOutputType(ContentTypeContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContentTypeContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticTypeOutput{})
 	pulumi.RegisterOutputType(DiagnosticContractPropertiesOutput{})
 	pulumi.RegisterOutputType(DiagnosticContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EmailTemplateTypeOutput{})
 	pulumi.RegisterOutputType(EmailTemplateContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EmailTemplateContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EmailTemplateParametersContractPropertiesOutput{})
@@ -27214,14 +27231,17 @@ func init() {
 	pulumi.RegisterOutputType(EmailTemplateParametersContractPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(EmailTemplateUpdateParameterPropertiesOutput{})
 	pulumi.RegisterOutputType(EmailTemplateUpdateParameterPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTypeOutput{})
 	pulumi.RegisterOutputType(GatewayContractPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GatewayContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GatewayHostnameConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(GatewayHostnameConfigurationContractPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayHostnameConfigurationContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayHostnameConfigurationContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GatewayHostnameConfigurationContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GroupTypeOutput{})
 	pulumi.RegisterOutputType(GroupContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GroupContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GroupContractPropertiesResponseArrayOutput{})
@@ -27235,6 +27255,7 @@ func init() {
 	pulumi.RegisterOutputType(HttpMessageDiagnosticPtrOutput{})
 	pulumi.RegisterOutputType(HttpMessageDiagnosticResponseOutput{})
 	pulumi.RegisterOutputType(HttpMessageDiagnosticResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityProviderTypeOutput{})
 	pulumi.RegisterOutputType(IdentityProviderContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityProviderContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderCreateContractPropertiesOutput{})
@@ -27251,10 +27272,12 @@ func init() {
 	pulumi.RegisterOutputType(IssueContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IssueContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IssueContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LoggerTypeOutput{})
 	pulumi.RegisterOutputType(LoggerContractPropertiesOutput{})
 	pulumi.RegisterOutputType(LoggerContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LoggerContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LoggerContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(NamedValueTypeOutput{})
 	pulumi.RegisterOutputType(NamedValueContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NamedValueContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NamedValueCreateContractPropertiesOutput{})
@@ -27267,6 +27290,7 @@ func init() {
 	pulumi.RegisterOutputType(OpenIdAuthenticationSettingsContractPtrOutput{})
 	pulumi.RegisterOutputType(OpenIdAuthenticationSettingsContractResponseOutput{})
 	pulumi.RegisterOutputType(OpenIdAuthenticationSettingsContractResponsePtrOutput{})
+	pulumi.RegisterOutputType(OpenIdConnectProviderTypeOutput{})
 	pulumi.RegisterOutputType(OpenidConnectProviderContractPropertiesOutput{})
 	pulumi.RegisterOutputType(OpenidConnectProviderContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OpenidConnectProviderContractPropertiesResponseOutput{})
@@ -27283,14 +27307,18 @@ func init() {
 	pulumi.RegisterOutputType(PipelineDiagnosticSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineDiagnosticSettingsResponseOutput{})
 	pulumi.RegisterOutputType(PipelineDiagnosticSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(PolicyTypeOutput{})
 	pulumi.RegisterOutputType(PolicyContractPropertiesOutput{})
 	pulumi.RegisterOutputType(PolicyContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProductTypeOutput{})
 	pulumi.RegisterOutputType(ProductContractPropertiesOutput{})
 	pulumi.RegisterOutputType(ProductContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProductContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProductContractPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProductPolicyTypeOutput{})
+	pulumi.RegisterOutputType(PropertyTypeOutput{})
 	pulumi.RegisterOutputType(PropertyContractPropertiesOutput{})
 	pulumi.RegisterOutputType(PropertyContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PropertyContractPropertiesResponseOutput{})
@@ -27323,44 +27351,7 @@ func init() {
 	pulumi.RegisterOutputType(SchemaDocumentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchemaDocumentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SchemaDocumentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServiceTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiDiagnosticTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiIssueTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiIssueAttachmentTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiIssueCommentTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiOperationTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiOperationPolicyTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiOperationTagTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiPolicyTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiReleaseTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiSchemaTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiTagTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiTagDescriptionTypeOutput{})
-	pulumi.RegisterOutputType(ServiceApiVersionSetTypeOutput{})
-	pulumi.RegisterOutputType(ServiceAuthorizationServerTypeOutput{})
-	pulumi.RegisterOutputType(ServiceBackendTypeOutput{})
-	pulumi.RegisterOutputType(ServiceCachTypeOutput{})
-	pulumi.RegisterOutputType(ServiceCertificateTypeOutput{})
-	pulumi.RegisterOutputType(ServiceContentTypeTypeOutput{})
-	pulumi.RegisterOutputType(ServiceContentTypeContentItemTypeOutput{})
-	pulumi.RegisterOutputType(ServiceDiagnosticTypeOutput{})
-	pulumi.RegisterOutputType(ServiceGatewayTypeOutput{})
-	pulumi.RegisterOutputType(ServiceGatewayHostnameConfigurationTypeOutput{})
-	pulumi.RegisterOutputType(ServiceGroupTypeOutput{})
-	pulumi.RegisterOutputType(ServiceIdentityProviderTypeOutput{})
-	pulumi.RegisterOutputType(ServiceLoggerTypeOutput{})
-	pulumi.RegisterOutputType(ServiceNamedValueTypeOutput{})
-	pulumi.RegisterOutputType(ServiceOpenidConnectProviderTypeOutput{})
-	pulumi.RegisterOutputType(ServicePolicyTypeOutput{})
-	pulumi.RegisterOutputType(ServiceProductTypeOutput{})
-	pulumi.RegisterOutputType(ServiceProductPolicyTypeOutput{})
-	pulumi.RegisterOutputType(ServiceProductTagTypeOutput{})
-	pulumi.RegisterOutputType(ServicePropertyTypeOutput{})
-	pulumi.RegisterOutputType(ServiceSubscriptionTypeOutput{})
-	pulumi.RegisterOutputType(ServiceTagTypeOutput{})
-	pulumi.RegisterOutputType(ServiceTemplateTypeOutput{})
-	pulumi.RegisterOutputType(ServiceUserTypeOutput{})
+	pulumi.RegisterOutputType(SubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(SubscriptionContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SubscriptionContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionCreateParameterPropertiesOutput{})
@@ -27369,6 +27360,10 @@ func init() {
 	pulumi.RegisterOutputType(SubscriptionKeyParameterNamesContractPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionKeyParameterNamesContractResponseOutput{})
 	pulumi.RegisterOutputType(SubscriptionKeyParameterNamesContractResponsePtrOutput{})
+	pulumi.RegisterOutputType(TagTypeOutput{})
+	pulumi.RegisterOutputType(TagByApiTypeOutput{})
+	pulumi.RegisterOutputType(TagByOperationTypeOutput{})
+	pulumi.RegisterOutputType(TagByProductTypeOutput{})
 	pulumi.RegisterOutputType(TagContractPropertiesOutput{})
 	pulumi.RegisterOutputType(TagContractPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TagContractPropertiesResponseOutput{})
@@ -27381,6 +27376,7 @@ func init() {
 	pulumi.RegisterOutputType(TokenBodyParameterContractArrayOutput{})
 	pulumi.RegisterOutputType(TokenBodyParameterContractResponseOutput{})
 	pulumi.RegisterOutputType(TokenBodyParameterContractResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserTypeOutput{})
 	pulumi.RegisterOutputType(UserContractPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserContractPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserCreateParameterPropertiesOutput{})

@@ -11,7 +11,7 @@ import (
 )
 
 // NetApp account resource
-type NetAppAccountType struct {
+type AccountType struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -24,19 +24,19 @@ type NetAppAccountType struct {
 	Type string `pulumi:"type"`
 }
 
-// NetAppAccountTypeInput is an input type that accepts NetAppAccountTypeArgs and NetAppAccountTypeOutput values.
-// You can construct a concrete instance of `NetAppAccountTypeInput` via:
+// AccountTypeInput is an input type that accepts AccountTypeArgs and AccountTypeOutput values.
+// You can construct a concrete instance of `AccountTypeInput` via:
 //
-//          NetAppAccountTypeArgs{...}
-type NetAppAccountTypeInput interface {
+//          AccountTypeArgs{...}
+type AccountTypeInput interface {
 	pulumi.Input
 
-	ToNetAppAccountTypeOutput() NetAppAccountTypeOutput
-	ToNetAppAccountTypeOutputWithContext(context.Context) NetAppAccountTypeOutput
+	ToAccountTypeOutput() AccountTypeOutput
+	ToAccountTypeOutputWithContext(context.Context) AccountTypeOutput
 }
 
 // NetApp account resource
-type NetAppAccountTypeArgs struct {
+type AccountTypeArgs struct {
 	// Resource location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource name
@@ -49,60 +49,60 @@ type NetAppAccountTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (NetAppAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountType)(nil)).Elem()
+func (AccountTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountType)(nil)).Elem()
 }
 
-func (i NetAppAccountTypeArgs) ToNetAppAccountTypeOutput() NetAppAccountTypeOutput {
-	return i.ToNetAppAccountTypeOutputWithContext(context.Background())
+func (i AccountTypeArgs) ToAccountTypeOutput() AccountTypeOutput {
+	return i.ToAccountTypeOutputWithContext(context.Background())
 }
 
-func (i NetAppAccountTypeArgs) ToNetAppAccountTypeOutputWithContext(ctx context.Context) NetAppAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetAppAccountTypeOutput)
+func (i AccountTypeArgs) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountTypeOutput)
 }
 
 // NetApp account resource
-type NetAppAccountTypeOutput struct{ *pulumi.OutputState }
+type AccountTypeOutput struct{ *pulumi.OutputState }
 
-func (NetAppAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountType)(nil)).Elem()
+func (AccountTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountType)(nil)).Elem()
 }
 
-func (o NetAppAccountTypeOutput) ToNetAppAccountTypeOutput() NetAppAccountTypeOutput {
+func (o AccountTypeOutput) ToAccountTypeOutput() AccountTypeOutput {
 	return o
 }
 
-func (o NetAppAccountTypeOutput) ToNetAppAccountTypeOutputWithContext(ctx context.Context) NetAppAccountTypeOutput {
+func (o AccountTypeOutput) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
 	return o
 }
 
 // Resource location
-func (o NetAppAccountTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountType) string { return v.Location }).(pulumi.StringOutput)
+func (o AccountTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Resource name
-func (o NetAppAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountType) string { return v.Name }).(pulumi.StringOutput)
+func (o AccountTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // NetApp Account properties
-func (o NetAppAccountTypeOutput) Properties() AccountPropertiesResponseOutput {
-	return o.ApplyT(func(v NetAppAccountType) AccountPropertiesResponse { return v.Properties }).(AccountPropertiesResponseOutput)
+func (o AccountTypeOutput) Properties() AccountPropertiesResponseOutput {
+	return o.ApplyT(func(v AccountType) AccountPropertiesResponse { return v.Properties }).(AccountPropertiesResponseOutput)
 }
 
 // Resource tags
-func (o NetAppAccountTypeOutput) Tags() ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v NetAppAccountType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
+func (o AccountTypeOutput) Tags() ResourceTagsResponsePtrOutput {
+	return o.ApplyT(func(v AccountType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
 }
 
 // Resource type
-func (o NetAppAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountType) string { return v.Type }).(pulumi.StringOutput)
+func (o AccountTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Capacity pool resource
-type NetAppAccountCapacityPoolType struct {
+type PoolType struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -115,19 +115,19 @@ type NetAppAccountCapacityPoolType struct {
 	Type string `pulumi:"type"`
 }
 
-// NetAppAccountCapacityPoolTypeInput is an input type that accepts NetAppAccountCapacityPoolTypeArgs and NetAppAccountCapacityPoolTypeOutput values.
-// You can construct a concrete instance of `NetAppAccountCapacityPoolTypeInput` via:
+// PoolTypeInput is an input type that accepts PoolTypeArgs and PoolTypeOutput values.
+// You can construct a concrete instance of `PoolTypeInput` via:
 //
-//          NetAppAccountCapacityPoolTypeArgs{...}
-type NetAppAccountCapacityPoolTypeInput interface {
+//          PoolTypeArgs{...}
+type PoolTypeInput interface {
 	pulumi.Input
 
-	ToNetAppAccountCapacityPoolTypeOutput() NetAppAccountCapacityPoolTypeOutput
-	ToNetAppAccountCapacityPoolTypeOutputWithContext(context.Context) NetAppAccountCapacityPoolTypeOutput
+	ToPoolTypeOutput() PoolTypeOutput
+	ToPoolTypeOutputWithContext(context.Context) PoolTypeOutput
 }
 
 // Capacity pool resource
-type NetAppAccountCapacityPoolTypeArgs struct {
+type PoolTypeArgs struct {
 	// Resource location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource name
@@ -140,60 +140,142 @@ type NetAppAccountCapacityPoolTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (NetAppAccountCapacityPoolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountCapacityPoolType)(nil)).Elem()
+func (PoolTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolType)(nil)).Elem()
 }
 
-func (i NetAppAccountCapacityPoolTypeArgs) ToNetAppAccountCapacityPoolTypeOutput() NetAppAccountCapacityPoolTypeOutput {
-	return i.ToNetAppAccountCapacityPoolTypeOutputWithContext(context.Background())
+func (i PoolTypeArgs) ToPoolTypeOutput() PoolTypeOutput {
+	return i.ToPoolTypeOutputWithContext(context.Background())
 }
 
-func (i NetAppAccountCapacityPoolTypeArgs) ToNetAppAccountCapacityPoolTypeOutputWithContext(ctx context.Context) NetAppAccountCapacityPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetAppAccountCapacityPoolTypeOutput)
+func (i PoolTypeArgs) ToPoolTypeOutputWithContext(ctx context.Context) PoolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTypeOutput)
 }
 
 // Capacity pool resource
-type NetAppAccountCapacityPoolTypeOutput struct{ *pulumi.OutputState }
+type PoolTypeOutput struct{ *pulumi.OutputState }
 
-func (NetAppAccountCapacityPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountCapacityPoolType)(nil)).Elem()
+func (PoolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolType)(nil)).Elem()
 }
 
-func (o NetAppAccountCapacityPoolTypeOutput) ToNetAppAccountCapacityPoolTypeOutput() NetAppAccountCapacityPoolTypeOutput {
+func (o PoolTypeOutput) ToPoolTypeOutput() PoolTypeOutput {
 	return o
 }
 
-func (o NetAppAccountCapacityPoolTypeOutput) ToNetAppAccountCapacityPoolTypeOutputWithContext(ctx context.Context) NetAppAccountCapacityPoolTypeOutput {
+func (o PoolTypeOutput) ToPoolTypeOutputWithContext(ctx context.Context) PoolTypeOutput {
 	return o
 }
 
 // Resource location
-func (o NetAppAccountCapacityPoolTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolType) string { return v.Location }).(pulumi.StringOutput)
+func (o PoolTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Resource name
-func (o NetAppAccountCapacityPoolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolType) string { return v.Name }).(pulumi.StringOutput)
+func (o PoolTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Capacity pool properties
-func (o NetAppAccountCapacityPoolTypeOutput) Properties() PoolPropertiesResponseOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolType) PoolPropertiesResponse { return v.Properties }).(PoolPropertiesResponseOutput)
+func (o PoolTypeOutput) Properties() PoolPropertiesResponseOutput {
+	return o.ApplyT(func(v PoolType) PoolPropertiesResponse { return v.Properties }).(PoolPropertiesResponseOutput)
 }
 
 // Resource tags
-func (o NetAppAccountCapacityPoolTypeOutput) Tags() ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
+func (o PoolTypeOutput) Tags() ResourceTagsResponsePtrOutput {
+	return o.ApplyT(func(v PoolType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
 }
 
 // Resource type
-func (o NetAppAccountCapacityPoolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolType) string { return v.Type }).(pulumi.StringOutput)
+func (o PoolTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Snapshot of a Volume
+type SnapshotType struct {
+	// Resource location
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Snapshot Properties
+	Properties SnapshotPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// SnapshotTypeInput is an input type that accepts SnapshotTypeArgs and SnapshotTypeOutput values.
+// You can construct a concrete instance of `SnapshotTypeInput` via:
+//
+//          SnapshotTypeArgs{...}
+type SnapshotTypeInput interface {
+	pulumi.Input
+
+	ToSnapshotTypeOutput() SnapshotTypeOutput
+	ToSnapshotTypeOutputWithContext(context.Context) SnapshotTypeOutput
+}
+
+// Snapshot of a Volume
+type SnapshotTypeArgs struct {
+	// Resource location
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Snapshot Properties
+	Properties SnapshotPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SnapshotTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
+}
+
+func (i SnapshotTypeArgs) ToSnapshotTypeOutput() SnapshotTypeOutput {
+	return i.ToSnapshotTypeOutputWithContext(context.Background())
+}
+
+func (i SnapshotTypeArgs) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTypeOutput)
+}
+
+// Snapshot of a Volume
+type SnapshotTypeOutput struct{ *pulumi.OutputState }
+
+func (SnapshotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
+}
+
+func (o SnapshotTypeOutput) ToSnapshotTypeOutput() SnapshotTypeOutput {
+	return o
+}
+
+func (o SnapshotTypeOutput) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
+	return o
+}
+
+// Resource location
+func (o SnapshotTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o SnapshotTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Snapshot Properties
+func (o SnapshotTypeOutput) Properties() SnapshotPropertiesResponseOutput {
+	return o.ApplyT(func(v SnapshotType) SnapshotPropertiesResponse { return v.Properties }).(SnapshotPropertiesResponseOutput)
+}
+
+// Resource type
+func (o SnapshotTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Volume resource
-type NetAppAccountCapacityPoolVolumeType struct {
+type VolumeType struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -206,19 +288,19 @@ type NetAppAccountCapacityPoolVolumeType struct {
 	Type string `pulumi:"type"`
 }
 
-// NetAppAccountCapacityPoolVolumeTypeInput is an input type that accepts NetAppAccountCapacityPoolVolumeTypeArgs and NetAppAccountCapacityPoolVolumeTypeOutput values.
-// You can construct a concrete instance of `NetAppAccountCapacityPoolVolumeTypeInput` via:
+// VolumeTypeInput is an input type that accepts VolumeTypeArgs and VolumeTypeOutput values.
+// You can construct a concrete instance of `VolumeTypeInput` via:
 //
-//          NetAppAccountCapacityPoolVolumeTypeArgs{...}
-type NetAppAccountCapacityPoolVolumeTypeInput interface {
+//          VolumeTypeArgs{...}
+type VolumeTypeInput interface {
 	pulumi.Input
 
-	ToNetAppAccountCapacityPoolVolumeTypeOutput() NetAppAccountCapacityPoolVolumeTypeOutput
-	ToNetAppAccountCapacityPoolVolumeTypeOutputWithContext(context.Context) NetAppAccountCapacityPoolVolumeTypeOutput
+	ToVolumeTypeOutput() VolumeTypeOutput
+	ToVolumeTypeOutputWithContext(context.Context) VolumeTypeOutput
 }
 
 // Volume resource
-type NetAppAccountCapacityPoolVolumeTypeArgs struct {
+type VolumeTypeArgs struct {
 	// Resource location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource name
@@ -231,138 +313,56 @@ type NetAppAccountCapacityPoolVolumeTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (NetAppAccountCapacityPoolVolumeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountCapacityPoolVolumeType)(nil)).Elem()
+func (VolumeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeType)(nil)).Elem()
 }
 
-func (i NetAppAccountCapacityPoolVolumeTypeArgs) ToNetAppAccountCapacityPoolVolumeTypeOutput() NetAppAccountCapacityPoolVolumeTypeOutput {
-	return i.ToNetAppAccountCapacityPoolVolumeTypeOutputWithContext(context.Background())
+func (i VolumeTypeArgs) ToVolumeTypeOutput() VolumeTypeOutput {
+	return i.ToVolumeTypeOutputWithContext(context.Background())
 }
 
-func (i NetAppAccountCapacityPoolVolumeTypeArgs) ToNetAppAccountCapacityPoolVolumeTypeOutputWithContext(ctx context.Context) NetAppAccountCapacityPoolVolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetAppAccountCapacityPoolVolumeTypeOutput)
+func (i VolumeTypeArgs) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTypeOutput)
 }
 
 // Volume resource
-type NetAppAccountCapacityPoolVolumeTypeOutput struct{ *pulumi.OutputState }
+type VolumeTypeOutput struct{ *pulumi.OutputState }
 
-func (NetAppAccountCapacityPoolVolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountCapacityPoolVolumeType)(nil)).Elem()
+func (VolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeType)(nil)).Elem()
 }
 
-func (o NetAppAccountCapacityPoolVolumeTypeOutput) ToNetAppAccountCapacityPoolVolumeTypeOutput() NetAppAccountCapacityPoolVolumeTypeOutput {
+func (o VolumeTypeOutput) ToVolumeTypeOutput() VolumeTypeOutput {
 	return o
 }
 
-func (o NetAppAccountCapacityPoolVolumeTypeOutput) ToNetAppAccountCapacityPoolVolumeTypeOutputWithContext(ctx context.Context) NetAppAccountCapacityPoolVolumeTypeOutput {
+func (o VolumeTypeOutput) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
 	return o
 }
 
 // Resource location
-func (o NetAppAccountCapacityPoolVolumeTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeType) string { return v.Location }).(pulumi.StringOutput)
+func (o VolumeTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // Resource name
-func (o NetAppAccountCapacityPoolVolumeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeType) string { return v.Name }).(pulumi.StringOutput)
+func (o VolumeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Volume properties
-func (o NetAppAccountCapacityPoolVolumeTypeOutput) Properties() VolumePropertiesResponseOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeType) VolumePropertiesResponse { return v.Properties }).(VolumePropertiesResponseOutput)
+func (o VolumeTypeOutput) Properties() VolumePropertiesResponseOutput {
+	return o.ApplyT(func(v VolumeType) VolumePropertiesResponse { return v.Properties }).(VolumePropertiesResponseOutput)
 }
 
 // Resource tags
-func (o NetAppAccountCapacityPoolVolumeTypeOutput) Tags() ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
+func (o VolumeTypeOutput) Tags() ResourceTagsResponsePtrOutput {
+	return o.ApplyT(func(v VolumeType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
 }
 
 // Resource type
-func (o NetAppAccountCapacityPoolVolumeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Snapshot of a Volume
-type NetAppAccountCapacityPoolVolumeSnapshotType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Snapshot Properties
-	Properties SnapshotPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// NetAppAccountCapacityPoolVolumeSnapshotTypeInput is an input type that accepts NetAppAccountCapacityPoolVolumeSnapshotTypeArgs and NetAppAccountCapacityPoolVolumeSnapshotTypeOutput values.
-// You can construct a concrete instance of `NetAppAccountCapacityPoolVolumeSnapshotTypeInput` via:
-//
-//          NetAppAccountCapacityPoolVolumeSnapshotTypeArgs{...}
-type NetAppAccountCapacityPoolVolumeSnapshotTypeInput interface {
-	pulumi.Input
-
-	ToNetAppAccountCapacityPoolVolumeSnapshotTypeOutput() NetAppAccountCapacityPoolVolumeSnapshotTypeOutput
-	ToNetAppAccountCapacityPoolVolumeSnapshotTypeOutputWithContext(context.Context) NetAppAccountCapacityPoolVolumeSnapshotTypeOutput
-}
-
-// Snapshot of a Volume
-type NetAppAccountCapacityPoolVolumeSnapshotTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Snapshot Properties
-	Properties SnapshotPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NetAppAccountCapacityPoolVolumeSnapshotTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountCapacityPoolVolumeSnapshotType)(nil)).Elem()
-}
-
-func (i NetAppAccountCapacityPoolVolumeSnapshotTypeArgs) ToNetAppAccountCapacityPoolVolumeSnapshotTypeOutput() NetAppAccountCapacityPoolVolumeSnapshotTypeOutput {
-	return i.ToNetAppAccountCapacityPoolVolumeSnapshotTypeOutputWithContext(context.Background())
-}
-
-func (i NetAppAccountCapacityPoolVolumeSnapshotTypeArgs) ToNetAppAccountCapacityPoolVolumeSnapshotTypeOutputWithContext(ctx context.Context) NetAppAccountCapacityPoolVolumeSnapshotTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetAppAccountCapacityPoolVolumeSnapshotTypeOutput)
-}
-
-// Snapshot of a Volume
-type NetAppAccountCapacityPoolVolumeSnapshotTypeOutput struct{ *pulumi.OutputState }
-
-func (NetAppAccountCapacityPoolVolumeSnapshotTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetAppAccountCapacityPoolVolumeSnapshotType)(nil)).Elem()
-}
-
-func (o NetAppAccountCapacityPoolVolumeSnapshotTypeOutput) ToNetAppAccountCapacityPoolVolumeSnapshotTypeOutput() NetAppAccountCapacityPoolVolumeSnapshotTypeOutput {
-	return o
-}
-
-func (o NetAppAccountCapacityPoolVolumeSnapshotTypeOutput) ToNetAppAccountCapacityPoolVolumeSnapshotTypeOutputWithContext(ctx context.Context) NetAppAccountCapacityPoolVolumeSnapshotTypeOutput {
-	return o
-}
-
-// Resource location
-func (o NetAppAccountCapacityPoolVolumeSnapshotTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeSnapshotType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o NetAppAccountCapacityPoolVolumeSnapshotTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeSnapshotType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Snapshot Properties
-func (o NetAppAccountCapacityPoolVolumeSnapshotTypeOutput) Properties() SnapshotPropertiesResponseOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeSnapshotType) SnapshotPropertiesResponse { return v.Properties }).(SnapshotPropertiesResponseOutput)
-}
-
-// Resource type
-func (o NetAppAccountCapacityPoolVolumeSnapshotTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NetAppAccountCapacityPoolVolumeSnapshotType) string { return v.Type }).(pulumi.StringOutput)
+func (o VolumeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // NetApp account properties
@@ -3615,10 +3615,10 @@ func (o VolumePropertiesResponsePropertiesPtrOutput) Replication() ReplicationOb
 }
 
 func init() {
-	pulumi.RegisterOutputType(NetAppAccountTypeOutput{})
-	pulumi.RegisterOutputType(NetAppAccountCapacityPoolTypeOutput{})
-	pulumi.RegisterOutputType(NetAppAccountCapacityPoolVolumeTypeOutput{})
-	pulumi.RegisterOutputType(NetAppAccountCapacityPoolVolumeSnapshotTypeOutput{})
+	pulumi.RegisterOutputType(AccountTypeOutput{})
+	pulumi.RegisterOutputType(PoolTypeOutput{})
+	pulumi.RegisterOutputType(SnapshotTypeOutput{})
+	pulumi.RegisterOutputType(VolumeTypeOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponseOutput{})

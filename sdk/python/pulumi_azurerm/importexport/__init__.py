@@ -5,4 +5,4 @@
 # Export this package's modules as members:
 from .get_job import *
 from .job import *
-from .list_job_bit_locker_keys import *
+from .list_bit_locker_key import *

@@ -2,7 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./adaptiveApplicationControl";
+export * from "./assessment";
+export * from "./assessmentMetadataInSubscription";
+export * from "./deviceSecurityGroup";
+export * from "./getAdaptiveApplicationControl";
+export * from "./getAssessment";
+export * from "./getAssessmentMetadataInSubscription";
+export * from "./getDeviceSecurityGroup";
 export * from "./getIotSecuritySolution";
-export * from "./getLocationJitNetworkAccessPolicy";
+export * from "./getJitNetworkAccessPolicy";
+export * from "./getServerVulnerabilityAssessment";
 export * from "./iotSecuritySolution";
-export * from "./locationJitNetworkAccessPolicy";
+export * from "./jitNetworkAccessPolicy";
+export * from "./serverVulnerabilityAssessment";

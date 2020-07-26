@@ -310,6 +310,79 @@ func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Account Filter.
+type AccountFilterType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The Media Filter properties.
+	Properties MediaFilterPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// AccountFilterTypeInput is an input type that accepts AccountFilterTypeArgs and AccountFilterTypeOutput values.
+// You can construct a concrete instance of `AccountFilterTypeInput` via:
+//
+//          AccountFilterTypeArgs{...}
+type AccountFilterTypeInput interface {
+	pulumi.Input
+
+	ToAccountFilterTypeOutput() AccountFilterTypeOutput
+	ToAccountFilterTypeOutputWithContext(context.Context) AccountFilterTypeOutput
+}
+
+// An Account Filter.
+type AccountFilterTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Media Filter properties.
+	Properties MediaFilterPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountFilterTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterType)(nil)).Elem()
+}
+
+func (i AccountFilterTypeArgs) ToAccountFilterTypeOutput() AccountFilterTypeOutput {
+	return i.ToAccountFilterTypeOutputWithContext(context.Background())
+}
+
+func (i AccountFilterTypeArgs) ToAccountFilterTypeOutputWithContext(ctx context.Context) AccountFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTypeOutput)
+}
+
+// An Account Filter.
+type AccountFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (AccountFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountFilterType)(nil)).Elem()
+}
+
+func (o AccountFilterTypeOutput) ToAccountFilterTypeOutput() AccountFilterTypeOutput {
+	return o
+}
+
+func (o AccountFilterTypeOutput) ToAccountFilterTypeOutputWithContext(ctx context.Context) AccountFilterTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o AccountFilterTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountFilterType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Media Filter properties.
+func (o AccountFilterTypeOutput) Properties() MediaFilterPropertiesResponseOutput {
+	return o.ApplyT(func(v AccountFilterType) MediaFilterPropertiesResponse { return v.Properties }).(MediaFilterPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o AccountFilterTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountFilterType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Akamai access control
 type AkamaiAccessControl struct {
 	// authentication key list
@@ -944,6 +1017,152 @@ func (o ApiEndpointResponseOutput) Endpoint() pulumi.StringPtrOutput {
 // The version of Media Services REST API.
 func (o ApiEndpointResponseOutput) MajorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEndpointResponse) *string { return v.MajorVersion }).(pulumi.StringPtrOutput)
+}
+
+// An Asset.
+type AssetType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource properties.
+	Properties AssetPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// AssetTypeInput is an input type that accepts AssetTypeArgs and AssetTypeOutput values.
+// You can construct a concrete instance of `AssetTypeInput` via:
+//
+//          AssetTypeArgs{...}
+type AssetTypeInput interface {
+	pulumi.Input
+
+	ToAssetTypeOutput() AssetTypeOutput
+	ToAssetTypeOutputWithContext(context.Context) AssetTypeOutput
+}
+
+// An Asset.
+type AssetTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource properties.
+	Properties AssetPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetType)(nil)).Elem()
+}
+
+func (i AssetTypeArgs) ToAssetTypeOutput() AssetTypeOutput {
+	return i.ToAssetTypeOutputWithContext(context.Background())
+}
+
+func (i AssetTypeArgs) ToAssetTypeOutputWithContext(ctx context.Context) AssetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeOutput)
+}
+
+// An Asset.
+type AssetTypeOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetType)(nil)).Elem()
+}
+
+func (o AssetTypeOutput) ToAssetTypeOutput() AssetTypeOutput {
+	return o
+}
+
+func (o AssetTypeOutput) ToAssetTypeOutputWithContext(ctx context.Context) AssetTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o AssetTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource properties.
+func (o AssetTypeOutput) Properties() AssetPropertiesResponseOutput {
+	return o.ApplyT(func(v AssetType) AssetPropertiesResponse { return v.Properties }).(AssetPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o AssetTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An Asset Filter.
+type AssetFilterType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The Media Filter properties.
+	Properties MediaFilterPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// AssetFilterTypeInput is an input type that accepts AssetFilterTypeArgs and AssetFilterTypeOutput values.
+// You can construct a concrete instance of `AssetFilterTypeInput` via:
+//
+//          AssetFilterTypeArgs{...}
+type AssetFilterTypeInput interface {
+	pulumi.Input
+
+	ToAssetFilterTypeOutput() AssetFilterTypeOutput
+	ToAssetFilterTypeOutputWithContext(context.Context) AssetFilterTypeOutput
+}
+
+// An Asset Filter.
+type AssetFilterTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Media Filter properties.
+	Properties MediaFilterPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssetFilterTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterType)(nil)).Elem()
+}
+
+func (i AssetFilterTypeArgs) ToAssetFilterTypeOutput() AssetFilterTypeOutput {
+	return i.ToAssetFilterTypeOutputWithContext(context.Background())
+}
+
+func (i AssetFilterTypeArgs) ToAssetFilterTypeOutputWithContext(ctx context.Context) AssetFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTypeOutput)
+}
+
+// An Asset Filter.
+type AssetFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (AssetFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterType)(nil)).Elem()
+}
+
+func (o AssetFilterTypeOutput) ToAssetFilterTypeOutput() AssetFilterTypeOutput {
+	return o
+}
+
+func (o AssetFilterTypeOutput) ToAssetFilterTypeOutputWithContext(ctx context.Context) AssetFilterTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o AssetFilterTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetFilterType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Media Filter properties.
+func (o AssetFilterTypeOutput) Properties() MediaFilterPropertiesResponseOutput {
+	return o.ApplyT(func(v AssetFilterType) MediaFilterPropertiesResponse { return v.Properties }).(MediaFilterPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o AssetFilterTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetFilterType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Asset properties.
@@ -2983,6 +3202,79 @@ func (o CommonEncryptionCencResponsePtrOutput) EnabledProtocols() EnabledProtoco
 		}
 		return v.EnabledProtocols
 	}).(EnabledProtocolsResponsePtrOutput)
+}
+
+// A Content Key Policy resource.
+type ContentKeyPolicyType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The properties of the Content Key Policy.
+	Properties ContentKeyPolicyPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// ContentKeyPolicyTypeInput is an input type that accepts ContentKeyPolicyTypeArgs and ContentKeyPolicyTypeOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyTypeInput` via:
+//
+//          ContentKeyPolicyTypeArgs{...}
+type ContentKeyPolicyTypeInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyTypeOutput() ContentKeyPolicyTypeOutput
+	ToContentKeyPolicyTypeOutputWithContext(context.Context) ContentKeyPolicyTypeOutput
+}
+
+// A Content Key Policy resource.
+type ContentKeyPolicyTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the Content Key Policy.
+	Properties ContentKeyPolicyPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContentKeyPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyType)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyTypeArgs) ToContentKeyPolicyTypeOutput() ContentKeyPolicyTypeOutput {
+	return i.ToContentKeyPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyTypeArgs) ToContentKeyPolicyTypeOutputWithContext(ctx context.Context) ContentKeyPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTypeOutput)
+}
+
+// A Content Key Policy resource.
+type ContentKeyPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyType)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyTypeOutput) ToContentKeyPolicyTypeOutput() ContentKeyPolicyTypeOutput {
+	return o
+}
+
+func (o ContentKeyPolicyTypeOutput) ToContentKeyPolicyTypeOutputWithContext(ctx context.Context) ContentKeyPolicyTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o ContentKeyPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the Content Key Policy.
+func (o ContentKeyPolicyTypeOutput) Properties() ContentKeyPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v ContentKeyPolicyType) ContentKeyPolicyPropertiesResponse { return v.Properties }).(ContentKeyPolicyPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ContentKeyPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
@@ -6877,6 +7169,79 @@ func (o IPRangeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeResponseOutp
 	}).(IPRangeResponseOutput)
 }
 
+// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+type JobType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource properties.
+	Properties JobPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
+// You can construct a concrete instance of `JobTypeInput` via:
+//
+//          JobTypeArgs{...}
+type JobTypeInput interface {
+	pulumi.Input
+
+	ToJobTypeOutput() JobTypeOutput
+	ToJobTypeOutputWithContext(context.Context) JobTypeOutput
+}
+
+// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+type JobTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource properties.
+	Properties JobPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobType)(nil)).Elem()
+}
+
+func (i JobTypeArgs) ToJobTypeOutput() JobTypeOutput {
+	return i.ToJobTypeOutputWithContext(context.Background())
+}
+
+func (i JobTypeArgs) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTypeOutput)
+}
+
+// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+type JobTypeOutput struct{ *pulumi.OutputState }
+
+func (JobTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobType)(nil)).Elem()
+}
+
+func (o JobTypeOutput) ToJobTypeOutput() JobTypeOutput {
+	return o
+}
+
+func (o JobTypeOutput) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o JobTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource properties.
+func (o JobTypeOutput) Properties() JobPropertiesResponseOutput {
+	return o.ApplyT(func(v JobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o JobTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Details of JobOutput errors.
 type JobError struct {
 }
@@ -8438,6 +8803,97 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 		}
 		return v.KeyIdentifier
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Live Event.
+type LiveEventType struct {
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The Live Event properties.
+	Properties LiveEventPropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// LiveEventTypeInput is an input type that accepts LiveEventTypeArgs and LiveEventTypeOutput values.
+// You can construct a concrete instance of `LiveEventTypeInput` via:
+//
+//          LiveEventTypeArgs{...}
+type LiveEventTypeInput interface {
+	pulumi.Input
+
+	ToLiveEventTypeOutput() LiveEventTypeOutput
+	ToLiveEventTypeOutputWithContext(context.Context) LiveEventTypeOutput
+}
+
+// The Live Event.
+type LiveEventTypeArgs struct {
+	// The geo-location where the resource lives
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Live Event properties.
+	Properties LiveEventPropertiesResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LiveEventTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventType)(nil)).Elem()
+}
+
+func (i LiveEventTypeArgs) ToLiveEventTypeOutput() LiveEventTypeOutput {
+	return i.ToLiveEventTypeOutputWithContext(context.Background())
+}
+
+func (i LiveEventTypeArgs) ToLiveEventTypeOutputWithContext(ctx context.Context) LiveEventTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTypeOutput)
+}
+
+// The Live Event.
+type LiveEventTypeOutput struct{ *pulumi.OutputState }
+
+func (LiveEventTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventType)(nil)).Elem()
+}
+
+func (o LiveEventTypeOutput) ToLiveEventTypeOutput() LiveEventTypeOutput {
+	return o
+}
+
+func (o LiveEventTypeOutput) ToLiveEventTypeOutputWithContext(ctx context.Context) LiveEventTypeOutput {
+	return o
+}
+
+// The geo-location where the resource lives
+func (o LiveEventTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LiveEventTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Live Event properties.
+func (o LiveEventTypeOutput) Properties() LiveEventPropertiesResponseOutput {
+	return o.ApplyT(func(v LiveEventType) LiveEventPropertiesResponse { return v.Properties }).(LiveEventPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o LiveEventTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LiveEventType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o LiveEventTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Live Event encoding.
@@ -10912,6 +11368,79 @@ func (o LiveEventPropertiesResponsePtrOutput) UseStaticHostname() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Live Output.
+type LiveOutputType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The Live Output properties.
+	Properties LiveOutputPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// LiveOutputTypeInput is an input type that accepts LiveOutputTypeArgs and LiveOutputTypeOutput values.
+// You can construct a concrete instance of `LiveOutputTypeInput` via:
+//
+//          LiveOutputTypeArgs{...}
+type LiveOutputTypeInput interface {
+	pulumi.Input
+
+	ToLiveOutputTypeOutput() LiveOutputTypeOutput
+	ToLiveOutputTypeOutputWithContext(context.Context) LiveOutputTypeOutput
+}
+
+// The Live Output.
+type LiveOutputTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Live Output properties.
+	Properties LiveOutputPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LiveOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveOutputType)(nil)).Elem()
+}
+
+func (i LiveOutputTypeArgs) ToLiveOutputTypeOutput() LiveOutputTypeOutput {
+	return i.ToLiveOutputTypeOutputWithContext(context.Background())
+}
+
+func (i LiveOutputTypeArgs) ToLiveOutputTypeOutputWithContext(ctx context.Context) LiveOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveOutputTypeOutput)
+}
+
+// The Live Output.
+type LiveOutputTypeOutput struct{ *pulumi.OutputState }
+
+func (LiveOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveOutputType)(nil)).Elem()
+}
+
+func (o LiveOutputTypeOutput) ToLiveOutputTypeOutput() LiveOutputTypeOutput {
+	return o
+}
+
+func (o LiveOutputTypeOutput) ToLiveOutputTypeOutputWithContext(ctx context.Context) LiveOutputTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o LiveOutputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveOutputType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Live Output properties.
+func (o LiveOutputTypeOutput) Properties() LiveOutputPropertiesResponseOutput {
+	return o.ApplyT(func(v LiveOutputType) LiveOutputPropertiesResponse { return v.Properties }).(LiveOutputPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o LiveOutputTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveOutputType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The JSON object that contains the properties required to create a Live Output.
 type LiveOutputProperties struct {
 	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
@@ -11790,296 +12319,104 @@ func (o MediaFilterPropertiesResponsePtrOutput) Tracks() FilterTrackSelectionRes
 	}).(FilterTrackSelectionResponseArrayOutput)
 }
 
-// An Account Filter.
-type MediaServiceAccountFilterType struct {
+// A Media Services account.
+type MediaServiceType struct {
+	// The Managed Identity for the Media Services account.
+	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponse `pulumi:"properties"`
+	// The resource properties.
+	Properties MediaServicePropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }
 
-// MediaServiceAccountFilterTypeInput is an input type that accepts MediaServiceAccountFilterTypeArgs and MediaServiceAccountFilterTypeOutput values.
-// You can construct a concrete instance of `MediaServiceAccountFilterTypeInput` via:
+// MediaServiceTypeInput is an input type that accepts MediaServiceTypeArgs and MediaServiceTypeOutput values.
+// You can construct a concrete instance of `MediaServiceTypeInput` via:
 //
-//          MediaServiceAccountFilterTypeArgs{...}
-type MediaServiceAccountFilterTypeInput interface {
+//          MediaServiceTypeArgs{...}
+type MediaServiceTypeInput interface {
 	pulumi.Input
 
-	ToMediaServiceAccountFilterTypeOutput() MediaServiceAccountFilterTypeOutput
-	ToMediaServiceAccountFilterTypeOutputWithContext(context.Context) MediaServiceAccountFilterTypeOutput
+	ToMediaServiceTypeOutput() MediaServiceTypeOutput
+	ToMediaServiceTypeOutputWithContext(context.Context) MediaServiceTypeOutput
 }
 
-// An Account Filter.
-type MediaServiceAccountFilterTypeArgs struct {
+// A Media Services account.
+type MediaServiceTypeArgs struct {
+	// The Managed Identity for the Media Services account.
+	Identity MediaServiceIdentityResponsePtrInput `pulumi:"identity"`
+	// The geo-location where the resource lives
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponseInput `pulumi:"properties"`
+	// The resource properties.
+	Properties MediaServicePropertiesResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (MediaServiceAccountFilterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceAccountFilterType)(nil)).Elem()
+func (MediaServiceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaServiceType)(nil)).Elem()
 }
 
-func (i MediaServiceAccountFilterTypeArgs) ToMediaServiceAccountFilterTypeOutput() MediaServiceAccountFilterTypeOutput {
-	return i.ToMediaServiceAccountFilterTypeOutputWithContext(context.Background())
+func (i MediaServiceTypeArgs) ToMediaServiceTypeOutput() MediaServiceTypeOutput {
+	return i.ToMediaServiceTypeOutputWithContext(context.Background())
 }
 
-func (i MediaServiceAccountFilterTypeArgs) ToMediaServiceAccountFilterTypeOutputWithContext(ctx context.Context) MediaServiceAccountFilterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceAccountFilterTypeOutput)
+func (i MediaServiceTypeArgs) ToMediaServiceTypeOutputWithContext(ctx context.Context) MediaServiceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceTypeOutput)
 }
 
-// An Account Filter.
-type MediaServiceAccountFilterTypeOutput struct{ *pulumi.OutputState }
+// A Media Services account.
+type MediaServiceTypeOutput struct{ *pulumi.OutputState }
 
-func (MediaServiceAccountFilterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceAccountFilterType)(nil)).Elem()
+func (MediaServiceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaServiceType)(nil)).Elem()
 }
 
-func (o MediaServiceAccountFilterTypeOutput) ToMediaServiceAccountFilterTypeOutput() MediaServiceAccountFilterTypeOutput {
+func (o MediaServiceTypeOutput) ToMediaServiceTypeOutput() MediaServiceTypeOutput {
 	return o
 }
 
-func (o MediaServiceAccountFilterTypeOutput) ToMediaServiceAccountFilterTypeOutputWithContext(ctx context.Context) MediaServiceAccountFilterTypeOutput {
+func (o MediaServiceTypeOutput) ToMediaServiceTypeOutputWithContext(ctx context.Context) MediaServiceTypeOutput {
 	return o
+}
+
+// The Managed Identity for the Media Services account.
+func (o MediaServiceTypeOutput) Identity() MediaServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v MediaServiceType) *MediaServiceIdentityResponse { return v.Identity }).(MediaServiceIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o MediaServiceTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaServiceType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the resource
-func (o MediaServiceAccountFilterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceAccountFilterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Media Filter properties.
-func (o MediaServiceAccountFilterTypeOutput) Properties() MediaFilterPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceAccountFilterType) MediaFilterPropertiesResponse { return v.Properties }).(MediaFilterPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceAccountFilterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceAccountFilterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Asset.
-type MediaServiceAssetType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties AssetPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceAssetTypeInput is an input type that accepts MediaServiceAssetTypeArgs and MediaServiceAssetTypeOutput values.
-// You can construct a concrete instance of `MediaServiceAssetTypeInput` via:
-//
-//          MediaServiceAssetTypeArgs{...}
-type MediaServiceAssetTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceAssetTypeOutput() MediaServiceAssetTypeOutput
-	ToMediaServiceAssetTypeOutputWithContext(context.Context) MediaServiceAssetTypeOutput
-}
-
-// An Asset.
-type MediaServiceAssetTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties AssetPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceAssetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceAssetType)(nil)).Elem()
-}
-
-func (i MediaServiceAssetTypeArgs) ToMediaServiceAssetTypeOutput() MediaServiceAssetTypeOutput {
-	return i.ToMediaServiceAssetTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceAssetTypeArgs) ToMediaServiceAssetTypeOutputWithContext(ctx context.Context) MediaServiceAssetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceAssetTypeOutput)
-}
-
-// An Asset.
-type MediaServiceAssetTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceAssetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceAssetType)(nil)).Elem()
-}
-
-func (o MediaServiceAssetTypeOutput) ToMediaServiceAssetTypeOutput() MediaServiceAssetTypeOutput {
-	return o
-}
-
-func (o MediaServiceAssetTypeOutput) ToMediaServiceAssetTypeOutputWithContext(ctx context.Context) MediaServiceAssetTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaServiceAssetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceAssetType) string { return v.Name }).(pulumi.StringOutput)
+func (o MediaServiceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaServiceType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The resource properties.
-func (o MediaServiceAssetTypeOutput) Properties() AssetPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceAssetType) AssetPropertiesResponse { return v.Properties }).(AssetPropertiesResponseOutput)
+func (o MediaServiceTypeOutput) Properties() MediaServicePropertiesResponseOutput {
+	return o.ApplyT(func(v MediaServiceType) MediaServicePropertiesResponse { return v.Properties }).(MediaServicePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o MediaServiceTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MediaServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceAssetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceAssetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Asset Filter.
-type MediaServiceAssetAssetFilterType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceAssetAssetFilterTypeInput is an input type that accepts MediaServiceAssetAssetFilterTypeArgs and MediaServiceAssetAssetFilterTypeOutput values.
-// You can construct a concrete instance of `MediaServiceAssetAssetFilterTypeInput` via:
-//
-//          MediaServiceAssetAssetFilterTypeArgs{...}
-type MediaServiceAssetAssetFilterTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceAssetAssetFilterTypeOutput() MediaServiceAssetAssetFilterTypeOutput
-	ToMediaServiceAssetAssetFilterTypeOutputWithContext(context.Context) MediaServiceAssetAssetFilterTypeOutput
-}
-
-// An Asset Filter.
-type MediaServiceAssetAssetFilterTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceAssetAssetFilterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceAssetAssetFilterType)(nil)).Elem()
-}
-
-func (i MediaServiceAssetAssetFilterTypeArgs) ToMediaServiceAssetAssetFilterTypeOutput() MediaServiceAssetAssetFilterTypeOutput {
-	return i.ToMediaServiceAssetAssetFilterTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceAssetAssetFilterTypeArgs) ToMediaServiceAssetAssetFilterTypeOutputWithContext(ctx context.Context) MediaServiceAssetAssetFilterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceAssetAssetFilterTypeOutput)
-}
-
-// An Asset Filter.
-type MediaServiceAssetAssetFilterTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceAssetAssetFilterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceAssetAssetFilterType)(nil)).Elem()
-}
-
-func (o MediaServiceAssetAssetFilterTypeOutput) ToMediaServiceAssetAssetFilterTypeOutput() MediaServiceAssetAssetFilterTypeOutput {
-	return o
-}
-
-func (o MediaServiceAssetAssetFilterTypeOutput) ToMediaServiceAssetAssetFilterTypeOutputWithContext(ctx context.Context) MediaServiceAssetAssetFilterTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaServiceAssetAssetFilterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceAssetAssetFilterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Media Filter properties.
-func (o MediaServiceAssetAssetFilterTypeOutput) Properties() MediaFilterPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceAssetAssetFilterType) MediaFilterPropertiesResponse { return v.Properties }).(MediaFilterPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceAssetAssetFilterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceAssetAssetFilterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Content Key Policy resource.
-type MediaServiceContentKeyPolicyType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceContentKeyPolicyTypeInput is an input type that accepts MediaServiceContentKeyPolicyTypeArgs and MediaServiceContentKeyPolicyTypeOutput values.
-// You can construct a concrete instance of `MediaServiceContentKeyPolicyTypeInput` via:
-//
-//          MediaServiceContentKeyPolicyTypeArgs{...}
-type MediaServiceContentKeyPolicyTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceContentKeyPolicyTypeOutput() MediaServiceContentKeyPolicyTypeOutput
-	ToMediaServiceContentKeyPolicyTypeOutputWithContext(context.Context) MediaServiceContentKeyPolicyTypeOutput
-}
-
-// A Content Key Policy resource.
-type MediaServiceContentKeyPolicyTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceContentKeyPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceContentKeyPolicyType)(nil)).Elem()
-}
-
-func (i MediaServiceContentKeyPolicyTypeArgs) ToMediaServiceContentKeyPolicyTypeOutput() MediaServiceContentKeyPolicyTypeOutput {
-	return i.ToMediaServiceContentKeyPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceContentKeyPolicyTypeArgs) ToMediaServiceContentKeyPolicyTypeOutputWithContext(ctx context.Context) MediaServiceContentKeyPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceContentKeyPolicyTypeOutput)
-}
-
-// A Content Key Policy resource.
-type MediaServiceContentKeyPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceContentKeyPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceContentKeyPolicyType)(nil)).Elem()
-}
-
-func (o MediaServiceContentKeyPolicyTypeOutput) ToMediaServiceContentKeyPolicyTypeOutput() MediaServiceContentKeyPolicyTypeOutput {
-	return o
-}
-
-func (o MediaServiceContentKeyPolicyTypeOutput) ToMediaServiceContentKeyPolicyTypeOutputWithContext(ctx context.Context) MediaServiceContentKeyPolicyTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaServiceContentKeyPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceContentKeyPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Content Key Policy.
-func (o MediaServiceContentKeyPolicyTypeOutput) Properties() ContentKeyPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceContentKeyPolicyType) ContentKeyPolicyPropertiesResponse { return v.Properties }).(ContentKeyPolicyPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceContentKeyPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceContentKeyPolicyType) string { return v.Type }).(pulumi.StringOutput)
+func (o MediaServiceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaServiceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type MediaServiceIdentity struct {
@@ -12735,728 +13072,6 @@ func (o MediaServicePropertiesResponsePtrOutput) StorageAuthentication() pulumi.
 		}
 		return v.StorageAuthentication
 	}).(pulumi.StringPtrOutput)
-}
-
-// A Streaming Locator resource
-type MediaServiceStreamingLocatorType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the Streaming Locator.
-	Properties StreamingLocatorPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceStreamingLocatorTypeInput is an input type that accepts MediaServiceStreamingLocatorTypeArgs and MediaServiceStreamingLocatorTypeOutput values.
-// You can construct a concrete instance of `MediaServiceStreamingLocatorTypeInput` via:
-//
-//          MediaServiceStreamingLocatorTypeArgs{...}
-type MediaServiceStreamingLocatorTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceStreamingLocatorTypeOutput() MediaServiceStreamingLocatorTypeOutput
-	ToMediaServiceStreamingLocatorTypeOutputWithContext(context.Context) MediaServiceStreamingLocatorTypeOutput
-}
-
-// A Streaming Locator resource
-type MediaServiceStreamingLocatorTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Streaming Locator.
-	Properties StreamingLocatorPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceStreamingLocatorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceStreamingLocatorType)(nil)).Elem()
-}
-
-func (i MediaServiceStreamingLocatorTypeArgs) ToMediaServiceStreamingLocatorTypeOutput() MediaServiceStreamingLocatorTypeOutput {
-	return i.ToMediaServiceStreamingLocatorTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceStreamingLocatorTypeArgs) ToMediaServiceStreamingLocatorTypeOutputWithContext(ctx context.Context) MediaServiceStreamingLocatorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceStreamingLocatorTypeOutput)
-}
-
-// A Streaming Locator resource
-type MediaServiceStreamingLocatorTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceStreamingLocatorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceStreamingLocatorType)(nil)).Elem()
-}
-
-func (o MediaServiceStreamingLocatorTypeOutput) ToMediaServiceStreamingLocatorTypeOutput() MediaServiceStreamingLocatorTypeOutput {
-	return o
-}
-
-func (o MediaServiceStreamingLocatorTypeOutput) ToMediaServiceStreamingLocatorTypeOutputWithContext(ctx context.Context) MediaServiceStreamingLocatorTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaServiceStreamingLocatorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceStreamingLocatorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Streaming Locator.
-func (o MediaServiceStreamingLocatorTypeOutput) Properties() StreamingLocatorPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceStreamingLocatorType) StreamingLocatorPropertiesResponse { return v.Properties }).(StreamingLocatorPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceStreamingLocatorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceStreamingLocatorType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Streaming Policy resource
-type MediaServiceStreamingPolicyType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceStreamingPolicyTypeInput is an input type that accepts MediaServiceStreamingPolicyTypeArgs and MediaServiceStreamingPolicyTypeOutput values.
-// You can construct a concrete instance of `MediaServiceStreamingPolicyTypeInput` via:
-//
-//          MediaServiceStreamingPolicyTypeArgs{...}
-type MediaServiceStreamingPolicyTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceStreamingPolicyTypeOutput() MediaServiceStreamingPolicyTypeOutput
-	ToMediaServiceStreamingPolicyTypeOutputWithContext(context.Context) MediaServiceStreamingPolicyTypeOutput
-}
-
-// A Streaming Policy resource
-type MediaServiceStreamingPolicyTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceStreamingPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceStreamingPolicyType)(nil)).Elem()
-}
-
-func (i MediaServiceStreamingPolicyTypeArgs) ToMediaServiceStreamingPolicyTypeOutput() MediaServiceStreamingPolicyTypeOutput {
-	return i.ToMediaServiceStreamingPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceStreamingPolicyTypeArgs) ToMediaServiceStreamingPolicyTypeOutputWithContext(ctx context.Context) MediaServiceStreamingPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceStreamingPolicyTypeOutput)
-}
-
-// A Streaming Policy resource
-type MediaServiceStreamingPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceStreamingPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceStreamingPolicyType)(nil)).Elem()
-}
-
-func (o MediaServiceStreamingPolicyTypeOutput) ToMediaServiceStreamingPolicyTypeOutput() MediaServiceStreamingPolicyTypeOutput {
-	return o
-}
-
-func (o MediaServiceStreamingPolicyTypeOutput) ToMediaServiceStreamingPolicyTypeOutputWithContext(ctx context.Context) MediaServiceStreamingPolicyTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaServiceStreamingPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceStreamingPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Class to specify properties of Streaming Policy
-func (o MediaServiceStreamingPolicyTypeOutput) Properties() StreamingPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceStreamingPolicyType) StreamingPolicyPropertiesResponse { return v.Properties }).(StreamingPolicyPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceStreamingPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceStreamingPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-type MediaServiceTransformType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties TransformPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceTransformTypeInput is an input type that accepts MediaServiceTransformTypeArgs and MediaServiceTransformTypeOutput values.
-// You can construct a concrete instance of `MediaServiceTransformTypeInput` via:
-//
-//          MediaServiceTransformTypeArgs{...}
-type MediaServiceTransformTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceTransformTypeOutput() MediaServiceTransformTypeOutput
-	ToMediaServiceTransformTypeOutputWithContext(context.Context) MediaServiceTransformTypeOutput
-}
-
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-type MediaServiceTransformTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties TransformPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceTransformTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceTransformType)(nil)).Elem()
-}
-
-func (i MediaServiceTransformTypeArgs) ToMediaServiceTransformTypeOutput() MediaServiceTransformTypeOutput {
-	return i.ToMediaServiceTransformTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceTransformTypeArgs) ToMediaServiceTransformTypeOutputWithContext(ctx context.Context) MediaServiceTransformTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceTransformTypeOutput)
-}
-
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-type MediaServiceTransformTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceTransformTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceTransformType)(nil)).Elem()
-}
-
-func (o MediaServiceTransformTypeOutput) ToMediaServiceTransformTypeOutput() MediaServiceTransformTypeOutput {
-	return o
-}
-
-func (o MediaServiceTransformTypeOutput) ToMediaServiceTransformTypeOutputWithContext(ctx context.Context) MediaServiceTransformTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaServiceTransformTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceTransformType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource properties.
-func (o MediaServiceTransformTypeOutput) Properties() TransformPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceTransformType) TransformPropertiesResponse { return v.Properties }).(TransformPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceTransformTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceTransformType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-type MediaServiceTransformJobType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties JobPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceTransformJobTypeInput is an input type that accepts MediaServiceTransformJobTypeArgs and MediaServiceTransformJobTypeOutput values.
-// You can construct a concrete instance of `MediaServiceTransformJobTypeInput` via:
-//
-//          MediaServiceTransformJobTypeArgs{...}
-type MediaServiceTransformJobTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceTransformJobTypeOutput() MediaServiceTransformJobTypeOutput
-	ToMediaServiceTransformJobTypeOutputWithContext(context.Context) MediaServiceTransformJobTypeOutput
-}
-
-// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-type MediaServiceTransformJobTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties JobPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceTransformJobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceTransformJobType)(nil)).Elem()
-}
-
-func (i MediaServiceTransformJobTypeArgs) ToMediaServiceTransformJobTypeOutput() MediaServiceTransformJobTypeOutput {
-	return i.ToMediaServiceTransformJobTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceTransformJobTypeArgs) ToMediaServiceTransformJobTypeOutputWithContext(ctx context.Context) MediaServiceTransformJobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceTransformJobTypeOutput)
-}
-
-// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-type MediaServiceTransformJobTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceTransformJobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceTransformJobType)(nil)).Elem()
-}
-
-func (o MediaServiceTransformJobTypeOutput) ToMediaServiceTransformJobTypeOutput() MediaServiceTransformJobTypeOutput {
-	return o
-}
-
-func (o MediaServiceTransformJobTypeOutput) ToMediaServiceTransformJobTypeOutputWithContext(ctx context.Context) MediaServiceTransformJobTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaServiceTransformJobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceTransformJobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource properties.
-func (o MediaServiceTransformJobTypeOutput) Properties() JobPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceTransformJobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceTransformJobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceTransformJobType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A Media Services account.
-type MediaserviceType struct {
-	// The Managed Identity for the Media Services account.
-	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties MediaServicePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaserviceTypeInput is an input type that accepts MediaserviceTypeArgs and MediaserviceTypeOutput values.
-// You can construct a concrete instance of `MediaserviceTypeInput` via:
-//
-//          MediaserviceTypeArgs{...}
-type MediaserviceTypeInput interface {
-	pulumi.Input
-
-	ToMediaserviceTypeOutput() MediaserviceTypeOutput
-	ToMediaserviceTypeOutputWithContext(context.Context) MediaserviceTypeOutput
-}
-
-// A Media Services account.
-type MediaserviceTypeArgs struct {
-	// The Managed Identity for the Media Services account.
-	Identity MediaServiceIdentityResponsePtrInput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties MediaServicePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaserviceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceType)(nil)).Elem()
-}
-
-func (i MediaserviceTypeArgs) ToMediaserviceTypeOutput() MediaserviceTypeOutput {
-	return i.ToMediaserviceTypeOutputWithContext(context.Background())
-}
-
-func (i MediaserviceTypeArgs) ToMediaserviceTypeOutputWithContext(ctx context.Context) MediaserviceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaserviceTypeOutput)
-}
-
-// A Media Services account.
-type MediaserviceTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaserviceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceType)(nil)).Elem()
-}
-
-func (o MediaserviceTypeOutput) ToMediaserviceTypeOutput() MediaserviceTypeOutput {
-	return o
-}
-
-func (o MediaserviceTypeOutput) ToMediaserviceTypeOutputWithContext(ctx context.Context) MediaserviceTypeOutput {
-	return o
-}
-
-// The Managed Identity for the Media Services account.
-func (o MediaserviceTypeOutput) Identity() MediaServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v MediaserviceType) *MediaServiceIdentityResponse { return v.Identity }).(MediaServiceIdentityResponsePtrOutput)
-}
-
-// The geo-location where the resource lives
-func (o MediaserviceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o MediaserviceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource properties.
-func (o MediaserviceTypeOutput) Properties() MediaServicePropertiesResponseOutput {
-	return o.ApplyT(func(v MediaserviceType) MediaServicePropertiesResponse { return v.Properties }).(MediaServicePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o MediaserviceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MediaserviceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaserviceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Live Event.
-type MediaserviceLiveEventType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Live Event properties.
-	Properties LiveEventPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaserviceLiveEventTypeInput is an input type that accepts MediaserviceLiveEventTypeArgs and MediaserviceLiveEventTypeOutput values.
-// You can construct a concrete instance of `MediaserviceLiveEventTypeInput` via:
-//
-//          MediaserviceLiveEventTypeArgs{...}
-type MediaserviceLiveEventTypeInput interface {
-	pulumi.Input
-
-	ToMediaserviceLiveEventTypeOutput() MediaserviceLiveEventTypeOutput
-	ToMediaserviceLiveEventTypeOutputWithContext(context.Context) MediaserviceLiveEventTypeOutput
-}
-
-// The Live Event.
-type MediaserviceLiveEventTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Live Event properties.
-	Properties LiveEventPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaserviceLiveEventTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceLiveEventType)(nil)).Elem()
-}
-
-func (i MediaserviceLiveEventTypeArgs) ToMediaserviceLiveEventTypeOutput() MediaserviceLiveEventTypeOutput {
-	return i.ToMediaserviceLiveEventTypeOutputWithContext(context.Background())
-}
-
-func (i MediaserviceLiveEventTypeArgs) ToMediaserviceLiveEventTypeOutputWithContext(ctx context.Context) MediaserviceLiveEventTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaserviceLiveEventTypeOutput)
-}
-
-// The Live Event.
-type MediaserviceLiveEventTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaserviceLiveEventTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceLiveEventType)(nil)).Elem()
-}
-
-func (o MediaserviceLiveEventTypeOutput) ToMediaserviceLiveEventTypeOutput() MediaserviceLiveEventTypeOutput {
-	return o
-}
-
-func (o MediaserviceLiveEventTypeOutput) ToMediaserviceLiveEventTypeOutputWithContext(ctx context.Context) MediaserviceLiveEventTypeOutput {
-	return o
-}
-
-// The geo-location where the resource lives
-func (o MediaserviceLiveEventTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o MediaserviceLiveEventTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Live Event properties.
-func (o MediaserviceLiveEventTypeOutput) Properties() LiveEventPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventType) LiveEventPropertiesResponse { return v.Properties }).(LiveEventPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o MediaserviceLiveEventTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaserviceLiveEventTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Live Output.
-type MediaserviceLiveEventLiveOutputType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Live Output properties.
-	Properties LiveOutputPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaserviceLiveEventLiveOutputTypeInput is an input type that accepts MediaserviceLiveEventLiveOutputTypeArgs and MediaserviceLiveEventLiveOutputTypeOutput values.
-// You can construct a concrete instance of `MediaserviceLiveEventLiveOutputTypeInput` via:
-//
-//          MediaserviceLiveEventLiveOutputTypeArgs{...}
-type MediaserviceLiveEventLiveOutputTypeInput interface {
-	pulumi.Input
-
-	ToMediaserviceLiveEventLiveOutputTypeOutput() MediaserviceLiveEventLiveOutputTypeOutput
-	ToMediaserviceLiveEventLiveOutputTypeOutputWithContext(context.Context) MediaserviceLiveEventLiveOutputTypeOutput
-}
-
-// The Live Output.
-type MediaserviceLiveEventLiveOutputTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Live Output properties.
-	Properties LiveOutputPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaserviceLiveEventLiveOutputTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceLiveEventLiveOutputType)(nil)).Elem()
-}
-
-func (i MediaserviceLiveEventLiveOutputTypeArgs) ToMediaserviceLiveEventLiveOutputTypeOutput() MediaserviceLiveEventLiveOutputTypeOutput {
-	return i.ToMediaserviceLiveEventLiveOutputTypeOutputWithContext(context.Background())
-}
-
-func (i MediaserviceLiveEventLiveOutputTypeArgs) ToMediaserviceLiveEventLiveOutputTypeOutputWithContext(ctx context.Context) MediaserviceLiveEventLiveOutputTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaserviceLiveEventLiveOutputTypeOutput)
-}
-
-// The Live Output.
-type MediaserviceLiveEventLiveOutputTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaserviceLiveEventLiveOutputTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceLiveEventLiveOutputType)(nil)).Elem()
-}
-
-func (o MediaserviceLiveEventLiveOutputTypeOutput) ToMediaserviceLiveEventLiveOutputTypeOutput() MediaserviceLiveEventLiveOutputTypeOutput {
-	return o
-}
-
-func (o MediaserviceLiveEventLiveOutputTypeOutput) ToMediaserviceLiveEventLiveOutputTypeOutputWithContext(ctx context.Context) MediaserviceLiveEventLiveOutputTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaserviceLiveEventLiveOutputTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventLiveOutputType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Live Output properties.
-func (o MediaserviceLiveEventLiveOutputTypeOutput) Properties() LiveOutputPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventLiveOutputType) LiveOutputPropertiesResponse { return v.Properties }).(LiveOutputPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaserviceLiveEventLiveOutputTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceLiveEventLiveOutputType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Private Endpoint Connection resource.
-type MediaservicePrivateEndpointConnectionType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaservicePrivateEndpointConnectionTypeInput is an input type that accepts MediaservicePrivateEndpointConnectionTypeArgs and MediaservicePrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `MediaservicePrivateEndpointConnectionTypeInput` via:
-//
-//          MediaservicePrivateEndpointConnectionTypeArgs{...}
-type MediaservicePrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToMediaservicePrivateEndpointConnectionTypeOutput() MediaservicePrivateEndpointConnectionTypeOutput
-	ToMediaservicePrivateEndpointConnectionTypeOutputWithContext(context.Context) MediaservicePrivateEndpointConnectionTypeOutput
-}
-
-// The Private Endpoint Connection resource.
-type MediaservicePrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaservicePrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaservicePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i MediaservicePrivateEndpointConnectionTypeArgs) ToMediaservicePrivateEndpointConnectionTypeOutput() MediaservicePrivateEndpointConnectionTypeOutput {
-	return i.ToMediaservicePrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i MediaservicePrivateEndpointConnectionTypeArgs) ToMediaservicePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) MediaservicePrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaservicePrivateEndpointConnectionTypeOutput)
-}
-
-// The Private Endpoint Connection resource.
-type MediaservicePrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaservicePrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaservicePrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o MediaservicePrivateEndpointConnectionTypeOutput) ToMediaservicePrivateEndpointConnectionTypeOutput() MediaservicePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o MediaservicePrivateEndpointConnectionTypeOutput) ToMediaservicePrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) MediaservicePrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o MediaservicePrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaservicePrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o MediaservicePrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaservicePrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaservicePrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaservicePrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The StreamingEndpoint.
-type MediaserviceStreamingEndpointType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The StreamingEndpoint properties.
-	Properties StreamingEndpointPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaserviceStreamingEndpointTypeInput is an input type that accepts MediaserviceStreamingEndpointTypeArgs and MediaserviceStreamingEndpointTypeOutput values.
-// You can construct a concrete instance of `MediaserviceStreamingEndpointTypeInput` via:
-//
-//          MediaserviceStreamingEndpointTypeArgs{...}
-type MediaserviceStreamingEndpointTypeInput interface {
-	pulumi.Input
-
-	ToMediaserviceStreamingEndpointTypeOutput() MediaserviceStreamingEndpointTypeOutput
-	ToMediaserviceStreamingEndpointTypeOutputWithContext(context.Context) MediaserviceStreamingEndpointTypeOutput
-}
-
-// The StreamingEndpoint.
-type MediaserviceStreamingEndpointTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The StreamingEndpoint properties.
-	Properties StreamingEndpointPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaserviceStreamingEndpointTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceStreamingEndpointType)(nil)).Elem()
-}
-
-func (i MediaserviceStreamingEndpointTypeArgs) ToMediaserviceStreamingEndpointTypeOutput() MediaserviceStreamingEndpointTypeOutput {
-	return i.ToMediaserviceStreamingEndpointTypeOutputWithContext(context.Background())
-}
-
-func (i MediaserviceStreamingEndpointTypeArgs) ToMediaserviceStreamingEndpointTypeOutputWithContext(ctx context.Context) MediaserviceStreamingEndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaserviceStreamingEndpointTypeOutput)
-}
-
-// The StreamingEndpoint.
-type MediaserviceStreamingEndpointTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaserviceStreamingEndpointTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaserviceStreamingEndpointType)(nil)).Elem()
-}
-
-func (o MediaserviceStreamingEndpointTypeOutput) ToMediaserviceStreamingEndpointTypeOutput() MediaserviceStreamingEndpointTypeOutput {
-	return o
-}
-
-func (o MediaserviceStreamingEndpointTypeOutput) ToMediaserviceStreamingEndpointTypeOutputWithContext(ctx context.Context) MediaserviceStreamingEndpointTypeOutput {
-	return o
-}
-
-// The geo-location where the resource lives
-func (o MediaserviceStreamingEndpointTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceStreamingEndpointType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o MediaserviceStreamingEndpointTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceStreamingEndpointType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The StreamingEndpoint properties.
-func (o MediaserviceStreamingEndpointTypeOutput) Properties() StreamingEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v MediaserviceStreamingEndpointType) StreamingEndpointPropertiesResponse { return v.Properties }).(StreamingEndpointPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o MediaserviceStreamingEndpointTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MediaserviceStreamingEndpointType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaserviceStreamingEndpointTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaserviceStreamingEndpointType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Class for NoEncryption scheme
@@ -14390,6 +14005,79 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource properties.
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of the PrivateEndpointConnectProperties.
@@ -15440,6 +15128,97 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 	}).(StorageAccountResponseOutput)
 }
 
+// The StreamingEndpoint.
+type StreamingEndpointType struct {
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The StreamingEndpoint properties.
+	Properties StreamingEndpointPropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// StreamingEndpointTypeInput is an input type that accepts StreamingEndpointTypeArgs and StreamingEndpointTypeOutput values.
+// You can construct a concrete instance of `StreamingEndpointTypeInput` via:
+//
+//          StreamingEndpointTypeArgs{...}
+type StreamingEndpointTypeInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointTypeOutput() StreamingEndpointTypeOutput
+	ToStreamingEndpointTypeOutputWithContext(context.Context) StreamingEndpointTypeOutput
+}
+
+// The StreamingEndpoint.
+type StreamingEndpointTypeArgs struct {
+	// The geo-location where the resource lives
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The StreamingEndpoint properties.
+	Properties StreamingEndpointPropertiesResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StreamingEndpointTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointType)(nil)).Elem()
+}
+
+func (i StreamingEndpointTypeArgs) ToStreamingEndpointTypeOutput() StreamingEndpointTypeOutput {
+	return i.ToStreamingEndpointTypeOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointTypeArgs) ToStreamingEndpointTypeOutputWithContext(ctx context.Context) StreamingEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointTypeOutput)
+}
+
+// The StreamingEndpoint.
+type StreamingEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointType)(nil)).Elem()
+}
+
+func (o StreamingEndpointTypeOutput) ToStreamingEndpointTypeOutput() StreamingEndpointTypeOutput {
+	return o
+}
+
+func (o StreamingEndpointTypeOutput) ToStreamingEndpointTypeOutputWithContext(ctx context.Context) StreamingEndpointTypeOutput {
+	return o
+}
+
+// The geo-location where the resource lives
+func (o StreamingEndpointTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingEndpointType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o StreamingEndpointTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingEndpointType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The StreamingEndpoint properties.
+func (o StreamingEndpointTypeOutput) Properties() StreamingEndpointPropertiesResponseOutput {
+	return o.ApplyT(func(v StreamingEndpointType) StreamingEndpointPropertiesResponse { return v.Properties }).(StreamingEndpointPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o StreamingEndpointTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StreamingEndpointType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o StreamingEndpointTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingEndpointType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // StreamingEndpoint access control definition.
 type StreamingEndpointAccessControl struct {
 	// The access control of Akamai
@@ -16474,6 +16253,79 @@ func (o StreamingEndpointPropertiesResponsePtrOutput) ScaleUnits() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// A Streaming Locator resource
+type StreamingLocatorType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Properties of the Streaming Locator.
+	Properties StreamingLocatorPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// StreamingLocatorTypeInput is an input type that accepts StreamingLocatorTypeArgs and StreamingLocatorTypeOutput values.
+// You can construct a concrete instance of `StreamingLocatorTypeInput` via:
+//
+//          StreamingLocatorTypeArgs{...}
+type StreamingLocatorTypeInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorTypeOutput() StreamingLocatorTypeOutput
+	ToStreamingLocatorTypeOutputWithContext(context.Context) StreamingLocatorTypeOutput
+}
+
+// A Streaming Locator resource
+type StreamingLocatorTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the Streaming Locator.
+	Properties StreamingLocatorPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StreamingLocatorTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorType)(nil)).Elem()
+}
+
+func (i StreamingLocatorTypeArgs) ToStreamingLocatorTypeOutput() StreamingLocatorTypeOutput {
+	return i.ToStreamingLocatorTypeOutputWithContext(context.Background())
+}
+
+func (i StreamingLocatorTypeArgs) ToStreamingLocatorTypeOutputWithContext(ctx context.Context) StreamingLocatorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorTypeOutput)
+}
+
+// A Streaming Locator resource
+type StreamingLocatorTypeOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorType)(nil)).Elem()
+}
+
+func (o StreamingLocatorTypeOutput) ToStreamingLocatorTypeOutput() StreamingLocatorTypeOutput {
+	return o
+}
+
+func (o StreamingLocatorTypeOutput) ToStreamingLocatorTypeOutputWithContext(ctx context.Context) StreamingLocatorTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o StreamingLocatorTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingLocatorType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Streaming Locator.
+func (o StreamingLocatorTypeOutput) Properties() StreamingLocatorPropertiesResponseOutput {
+	return o.ApplyT(func(v StreamingLocatorType) StreamingLocatorPropertiesResponse { return v.Properties }).(StreamingLocatorPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o StreamingLocatorTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingLocatorType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Class for content key in Streaming Locator
 type StreamingLocatorContentKey struct {
 	// ID of Content Key
@@ -17444,6 +17296,79 @@ func (o StreamingPathResponseArrayOutput) Index(i pulumi.IntInput) StreamingPath
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPathResponse {
 		return vs[0].([]StreamingPathResponse)[vs[1].(int)]
 	}).(StreamingPathResponseOutput)
+}
+
+// A Streaming Policy resource
+type StreamingPolicyType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Class to specify properties of Streaming Policy
+	Properties StreamingPolicyPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// StreamingPolicyTypeInput is an input type that accepts StreamingPolicyTypeArgs and StreamingPolicyTypeOutput values.
+// You can construct a concrete instance of `StreamingPolicyTypeInput` via:
+//
+//          StreamingPolicyTypeArgs{...}
+type StreamingPolicyTypeInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyTypeOutput() StreamingPolicyTypeOutput
+	ToStreamingPolicyTypeOutputWithContext(context.Context) StreamingPolicyTypeOutput
+}
+
+// A Streaming Policy resource
+type StreamingPolicyTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Class to specify properties of Streaming Policy
+	Properties StreamingPolicyPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StreamingPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyType)(nil)).Elem()
+}
+
+func (i StreamingPolicyTypeArgs) ToStreamingPolicyTypeOutput() StreamingPolicyTypeOutput {
+	return i.ToStreamingPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyTypeArgs) ToStreamingPolicyTypeOutputWithContext(ctx context.Context) StreamingPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyTypeOutput)
+}
+
+// A Streaming Policy resource
+type StreamingPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyType)(nil)).Elem()
+}
+
+func (o StreamingPolicyTypeOutput) ToStreamingPolicyTypeOutput() StreamingPolicyTypeOutput {
+	return o
+}
+
+func (o StreamingPolicyTypeOutput) ToStreamingPolicyTypeOutputWithContext(ctx context.Context) StreamingPolicyTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o StreamingPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Class to specify properties of Streaming Policy
+func (o StreamingPolicyTypeOutput) Properties() StreamingPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v StreamingPolicyType) StreamingPolicyPropertiesResponse { return v.Properties }).(StreamingPolicyPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o StreamingPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPolicyType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Class to specify properties of content key
@@ -19757,6 +19682,79 @@ func (o TrackSelectionResponseArrayOutput) Index(i pulumi.IntInput) TrackSelecti
 	}).(TrackSelectionResponseOutput)
 }
 
+// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+type TransformType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource properties.
+	Properties TransformPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// TransformTypeInput is an input type that accepts TransformTypeArgs and TransformTypeOutput values.
+// You can construct a concrete instance of `TransformTypeInput` via:
+//
+//          TransformTypeArgs{...}
+type TransformTypeInput interface {
+	pulumi.Input
+
+	ToTransformTypeOutput() TransformTypeOutput
+	ToTransformTypeOutputWithContext(context.Context) TransformTypeOutput
+}
+
+// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+type TransformTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource properties.
+	Properties TransformPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TransformTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformType)(nil)).Elem()
+}
+
+func (i TransformTypeArgs) ToTransformTypeOutput() TransformTypeOutput {
+	return i.ToTransformTypeOutputWithContext(context.Background())
+}
+
+func (i TransformTypeArgs) ToTransformTypeOutputWithContext(ctx context.Context) TransformTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformTypeOutput)
+}
+
+// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+type TransformTypeOutput struct{ *pulumi.OutputState }
+
+func (TransformTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformType)(nil)).Elem()
+}
+
+func (o TransformTypeOutput) ToTransformTypeOutput() TransformTypeOutput {
+	return o
+}
+
+func (o TransformTypeOutput) ToTransformTypeOutputWithContext(ctx context.Context) TransformTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o TransformTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource properties.
+func (o TransformTypeOutput) Properties() TransformPropertiesResponseOutput {
+	return o.ApplyT(func(v TransformType) TransformPropertiesResponse { return v.Properties }).(TransformPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o TransformTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutput struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
@@ -20342,6 +20340,7 @@ func init() {
 	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(AccountFilterTypeOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponseOutput{})
@@ -20352,6 +20351,8 @@ func init() {
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApiEndpointOutput{})
 	pulumi.RegisterOutputType(ApiEndpointResponseOutput{})
+	pulumi.RegisterOutputType(AssetTypeOutput{})
+	pulumi.RegisterOutputType(AssetFilterTypeOutput{})
 	pulumi.RegisterOutputType(AssetPropertiesOutput{})
 	pulumi.RegisterOutputType(AssetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AssetPropertiesResponseOutput{})
@@ -20374,6 +20375,7 @@ func init() {
 	pulumi.RegisterOutputType(CommonEncryptionCencPtrOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponseOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyTypeOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionOutput{})
@@ -20429,6 +20431,7 @@ func init() {
 	pulumi.RegisterOutputType(IPRangeArrayOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseArrayOutput{})
+	pulumi.RegisterOutputType(JobTypeOutput{})
 	pulumi.RegisterOutputType(JobErrorOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseOutput{})
@@ -20450,6 +20453,7 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventTypeOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponseOutput{})
@@ -20478,6 +20482,7 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveOutputTypeOutput{})
 	pulumi.RegisterOutputType(LiveOutputPropertiesOutput{})
 	pulumi.RegisterOutputType(LiveOutputPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LiveOutputPropertiesResponseOutput{})
@@ -20486,10 +20491,7 @@ func init() {
 	pulumi.RegisterOutputType(MediaFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MediaFilterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MediaFilterPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(MediaServiceAccountFilterTypeOutput{})
-	pulumi.RegisterOutputType(MediaServiceAssetTypeOutput{})
-	pulumi.RegisterOutputType(MediaServiceAssetAssetFilterTypeOutput{})
-	pulumi.RegisterOutputType(MediaServiceContentKeyPolicyTypeOutput{})
+	pulumi.RegisterOutputType(MediaServiceTypeOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityResponseOutput{})
@@ -20498,15 +20500,6 @@ func init() {
 	pulumi.RegisterOutputType(MediaServicePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MediaServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MediaServicePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(MediaServiceStreamingLocatorTypeOutput{})
-	pulumi.RegisterOutputType(MediaServiceStreamingPolicyTypeOutput{})
-	pulumi.RegisterOutputType(MediaServiceTransformTypeOutput{})
-	pulumi.RegisterOutputType(MediaServiceTransformJobTypeOutput{})
-	pulumi.RegisterOutputType(MediaserviceTypeOutput{})
-	pulumi.RegisterOutputType(MediaserviceLiveEventTypeOutput{})
-	pulumi.RegisterOutputType(MediaserviceLiveEventLiveOutputTypeOutput{})
-	pulumi.RegisterOutputType(MediaservicePrivateEndpointConnectionTypeOutput{})
-	pulumi.RegisterOutputType(MediaserviceStreamingEndpointTypeOutput{})
 	pulumi.RegisterOutputType(NoEncryptionOutput{})
 	pulumi.RegisterOutputType(NoEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(NoEncryptionResponseOutput{})
@@ -20519,6 +20512,7 @@ func init() {
 	pulumi.RegisterOutputType(PresetResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
@@ -20533,6 +20527,7 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseArrayOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointTypeOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponseOutput{})
@@ -20541,6 +20536,7 @@ func init() {
 	pulumi.RegisterOutputType(StreamingEndpointPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorTypeOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseOutput{})
@@ -20551,6 +20547,7 @@ func init() {
 	pulumi.RegisterOutputType(StreamingLocatorPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPathResponseOutput{})
 	pulumi.RegisterOutputType(StreamingPathResponseArrayOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyTypeOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyResponseOutput{})
@@ -20583,6 +20580,7 @@ func init() {
 	pulumi.RegisterOutputType(TrackSelectionArrayOutput{})
 	pulumi.RegisterOutputType(TrackSelectionResponseOutput{})
 	pulumi.RegisterOutputType(TrackSelectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(TransformTypeOutput{})
 	pulumi.RegisterOutputType(TransformOutputOutput{})
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseOutput{})

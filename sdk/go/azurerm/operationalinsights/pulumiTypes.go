@@ -316,6 +316,252 @@ func (o ActionResponsePropertiesResponsePtrOutput) WorkflowId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Alert rule.
+type AlertRuleType struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// The alert rule kind
+	Kind string `pulumi:"kind"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// AlertRuleTypeInput is an input type that accepts AlertRuleTypeArgs and AlertRuleTypeOutput values.
+// You can construct a concrete instance of `AlertRuleTypeInput` via:
+//
+//          AlertRuleTypeArgs{...}
+type AlertRuleTypeInput interface {
+	pulumi.Input
+
+	ToAlertRuleTypeOutput() AlertRuleTypeOutput
+	ToAlertRuleTypeOutputWithContext(context.Context) AlertRuleTypeOutput
+}
+
+// Alert rule.
+type AlertRuleTypeArgs struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// The alert rule kind
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AlertRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleType)(nil)).Elem()
+}
+
+func (i AlertRuleTypeArgs) ToAlertRuleTypeOutput() AlertRuleTypeOutput {
+	return i.ToAlertRuleTypeOutputWithContext(context.Background())
+}
+
+func (i AlertRuleTypeArgs) ToAlertRuleTypeOutputWithContext(ctx context.Context) AlertRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleTypeOutput)
+}
+
+// Alert rule.
+type AlertRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleType)(nil)).Elem()
+}
+
+func (o AlertRuleTypeOutput) ToAlertRuleTypeOutput() AlertRuleTypeOutput {
+	return o
+}
+
+func (o AlertRuleTypeOutput) ToAlertRuleTypeOutputWithContext(ctx context.Context) AlertRuleTypeOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o AlertRuleTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The alert rule kind
+func (o AlertRuleTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AlertRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o AlertRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Action for alert rule.
+type AlertRuleActionType struct {
+	// Etag of the action.
+	Etag *string `pulumi:"etag"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Action properties for get request
+	Properties ActionResponsePropertiesResponse `pulumi:"properties"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// AlertRuleActionTypeInput is an input type that accepts AlertRuleActionTypeArgs and AlertRuleActionTypeOutput values.
+// You can construct a concrete instance of `AlertRuleActionTypeInput` via:
+//
+//          AlertRuleActionTypeArgs{...}
+type AlertRuleActionTypeInput interface {
+	pulumi.Input
+
+	ToAlertRuleActionTypeOutput() AlertRuleActionTypeOutput
+	ToAlertRuleActionTypeOutputWithContext(context.Context) AlertRuleActionTypeOutput
+}
+
+// Action for alert rule.
+type AlertRuleActionTypeArgs struct {
+	// Etag of the action.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Action properties for get request
+	Properties ActionResponsePropertiesResponseInput `pulumi:"properties"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AlertRuleActionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleActionType)(nil)).Elem()
+}
+
+func (i AlertRuleActionTypeArgs) ToAlertRuleActionTypeOutput() AlertRuleActionTypeOutput {
+	return i.ToAlertRuleActionTypeOutputWithContext(context.Background())
+}
+
+func (i AlertRuleActionTypeArgs) ToAlertRuleActionTypeOutputWithContext(ctx context.Context) AlertRuleActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleActionTypeOutput)
+}
+
+// Action for alert rule.
+type AlertRuleActionTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleActionType)(nil)).Elem()
+}
+
+func (o AlertRuleActionTypeOutput) ToAlertRuleActionTypeOutput() AlertRuleActionTypeOutput {
+	return o
+}
+
+func (o AlertRuleActionTypeOutput) ToAlertRuleActionTypeOutputWithContext(ctx context.Context) AlertRuleActionTypeOutput {
+	return o
+}
+
+// Etag of the action.
+func (o AlertRuleActionTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleActionType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o AlertRuleActionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleActionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Action properties for get request
+func (o AlertRuleActionTypeOutput) Properties() ActionResponsePropertiesResponseOutput {
+	return o.ApplyT(func(v AlertRuleActionType) ActionResponsePropertiesResponse { return v.Properties }).(ActionResponsePropertiesResponseOutput)
+}
+
+// Azure resource type
+func (o AlertRuleActionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleActionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Represents a bookmark in Azure Security Insights.
+type BookmarkType struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Bookmark properties
+	Properties BookmarkPropertiesResponse `pulumi:"properties"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// BookmarkTypeInput is an input type that accepts BookmarkTypeArgs and BookmarkTypeOutput values.
+// You can construct a concrete instance of `BookmarkTypeInput` via:
+//
+//          BookmarkTypeArgs{...}
+type BookmarkTypeInput interface {
+	pulumi.Input
+
+	ToBookmarkTypeOutput() BookmarkTypeOutput
+	ToBookmarkTypeOutputWithContext(context.Context) BookmarkTypeOutput
+}
+
+// Represents a bookmark in Azure Security Insights.
+type BookmarkTypeArgs struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Bookmark properties
+	Properties BookmarkPropertiesResponseInput `pulumi:"properties"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BookmarkTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkType)(nil)).Elem()
+}
+
+func (i BookmarkTypeArgs) ToBookmarkTypeOutput() BookmarkTypeOutput {
+	return i.ToBookmarkTypeOutputWithContext(context.Background())
+}
+
+func (i BookmarkTypeArgs) ToBookmarkTypeOutputWithContext(ctx context.Context) BookmarkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BookmarkTypeOutput)
+}
+
+// Represents a bookmark in Azure Security Insights.
+type BookmarkTypeOutput struct{ *pulumi.OutputState }
+
+func (BookmarkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BookmarkType)(nil)).Elem()
+}
+
+func (o BookmarkTypeOutput) ToBookmarkTypeOutput() BookmarkTypeOutput {
+	return o
+}
+
+func (o BookmarkTypeOutput) ToBookmarkTypeOutputWithContext(ctx context.Context) BookmarkTypeOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o BookmarkTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BookmarkType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o BookmarkTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bookmark properties
+func (o BookmarkTypeOutput) Properties() BookmarkPropertiesResponseOutput {
+	return o.ApplyT(func(v BookmarkType) BookmarkPropertiesResponse { return v.Properties }).(BookmarkPropertiesResponseOutput)
+}
+
+// Azure resource type
+func (o BookmarkTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BookmarkType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Describes bookmark properties
 type BookmarkProperties struct {
 	// The time the bookmark was created
@@ -924,6 +1170,170 @@ func (o BookmarkPropertiesResponsePtrOutput) UpdatedBy() UserInfoResponsePtrOutp
 		}
 		return v.UpdatedBy
 	}).(UserInfoResponsePtrOutput)
+}
+
+// Data connector.
+type DataConnectorType struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// The data connector kind
+	Kind string `pulumi:"kind"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// DataConnectorTypeInput is an input type that accepts DataConnectorTypeArgs and DataConnectorTypeOutput values.
+// You can construct a concrete instance of `DataConnectorTypeInput` via:
+//
+//          DataConnectorTypeArgs{...}
+type DataConnectorTypeInput interface {
+	pulumi.Input
+
+	ToDataConnectorTypeOutput() DataConnectorTypeOutput
+	ToDataConnectorTypeOutputWithContext(context.Context) DataConnectorTypeOutput
+}
+
+// Data connector.
+type DataConnectorTypeArgs struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// The data connector kind
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataConnectorTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectorType)(nil)).Elem()
+}
+
+func (i DataConnectorTypeArgs) ToDataConnectorTypeOutput() DataConnectorTypeOutput {
+	return i.ToDataConnectorTypeOutputWithContext(context.Background())
+}
+
+func (i DataConnectorTypeArgs) ToDataConnectorTypeOutputWithContext(ctx context.Context) DataConnectorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorTypeOutput)
+}
+
+// Data connector.
+type DataConnectorTypeOutput struct{ *pulumi.OutputState }
+
+func (DataConnectorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectorType)(nil)).Elem()
+}
+
+func (o DataConnectorTypeOutput) ToDataConnectorTypeOutput() DataConnectorTypeOutput {
+	return o
+}
+
+func (o DataConnectorTypeOutput) ToDataConnectorTypeOutputWithContext(ctx context.Context) DataConnectorTypeOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o DataConnectorTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataConnectorType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The data connector kind
+func (o DataConnectorTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DataConnectorType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o DataConnectorTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataConnectorType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o DataConnectorTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataConnectorType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Represents an incident in Azure Security Insights.
+type IncidentType struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Incident properties
+	Properties IncidentPropertiesResponse `pulumi:"properties"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// IncidentTypeInput is an input type that accepts IncidentTypeArgs and IncidentTypeOutput values.
+// You can construct a concrete instance of `IncidentTypeInput` via:
+//
+//          IncidentTypeArgs{...}
+type IncidentTypeInput interface {
+	pulumi.Input
+
+	ToIncidentTypeOutput() IncidentTypeOutput
+	ToIncidentTypeOutputWithContext(context.Context) IncidentTypeOutput
+}
+
+// Represents an incident in Azure Security Insights.
+type IncidentTypeArgs struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Incident properties
+	Properties IncidentPropertiesResponseInput `pulumi:"properties"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IncidentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentType)(nil)).Elem()
+}
+
+func (i IncidentTypeArgs) ToIncidentTypeOutput() IncidentTypeOutput {
+	return i.ToIncidentTypeOutputWithContext(context.Background())
+}
+
+func (i IncidentTypeArgs) ToIncidentTypeOutputWithContext(ctx context.Context) IncidentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentTypeOutput)
+}
+
+// Represents an incident in Azure Security Insights.
+type IncidentTypeOutput struct{ *pulumi.OutputState }
+
+func (IncidentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentType)(nil)).Elem()
+}
+
+func (o IncidentTypeOutput) ToIncidentTypeOutput() IncidentTypeOutput {
+	return o
+}
+
+func (o IncidentTypeOutput) ToIncidentTypeOutputWithContext(ctx context.Context) IncidentTypeOutput {
+	return o
+}
+
+// Etag of the azure resource
+func (o IncidentTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o IncidentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Incident properties
+func (o IncidentTypeOutput) Properties() IncidentPropertiesResponseOutput {
+	return o.ApplyT(func(v IncidentType) IncidentPropertiesResponse { return v.Properties }).(IncidentPropertiesResponseOutput)
+}
+
+// Azure resource type
+func (o IncidentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Incident additional data property bag.
@@ -2918,6 +3328,88 @@ func (o IncidentPropertiesResponsePtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 // Value object for saved search results.
+type SavedSearchType struct {
+	// The ETag of the saved search.
+	ETag *string `pulumi:"eTag"`
+	// The name of the saved search.
+	Name string `pulumi:"name"`
+	// The properties of the saved search.
+	Properties SavedSearchPropertiesResponse `pulumi:"properties"`
+	// The type of the saved search.
+	Type string `pulumi:"type"`
+}
+
+// SavedSearchTypeInput is an input type that accepts SavedSearchTypeArgs and SavedSearchTypeOutput values.
+// You can construct a concrete instance of `SavedSearchTypeInput` via:
+//
+//          SavedSearchTypeArgs{...}
+type SavedSearchTypeInput interface {
+	pulumi.Input
+
+	ToSavedSearchTypeOutput() SavedSearchTypeOutput
+	ToSavedSearchTypeOutputWithContext(context.Context) SavedSearchTypeOutput
+}
+
+// Value object for saved search results.
+type SavedSearchTypeArgs struct {
+	// The ETag of the saved search.
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
+	// The name of the saved search.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the saved search.
+	Properties SavedSearchPropertiesResponseInput `pulumi:"properties"`
+	// The type of the saved search.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SavedSearchTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SavedSearchType)(nil)).Elem()
+}
+
+func (i SavedSearchTypeArgs) ToSavedSearchTypeOutput() SavedSearchTypeOutput {
+	return i.ToSavedSearchTypeOutputWithContext(context.Background())
+}
+
+func (i SavedSearchTypeArgs) ToSavedSearchTypeOutputWithContext(ctx context.Context) SavedSearchTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchTypeOutput)
+}
+
+// Value object for saved search results.
+type SavedSearchTypeOutput struct{ *pulumi.OutputState }
+
+func (SavedSearchTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SavedSearchType)(nil)).Elem()
+}
+
+func (o SavedSearchTypeOutput) ToSavedSearchTypeOutput() SavedSearchTypeOutput {
+	return o
+}
+
+func (o SavedSearchTypeOutput) ToSavedSearchTypeOutputWithContext(ctx context.Context) SavedSearchTypeOutput {
+	return o
+}
+
+// The ETag of the saved search.
+func (o SavedSearchTypeOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SavedSearchType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the saved search.
+func (o SavedSearchTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SavedSearchType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the saved search.
+func (o SavedSearchTypeOutput) Properties() SavedSearchPropertiesResponseOutput {
+	return o.ApplyT(func(v SavedSearchType) SavedSearchPropertiesResponse { return v.Properties }).(SavedSearchPropertiesResponseOutput)
+}
+
+// The type of the saved search.
+func (o SavedSearchTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SavedSearchType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value object for saved search results.
 type SavedSearchProperties struct {
 	// The category of the saved search. This helps the user to find a saved search faster.
 	Category string `pulumi:"category"`
@@ -3641,6 +4133,97 @@ func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 		}
 		return &v.Key
 	}).(pulumi.StringPtrOutput)
+}
+
+// The top level storage insight resource container.
+type StorageInsightType struct {
+	// The ETag of the storage insight.
+	ETag *string `pulumi:"eTag"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Storage insight properties.
+	Properties StorageInsightPropertiesResponse `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// StorageInsightTypeInput is an input type that accepts StorageInsightTypeArgs and StorageInsightTypeOutput values.
+// You can construct a concrete instance of `StorageInsightTypeInput` via:
+//
+//          StorageInsightTypeArgs{...}
+type StorageInsightTypeInput interface {
+	pulumi.Input
+
+	ToStorageInsightTypeOutput() StorageInsightTypeOutput
+	ToStorageInsightTypeOutputWithContext(context.Context) StorageInsightTypeOutput
+}
+
+// The top level storage insight resource container.
+type StorageInsightTypeArgs struct {
+	// The ETag of the storage insight.
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Storage insight properties.
+	Properties StorageInsightPropertiesResponseInput `pulumi:"properties"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageInsightTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightType)(nil)).Elem()
+}
+
+func (i StorageInsightTypeArgs) ToStorageInsightTypeOutput() StorageInsightTypeOutput {
+	return i.ToStorageInsightTypeOutputWithContext(context.Background())
+}
+
+func (i StorageInsightTypeArgs) ToStorageInsightTypeOutputWithContext(ctx context.Context) StorageInsightTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightTypeOutput)
+}
+
+// The top level storage insight resource container.
+type StorageInsightTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageInsightTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightType)(nil)).Elem()
+}
+
+func (o StorageInsightTypeOutput) ToStorageInsightTypeOutput() StorageInsightTypeOutput {
+	return o
+}
+
+func (o StorageInsightTypeOutput) ToStorageInsightTypeOutputWithContext(ctx context.Context) StorageInsightTypeOutput {
+	return o
+}
+
+// The ETag of the storage insight.
+func (o StorageInsightTypeOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageInsightType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o StorageInsightTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageInsightType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Storage insight properties.
+func (o StorageInsightTypeOutput) Properties() StorageInsightPropertiesResponseOutput {
+	return o.ApplyT(func(v StorageInsightType) StorageInsightPropertiesResponse { return v.Properties }).(StorageInsightPropertiesResponseOutput)
+}
+
+// Resource tags
+func (o StorageInsightTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StorageInsightType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o StorageInsightTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageInsightType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Storage insight properties.
@@ -4747,598 +5330,20 @@ func (o UserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Alert rule.
-type WorkspaceProviderAlertRuleType struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The alert rule kind
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceProviderAlertRuleTypeInput is an input type that accepts WorkspaceProviderAlertRuleTypeArgs and WorkspaceProviderAlertRuleTypeOutput values.
-// You can construct a concrete instance of `WorkspaceProviderAlertRuleTypeInput` via:
-//
-//          WorkspaceProviderAlertRuleTypeArgs{...}
-type WorkspaceProviderAlertRuleTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceProviderAlertRuleTypeOutput() WorkspaceProviderAlertRuleTypeOutput
-	ToWorkspaceProviderAlertRuleTypeOutputWithContext(context.Context) WorkspaceProviderAlertRuleTypeOutput
-}
-
-// Alert rule.
-type WorkspaceProviderAlertRuleTypeArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The alert rule kind
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceProviderAlertRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderAlertRuleType)(nil)).Elem()
-}
-
-func (i WorkspaceProviderAlertRuleTypeArgs) ToWorkspaceProviderAlertRuleTypeOutput() WorkspaceProviderAlertRuleTypeOutput {
-	return i.ToWorkspaceProviderAlertRuleTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceProviderAlertRuleTypeArgs) ToWorkspaceProviderAlertRuleTypeOutputWithContext(ctx context.Context) WorkspaceProviderAlertRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderAlertRuleTypeOutput)
-}
-
-// Alert rule.
-type WorkspaceProviderAlertRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceProviderAlertRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderAlertRuleType)(nil)).Elem()
-}
-
-func (o WorkspaceProviderAlertRuleTypeOutput) ToWorkspaceProviderAlertRuleTypeOutput() WorkspaceProviderAlertRuleTypeOutput {
-	return o
-}
-
-func (o WorkspaceProviderAlertRuleTypeOutput) ToWorkspaceProviderAlertRuleTypeOutputWithContext(ctx context.Context) WorkspaceProviderAlertRuleTypeOutput {
-	return o
-}
-
-// Etag of the azure resource
-func (o WorkspaceProviderAlertRuleTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The alert rule kind
-func (o WorkspaceProviderAlertRuleTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o WorkspaceProviderAlertRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Azure resource type
-func (o WorkspaceProviderAlertRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Action for alert rule.
-type WorkspaceProviderAlertRuleActionType struct {
-	// Etag of the action.
-	Etag *string `pulumi:"etag"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Action properties for get request
-	Properties ActionResponsePropertiesResponse `pulumi:"properties"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceProviderAlertRuleActionTypeInput is an input type that accepts WorkspaceProviderAlertRuleActionTypeArgs and WorkspaceProviderAlertRuleActionTypeOutput values.
-// You can construct a concrete instance of `WorkspaceProviderAlertRuleActionTypeInput` via:
-//
-//          WorkspaceProviderAlertRuleActionTypeArgs{...}
-type WorkspaceProviderAlertRuleActionTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceProviderAlertRuleActionTypeOutput() WorkspaceProviderAlertRuleActionTypeOutput
-	ToWorkspaceProviderAlertRuleActionTypeOutputWithContext(context.Context) WorkspaceProviderAlertRuleActionTypeOutput
-}
-
-// Action for alert rule.
-type WorkspaceProviderAlertRuleActionTypeArgs struct {
-	// Etag of the action.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Action properties for get request
-	Properties ActionResponsePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceProviderAlertRuleActionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderAlertRuleActionType)(nil)).Elem()
-}
-
-func (i WorkspaceProviderAlertRuleActionTypeArgs) ToWorkspaceProviderAlertRuleActionTypeOutput() WorkspaceProviderAlertRuleActionTypeOutput {
-	return i.ToWorkspaceProviderAlertRuleActionTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceProviderAlertRuleActionTypeArgs) ToWorkspaceProviderAlertRuleActionTypeOutputWithContext(ctx context.Context) WorkspaceProviderAlertRuleActionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderAlertRuleActionTypeOutput)
-}
-
-// Action for alert rule.
-type WorkspaceProviderAlertRuleActionTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceProviderAlertRuleActionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderAlertRuleActionType)(nil)).Elem()
-}
-
-func (o WorkspaceProviderAlertRuleActionTypeOutput) ToWorkspaceProviderAlertRuleActionTypeOutput() WorkspaceProviderAlertRuleActionTypeOutput {
-	return o
-}
-
-func (o WorkspaceProviderAlertRuleActionTypeOutput) ToWorkspaceProviderAlertRuleActionTypeOutputWithContext(ctx context.Context) WorkspaceProviderAlertRuleActionTypeOutput {
-	return o
-}
-
-// Etag of the action.
-func (o WorkspaceProviderAlertRuleActionTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleActionType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name
-func (o WorkspaceProviderAlertRuleActionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleActionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Action properties for get request
-func (o WorkspaceProviderAlertRuleActionTypeOutput) Properties() ActionResponsePropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleActionType) ActionResponsePropertiesResponse { return v.Properties }).(ActionResponsePropertiesResponseOutput)
-}
-
-// Azure resource type
-func (o WorkspaceProviderAlertRuleActionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderAlertRuleActionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a bookmark in Azure Security Insights.
-type WorkspaceProviderBookmarkType struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Bookmark properties
-	Properties BookmarkPropertiesResponse `pulumi:"properties"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceProviderBookmarkTypeInput is an input type that accepts WorkspaceProviderBookmarkTypeArgs and WorkspaceProviderBookmarkTypeOutput values.
-// You can construct a concrete instance of `WorkspaceProviderBookmarkTypeInput` via:
-//
-//          WorkspaceProviderBookmarkTypeArgs{...}
-type WorkspaceProviderBookmarkTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceProviderBookmarkTypeOutput() WorkspaceProviderBookmarkTypeOutput
-	ToWorkspaceProviderBookmarkTypeOutputWithContext(context.Context) WorkspaceProviderBookmarkTypeOutput
-}
-
-// Represents a bookmark in Azure Security Insights.
-type WorkspaceProviderBookmarkTypeArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Bookmark properties
-	Properties BookmarkPropertiesResponseInput `pulumi:"properties"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceProviderBookmarkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderBookmarkType)(nil)).Elem()
-}
-
-func (i WorkspaceProviderBookmarkTypeArgs) ToWorkspaceProviderBookmarkTypeOutput() WorkspaceProviderBookmarkTypeOutput {
-	return i.ToWorkspaceProviderBookmarkTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceProviderBookmarkTypeArgs) ToWorkspaceProviderBookmarkTypeOutputWithContext(ctx context.Context) WorkspaceProviderBookmarkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderBookmarkTypeOutput)
-}
-
-// Represents a bookmark in Azure Security Insights.
-type WorkspaceProviderBookmarkTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceProviderBookmarkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderBookmarkType)(nil)).Elem()
-}
-
-func (o WorkspaceProviderBookmarkTypeOutput) ToWorkspaceProviderBookmarkTypeOutput() WorkspaceProviderBookmarkTypeOutput {
-	return o
-}
-
-func (o WorkspaceProviderBookmarkTypeOutput) ToWorkspaceProviderBookmarkTypeOutputWithContext(ctx context.Context) WorkspaceProviderBookmarkTypeOutput {
-	return o
-}
-
-// Etag of the azure resource
-func (o WorkspaceProviderBookmarkTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProviderBookmarkType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name
-func (o WorkspaceProviderBookmarkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderBookmarkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Bookmark properties
-func (o WorkspaceProviderBookmarkTypeOutput) Properties() BookmarkPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceProviderBookmarkType) BookmarkPropertiesResponse { return v.Properties }).(BookmarkPropertiesResponseOutput)
-}
-
-// Azure resource type
-func (o WorkspaceProviderBookmarkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderBookmarkType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Data connector.
-type WorkspaceProviderDataConnectorType struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The data connector kind
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceProviderDataConnectorTypeInput is an input type that accepts WorkspaceProviderDataConnectorTypeArgs and WorkspaceProviderDataConnectorTypeOutput values.
-// You can construct a concrete instance of `WorkspaceProviderDataConnectorTypeInput` via:
-//
-//          WorkspaceProviderDataConnectorTypeArgs{...}
-type WorkspaceProviderDataConnectorTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceProviderDataConnectorTypeOutput() WorkspaceProviderDataConnectorTypeOutput
-	ToWorkspaceProviderDataConnectorTypeOutputWithContext(context.Context) WorkspaceProviderDataConnectorTypeOutput
-}
-
-// Data connector.
-type WorkspaceProviderDataConnectorTypeArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The data connector kind
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceProviderDataConnectorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderDataConnectorType)(nil)).Elem()
-}
-
-func (i WorkspaceProviderDataConnectorTypeArgs) ToWorkspaceProviderDataConnectorTypeOutput() WorkspaceProviderDataConnectorTypeOutput {
-	return i.ToWorkspaceProviderDataConnectorTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceProviderDataConnectorTypeArgs) ToWorkspaceProviderDataConnectorTypeOutputWithContext(ctx context.Context) WorkspaceProviderDataConnectorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderDataConnectorTypeOutput)
-}
-
-// Data connector.
-type WorkspaceProviderDataConnectorTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceProviderDataConnectorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderDataConnectorType)(nil)).Elem()
-}
-
-func (o WorkspaceProviderDataConnectorTypeOutput) ToWorkspaceProviderDataConnectorTypeOutput() WorkspaceProviderDataConnectorTypeOutput {
-	return o
-}
-
-func (o WorkspaceProviderDataConnectorTypeOutput) ToWorkspaceProviderDataConnectorTypeOutputWithContext(ctx context.Context) WorkspaceProviderDataConnectorTypeOutput {
-	return o
-}
-
-// Etag of the azure resource
-func (o WorkspaceProviderDataConnectorTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProviderDataConnectorType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The data connector kind
-func (o WorkspaceProviderDataConnectorTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderDataConnectorType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o WorkspaceProviderDataConnectorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderDataConnectorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Azure resource type
-func (o WorkspaceProviderDataConnectorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderDataConnectorType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents an incident in Azure Security Insights.
-type WorkspaceProviderIncidentType struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Incident properties
-	Properties IncidentPropertiesResponse `pulumi:"properties"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceProviderIncidentTypeInput is an input type that accepts WorkspaceProviderIncidentTypeArgs and WorkspaceProviderIncidentTypeOutput values.
-// You can construct a concrete instance of `WorkspaceProviderIncidentTypeInput` via:
-//
-//          WorkspaceProviderIncidentTypeArgs{...}
-type WorkspaceProviderIncidentTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceProviderIncidentTypeOutput() WorkspaceProviderIncidentTypeOutput
-	ToWorkspaceProviderIncidentTypeOutputWithContext(context.Context) WorkspaceProviderIncidentTypeOutput
-}
-
-// Represents an incident in Azure Security Insights.
-type WorkspaceProviderIncidentTypeArgs struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Incident properties
-	Properties IncidentPropertiesResponseInput `pulumi:"properties"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceProviderIncidentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderIncidentType)(nil)).Elem()
-}
-
-func (i WorkspaceProviderIncidentTypeArgs) ToWorkspaceProviderIncidentTypeOutput() WorkspaceProviderIncidentTypeOutput {
-	return i.ToWorkspaceProviderIncidentTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceProviderIncidentTypeArgs) ToWorkspaceProviderIncidentTypeOutputWithContext(ctx context.Context) WorkspaceProviderIncidentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderIncidentTypeOutput)
-}
-
-// Represents an incident in Azure Security Insights.
-type WorkspaceProviderIncidentTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceProviderIncidentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProviderIncidentType)(nil)).Elem()
-}
-
-func (o WorkspaceProviderIncidentTypeOutput) ToWorkspaceProviderIncidentTypeOutput() WorkspaceProviderIncidentTypeOutput {
-	return o
-}
-
-func (o WorkspaceProviderIncidentTypeOutput) ToWorkspaceProviderIncidentTypeOutputWithContext(ctx context.Context) WorkspaceProviderIncidentTypeOutput {
-	return o
-}
-
-// Etag of the azure resource
-func (o WorkspaceProviderIncidentTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProviderIncidentType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name
-func (o WorkspaceProviderIncidentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderIncidentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Incident properties
-func (o WorkspaceProviderIncidentTypeOutput) Properties() IncidentPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceProviderIncidentType) IncidentPropertiesResponse { return v.Properties }).(IncidentPropertiesResponseOutput)
-}
-
-// Azure resource type
-func (o WorkspaceProviderIncidentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceProviderIncidentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Value object for saved search results.
-type WorkspaceSavedSearchType struct {
-	// The ETag of the saved search.
-	ETag *string `pulumi:"eTag"`
-	// The name of the saved search.
-	Name string `pulumi:"name"`
-	// The properties of the saved search.
-	Properties SavedSearchPropertiesResponse `pulumi:"properties"`
-	// The type of the saved search.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceSavedSearchTypeInput is an input type that accepts WorkspaceSavedSearchTypeArgs and WorkspaceSavedSearchTypeOutput values.
-// You can construct a concrete instance of `WorkspaceSavedSearchTypeInput` via:
-//
-//          WorkspaceSavedSearchTypeArgs{...}
-type WorkspaceSavedSearchTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceSavedSearchTypeOutput() WorkspaceSavedSearchTypeOutput
-	ToWorkspaceSavedSearchTypeOutputWithContext(context.Context) WorkspaceSavedSearchTypeOutput
-}
-
-// Value object for saved search results.
-type WorkspaceSavedSearchTypeArgs struct {
-	// The ETag of the saved search.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// The name of the saved search.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the saved search.
-	Properties SavedSearchPropertiesResponseInput `pulumi:"properties"`
-	// The type of the saved search.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceSavedSearchTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSavedSearchType)(nil)).Elem()
-}
-
-func (i WorkspaceSavedSearchTypeArgs) ToWorkspaceSavedSearchTypeOutput() WorkspaceSavedSearchTypeOutput {
-	return i.ToWorkspaceSavedSearchTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceSavedSearchTypeArgs) ToWorkspaceSavedSearchTypeOutputWithContext(ctx context.Context) WorkspaceSavedSearchTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSavedSearchTypeOutput)
-}
-
-// Value object for saved search results.
-type WorkspaceSavedSearchTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceSavedSearchTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceSavedSearchType)(nil)).Elem()
-}
-
-func (o WorkspaceSavedSearchTypeOutput) ToWorkspaceSavedSearchTypeOutput() WorkspaceSavedSearchTypeOutput {
-	return o
-}
-
-func (o WorkspaceSavedSearchTypeOutput) ToWorkspaceSavedSearchTypeOutputWithContext(ctx context.Context) WorkspaceSavedSearchTypeOutput {
-	return o
-}
-
-// The ETag of the saved search.
-func (o WorkspaceSavedSearchTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceSavedSearchType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// The name of the saved search.
-func (o WorkspaceSavedSearchTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceSavedSearchType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the saved search.
-func (o WorkspaceSavedSearchTypeOutput) Properties() SavedSearchPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceSavedSearchType) SavedSearchPropertiesResponse { return v.Properties }).(SavedSearchPropertiesResponseOutput)
-}
-
-// The type of the saved search.
-func (o WorkspaceSavedSearchTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceSavedSearchType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The top level storage insight resource container.
-type WorkspaceStorageInsightConfigType struct {
-	// The ETag of the storage insight.
-	ETag *string `pulumi:"eTag"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Storage insight properties.
-	Properties StorageInsightPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceStorageInsightConfigTypeInput is an input type that accepts WorkspaceStorageInsightConfigTypeArgs and WorkspaceStorageInsightConfigTypeOutput values.
-// You can construct a concrete instance of `WorkspaceStorageInsightConfigTypeInput` via:
-//
-//          WorkspaceStorageInsightConfigTypeArgs{...}
-type WorkspaceStorageInsightConfigTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceStorageInsightConfigTypeOutput() WorkspaceStorageInsightConfigTypeOutput
-	ToWorkspaceStorageInsightConfigTypeOutputWithContext(context.Context) WorkspaceStorageInsightConfigTypeOutput
-}
-
-// The top level storage insight resource container.
-type WorkspaceStorageInsightConfigTypeArgs struct {
-	// The ETag of the storage insight.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Storage insight properties.
-	Properties StorageInsightPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceStorageInsightConfigTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceStorageInsightConfigType)(nil)).Elem()
-}
-
-func (i WorkspaceStorageInsightConfigTypeArgs) ToWorkspaceStorageInsightConfigTypeOutput() WorkspaceStorageInsightConfigTypeOutput {
-	return i.ToWorkspaceStorageInsightConfigTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceStorageInsightConfigTypeArgs) ToWorkspaceStorageInsightConfigTypeOutputWithContext(ctx context.Context) WorkspaceStorageInsightConfigTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceStorageInsightConfigTypeOutput)
-}
-
-// The top level storage insight resource container.
-type WorkspaceStorageInsightConfigTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceStorageInsightConfigTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceStorageInsightConfigType)(nil)).Elem()
-}
-
-func (o WorkspaceStorageInsightConfigTypeOutput) ToWorkspaceStorageInsightConfigTypeOutput() WorkspaceStorageInsightConfigTypeOutput {
-	return o
-}
-
-func (o WorkspaceStorageInsightConfigTypeOutput) ToWorkspaceStorageInsightConfigTypeOutputWithContext(ctx context.Context) WorkspaceStorageInsightConfigTypeOutput {
-	return o
-}
-
-// The ETag of the storage insight.
-func (o WorkspaceStorageInsightConfigTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceStorageInsightConfigType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o WorkspaceStorageInsightConfigTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceStorageInsightConfigType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Storage insight properties.
-func (o WorkspaceStorageInsightConfigTypeOutput) Properties() StorageInsightPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceStorageInsightConfigType) StorageInsightPropertiesResponse { return v.Properties }).(StorageInsightPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o WorkspaceStorageInsightConfigTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspaceStorageInsightConfigType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o WorkspaceStorageInsightConfigTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceStorageInsightConfigType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ActionRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(ActionRequestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionResponsePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ActionResponsePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleTypeOutput{})
+	pulumi.RegisterOutputType(AlertRuleActionTypeOutput{})
+	pulumi.RegisterOutputType(BookmarkTypeOutput{})
 	pulumi.RegisterOutputType(BookmarkPropertiesOutput{})
 	pulumi.RegisterOutputType(BookmarkPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BookmarkPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BookmarkPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DataConnectorTypeOutput{})
+	pulumi.RegisterOutputType(IncidentTypeOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponseOutput{})
 	pulumi.RegisterOutputType(IncidentAdditionalDataResponsePtrOutput{})
@@ -5358,6 +5363,7 @@ func init() {
 	pulumi.RegisterOutputType(IncidentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IncidentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IncidentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SavedSearchTypeOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesResponseOutput{})
@@ -5366,6 +5372,7 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageInsightTypeOutput{})
 	pulumi.RegisterOutputType(StorageInsightPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageInsightPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageInsightPropertiesResponseOutput{})
@@ -5381,11 +5388,4 @@ func init() {
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})
 	pulumi.RegisterOutputType(UserInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkspaceProviderAlertRuleTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceProviderAlertRuleActionTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceProviderBookmarkTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceProviderDataConnectorTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceProviderIncidentTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceSavedSearchTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceStorageInsightConfigTypeOutput{})
 }

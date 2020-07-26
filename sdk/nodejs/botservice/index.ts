@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./botService";
-export * from "./botServiceChannel";
-export * from "./botServiceConnection";
-export * from "./getBotService";
-export * from "./getBotServiceChannel";
-export * from "./getBotServiceConnection";
-export * from "./listBotServiceChannelChannelWithKeys";
-export * from "./listBotServiceConnectionWithSecrets";
+export * from "./bot";
+export * from "./botConnection";
+export * from "./channel";
+export * from "./getBot";
+export * from "./getBotConnection";
+export * from "./getChannel";
+export * from "./listBotConnectionServiceProviders";
+export * from "./listBotConnectionWithSecrets";
+export * from "./listChannelWithKeys";

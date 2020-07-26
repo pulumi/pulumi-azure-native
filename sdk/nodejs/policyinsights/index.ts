@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getRemediation";
-export * from "./listRemediationDeployments";
-export * from "./remediation";
+export * from "./getRemediationAtManagementGroup";
+export * from "./getRemediationAtResource";
+export * from "./getRemediationAtResourceGroup";
+export * from "./getRemediationAtSubscription";
+export * from "./listRemediationDeploymentsAtManagementGroup";
+export * from "./listRemediationDeploymentsAtResource";
+export * from "./listRemediationDeploymentsAtResourceGroup";
+export * from "./listRemediationDeploymentsAtSubscription";
+export * from "./remediationAtManagementGroup";
+export * from "./remediationAtResource";
+export * from "./remediationAtResourceGroup";
+export * from "./remediationAtSubscription";

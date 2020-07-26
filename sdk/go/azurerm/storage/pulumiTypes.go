@@ -780,6 +780,170 @@ func (o AzureFilesIdentityBasedAuthenticationResponsePtrOutput) DirectoryService
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties of the blob container, including Id, resource name, resource type, Etag.
+type BlobContainerType struct {
+	// Resource Etag.
+	Etag string `pulumi:"etag"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Properties of the blob container.
+	Properties ContainerPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// BlobContainerTypeInput is an input type that accepts BlobContainerTypeArgs and BlobContainerTypeOutput values.
+// You can construct a concrete instance of `BlobContainerTypeInput` via:
+//
+//          BlobContainerTypeArgs{...}
+type BlobContainerTypeInput interface {
+	pulumi.Input
+
+	ToBlobContainerTypeOutput() BlobContainerTypeOutput
+	ToBlobContainerTypeOutputWithContext(context.Context) BlobContainerTypeOutput
+}
+
+// Properties of the blob container, including Id, resource name, resource type, Etag.
+type BlobContainerTypeArgs struct {
+	// Resource Etag.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the blob container.
+	Properties ContainerPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BlobContainerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerType)(nil)).Elem()
+}
+
+func (i BlobContainerTypeArgs) ToBlobContainerTypeOutput() BlobContainerTypeOutput {
+	return i.ToBlobContainerTypeOutputWithContext(context.Background())
+}
+
+func (i BlobContainerTypeArgs) ToBlobContainerTypeOutputWithContext(ctx context.Context) BlobContainerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerTypeOutput)
+}
+
+// Properties of the blob container, including Id, resource name, resource type, Etag.
+type BlobContainerTypeOutput struct{ *pulumi.OutputState }
+
+func (BlobContainerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerType)(nil)).Elem()
+}
+
+func (o BlobContainerTypeOutput) ToBlobContainerTypeOutput() BlobContainerTypeOutput {
+	return o
+}
+
+func (o BlobContainerTypeOutput) ToBlobContainerTypeOutputWithContext(ctx context.Context) BlobContainerTypeOutput {
+	return o
+}
+
+// Resource Etag.
+func (o BlobContainerTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobContainerType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o BlobContainerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobContainerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the blob container.
+func (o BlobContainerTypeOutput) Properties() ContainerPropertiesResponseOutput {
+	return o.ApplyT(func(v BlobContainerType) ContainerPropertiesResponse { return v.Properties }).(ContainerPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o BlobContainerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobContainerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+type BlobContainerImmutabilityPolicyType struct {
+	// Resource Etag.
+	Etag string `pulumi:"etag"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The properties of an ImmutabilityPolicy of a blob container.
+	Properties ImmutabilityPolicyPropertyResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// BlobContainerImmutabilityPolicyTypeInput is an input type that accepts BlobContainerImmutabilityPolicyTypeArgs and BlobContainerImmutabilityPolicyTypeOutput values.
+// You can construct a concrete instance of `BlobContainerImmutabilityPolicyTypeInput` via:
+//
+//          BlobContainerImmutabilityPolicyTypeArgs{...}
+type BlobContainerImmutabilityPolicyTypeInput interface {
+	pulumi.Input
+
+	ToBlobContainerImmutabilityPolicyTypeOutput() BlobContainerImmutabilityPolicyTypeOutput
+	ToBlobContainerImmutabilityPolicyTypeOutputWithContext(context.Context) BlobContainerImmutabilityPolicyTypeOutput
+}
+
+// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+type BlobContainerImmutabilityPolicyTypeArgs struct {
+	// Resource Etag.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of an ImmutabilityPolicy of a blob container.
+	Properties ImmutabilityPolicyPropertyResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BlobContainerImmutabilityPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicyType)(nil)).Elem()
+}
+
+func (i BlobContainerImmutabilityPolicyTypeArgs) ToBlobContainerImmutabilityPolicyTypeOutput() BlobContainerImmutabilityPolicyTypeOutput {
+	return i.ToBlobContainerImmutabilityPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i BlobContainerImmutabilityPolicyTypeArgs) ToBlobContainerImmutabilityPolicyTypeOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerImmutabilityPolicyTypeOutput)
+}
+
+// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+type BlobContainerImmutabilityPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (BlobContainerImmutabilityPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobContainerImmutabilityPolicyType)(nil)).Elem()
+}
+
+func (o BlobContainerImmutabilityPolicyTypeOutput) ToBlobContainerImmutabilityPolicyTypeOutput() BlobContainerImmutabilityPolicyTypeOutput {
+	return o
+}
+
+func (o BlobContainerImmutabilityPolicyTypeOutput) ToBlobContainerImmutabilityPolicyTypeOutputWithContext(ctx context.Context) BlobContainerImmutabilityPolicyTypeOutput {
+	return o
+}
+
+// Resource Etag.
+func (o BlobContainerImmutabilityPolicyTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobContainerImmutabilityPolicyType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o BlobContainerImmutabilityPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobContainerImmutabilityPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an ImmutabilityPolicy of a blob container.
+func (o BlobContainerImmutabilityPolicyTypeOutput) Properties() ImmutabilityPolicyPropertyResponseOutput {
+	return o.ApplyT(func(v BlobContainerImmutabilityPolicyType) ImmutabilityPolicyPropertyResponse { return v.Properties }).(ImmutabilityPolicyPropertyResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o BlobContainerImmutabilityPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobContainerImmutabilityPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Blob restore parameters
 type BlobRestoreParametersResponse struct {
 	// Blob ranges to restore.
@@ -4041,6 +4205,88 @@ func (o EndpointsResponsePtrOutput) Web() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties of the file share, including Id, resource name, resource type, Etag.
+type FileShareType struct {
+	// Resource Etag.
+	Etag string `pulumi:"etag"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Properties of the file share.
+	Properties FileSharePropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// FileShareTypeInput is an input type that accepts FileShareTypeArgs and FileShareTypeOutput values.
+// You can construct a concrete instance of `FileShareTypeInput` via:
+//
+//          FileShareTypeArgs{...}
+type FileShareTypeInput interface {
+	pulumi.Input
+
+	ToFileShareTypeOutput() FileShareTypeOutput
+	ToFileShareTypeOutputWithContext(context.Context) FileShareTypeOutput
+}
+
+// Properties of the file share, including Id, resource name, resource type, Etag.
+type FileShareTypeArgs struct {
+	// Resource Etag.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of the file share.
+	Properties FileSharePropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FileShareTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShareType)(nil)).Elem()
+}
+
+func (i FileShareTypeArgs) ToFileShareTypeOutput() FileShareTypeOutput {
+	return i.ToFileShareTypeOutputWithContext(context.Background())
+}
+
+func (i FileShareTypeArgs) ToFileShareTypeOutputWithContext(ctx context.Context) FileShareTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileShareTypeOutput)
+}
+
+// Properties of the file share, including Id, resource name, resource type, Etag.
+type FileShareTypeOutput struct{ *pulumi.OutputState }
+
+func (FileShareTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileShareType)(nil)).Elem()
+}
+
+func (o FileShareTypeOutput) ToFileShareTypeOutput() FileShareTypeOutput {
+	return o
+}
+
+func (o FileShareTypeOutput) ToFileShareTypeOutputWithContext(ctx context.Context) FileShareTypeOutput {
+	return o
+}
+
+// Resource Etag.
+func (o FileShareTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v FileShareType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o FileShareTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FileShareType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the file share.
+func (o FileShareTypeOutput) Properties() FileSharePropertiesResponseOutput {
+	return o.ApplyT(func(v FileShareType) FileSharePropertiesResponse { return v.Properties }).(FileSharePropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o FileShareTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FileShareType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties of the file share.
 type FileShareProperties struct {
 	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
@@ -6451,6 +6697,79 @@ func (o LegalHoldPropertiesResponsePtrOutput) Tags() TagPropertyResponseArrayOut
 	}).(TagPropertyResponseArrayOutput)
 }
 
+// The Get Storage Account ManagementPolicies operation response.
+type ManagementPolicyType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Returns the Storage Account Data Policies Rules.
+	Properties ManagementPolicyPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// ManagementPolicyTypeInput is an input type that accepts ManagementPolicyTypeArgs and ManagementPolicyTypeOutput values.
+// You can construct a concrete instance of `ManagementPolicyTypeInput` via:
+//
+//          ManagementPolicyTypeArgs{...}
+type ManagementPolicyTypeInput interface {
+	pulumi.Input
+
+	ToManagementPolicyTypeOutput() ManagementPolicyTypeOutput
+	ToManagementPolicyTypeOutputWithContext(context.Context) ManagementPolicyTypeOutput
+}
+
+// The Get Storage Account ManagementPolicies operation response.
+type ManagementPolicyTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Returns the Storage Account Data Policies Rules.
+	Properties ManagementPolicyPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagementPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyType)(nil)).Elem()
+}
+
+func (i ManagementPolicyTypeArgs) ToManagementPolicyTypeOutput() ManagementPolicyTypeOutput {
+	return i.ToManagementPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyTypeArgs) ToManagementPolicyTypeOutputWithContext(ctx context.Context) ManagementPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyTypeOutput)
+}
+
+// The Get Storage Account ManagementPolicies operation response.
+type ManagementPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyType)(nil)).Elem()
+}
+
+func (o ManagementPolicyTypeOutput) ToManagementPolicyTypeOutput() ManagementPolicyTypeOutput {
+	return o
+}
+
+func (o ManagementPolicyTypeOutput) ToManagementPolicyTypeOutputWithContext(ctx context.Context) ManagementPolicyTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o ManagementPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Returns the Storage Account Data Policies Rules.
+func (o ManagementPolicyTypeOutput) Properties() ManagementPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v ManagementPolicyType) ManagementPolicyPropertiesResponse { return v.Properties }).(ManagementPolicyPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ManagementPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Actions are applied to the filtered blobs when the execution condition is met.
 type ManagementPolicyAction struct {
 	// The management policy action for base blob
@@ -8854,6 +9173,79 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 	}).(VirtualNetworkRuleResponseArrayOutput)
 }
 
+// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+type ObjectReplicationPolicyType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Returns the Storage Account Object Replication Policy.
+	Properties ObjectReplicationPolicyPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// ObjectReplicationPolicyTypeInput is an input type that accepts ObjectReplicationPolicyTypeArgs and ObjectReplicationPolicyTypeOutput values.
+// You can construct a concrete instance of `ObjectReplicationPolicyTypeInput` via:
+//
+//          ObjectReplicationPolicyTypeArgs{...}
+type ObjectReplicationPolicyTypeInput interface {
+	pulumi.Input
+
+	ToObjectReplicationPolicyTypeOutput() ObjectReplicationPolicyTypeOutput
+	ToObjectReplicationPolicyTypeOutputWithContext(context.Context) ObjectReplicationPolicyTypeOutput
+}
+
+// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+type ObjectReplicationPolicyTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Returns the Storage Account Object Replication Policy.
+	Properties ObjectReplicationPolicyPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ObjectReplicationPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectReplicationPolicyType)(nil)).Elem()
+}
+
+func (i ObjectReplicationPolicyTypeArgs) ToObjectReplicationPolicyTypeOutput() ObjectReplicationPolicyTypeOutput {
+	return i.ToObjectReplicationPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i ObjectReplicationPolicyTypeArgs) ToObjectReplicationPolicyTypeOutputWithContext(ctx context.Context) ObjectReplicationPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationPolicyTypeOutput)
+}
+
+// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+type ObjectReplicationPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ObjectReplicationPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectReplicationPolicyType)(nil)).Elem()
+}
+
+func (o ObjectReplicationPolicyTypeOutput) ToObjectReplicationPolicyTypeOutput() ObjectReplicationPolicyTypeOutput {
+	return o
+}
+
+func (o ObjectReplicationPolicyTypeOutput) ToObjectReplicationPolicyTypeOutputWithContext(ctx context.Context) ObjectReplicationPolicyTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o ObjectReplicationPolicyTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectReplicationPolicyType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Returns the Storage Account Object Replication Policy.
+func (o ObjectReplicationPolicyTypeOutput) Properties() ObjectReplicationPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v ObjectReplicationPolicyType) ObjectReplicationPolicyPropertiesResponse { return v.Properties }).(ObjectReplicationPolicyPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ObjectReplicationPolicyTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectReplicationPolicyType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
 type ObjectReplicationPolicyFilter struct {
 	// Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
@@ -9915,6 +10307,79 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
 }
 
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource properties.
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionProperties struct {
 	// The resource of private end point.
@@ -10872,6 +11337,76 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+type QueueType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Queue resource properties.
+	Properties QueuePropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// QueueTypeInput is an input type that accepts QueueTypeArgs and QueueTypeOutput values.
+// You can construct a concrete instance of `QueueTypeInput` via:
+//
+//          QueueTypeArgs{...}
+type QueueTypeInput interface {
+	pulumi.Input
+
+	ToQueueTypeOutput() QueueTypeOutput
+	ToQueueTypeOutputWithContext(context.Context) QueueTypeOutput
+}
+
+type QueueTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Queue resource properties.
+	Properties QueuePropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (QueueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueType)(nil)).Elem()
+}
+
+func (i QueueTypeArgs) ToQueueTypeOutput() QueueTypeOutput {
+	return i.ToQueueTypeOutputWithContext(context.Background())
+}
+
+func (i QueueTypeArgs) ToQueueTypeOutputWithContext(ctx context.Context) QueueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueTypeOutput)
+}
+
+type QueueTypeOutput struct{ *pulumi.OutputState }
+
+func (QueueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueType)(nil)).Elem()
+}
+
+func (o QueueTypeOutput) ToQueueTypeOutput() QueueTypeOutput {
+	return o
+}
+
+func (o QueueTypeOutput) ToQueueTypeOutputWithContext(ctx context.Context) QueueTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o QueueTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Queue resource properties.
+func (o QueueTypeOutput) Properties() QueuePropertiesResponseOutput {
+	return o.ApplyT(func(v QueueType) QueuePropertiesResponse { return v.Properties }).(QueuePropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o QueueTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type QueueProperties struct {
@@ -11923,254 +12458,6 @@ func (o StorageAccountTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Properties of the blob container, including Id, resource name, resource type, Etag.
-type StorageAccountBlobServiceContainerType struct {
-	// Resource Etag.
-	Etag string `pulumi:"etag"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the blob container.
-	Properties ContainerPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountBlobServiceContainerTypeInput is an input type that accepts StorageAccountBlobServiceContainerTypeArgs and StorageAccountBlobServiceContainerTypeOutput values.
-// You can construct a concrete instance of `StorageAccountBlobServiceContainerTypeInput` via:
-//
-//          StorageAccountBlobServiceContainerTypeArgs{...}
-type StorageAccountBlobServiceContainerTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountBlobServiceContainerTypeOutput() StorageAccountBlobServiceContainerTypeOutput
-	ToStorageAccountBlobServiceContainerTypeOutputWithContext(context.Context) StorageAccountBlobServiceContainerTypeOutput
-}
-
-// Properties of the blob container, including Id, resource name, resource type, Etag.
-type StorageAccountBlobServiceContainerTypeArgs struct {
-	// Resource Etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the blob container.
-	Properties ContainerPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountBlobServiceContainerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountBlobServiceContainerType)(nil)).Elem()
-}
-
-func (i StorageAccountBlobServiceContainerTypeArgs) ToStorageAccountBlobServiceContainerTypeOutput() StorageAccountBlobServiceContainerTypeOutput {
-	return i.ToStorageAccountBlobServiceContainerTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountBlobServiceContainerTypeArgs) ToStorageAccountBlobServiceContainerTypeOutputWithContext(ctx context.Context) StorageAccountBlobServiceContainerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountBlobServiceContainerTypeOutput)
-}
-
-// Properties of the blob container, including Id, resource name, resource type, Etag.
-type StorageAccountBlobServiceContainerTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountBlobServiceContainerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountBlobServiceContainerType)(nil)).Elem()
-}
-
-func (o StorageAccountBlobServiceContainerTypeOutput) ToStorageAccountBlobServiceContainerTypeOutput() StorageAccountBlobServiceContainerTypeOutput {
-	return o
-}
-
-func (o StorageAccountBlobServiceContainerTypeOutput) ToStorageAccountBlobServiceContainerTypeOutputWithContext(ctx context.Context) StorageAccountBlobServiceContainerTypeOutput {
-	return o
-}
-
-// Resource Etag.
-func (o StorageAccountBlobServiceContainerTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o StorageAccountBlobServiceContainerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the blob container.
-func (o StorageAccountBlobServiceContainerTypeOutput) Properties() ContainerPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerType) ContainerPropertiesResponse { return v.Properties }).(ContainerPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountBlobServiceContainerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-type StorageAccountBlobServiceContainerImmutabilityPolicyType struct {
-	// Resource Etag.
-	Etag string `pulumi:"etag"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountBlobServiceContainerImmutabilityPolicyTypeInput is an input type that accepts StorageAccountBlobServiceContainerImmutabilityPolicyTypeArgs and StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput values.
-// You can construct a concrete instance of `StorageAccountBlobServiceContainerImmutabilityPolicyTypeInput` via:
-//
-//          StorageAccountBlobServiceContainerImmutabilityPolicyTypeArgs{...}
-type StorageAccountBlobServiceContainerImmutabilityPolicyTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput() StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput
-	ToStorageAccountBlobServiceContainerImmutabilityPolicyTypeOutputWithContext(context.Context) StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput
-}
-
-// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-type StorageAccountBlobServiceContainerImmutabilityPolicyTypeArgs struct {
-	// Resource Etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountBlobServiceContainerImmutabilityPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountBlobServiceContainerImmutabilityPolicyType)(nil)).Elem()
-}
-
-func (i StorageAccountBlobServiceContainerImmutabilityPolicyTypeArgs) ToStorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput() StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput {
-	return i.ToStorageAccountBlobServiceContainerImmutabilityPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountBlobServiceContainerImmutabilityPolicyTypeArgs) ToStorageAccountBlobServiceContainerImmutabilityPolicyTypeOutputWithContext(ctx context.Context) StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput)
-}
-
-// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-type StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountBlobServiceContainerImmutabilityPolicyType)(nil)).Elem()
-}
-
-func (o StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput) ToStorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput() StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput {
-	return o
-}
-
-func (o StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput) ToStorageAccountBlobServiceContainerImmutabilityPolicyTypeOutputWithContext(ctx context.Context) StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput {
-	return o
-}
-
-// Resource Etag.
-func (o StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerImmutabilityPolicyType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerImmutabilityPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an ImmutabilityPolicy of a blob container.
-func (o StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput) Properties() ImmutabilityPolicyPropertyResponseOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerImmutabilityPolicyType) ImmutabilityPolicyPropertyResponse {
-		return v.Properties
-	}).(ImmutabilityPolicyPropertyResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountBlobServiceContainerImmutabilityPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Properties of the file share, including Id, resource name, resource type, Etag.
-type StorageAccountFileServiceShareType struct {
-	// Resource Etag.
-	Etag string `pulumi:"etag"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the file share.
-	Properties FileSharePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountFileServiceShareTypeInput is an input type that accepts StorageAccountFileServiceShareTypeArgs and StorageAccountFileServiceShareTypeOutput values.
-// You can construct a concrete instance of `StorageAccountFileServiceShareTypeInput` via:
-//
-//          StorageAccountFileServiceShareTypeArgs{...}
-type StorageAccountFileServiceShareTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountFileServiceShareTypeOutput() StorageAccountFileServiceShareTypeOutput
-	ToStorageAccountFileServiceShareTypeOutputWithContext(context.Context) StorageAccountFileServiceShareTypeOutput
-}
-
-// Properties of the file share, including Id, resource name, resource type, Etag.
-type StorageAccountFileServiceShareTypeArgs struct {
-	// Resource Etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the file share.
-	Properties FileSharePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountFileServiceShareTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountFileServiceShareType)(nil)).Elem()
-}
-
-func (i StorageAccountFileServiceShareTypeArgs) ToStorageAccountFileServiceShareTypeOutput() StorageAccountFileServiceShareTypeOutput {
-	return i.ToStorageAccountFileServiceShareTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountFileServiceShareTypeArgs) ToStorageAccountFileServiceShareTypeOutputWithContext(ctx context.Context) StorageAccountFileServiceShareTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountFileServiceShareTypeOutput)
-}
-
-// Properties of the file share, including Id, resource name, resource type, Etag.
-type StorageAccountFileServiceShareTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountFileServiceShareTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountFileServiceShareType)(nil)).Elem()
-}
-
-func (o StorageAccountFileServiceShareTypeOutput) ToStorageAccountFileServiceShareTypeOutput() StorageAccountFileServiceShareTypeOutput {
-	return o
-}
-
-func (o StorageAccountFileServiceShareTypeOutput) ToStorageAccountFileServiceShareTypeOutputWithContext(ctx context.Context) StorageAccountFileServiceShareTypeOutput {
-	return o
-}
-
-// Resource Etag.
-func (o StorageAccountFileServiceShareTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountFileServiceShareType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o StorageAccountFileServiceShareTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountFileServiceShareType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the file share.
-func (o StorageAccountFileServiceShareTypeOutput) Properties() FileSharePropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountFileServiceShareType) FileSharePropertiesResponse { return v.Properties }).(FileSharePropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountFileServiceShareTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountFileServiceShareType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The URIs that are used to perform a retrieval of a public blob, file, web or dfs object via a internet routing endpoint.
 type StorageAccountInternetEndpointsResponse struct {
 	// Gets the blob endpoint.
@@ -12480,79 +12767,6 @@ func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAc
 	}).(StorageAccountKeyResponseOutput)
 }
 
-// The Get Storage Account ManagementPolicies operation response.
-type StorageAccountManagementPolicyType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Returns the Storage Account Data Policies Rules.
-	Properties ManagementPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountManagementPolicyTypeInput is an input type that accepts StorageAccountManagementPolicyTypeArgs and StorageAccountManagementPolicyTypeOutput values.
-// You can construct a concrete instance of `StorageAccountManagementPolicyTypeInput` via:
-//
-//          StorageAccountManagementPolicyTypeArgs{...}
-type StorageAccountManagementPolicyTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountManagementPolicyTypeOutput() StorageAccountManagementPolicyTypeOutput
-	ToStorageAccountManagementPolicyTypeOutputWithContext(context.Context) StorageAccountManagementPolicyTypeOutput
-}
-
-// The Get Storage Account ManagementPolicies operation response.
-type StorageAccountManagementPolicyTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Returns the Storage Account Data Policies Rules.
-	Properties ManagementPolicyPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountManagementPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountManagementPolicyType)(nil)).Elem()
-}
-
-func (i StorageAccountManagementPolicyTypeArgs) ToStorageAccountManagementPolicyTypeOutput() StorageAccountManagementPolicyTypeOutput {
-	return i.ToStorageAccountManagementPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountManagementPolicyTypeArgs) ToStorageAccountManagementPolicyTypeOutputWithContext(ctx context.Context) StorageAccountManagementPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountManagementPolicyTypeOutput)
-}
-
-// The Get Storage Account ManagementPolicies operation response.
-type StorageAccountManagementPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountManagementPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountManagementPolicyType)(nil)).Elem()
-}
-
-func (o StorageAccountManagementPolicyTypeOutput) ToStorageAccountManagementPolicyTypeOutput() StorageAccountManagementPolicyTypeOutput {
-	return o
-}
-
-func (o StorageAccountManagementPolicyTypeOutput) ToStorageAccountManagementPolicyTypeOutputWithContext(ctx context.Context) StorageAccountManagementPolicyTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o StorageAccountManagementPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountManagementPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Returns the Storage Account Data Policies Rules.
-func (o StorageAccountManagementPolicyTypeOutput) Properties() ManagementPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountManagementPolicyType) ManagementPolicyPropertiesResponse { return v.Properties }).(ManagementPolicyPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountManagementPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountManagementPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object via a microsoft routing endpoint.
 type StorageAccountMicrosoftEndpointsResponse struct {
 	// Gets the blob endpoint.
@@ -12780,156 +12994,6 @@ func (o StorageAccountMicrosoftEndpointsResponsePtrOutput) Web() pulumi.StringPt
 		}
 		return &v.Web
 	}).(pulumi.StringPtrOutput)
-}
-
-// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-type StorageAccountObjectReplicationPolicyType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Returns the Storage Account Object Replication Policy.
-	Properties ObjectReplicationPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountObjectReplicationPolicyTypeInput is an input type that accepts StorageAccountObjectReplicationPolicyTypeArgs and StorageAccountObjectReplicationPolicyTypeOutput values.
-// You can construct a concrete instance of `StorageAccountObjectReplicationPolicyTypeInput` via:
-//
-//          StorageAccountObjectReplicationPolicyTypeArgs{...}
-type StorageAccountObjectReplicationPolicyTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountObjectReplicationPolicyTypeOutput() StorageAccountObjectReplicationPolicyTypeOutput
-	ToStorageAccountObjectReplicationPolicyTypeOutputWithContext(context.Context) StorageAccountObjectReplicationPolicyTypeOutput
-}
-
-// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-type StorageAccountObjectReplicationPolicyTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Returns the Storage Account Object Replication Policy.
-	Properties ObjectReplicationPolicyPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountObjectReplicationPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountObjectReplicationPolicyType)(nil)).Elem()
-}
-
-func (i StorageAccountObjectReplicationPolicyTypeArgs) ToStorageAccountObjectReplicationPolicyTypeOutput() StorageAccountObjectReplicationPolicyTypeOutput {
-	return i.ToStorageAccountObjectReplicationPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountObjectReplicationPolicyTypeArgs) ToStorageAccountObjectReplicationPolicyTypeOutputWithContext(ctx context.Context) StorageAccountObjectReplicationPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountObjectReplicationPolicyTypeOutput)
-}
-
-// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-type StorageAccountObjectReplicationPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountObjectReplicationPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountObjectReplicationPolicyType)(nil)).Elem()
-}
-
-func (o StorageAccountObjectReplicationPolicyTypeOutput) ToStorageAccountObjectReplicationPolicyTypeOutput() StorageAccountObjectReplicationPolicyTypeOutput {
-	return o
-}
-
-func (o StorageAccountObjectReplicationPolicyTypeOutput) ToStorageAccountObjectReplicationPolicyTypeOutputWithContext(ctx context.Context) StorageAccountObjectReplicationPolicyTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o StorageAccountObjectReplicationPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountObjectReplicationPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Returns the Storage Account Object Replication Policy.
-func (o StorageAccountObjectReplicationPolicyTypeOutput) Properties() ObjectReplicationPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountObjectReplicationPolicyType) ObjectReplicationPolicyPropertiesResponse {
-		return v.Properties
-	}).(ObjectReplicationPolicyPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountObjectReplicationPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountObjectReplicationPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Private Endpoint Connection resource.
-type StorageAccountPrivateEndpointConnectionType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountPrivateEndpointConnectionTypeInput is an input type that accepts StorageAccountPrivateEndpointConnectionTypeArgs and StorageAccountPrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `StorageAccountPrivateEndpointConnectionTypeInput` via:
-//
-//          StorageAccountPrivateEndpointConnectionTypeArgs{...}
-type StorageAccountPrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountPrivateEndpointConnectionTypeOutput() StorageAccountPrivateEndpointConnectionTypeOutput
-	ToStorageAccountPrivateEndpointConnectionTypeOutputWithContext(context.Context) StorageAccountPrivateEndpointConnectionTypeOutput
-}
-
-// The Private Endpoint Connection resource.
-type StorageAccountPrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountPrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i StorageAccountPrivateEndpointConnectionTypeArgs) ToStorageAccountPrivateEndpointConnectionTypeOutput() StorageAccountPrivateEndpointConnectionTypeOutput {
-	return i.ToStorageAccountPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountPrivateEndpointConnectionTypeArgs) ToStorageAccountPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) StorageAccountPrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPrivateEndpointConnectionTypeOutput)
-}
-
-// The Private Endpoint Connection resource.
-type StorageAccountPrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountPrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o StorageAccountPrivateEndpointConnectionTypeOutput) ToStorageAccountPrivateEndpointConnectionTypeOutput() StorageAccountPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o StorageAccountPrivateEndpointConnectionTypeOutput) ToStorageAccountPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) StorageAccountPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o StorageAccountPrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o StorageAccountPrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountPrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountPrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The parameters used to create the storage account.
@@ -13833,78 +13897,8 @@ func (o StorageAccountPropertiesResponsePtrOutput) SupportsHttpsTrafficOnly() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-type StorageAccountQueueServiceQueueType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Queue resource properties.
-	Properties QueuePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountQueueServiceQueueTypeInput is an input type that accepts StorageAccountQueueServiceQueueTypeArgs and StorageAccountQueueServiceQueueTypeOutput values.
-// You can construct a concrete instance of `StorageAccountQueueServiceQueueTypeInput` via:
-//
-//          StorageAccountQueueServiceQueueTypeArgs{...}
-type StorageAccountQueueServiceQueueTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountQueueServiceQueueTypeOutput() StorageAccountQueueServiceQueueTypeOutput
-	ToStorageAccountQueueServiceQueueTypeOutputWithContext(context.Context) StorageAccountQueueServiceQueueTypeOutput
-}
-
-type StorageAccountQueueServiceQueueTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Queue resource properties.
-	Properties QueuePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountQueueServiceQueueTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountQueueServiceQueueType)(nil)).Elem()
-}
-
-func (i StorageAccountQueueServiceQueueTypeArgs) ToStorageAccountQueueServiceQueueTypeOutput() StorageAccountQueueServiceQueueTypeOutput {
-	return i.ToStorageAccountQueueServiceQueueTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountQueueServiceQueueTypeArgs) ToStorageAccountQueueServiceQueueTypeOutputWithContext(ctx context.Context) StorageAccountQueueServiceQueueTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountQueueServiceQueueTypeOutput)
-}
-
-type StorageAccountQueueServiceQueueTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountQueueServiceQueueTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountQueueServiceQueueType)(nil)).Elem()
-}
-
-func (o StorageAccountQueueServiceQueueTypeOutput) ToStorageAccountQueueServiceQueueTypeOutput() StorageAccountQueueServiceQueueTypeOutput {
-	return o
-}
-
-func (o StorageAccountQueueServiceQueueTypeOutput) ToStorageAccountQueueServiceQueueTypeOutputWithContext(ctx context.Context) StorageAccountQueueServiceQueueTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o StorageAccountQueueServiceQueueTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountQueueServiceQueueType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Queue resource properties.
-func (o StorageAccountQueueServiceQueueTypeOutput) Properties() QueuePropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountQueueServiceQueueType) QueuePropertiesResponse { return v.Properties }).(QueuePropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountQueueServiceQueueTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountQueueServiceQueueType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the table, including Id, resource name, resource type.
-type StorageAccountTableServiceTableType struct {
+type TableType struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Table resource properties.
@@ -13913,19 +13907,19 @@ type StorageAccountTableServiceTableType struct {
 	Type string `pulumi:"type"`
 }
 
-// StorageAccountTableServiceTableTypeInput is an input type that accepts StorageAccountTableServiceTableTypeArgs and StorageAccountTableServiceTableTypeOutput values.
-// You can construct a concrete instance of `StorageAccountTableServiceTableTypeInput` via:
+// TableTypeInput is an input type that accepts TableTypeArgs and TableTypeOutput values.
+// You can construct a concrete instance of `TableTypeInput` via:
 //
-//          StorageAccountTableServiceTableTypeArgs{...}
-type StorageAccountTableServiceTableTypeInput interface {
+//          TableTypeArgs{...}
+type TableTypeInput interface {
 	pulumi.Input
 
-	ToStorageAccountTableServiceTableTypeOutput() StorageAccountTableServiceTableTypeOutput
-	ToStorageAccountTableServiceTableTypeOutputWithContext(context.Context) StorageAccountTableServiceTableTypeOutput
+	ToTableTypeOutput() TableTypeOutput
+	ToTableTypeOutputWithContext(context.Context) TableTypeOutput
 }
 
 // Properties of the table, including Id, resource name, resource type.
-type StorageAccountTableServiceTableTypeArgs struct {
+type TableTypeArgs struct {
 	// The name of the resource
 	Name pulumi.StringInput `pulumi:"name"`
 	// Table resource properties.
@@ -13934,46 +13928,46 @@ type StorageAccountTableServiceTableTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (StorageAccountTableServiceTableTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountTableServiceTableType)(nil)).Elem()
+func (TableTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableType)(nil)).Elem()
 }
 
-func (i StorageAccountTableServiceTableTypeArgs) ToStorageAccountTableServiceTableTypeOutput() StorageAccountTableServiceTableTypeOutput {
-	return i.ToStorageAccountTableServiceTableTypeOutputWithContext(context.Background())
+func (i TableTypeArgs) ToTableTypeOutput() TableTypeOutput {
+	return i.ToTableTypeOutputWithContext(context.Background())
 }
 
-func (i StorageAccountTableServiceTableTypeArgs) ToStorageAccountTableServiceTableTypeOutputWithContext(ctx context.Context) StorageAccountTableServiceTableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountTableServiceTableTypeOutput)
+func (i TableTypeArgs) ToTableTypeOutputWithContext(ctx context.Context) TableTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTypeOutput)
 }
 
 // Properties of the table, including Id, resource name, resource type.
-type StorageAccountTableServiceTableTypeOutput struct{ *pulumi.OutputState }
+type TableTypeOutput struct{ *pulumi.OutputState }
 
-func (StorageAccountTableServiceTableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountTableServiceTableType)(nil)).Elem()
+func (TableTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableType)(nil)).Elem()
 }
 
-func (o StorageAccountTableServiceTableTypeOutput) ToStorageAccountTableServiceTableTypeOutput() StorageAccountTableServiceTableTypeOutput {
+func (o TableTypeOutput) ToTableTypeOutput() TableTypeOutput {
 	return o
 }
 
-func (o StorageAccountTableServiceTableTypeOutput) ToStorageAccountTableServiceTableTypeOutputWithContext(ctx context.Context) StorageAccountTableServiceTableTypeOutput {
+func (o TableTypeOutput) ToTableTypeOutputWithContext(ctx context.Context) TableTypeOutput {
 	return o
 }
 
 // The name of the resource
-func (o StorageAccountTableServiceTableTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountTableServiceTableType) string { return v.Name }).(pulumi.StringOutput)
+func (o TableTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Table resource properties.
-func (o StorageAccountTableServiceTableTypeOutput) Properties() TablePropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountTableServiceTableType) TablePropertiesResponse { return v.Properties }).(TablePropertiesResponseOutput)
+func (o TableTypeOutput) Properties() TablePropertiesResponseOutput {
+	return o.ApplyT(func(v TableType) TablePropertiesResponse { return v.Properties }).(TablePropertiesResponseOutput)
 }
 
 // The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageAccountTableServiceTableTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountTableServiceTableType) string { return v.Type }).(pulumi.StringOutput)
+func (o TableTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type TablePropertiesResponse struct {
@@ -15006,6 +15000,8 @@ func init() {
 	pulumi.RegisterOutputType(AzureFilesIdentityBasedAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(AzureFilesIdentityBasedAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(AzureFilesIdentityBasedAuthenticationResponsePtrOutput{})
+	pulumi.RegisterOutputType(BlobContainerTypeOutput{})
+	pulumi.RegisterOutputType(BlobContainerImmutabilityPolicyTypeOutput{})
 	pulumi.RegisterOutputType(BlobRestoreParametersResponseOutput{})
 	pulumi.RegisterOutputType(BlobRestoreParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlobRestoreRangeResponseOutput{})
@@ -15042,6 +15038,7 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionServicesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(FileShareTypeOutput{})
 	pulumi.RegisterOutputType(FileSharePropertiesOutput{})
 	pulumi.RegisterOutputType(FileSharePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FileSharePropertiesResponseOutput{})
@@ -15070,6 +15067,7 @@ func init() {
 	pulumi.RegisterOutputType(LegalHoldPropertiesOutput{})
 	pulumi.RegisterOutputType(LegalHoldPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LegalHoldPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyTypeOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyActionOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyActionResponseOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyBaseBlobOutput{})
@@ -15102,6 +15100,7 @@ func init() {
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
+	pulumi.RegisterOutputType(ObjectReplicationPolicyTypeOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyFilterOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyFilterPtrOutput{})
 	pulumi.RegisterOutputType(ObjectReplicationPolicyFilterResponseOutput{})
@@ -15116,6 +15115,7 @@ func init() {
 	pulumi.RegisterOutputType(ObjectReplicationPolicyRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
@@ -15128,6 +15128,7 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(QueueTypeOutput{})
 	pulumi.RegisterOutputType(QueuePropertiesOutput{})
 	pulumi.RegisterOutputType(QueuePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(QueuePropertiesResponseOutput{})
@@ -15141,24 +15142,17 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
-	pulumi.RegisterOutputType(StorageAccountBlobServiceContainerTypeOutput{})
-	pulumi.RegisterOutputType(StorageAccountBlobServiceContainerImmutabilityPolicyTypeOutput{})
-	pulumi.RegisterOutputType(StorageAccountFileServiceShareTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInternetEndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(StorageAccountManagementPolicyTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountMicrosoftEndpointsResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountObjectReplicationPolicyTypeOutput{})
-	pulumi.RegisterOutputType(StorageAccountPrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesCreateParametersOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesCreateParametersPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountQueueServiceQueueTypeOutput{})
-	pulumi.RegisterOutputType(StorageAccountTableServiceTableTypeOutput{})
+	pulumi.RegisterOutputType(TableTypeOutput{})
 	pulumi.RegisterOutputType(TablePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TablePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagFilterOutput{})

@@ -10,6 +10,106 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Represents a database.
+type DatabaseType struct {
+	// Kind of database.  This is metadata used for the Azure portal experience.
+	Kind string `pulumi:"kind"`
+	// Resource location.
+	Location string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The properties representing the resource.
+	Properties DatabasePropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// DatabaseTypeInput is an input type that accepts DatabaseTypeArgs and DatabaseTypeOutput values.
+// You can construct a concrete instance of `DatabaseTypeInput` via:
+//
+//          DatabaseTypeArgs{...}
+type DatabaseTypeInput interface {
+	pulumi.Input
+
+	ToDatabaseTypeOutput() DatabaseTypeOutput
+	ToDatabaseTypeOutputWithContext(context.Context) DatabaseTypeOutput
+}
+
+// Represents a database.
+type DatabaseTypeArgs struct {
+	// Kind of database.  This is metadata used for the Azure portal experience.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Resource location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties representing the resource.
+	Properties DatabasePropertiesResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatabaseTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
+}
+
+func (i DatabaseTypeArgs) ToDatabaseTypeOutput() DatabaseTypeOutput {
+	return i.ToDatabaseTypeOutputWithContext(context.Background())
+}
+
+func (i DatabaseTypeArgs) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTypeOutput)
+}
+
+// Represents a database.
+type DatabaseTypeOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
+}
+
+func (o DatabaseTypeOutput) ToDatabaseTypeOutput() DatabaseTypeOutput {
+	return o
+}
+
+func (o DatabaseTypeOutput) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
+	return o
+}
+
+// Kind of database.  This is metadata used for the Azure portal experience.
+func (o DatabaseTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DatabaseTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DatabaseTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties representing the resource.
+func (o DatabaseTypeOutput) Properties() DatabasePropertiesResponseOutput {
+	return o.ApplyT(func(v DatabaseType) DatabasePropertiesResponse { return v.Properties }).(DatabasePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o DatabaseTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DatabaseType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o DatabaseTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Represents the properties of a database.
 type DatabaseProperties struct {
 	// The collation of the database. If createMode is not Default, this value is ignored.
@@ -1178,6 +1278,90 @@ func (o DatabasePropertiesResponsePtrOutput) ZoneRedundant() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Represents a disaster recovery configuration.
+type DisasterRecoveryConfigurationType struct {
+	// Location of the server that contains this disaster recovery configuration.
+	Location string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The properties representing the resource.
+	Properties DisasterRecoveryConfigurationPropertiesResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// DisasterRecoveryConfigurationTypeInput is an input type that accepts DisasterRecoveryConfigurationTypeArgs and DisasterRecoveryConfigurationTypeOutput values.
+// You can construct a concrete instance of `DisasterRecoveryConfigurationTypeInput` via:
+//
+//          DisasterRecoveryConfigurationTypeArgs{...}
+type DisasterRecoveryConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToDisasterRecoveryConfigurationTypeOutput() DisasterRecoveryConfigurationTypeOutput
+	ToDisasterRecoveryConfigurationTypeOutputWithContext(context.Context) DisasterRecoveryConfigurationTypeOutput
+}
+
+// Represents a disaster recovery configuration.
+type DisasterRecoveryConfigurationTypeArgs struct {
+	// Location of the server that contains this disaster recovery configuration.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties representing the resource.
+	Properties DisasterRecoveryConfigurationPropertiesResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DisasterRecoveryConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigurationType)(nil)).Elem()
+}
+
+func (i DisasterRecoveryConfigurationTypeArgs) ToDisasterRecoveryConfigurationTypeOutput() DisasterRecoveryConfigurationTypeOutput {
+	return i.ToDisasterRecoveryConfigurationTypeOutputWithContext(context.Background())
+}
+
+func (i DisasterRecoveryConfigurationTypeArgs) ToDisasterRecoveryConfigurationTypeOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationTypeOutput)
+}
+
+// Represents a disaster recovery configuration.
+type DisasterRecoveryConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (DisasterRecoveryConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisasterRecoveryConfigurationType)(nil)).Elem()
+}
+
+func (o DisasterRecoveryConfigurationTypeOutput) ToDisasterRecoveryConfigurationTypeOutput() DisasterRecoveryConfigurationTypeOutput {
+	return o
+}
+
+func (o DisasterRecoveryConfigurationTypeOutput) ToDisasterRecoveryConfigurationTypeOutputWithContext(ctx context.Context) DisasterRecoveryConfigurationTypeOutput {
+	return o
+}
+
+// Location of the server that contains this disaster recovery configuration.
+func (o DisasterRecoveryConfigurationTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigurationType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DisasterRecoveryConfigurationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigurationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties representing the resource.
+func (o DisasterRecoveryConfigurationTypeOutput) Properties() DisasterRecoveryConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigurationType) DisasterRecoveryConfigurationPropertiesResponse {
+		return v.Properties
+	}).(DisasterRecoveryConfigurationPropertiesResponseOutput)
+}
+
+// Resource type.
+func (o DisasterRecoveryConfigurationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DisasterRecoveryConfigurationType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Represents the properties of a disaster recovery configuration.
 type DisasterRecoveryConfigurationPropertiesResponse struct {
 	// Whether or not failover can be done automatically.
@@ -1426,6 +1610,106 @@ func (o DisasterRecoveryConfigurationPropertiesResponsePtrOutput) Status() pulum
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents a database elastic pool.
+type ElasticPoolType struct {
+	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+	Kind string `pulumi:"kind"`
+	// Resource location.
+	Location string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The properties representing the resource.
+	Properties ElasticPoolPropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// ElasticPoolTypeInput is an input type that accepts ElasticPoolTypeArgs and ElasticPoolTypeOutput values.
+// You can construct a concrete instance of `ElasticPoolTypeInput` via:
+//
+//          ElasticPoolTypeArgs{...}
+type ElasticPoolTypeInput interface {
+	pulumi.Input
+
+	ToElasticPoolTypeOutput() ElasticPoolTypeOutput
+	ToElasticPoolTypeOutputWithContext(context.Context) ElasticPoolTypeOutput
+}
+
+// Represents a database elastic pool.
+type ElasticPoolTypeArgs struct {
+	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Resource location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties representing the resource.
+	Properties ElasticPoolPropertiesResponseInput `pulumi:"properties"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ElasticPoolTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolType)(nil)).Elem()
+}
+
+func (i ElasticPoolTypeArgs) ToElasticPoolTypeOutput() ElasticPoolTypeOutput {
+	return i.ToElasticPoolTypeOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolTypeArgs) ToElasticPoolTypeOutputWithContext(ctx context.Context) ElasticPoolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolTypeOutput)
+}
+
+// Represents a database elastic pool.
+type ElasticPoolTypeOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolType)(nil)).Elem()
+}
+
+func (o ElasticPoolTypeOutput) ToElasticPoolTypeOutput() ElasticPoolTypeOutput {
+	return o
+}
+
+func (o ElasticPoolTypeOutput) ToElasticPoolTypeOutputWithContext(ctx context.Context) ElasticPoolTypeOutput {
+	return o
+}
+
+// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+func (o ElasticPoolTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ElasticPoolType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ElasticPoolTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ElasticPoolType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ElasticPoolTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ElasticPoolType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties representing the resource.
+func (o ElasticPoolTypeOutput) Properties() ElasticPoolPropertiesResponseOutput {
+	return o.ApplyT(func(v ElasticPoolType) ElasticPoolPropertiesResponse { return v.Properties }).(ElasticPoolPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o ElasticPoolTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ElasticPoolType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ElasticPoolTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ElasticPoolType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Represents the properties of an elastic pool.
@@ -1922,6 +2206,97 @@ func (o ElasticPoolPropertiesResponsePtrOutput) ZoneRedundant() pulumi.BoolPtrOu
 		}
 		return v.ZoneRedundant
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Represents a server firewall rule.
+type FirewallRuleType struct {
+	// Kind of server that contains this firewall rule.
+	Kind string `pulumi:"kind"`
+	// Location of the server that contains this firewall rule.
+	Location string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The properties representing the resource.
+	Properties FirewallRulePropertiesResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// FirewallRuleTypeInput is an input type that accepts FirewallRuleTypeArgs and FirewallRuleTypeOutput values.
+// You can construct a concrete instance of `FirewallRuleTypeInput` via:
+//
+//          FirewallRuleTypeArgs{...}
+type FirewallRuleTypeInput interface {
+	pulumi.Input
+
+	ToFirewallRuleTypeOutput() FirewallRuleTypeOutput
+	ToFirewallRuleTypeOutputWithContext(context.Context) FirewallRuleTypeOutput
+}
+
+// Represents a server firewall rule.
+type FirewallRuleTypeArgs struct {
+	// Kind of server that contains this firewall rule.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Location of the server that contains this firewall rule.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties representing the resource.
+	Properties FirewallRulePropertiesResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallRuleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
+}
+
+func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
+	return i.ToFirewallRuleTypeOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleTypeOutput)
+}
+
+// Represents a server firewall rule.
+type FirewallRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
+}
+
+func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
+	return o
+}
+
+func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
+	return o
+}
+
+// Kind of server that contains this firewall rule.
+func (o FirewallRuleTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Location of the server that contains this firewall rule.
+func (o FirewallRuleTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o FirewallRuleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties representing the resource.
+func (o FirewallRuleTypeOutput) Properties() FirewallRulePropertiesResponseOutput {
+	return o.ApplyT(func(v FirewallRuleType) FirewallRulePropertiesResponse { return v.Properties }).(FirewallRulePropertiesResponseOutput)
+}
+
+// Resource type.
+func (o FirewallRuleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Represents the properties of a server firewall rule.
@@ -2876,79 +3251,6 @@ func (o ServerTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// An server Active Directory Administrator.
-type ServerAdministratorType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServerAdministratorPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ServerAdministratorTypeInput is an input type that accepts ServerAdministratorTypeArgs and ServerAdministratorTypeOutput values.
-// You can construct a concrete instance of `ServerAdministratorTypeInput` via:
-//
-//          ServerAdministratorTypeArgs{...}
-type ServerAdministratorTypeInput interface {
-	pulumi.Input
-
-	ToServerAdministratorTypeOutput() ServerAdministratorTypeOutput
-	ToServerAdministratorTypeOutputWithContext(context.Context) ServerAdministratorTypeOutput
-}
-
-// An server Active Directory Administrator.
-type ServerAdministratorTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServerAdministratorPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerAdministratorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdministratorType)(nil)).Elem()
-}
-
-func (i ServerAdministratorTypeArgs) ToServerAdministratorTypeOutput() ServerAdministratorTypeOutput {
-	return i.ToServerAdministratorTypeOutputWithContext(context.Background())
-}
-
-func (i ServerAdministratorTypeArgs) ToServerAdministratorTypeOutputWithContext(ctx context.Context) ServerAdministratorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorTypeOutput)
-}
-
-// An server Active Directory Administrator.
-type ServerAdministratorTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerAdministratorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdministratorType)(nil)).Elem()
-}
-
-func (o ServerAdministratorTypeOutput) ToServerAdministratorTypeOutput() ServerAdministratorTypeOutput {
-	return o
-}
-
-func (o ServerAdministratorTypeOutput) ToServerAdministratorTypeOutputWithContext(ctx context.Context) ServerAdministratorTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ServerAdministratorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerAdministratorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o ServerAdministratorTypeOutput) Properties() ServerAdministratorPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerAdministratorType) ServerAdministratorPropertiesResponse { return v.Properties }).(ServerAdministratorPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o ServerAdministratorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerAdministratorType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of an server Administrator.
 type ServerAdministratorProperties struct {
 	// The type of administrator.
@@ -3331,6 +3633,79 @@ func (o ServerAdministratorPropertiesResponsePtrOutput) TenantId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// An server Active Directory Administrator.
+type ServerAzureADAdministratorType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The properties of the resource.
+	Properties ServerAdministratorPropertiesResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// ServerAzureADAdministratorTypeInput is an input type that accepts ServerAzureADAdministratorTypeArgs and ServerAzureADAdministratorTypeOutput values.
+// You can construct a concrete instance of `ServerAzureADAdministratorTypeInput` via:
+//
+//          ServerAzureADAdministratorTypeArgs{...}
+type ServerAzureADAdministratorTypeInput interface {
+	pulumi.Input
+
+	ToServerAzureADAdministratorTypeOutput() ServerAzureADAdministratorTypeOutput
+	ToServerAzureADAdministratorTypeOutputWithContext(context.Context) ServerAzureADAdministratorTypeOutput
+}
+
+// An server Active Directory Administrator.
+type ServerAzureADAdministratorTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the resource.
+	Properties ServerAdministratorPropertiesResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServerAzureADAdministratorTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADAdministratorType)(nil)).Elem()
+}
+
+func (i ServerAzureADAdministratorTypeArgs) ToServerAzureADAdministratorTypeOutput() ServerAzureADAdministratorTypeOutput {
+	return i.ToServerAzureADAdministratorTypeOutputWithContext(context.Background())
+}
+
+func (i ServerAzureADAdministratorTypeArgs) ToServerAzureADAdministratorTypeOutputWithContext(ctx context.Context) ServerAzureADAdministratorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureADAdministratorTypeOutput)
+}
+
+// An server Active Directory Administrator.
+type ServerAzureADAdministratorTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerAzureADAdministratorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureADAdministratorType)(nil)).Elem()
+}
+
+func (o ServerAzureADAdministratorTypeOutput) ToServerAzureADAdministratorTypeOutput() ServerAzureADAdministratorTypeOutput {
+	return o
+}
+
+func (o ServerAzureADAdministratorTypeOutput) ToServerAzureADAdministratorTypeOutputWithContext(ctx context.Context) ServerAzureADAdministratorTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ServerAzureADAdministratorTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerAzureADAdministratorType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the resource.
+func (o ServerAzureADAdministratorTypeOutput) Properties() ServerAdministratorPropertiesResponseOutput {
+	return o.ApplyT(func(v ServerAzureADAdministratorType) ServerAdministratorPropertiesResponse { return v.Properties }).(ServerAdministratorPropertiesResponseOutput)
+}
+
+// Resource type.
+func (o ServerAzureADAdministratorTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerAzureADAdministratorType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Server communication link.
 type ServerCommunicationLinkType struct {
 	// Communication link kind.  This property is used for Azure Portal metadata.
@@ -3709,381 +4084,6 @@ func (o ServerCommunicationLinkPropertiesResponsePtrOutput) State() pulumi.Strin
 		}
 		return &v.State
 	}).(pulumi.StringPtrOutput)
-}
-
-// Represents a database.
-type ServerDatabaseType struct {
-	// Kind of database.  This is metadata used for the Azure portal experience.
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties DatabasePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ServerDatabaseTypeInput is an input type that accepts ServerDatabaseTypeArgs and ServerDatabaseTypeOutput values.
-// You can construct a concrete instance of `ServerDatabaseTypeInput` via:
-//
-//          ServerDatabaseTypeArgs{...}
-type ServerDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToServerDatabaseTypeOutput() ServerDatabaseTypeOutput
-	ToServerDatabaseTypeOutputWithContext(context.Context) ServerDatabaseTypeOutput
-}
-
-// Represents a database.
-type ServerDatabaseTypeArgs struct {
-	// Kind of database.  This is metadata used for the Azure portal experience.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties representing the resource.
-	Properties DatabasePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDatabaseType)(nil)).Elem()
-}
-
-func (i ServerDatabaseTypeArgs) ToServerDatabaseTypeOutput() ServerDatabaseTypeOutput {
-	return i.ToServerDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i ServerDatabaseTypeArgs) ToServerDatabaseTypeOutputWithContext(ctx context.Context) ServerDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerDatabaseTypeOutput)
-}
-
-// Represents a database.
-type ServerDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDatabaseType)(nil)).Elem()
-}
-
-func (o ServerDatabaseTypeOutput) ToServerDatabaseTypeOutput() ServerDatabaseTypeOutput {
-	return o
-}
-
-func (o ServerDatabaseTypeOutput) ToServerDatabaseTypeOutputWithContext(ctx context.Context) ServerDatabaseTypeOutput {
-	return o
-}
-
-// Kind of database.  This is metadata used for the Azure portal experience.
-func (o ServerDatabaseTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerDatabaseType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o ServerDatabaseTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerDatabaseType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ServerDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties representing the resource.
-func (o ServerDatabaseTypeOutput) Properties() DatabasePropertiesResponseOutput {
-	return o.ApplyT(func(v ServerDatabaseType) DatabasePropertiesResponse { return v.Properties }).(DatabasePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ServerDatabaseTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServerDatabaseType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ServerDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerDatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a disaster recovery configuration.
-type ServerDisasterRecoveryConfigurationType struct {
-	// Location of the server that contains this disaster recovery configuration.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties DisasterRecoveryConfigurationPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ServerDisasterRecoveryConfigurationTypeInput is an input type that accepts ServerDisasterRecoveryConfigurationTypeArgs and ServerDisasterRecoveryConfigurationTypeOutput values.
-// You can construct a concrete instance of `ServerDisasterRecoveryConfigurationTypeInput` via:
-//
-//          ServerDisasterRecoveryConfigurationTypeArgs{...}
-type ServerDisasterRecoveryConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToServerDisasterRecoveryConfigurationTypeOutput() ServerDisasterRecoveryConfigurationTypeOutput
-	ToServerDisasterRecoveryConfigurationTypeOutputWithContext(context.Context) ServerDisasterRecoveryConfigurationTypeOutput
-}
-
-// Represents a disaster recovery configuration.
-type ServerDisasterRecoveryConfigurationTypeArgs struct {
-	// Location of the server that contains this disaster recovery configuration.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties representing the resource.
-	Properties DisasterRecoveryConfigurationPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerDisasterRecoveryConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDisasterRecoveryConfigurationType)(nil)).Elem()
-}
-
-func (i ServerDisasterRecoveryConfigurationTypeArgs) ToServerDisasterRecoveryConfigurationTypeOutput() ServerDisasterRecoveryConfigurationTypeOutput {
-	return i.ToServerDisasterRecoveryConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i ServerDisasterRecoveryConfigurationTypeArgs) ToServerDisasterRecoveryConfigurationTypeOutputWithContext(ctx context.Context) ServerDisasterRecoveryConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerDisasterRecoveryConfigurationTypeOutput)
-}
-
-// Represents a disaster recovery configuration.
-type ServerDisasterRecoveryConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerDisasterRecoveryConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDisasterRecoveryConfigurationType)(nil)).Elem()
-}
-
-func (o ServerDisasterRecoveryConfigurationTypeOutput) ToServerDisasterRecoveryConfigurationTypeOutput() ServerDisasterRecoveryConfigurationTypeOutput {
-	return o
-}
-
-func (o ServerDisasterRecoveryConfigurationTypeOutput) ToServerDisasterRecoveryConfigurationTypeOutputWithContext(ctx context.Context) ServerDisasterRecoveryConfigurationTypeOutput {
-	return o
-}
-
-// Location of the server that contains this disaster recovery configuration.
-func (o ServerDisasterRecoveryConfigurationTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerDisasterRecoveryConfigurationType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ServerDisasterRecoveryConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerDisasterRecoveryConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties representing the resource.
-func (o ServerDisasterRecoveryConfigurationTypeOutput) Properties() DisasterRecoveryConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerDisasterRecoveryConfigurationType) DisasterRecoveryConfigurationPropertiesResponse {
-		return v.Properties
-	}).(DisasterRecoveryConfigurationPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o ServerDisasterRecoveryConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerDisasterRecoveryConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a database elastic pool.
-type ServerElasticPoolType struct {
-	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties ElasticPoolPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ServerElasticPoolTypeInput is an input type that accepts ServerElasticPoolTypeArgs and ServerElasticPoolTypeOutput values.
-// You can construct a concrete instance of `ServerElasticPoolTypeInput` via:
-//
-//          ServerElasticPoolTypeArgs{...}
-type ServerElasticPoolTypeInput interface {
-	pulumi.Input
-
-	ToServerElasticPoolTypeOutput() ServerElasticPoolTypeOutput
-	ToServerElasticPoolTypeOutputWithContext(context.Context) ServerElasticPoolTypeOutput
-}
-
-// Represents a database elastic pool.
-type ServerElasticPoolTypeArgs struct {
-	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties representing the resource.
-	Properties ElasticPoolPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerElasticPoolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerElasticPoolType)(nil)).Elem()
-}
-
-func (i ServerElasticPoolTypeArgs) ToServerElasticPoolTypeOutput() ServerElasticPoolTypeOutput {
-	return i.ToServerElasticPoolTypeOutputWithContext(context.Background())
-}
-
-func (i ServerElasticPoolTypeArgs) ToServerElasticPoolTypeOutputWithContext(ctx context.Context) ServerElasticPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerElasticPoolTypeOutput)
-}
-
-// Represents a database elastic pool.
-type ServerElasticPoolTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerElasticPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerElasticPoolType)(nil)).Elem()
-}
-
-func (o ServerElasticPoolTypeOutput) ToServerElasticPoolTypeOutput() ServerElasticPoolTypeOutput {
-	return o
-}
-
-func (o ServerElasticPoolTypeOutput) ToServerElasticPoolTypeOutputWithContext(ctx context.Context) ServerElasticPoolTypeOutput {
-	return o
-}
-
-// Kind of elastic pool.  This is metadata used for the Azure portal experience.
-func (o ServerElasticPoolTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerElasticPoolType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o ServerElasticPoolTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerElasticPoolType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ServerElasticPoolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerElasticPoolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties representing the resource.
-func (o ServerElasticPoolTypeOutput) Properties() ElasticPoolPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerElasticPoolType) ElasticPoolPropertiesResponse { return v.Properties }).(ElasticPoolPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ServerElasticPoolTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServerElasticPoolType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ServerElasticPoolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerElasticPoolType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a server firewall rule.
-type ServerFirewallRuleType struct {
-	// Kind of server that contains this firewall rule.
-	Kind string `pulumi:"kind"`
-	// Location of the server that contains this firewall rule.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties FirewallRulePropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ServerFirewallRuleTypeInput is an input type that accepts ServerFirewallRuleTypeArgs and ServerFirewallRuleTypeOutput values.
-// You can construct a concrete instance of `ServerFirewallRuleTypeInput` via:
-//
-//          ServerFirewallRuleTypeArgs{...}
-type ServerFirewallRuleTypeInput interface {
-	pulumi.Input
-
-	ToServerFirewallRuleTypeOutput() ServerFirewallRuleTypeOutput
-	ToServerFirewallRuleTypeOutputWithContext(context.Context) ServerFirewallRuleTypeOutput
-}
-
-// Represents a server firewall rule.
-type ServerFirewallRuleTypeArgs struct {
-	// Kind of server that contains this firewall rule.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Location of the server that contains this firewall rule.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties representing the resource.
-	Properties FirewallRulePropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerFirewallRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFirewallRuleType)(nil)).Elem()
-}
-
-func (i ServerFirewallRuleTypeArgs) ToServerFirewallRuleTypeOutput() ServerFirewallRuleTypeOutput {
-	return i.ToServerFirewallRuleTypeOutputWithContext(context.Background())
-}
-
-func (i ServerFirewallRuleTypeArgs) ToServerFirewallRuleTypeOutputWithContext(ctx context.Context) ServerFirewallRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerFirewallRuleTypeOutput)
-}
-
-// Represents a server firewall rule.
-type ServerFirewallRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerFirewallRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFirewallRuleType)(nil)).Elem()
-}
-
-func (o ServerFirewallRuleTypeOutput) ToServerFirewallRuleTypeOutput() ServerFirewallRuleTypeOutput {
-	return o
-}
-
-func (o ServerFirewallRuleTypeOutput) ToServerFirewallRuleTypeOutputWithContext(ctx context.Context) ServerFirewallRuleTypeOutput {
-	return o
-}
-
-// Kind of server that contains this firewall rule.
-func (o ServerFirewallRuleTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerFirewallRuleType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Location of the server that contains this firewall rule.
-func (o ServerFirewallRuleTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerFirewallRuleType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ServerFirewallRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerFirewallRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties representing the resource.
-func (o ServerFirewallRuleTypeOutput) Properties() FirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v ServerFirewallRuleType) FirewallRulePropertiesResponse { return v.Properties }).(FirewallRulePropertiesResponseOutput)
-}
-
-// Resource type.
-func (o ServerFirewallRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerFirewallRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Represents the properties of a server.
@@ -5588,16 +5588,20 @@ func (o TransparentDataEncryptionResponseArrayOutput) Index(i pulumi.IntInput) T
 }
 
 func init() {
+	pulumi.RegisterOutputType(DatabaseTypeOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DisasterRecoveryConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(DisasterRecoveryConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DisasterRecoveryConfigurationPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ElasticPoolTypeOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPropertiesOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponseOutput{})
@@ -5611,20 +5615,16 @@ func init() {
 	pulumi.RegisterOutputType(RecommendedIndexResponseOutput{})
 	pulumi.RegisterOutputType(RecommendedIndexResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerTypeOutput{})
-	pulumi.RegisterOutputType(ServerAdministratorTypeOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorPropertiesOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerAzureADAdministratorTypeOutput{})
 	pulumi.RegisterOutputType(ServerCommunicationLinkTypeOutput{})
 	pulumi.RegisterOutputType(ServerCommunicationLinkPropertiesOutput{})
 	pulumi.RegisterOutputType(ServerCommunicationLinkPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServerCommunicationLinkPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServerCommunicationLinkPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerDatabaseTypeOutput{})
-	pulumi.RegisterOutputType(ServerDisasterRecoveryConfigurationTypeOutput{})
-	pulumi.RegisterOutputType(ServerElasticPoolTypeOutput{})
-	pulumi.RegisterOutputType(ServerFirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesResponseOutput{})

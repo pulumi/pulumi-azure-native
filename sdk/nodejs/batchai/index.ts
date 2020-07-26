@@ -2,16 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./cluster";
+export * from "./experiment";
+export * from "./fileServer";
+export * from "./getCluster";
+export * from "./getExperiment";
+export * from "./getFileServer";
+export * from "./getJob";
 export * from "./getWorkspace";
-export * from "./getWorkspaceCluster";
-export * from "./getWorkspaceExperiment";
-export * from "./getWorkspaceExperimentJob";
-export * from "./getWorkspaceFileServer";
-export * from "./listWorkspaceClusterRemoteLoginInformation";
-export * from "./listWorkspaceExperimentJobOutputFiles";
-export * from "./listWorkspaceExperimentJobRemoteLoginInformation";
+export * from "./job";
+export * from "./listClusterRemoteLoginInformation";
+export * from "./listJobOutputFiles";
+export * from "./listJobRemoteLoginInformation";
 export * from "./workspace";
-export * from "./workspaceCluster";
-export * from "./workspaceExperiment";
-export * from "./workspaceExperimentJob";
-export * from "./workspaceFileServer";

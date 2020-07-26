@@ -15,12 +15,17 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab:getSchedule", {
+        "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetScheduleArgs {
+    /**
+     * The name of the lab.
+     */
+    readonly labName: string;
     /**
      * The name of the schedule.
      */

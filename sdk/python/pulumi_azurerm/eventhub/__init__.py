@@ -3,18 +3,18 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .consumer_group import *
+from .disaster_recovery_config import *
+from .event_hub import *
+from .event_hub_authorization_rule import *
+from .get_consumer_group import *
+from .get_disaster_recovery_config import *
+from .get_event_hub import *
+from .get_event_hub_authorization_rule import *
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
-from .get_namespace_disaster_recovery_config import *
-from .get_namespace_eventhub import *
-from .get_namespace_eventhub_authorization_rule import *
-from .get_namespace_eventhub_consumergroup import *
-from .list_namespace_authorization_rule_keys import *
-from .list_namespace_disaster_recovery_config_authorization_rule_keys import *
-from .list_namespace_eventhub_authorization_rule_keys import *
+from .list_disaster_recovery_config_keys import *
+from .list_event_hub_keys import *
+from .list_namespace_keys import *
 from .namespace import *
 from .namespace_authorization_rule import *
-from .namespace_disaster_recovery_config import *
-from .namespace_eventhub import *
-from .namespace_eventhub_authorization_rule import *
-from .namespace_eventhub_consumergroup import *

@@ -19,12 +19,6 @@ namespace Pulumi.AzureRM.Authorization
     public sealed class GetPolicyDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the management group.
-        /// </summary>
-        [Input("managementGroupId", required: true)]
-        public string ManagementGroupId { get; set; } = null!;
-
-        /// <summary>
         /// The name of the policy definition to get.
         /// </summary>
         [Input("name", required: true)]

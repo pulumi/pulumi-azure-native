@@ -4,6 +4,6 @@
 // Export members:
 export * from "./getWebService";
 export * from "./getWorkspace";
-export * from "./listWorkspaceWorkspaceKeys";
+export * from "./listWorkspaceKeys";
 export * from "./webService";
 export * from "./workspace";

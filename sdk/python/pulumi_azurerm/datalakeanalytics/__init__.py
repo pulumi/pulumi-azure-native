@@ -4,9 +4,9 @@
 
 # Export this package's modules as members:
 from .account import *
-from .account_compute_policy import *
-from .account_firewall_rule import *
+from .compute_policy import *
+from .firewall_rule import *
 from .get_account import *
-from .get_account_compute_policy import *
-from .get_account_firewall_rule import *
-from .list_account_storage_account_container_sas_tokens import *
+from .get_compute_policy import *
+from .get_firewall_rule import *
+from .list_storage_account_sas_tokens import *

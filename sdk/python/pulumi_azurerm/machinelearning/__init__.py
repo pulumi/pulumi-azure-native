@@ -5,6 +5,6 @@
 # Export this package's modules as members:
 from .get_web_service import *
 from .get_workspace import *
-from .list_workspace_workspace_keys import *
+from .list_workspace_keys import *
 from .web_service import *
 from .workspace import *

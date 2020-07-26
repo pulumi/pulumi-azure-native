@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Network
 {
-    public static class GetP2svpnGateway
+    public static class GetP2sVpnGateway
     {
-        public static Task<GetP2svpnGatewayResult> InvokeAsync(GetP2svpnGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetP2svpnGatewayResult>("azurerm:network:getP2svpnGateway", args ?? new GetP2svpnGatewayArgs(), options.WithVersion());
+        public static Task<GetP2sVpnGatewayResult> InvokeAsync(GetP2sVpnGatewayArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayResult>("azurerm:network:getP2sVpnGateway", args ?? new GetP2sVpnGatewayArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetP2svpnGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetP2sVpnGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gateway.
@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.Network
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetP2svpnGatewayArgs()
+        public GetP2sVpnGatewayArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetP2svpnGatewayResult
+    public sealed class GetP2sVpnGatewayResult
     {
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureRM.Network
         public readonly string Type;
 
         [OutputConstructor]
-        private GetP2svpnGatewayResult(
+        private GetP2sVpnGatewayResult(
             string etag,
 
             string location,

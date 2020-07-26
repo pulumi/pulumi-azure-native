@@ -4,11 +4,11 @@
 // Export members:
 export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
-export * from "./getNamespaceNotificationHub";
-export * from "./getNamespaceNotificationHubAuthorizationRule";
-export * from "./listNamespaceAuthorizationRuleKeys";
-export * from "./listNamespaceNotificationHubAuthorizationRuleKeys";
+export * from "./getNotificationHub";
+export * from "./getNotificationHubAuthorizationRule";
+export * from "./listNamespaceKeys";
+export * from "./listNotificationHubKeys";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
-export * from "./namespaceNotificationHub";
-export * from "./namespaceNotificationHubAuthorizationRule";
+export * from "./notificationHub";
+export * from "./notificationHubAuthorizationRule";

@@ -25,9 +25,6 @@ type PolicyDefinition struct {
 // NewPolicyDefinition registers a new resource with the given unique name, arguments, and options.
 func NewPolicyDefinition(ctx *pulumi.Context,
 	name string, args *PolicyDefinitionArgs, opts ...pulumi.ResourceOption) (*PolicyDefinition, error) {
-	if args == nil || args.ManagementGroupId == nil {
-		return nil, errors.New("missing required argument 'ManagementGroupId'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -78,8 +75,6 @@ func (PolicyDefinitionState) ElementType() reflect.Type {
 }
 
 type policyDefinitionArgs struct {
-	// The ID of the management group.
-	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The name of the policy definition to create.
 	Name string `pulumi:"name"`
 	// The policy definition properties.
@@ -88,8 +83,6 @@ type policyDefinitionArgs struct {
 
 // The set of arguments for constructing a PolicyDefinition resource.
 type PolicyDefinitionArgs struct {
-	// The ID of the management group.
-	ManagementGroupId pulumi.StringInput
 	// The name of the policy definition to create.
 	Name pulumi.StringInput
 	// The policy definition properties.

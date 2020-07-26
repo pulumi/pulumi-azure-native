@@ -5,6 +5,93 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+/**
+ * Identity for the resource.
+ */
+export interface IdentityResponse {
+    /**
+     * The principal ID of resource identity.
+     */
+    principalId: string;
+    /**
+     * The tenant ID of resource.
+     */
+    tenantId: string;
+    /**
+     * The identity type.
+     */
+    type?: string;
+    /**
+     * The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+     */
+    userAssignedIdentities?: {[key: string]: string};
+}
+
+/**
+ * Plan for the resource.
+ */
+export interface PlanResponse {
+    /**
+     * The plan ID.
+     */
+    name?: string;
+    /**
+     * The offer ID.
+     */
+    product?: string;
+    /**
+     * The promotion code.
+     */
+    promotionCode?: string;
+    /**
+     * The publisher ID.
+     */
+    publisher?: string;
+    /**
+     * The plan's version.
+     */
+    version?: string;
+}
+
+/**
+ * The resource group properties.
+ */
+export interface ResourceGroupPropertiesResponse {
+    /**
+     * The provisioning state. 
+     */
+    provisioningState: string;
+}
+
+/**
+ * SKU for the resource.
+ */
+export interface SkuResponse {
+    /**
+     * The SKU capacity.
+     */
+    capacity?: number;
+    /**
+     * The SKU family.
+     */
+    family?: string;
+    /**
+     * The SKU model.
+     */
+    model?: string;
+    /**
+     * The SKU name.
+     */
+    name?: string;
+    /**
+     * The SKU size.
+     */
+    size?: string;
+    /**
+     * The SKU tier.
+     */
+    tier?: string;
+}
 export namespace aad {
     /**
      * Domain Security Settings
@@ -225,6 +312,184 @@ export namespace aad {
     }
 }
 
+export namespace aadiam {
+    /**
+     * The diagnostic settings.
+     */
+    export interface DiagnosticSettingsResponse {
+        /**
+         * The resource Id for the event hub authorization rule.
+         */
+        eventHubAuthorizationRuleId?: string;
+        /**
+         * The name of the event hub. If none is specified, the default event hub will be selected.
+         */
+        eventHubName?: string;
+        /**
+         * The list of logs settings.
+         */
+        logs?: outputs.aadiam.LogSettingsResponse[];
+        /**
+         * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+         */
+        serviceBusRuleId?: string;
+        /**
+         * The resource ID of the storage account to which you would like to send Diagnostic Logs.
+         */
+        storageAccountId?: string;
+        /**
+         * The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+         */
+        workspaceId?: string;
+    }
+
+    /**
+     * Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+     */
+    export interface LogSettingsResponse {
+        /**
+         * Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+         */
+        category?: string;
+        /**
+         * A value indicating whether this log is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The retention policy for this log.
+         */
+        retentionPolicy?: outputs.aadiam.RetentionPolicyResponse;
+    }
+
+    /**
+     * Specifies the retention policy for the log.
+     */
+    export interface RetentionPolicyResponse {
+        /**
+         * The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+         */
+        days: number;
+        /**
+         * A value indicating whether the retention policy is enabled.
+         */
+        enabled: boolean;
+    }
+}
+
+export namespace advisor {
+    /**
+     * The properties of the suppression.
+     */
+    export interface SuppressionPropertiesResponse {
+        /**
+         * The GUID of the suppression.
+         */
+        suppressionId?: string;
+        /**
+         * The duration for which the suppression is valid.
+         */
+        ttl?: string;
+    }
+}
+
+export namespace alertsmanagement {
+    /**
+     * The Action Groups information, used by the alert rule.
+     */
+    export interface ActionGroupsInformationResponse {
+        /**
+         * An optional custom email subject to use in email notifications.
+         */
+        customEmailSubject?: string;
+        /**
+         * An optional custom web-hook payload to use in web-hook notifications.
+         */
+        customWebhookPayload?: string;
+        /**
+         * The Action Group resource IDs.
+         */
+        groupIds: string[];
+    }
+
+    /**
+     * The alert rule properties.
+     */
+    export interface AlertRulePropertiesResponse {
+        /**
+         * The alert rule actions.
+         */
+        actionGroups: outputs.alertsmanagement.ActionGroupsInformationResponse;
+        /**
+         * The alert rule description.
+         */
+        description?: string;
+        /**
+         * The alert rule's detector.
+         */
+        detector: outputs.alertsmanagement.DetectorResponse;
+        /**
+         * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+         */
+        frequency: string;
+        /**
+         * The alert rule resources scope.
+         */
+        scope: string[];
+        /**
+         * The alert rule severity.
+         */
+        severity: string;
+        /**
+         * The alert rule state.
+         */
+        state: string;
+        /**
+         * The alert rule throttling information.
+         */
+        throttling?: outputs.alertsmanagement.ThrottlingInformationResponse;
+    }
+
+    /**
+     * The detector information. By default this is not populated, unless it's specified in expandDetector
+     */
+    export interface DetectorResponse {
+        /**
+         * The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+         */
+        description?: string;
+        /**
+         * The detector id.
+         */
+        id: string;
+        /**
+         * The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+         */
+        imagePaths?: string[];
+        /**
+         * The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+         */
+        name?: string;
+        /**
+         * The detector's parameters.'
+         */
+        parameters?: {[key: string]: string};
+        /**
+         * The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+         */
+        supportedResourceTypes?: string[];
+    }
+
+    /**
+     * Optional throttling information for the alert rule.
+     */
+    export interface ThrottlingInformationResponse {
+        /**
+         * The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+         */
+        duration?: string;
+    }
+}
+
 export namespace analysisservices {
     /**
      * Properties of Analysis Services resource.
@@ -341,6 +606,7 @@ export namespace analysisservices {
          */
         members?: string[];
     }
+
 }
 
 export namespace apimanagement {
@@ -2085,6 +2351,24 @@ export namespace appconfiguration {
 
 export namespace authorization {
     /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponse {
+        /**
+         * The principal ID of the resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the resource identity.
+         */
+        tenantId: string;
+        /**
+         * The identity type. This is the only required field when adding a system assigned identity to a resource.
+         */
+        type?: string;
+    }
+
+    /**
      * Lock owner properties.
      */
     export interface ManagementLockOwnerResponse {
@@ -2122,6 +2406,58 @@ export namespace authorization {
      * The parameter values for the policy rule. The keys are the parameter names.
      */
     export interface ParameterValuesResponse {
+    }
+
+    /**
+     * Role definition permissions.
+     */
+    export interface PermissionResponse {
+        /**
+         * Allowed actions.
+         */
+        actions?: string[];
+        /**
+         * Denied actions.
+         */
+        notActions?: string[];
+    }
+
+    /**
+     * The policy assignment properties.
+     */
+    export interface PolicyAssignmentPropertiesResponse {
+        /**
+         * This message will be part of response in case of policy violation.
+         */
+        description?: string;
+        /**
+         * The display name of the policy assignment.
+         */
+        displayName?: string;
+        /**
+         * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+         */
+        enforcementMode?: string;
+        /**
+         * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+         */
+        metadata?: {[key: string]: string};
+        /**
+         * The policy's excluded scopes.
+         */
+        notScopes?: string[];
+        /**
+         * The parameter values for the assigned policy rule. The keys are the parameter names.
+         */
+        parameters?: outputs.authorization.ParameterValuesResponse;
+        /**
+         * The ID of the policy definition or policy set definition being assigned.
+         */
+        policyDefinitionId?: string;
+        /**
+         * The scope for the policy assignment.
+         */
+        scope?: string;
     }
 
     /**
@@ -2238,6 +2574,64 @@ export namespace authorization {
          * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
          */
         policyType?: string;
+    }
+
+    /**
+     * The policy sku. This property is optional, obsolete, and will be ignored.
+     */
+    export interface PolicySkuResponse {
+        /**
+         * The name of the policy sku. Possible values are A0 and A1.
+         */
+        name: string;
+        /**
+         * The policy sku tier. Possible values are Free and Standard.
+         */
+        tier?: string;
+    }
+
+    /**
+     * Role assignment properties with scope.
+     */
+    export interface RoleAssignmentPropertiesWithScopeResponse {
+        /**
+         * The principal ID.
+         */
+        principalId?: string;
+        /**
+         * The role definition ID.
+         */
+        roleDefinitionId?: string;
+        /**
+         * The role assignment scope.
+         */
+        scope?: string;
+    }
+
+    /**
+     * Role definition properties.
+     */
+    export interface RoleDefinitionPropertiesResponse {
+        /**
+         * Role definition assignable scopes.
+         */
+        assignableScopes?: string[];
+        /**
+         * The role definition description.
+         */
+        description?: string;
+        /**
+         * Role definition permissions.
+         */
+        permissions?: outputs.authorization.PermissionResponse[];
+        /**
+         * The role name.
+         */
+        roleName?: string;
+        /**
+         * The role type.
+         */
+        type?: string;
     }
 }
 
@@ -5366,6 +5760,68 @@ export namespace batchai {
     }
 }
 
+export namespace billing {
+    /**
+     * Details of the Azure plan.
+     */
+    export interface AzurePlanResponse {
+        /**
+         * The sku description.
+         */
+        skuDescription: string;
+        /**
+         * The sku id.
+         */
+        skuId?: string;
+    }
+
+    /**
+     * Invoice section properties with create subscription permission.
+     */
+    export interface InvoiceSectionWithCreateSubPermissionResponse {
+        /**
+         * The name of the billing profile for the invoice section.
+         */
+        billingProfileDisplayName: string;
+        /**
+         * The ID of the billing profile for the invoice section.
+         */
+        billingProfileId: string;
+        /**
+         * The billing profile spending limit.
+         */
+        billingProfileSpendingLimit: string;
+        /**
+         * The status of the billing profile.
+         */
+        billingProfileStatus: string;
+        /**
+         * Reason for the specified billing profile status.
+         */
+        billingProfileStatusReasonCode: string;
+        /**
+         * The system generated unique identifier for a billing profile.
+         */
+        billingProfileSystemId: string;
+        /**
+         * Enabled azure plans for the associated billing profile.
+         */
+        enabledAzurePlans?: outputs.billing.AzurePlanResponse[];
+        /**
+         * The name of the invoice section.
+         */
+        invoiceSectionDisplayName: string;
+        /**
+         * The ID of the invoice section.
+         */
+        invoiceSectionId: string;
+        /**
+         * The system generated unique identifier for an invoice section.
+         */
+        invoiceSectionSystemId: string;
+    }
+}
+
 export namespace botservice {
     /**
      * The parameters to provide for the Bot.
@@ -5481,6 +5937,76 @@ export namespace botservice {
          * Setting Id set by the service for the Connection Setting.
          */
         settingId: string;
+    }
+
+    /**
+     * Extra Parameters specific to each Service Provider
+     */
+    export interface ServiceProviderParameterResponse {
+        /**
+         * Default Name for the Service Provider
+         */
+        default: string;
+        /**
+         * Description of the Service Provider
+         */
+        description: string;
+        /**
+         * Display Name of the Service Provider
+         */
+        displayName: string;
+        /**
+         * Help Url for the  Service Provider
+         */
+        helpUrl: string;
+        /**
+         * Name of the Service Provider
+         */
+        name: string;
+        /**
+         * Type of the Service Provider
+         */
+        type: string;
+    }
+
+    /**
+     * The Object used to describe a Service Provider supported by Bot Service
+     */
+    export interface ServiceProviderPropertiesResponse {
+        /**
+         * Display Name of the Service Provider
+         */
+        devPortalUrl: string;
+        /**
+         * Display Name of the Service Provider
+         */
+        displayName: string;
+        /**
+         * Display Name of the Service Provider
+         */
+        iconUrl: string;
+        /**
+         * Id for Service Provider
+         */
+        id: string;
+        /**
+         * The list of parameters for the Service Provider
+         */
+        parameters?: outputs.botservice.ServiceProviderParameterResponse[];
+        /**
+         * Display Name of the Service Provider
+         */
+        serviceProviderName: string;
+    }
+
+    /**
+     * Service Provider Definition
+     */
+    export interface ServiceProviderResponse {
+        /**
+         * The Properties of a Service Provider Object
+         */
+        properties?: outputs.botservice.ServiceProviderPropertiesResponse;
     }
 
     /**
@@ -6527,7 +7053,6 @@ export namespace certificateregistration {
          */
         version: number;
     }
-
 }
 
 export namespace cognitiveservices {
@@ -10103,6 +10628,124 @@ export namespace compute {
     }
 }
 
+export namespace consumption {
+    /**
+     * The comparison expression to be used in the budgets.
+     */
+    export interface BudgetComparisonExpressionResponse {
+        /**
+         * The name of the column to use in comparison.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison.
+         */
+        operator: string;
+        /**
+         * Array of values to use for comparison
+         */
+        values: string[];
+    }
+
+    /**
+     * The Dimensions or Tags to filter a budget by.
+     */
+    export interface BudgetFilterPropertiesResponse {
+        /**
+         * Has comparison expression for a dimension
+         */
+        dimensions?: outputs.consumption.BudgetComparisonExpressionResponse;
+        /**
+         * Has comparison expression for a tag
+         */
+        tags?: outputs.consumption.BudgetComparisonExpressionResponse;
+    }
+
+    /**
+     * May be used to filter budgets by resource group, resource, or meter.
+     */
+    export interface BudgetFilterResponse {
+        /**
+         * The logical "AND" expression. Must have at least 2 items.
+         */
+        and?: outputs.consumption.BudgetFilterPropertiesResponse[];
+        /**
+         * Has comparison expression for a dimension
+         */
+        dimensions?: outputs.consumption.BudgetComparisonExpressionResponse;
+        /**
+         * The logical "NOT" expression.
+         */
+        not?: outputs.consumption.BudgetFilterPropertiesResponse;
+        /**
+         * Has comparison expression for a tag
+         */
+        tags?: outputs.consumption.BudgetComparisonExpressionResponse;
+    }
+
+    /**
+     * The properties of the budget.
+     */
+    export interface BudgetPropertiesResponse {
+        /**
+         * The total amount of cost to track with the budget
+         */
+        amount: number;
+        /**
+         * The category of the budget, whether the budget tracks cost or usage.
+         */
+        category: string;
+        /**
+         * The current amount of cost which is being tracked for a budget.
+         */
+        currentSpend: outputs.consumption.CurrentSpendResponse;
+        /**
+         * May be used to filter budgets by resource group, resource, or meter.
+         */
+        filter?: outputs.consumption.BudgetFilterResponse;
+        /**
+         * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+         */
+        notifications?: {[key: string]: string};
+        /**
+         * The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
+         */
+        timeGrain: string;
+        /**
+         * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+         */
+        timePeriod: outputs.consumption.BudgetTimePeriodResponse;
+    }
+
+    /**
+     * The start and end date for a budget.
+     */
+    export interface BudgetTimePeriodResponse {
+        /**
+         * The end date for the budget. If not provided, we default this to 10 years from the start date.
+         */
+        endDate?: string;
+        /**
+         * The start date for the budget.
+         */
+        startDate: string;
+    }
+
+    /**
+     * The current amount of cost which is being tracked for a budget.
+     */
+    export interface CurrentSpendResponse {
+        /**
+         * The total amount of cost which is being tracked by the budget.
+         */
+        amount: number;
+        /**
+         * The unit of measure for the budget amount.
+         */
+        unit: string;
+    }
+}
+
 export namespace containerinstance {
     /**
      * The properties of the Azure File volume. Azure File shares are mounted as volumes.
@@ -12555,15 +13198,499 @@ export namespace containerservice {
     }
 }
 
-export namespace core {
+export namespace costmanagement {
     /**
-     * The resource group properties.
+     * The common properties of the export.
      */
-    export interface ResourceGroupPropertiesResponse {
+    export interface CommonExportPropertiesResponse {
         /**
-         * The provisioning state. 
+         * Has the definition for the export.
          */
-        provisioningState: string;
+        definition: outputs.costmanagement.ExportDefinitionResponse;
+        /**
+         * Has delivery information for the export.
+         */
+        deliveryInfo: outputs.costmanagement.ExportDeliveryInfoResponse;
+        /**
+         * The format of the export being delivered. Currently only 'Csv' is supported.
+         */
+        format?: string;
+        /**
+         * If the export has an active schedule, provides an estimate of the next execution time.
+         */
+        nextRunTimeEstimate: string;
+        /**
+         * If requested, has the most recent execution history for the export.
+         */
+        runHistory?: outputs.costmanagement.ExportExecutionListResultResponse;
+    }
+
+    /**
+     * The details of the error.
+     */
+    export interface ErrorDetailsResponse {
+        /**
+         * Error code.
+         */
+        code: string;
+        /**
+         * Error message indicating why the operation failed.
+         */
+        message: string;
+    }
+
+    /**
+     * The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+     */
+    export interface ExportDatasetConfigurationResponse {
+        /**
+         * Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+         */
+        columns?: string[];
+    }
+
+    /**
+     * The definition for data in the export.
+     */
+    export interface ExportDatasetResponse {
+        /**
+         * The export dataset configuration.
+         */
+        configuration?: outputs.costmanagement.ExportDatasetConfigurationResponse;
+        /**
+         * The granularity of rows in the export. Currently only 'Daily' is supported.
+         */
+        granularity?: string;
+    }
+
+    /**
+     * The definition of an export.
+     */
+    export interface ExportDefinitionResponse {
+        /**
+         * The definition for data in the export.
+         */
+        dataSet?: outputs.costmanagement.ExportDatasetResponse;
+        /**
+         * Has time period for pulling data for the export.
+         */
+        timePeriod?: outputs.costmanagement.ExportTimePeriodResponse;
+        /**
+         * The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+         */
+        timeframe: string;
+        /**
+         * The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+         */
+        type: string;
+    }
+
+    /**
+     * The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+     */
+    export interface ExportDeliveryDestinationResponse {
+        /**
+         * The name of the container where exports will be uploaded.
+         */
+        container: string;
+        /**
+         * The resource id of the storage account where exports will be delivered.
+         */
+        resourceId: string;
+        /**
+         * The name of the directory where exports will be uploaded.
+         */
+        rootFolderPath?: string;
+    }
+
+    /**
+     * The delivery information associated with a export.
+     */
+    export interface ExportDeliveryInfoResponse {
+        /**
+         * Has destination for the export being delivered.
+         */
+        destination: outputs.costmanagement.ExportDeliveryDestinationResponse;
+    }
+
+    /**
+     * Result of listing the execution history of an export.
+     */
+    export interface ExportExecutionListResultResponse {
+        /**
+         * A list of export executions.
+         */
+        value: outputs.costmanagement.ExportExecutionResponse[];
+    }
+
+    /**
+     * The properties of the export execution.
+     */
+    export interface ExportExecutionPropertiesResponse {
+        /**
+         * The details of any error.
+         */
+        error?: outputs.costmanagement.ErrorDetailsResponse;
+        /**
+         * The type of the export execution.
+         */
+        executionType?: string;
+        /**
+         * The name of the exported file.
+         */
+        fileName?: string;
+        /**
+         * The time when the export execution finished.
+         */
+        processingEndTime?: string;
+        /**
+         * The time when export was picked up to be executed.
+         */
+        processingStartTime?: string;
+        /**
+         * The export settings that were in effect for this execution.
+         */
+        runSettings?: outputs.costmanagement.CommonExportPropertiesResponse;
+        /**
+         * The last known status of the export execution.
+         */
+        status?: string;
+        /**
+         * The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
+         */
+        submittedBy?: string;
+        /**
+         * The time when export was queued to be executed.
+         */
+        submittedTime?: string;
+    }
+
+    /**
+     * An export execution.
+     */
+    export interface ExportExecutionResponse {
+        /**
+         * Resource Id.
+         */
+        id: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The properties of the export execution.
+         */
+        properties?: outputs.costmanagement.ExportExecutionPropertiesResponse;
+        /**
+         * Resource tags.
+         */
+        tags: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * The properties of the export.
+     */
+    export interface ExportPropertiesResponse {
+        /**
+         * Has the definition for the export.
+         */
+        definition: outputs.costmanagement.ExportDefinitionResponse;
+        /**
+         * Has delivery information for the export.
+         */
+        deliveryInfo: outputs.costmanagement.ExportDeliveryInfoResponse;
+        /**
+         * The format of the export being delivered. Currently only 'Csv' is supported.
+         */
+        format?: string;
+        /**
+         * If the export has an active schedule, provides an estimate of the next execution time.
+         */
+        nextRunTimeEstimate: string;
+        /**
+         * If requested, has the most recent execution history for the export.
+         */
+        runHistory?: outputs.costmanagement.ExportExecutionListResultResponse;
+        /**
+         * Has schedule information for the export.
+         */
+        schedule?: outputs.costmanagement.ExportScheduleResponse;
+    }
+
+    /**
+     * The start and end date for recurrence schedule.
+     */
+    export interface ExportRecurrencePeriodResponse {
+        /**
+         * The start date of recurrence.
+         */
+        from: string;
+        /**
+         * The end date of recurrence.
+         */
+        to?: string;
+    }
+
+    /**
+     * The schedule associated with the export.
+     */
+    export interface ExportScheduleResponse {
+        /**
+         * The schedule recurrence.
+         */
+        recurrence: string;
+        /**
+         * Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+         */
+        recurrencePeriod?: outputs.costmanagement.ExportRecurrencePeriodResponse;
+        /**
+         * The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+         */
+        status?: string;
+    }
+
+    /**
+     * The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
+     */
+    export interface ExportTimePeriodResponse {
+        /**
+         * The start date for export data.
+         */
+        from: string;
+        /**
+         * The end date for export data.
+         */
+        to: string;
+    }
+
+    /**
+     * Each KPI must contain a 'type' and 'enabled' key.
+     */
+    export interface KpiPropertiesResponse {
+        /**
+         * show the KPI in the UI?
+         */
+        enabled?: boolean;
+        /**
+         * ID of resource related to metric (budget).
+         */
+        id?: string;
+        /**
+         * KPI type (Forecast, Budget).
+         */
+        type?: string;
+    }
+
+    /**
+     * Each pivot must contain a 'type' and 'name'.
+     */
+    export interface PivotPropertiesResponse {
+        /**
+         * Data field to show in view.
+         */
+        name?: string;
+        /**
+         * Data type to show in view.
+         */
+        type?: string;
+    }
+
+    /**
+     * The comparison expression to be used in the report.
+     */
+    export interface ReportConfigComparisonExpressionResponse {
+        /**
+         * The name of the column to use in comparison.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison.
+         */
+        operator: string;
+        /**
+         * Array of values to use for comparison
+         */
+        values: string[];
+    }
+
+    /**
+     * The configuration of dataset in the report.
+     */
+    export interface ReportConfigDatasetConfigurationResponse {
+        /**
+         * Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+         */
+        columns?: string[];
+    }
+
+    /**
+     * The definition of data present in the report.
+     */
+    export interface ReportConfigDatasetResponse {
+        /**
+         * Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+         */
+        aggregation?: {[key: string]: string};
+        /**
+         * Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+         */
+        configuration?: outputs.costmanagement.ReportConfigDatasetConfigurationResponse;
+        /**
+         * Has filter expression to use in the report.
+         */
+        filter?: outputs.costmanagement.ReportConfigFilterResponse;
+        /**
+         * The granularity of rows in the report.
+         */
+        granularity?: string;
+        /**
+         * Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+         */
+        grouping?: outputs.costmanagement.ReportConfigGroupingResponse[];
+        /**
+         * Array of order by expression to use in the report.
+         */
+        sorting?: outputs.costmanagement.ReportConfigSortingResponse[];
+    }
+
+    /**
+     * The definition of a report config.
+     */
+    export interface ReportConfigDefinitionResponse {
+        /**
+         * Has definition for data in this report config.
+         */
+        dataset?: outputs.costmanagement.ReportConfigDatasetResponse;
+        /**
+         * Has time period for pulling data for the report.
+         */
+        timePeriod?: outputs.costmanagement.ReportConfigTimePeriodResponse;
+        /**
+         * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+         */
+        timeframe: string;
+        /**
+         * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+         */
+        type: string;
+    }
+
+    /**
+     * The filter expression to be used in the report.
+     */
+    export interface ReportConfigFilterResponse {
+        /**
+         * The logical "AND" expression. Must have at least 2 items.
+         */
+        and?: outputs.costmanagement.ReportConfigFilterResponse[];
+        /**
+         * Has comparison expression for a dimension
+         */
+        dimension?: outputs.costmanagement.ReportConfigComparisonExpressionResponse;
+        /**
+         * The logical "NOT" expression.
+         */
+        not?: outputs.costmanagement.ReportConfigFilterResponse;
+        /**
+         * The logical "OR" expression. Must have at least 2 items.
+         */
+        or?: outputs.costmanagement.ReportConfigFilterResponse[];
+        /**
+         * Has comparison expression for a tag
+         */
+        tag?: outputs.costmanagement.ReportConfigComparisonExpressionResponse;
+    }
+
+    /**
+     * The group by expression to be used in the report.
+     */
+    export interface ReportConfigGroupingResponse {
+        /**
+         * The name of the column to group. This version supports subscription lowest possible grain.
+         */
+        name: string;
+        /**
+         * Has type of the column to group.
+         */
+        type: string;
+    }
+
+    /**
+     * The order by expression to be used in the report.
+     */
+    export interface ReportConfigSortingResponse {
+        /**
+         * Direction of sort.
+         */
+        direction?: string;
+        /**
+         * The name of the column to sort.
+         */
+        name: string;
+    }
+
+    /**
+     * The start and end date for pulling data for the report.
+     */
+    export interface ReportConfigTimePeriodResponse {
+        /**
+         * The start date to pull data from.
+         */
+        from: string;
+        /**
+         * The end date to pull data to.
+         */
+        to: string;
+    }
+
+    /**
+     * The properties of the view.
+     */
+    export interface ViewPropertiesResponse {
+        /**
+         * Show costs accumulated over time.
+         */
+        accumulated?: string;
+        /**
+         * Chart type of the main view in Cost Analysis. Required.
+         */
+        chart?: string;
+        /**
+         * Date the user created this view.
+         */
+        createdOn: string;
+        /**
+         * User input name of the view. Required.
+         */
+        displayName?: string;
+        /**
+         * List of KPIs to show in Cost Analysis UI.
+         */
+        kpis?: outputs.costmanagement.KpiPropertiesResponse[];
+        /**
+         * Metric to use when displaying costs.
+         */
+        metric?: string;
+        /**
+         * Date when the user last modified this view.
+         */
+        modifiedOn: string;
+        /**
+         * Configuration of 3 sub-views in the Cost Analysis UI.
+         */
+        pivots?: outputs.costmanagement.PivotPropertiesResponse[];
+        /**
+         * Query body configuration. Required.
+         */
+        query?: outputs.costmanagement.ReportConfigDefinitionResponse;
+        /**
+         * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+         */
+        scope?: string;
     }
 }
 
@@ -14926,7 +16053,6 @@ export namespace databricks {
          */
         roleDefinitionId: string;
     }
-
 }
 
 export namespace datacatalog {
@@ -16174,6 +17300,7 @@ export namespace datashare {
          */
         vCore: number;
     }
+
 }
 
 export namespace dbformariadb {
@@ -20057,9 +21184,55 @@ export namespace domainregistration {
          */
         siteNames?: string[];
     }
+
+    /**
+     * Identifies an object.
+     */
+    export interface NameIdentifierResponse {
+        /**
+         * Name of the object.
+         */
+        name?: string;
+    }
+
+    /**
+     * Legal agreement for a top level domain.
+     */
+    export interface TldLegalAgreementResponse {
+        /**
+         * Unique identifier for the agreement.
+         */
+        agreementKey: string;
+        /**
+         * Agreement details.
+         */
+        content: string;
+        /**
+         * Agreement title.
+         */
+        title: string;
+        /**
+         * URL where a copy of the agreement details is hosted.
+         */
+        url?: string;
+    }
 }
 
 export namespace eventgrid {
+    /**
+     * This is the base type that represents an advanced filter. To configure an advanced filter, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class such as BoolEqualsAdvancedFilter, NumberInAdvancedFilter, StringEqualsAdvancedFilter etc. depending on the type of the key based on which you want to filter.
+     */
+    export interface AdvancedFilterResponse {
+        /**
+         * The field/property in the event based on which you want to filter.
+         */
+        key?: string;
+        /**
+         * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+         */
+        operatorType: string;
+    }
+
     /**
      * ConnectionState information.
      */
@@ -20076,6 +21249,16 @@ export namespace eventgrid {
          * Status of the connection.
          */
         status?: string;
+    }
+
+    /**
+     * Information about the dead letter destination for an event subscription. To configure a deadletter destination, do not directly instantiate an object of this class. Instead, instantiate an object of a derived class. Currently, StorageBlobDeadLetterDestination is the only class that derives from this class.
+     */
+    export interface DeadLetterDestinationResponse {
+        /**
+         * Type of the endpoint for the dead letter destination
+         */
+        endpointType: string;
     }
 
     /**
@@ -20125,6 +21308,88 @@ export namespace eventgrid {
          * Provisioning state of the domain topic.
          */
         provisioningState?: string;
+    }
+
+    /**
+     * Information about the destination for an event subscription.
+     */
+    export interface EventSubscriptionDestinationResponse {
+        /**
+         * Type of the endpoint for the event subscription destination.
+         */
+        endpointType: string;
+    }
+
+    /**
+     * Filter for the Event Subscription.
+     */
+    export interface EventSubscriptionFilterResponse {
+        /**
+         * An array of advanced filters that are used for filtering event subscriptions.
+         */
+        advancedFilters?: outputs.eventgrid.AdvancedFilterResponse[];
+        /**
+         * A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+         */
+        includedEventTypes?: string[];
+        /**
+         * Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+         * should be compared in a case sensitive manner.
+         */
+        isSubjectCaseSensitive?: boolean;
+        /**
+         * An optional string to filter events for an event subscription based on a resource path prefix.
+         * The format of this depends on the publisher of the events.
+         * Wildcard characters are not supported in this path.
+         */
+        subjectBeginsWith?: string;
+        /**
+         * An optional string to filter events for an event subscription based on a resource path suffix.
+         * Wildcard characters are not supported in this path.
+         */
+        subjectEndsWith?: string;
+    }
+
+    /**
+     * Properties of the Event Subscription.
+     */
+    export interface EventSubscriptionPropertiesResponse {
+        /**
+         * The DeadLetter destination of the event subscription.
+         */
+        deadLetterDestination?: outputs.eventgrid.DeadLetterDestinationResponse;
+        /**
+         * Information about the destination where events have to be delivered for the event subscription.
+         */
+        destination?: outputs.eventgrid.EventSubscriptionDestinationResponse;
+        /**
+         * The event delivery schema for the event subscription.
+         */
+        eventDeliverySchema?: string;
+        /**
+         * Expiration time of the event subscription.
+         */
+        expirationTimeUtc?: string;
+        /**
+         * Information about the filter for the event subscription.
+         */
+        filter?: outputs.eventgrid.EventSubscriptionFilterResponse;
+        /**
+         * List of user defined labels.
+         */
+        labels?: string[];
+        /**
+         * Provisioning state of the event subscription.
+         */
+        provisioningState: string;
+        /**
+         * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+         */
+        retryPolicy?: outputs.eventgrid.RetryPolicyResponse;
+        /**
+         * Name of the topic of the event subscription.
+         */
+        topic: string;
     }
 
     export interface InboundIpRuleResponse {
@@ -20197,6 +21462,20 @@ export namespace eventgrid {
          * The ARM identifier for Private Endpoint.
          */
         id?: string;
+    }
+
+    /**
+     * Information about the retry policy for an event subscription.
+     */
+    export interface RetryPolicyResponse {
+        /**
+         * Time To Live (in minutes) for events.
+         */
+        eventTimeToLiveInMinutes?: number;
+        /**
+         * Maximum number of delivery retry attempts for events.
+         */
+        maxDeliveryAttempts?: number;
     }
 
     /**
@@ -21845,6 +23124,180 @@ export namespace importexport {
 
 export namespace insights {
     /**
+     * An Azure action group.
+     */
+    export interface ActionGroupResponse {
+        /**
+         * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+         */
+        armRoleReceivers?: outputs.insights.ArmRoleReceiverResponse[];
+        /**
+         * The list of AutomationRunbook receivers that are part of this action group.
+         */
+        automationRunbookReceivers?: outputs.insights.AutomationRunbookReceiverResponse[];
+        /**
+         * The list of AzureAppPush receivers that are part of this action group.
+         */
+        azureAppPushReceivers?: outputs.insights.AzureAppPushReceiverResponse[];
+        /**
+         * The list of azure function receivers that are part of this action group.
+         */
+        azureFunctionReceivers?: outputs.insights.AzureFunctionReceiverResponse[];
+        /**
+         * The list of email receivers that are part of this action group.
+         */
+        emailReceivers?: outputs.insights.EmailReceiverResponse[];
+        /**
+         * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+         */
+        enabled: boolean;
+        /**
+         * The short name of the action group. This will be used in SMS messages.
+         */
+        groupShortName: string;
+        /**
+         * The list of ITSM receivers that are part of this action group.
+         */
+        itsmReceivers?: outputs.insights.ItsmReceiverResponse[];
+        /**
+         * The list of logic app receivers that are part of this action group.
+         */
+        logicAppReceivers?: outputs.insights.LogicAppReceiverResponse[];
+        /**
+         * The list of SMS receivers that are part of this action group.
+         */
+        smsReceivers?: outputs.insights.SmsReceiverResponse[];
+        /**
+         * The list of voice receivers that are part of this action group.
+         */
+        voiceReceivers?: outputs.insights.VoiceReceiverResponse[];
+        /**
+         * The list of webhook receivers that are part of this action group.
+         */
+        webhookReceivers?: outputs.insights.WebhookReceiverResponse[];
+    }
+
+    /**
+     * Action descriptor.
+     */
+    export interface ActionResponse {
+    }
+
+    /**
+     * A pointer to an Azure Action Group.
+     */
+    export interface ActivityLogAlertActionGroupResponse {
+        /**
+         * The resourceId of the action group. This cannot be null or empty.
+         */
+        actionGroupId: string;
+        /**
+         * the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+         */
+        webhookProperties?: {[key: string]: string};
+    }
+
+    /**
+     * A list of activity log alert actions.
+     */
+    export interface ActivityLogAlertActionListResponse {
+        /**
+         * The list of activity log alerts.
+         */
+        actionGroups?: outputs.insights.ActivityLogAlertActionGroupResponse[];
+    }
+
+    /**
+     * An Activity Log alert condition that is met when all its member conditions are met.
+     */
+    export interface ActivityLogAlertAllOfConditionResponse {
+        /**
+         * The list of activity log alert conditions.
+         */
+        allOf: outputs.insights.ActivityLogAlertLeafConditionResponse[];
+    }
+
+    /**
+     * An Activity Log alert condition that is met by comparing an activity log field and value.
+     */
+    export interface ActivityLogAlertLeafConditionResponse {
+        /**
+         * The field value will be compared to this value (case-insensitive) to determine if the condition is met.
+         */
+        equals: string;
+        /**
+         * The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+         */
+        field: string;
+    }
+
+    /**
+     * An Azure activity log alert.
+     */
+    export interface ActivityLogAlertResponse {
+        /**
+         * The actions that will activate when the condition is met.
+         */
+        actions: outputs.insights.ActivityLogAlertActionListResponse;
+        /**
+         * The condition that will cause this alert to activate.
+         */
+        condition: outputs.insights.ActivityLogAlertAllOfConditionResponse;
+        /**
+         * A description of this activity log alert.
+         */
+        description?: string;
+        /**
+         * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+         */
+        enabled?: boolean;
+        /**
+         * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+         */
+        scopes: string[];
+    }
+
+    /**
+     * An alert rule.
+     */
+    export interface AlertRuleResponse {
+        /**
+         * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+         */
+        actions?: outputs.insights.RuleActionResponse[];
+        /**
+         * the condition that results in the alert rule being activated.
+         */
+        condition: outputs.insights.RuleConditionResponse;
+        /**
+         * the description of the alert rule that will be included in the alert email.
+         */
+        description?: string;
+        /**
+         * the flag that indicates whether the alert rule is enabled.
+         */
+        isEnabled: boolean;
+        /**
+         * Last time the rule was updated in ISO8601 format.
+         */
+        lastUpdatedTime: string;
+        /**
+         * the name of the alert rule.
+         */
+        name: string;
+    }
+
+    /**
+     * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+     */
+    export interface ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
+        /**
+         * A function alias, used when the type of the item is Function
+         */
+        functionAlias?: string;
+    }
+
+    /**
      * Properties that define an Application Insights component resource.
      */
     export interface ApplicationInsightsComponentPropertiesResponse {
@@ -21923,6 +23376,316 @@ export namespace insights {
     }
 
     /**
+     * An arm role receiver.
+     */
+    export interface ArmRoleReceiverResponse {
+        /**
+         * The name of the arm role receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The arm role id.
+         */
+        roleId: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    /**
+     * The Azure Automation Runbook notification receiver.
+     */
+    export interface AutomationRunbookReceiverResponse {
+        /**
+         * The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+         */
+        automationAccountId: string;
+        /**
+         * Indicates whether this instance is global runbook.
+         */
+        isGlobalRunbook: boolean;
+        /**
+         * Indicates name of the webhook.
+         */
+        name?: string;
+        /**
+         * The name for this runbook.
+         */
+        runbookName: string;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri?: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+        /**
+         * The resource id for webhook linked to this runbook.
+         */
+        webhookResourceId: string;
+    }
+
+    /**
+     * Autoscale notification.
+     */
+    export interface AutoscaleNotificationResponse {
+        /**
+         * the email notification.
+         */
+        email?: outputs.insights.EmailNotificationResponse;
+        /**
+         * the operation associated with the notification and its value must be "scale"
+         */
+        operation: string;
+        /**
+         * the collection of webhook notifications.
+         */
+        webhooks?: outputs.insights.WebhookNotificationResponse[];
+    }
+
+    /**
+     * Autoscale profile.
+     */
+    export interface AutoscaleProfileResponse {
+        /**
+         * the number of instances that can be used during this profile.
+         */
+        capacity: outputs.insights.ScaleCapacityResponse;
+        /**
+         * the specific date-time for the profile. This element is not used if the Recurrence element is used.
+         */
+        fixedDate?: outputs.insights.TimeWindowResponse;
+        /**
+         * the name of the profile.
+         */
+        name: string;
+        /**
+         * the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+         */
+        recurrence?: outputs.insights.RecurrenceResponse;
+        /**
+         * the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+         */
+        rules: outputs.insights.ScaleRuleResponse[];
+    }
+
+    /**
+     * A setting that contains all of the configuration for the automatic scaling of a resource.
+     */
+    export interface AutoscaleSettingResponse {
+        /**
+         * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+         */
+        enabled?: boolean;
+        /**
+         * the name of the autoscale setting.
+         */
+        name?: string;
+        /**
+         * the collection of notifications.
+         */
+        notifications?: outputs.insights.AutoscaleNotificationResponse[];
+        /**
+         * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+         */
+        profiles: outputs.insights.AutoscaleProfileResponse[];
+        /**
+         * the resource identifier of the resource that the autoscale setting should be added to.
+         */
+        targetResourceUri?: string;
+    }
+
+    /**
+     * The Azure mobile App push notification receiver.
+     */
+    export interface AzureAppPushReceiverResponse {
+        /**
+         * The email address registered for the Azure mobile app.
+         */
+        emailAddress: string;
+        /**
+         * The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+    }
+
+    /**
+     * An azure function receiver.
+     */
+    export interface AzureFunctionReceiverResponse {
+        /**
+         * The azure resource id of the function app.
+         */
+        functionAppResourceId: string;
+        /**
+         * The function name in the function app.
+         */
+        functionName: string;
+        /**
+         * The http trigger url where http request sent to.
+         */
+        httpTriggerUrl: string;
+        /**
+         * The name of the azure function receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    /**
+     * Email notification of an autoscale event.
+     */
+    export interface EmailNotificationResponse {
+        /**
+         * the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
+         */
+        customEmails?: string[];
+        /**
+         * a value indicating whether to send email to subscription administrator.
+         */
+        sendToSubscriptionAdministrator?: boolean;
+        /**
+         * a value indicating whether to send email to subscription co-administrators.
+         */
+        sendToSubscriptionCoAdministrators?: boolean;
+    }
+
+    /**
+     * An email receiver.
+     */
+    export interface EmailReceiverResponse {
+        /**
+         * The email address of this receiver.
+         */
+        emailAddress: string;
+        /**
+         * The name of the email receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The receiver status of the e-mail.
+         */
+        status: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    /**
+     * An Itsm receiver.
+     */
+    export interface ItsmReceiverResponse {
+        /**
+         * Unique identification of ITSM connection among multiple defined in above workspace.
+         */
+        connectionId: string;
+        /**
+         * The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+         */
+        region: string;
+        /**
+         * JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+         */
+        ticketConfiguration: string;
+        /**
+         * OMS LA instance identifier.
+         */
+        workspaceId: string;
+    }
+
+    /**
+     * The log profile properties.
+     */
+    export interface LogProfilePropertiesResponse {
+        /**
+         * the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+         */
+        categories: string[];
+        /**
+         * List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+         */
+        locations: string[];
+        /**
+         * the retention policy for the events in the log.
+         */
+        retentionPolicy: outputs.insights.RetentionPolicyResponse;
+        /**
+         * The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+         */
+        serviceBusRuleId?: string;
+        /**
+         * the resource id of the storage account to which you would like to send the Activity Log.
+         */
+        storageAccountId?: string;
+    }
+
+    /**
+     * Log Search Rule Definition
+     */
+    export interface LogSearchRuleResponse {
+        /**
+         * Action needs to be taken on rule execution.
+         */
+        action: outputs.insights.ActionResponse;
+        /**
+         * The description of the Log Search rule.
+         */
+        description?: string;
+        /**
+         * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+         */
+        enabled?: string;
+        /**
+         * Last time the rule was updated in IS08601 format.
+         */
+        lastUpdatedTime: string;
+        /**
+         * Provisioning state of the scheduled query rule
+         */
+        provisioningState: string;
+        /**
+         * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+         */
+        schedule?: outputs.insights.ScheduleResponse;
+        /**
+         * Data Source against which rule will Query Data
+         */
+        source: outputs.insights.SourceResponse;
+    }
+
+    /**
+     * A logic app receiver.
+     */
+    export interface LogicAppReceiverResponse {
+        /**
+         * The callback url where http request sent to.
+         */
+        callbackUrl: string;
+        /**
+         * The name of the logic app receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The azure resource id of the logic app receiver.
+         */
+        resourceId: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    /**
      * An alert action.
      */
     export interface MetricAlertActionResponse {
@@ -21997,6 +23760,52 @@ export namespace insights {
     }
 
     /**
+     * The trigger that results in a scaling action.
+     */
+    export interface MetricTriggerResponse {
+        /**
+         * List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+         */
+        dimensions?: outputs.insights.ScaleRuleMetricDimensionResponse[];
+        /**
+         * the name of the metric that defines what the rule monitors.
+         */
+        metricName: string;
+        /**
+         * the namespace of the metric that defines what the rule monitors.
+         */
+        metricNamespace?: string;
+        /**
+         * the resource identifier of the resource the rule monitors.
+         */
+        metricResourceUri: string;
+        /**
+         * the operator that is used to compare the metric data and the threshold.
+         */
+        operator: string;
+        /**
+         * the metric statistic type. How the metrics from multiple instances are combined.
+         */
+        statistic: string;
+        /**
+         * the threshold of the metric that triggers the scale action.
+         */
+        threshold: number;
+        /**
+         * time aggregation type. How the data that is collected should be combined over time. The default value is Average.
+         */
+        timeAggregation: string;
+        /**
+         * the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
+         */
+        timeGrain: string;
+        /**
+         * the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
+         */
+        timeWindow: string;
+    }
+
+    /**
      * The private link scope resource reference.
      */
     export interface PrivateLinkScopedResourceResponse {
@@ -22008,6 +23817,248 @@ export namespace insights {
          * The private link scope unique Identifier.
          */
         ScopeId?: string;
+    }
+
+    /**
+     * The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
+     */
+    export interface RecurrenceResponse {
+        /**
+         * the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
+         */
+        frequency: string;
+        /**
+         * the scheduling constraints for when the profile begins.
+         */
+        schedule: outputs.insights.RecurrentScheduleResponse;
+    }
+
+    /**
+     * The scheduling constraints for when the profile begins.
+     */
+    export interface RecurrentScheduleResponse {
+        /**
+         * the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
+         */
+        days: string[];
+        /**
+         * A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
+         */
+        hours: number[];
+        /**
+         * A collection of minutes at which the profile takes effect at.
+         */
+        minutes: number[];
+        /**
+         * the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+         */
+        timeZone: string;
+    }
+
+    /**
+     * Specifies the retention policy for the log.
+     */
+    export interface RetentionPolicyResponse {
+        /**
+         * the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+         */
+        days: number;
+        /**
+         * a value indicating whether the retention policy is enabled.
+         */
+        enabled: boolean;
+    }
+
+    /**
+     * The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    export interface RuleActionResponse {
+    }
+
+    /**
+     * The condition that results in the alert rule being activated.
+     */
+    export interface RuleConditionResponse {
+        /**
+         * the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+         */
+        dataSource?: outputs.insights.RuleDataSourceResponse;
+    }
+
+    /**
+     * The resource from which the rule collects its data.
+     */
+    export interface RuleDataSourceResponse {
+        /**
+         * the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+         */
+        resourceUri?: string;
+    }
+
+    /**
+     * The parameters for the scaling action.
+     */
+    export interface ScaleActionResponse {
+        /**
+         * the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
+         */
+        cooldown: string;
+        /**
+         * the scale direction. Whether the scaling action increases or decreases the number of instances.
+         */
+        direction: string;
+        /**
+         * the type of action that should occur when the scale rule fires.
+         */
+        type: string;
+        /**
+         * the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
+         */
+        value?: string;
+    }
+
+    /**
+     * The number of instances that can be used during this profile.
+     */
+    export interface ScaleCapacityResponse {
+        /**
+         * the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
+         */
+        default: string;
+        /**
+         * the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
+         */
+        maximum: string;
+        /**
+         * the minimum number of instances for the resource.
+         */
+        minimum: string;
+    }
+
+    /**
+     * Specifies an auto scale rule metric dimension.
+     */
+    export interface ScaleRuleMetricDimensionResponse {
+        /**
+         * Name of the dimension.
+         */
+        DimensionName: string;
+        /**
+         * the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
+         */
+        Operator: string;
+        /**
+         * list of dimension values. For example: ["App1","App2"].
+         */
+        Values: string[];
+    }
+
+    /**
+     * A rule that provide the triggers and parameters for the scaling action.
+     */
+    export interface ScaleRuleResponse {
+        /**
+         * the trigger that results in a scaling action.
+         */
+        metricTrigger: outputs.insights.MetricTriggerResponse;
+        /**
+         * the parameters for the scaling action.
+         */
+        scaleAction: outputs.insights.ScaleActionResponse;
+    }
+
+    /**
+     * Defines how often to run the search and the time interval.
+     */
+    export interface ScheduleResponse {
+        /**
+         * frequency (in minutes) at which rule condition should be evaluated.
+         */
+        frequencyInMinutes: number;
+        /**
+         * Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+         */
+        timeWindowInMinutes: number;
+    }
+
+    /**
+     * An SMS receiver.
+     */
+    export interface SmsReceiverResponse {
+        /**
+         * The country code of the SMS receiver.
+         */
+        countryCode: string;
+        /**
+         * The name of the SMS receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The phone number of the SMS receiver.
+         */
+        phoneNumber: string;
+        /**
+         * The status of the receiver.
+         */
+        status: string;
+    }
+
+    /**
+     * Specifies the log search query.
+     */
+    export interface SourceResponse {
+        /**
+         * List of  Resource referred into query
+         */
+        authorizedResources?: string[];
+        /**
+         * The resource uri over which log search query is to be run.
+         */
+        dataSourceId: string;
+        /**
+         * Log search query. Required for action type - AlertingAction
+         */
+        query?: string;
+        /**
+         * Set value to 'ResultCount' .
+         */
+        queryType?: string;
+    }
+
+    /**
+     * A specific date-time for the profile.
+     */
+    export interface TimeWindowResponse {
+        /**
+         * the end time for the profile in ISO 8601 format.
+         */
+        end: string;
+        /**
+         * the start time for the profile in ISO 8601 format.
+         */
+        start: string;
+        /**
+         * the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
+         */
+        timeZone?: string;
+    }
+
+    /**
+     * A voice receiver.
+     */
+    export interface VoiceReceiverResponse {
+        /**
+         * The country code of the voice receiver.
+         */
+        countryCode: string;
+        /**
+         * The name of the voice receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The phone number of the voice receiver.
+         */
+        phoneNumber: string;
     }
 
     /**
@@ -22080,6 +24131,99 @@ export namespace insights {
         WebTest?: string;
     }
 
+    /**
+     * Webhook notification of an autoscale event.
+     */
+    export interface WebhookNotificationResponse {
+        /**
+         * a property bag of settings. This value can be empty.
+         */
+        properties?: {[key: string]: string};
+        /**
+         * the service address to receive the notification.
+         */
+        serviceUri?: string;
+    }
+
+    /**
+     * A webhook receiver.
+     */
+    export interface WebhookReceiverResponse {
+        /**
+         * Indicates the identifier uri for aad auth.
+         */
+        identifierUri?: string;
+        /**
+         * The name of the webhook receiver. Names must be unique across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * Indicates the webhook app object Id for aad auth.
+         */
+        objectId?: string;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri: string;
+        /**
+         * Indicates the tenant id for aad auth.
+         */
+        tenantId?: string;
+        /**
+         * Indicates whether or not use AAD authentication.
+         */
+        useAadAuth?: boolean;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    /**
+     * Properties that contain a workbook.
+     */
+    export interface WorkbookPropertiesResponse {
+        /**
+         * Workbook category, as defined by the user at creation time.
+         */
+        category: string;
+        /**
+         * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+         */
+        kind: string;
+        /**
+         * The user-defined name of the workbook.
+         */
+        name: string;
+        /**
+         * Configuration of this particular workbook. Configuration data is a string containing valid JSON
+         */
+        serializedData: string;
+        /**
+         * Optional resourceId for a source resource.
+         */
+        sourceResourceId?: string;
+        /**
+         * A list of 0 or more tags that are associated with this workbook definition
+         */
+        tags?: string[];
+        /**
+         * Date and time in UTC of the last modification that was made to this workbook definition.
+         */
+        timeModified: string;
+        /**
+         * Unique user id of the specific user that owns this workbook.
+         */
+        userId: string;
+        /**
+         * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+         */
+        version?: string;
+        /**
+         * Internally assigned unique id of the workbook definition.
+         */
+        workbookId: string;
+    }
 }
 
 export namespace iotcentral {
@@ -22114,7 +24258,6 @@ export namespace iotcentral {
          */
         name: string;
     }
-
 }
 
 export namespace keyvault {
@@ -22683,6 +24826,48 @@ export namespace kusto {
 
 export namespace labservices {
     /**
+     * This represents the details about a User's environment and its state.
+     */
+    export interface EnvironmentDetailsResponse {
+        /**
+         * Description of the Environment
+         */
+        description: string;
+        /**
+         * Publishing state of the environment setting Possible values are Creating, Created, Failed
+         */
+        environmentState: string;
+        /**
+         * Resource Id of the environment
+         */
+        id: string;
+        /**
+         * The details of the latest operation. ex: status, error
+         */
+        latestOperationResult: outputs.labservices.LatestOperationResultResponse;
+        /**
+         * Name of the Environment
+         */
+        name: string;
+        /**
+         * When the password was last reset on the environment.
+         */
+        passwordLastReset: string;
+        /**
+         * The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
+         */
+        provisioningState: string;
+        /**
+         * How long the environment has been used by a lab user
+         */
+        totalUsage: string;
+        /**
+         * Details of backing DTL virtual machine with compute and network details.
+         */
+        virtualMachineDetails: outputs.labservices.VirtualMachineDetailsResponse;
+    }
+
+    /**
      * Properties of an environment
      */
     export interface EnvironmentPropertiesResponse {
@@ -22912,6 +25097,28 @@ export namespace labservices {
          * The unique immutable identifier of a resource (Guid).
          */
         uniqueIdentifier?: string;
+    }
+
+    /**
+     * This represents the details about a lab that the User is in, and its state.
+     */
+    export interface LabDetailsResponse {
+        /**
+         * The Id of the lab.
+         */
+        id?: string;
+        /**
+         * Name of the lab
+         */
+        name?: string;
+        /**
+         * The provisioning state of the lab.
+         */
+        provisioningState?: string;
+        /**
+         * The maximum duration a user can use a VM in this lab.
+         */
+        usageQuota: string;
     }
 
     /**
@@ -23150,6 +25357,36 @@ export namespace labservices {
          * The unique immutable identifier of a resource (Guid).
          */
         uniqueIdentifier?: string;
+    }
+
+    /**
+     * Details of the backing virtual machine.
+     */
+    export interface VirtualMachineDetailsResponse {
+        /**
+         * Last known compute power state captured in DTL
+         */
+        lastKnownPowerState: string;
+        /**
+         * PrivateIp address of the compute VM
+         */
+        privateIpAddress: string;
+        /**
+         * Provisioning state of the Dtl VM
+         */
+        provisioningState: string;
+        /**
+         * Connection information for Windows
+         */
+        rdpAuthority: string;
+        /**
+         * Connection information for Linux
+         */
+        sshAuthority: string;
+        /**
+         * Compute VM login user name
+         */
+        userName: string;
     }
 
     /**
@@ -26523,6 +28760,726 @@ export namespace managedidentity {
     }
 }
 
+export namespace managedservices {
+    /**
+     * Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
+     */
+    export interface AuthorizationResponse {
+        /**
+         * Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+         */
+        principalId: string;
+        /**
+         * The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+         */
+        roleDefinitionId: string;
+    }
+
+    /**
+     * Plan details for the managed services.
+     */
+    export interface PlanResponse {
+        /**
+         * The plan name.
+         */
+        name: string;
+        /**
+         * The product code.
+         */
+        product: string;
+        /**
+         * The publisher ID.
+         */
+        publisher: string;
+        /**
+         * The plan's version.
+         */
+        version: string;
+    }
+
+    /**
+     * Properties of a registration assignment.
+     */
+    export interface RegistrationAssignmentPropertiesResponse {
+        /**
+         * Current state of the registration assignment.
+         */
+        provisioningState: string;
+        /**
+         * Registration definition inside registration assignment.
+         */
+        registrationDefinition: outputs.managedservices.RegistrationAssignmentPropertiesResponseProperties;
+        /**
+         * Fully qualified path of the registration definition.
+         */
+        registrationDefinitionId: string;
+    }
+
+    /**
+     * Registration definition inside registration assignment.
+     */
+    export interface RegistrationAssignmentPropertiesResponseProperties {
+        /**
+         * Fully qualified path of the registration definition.
+         */
+        id: string;
+        /**
+         * Name of the registration definition.
+         */
+        name: string;
+        /**
+         * Plan details for the managed services.
+         */
+        plan?: outputs.managedservices.PlanResponse;
+        /**
+         * Properties of registration definition inside registration assignment.
+         */
+        properties?: outputs.managedservices.RegistrationAssignmentPropertiesResponseProperties;
+        /**
+         * Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+         */
+        type: string;
+    }
+
+    /**
+     * Properties of a registration definition.
+     */
+    export interface RegistrationDefinitionPropertiesResponse {
+        /**
+         * Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+         */
+        authorizations: outputs.managedservices.AuthorizationResponse[];
+        /**
+         * Description of the registration definition.
+         */
+        description?: string;
+        /**
+         * Id of the managedBy tenant.
+         */
+        managedByTenantId: string;
+        /**
+         * Name of the managedBy tenant.
+         */
+        managedByTenantName: string;
+        /**
+         * Current state of the registration definition.
+         */
+        provisioningState: string;
+        /**
+         * Name of the registration definition.
+         */
+        registrationDefinitionName?: string;
+    }
+}
+
+export namespace management {
+    /**
+     * The type of the paths for alias.
+     */
+    export interface AliasPathResponse {
+        /**
+         * The API versions.
+         */
+        apiVersions?: string[];
+        /**
+         * The path of an alias.
+         */
+        path?: string;
+        /**
+         * The pattern for an alias path.
+         */
+        pattern?: outputs.management.AliasPatternResponse;
+    }
+
+    /**
+     * The type of the pattern for an alias path.
+     */
+    export interface AliasPatternResponse {
+        /**
+         * The alias pattern phrase.
+         */
+        phrase?: string;
+        /**
+         * The type of alias pattern
+         */
+        type?: string;
+        /**
+         * The alias pattern variable.
+         */
+        variable?: string;
+    }
+
+    /**
+     * The alias type. 
+     */
+    export interface AliasResponse {
+        /**
+         * The default path for an alias.
+         */
+        defaultPath?: string;
+        /**
+         * The default pattern for an alias.
+         */
+        defaultPattern?: outputs.management.AliasPatternResponse;
+        /**
+         * The alias name.
+         */
+        name?: string;
+        /**
+         * The paths for an alias.
+         */
+        paths?: outputs.management.AliasPathResponse[];
+        /**
+         * The type of the alias.
+         */
+        type?: string;
+    }
+
+    /**
+     * Deployment dependency information.
+     */
+    export interface BasicDependencyResponse {
+        /**
+         * The ID of the dependency.
+         */
+        id?: string;
+        /**
+         * The dependency resource name.
+         */
+        resourceName?: string;
+        /**
+         * The dependency resource type.
+         */
+        resourceType?: string;
+    }
+
+    /**
+     * The debug setting.
+     */
+    export interface DebugSettingResponse {
+        /**
+         * Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
+         */
+        detailLevel?: string;
+    }
+
+    /**
+     * Deployment dependency information.
+     */
+    export interface DependencyResponse {
+        /**
+         * The list of dependencies.
+         */
+        dependsOn?: outputs.management.BasicDependencyResponse[];
+        /**
+         * The ID of the dependency.
+         */
+        id?: string;
+        /**
+         * The dependency resource name.
+         */
+        resourceName?: string;
+        /**
+         * The dependency resource type.
+         */
+        resourceType?: string;
+    }
+
+    /**
+     * Deployment properties with additional details.
+     */
+    export interface DeploymentPropertiesExtendedResponse {
+        /**
+         * The correlation ID of the deployment.
+         */
+        correlationId: string;
+        /**
+         * The debug setting of the deployment.
+         */
+        debugSetting: outputs.management.DebugSettingResponse;
+        /**
+         * The list of deployment dependencies.
+         */
+        dependencies: outputs.management.DependencyResponse[];
+        /**
+         * The duration of the template deployment.
+         */
+        duration: string;
+        /**
+         * The deployment error.
+         */
+        error: outputs.management.ErrorResponseResponse;
+        /**
+         * The deployment mode. Possible values are Incremental and Complete.
+         */
+        mode: string;
+        /**
+         * The deployment on error behavior.
+         */
+        onErrorDeployment: outputs.management.OnErrorDeploymentExtendedResponse;
+        /**
+         * Array of provisioned resources.
+         */
+        outputResources: outputs.management.ResourceReferenceResponse[];
+        /**
+         * Key/value pairs that represent deployment output.
+         */
+        outputs: {[key: string]: string};
+        /**
+         * Deployment parameters. 
+         */
+        parameters: {[key: string]: string};
+        /**
+         * The URI referencing the parameters. 
+         */
+        parametersLink: outputs.management.ParametersLinkResponse;
+        /**
+         * The list of resource providers needed for the deployment.
+         */
+        providers: outputs.management.ProviderResponse[];
+        /**
+         * Denotes the state of provisioning.
+         */
+        provisioningState: string;
+        /**
+         * The hash produced for the template.
+         */
+        templateHash: string;
+        /**
+         * The URI referencing the template.
+         */
+        templateLink: outputs.management.TemplateLinkResponse;
+        /**
+         * The timestamp of the template deployment.
+         */
+        timestamp: string;
+        /**
+         * Array of validated resources.
+         */
+        validatedResources: outputs.management.ResourceReferenceResponse[];
+    }
+
+    /**
+     * The resource management error additional info.
+     */
+    export interface ErrorAdditionalInfoResponse {
+        /**
+         * The additional info.
+         */
+        info: {[key: string]: string};
+        /**
+         * The additional info type.
+         */
+        type: string;
+    }
+
+    /**
+     * The resource management error response.
+     */
+    export interface ErrorResponseResponse {
+        /**
+         * The error additional info.
+         */
+        additionalInfo: outputs.management.ErrorAdditionalInfoResponse[];
+        /**
+         * The error code.
+         */
+        code: string;
+        /**
+         * The error details.
+         */
+        details: outputs.management.ErrorResponseResponse[];
+        /**
+         * The error message.
+         */
+        message: string;
+        /**
+         * The error target.
+         */
+        target: string;
+    }
+
+    /**
+     * The generic properties of hierarchy settings.
+     */
+    export interface HierarchySettingsPropertiesResponse {
+        /**
+         * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+         */
+        defaultManagementGroup?: string;
+        /**
+         * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+         */
+        requireAuthorizationForGroupCreation?: boolean;
+        /**
+         * The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+         */
+        tenantId?: string;
+    }
+
+    /**
+     * The child information of a management group.
+     */
+    export interface ManagementGroupChildInfoResponse {
+        /**
+         * The list of children.
+         */
+        children?: outputs.management.ManagementGroupChildInfoResponse[];
+        /**
+         * The friendly name of the child resource.
+         */
+        displayName?: string;
+        /**
+         * The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+         */
+        id?: string;
+        /**
+         * The name of the child entity.
+         */
+        name?: string;
+        /**
+         * The roles definitions associated with the management group.
+         */
+        roles?: string[];
+        /**
+         * The fully qualified resource type which includes provider namespace (e.g. Microsoft.Management/managementGroups)
+         */
+        type?: string;
+    }
+
+    /**
+     * The details of a management group.
+     */
+    export interface ManagementGroupDetailsResponse {
+        /**
+         * (Optional) The ID of the parent management group.
+         */
+        parent?: outputs.management.ParentGroupInfoResponse;
+        /**
+         * The identity of the principal or process that updated the object.
+         */
+        updatedBy?: string;
+        /**
+         * The date and time when this object was last updated.
+         */
+        updatedTime?: string;
+        /**
+         * The version number of the object.
+         */
+        version?: number;
+    }
+
+    /**
+     * A path element of a management group ancestors.
+     */
+    export interface ManagementGroupPathElementResponse {
+        /**
+         * The friendly name of the group.
+         */
+        displayName?: string;
+        /**
+         * The name of the group.
+         */
+        name?: string;
+    }
+
+    /**
+     * The generic properties of a management group.
+     */
+    export interface ManagementGroupPropertiesResponse {
+        /**
+         * The list of children.
+         */
+        children?: outputs.management.ManagementGroupChildInfoResponse[];
+        /**
+         * The details of a management group.
+         */
+        details?: outputs.management.ManagementGroupDetailsResponse;
+        /**
+         * The friendly name of the management group.
+         */
+        displayName?: string;
+        /**
+         * The path from the root to the current group.
+         */
+        path?: outputs.management.ManagementGroupPathElementResponse[];
+        /**
+         * The role definitions associated with the management group.
+         */
+        roles?: string[];
+        /**
+         * The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+         */
+        tenantId?: string;
+    }
+
+    /**
+     * Deployment on error behavior with additional details.
+     */
+    export interface OnErrorDeploymentExtendedResponse {
+        /**
+         * The deployment to be used on error case.
+         */
+        deploymentName?: string;
+        /**
+         * The state of the provisioning for the on error deployment.
+         */
+        provisioningState: string;
+        /**
+         * The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
+         */
+        type?: string;
+    }
+
+    /**
+     * The parameter definitions for parameters used in the policy. The keys are the parameter names.
+     */
+    export interface ParameterDefinitionsResponse {
+    }
+
+    /**
+     * The parameter values for the policy rule. The keys are the parameter names.
+     */
+    export interface ParameterValuesResponse {
+    }
+
+    /**
+     * Entity representing the reference to the deployment parameters.
+     */
+    export interface ParametersLinkResponse {
+        /**
+         * If included, must match the ContentVersion in the template.
+         */
+        contentVersion?: string;
+        /**
+         * The URI of the parameters file.
+         */
+        uri: string;
+    }
+
+    /**
+     * (Optional) The ID of the parent management group.
+     */
+    export interface ParentGroupInfoResponse {
+        /**
+         * The friendly name of the parent management group.
+         */
+        displayName?: string;
+        /**
+         * The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+         */
+        id?: string;
+        /**
+         * The name of the parent management group
+         */
+        name?: string;
+    }
+
+    /**
+     * The policy definition group.
+     */
+    export interface PolicyDefinitionGroupResponse {
+        /**
+         * A resource ID of a resource that contains additional metadata about the group.
+         */
+        additionalMetadataId?: string;
+        /**
+         * The group's category.
+         */
+        category?: string;
+        /**
+         * The group's description.
+         */
+        description?: string;
+        /**
+         * The group's display name.
+         */
+        displayName?: string;
+        /**
+         * The name of the group.
+         */
+        name: string;
+    }
+
+    /**
+     * The policy definition properties.
+     */
+    export interface PolicyDefinitionPropertiesResponse {
+        /**
+         * The policy definition description.
+         */
+        description?: string;
+        /**
+         * The display name of the policy definition.
+         */
+        displayName?: string;
+        /**
+         * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+         */
+        metadata?: {[key: string]: string};
+        /**
+         * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+         */
+        mode?: string;
+        /**
+         * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+         */
+        parameters?: outputs.management.ParameterDefinitionsResponse;
+        /**
+         * The policy rule.
+         */
+        policyRule?: {[key: string]: string};
+        /**
+         * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+         */
+        policyType?: string;
+    }
+
+    /**
+     * The policy definition reference.
+     */
+    export interface PolicyDefinitionReferenceResponse {
+        /**
+         * The name of the groups that this policy definition reference belongs to.
+         */
+        groupNames?: string[];
+        /**
+         * The parameter values for the referenced policy rule. The keys are the parameter names.
+         */
+        parameters?: outputs.management.ParameterValuesResponse;
+        /**
+         * The ID of the policy definition or policy set definition.
+         */
+        policyDefinitionId: string;
+        /**
+         * A unique id (within the policy set definition) for this policy definition reference.
+         */
+        policyDefinitionReferenceId?: string;
+    }
+
+    /**
+     * The policy set definition properties.
+     */
+    export interface PolicySetDefinitionPropertiesResponse {
+        /**
+         * The policy set definition description.
+         */
+        description?: string;
+        /**
+         * The display name of the policy set definition.
+         */
+        displayName?: string;
+        /**
+         * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+         */
+        metadata?: {[key: string]: string};
+        /**
+         * The policy set definition parameters that can be used in policy definition references.
+         */
+        parameters?: outputs.management.ParameterDefinitionsResponse;
+        /**
+         * The metadata describing groups of policy definition references within the policy set definition.
+         */
+        policyDefinitionGroups?: outputs.management.PolicyDefinitionGroupResponse[];
+        /**
+         * An array of policy definition references.
+         */
+        policyDefinitions: outputs.management.PolicyDefinitionReferenceResponse[];
+        /**
+         * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+         */
+        policyType?: string;
+    }
+
+    /**
+     * Resource type managed by the resource provider.
+     */
+    export interface ProviderResourceTypeResponse {
+        /**
+         * The aliases that are supported by this resource type.
+         */
+        aliases?: outputs.management.AliasResponse[];
+        /**
+         * The API version.
+         */
+        apiVersions?: string[];
+        /**
+         * The additional capabilities offered by this resource type.
+         */
+        capabilities?: string;
+        /**
+         * The collection of locations where this resource type can be created.
+         */
+        locations?: string[];
+        /**
+         * The properties.
+         */
+        properties?: {[key: string]: string};
+        /**
+         * The resource type.
+         */
+        resourceType?: string;
+    }
+
+    /**
+     * Resource provider information.
+     */
+    export interface ProviderResponse {
+        /**
+         * The provider ID.
+         */
+        id: string;
+        /**
+         * The namespace of the resource provider.
+         */
+        namespace?: string;
+        /**
+         * The registration policy of the resource provider.
+         */
+        registrationPolicy: string;
+        /**
+         * The registration state of the resource provider.
+         */
+        registrationState: string;
+        /**
+         * The collection of provider resource types.
+         */
+        resourceTypes: outputs.management.ProviderResourceTypeResponse[];
+    }
+
+    /**
+     * The resource Id model.
+     */
+    export interface ResourceReferenceResponse {
+        /**
+         * The fully qualified resource Id.
+         */
+        id: string;
+    }
+
+    /**
+     * Entity representing the reference to the template.
+     */
+    export interface TemplateLinkResponse {
+        /**
+         * If included, must match the ContentVersion in the template.
+         */
+        contentVersion?: string;
+        /**
+         * The resource id of a Template Spec. Use either the id or uri property, but not both.
+         */
+        id?: string;
+        /**
+         * Applicable only if this template link references a Template Spec. This relativePath property can optionally be used to reference a Template Spec artifact by path.
+         */
+        relativePath?: string;
+        /**
+         * The URI of the template to deploy. Use either the uri or id property, but not both.
+         */
+        uri?: string;
+    }
+}
+
 export namespace maps {
     /**
      * Additional Map account properties
@@ -26543,6 +29500,9 @@ export namespace maps {
          */
         tier: string;
     }
+}
+
+export namespace marketplace {
 }
 
 export namespace media {
@@ -28348,6 +31308,26 @@ export namespace netapp {
 }
 
 export namespace network {
+    /**
+     * An A record.
+     */
+    export interface ARecordResponse {
+        /**
+         * The IPv4 address of this A record.
+         */
+        ipv4Address?: string;
+    }
+
+    /**
+     * An AAAA record.
+     */
+    export interface AaaaRecordResponse {
+        /**
+         * The IPv6 address of this AAAA record.
+         */
+        ipv6Address?: string;
+    }
+
     /**
      * AAD Vpn authentication type related parameters.
      */
@@ -30582,6 +33562,16 @@ export namespace network {
          * Flag to control breakout of o365 optimize category.
          */
         optimize?: boolean;
+    }
+
+    /**
+     * A CNAME record.
+     */
+    export interface CnameRecordResponse {
+        /**
+         * The canonical name for this CNAME record.
+         */
+        cname?: string;
     }
 
     /**
@@ -33491,6 +36481,20 @@ export namespace network {
     }
 
     /**
+     * An MX record.
+     */
+    export interface MxRecordResponse {
+        /**
+         * The domain name of the mail host for this MX record.
+         */
+        exchange?: string;
+        /**
+         * The preference value for this MX record.
+         */
+        preference?: number;
+    }
+
+    /**
      * Nat Gateway properties.
      */
     export interface NatGatewayPropertiesFormatResponse {
@@ -34779,6 +37783,16 @@ export namespace network {
     }
 
     /**
+     * A PTR record.
+     */
+    export interface PtrRecordResponse {
+        /**
+         * The PTR target domain name for this PTR record.
+         */
+        ptrdname?: string;
+    }
+
+    /**
      * Contains FQDN of the DNS record associated with the public IP address.
      */
     export interface PublicIPAddressDnsSettingsResponse {
@@ -34962,6 +37976,60 @@ export namespace network {
          * The secret used for this radius server.
          */
         radiusServerSecret?: string;
+    }
+
+    /**
+     * Represents the properties of the records in the record set.
+     */
+    export interface RecordSetPropertiesResponse {
+        /**
+         * The list of A records in the record set.
+         */
+        aRecords?: outputs.network.ARecordResponse[];
+        /**
+         * The list of AAAA records in the record set.
+         */
+        aaaaRecords?: outputs.network.AaaaRecordResponse[];
+        /**
+         * The CNAME record in the record set.
+         */
+        cnameRecord?: outputs.network.CnameRecordResponse;
+        /**
+         * Fully qualified domain name of the record set.
+         */
+        fqdn: string;
+        /**
+         * Is the record set auto-registered in the Private DNS zone through a virtual network link?
+         */
+        isAutoRegistered: boolean;
+        /**
+         * The metadata attached to the record set.
+         */
+        metadata?: {[key: string]: string};
+        /**
+         * The list of MX records in the record set.
+         */
+        mxRecords?: outputs.network.MxRecordResponse[];
+        /**
+         * The list of PTR records in the record set.
+         */
+        ptrRecords?: outputs.network.PtrRecordResponse[];
+        /**
+         * The SOA record in the record set.
+         */
+        soaRecord?: outputs.network.SoaRecordResponse;
+        /**
+         * The list of SRV records in the record set.
+         */
+        srvRecords?: outputs.network.SrvRecordResponse[];
+        /**
+         * The TTL (time-to-live) of the records in the record set.
+         */
+        ttl?: number;
+        /**
+         * The list of TXT records in the record set.
+         */
+        txtRecords?: outputs.network.TxtRecordResponse[];
     }
 
     /**
@@ -35739,6 +38807,62 @@ export namespace network {
     }
 
     /**
+     * An SOA record.
+     */
+    export interface SoaRecordResponse {
+        /**
+         * The email contact for this SOA record.
+         */
+        email?: string;
+        /**
+         * The expire time for this SOA record.
+         */
+        expireTime?: number;
+        /**
+         * The domain name of the authoritative name server for this SOA record.
+         */
+        host?: string;
+        /**
+         * The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+         */
+        minimumTtl?: number;
+        /**
+         * The refresh value for this SOA record.
+         */
+        refreshTime?: number;
+        /**
+         * The retry time for this SOA record.
+         */
+        retryTime?: number;
+        /**
+         * The serial number for this SOA record.
+         */
+        serialNumber?: number;
+    }
+
+    /**
+     * An SRV record.
+     */
+    export interface SrvRecordResponse {
+        /**
+         * The port value for this SRV record.
+         */
+        port?: number;
+        /**
+         * The priority value for this SRV record.
+         */
+        priority?: number;
+        /**
+         * The target domain name for this SRV record.
+         */
+        target?: string;
+        /**
+         * The weight value for this SRV record.
+         */
+        weight?: number;
+    }
+
+    /**
      * List of all Static Routes.
      */
     export interface StaticRouteResponse {
@@ -35940,6 +39064,16 @@ export namespace network {
          * Tunnel name.
          */
         tunnel: string;
+    }
+
+    /**
+     * A TXT record.
+     */
+    export interface TxtRecordResponse {
+        /**
+         * The text value of this TXT record.
+         */
+        value?: string[];
     }
 
     /**
@@ -38240,7 +41374,6 @@ export namespace operationalinsights {
          */
         objectId: string;
     }
-
 }
 
 export namespace peering {
@@ -38292,6 +41425,24 @@ export namespace peering {
          * The state of the IPv6 session.
          */
         sessionStateV6: string;
+    }
+
+    /**
+     * The contact detail class.
+     */
+    export interface ContactDetailResponse {
+        /**
+         * The e-mail address of the contact.
+         */
+        email?: string;
+        /**
+         * The phone number of the contact.
+         */
+        phone?: string;
+        /**
+         * The role of the contact.
+         */
+        role?: string;
     }
 
     /**
@@ -38360,6 +41511,32 @@ export namespace peering {
          * The PeeringDB.com ID of the facility at which the connection has to be set up.
          */
         peeringDBFacilityId?: number;
+    }
+
+    /**
+     * The properties that define a peer's ASN.
+     */
+    export interface PeerAsnPropertiesResponse {
+        /**
+         * The error message for the validation state
+         */
+        errorMessage: string;
+        /**
+         * The Autonomous System Number (ASN) of the peer.
+         */
+        peerAsn?: number;
+        /**
+         * The contact details of the peer.
+         */
+        peerContactDetail?: outputs.peering.ContactDetailResponse[];
+        /**
+         * The name of the peer.
+         */
+        peerName?: string;
+        /**
+         * The validation state of the ASN associated with the peer.
+         */
+        validationState?: string;
     }
 
     /**
@@ -38725,6 +41902,85 @@ export namespace policyinsights {
          */
         type: string;
     }
+}
+
+export namespace portal {
+    /**
+     * Cloud shell console properties.
+     */
+    export interface ConsolePropertiesResponse {
+        /**
+         * The operating system type of the cloud shell.
+         */
+        osType: string;
+        /**
+         * Provisioning state of the console.
+         */
+        provisioningState: string;
+        /**
+         * Uri of the console.
+         */
+        uri: string;
+    }
+
+    /**
+     * The storage profile of the user settings.
+     */
+    export interface StorageProfileResponse {
+        /**
+         * Size of file share
+         */
+        diskSizeInGB?: number;
+        /**
+         * Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
+         */
+        fileShareName?: string;
+        /**
+         * Full resource ID of storage account.
+         */
+        storageAccountResourceId?: string;
+    }
+
+    /**
+     * Settings for terminal appearance.
+     */
+    export interface TerminalSettingsResponse {
+        /**
+         * Size of terminal font.
+         */
+        fontSize?: string;
+        /**
+         * Style of terminal font.
+         */
+        fontStyle?: string;
+    }
+
+    /**
+     * The cloud shell user settings properties.
+     */
+    export interface UserPropertiesResponse {
+        /**
+         * The preferred location of the cloud shell.
+         */
+        preferredLocation: string;
+        /**
+         * The operating system type of the cloud shell. Deprecated, use preferredShellType.
+         */
+        preferredOsType: string;
+        /**
+         * The shell type of the cloud shell.
+         */
+        preferredShellType: string;
+        /**
+         * The storage profile of the user settings.
+         */
+        storageProfile: outputs.portal.StorageProfileResponse;
+        /**
+         * Settings for terminal appearance.
+         */
+        terminalSettings: outputs.portal.TerminalSettingsResponse;
+    }
+
 }
 
 export namespace powerbi {
@@ -40448,6 +43704,13 @@ export namespace resources {
     }
 
     /**
+     * A dictionary of name and value pairs.
+     */
+    export interface TagsResponse {
+        tags?: {[key: string]: string};
+    }
+
+    /**
      * Entity representing the reference to the template.
      */
     export interface TemplateLinkResponse {
@@ -41076,6 +44339,148 @@ export namespace search {
 
 export namespace security {
     /**
+     * A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+     */
+    export interface AllowlistCustomAlertRuleResponse {
+        /**
+         * The values to allow. The format of the values depends on the rule type.
+         */
+        allowlistValues: string[];
+        /**
+         * The description of the custom alert.
+         */
+        description: string;
+        /**
+         * The display name of the custom alert.
+         */
+        displayName: string;
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: boolean;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: string;
+        /**
+         * The value type of the items in the list.
+         */
+        valueType: string;
+    }
+
+    /**
+     * Represents a VM/server group and set of rules to be allowed running on a machine
+     */
+    export interface AppWhitelistingGroupDataResponse {
+        /**
+         * The configuration status of the VM/server group or machine or rule on the machine
+         */
+        configurationStatus: string;
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        enforcementMode?: string;
+        issues: outputs.security.AppWhitelistingIssuesSummariesResponse;
+        pathRecommendations?: outputs.security.PathRecommendationsResponse;
+        /**
+         * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+         */
+        protectionMode?: outputs.security.ProtectionModeResponse;
+        /**
+         * The recommendation status of the VM/server group or VM/server
+         */
+        recommendationStatus: string;
+        /**
+         * The source type of the VM/server group
+         */
+        sourceSystem: string;
+        vmRecommendations?: outputs.security.VmRecommendationsResponse;
+    }
+
+    export interface AppWhitelistingIssuesSummariesResponse {
+    }
+
+    /**
+     * Links relevant to the assessment
+     */
+    export interface AssessmentLinksResponse {
+        /**
+         * Link to assessment in Azure Portal
+         */
+        azurePortalUri: string;
+    }
+
+    /**
+     * The result of the assessment
+     */
+    export interface AssessmentStatusResponse {
+        /**
+         * Programmatic code for the cause of the assessment status
+         */
+        cause?: string;
+        /**
+         * Programmatic code for the status of the assessment
+         */
+        code: string;
+        /**
+         * Human readable description of the assessment status
+         */
+        description?: string;
+    }
+
+    /**
+     * A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+     */
+    export interface DenylistCustomAlertRuleResponse {
+        /**
+         * The values to deny. The format of the values depends on the rule type.
+         */
+        denylistValues: string[];
+        /**
+         * The description of the custom alert.
+         */
+        description: string;
+        /**
+         * The display name of the custom alert.
+         */
+        displayName: string;
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: boolean;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: string;
+        /**
+         * The value type of the items in the list.
+         */
+        valueType: string;
+    }
+
+    /**
+     * describes properties of a security group.
+     */
+    export interface DeviceSecurityGroupPropertiesResponse {
+        /**
+         * The allow-list custom alert rules.
+         */
+        allowlistRules?: outputs.security.AllowlistCustomAlertRuleResponse[];
+        /**
+         * The deny-list custom alert rules.
+         */
+        denylistRules?: outputs.security.DenylistCustomAlertRuleResponse[];
+        /**
+         * The list of custom alert threshold rules.
+         */
+        thresholdRules?: outputs.security.ThresholdCustomAlertRuleResponse[];
+        /**
+         * The list of custom alert time-window rules.
+         */
+        timeWindowRules?: outputs.security.TimeWindowCustomAlertRuleResponse[];
+    }
+
+    /**
      * Security Solution setting data
      */
     export interface IoTSecuritySolutionPropertiesResponse {
@@ -41220,13 +44625,236 @@ export namespace security {
         ports: outputs.security.JitNetworkAccessRequestPortResponse[];
     }
 
+    export interface PathRecommendationsResponse {
+    }
+
     export interface PortNumberResponse {
+    }
+
+    /**
+     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+     */
+    export interface ProtectionModeResponse {
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        exe?: string;
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        executable?: string;
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        msi?: string;
+        /**
+         * The application control policy enforcement/protection mode of the VM/server group
+         */
+        script?: string;
     }
 
     /**
      * List of the configuration status for each recommendation type.
      */
     export interface RecommendationConfigurationListResponse {
+    }
+
+    /**
+     * Details of the resource that was assessed
+     */
+    export interface ResourceDetailsResponse {
+        /**
+         * The platform where the assessed resource resides
+         */
+        source: string;
+    }
+
+    /**
+     * Describes the partner that created the assessment
+     */
+    export interface SecurityAssessmentMetadataPartnerDataResponse {
+        /**
+         * Name of the company of the partner
+         */
+        partnerName: string;
+        /**
+         * Name of the product of the partner that created the assessment
+         */
+        productName?: string;
+        /**
+         * Secret to authenticate the partner and verify it created the assessment - write only
+         */
+        secret: string;
+    }
+
+    /**
+     * Describes properties of an assessment metadata.
+     */
+    export interface SecurityAssessmentMetadataPropertiesResponse {
+        /**
+         * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+         */
+        assessmentType: string;
+        category?: string[];
+        /**
+         * Human readable description of the assessment
+         */
+        description?: string;
+        /**
+         * User friendly display name of the assessment
+         */
+        displayName: string;
+        /**
+         * The implementation effort required to remediate this assessment
+         */
+        implementationEffort?: string;
+        /**
+         * Describes the partner that created the assessment
+         */
+        partnerData?: outputs.security.SecurityAssessmentMetadataPartnerDataResponse;
+        /**
+         * Azure resource ID of the policy definition that turns this assessment calculation on
+         */
+        policyDefinitionId: string;
+        /**
+         * True if this assessment is in preview release status
+         */
+        preview?: boolean;
+        /**
+         * Human readable description of what you should do to mitigate this security issue
+         */
+        remediationDescription?: string;
+        /**
+         * The severity level of the assessment
+         */
+        severity: string;
+        threats?: string[];
+        /**
+         * The user impact of the assessment
+         */
+        userImpact?: string;
+    }
+
+    /**
+     * Data regarding 3rd party partner integration
+     */
+    export interface SecurityAssessmentPartnerDataResponse {
+        /**
+         * Name of the company of the partner
+         */
+        partnerName: string;
+        /**
+         * secret to authenticate the partner - write only
+         */
+        secret: string;
+    }
+
+    /**
+     * Describes properties of an assessment.
+     */
+    export interface SecurityAssessmentPropertiesResponse {
+        /**
+         * Additional data regarding the assessment
+         */
+        additionalData?: {[key: string]: string};
+        /**
+         * User friendly display name of the assessment
+         */
+        displayName: string;
+        /**
+         * Links relevant to the assessment
+         */
+        links?: outputs.security.AssessmentLinksResponse;
+        /**
+         * Describes properties of an assessment metadata.
+         */
+        metadata?: outputs.security.SecurityAssessmentMetadataPropertiesResponse;
+        /**
+         * Data regarding 3rd party partner integration
+         */
+        partnersData?: outputs.security.SecurityAssessmentPartnerDataResponse;
+        /**
+         * Details of the resource that was assessed
+         */
+        resourceDetails: outputs.security.ResourceDetailsResponse;
+        /**
+         * The result of the assessment
+         */
+        status: outputs.security.AssessmentStatusResponse;
+    }
+
+    /**
+     * describes ServerVulnerabilityAssessment properties.
+     */
+    export interface ServerVulnerabilityAssessmentPropertiesResponse {
+        /**
+         * The provisioningState of the vulnerability assessment capability on the VM
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+     */
+    export interface ThresholdCustomAlertRuleResponse {
+        /**
+         * The description of the custom alert.
+         */
+        description: string;
+        /**
+         * The display name of the custom alert.
+         */
+        displayName: string;
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: boolean;
+        /**
+         * The maximum threshold.
+         */
+        maxThreshold: number;
+        /**
+         * The minimum threshold.
+         */
+        minThreshold: number;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: string;
+    }
+
+    /**
+     * A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+     */
+    export interface TimeWindowCustomAlertRuleResponse {
+        /**
+         * The description of the custom alert.
+         */
+        description: string;
+        /**
+         * The display name of the custom alert.
+         */
+        displayName: string;
+        /**
+         * Status of the custom alert.
+         */
+        isEnabled: boolean;
+        /**
+         * The maximum threshold.
+         */
+        maxThreshold: number;
+        /**
+         * The minimum threshold.
+         */
+        minThreshold: number;
+        /**
+         * The type of the custom alert rule.
+         */
+        ruleType: string;
+        /**
+         * The time window size in iso8601 format.
+         */
+        timeWindowSize: string;
     }
 
     /**
@@ -41241,6 +44869,9 @@ export namespace security {
          * List of Azure subscription ids on which the user defined resources query should be executed.
          */
         querySubscriptions: string[];
+    }
+
+    export interface VmRecommendationsResponse {
     }
 }
 
@@ -41714,6 +45345,7 @@ export namespace servicebus {
          */
         sqlExpression?: string;
     }
+
 }
 
 export namespace servicefabric {
@@ -42820,6 +46452,36 @@ export namespace signalrservice {
          * For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
          */
         urlTemplate: string;
+    }
+}
+
+export namespace softwareplan {
+    /**
+     * Hybrid use benefit properties
+     */
+    export interface HybridUseBenefitPropertiesResponse {
+        /**
+         * Created date
+         */
+        createdDate: string;
+        /**
+         * Last updated date
+         */
+        lastUpdatedDate: string;
+        /**
+         * Provisioning state
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The SKU to be applied for this resource
+     */
+    export interface SkuResponse {
+        /**
+         * Name of the SKU to be applied
+         */
+        name?: string;
     }
 }
 
@@ -47933,6 +51595,62 @@ export namespace web {
     }
 
     /**
+     * BackupRequest resource specific properties
+     */
+    export interface BackupRequestResponseProperties {
+        /**
+         * Name of the backup.
+         */
+        backupName?: string;
+        /**
+         * Schedule for the backup if it is executed periodically.
+         */
+        backupSchedule?: outputs.web.BackupScheduleResponse;
+        /**
+         * Databases included in the backup.
+         */
+        databases?: outputs.web.DatabaseBackupSettingResponse[];
+        /**
+         * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+         */
+        enabled?: boolean;
+        /**
+         * SAS URL to the container.
+         */
+        storageAccountUrl: string;
+    }
+
+    /**
+     * Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+     */
+    export interface BackupScheduleResponse {
+        /**
+         * How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+         */
+        frequencyInterval: number;
+        /**
+         * The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+         */
+        frequencyUnit: string;
+        /**
+         * True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+         */
+        keepAtLeastOneBackup: boolean;
+        /**
+         * Last time when this schedule was triggered.
+         */
+        lastExecutionTime: string;
+        /**
+         * After how many days backups should be deleted.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * When the schedule should start working.
+         */
+        startTime?: string;
+    }
+
+    /**
      * Describes the capabilities/features allowed for a specific SKU.
      */
     export interface CapabilityResponse {
@@ -48433,6 +52151,32 @@ export namespace web {
     }
 
     /**
+     * A domain specific resource identifier.
+     */
+    export interface IdentifierResponse {
+        /**
+         * Resource Id.
+         */
+        id: string;
+        /**
+         * Kind of resource.
+         */
+        kind?: string;
+        /**
+         * Resource Name.
+         */
+        name: string;
+        /**
+         * Identifier resource specific properties
+         */
+        properties?: outputs.web.IdentifierResponseProperties;
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
      * Identifier resource specific properties
      */
     export interface IdentifierResponseProperties {
@@ -48743,6 +52487,154 @@ export namespace web {
          * Time interval.
          */
         timeInterval?: string;
+    }
+
+    /**
+     * SiteAuthSettings resource specific properties
+     */
+    export interface SiteAuthSettingsResponseProperties {
+        /**
+         * Login parameters to send to the OpenID Connect authorization endpoint when
+         * a user logs in. Each parameter must be in the form "key=value".
+         */
+        additionalLoginParams?: string[];
+        /**
+         * Allowed audience values to consider when validating JWTs issued by 
+         * Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
+         * allowed audience, regardless of this setting.
+         */
+        allowedAudiences?: string[];
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
+         * This is an advanced setting typically only needed by Windows Store application backends.
+         * Note that URLs within the current domain are always implicitly allowed.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The Client ID of this relying party application, known as the client_id.
+         * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
+         * other 3rd party OpenID Connect providers.
+         * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+         */
+        clientId?: string;
+        /**
+         * The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
+         * This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
+         * Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
+         * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
+         */
+        clientSecret?: string;
+        /**
+         * An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
+         * a replacement for the Client Secret. It is also optional.
+         */
+        clientSecretCertificateThumbprint?: string;
+        /**
+         * The default authentication provider to use when multiple providers are configured.
+         * This setting is only needed if multiple providers are configured and the unauthenticated client
+         * action is set to "RedirectToLoginPage".
+         */
+        defaultProvider?: string;
+        /**
+         * <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
+         */
+        enabled?: boolean;
+        /**
+         * The App ID of the Facebook app used for login.
+         * This setting is required for enabling Facebook Login.
+         * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+         */
+        facebookAppId?: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         * This setting is required for enabling Facebook Login.
+         * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+         */
+        facebookAppSecret?: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
+         * This setting is optional.
+         * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
+         */
+        facebookOAuthScopes?: string[];
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         * This setting is required for enabling Google Sign-In.
+         * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+         */
+        googleClientId?: string;
+        /**
+         * The client secret associated with the Google web application.
+         * This setting is required for enabling Google Sign-In.
+         * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+         */
+        googleClientSecret?: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
+         * This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
+         * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
+         */
+        googleOAuthScopes?: string[];
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
+         * When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         * This URI is a case-sensitive identifier for the token issuer.
+         * More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
+         */
+        issuer?: string;
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         * This setting is required for enabling Microsoft Account authentication.
+         * Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+         */
+        microsoftAccountClientId?: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         * This setting is required for enabling Microsoft Account authentication.
+         * Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
+         */
+        microsoftAccountClientSecret?: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
+         * This setting is optional. If not specified, "wl.basic" is used as the default scope.
+         * Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         */
+        microsoftAccountOAuthScopes?: string[];
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
+         * The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
+         */
+        runtimeVersion?: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to
+         * call the token refresh API. The default is 72 hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
+         *  The default is <code>false</code>.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         * This setting is required for enabling Twitter Sign-In.
+         * Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+         */
+        twitterConsumerKey?: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         * This setting is required for enabling Twitter Sign-In.
+         * Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
+         */
+        twitterConsumerSecret?: string;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app.
+         */
+        unauthenticatedClientAction?: string;
+        /**
+         * Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
+         */
+        validateIssuer?: boolean;
     }
 
     /**
@@ -49562,6 +53454,32 @@ export namespace web {
     }
 
     /**
+     * User resource specific properties
+     */
+    export interface UserResponseProperties {
+        /**
+         * Password used for publishing.
+         */
+        publishingPassword?: string;
+        /**
+         * Password hash used for publishing.
+         */
+        publishingPasswordHash?: string;
+        /**
+         * Password hash salt used for publishing.
+         */
+        publishingPasswordHashSalt?: string;
+        /**
+         * Username used for publishing.
+         */
+        publishingUserName: string;
+        /**
+         * Url of SCM site.
+         */
+        scmUri?: string;
+    }
+
+    /**
      * Virtual application in an app.
      */
     export interface VirtualApplicationResponse {
@@ -49782,5 +53700,6 @@ export namespace windowsiot {
          */
         startDate: string;
     }
+
 }
 

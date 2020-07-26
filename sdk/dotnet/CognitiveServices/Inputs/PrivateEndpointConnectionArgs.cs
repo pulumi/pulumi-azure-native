@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.CognitiveServices.Inputs
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the resource
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
         /// Resource properties.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.PrivateEndpointConnectionPropertiesResponseArgs> Properties { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public PrivateEndpointConnectionArgs()
         {

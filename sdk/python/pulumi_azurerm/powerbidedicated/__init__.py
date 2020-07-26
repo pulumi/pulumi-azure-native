@@ -3,5 +3,5 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .capacity import *
-from .get_capacity import *
+from .capacity_details import *
+from .get_capacity_details import *

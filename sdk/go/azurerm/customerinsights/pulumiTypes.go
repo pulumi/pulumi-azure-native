@@ -246,8 +246,81 @@ func (o AssignmentPrincipalResponseArrayOutput) Index(i pulumi.IntInput) Assignm
 	}).(AssignmentPrincipalResponseOutput)
 }
 
+// The connector resource format.
+type ConnectorType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Properties of connector.
+	Properties ConnectorResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// ConnectorTypeInput is an input type that accepts ConnectorTypeArgs and ConnectorTypeOutput values.
+// You can construct a concrete instance of `ConnectorTypeInput` via:
+//
+//          ConnectorTypeArgs{...}
+type ConnectorTypeInput interface {
+	pulumi.Input
+
+	ToConnectorTypeOutput() ConnectorTypeOutput
+	ToConnectorTypeOutputWithContext(context.Context) ConnectorTypeOutput
+}
+
+// The connector resource format.
+type ConnectorTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties of connector.
+	Properties ConnectorResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ConnectorTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorType)(nil)).Elem()
+}
+
+func (i ConnectorTypeArgs) ToConnectorTypeOutput() ConnectorTypeOutput {
+	return i.ToConnectorTypeOutputWithContext(context.Background())
+}
+
+func (i ConnectorTypeArgs) ToConnectorTypeOutputWithContext(ctx context.Context) ConnectorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTypeOutput)
+}
+
+// The connector resource format.
+type ConnectorTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorType)(nil)).Elem()
+}
+
+func (o ConnectorTypeOutput) ToConnectorTypeOutput() ConnectorTypeOutput {
+	return o
+}
+
+func (o ConnectorTypeOutput) ToConnectorTypeOutputWithContext(ctx context.Context) ConnectorTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ConnectorTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorType) string { return v.Name }).(pulumi.StringOutput)
+}
+
 // Properties of connector.
-type Connector struct {
+func (o ConnectorTypeOutput) Properties() ConnectorResponseOutput {
+	return o.ApplyT(func(v ConnectorType) ConnectorResponse { return v.Properties }).(ConnectorResponseOutput)
+}
+
+// Resource type.
+func (o ConnectorTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties of connector.
+type ConnectorDefinition struct {
 	// Name of the connector.
 	ConnectorName *string `pulumi:"connectorName"`
 	// The connector properties.
@@ -262,19 +335,19 @@ type Connector struct {
 	IsInternal *bool `pulumi:"isInternal"`
 }
 
-// ConnectorInput is an input type that accepts ConnectorArgs and ConnectorOutput values.
-// You can construct a concrete instance of `ConnectorInput` via:
+// ConnectorDefinitionInput is an input type that accepts ConnectorDefinitionArgs and ConnectorDefinitionOutput values.
+// You can construct a concrete instance of `ConnectorDefinitionInput` via:
 //
-//          ConnectorArgs{...}
-type ConnectorInput interface {
+//          ConnectorDefinitionArgs{...}
+type ConnectorDefinitionInput interface {
 	pulumi.Input
 
-	ToConnectorOutput() ConnectorOutput
-	ToConnectorOutputWithContext(context.Context) ConnectorOutput
+	ToConnectorDefinitionOutput() ConnectorDefinitionOutput
+	ToConnectorDefinitionOutputWithContext(context.Context) ConnectorDefinitionOutput
 }
 
 // Properties of connector.
-type ConnectorArgs struct {
+type ConnectorDefinitionArgs struct {
 	// Name of the connector.
 	ConnectorName pulumi.StringPtrInput `pulumi:"connectorName"`
 	// The connector properties.
@@ -289,135 +362,135 @@ type ConnectorArgs struct {
 	IsInternal pulumi.BoolPtrInput `pulumi:"isInternal"`
 }
 
-func (ConnectorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Connector)(nil)).Elem()
+func (ConnectorDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinition)(nil)).Elem()
 }
 
-func (i ConnectorArgs) ToConnectorOutput() ConnectorOutput {
-	return i.ToConnectorOutputWithContext(context.Background())
+func (i ConnectorDefinitionArgs) ToConnectorDefinitionOutput() ConnectorDefinitionOutput {
+	return i.ToConnectorDefinitionOutputWithContext(context.Background())
 }
 
-func (i ConnectorArgs) ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput)
+func (i ConnectorDefinitionArgs) ToConnectorDefinitionOutputWithContext(ctx context.Context) ConnectorDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionOutput)
 }
 
-func (i ConnectorArgs) ToConnectorPtrOutput() ConnectorPtrOutput {
-	return i.ToConnectorPtrOutputWithContext(context.Background())
+func (i ConnectorDefinitionArgs) ToConnectorDefinitionPtrOutput() ConnectorDefinitionPtrOutput {
+	return i.ToConnectorDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i ConnectorArgs) ToConnectorPtrOutputWithContext(ctx context.Context) ConnectorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput).ToConnectorPtrOutputWithContext(ctx)
+func (i ConnectorDefinitionArgs) ToConnectorDefinitionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionOutput).ToConnectorDefinitionPtrOutputWithContext(ctx)
 }
 
-// ConnectorPtrInput is an input type that accepts ConnectorArgs, ConnectorPtr and ConnectorPtrOutput values.
-// You can construct a concrete instance of `ConnectorPtrInput` via:
+// ConnectorDefinitionPtrInput is an input type that accepts ConnectorDefinitionArgs, ConnectorDefinitionPtr and ConnectorDefinitionPtrOutput values.
+// You can construct a concrete instance of `ConnectorDefinitionPtrInput` via:
 //
-//          ConnectorArgs{...}
+//          ConnectorDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type ConnectorPtrInput interface {
+type ConnectorDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToConnectorPtrOutput() ConnectorPtrOutput
-	ToConnectorPtrOutputWithContext(context.Context) ConnectorPtrOutput
+	ToConnectorDefinitionPtrOutput() ConnectorDefinitionPtrOutput
+	ToConnectorDefinitionPtrOutputWithContext(context.Context) ConnectorDefinitionPtrOutput
 }
 
-type connectorPtrType ConnectorArgs
+type connectorDefinitionPtrType ConnectorDefinitionArgs
 
-func ConnectorPtr(v *ConnectorArgs) ConnectorPtrInput {
-	return (*connectorPtrType)(v)
+func ConnectorDefinitionPtr(v *ConnectorDefinitionArgs) ConnectorDefinitionPtrInput {
+	return (*connectorDefinitionPtrType)(v)
 }
 
-func (*connectorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Connector)(nil)).Elem()
+func (*connectorDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorDefinition)(nil)).Elem()
 }
 
-func (i *connectorPtrType) ToConnectorPtrOutput() ConnectorPtrOutput {
-	return i.ToConnectorPtrOutputWithContext(context.Background())
+func (i *connectorDefinitionPtrType) ToConnectorDefinitionPtrOutput() ConnectorDefinitionPtrOutput {
+	return i.ToConnectorDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *connectorPtrType) ToConnectorPtrOutputWithContext(ctx context.Context) ConnectorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorPtrOutput)
+func (i *connectorDefinitionPtrType) ToConnectorDefinitionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionPtrOutput)
 }
 
 // Properties of connector.
-type ConnectorOutput struct{ *pulumi.OutputState }
+type ConnectorDefinitionOutput struct{ *pulumi.OutputState }
 
-func (ConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Connector)(nil)).Elem()
+func (ConnectorDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorDefinition)(nil)).Elem()
 }
 
-func (o ConnectorOutput) ToConnectorOutput() ConnectorOutput {
+func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutput() ConnectorDefinitionOutput {
 	return o
 }
 
-func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) ConnectorOutput {
+func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutputWithContext(ctx context.Context) ConnectorDefinitionOutput {
 	return o
 }
 
-func (o ConnectorOutput) ToConnectorPtrOutput() ConnectorPtrOutput {
-	return o.ToConnectorPtrOutputWithContext(context.Background())
+func (o ConnectorDefinitionOutput) ToConnectorDefinitionPtrOutput() ConnectorDefinitionPtrOutput {
+	return o.ToConnectorDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectorOutput) ToConnectorPtrOutputWithContext(ctx context.Context) ConnectorPtrOutput {
-	return o.ApplyT(func(v Connector) *Connector {
+func (o ConnectorDefinitionOutput) ToConnectorDefinitionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionPtrOutput {
+	return o.ApplyT(func(v ConnectorDefinition) *ConnectorDefinition {
 		return &v
-	}).(ConnectorPtrOutput)
+	}).(ConnectorDefinitionPtrOutput)
 }
 
 // Name of the connector.
-func (o ConnectorOutput) ConnectorName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Connector) *string { return v.ConnectorName }).(pulumi.StringPtrOutput)
+func (o ConnectorDefinitionOutput) ConnectorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorDefinition) *string { return v.ConnectorName }).(pulumi.StringPtrOutput)
 }
 
 // The connector properties.
-func (o ConnectorOutput) ConnectorProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Connector) map[string]string { return v.ConnectorProperties }).(pulumi.StringMapOutput)
+func (o ConnectorDefinitionOutput) ConnectorProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectorDefinition) map[string]string { return v.ConnectorProperties }).(pulumi.StringMapOutput)
 }
 
 // Type of connector.
-func (o ConnectorOutput) ConnectorType() pulumi.StringOutput {
-	return o.ApplyT(func(v Connector) string { return v.ConnectorType }).(pulumi.StringOutput)
+func (o ConnectorDefinitionOutput) ConnectorType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorDefinition) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
 
 // Description of the connector.
-func (o ConnectorOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Connector) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o ConnectorDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Display name of the connector.
-func (o ConnectorOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Connector) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o ConnectorDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // If this is an internal connector.
-func (o ConnectorOutput) IsInternal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v Connector) *bool { return v.IsInternal }).(pulumi.BoolPtrOutput)
+func (o ConnectorDefinitionOutput) IsInternal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorDefinition) *bool { return v.IsInternal }).(pulumi.BoolPtrOutput)
 }
 
-type ConnectorPtrOutput struct{ *pulumi.OutputState }
+type ConnectorDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (ConnectorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Connector)(nil)).Elem()
+func (ConnectorDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorDefinition)(nil)).Elem()
 }
 
-func (o ConnectorPtrOutput) ToConnectorPtrOutput() ConnectorPtrOutput {
+func (o ConnectorDefinitionPtrOutput) ToConnectorDefinitionPtrOutput() ConnectorDefinitionPtrOutput {
 	return o
 }
 
-func (o ConnectorPtrOutput) ToConnectorPtrOutputWithContext(ctx context.Context) ConnectorPtrOutput {
+func (o ConnectorDefinitionPtrOutput) ToConnectorDefinitionPtrOutputWithContext(ctx context.Context) ConnectorDefinitionPtrOutput {
 	return o
 }
 
-func (o ConnectorPtrOutput) Elem() ConnectorOutput {
-	return o.ApplyT(func(v *Connector) Connector { return *v }).(ConnectorOutput)
+func (o ConnectorDefinitionPtrOutput) Elem() ConnectorDefinitionOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) ConnectorDefinition { return *v }).(ConnectorDefinitionOutput)
 }
 
 // Name of the connector.
-func (o ConnectorPtrOutput) ConnectorName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Connector) *string {
+func (o ConnectorDefinitionPtrOutput) ConnectorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -426,8 +499,8 @@ func (o ConnectorPtrOutput) ConnectorName() pulumi.StringPtrOutput {
 }
 
 // The connector properties.
-func (o ConnectorPtrOutput) ConnectorProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Connector) map[string]string {
+func (o ConnectorDefinitionPtrOutput) ConnectorProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -436,8 +509,8 @@ func (o ConnectorPtrOutput) ConnectorProperties() pulumi.StringMapOutput {
 }
 
 // Type of connector.
-func (o ConnectorPtrOutput) ConnectorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Connector) *string {
+func (o ConnectorDefinitionPtrOutput) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -446,8 +519,8 @@ func (o ConnectorPtrOutput) ConnectorType() pulumi.StringPtrOutput {
 }
 
 // Description of the connector.
-func (o ConnectorPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Connector) *string {
+func (o ConnectorDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -456,8 +529,8 @@ func (o ConnectorPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Display name of the connector.
-func (o ConnectorPtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Connector) *string {
+func (o ConnectorDefinitionPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -466,8 +539,8 @@ func (o ConnectorPtrOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // If this is an internal connector.
-func (o ConnectorPtrOutput) IsInternal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Connector) *bool {
+func (o ConnectorDefinitionPtrOutput) IsInternal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) *bool {
 		if v == nil {
 			return nil
 		}
@@ -475,233 +548,77 @@ func (o ConnectorPtrOutput) IsInternal() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The connector mapping definition.
-type ConnectorMapping struct {
-	// Type of connector.
-	ConnectorType *string `pulumi:"connectorType"`
-	// The description of the connector mapping.
-	Description *string `pulumi:"description"`
-	// Display name for the connector mapping.
-	DisplayName *string `pulumi:"displayName"`
-	// Defines which entity type the file should map to.
-	EntityType string `pulumi:"entityType"`
-	// The mapping entity name.
-	EntityTypeName string `pulumi:"entityTypeName"`
-	// The properties of the mapping.
-	MappingProperties ConnectorMappingProperties `pulumi:"mappingProperties"`
+// The connector mapping resource format.
+type ConnectorMappingType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The connector mapping definition.
+	Properties ConnectorMappingResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
 }
 
-// ConnectorMappingInput is an input type that accepts ConnectorMappingArgs and ConnectorMappingOutput values.
-// You can construct a concrete instance of `ConnectorMappingInput` via:
+// ConnectorMappingTypeInput is an input type that accepts ConnectorMappingTypeArgs and ConnectorMappingTypeOutput values.
+// You can construct a concrete instance of `ConnectorMappingTypeInput` via:
 //
-//          ConnectorMappingArgs{...}
-type ConnectorMappingInput interface {
+//          ConnectorMappingTypeArgs{...}
+type ConnectorMappingTypeInput interface {
 	pulumi.Input
 
-	ToConnectorMappingOutput() ConnectorMappingOutput
-	ToConnectorMappingOutputWithContext(context.Context) ConnectorMappingOutput
+	ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput
+	ToConnectorMappingTypeOutputWithContext(context.Context) ConnectorMappingTypeOutput
+}
+
+// The connector mapping resource format.
+type ConnectorMappingTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The connector mapping definition.
+	Properties ConnectorMappingResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ConnectorMappingTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingType)(nil)).Elem()
+}
+
+func (i ConnectorMappingTypeArgs) ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput {
+	return i.ToConnectorMappingTypeOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingTypeArgs) ToConnectorMappingTypeOutputWithContext(ctx context.Context) ConnectorMappingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingTypeOutput)
+}
+
+// The connector mapping resource format.
+type ConnectorMappingTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingType)(nil)).Elem()
+}
+
+func (o ConnectorMappingTypeOutput) ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput {
+	return o
+}
+
+func (o ConnectorMappingTypeOutput) ToConnectorMappingTypeOutputWithContext(ctx context.Context) ConnectorMappingTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ConnectorMappingTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The connector mapping definition.
-type ConnectorMappingArgs struct {
-	// Type of connector.
-	ConnectorType pulumi.StringPtrInput `pulumi:"connectorType"`
-	// The description of the connector mapping.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Display name for the connector mapping.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Defines which entity type the file should map to.
-	EntityType pulumi.StringInput `pulumi:"entityType"`
-	// The mapping entity name.
-	EntityTypeName pulumi.StringInput `pulumi:"entityTypeName"`
-	// The properties of the mapping.
-	MappingProperties ConnectorMappingPropertiesInput `pulumi:"mappingProperties"`
+func (o ConnectorMappingTypeOutput) Properties() ConnectorMappingResponseOutput {
+	return o.ApplyT(func(v ConnectorMappingType) ConnectorMappingResponse { return v.Properties }).(ConnectorMappingResponseOutput)
 }
 
-func (ConnectorMappingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMapping)(nil)).Elem()
-}
-
-func (i ConnectorMappingArgs) ToConnectorMappingOutput() ConnectorMappingOutput {
-	return i.ToConnectorMappingOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingArgs) ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingOutput)
-}
-
-func (i ConnectorMappingArgs) ToConnectorMappingPtrOutput() ConnectorMappingPtrOutput {
-	return i.ToConnectorMappingPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingArgs) ToConnectorMappingPtrOutputWithContext(ctx context.Context) ConnectorMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingOutput).ToConnectorMappingPtrOutputWithContext(ctx)
-}
-
-// ConnectorMappingPtrInput is an input type that accepts ConnectorMappingArgs, ConnectorMappingPtr and ConnectorMappingPtrOutput values.
-// You can construct a concrete instance of `ConnectorMappingPtrInput` via:
-//
-//          ConnectorMappingArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorMappingPtrInput interface {
-	pulumi.Input
-
-	ToConnectorMappingPtrOutput() ConnectorMappingPtrOutput
-	ToConnectorMappingPtrOutputWithContext(context.Context) ConnectorMappingPtrOutput
-}
-
-type connectorMappingPtrType ConnectorMappingArgs
-
-func ConnectorMappingPtr(v *ConnectorMappingArgs) ConnectorMappingPtrInput {
-	return (*connectorMappingPtrType)(v)
-}
-
-func (*connectorMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMapping)(nil)).Elem()
-}
-
-func (i *connectorMappingPtrType) ToConnectorMappingPtrOutput() ConnectorMappingPtrOutput {
-	return i.ToConnectorMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorMappingPtrType) ToConnectorMappingPtrOutputWithContext(ctx context.Context) ConnectorMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPtrOutput)
-}
-
-// The connector mapping definition.
-type ConnectorMappingOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMapping)(nil)).Elem()
-}
-
-func (o ConnectorMappingOutput) ToConnectorMappingOutput() ConnectorMappingOutput {
-	return o
-}
-
-func (o ConnectorMappingOutput) ToConnectorMappingOutputWithContext(ctx context.Context) ConnectorMappingOutput {
-	return o
-}
-
-func (o ConnectorMappingOutput) ToConnectorMappingPtrOutput() ConnectorMappingPtrOutput {
-	return o.ToConnectorMappingPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorMappingOutput) ToConnectorMappingPtrOutputWithContext(ctx context.Context) ConnectorMappingPtrOutput {
-	return o.ApplyT(func(v ConnectorMapping) *ConnectorMapping {
-		return &v
-	}).(ConnectorMappingPtrOutput)
-}
-
-// Type of connector.
-func (o ConnectorMappingOutput) ConnectorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorMapping) *string { return v.ConnectorType }).(pulumi.StringPtrOutput)
-}
-
-// The description of the connector mapping.
-func (o ConnectorMappingOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorMapping) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Display name for the connector mapping.
-func (o ConnectorMappingOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorMapping) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Defines which entity type the file should map to.
-func (o ConnectorMappingOutput) EntityType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMapping) string { return v.EntityType }).(pulumi.StringOutput)
-}
-
-// The mapping entity name.
-func (o ConnectorMappingOutput) EntityTypeName() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMapping) string { return v.EntityTypeName }).(pulumi.StringOutput)
-}
-
-// The properties of the mapping.
-func (o ConnectorMappingOutput) MappingProperties() ConnectorMappingPropertiesOutput {
-	return o.ApplyT(func(v ConnectorMapping) ConnectorMappingProperties { return v.MappingProperties }).(ConnectorMappingPropertiesOutput)
-}
-
-type ConnectorMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorMapping)(nil)).Elem()
-}
-
-func (o ConnectorMappingPtrOutput) ToConnectorMappingPtrOutput() ConnectorMappingPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingPtrOutput) ToConnectorMappingPtrOutputWithContext(ctx context.Context) ConnectorMappingPtrOutput {
-	return o
-}
-
-func (o ConnectorMappingPtrOutput) Elem() ConnectorMappingOutput {
-	return o.ApplyT(func(v *ConnectorMapping) ConnectorMapping { return *v }).(ConnectorMappingOutput)
-}
-
-// Type of connector.
-func (o ConnectorMappingPtrOutput) ConnectorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectorType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the connector mapping.
-func (o ConnectorMappingPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Display name for the connector mapping.
-func (o ConnectorMappingPtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines which entity type the file should map to.
-func (o ConnectorMappingPtrOutput) EntityType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EntityType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The mapping entity name.
-func (o ConnectorMappingPtrOutput) EntityTypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EntityTypeName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of the mapping.
-func (o ConnectorMappingPtrOutput) MappingProperties() ConnectorMappingPropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorMapping) *ConnectorMappingProperties {
-		if v == nil {
-			return nil
-		}
-		return &v.MappingProperties
-	}).(ConnectorMappingPropertiesPtrOutput)
+// Resource type.
+func (o ConnectorMappingTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Connector mapping property availability.
@@ -1316,6 +1233,235 @@ func (o ConnectorMappingCompleteOperationResponsePtrOutput) DestinationFolder() 
 		}
 		return v.DestinationFolder
 	}).(pulumi.StringPtrOutput)
+}
+
+// The connector mapping definition.
+type ConnectorMappingDefinition struct {
+	// Type of connector.
+	ConnectorType *string `pulumi:"connectorType"`
+	// The description of the connector mapping.
+	Description *string `pulumi:"description"`
+	// Display name for the connector mapping.
+	DisplayName *string `pulumi:"displayName"`
+	// Defines which entity type the file should map to.
+	EntityType string `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName string `pulumi:"entityTypeName"`
+	// The properties of the mapping.
+	MappingProperties ConnectorMappingProperties `pulumi:"mappingProperties"`
+}
+
+// ConnectorMappingDefinitionInput is an input type that accepts ConnectorMappingDefinitionArgs and ConnectorMappingDefinitionOutput values.
+// You can construct a concrete instance of `ConnectorMappingDefinitionInput` via:
+//
+//          ConnectorMappingDefinitionArgs{...}
+type ConnectorMappingDefinitionInput interface {
+	pulumi.Input
+
+	ToConnectorMappingDefinitionOutput() ConnectorMappingDefinitionOutput
+	ToConnectorMappingDefinitionOutputWithContext(context.Context) ConnectorMappingDefinitionOutput
+}
+
+// The connector mapping definition.
+type ConnectorMappingDefinitionArgs struct {
+	// Type of connector.
+	ConnectorType pulumi.StringPtrInput `pulumi:"connectorType"`
+	// The description of the connector mapping.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Display name for the connector mapping.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Defines which entity type the file should map to.
+	EntityType pulumi.StringInput `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName pulumi.StringInput `pulumi:"entityTypeName"`
+	// The properties of the mapping.
+	MappingProperties ConnectorMappingPropertiesInput `pulumi:"mappingProperties"`
+}
+
+func (ConnectorMappingDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingDefinition)(nil)).Elem()
+}
+
+func (i ConnectorMappingDefinitionArgs) ToConnectorMappingDefinitionOutput() ConnectorMappingDefinitionOutput {
+	return i.ToConnectorMappingDefinitionOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingDefinitionArgs) ToConnectorMappingDefinitionOutputWithContext(ctx context.Context) ConnectorMappingDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingDefinitionOutput)
+}
+
+func (i ConnectorMappingDefinitionArgs) ToConnectorMappingDefinitionPtrOutput() ConnectorMappingDefinitionPtrOutput {
+	return i.ToConnectorMappingDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingDefinitionArgs) ToConnectorMappingDefinitionPtrOutputWithContext(ctx context.Context) ConnectorMappingDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingDefinitionOutput).ToConnectorMappingDefinitionPtrOutputWithContext(ctx)
+}
+
+// ConnectorMappingDefinitionPtrInput is an input type that accepts ConnectorMappingDefinitionArgs, ConnectorMappingDefinitionPtr and ConnectorMappingDefinitionPtrOutput values.
+// You can construct a concrete instance of `ConnectorMappingDefinitionPtrInput` via:
+//
+//          ConnectorMappingDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectorMappingDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToConnectorMappingDefinitionPtrOutput() ConnectorMappingDefinitionPtrOutput
+	ToConnectorMappingDefinitionPtrOutputWithContext(context.Context) ConnectorMappingDefinitionPtrOutput
+}
+
+type connectorMappingDefinitionPtrType ConnectorMappingDefinitionArgs
+
+func ConnectorMappingDefinitionPtr(v *ConnectorMappingDefinitionArgs) ConnectorMappingDefinitionPtrInput {
+	return (*connectorMappingDefinitionPtrType)(v)
+}
+
+func (*connectorMappingDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorMappingDefinition)(nil)).Elem()
+}
+
+func (i *connectorMappingDefinitionPtrType) ToConnectorMappingDefinitionPtrOutput() ConnectorMappingDefinitionPtrOutput {
+	return i.ToConnectorMappingDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorMappingDefinitionPtrType) ToConnectorMappingDefinitionPtrOutputWithContext(ctx context.Context) ConnectorMappingDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingDefinitionPtrOutput)
+}
+
+// The connector mapping definition.
+type ConnectorMappingDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingDefinition)(nil)).Elem()
+}
+
+func (o ConnectorMappingDefinitionOutput) ToConnectorMappingDefinitionOutput() ConnectorMappingDefinitionOutput {
+	return o
+}
+
+func (o ConnectorMappingDefinitionOutput) ToConnectorMappingDefinitionOutputWithContext(ctx context.Context) ConnectorMappingDefinitionOutput {
+	return o
+}
+
+func (o ConnectorMappingDefinitionOutput) ToConnectorMappingDefinitionPtrOutput() ConnectorMappingDefinitionPtrOutput {
+	return o.ToConnectorMappingDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorMappingDefinitionOutput) ToConnectorMappingDefinitionPtrOutputWithContext(ctx context.Context) ConnectorMappingDefinitionPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingDefinition) *ConnectorMappingDefinition {
+		return &v
+	}).(ConnectorMappingDefinitionPtrOutput)
+}
+
+// Type of connector.
+func (o ConnectorMappingDefinitionOutput) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingDefinition) *string { return v.ConnectorType }).(pulumi.StringPtrOutput)
+}
+
+// The description of the connector mapping.
+func (o ConnectorMappingDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Display name for the connector mapping.
+func (o ConnectorMappingDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Defines which entity type the file should map to.
+func (o ConnectorMappingDefinitionOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingDefinition) string { return v.EntityType }).(pulumi.StringOutput)
+}
+
+// The mapping entity name.
+func (o ConnectorMappingDefinitionOutput) EntityTypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingDefinition) string { return v.EntityTypeName }).(pulumi.StringOutput)
+}
+
+// The properties of the mapping.
+func (o ConnectorMappingDefinitionOutput) MappingProperties() ConnectorMappingPropertiesOutput {
+	return o.ApplyT(func(v ConnectorMappingDefinition) ConnectorMappingProperties { return v.MappingProperties }).(ConnectorMappingPropertiesOutput)
+}
+
+type ConnectorMappingDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorMappingDefinition)(nil)).Elem()
+}
+
+func (o ConnectorMappingDefinitionPtrOutput) ToConnectorMappingDefinitionPtrOutput() ConnectorMappingDefinitionPtrOutput {
+	return o
+}
+
+func (o ConnectorMappingDefinitionPtrOutput) ToConnectorMappingDefinitionPtrOutputWithContext(ctx context.Context) ConnectorMappingDefinitionPtrOutput {
+	return o
+}
+
+func (o ConnectorMappingDefinitionPtrOutput) Elem() ConnectorMappingDefinitionOutput {
+	return o.ApplyT(func(v *ConnectorMappingDefinition) ConnectorMappingDefinition { return *v }).(ConnectorMappingDefinitionOutput)
+}
+
+// Type of connector.
+func (o ConnectorMappingDefinitionPtrOutput) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the connector mapping.
+func (o ConnectorMappingDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Display name for the connector mapping.
+func (o ConnectorMappingDefinitionPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines which entity type the file should map to.
+func (o ConnectorMappingDefinitionPtrOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mapping entity name.
+func (o ConnectorMappingDefinitionPtrOutput) EntityTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityTypeName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the mapping.
+func (o ConnectorMappingDefinitionPtrOutput) MappingProperties() ConnectorMappingPropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingDefinition) *ConnectorMappingProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.MappingProperties
+	}).(ConnectorMappingPropertiesPtrOutput)
 }
 
 // The error management.
@@ -4531,444 +4677,6 @@ func (o HubBillingInfoFormatResponsePtrOutput) SkuName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The connector resource format.
-type HubConnectorType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubConnectorTypeInput is an input type that accepts HubConnectorTypeArgs and HubConnectorTypeOutput values.
-// You can construct a concrete instance of `HubConnectorTypeInput` via:
-//
-//          HubConnectorTypeArgs{...}
-type HubConnectorTypeInput interface {
-	pulumi.Input
-
-	ToHubConnectorTypeOutput() HubConnectorTypeOutput
-	ToHubConnectorTypeOutputWithContext(context.Context) HubConnectorTypeOutput
-}
-
-// The connector resource format.
-type HubConnectorTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubConnectorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubConnectorType)(nil)).Elem()
-}
-
-func (i HubConnectorTypeArgs) ToHubConnectorTypeOutput() HubConnectorTypeOutput {
-	return i.ToHubConnectorTypeOutputWithContext(context.Background())
-}
-
-func (i HubConnectorTypeArgs) ToHubConnectorTypeOutputWithContext(ctx context.Context) HubConnectorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubConnectorTypeOutput)
-}
-
-// The connector resource format.
-type HubConnectorTypeOutput struct{ *pulumi.OutputState }
-
-func (HubConnectorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubConnectorType)(nil)).Elem()
-}
-
-func (o HubConnectorTypeOutput) ToHubConnectorTypeOutput() HubConnectorTypeOutput {
-	return o
-}
-
-func (o HubConnectorTypeOutput) ToHubConnectorTypeOutputWithContext(ctx context.Context) HubConnectorTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubConnectorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubConnectorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of connector.
-func (o HubConnectorTypeOutput) Properties() ConnectorResponseOutput {
-	return o.ApplyT(func(v HubConnectorType) ConnectorResponse { return v.Properties }).(ConnectorResponseOutput)
-}
-
-// Resource type.
-func (o HubConnectorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubConnectorType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The connector mapping resource format.
-type HubConnectorMappingType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubConnectorMappingTypeInput is an input type that accepts HubConnectorMappingTypeArgs and HubConnectorMappingTypeOutput values.
-// You can construct a concrete instance of `HubConnectorMappingTypeInput` via:
-//
-//          HubConnectorMappingTypeArgs{...}
-type HubConnectorMappingTypeInput interface {
-	pulumi.Input
-
-	ToHubConnectorMappingTypeOutput() HubConnectorMappingTypeOutput
-	ToHubConnectorMappingTypeOutputWithContext(context.Context) HubConnectorMappingTypeOutput
-}
-
-// The connector mapping resource format.
-type HubConnectorMappingTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubConnectorMappingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubConnectorMappingType)(nil)).Elem()
-}
-
-func (i HubConnectorMappingTypeArgs) ToHubConnectorMappingTypeOutput() HubConnectorMappingTypeOutput {
-	return i.ToHubConnectorMappingTypeOutputWithContext(context.Background())
-}
-
-func (i HubConnectorMappingTypeArgs) ToHubConnectorMappingTypeOutputWithContext(ctx context.Context) HubConnectorMappingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubConnectorMappingTypeOutput)
-}
-
-// The connector mapping resource format.
-type HubConnectorMappingTypeOutput struct{ *pulumi.OutputState }
-
-func (HubConnectorMappingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubConnectorMappingType)(nil)).Elem()
-}
-
-func (o HubConnectorMappingTypeOutput) ToHubConnectorMappingTypeOutput() HubConnectorMappingTypeOutput {
-	return o
-}
-
-func (o HubConnectorMappingTypeOutput) ToHubConnectorMappingTypeOutputWithContext(ctx context.Context) HubConnectorMappingTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubConnectorMappingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubConnectorMappingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The connector mapping definition.
-func (o HubConnectorMappingTypeOutput) Properties() ConnectorMappingResponseOutput {
-	return o.ApplyT(func(v HubConnectorMappingType) ConnectorMappingResponse { return v.Properties }).(ConnectorMappingResponseOutput)
-}
-
-// Resource type.
-func (o HubConnectorMappingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubConnectorMappingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The KPI resource format.
-type HubKpiType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubKpiTypeInput is an input type that accepts HubKpiTypeArgs and HubKpiTypeOutput values.
-// You can construct a concrete instance of `HubKpiTypeInput` via:
-//
-//          HubKpiTypeArgs{...}
-type HubKpiTypeInput interface {
-	pulumi.Input
-
-	ToHubKpiTypeOutput() HubKpiTypeOutput
-	ToHubKpiTypeOutputWithContext(context.Context) HubKpiTypeOutput
-}
-
-// The KPI resource format.
-type HubKpiTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubKpiTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubKpiType)(nil)).Elem()
-}
-
-func (i HubKpiTypeArgs) ToHubKpiTypeOutput() HubKpiTypeOutput {
-	return i.ToHubKpiTypeOutputWithContext(context.Background())
-}
-
-func (i HubKpiTypeArgs) ToHubKpiTypeOutputWithContext(ctx context.Context) HubKpiTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubKpiTypeOutput)
-}
-
-// The KPI resource format.
-type HubKpiTypeOutput struct{ *pulumi.OutputState }
-
-func (HubKpiTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubKpiType)(nil)).Elem()
-}
-
-func (o HubKpiTypeOutput) ToHubKpiTypeOutput() HubKpiTypeOutput {
-	return o
-}
-
-func (o HubKpiTypeOutput) ToHubKpiTypeOutputWithContext(ctx context.Context) HubKpiTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubKpiTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubKpiType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Defines the KPI Threshold limits.
-func (o HubKpiTypeOutput) Properties() KpiDefinitionResponseOutput {
-	return o.ApplyT(func(v HubKpiType) KpiDefinitionResponse { return v.Properties }).(KpiDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o HubKpiTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubKpiType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The link resource format.
-type HubLinkType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of Link.
-	Properties LinkDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubLinkTypeInput is an input type that accepts HubLinkTypeArgs and HubLinkTypeOutput values.
-// You can construct a concrete instance of `HubLinkTypeInput` via:
-//
-//          HubLinkTypeArgs{...}
-type HubLinkTypeInput interface {
-	pulumi.Input
-
-	ToHubLinkTypeOutput() HubLinkTypeOutput
-	ToHubLinkTypeOutputWithContext(context.Context) HubLinkTypeOutput
-}
-
-// The link resource format.
-type HubLinkTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of Link.
-	Properties LinkDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubLinkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubLinkType)(nil)).Elem()
-}
-
-func (i HubLinkTypeArgs) ToHubLinkTypeOutput() HubLinkTypeOutput {
-	return i.ToHubLinkTypeOutputWithContext(context.Background())
-}
-
-func (i HubLinkTypeArgs) ToHubLinkTypeOutputWithContext(ctx context.Context) HubLinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubLinkTypeOutput)
-}
-
-// The link resource format.
-type HubLinkTypeOutput struct{ *pulumi.OutputState }
-
-func (HubLinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubLinkType)(nil)).Elem()
-}
-
-func (o HubLinkTypeOutput) ToHubLinkTypeOutput() HubLinkTypeOutput {
-	return o
-}
-
-func (o HubLinkTypeOutput) ToHubLinkTypeOutputWithContext(ctx context.Context) HubLinkTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubLinkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubLinkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of Link.
-func (o HubLinkTypeOutput) Properties() LinkDefinitionResponseOutput {
-	return o.ApplyT(func(v HubLinkType) LinkDefinitionResponse { return v.Properties }).(LinkDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o HubLinkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubLinkType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The prediction resource format.
-type HubPredictionType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The prediction definition.
-	Properties PredictionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubPredictionTypeInput is an input type that accepts HubPredictionTypeArgs and HubPredictionTypeOutput values.
-// You can construct a concrete instance of `HubPredictionTypeInput` via:
-//
-//          HubPredictionTypeArgs{...}
-type HubPredictionTypeInput interface {
-	pulumi.Input
-
-	ToHubPredictionTypeOutput() HubPredictionTypeOutput
-	ToHubPredictionTypeOutputWithContext(context.Context) HubPredictionTypeOutput
-}
-
-// The prediction resource format.
-type HubPredictionTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The prediction definition.
-	Properties PredictionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubPredictionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubPredictionType)(nil)).Elem()
-}
-
-func (i HubPredictionTypeArgs) ToHubPredictionTypeOutput() HubPredictionTypeOutput {
-	return i.ToHubPredictionTypeOutputWithContext(context.Background())
-}
-
-func (i HubPredictionTypeArgs) ToHubPredictionTypeOutputWithContext(ctx context.Context) HubPredictionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubPredictionTypeOutput)
-}
-
-// The prediction resource format.
-type HubPredictionTypeOutput struct{ *pulumi.OutputState }
-
-func (HubPredictionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubPredictionType)(nil)).Elem()
-}
-
-func (o HubPredictionTypeOutput) ToHubPredictionTypeOutput() HubPredictionTypeOutput {
-	return o
-}
-
-func (o HubPredictionTypeOutput) ToHubPredictionTypeOutputWithContext(ctx context.Context) HubPredictionTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubPredictionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubPredictionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The prediction definition.
-func (o HubPredictionTypeOutput) Properties() PredictionResponseOutput {
-	return o.ApplyT(func(v HubPredictionType) PredictionResponse { return v.Properties }).(PredictionResponseOutput)
-}
-
-// Resource type.
-func (o HubPredictionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubPredictionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The profile resource format.
-type HubProfileType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubProfileTypeInput is an input type that accepts HubProfileTypeArgs and HubProfileTypeOutput values.
-// You can construct a concrete instance of `HubProfileTypeInput` via:
-//
-//          HubProfileTypeArgs{...}
-type HubProfileTypeInput interface {
-	pulumi.Input
-
-	ToHubProfileTypeOutput() HubProfileTypeOutput
-	ToHubProfileTypeOutputWithContext(context.Context) HubProfileTypeOutput
-}
-
-// The profile resource format.
-type HubProfileTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubProfileTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubProfileType)(nil)).Elem()
-}
-
-func (i HubProfileTypeArgs) ToHubProfileTypeOutput() HubProfileTypeOutput {
-	return i.ToHubProfileTypeOutputWithContext(context.Background())
-}
-
-func (i HubProfileTypeArgs) ToHubProfileTypeOutputWithContext(ctx context.Context) HubProfileTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubProfileTypeOutput)
-}
-
-// The profile resource format.
-type HubProfileTypeOutput struct{ *pulumi.OutputState }
-
-func (HubProfileTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubProfileType)(nil)).Elem()
-}
-
-func (o HubProfileTypeOutput) ToHubProfileTypeOutput() HubProfileTypeOutput {
-	return o
-}
-
-func (o HubProfileTypeOutput) ToHubProfileTypeOutputWithContext(ctx context.Context) HubProfileTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubProfileTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubProfileType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The profile type definition.
-func (o HubProfileTypeOutput) Properties() ProfileTypeDefinitionResponseOutput {
-	return o.ApplyT(func(v HubProfileType) ProfileTypeDefinitionResponse { return v.Properties }).(ProfileTypeDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o HubProfileTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubProfileType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of hub.
 type HubPropertiesFormat struct {
 	// Billing settings of the hub.
@@ -5332,296 +5040,77 @@ func (o HubPropertiesFormatResponsePtrOutput) WebEndpoint() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The relationship resource format.
-type HubRelationshipType struct {
+// The KPI resource format.
+type KpiType struct {
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The definition of Relationship.
-	Properties RelationshipDefinitionResponse `pulumi:"properties"`
+	// Defines the KPI Threshold limits.
+	Properties KpiDefinitionResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
 
-// HubRelationshipTypeInput is an input type that accepts HubRelationshipTypeArgs and HubRelationshipTypeOutput values.
-// You can construct a concrete instance of `HubRelationshipTypeInput` via:
+// KpiTypeInput is an input type that accepts KpiTypeArgs and KpiTypeOutput values.
+// You can construct a concrete instance of `KpiTypeInput` via:
 //
-//          HubRelationshipTypeArgs{...}
-type HubRelationshipTypeInput interface {
+//          KpiTypeArgs{...}
+type KpiTypeInput interface {
 	pulumi.Input
 
-	ToHubRelationshipTypeOutput() HubRelationshipTypeOutput
-	ToHubRelationshipTypeOutputWithContext(context.Context) HubRelationshipTypeOutput
+	ToKpiTypeOutput() KpiTypeOutput
+	ToKpiTypeOutputWithContext(context.Context) KpiTypeOutput
 }
 
-// The relationship resource format.
-type HubRelationshipTypeArgs struct {
+// The KPI resource format.
+type KpiTypeArgs struct {
 	// Resource name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of Relationship.
-	Properties RelationshipDefinitionResponseInput `pulumi:"properties"`
+	// Defines the KPI Threshold limits.
+	Properties KpiDefinitionResponseInput `pulumi:"properties"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (HubRelationshipTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRelationshipType)(nil)).Elem()
+func (KpiTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiType)(nil)).Elem()
 }
 
-func (i HubRelationshipTypeArgs) ToHubRelationshipTypeOutput() HubRelationshipTypeOutput {
-	return i.ToHubRelationshipTypeOutputWithContext(context.Background())
+func (i KpiTypeArgs) ToKpiTypeOutput() KpiTypeOutput {
+	return i.ToKpiTypeOutputWithContext(context.Background())
 }
 
-func (i HubRelationshipTypeArgs) ToHubRelationshipTypeOutputWithContext(ctx context.Context) HubRelationshipTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubRelationshipTypeOutput)
+func (i KpiTypeArgs) ToKpiTypeOutputWithContext(ctx context.Context) KpiTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiTypeOutput)
 }
 
-// The relationship resource format.
-type HubRelationshipTypeOutput struct{ *pulumi.OutputState }
+// The KPI resource format.
+type KpiTypeOutput struct{ *pulumi.OutputState }
 
-func (HubRelationshipTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRelationshipType)(nil)).Elem()
+func (KpiTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiType)(nil)).Elem()
 }
 
-func (o HubRelationshipTypeOutput) ToHubRelationshipTypeOutput() HubRelationshipTypeOutput {
+func (o KpiTypeOutput) ToKpiTypeOutput() KpiTypeOutput {
 	return o
 }
 
-func (o HubRelationshipTypeOutput) ToHubRelationshipTypeOutputWithContext(ctx context.Context) HubRelationshipTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubRelationshipTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubRelationshipType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of Relationship.
-func (o HubRelationshipTypeOutput) Properties() RelationshipDefinitionResponseOutput {
-	return o.ApplyT(func(v HubRelationshipType) RelationshipDefinitionResponse { return v.Properties }).(RelationshipDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o HubRelationshipTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubRelationshipType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The relationship link resource format.
-type HubRelationshipLinkType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of relationship link.
-	Properties RelationshipLinkDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubRelationshipLinkTypeInput is an input type that accepts HubRelationshipLinkTypeArgs and HubRelationshipLinkTypeOutput values.
-// You can construct a concrete instance of `HubRelationshipLinkTypeInput` via:
-//
-//          HubRelationshipLinkTypeArgs{...}
-type HubRelationshipLinkTypeInput interface {
-	pulumi.Input
-
-	ToHubRelationshipLinkTypeOutput() HubRelationshipLinkTypeOutput
-	ToHubRelationshipLinkTypeOutputWithContext(context.Context) HubRelationshipLinkTypeOutput
-}
-
-// The relationship link resource format.
-type HubRelationshipLinkTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of relationship link.
-	Properties RelationshipLinkDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubRelationshipLinkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRelationshipLinkType)(nil)).Elem()
-}
-
-func (i HubRelationshipLinkTypeArgs) ToHubRelationshipLinkTypeOutput() HubRelationshipLinkTypeOutput {
-	return i.ToHubRelationshipLinkTypeOutputWithContext(context.Background())
-}
-
-func (i HubRelationshipLinkTypeArgs) ToHubRelationshipLinkTypeOutputWithContext(ctx context.Context) HubRelationshipLinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubRelationshipLinkTypeOutput)
-}
-
-// The relationship link resource format.
-type HubRelationshipLinkTypeOutput struct{ *pulumi.OutputState }
-
-func (HubRelationshipLinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRelationshipLinkType)(nil)).Elem()
-}
-
-func (o HubRelationshipLinkTypeOutput) ToHubRelationshipLinkTypeOutput() HubRelationshipLinkTypeOutput {
-	return o
-}
-
-func (o HubRelationshipLinkTypeOutput) ToHubRelationshipLinkTypeOutputWithContext(ctx context.Context) HubRelationshipLinkTypeOutput {
+func (o KpiTypeOutput) ToKpiTypeOutputWithContext(ctx context.Context) KpiTypeOutput {
 	return o
 }
 
 // Resource name.
-func (o HubRelationshipLinkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubRelationshipLinkType) string { return v.Name }).(pulumi.StringOutput)
+func (o KpiTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KpiType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The definition of relationship link.
-func (o HubRelationshipLinkTypeOutput) Properties() RelationshipLinkDefinitionResponseOutput {
-	return o.ApplyT(func(v HubRelationshipLinkType) RelationshipLinkDefinitionResponse { return v.Properties }).(RelationshipLinkDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o HubRelationshipLinkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubRelationshipLinkType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Role Assignment resource format.
-type HubRoleAssignmentType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties RoleAssignmentResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubRoleAssignmentTypeInput is an input type that accepts HubRoleAssignmentTypeArgs and HubRoleAssignmentTypeOutput values.
-// You can construct a concrete instance of `HubRoleAssignmentTypeInput` via:
-//
-//          HubRoleAssignmentTypeArgs{...}
-type HubRoleAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToHubRoleAssignmentTypeOutput() HubRoleAssignmentTypeOutput
-	ToHubRoleAssignmentTypeOutputWithContext(context.Context) HubRoleAssignmentTypeOutput
-}
-
-// The Role Assignment resource format.
-type HubRoleAssignmentTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties RoleAssignmentResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubRoleAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRoleAssignmentType)(nil)).Elem()
-}
-
-func (i HubRoleAssignmentTypeArgs) ToHubRoleAssignmentTypeOutput() HubRoleAssignmentTypeOutput {
-	return i.ToHubRoleAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i HubRoleAssignmentTypeArgs) ToHubRoleAssignmentTypeOutputWithContext(ctx context.Context) HubRoleAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubRoleAssignmentTypeOutput)
-}
-
-// The Role Assignment resource format.
-type HubRoleAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (HubRoleAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRoleAssignmentType)(nil)).Elem()
-}
-
-func (o HubRoleAssignmentTypeOutput) ToHubRoleAssignmentTypeOutput() HubRoleAssignmentTypeOutput {
-	return o
-}
-
-func (o HubRoleAssignmentTypeOutput) ToHubRoleAssignmentTypeOutputWithContext(ctx context.Context) HubRoleAssignmentTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubRoleAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubRoleAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Role Assignment definition.
-func (o HubRoleAssignmentTypeOutput) Properties() RoleAssignmentResponseOutput {
-	return o.ApplyT(func(v HubRoleAssignmentType) RoleAssignmentResponse { return v.Properties }).(RoleAssignmentResponseOutput)
+// Defines the KPI Threshold limits.
+func (o KpiTypeOutput) Properties() KpiDefinitionResponseOutput {
+	return o.ApplyT(func(v KpiType) KpiDefinitionResponse { return v.Properties }).(KpiDefinitionResponseOutput)
 }
 
 // Resource type.
-func (o HubRoleAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubRoleAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The view resource format.
-type HubViewType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubViewTypeInput is an input type that accepts HubViewTypeArgs and HubViewTypeOutput values.
-// You can construct a concrete instance of `HubViewTypeInput` via:
-//
-//          HubViewTypeArgs{...}
-type HubViewTypeInput interface {
-	pulumi.Input
-
-	ToHubViewTypeOutput() HubViewTypeOutput
-	ToHubViewTypeOutputWithContext(context.Context) HubViewTypeOutput
-}
-
-// The view resource format.
-type HubViewTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubViewTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubViewType)(nil)).Elem()
-}
-
-func (i HubViewTypeArgs) ToHubViewTypeOutput() HubViewTypeOutput {
-	return i.ToHubViewTypeOutputWithContext(context.Background())
-}
-
-func (i HubViewTypeArgs) ToHubViewTypeOutputWithContext(ctx context.Context) HubViewTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubViewTypeOutput)
-}
-
-// The view resource format.
-type HubViewTypeOutput struct{ *pulumi.OutputState }
-
-func (HubViewTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubViewType)(nil)).Elem()
-}
-
-func (o HubViewTypeOutput) ToHubViewTypeOutput() HubViewTypeOutput {
-	return o
-}
-
-func (o HubViewTypeOutput) ToHubViewTypeOutputWithContext(ctx context.Context) HubViewTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HubViewTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubViewType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The view in Customer 360 web application.
-func (o HubViewTypeOutput) Properties() ViewResponseOutput {
-	return o.ApplyT(func(v HubViewType) ViewResponse { return v.Properties }).(ViewResponseOutput)
-}
-
-// Resource type.
-func (o HubViewTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubViewType) string { return v.Type }).(pulumi.StringOutput)
+func (o KpiTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v KpiType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The KPI alias.
@@ -7609,6 +7098,79 @@ func (o KpiThresholdsResponsePtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The link resource format.
+type LinkType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The definition of Link.
+	Properties LinkDefinitionResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// LinkTypeInput is an input type that accepts LinkTypeArgs and LinkTypeOutput values.
+// You can construct a concrete instance of `LinkTypeInput` via:
+//
+//          LinkTypeArgs{...}
+type LinkTypeInput interface {
+	pulumi.Input
+
+	ToLinkTypeOutput() LinkTypeOutput
+	ToLinkTypeOutputWithContext(context.Context) LinkTypeOutput
+}
+
+// The link resource format.
+type LinkTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The definition of Link.
+	Properties LinkDefinitionResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LinkTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkType)(nil)).Elem()
+}
+
+func (i LinkTypeArgs) ToLinkTypeOutput() LinkTypeOutput {
+	return i.ToLinkTypeOutputWithContext(context.Background())
+}
+
+func (i LinkTypeArgs) ToLinkTypeOutputWithContext(ctx context.Context) LinkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkTypeOutput)
+}
+
+// The link resource format.
+type LinkTypeOutput struct{ *pulumi.OutputState }
+
+func (LinkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkType)(nil)).Elem()
+}
+
+func (o LinkTypeOutput) ToLinkTypeOutput() LinkTypeOutput {
+	return o
+}
+
+func (o LinkTypeOutput) ToLinkTypeOutputWithContext(ctx context.Context) LinkTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o LinkTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The definition of Link.
+func (o LinkTypeOutput) Properties() LinkDefinitionResponseOutput {
+	return o.ApplyT(func(v LinkType) LinkDefinitionResponse { return v.Properties }).(LinkDefinitionResponseOutput)
+}
+
+// Resource type.
+func (o LinkTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The definition of Link.
 type LinkDefinition struct {
 	// Localized descriptions for the Link.
@@ -8714,8 +8276,81 @@ func (o ParticipantPropertyReferenceResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ParticipantPropertyReferenceResponseOutput)
 }
 
+// The prediction resource format.
+type PredictionType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The prediction definition.
+	Properties PredictionResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// PredictionTypeInput is an input type that accepts PredictionTypeArgs and PredictionTypeOutput values.
+// You can construct a concrete instance of `PredictionTypeInput` via:
+//
+//          PredictionTypeArgs{...}
+type PredictionTypeInput interface {
+	pulumi.Input
+
+	ToPredictionTypeOutput() PredictionTypeOutput
+	ToPredictionTypeOutputWithContext(context.Context) PredictionTypeOutput
+}
+
+// The prediction resource format.
+type PredictionTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The prediction definition.
+	Properties PredictionResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PredictionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionType)(nil)).Elem()
+}
+
+func (i PredictionTypeArgs) ToPredictionTypeOutput() PredictionTypeOutput {
+	return i.ToPredictionTypeOutputWithContext(context.Background())
+}
+
+func (i PredictionTypeArgs) ToPredictionTypeOutputWithContext(ctx context.Context) PredictionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionTypeOutput)
+}
+
+// The prediction resource format.
+type PredictionTypeOutput struct{ *pulumi.OutputState }
+
+func (PredictionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionType)(nil)).Elem()
+}
+
+func (o PredictionTypeOutput) ToPredictionTypeOutput() PredictionTypeOutput {
+	return o
+}
+
+func (o PredictionTypeOutput) ToPredictionTypeOutputWithContext(ctx context.Context) PredictionTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o PredictionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
 // The prediction definition.
-type Prediction struct {
+func (o PredictionTypeOutput) Properties() PredictionResponseOutput {
+	return o.ApplyT(func(v PredictionType) PredictionResponse { return v.Properties }).(PredictionResponseOutput)
+}
+
+// Resource type.
+func (o PredictionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The prediction definition.
+type PredictionDefinition struct {
 	// Whether do auto analyze.
 	AutoAnalyze bool `pulumi:"autoAnalyze"`
 	// Description of the prediction.
@@ -8746,19 +8381,19 @@ type Prediction struct {
 	ScoreLabel string `pulumi:"scoreLabel"`
 }
 
-// PredictionInput is an input type that accepts PredictionArgs and PredictionOutput values.
-// You can construct a concrete instance of `PredictionInput` via:
+// PredictionDefinitionInput is an input type that accepts PredictionDefinitionArgs and PredictionDefinitionOutput values.
+// You can construct a concrete instance of `PredictionDefinitionInput` via:
 //
-//          PredictionArgs{...}
-type PredictionInput interface {
+//          PredictionDefinitionArgs{...}
+type PredictionDefinitionInput interface {
 	pulumi.Input
 
-	ToPredictionOutput() PredictionOutput
-	ToPredictionOutputWithContext(context.Context) PredictionOutput
+	ToPredictionDefinitionOutput() PredictionDefinitionOutput
+	ToPredictionDefinitionOutputWithContext(context.Context) PredictionDefinitionOutput
 }
 
 // The prediction definition.
-type PredictionArgs struct {
+type PredictionDefinitionArgs struct {
 	// Whether do auto analyze.
 	AutoAnalyze pulumi.BoolInput `pulumi:"autoAnalyze"`
 	// Description of the prediction.
@@ -8789,175 +8424,175 @@ type PredictionArgs struct {
 	ScoreLabel pulumi.StringInput `pulumi:"scoreLabel"`
 }
 
-func (PredictionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prediction)(nil)).Elem()
+func (PredictionDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionDefinition)(nil)).Elem()
 }
 
-func (i PredictionArgs) ToPredictionOutput() PredictionOutput {
-	return i.ToPredictionOutputWithContext(context.Background())
+func (i PredictionDefinitionArgs) ToPredictionDefinitionOutput() PredictionDefinitionOutput {
+	return i.ToPredictionDefinitionOutputWithContext(context.Background())
 }
 
-func (i PredictionArgs) ToPredictionOutputWithContext(ctx context.Context) PredictionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionOutput)
+func (i PredictionDefinitionArgs) ToPredictionDefinitionOutputWithContext(ctx context.Context) PredictionDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionDefinitionOutput)
 }
 
-func (i PredictionArgs) ToPredictionPtrOutput() PredictionPtrOutput {
-	return i.ToPredictionPtrOutputWithContext(context.Background())
+func (i PredictionDefinitionArgs) ToPredictionDefinitionPtrOutput() PredictionDefinitionPtrOutput {
+	return i.ToPredictionDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i PredictionArgs) ToPredictionPtrOutputWithContext(ctx context.Context) PredictionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionOutput).ToPredictionPtrOutputWithContext(ctx)
+func (i PredictionDefinitionArgs) ToPredictionDefinitionPtrOutputWithContext(ctx context.Context) PredictionDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionDefinitionOutput).ToPredictionDefinitionPtrOutputWithContext(ctx)
 }
 
-// PredictionPtrInput is an input type that accepts PredictionArgs, PredictionPtr and PredictionPtrOutput values.
-// You can construct a concrete instance of `PredictionPtrInput` via:
+// PredictionDefinitionPtrInput is an input type that accepts PredictionDefinitionArgs, PredictionDefinitionPtr and PredictionDefinitionPtrOutput values.
+// You can construct a concrete instance of `PredictionDefinitionPtrInput` via:
 //
-//          PredictionArgs{...}
+//          PredictionDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type PredictionPtrInput interface {
+type PredictionDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToPredictionPtrOutput() PredictionPtrOutput
-	ToPredictionPtrOutputWithContext(context.Context) PredictionPtrOutput
+	ToPredictionDefinitionPtrOutput() PredictionDefinitionPtrOutput
+	ToPredictionDefinitionPtrOutputWithContext(context.Context) PredictionDefinitionPtrOutput
 }
 
-type predictionPtrType PredictionArgs
+type predictionDefinitionPtrType PredictionDefinitionArgs
 
-func PredictionPtr(v *PredictionArgs) PredictionPtrInput {
-	return (*predictionPtrType)(v)
+func PredictionDefinitionPtr(v *PredictionDefinitionArgs) PredictionDefinitionPtrInput {
+	return (*predictionDefinitionPtrType)(v)
 }
 
-func (*predictionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Prediction)(nil)).Elem()
+func (*predictionDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionDefinition)(nil)).Elem()
 }
 
-func (i *predictionPtrType) ToPredictionPtrOutput() PredictionPtrOutput {
-	return i.ToPredictionPtrOutputWithContext(context.Background())
+func (i *predictionDefinitionPtrType) ToPredictionDefinitionPtrOutput() PredictionDefinitionPtrOutput {
+	return i.ToPredictionDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *predictionPtrType) ToPredictionPtrOutputWithContext(ctx context.Context) PredictionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionPtrOutput)
+func (i *predictionDefinitionPtrType) ToPredictionDefinitionPtrOutputWithContext(ctx context.Context) PredictionDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionDefinitionPtrOutput)
 }
 
 // The prediction definition.
-type PredictionOutput struct{ *pulumi.OutputState }
+type PredictionDefinitionOutput struct{ *pulumi.OutputState }
 
-func (PredictionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prediction)(nil)).Elem()
+func (PredictionDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionDefinition)(nil)).Elem()
 }
 
-func (o PredictionOutput) ToPredictionOutput() PredictionOutput {
+func (o PredictionDefinitionOutput) ToPredictionDefinitionOutput() PredictionDefinitionOutput {
 	return o
 }
 
-func (o PredictionOutput) ToPredictionOutputWithContext(ctx context.Context) PredictionOutput {
+func (o PredictionDefinitionOutput) ToPredictionDefinitionOutputWithContext(ctx context.Context) PredictionDefinitionOutput {
 	return o
 }
 
-func (o PredictionOutput) ToPredictionPtrOutput() PredictionPtrOutput {
-	return o.ToPredictionPtrOutputWithContext(context.Background())
+func (o PredictionDefinitionOutput) ToPredictionDefinitionPtrOutput() PredictionDefinitionPtrOutput {
+	return o.ToPredictionDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o PredictionOutput) ToPredictionPtrOutputWithContext(ctx context.Context) PredictionPtrOutput {
-	return o.ApplyT(func(v Prediction) *Prediction {
+func (o PredictionDefinitionOutput) ToPredictionDefinitionPtrOutputWithContext(ctx context.Context) PredictionDefinitionPtrOutput {
+	return o.ApplyT(func(v PredictionDefinition) *PredictionDefinition {
 		return &v
-	}).(PredictionPtrOutput)
+	}).(PredictionDefinitionPtrOutput)
 }
 
 // Whether do auto analyze.
-func (o PredictionOutput) AutoAnalyze() pulumi.BoolOutput {
-	return o.ApplyT(func(v Prediction) bool { return v.AutoAnalyze }).(pulumi.BoolOutput)
+func (o PredictionDefinitionOutput) AutoAnalyze() pulumi.BoolOutput {
+	return o.ApplyT(func(v PredictionDefinition) bool { return v.AutoAnalyze }).(pulumi.BoolOutput)
 }
 
 // Description of the prediction.
-func (o PredictionOutput) Description() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Prediction) map[string]string { return v.Description }).(pulumi.StringMapOutput)
+func (o PredictionDefinitionOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PredictionDefinition) map[string]string { return v.Description }).(pulumi.StringMapOutput)
 }
 
 // Display name of the prediction.
-func (o PredictionOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Prediction) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
+func (o PredictionDefinitionOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PredictionDefinition) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
 }
 
 // The prediction grades.
-func (o PredictionOutput) Grades() PredictionPropertiesArrayOutput {
-	return o.ApplyT(func(v Prediction) []PredictionProperties { return v.Grades }).(PredictionPropertiesArrayOutput)
+func (o PredictionDefinitionOutput) Grades() PredictionPropertiesArrayOutput {
+	return o.ApplyT(func(v PredictionDefinition) []PredictionProperties { return v.Grades }).(PredictionPropertiesArrayOutput)
 }
 
 // Interaction types involved in the prediction.
-func (o PredictionOutput) InvolvedInteractionTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Prediction) []string { return v.InvolvedInteractionTypes }).(pulumi.StringArrayOutput)
+func (o PredictionDefinitionOutput) InvolvedInteractionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PredictionDefinition) []string { return v.InvolvedInteractionTypes }).(pulumi.StringArrayOutput)
 }
 
 // KPI types involved in the prediction.
-func (o PredictionOutput) InvolvedKpiTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Prediction) []string { return v.InvolvedKpiTypes }).(pulumi.StringArrayOutput)
+func (o PredictionDefinitionOutput) InvolvedKpiTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PredictionDefinition) []string { return v.InvolvedKpiTypes }).(pulumi.StringArrayOutput)
 }
 
 // Relationships involved in the prediction.
-func (o PredictionOutput) InvolvedRelationships() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Prediction) []string { return v.InvolvedRelationships }).(pulumi.StringArrayOutput)
+func (o PredictionDefinitionOutput) InvolvedRelationships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PredictionDefinition) []string { return v.InvolvedRelationships }).(pulumi.StringArrayOutput)
 }
 
 // Definition of the link mapping of prediction.
-func (o PredictionOutput) Mappings() PredictionPropertiesOutput {
-	return o.ApplyT(func(v Prediction) PredictionProperties { return v.Mappings }).(PredictionPropertiesOutput)
+func (o PredictionDefinitionOutput) Mappings() PredictionPropertiesOutput {
+	return o.ApplyT(func(v PredictionDefinition) PredictionProperties { return v.Mappings }).(PredictionPropertiesOutput)
 }
 
 // Negative outcome expression.
-func (o PredictionOutput) NegativeOutcomeExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v Prediction) string { return v.NegativeOutcomeExpression }).(pulumi.StringOutput)
+func (o PredictionDefinitionOutput) NegativeOutcomeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionDefinition) string { return v.NegativeOutcomeExpression }).(pulumi.StringOutput)
 }
 
 // Positive outcome expression.
-func (o PredictionOutput) PositiveOutcomeExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v Prediction) string { return v.PositiveOutcomeExpression }).(pulumi.StringOutput)
+func (o PredictionDefinitionOutput) PositiveOutcomeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionDefinition) string { return v.PositiveOutcomeExpression }).(pulumi.StringOutput)
 }
 
 // Name of the prediction.
-func (o PredictionOutput) PredictionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Prediction) *string { return v.PredictionName }).(pulumi.StringPtrOutput)
+func (o PredictionDefinitionOutput) PredictionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PredictionDefinition) *string { return v.PredictionName }).(pulumi.StringPtrOutput)
 }
 
 // Primary profile type.
-func (o PredictionOutput) PrimaryProfileType() pulumi.StringOutput {
-	return o.ApplyT(func(v Prediction) string { return v.PrimaryProfileType }).(pulumi.StringOutput)
+func (o PredictionDefinitionOutput) PrimaryProfileType() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionDefinition) string { return v.PrimaryProfileType }).(pulumi.StringOutput)
 }
 
 // Scope expression.
-func (o PredictionOutput) ScopeExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v Prediction) string { return v.ScopeExpression }).(pulumi.StringOutput)
+func (o PredictionDefinitionOutput) ScopeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionDefinition) string { return v.ScopeExpression }).(pulumi.StringOutput)
 }
 
 // Score label.
-func (o PredictionOutput) ScoreLabel() pulumi.StringOutput {
-	return o.ApplyT(func(v Prediction) string { return v.ScoreLabel }).(pulumi.StringOutput)
+func (o PredictionDefinitionOutput) ScoreLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionDefinition) string { return v.ScoreLabel }).(pulumi.StringOutput)
 }
 
-type PredictionPtrOutput struct{ *pulumi.OutputState }
+type PredictionDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (PredictionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Prediction)(nil)).Elem()
+func (PredictionDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionDefinition)(nil)).Elem()
 }
 
-func (o PredictionPtrOutput) ToPredictionPtrOutput() PredictionPtrOutput {
+func (o PredictionDefinitionPtrOutput) ToPredictionDefinitionPtrOutput() PredictionDefinitionPtrOutput {
 	return o
 }
 
-func (o PredictionPtrOutput) ToPredictionPtrOutputWithContext(ctx context.Context) PredictionPtrOutput {
+func (o PredictionDefinitionPtrOutput) ToPredictionDefinitionPtrOutputWithContext(ctx context.Context) PredictionDefinitionPtrOutput {
 	return o
 }
 
-func (o PredictionPtrOutput) Elem() PredictionOutput {
-	return o.ApplyT(func(v *Prediction) Prediction { return *v }).(PredictionOutput)
+func (o PredictionDefinitionPtrOutput) Elem() PredictionDefinitionOutput {
+	return o.ApplyT(func(v *PredictionDefinition) PredictionDefinition { return *v }).(PredictionDefinitionOutput)
 }
 
 // Whether do auto analyze.
-func (o PredictionPtrOutput) AutoAnalyze() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Prediction) *bool {
+func (o PredictionDefinitionPtrOutput) AutoAnalyze() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *bool {
 		if v == nil {
 			return nil
 		}
@@ -8966,8 +8601,8 @@ func (o PredictionPtrOutput) AutoAnalyze() pulumi.BoolPtrOutput {
 }
 
 // Description of the prediction.
-func (o PredictionPtrOutput) Description() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Prediction) map[string]string {
+func (o PredictionDefinitionPtrOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PredictionDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -8976,8 +8611,8 @@ func (o PredictionPtrOutput) Description() pulumi.StringMapOutput {
 }
 
 // Display name of the prediction.
-func (o PredictionPtrOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Prediction) map[string]string {
+func (o PredictionDefinitionPtrOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PredictionDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -8986,8 +8621,8 @@ func (o PredictionPtrOutput) DisplayName() pulumi.StringMapOutput {
 }
 
 // The prediction grades.
-func (o PredictionPtrOutput) Grades() PredictionPropertiesArrayOutput {
-	return o.ApplyT(func(v *Prediction) []PredictionProperties {
+func (o PredictionDefinitionPtrOutput) Grades() PredictionPropertiesArrayOutput {
+	return o.ApplyT(func(v *PredictionDefinition) []PredictionProperties {
 		if v == nil {
 			return nil
 		}
@@ -8996,8 +8631,8 @@ func (o PredictionPtrOutput) Grades() PredictionPropertiesArrayOutput {
 }
 
 // Interaction types involved in the prediction.
-func (o PredictionPtrOutput) InvolvedInteractionTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Prediction) []string {
+func (o PredictionDefinitionPtrOutput) InvolvedInteractionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PredictionDefinition) []string {
 		if v == nil {
 			return nil
 		}
@@ -9006,8 +8641,8 @@ func (o PredictionPtrOutput) InvolvedInteractionTypes() pulumi.StringArrayOutput
 }
 
 // KPI types involved in the prediction.
-func (o PredictionPtrOutput) InvolvedKpiTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Prediction) []string {
+func (o PredictionDefinitionPtrOutput) InvolvedKpiTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PredictionDefinition) []string {
 		if v == nil {
 			return nil
 		}
@@ -9016,8 +8651,8 @@ func (o PredictionPtrOutput) InvolvedKpiTypes() pulumi.StringArrayOutput {
 }
 
 // Relationships involved in the prediction.
-func (o PredictionPtrOutput) InvolvedRelationships() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Prediction) []string {
+func (o PredictionDefinitionPtrOutput) InvolvedRelationships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PredictionDefinition) []string {
 		if v == nil {
 			return nil
 		}
@@ -9026,8 +8661,8 @@ func (o PredictionPtrOutput) InvolvedRelationships() pulumi.StringArrayOutput {
 }
 
 // Definition of the link mapping of prediction.
-func (o PredictionPtrOutput) Mappings() PredictionPropertiesPtrOutput {
-	return o.ApplyT(func(v *Prediction) *PredictionProperties {
+func (o PredictionDefinitionPtrOutput) Mappings() PredictionPropertiesPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *PredictionProperties {
 		if v == nil {
 			return nil
 		}
@@ -9036,8 +8671,8 @@ func (o PredictionPtrOutput) Mappings() PredictionPropertiesPtrOutput {
 }
 
 // Negative outcome expression.
-func (o PredictionPtrOutput) NegativeOutcomeExpression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Prediction) *string {
+func (o PredictionDefinitionPtrOutput) NegativeOutcomeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -9046,8 +8681,8 @@ func (o PredictionPtrOutput) NegativeOutcomeExpression() pulumi.StringPtrOutput 
 }
 
 // Positive outcome expression.
-func (o PredictionPtrOutput) PositiveOutcomeExpression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Prediction) *string {
+func (o PredictionDefinitionPtrOutput) PositiveOutcomeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -9056,8 +8691,8 @@ func (o PredictionPtrOutput) PositiveOutcomeExpression() pulumi.StringPtrOutput 
 }
 
 // Name of the prediction.
-func (o PredictionPtrOutput) PredictionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Prediction) *string {
+func (o PredictionDefinitionPtrOutput) PredictionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -9066,8 +8701,8 @@ func (o PredictionPtrOutput) PredictionName() pulumi.StringPtrOutput {
 }
 
 // Primary profile type.
-func (o PredictionPtrOutput) PrimaryProfileType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Prediction) *string {
+func (o PredictionDefinitionPtrOutput) PrimaryProfileType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -9076,8 +8711,8 @@ func (o PredictionPtrOutput) PrimaryProfileType() pulumi.StringPtrOutput {
 }
 
 // Scope expression.
-func (o PredictionPtrOutput) ScopeExpression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Prediction) *string {
+func (o PredictionDefinitionPtrOutput) ScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -9086,8 +8721,8 @@ func (o PredictionPtrOutput) ScopeExpression() pulumi.StringPtrOutput {
 }
 
 // Score label.
-func (o PredictionPtrOutput) ScoreLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Prediction) *string {
+func (o PredictionDefinitionPtrOutput) ScoreLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -9965,6 +9600,79 @@ func (o PredictionResponsePropertiesArrayOutput) Index(i pulumi.IntInput) Predic
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PredictionResponseProperties {
 		return vs[0].([]PredictionResponseProperties)[vs[1].(int)]
 	}).(PredictionResponsePropertiesOutput)
+}
+
+// The profile resource format.
+type ProfileType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The profile type definition.
+	Properties ProfileTypeDefinitionResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// ProfileTypeInput is an input type that accepts ProfileTypeArgs and ProfileTypeOutput values.
+// You can construct a concrete instance of `ProfileTypeInput` via:
+//
+//          ProfileTypeArgs{...}
+type ProfileTypeInput interface {
+	pulumi.Input
+
+	ToProfileTypeOutput() ProfileTypeOutput
+	ToProfileTypeOutputWithContext(context.Context) ProfileTypeOutput
+}
+
+// The profile resource format.
+type ProfileTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The profile type definition.
+	Properties ProfileTypeDefinitionResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProfileTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileType)(nil)).Elem()
+}
+
+func (i ProfileTypeArgs) ToProfileTypeOutput() ProfileTypeOutput {
+	return i.ToProfileTypeOutputWithContext(context.Background())
+}
+
+func (i ProfileTypeArgs) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileTypeOutput)
+}
+
+// The profile resource format.
+type ProfileTypeOutput struct{ *pulumi.OutputState }
+
+func (ProfileTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileType)(nil)).Elem()
+}
+
+func (o ProfileTypeOutput) ToProfileTypeOutput() ProfileTypeOutput {
+	return o
+}
+
+func (o ProfileTypeOutput) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ProfileTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The profile type definition.
+func (o ProfileTypeOutput) Properties() ProfileTypeDefinitionResponseOutput {
+	return o.ApplyT(func(v ProfileType) ProfileTypeDefinitionResponse { return v.Properties }).(ProfileTypeDefinitionResponseOutput)
+}
+
+// Resource type.
+func (o ProfileTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Valid enum values in case of an enum property.
@@ -11503,6 +11211,79 @@ func (o PropertyDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Property
 	}).(PropertyDefinitionResponseOutput)
 }
 
+// The relationship resource format.
+type RelationshipType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The definition of Relationship.
+	Properties RelationshipDefinitionResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// RelationshipTypeInput is an input type that accepts RelationshipTypeArgs and RelationshipTypeOutput values.
+// You can construct a concrete instance of `RelationshipTypeInput` via:
+//
+//          RelationshipTypeArgs{...}
+type RelationshipTypeInput interface {
+	pulumi.Input
+
+	ToRelationshipTypeOutput() RelationshipTypeOutput
+	ToRelationshipTypeOutputWithContext(context.Context) RelationshipTypeOutput
+}
+
+// The relationship resource format.
+type RelationshipTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The definition of Relationship.
+	Properties RelationshipDefinitionResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RelationshipTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipType)(nil)).Elem()
+}
+
+func (i RelationshipTypeArgs) ToRelationshipTypeOutput() RelationshipTypeOutput {
+	return i.ToRelationshipTypeOutputWithContext(context.Background())
+}
+
+func (i RelationshipTypeArgs) ToRelationshipTypeOutputWithContext(ctx context.Context) RelationshipTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeOutput)
+}
+
+// The relationship resource format.
+type RelationshipTypeOutput struct{ *pulumi.OutputState }
+
+func (RelationshipTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipType)(nil)).Elem()
+}
+
+func (o RelationshipTypeOutput) ToRelationshipTypeOutput() RelationshipTypeOutput {
+	return o
+}
+
+func (o RelationshipTypeOutput) ToRelationshipTypeOutputWithContext(ctx context.Context) RelationshipTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o RelationshipTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The definition of Relationship.
+func (o RelationshipTypeOutput) Properties() RelationshipDefinitionResponseOutput {
+	return o.ApplyT(func(v RelationshipType) RelationshipDefinitionResponse { return v.Properties }).(RelationshipDefinitionResponseOutput)
+}
+
+// Resource type.
+func (o RelationshipTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The definition of Relationship.
 type RelationshipDefinition struct {
 	// The Relationship Cardinality.
@@ -12111,6 +11892,79 @@ func (o RelationshipDefinitionResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 		}
 		return &v.TenantId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The relationship link resource format.
+type RelationshipLinkType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The definition of relationship link.
+	Properties RelationshipLinkDefinitionResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// RelationshipLinkTypeInput is an input type that accepts RelationshipLinkTypeArgs and RelationshipLinkTypeOutput values.
+// You can construct a concrete instance of `RelationshipLinkTypeInput` via:
+//
+//          RelationshipLinkTypeArgs{...}
+type RelationshipLinkTypeInput interface {
+	pulumi.Input
+
+	ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput
+	ToRelationshipLinkTypeOutputWithContext(context.Context) RelationshipLinkTypeOutput
+}
+
+// The relationship link resource format.
+type RelationshipLinkTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The definition of relationship link.
+	Properties RelationshipLinkDefinitionResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RelationshipLinkTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipLinkType)(nil)).Elem()
+}
+
+func (i RelationshipLinkTypeArgs) ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput {
+	return i.ToRelationshipLinkTypeOutputWithContext(context.Background())
+}
+
+func (i RelationshipLinkTypeArgs) ToRelationshipLinkTypeOutputWithContext(ctx context.Context) RelationshipLinkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkTypeOutput)
+}
+
+// The relationship link resource format.
+type RelationshipLinkTypeOutput struct{ *pulumi.OutputState }
+
+func (RelationshipLinkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipLinkType)(nil)).Elem()
+}
+
+func (o RelationshipLinkTypeOutput) ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput {
+	return o
+}
+
+func (o RelationshipLinkTypeOutput) ToRelationshipLinkTypeOutputWithContext(ctx context.Context) RelationshipLinkTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o RelationshipLinkTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipLinkType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The definition of relationship link.
+func (o RelationshipLinkTypeOutput) Properties() RelationshipLinkDefinitionResponseOutput {
+	return o.ApplyT(func(v RelationshipLinkType) RelationshipLinkDefinitionResponse { return v.Properties }).(RelationshipLinkDefinitionResponseOutput)
+}
+
+// Resource type.
+func (o RelationshipLinkTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipLinkType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The definition of relationship link.
@@ -13653,8 +13507,81 @@ func (o ResourceSetDescriptionResponsePtrOutput) Exceptions() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Role Assignment resource format.
+type RoleAssignmentType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The Role Assignment definition.
+	Properties RoleAssignmentResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// RoleAssignmentTypeInput is an input type that accepts RoleAssignmentTypeArgs and RoleAssignmentTypeOutput values.
+// You can construct a concrete instance of `RoleAssignmentTypeInput` via:
+//
+//          RoleAssignmentTypeArgs{...}
+type RoleAssignmentTypeInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput
+	ToRoleAssignmentTypeOutputWithContext(context.Context) RoleAssignmentTypeOutput
+}
+
+// The Role Assignment resource format.
+type RoleAssignmentTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Role Assignment definition.
+	Properties RoleAssignmentResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RoleAssignmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
+}
+
+func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
+	return i.ToRoleAssignmentTypeOutputWithContext(context.Background())
+}
+
+func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentTypeOutput)
+}
+
+// The Role Assignment resource format.
+type RoleAssignmentTypeOutput struct{ *pulumi.OutputState }
+
+func (RoleAssignmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
+}
+
+func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
+	return o
+}
+
+func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o RoleAssignmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAssignmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
 // The Role Assignment definition.
-type RoleAssignment struct {
+func (o RoleAssignmentTypeOutput) Properties() RoleAssignmentResponseOutput {
+	return o.ApplyT(func(v RoleAssignmentType) RoleAssignmentResponse { return v.Properties }).(RoleAssignmentResponseOutput)
+}
+
+// Resource type.
+func (o RoleAssignmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAssignmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Role Assignment definition.
+type RoleAssignmentDefinition struct {
 	// Widget types set for the assignment.
 	ConflationPolicies *ResourceSetDescription `pulumi:"conflationPolicies"`
 	// Connectors set for the assignment.
@@ -13691,19 +13618,19 @@ type RoleAssignment struct {
 	WidgetTypes *ResourceSetDescription `pulumi:"widgetTypes"`
 }
 
-// RoleAssignmentInput is an input type that accepts RoleAssignmentArgs and RoleAssignmentOutput values.
-// You can construct a concrete instance of `RoleAssignmentInput` via:
+// RoleAssignmentDefinitionInput is an input type that accepts RoleAssignmentDefinitionArgs and RoleAssignmentDefinitionOutput values.
+// You can construct a concrete instance of `RoleAssignmentDefinitionInput` via:
 //
-//          RoleAssignmentArgs{...}
-type RoleAssignmentInput interface {
+//          RoleAssignmentDefinitionArgs{...}
+type RoleAssignmentDefinitionInput interface {
 	pulumi.Input
 
-	ToRoleAssignmentOutput() RoleAssignmentOutput
-	ToRoleAssignmentOutputWithContext(context.Context) RoleAssignmentOutput
+	ToRoleAssignmentDefinitionOutput() RoleAssignmentDefinitionOutput
+	ToRoleAssignmentDefinitionOutputWithContext(context.Context) RoleAssignmentDefinitionOutput
 }
 
 // The Role Assignment definition.
-type RoleAssignmentArgs struct {
+type RoleAssignmentDefinitionArgs struct {
 	// Widget types set for the assignment.
 	ConflationPolicies ResourceSetDescriptionPtrInput `pulumi:"conflationPolicies"`
 	// Connectors set for the assignment.
@@ -13740,190 +13667,190 @@ type RoleAssignmentArgs struct {
 	WidgetTypes ResourceSetDescriptionPtrInput `pulumi:"widgetTypes"`
 }
 
-func (RoleAssignmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignment)(nil)).Elem()
+func (RoleAssignmentDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentDefinition)(nil)).Elem()
 }
 
-func (i RoleAssignmentArgs) ToRoleAssignmentOutput() RoleAssignmentOutput {
-	return i.ToRoleAssignmentOutputWithContext(context.Background())
+func (i RoleAssignmentDefinitionArgs) ToRoleAssignmentDefinitionOutput() RoleAssignmentDefinitionOutput {
+	return i.ToRoleAssignmentDefinitionOutputWithContext(context.Background())
 }
 
-func (i RoleAssignmentArgs) ToRoleAssignmentOutputWithContext(ctx context.Context) RoleAssignmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
+func (i RoleAssignmentDefinitionArgs) ToRoleAssignmentDefinitionOutputWithContext(ctx context.Context) RoleAssignmentDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentDefinitionOutput)
 }
 
-func (i RoleAssignmentArgs) ToRoleAssignmentPtrOutput() RoleAssignmentPtrOutput {
-	return i.ToRoleAssignmentPtrOutputWithContext(context.Background())
+func (i RoleAssignmentDefinitionArgs) ToRoleAssignmentDefinitionPtrOutput() RoleAssignmentDefinitionPtrOutput {
+	return i.ToRoleAssignmentDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i RoleAssignmentArgs) ToRoleAssignmentPtrOutputWithContext(ctx context.Context) RoleAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput).ToRoleAssignmentPtrOutputWithContext(ctx)
+func (i RoleAssignmentDefinitionArgs) ToRoleAssignmentDefinitionPtrOutputWithContext(ctx context.Context) RoleAssignmentDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentDefinitionOutput).ToRoleAssignmentDefinitionPtrOutputWithContext(ctx)
 }
 
-// RoleAssignmentPtrInput is an input type that accepts RoleAssignmentArgs, RoleAssignmentPtr and RoleAssignmentPtrOutput values.
-// You can construct a concrete instance of `RoleAssignmentPtrInput` via:
+// RoleAssignmentDefinitionPtrInput is an input type that accepts RoleAssignmentDefinitionArgs, RoleAssignmentDefinitionPtr and RoleAssignmentDefinitionPtrOutput values.
+// You can construct a concrete instance of `RoleAssignmentDefinitionPtrInput` via:
 //
-//          RoleAssignmentArgs{...}
+//          RoleAssignmentDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type RoleAssignmentPtrInput interface {
+type RoleAssignmentDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToRoleAssignmentPtrOutput() RoleAssignmentPtrOutput
-	ToRoleAssignmentPtrOutputWithContext(context.Context) RoleAssignmentPtrOutput
+	ToRoleAssignmentDefinitionPtrOutput() RoleAssignmentDefinitionPtrOutput
+	ToRoleAssignmentDefinitionPtrOutputWithContext(context.Context) RoleAssignmentDefinitionPtrOutput
 }
 
-type roleAssignmentPtrType RoleAssignmentArgs
+type roleAssignmentDefinitionPtrType RoleAssignmentDefinitionArgs
 
-func RoleAssignmentPtr(v *RoleAssignmentArgs) RoleAssignmentPtrInput {
-	return (*roleAssignmentPtrType)(v)
+func RoleAssignmentDefinitionPtr(v *RoleAssignmentDefinitionArgs) RoleAssignmentDefinitionPtrInput {
+	return (*roleAssignmentDefinitionPtrType)(v)
 }
 
-func (*roleAssignmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignment)(nil)).Elem()
+func (*roleAssignmentDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssignmentDefinition)(nil)).Elem()
 }
 
-func (i *roleAssignmentPtrType) ToRoleAssignmentPtrOutput() RoleAssignmentPtrOutput {
-	return i.ToRoleAssignmentPtrOutputWithContext(context.Background())
+func (i *roleAssignmentDefinitionPtrType) ToRoleAssignmentDefinitionPtrOutput() RoleAssignmentDefinitionPtrOutput {
+	return i.ToRoleAssignmentDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *roleAssignmentPtrType) ToRoleAssignmentPtrOutputWithContext(ctx context.Context) RoleAssignmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPtrOutput)
+func (i *roleAssignmentDefinitionPtrType) ToRoleAssignmentDefinitionPtrOutputWithContext(ctx context.Context) RoleAssignmentDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentDefinitionPtrOutput)
 }
 
 // The Role Assignment definition.
-type RoleAssignmentOutput struct{ *pulumi.OutputState }
+type RoleAssignmentDefinitionOutput struct{ *pulumi.OutputState }
 
-func (RoleAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignment)(nil)).Elem()
+func (RoleAssignmentDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentDefinition)(nil)).Elem()
 }
 
-func (o RoleAssignmentOutput) ToRoleAssignmentOutput() RoleAssignmentOutput {
+func (o RoleAssignmentDefinitionOutput) ToRoleAssignmentDefinitionOutput() RoleAssignmentDefinitionOutput {
 	return o
 }
 
-func (o RoleAssignmentOutput) ToRoleAssignmentOutputWithContext(ctx context.Context) RoleAssignmentOutput {
+func (o RoleAssignmentDefinitionOutput) ToRoleAssignmentDefinitionOutputWithContext(ctx context.Context) RoleAssignmentDefinitionOutput {
 	return o
 }
 
-func (o RoleAssignmentOutput) ToRoleAssignmentPtrOutput() RoleAssignmentPtrOutput {
-	return o.ToRoleAssignmentPtrOutputWithContext(context.Background())
+func (o RoleAssignmentDefinitionOutput) ToRoleAssignmentDefinitionPtrOutput() RoleAssignmentDefinitionPtrOutput {
+	return o.ToRoleAssignmentDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o RoleAssignmentOutput) ToRoleAssignmentPtrOutputWithContext(ctx context.Context) RoleAssignmentPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *RoleAssignment {
+func (o RoleAssignmentDefinitionOutput) ToRoleAssignmentDefinitionPtrOutputWithContext(ctx context.Context) RoleAssignmentDefinitionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *RoleAssignmentDefinition {
 		return &v
-	}).(RoleAssignmentPtrOutput)
+	}).(RoleAssignmentDefinitionPtrOutput)
 }
 
 // Widget types set for the assignment.
-func (o RoleAssignmentOutput) ConflationPolicies() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.ConflationPolicies }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) ConflationPolicies() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.ConflationPolicies }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Connectors set for the assignment.
-func (o RoleAssignmentOutput) Connectors() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Connectors }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Connectors() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Connectors }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Localized description for the metadata.
-func (o RoleAssignmentOutput) Description() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RoleAssignment) map[string]string { return v.Description }).(pulumi.StringMapOutput)
+func (o RoleAssignmentDefinitionOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) map[string]string { return v.Description }).(pulumi.StringMapOutput)
 }
 
 // Localized display names for the metadata.
-func (o RoleAssignmentOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RoleAssignment) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
+func (o RoleAssignmentDefinitionOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
 }
 
 // Interactions set for the assignment.
-func (o RoleAssignmentOutput) Interactions() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Interactions }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Interactions() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Interactions }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Kpis set for the assignment.
-func (o RoleAssignmentOutput) Kpis() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Kpis }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Kpis() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Kpis }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Links set for the assignment.
-func (o RoleAssignmentOutput) Links() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Links }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Links() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Links }).(ResourceSetDescriptionPtrOutput)
 }
 
 // The principals being assigned to.
-func (o RoleAssignmentOutput) Principals() AssignmentPrincipalArrayOutput {
-	return o.ApplyT(func(v RoleAssignment) []AssignmentPrincipal { return v.Principals }).(AssignmentPrincipalArrayOutput)
+func (o RoleAssignmentDefinitionOutput) Principals() AssignmentPrincipalArrayOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) []AssignmentPrincipal { return v.Principals }).(AssignmentPrincipalArrayOutput)
 }
 
 // Profiles set for the assignment.
-func (o RoleAssignmentOutput) Profiles() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Profiles }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Profiles() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Profiles }).(ResourceSetDescriptionPtrOutput)
 }
 
 // The Role assignments set for the relationship links.
-func (o RoleAssignmentOutput) RelationshipLinks() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.RelationshipLinks }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) RelationshipLinks() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.RelationshipLinks }).(ResourceSetDescriptionPtrOutput)
 }
 
 // The Role assignments set for the relationships.
-func (o RoleAssignmentOutput) Relationships() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Relationships }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Relationships() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Relationships }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Type of roles.
-func (o RoleAssignmentOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignment) string { return v.Role }).(pulumi.StringOutput)
+func (o RoleAssignmentDefinitionOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) string { return v.Role }).(pulumi.StringOutput)
 }
 
 // The Role assignments set for the assignment.
-func (o RoleAssignmentOutput) RoleAssignments() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.RoleAssignments }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) RoleAssignments() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.RoleAssignments }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Sas Policies set for the assignment.
-func (o RoleAssignmentOutput) SasPolicies() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.SasPolicies }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) SasPolicies() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.SasPolicies }).(ResourceSetDescriptionPtrOutput)
 }
 
 // The Role assignments set for the assignment.
-func (o RoleAssignmentOutput) Segments() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Segments }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Segments() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Segments }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Views set for the assignment.
-func (o RoleAssignmentOutput) Views() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.Views }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) Views() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.Views }).(ResourceSetDescriptionPtrOutput)
 }
 
 // Widget types set for the assignment.
-func (o RoleAssignmentOutput) WidgetTypes() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v RoleAssignment) *ResourceSetDescription { return v.WidgetTypes }).(ResourceSetDescriptionPtrOutput)
+func (o RoleAssignmentDefinitionOutput) WidgetTypes() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentDefinition) *ResourceSetDescription { return v.WidgetTypes }).(ResourceSetDescriptionPtrOutput)
 }
 
-type RoleAssignmentPtrOutput struct{ *pulumi.OutputState }
+type RoleAssignmentDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (RoleAssignmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignment)(nil)).Elem()
+func (RoleAssignmentDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssignmentDefinition)(nil)).Elem()
 }
 
-func (o RoleAssignmentPtrOutput) ToRoleAssignmentPtrOutput() RoleAssignmentPtrOutput {
+func (o RoleAssignmentDefinitionPtrOutput) ToRoleAssignmentDefinitionPtrOutput() RoleAssignmentDefinitionPtrOutput {
 	return o
 }
 
-func (o RoleAssignmentPtrOutput) ToRoleAssignmentPtrOutputWithContext(ctx context.Context) RoleAssignmentPtrOutput {
+func (o RoleAssignmentDefinitionPtrOutput) ToRoleAssignmentDefinitionPtrOutputWithContext(ctx context.Context) RoleAssignmentDefinitionPtrOutput {
 	return o
 }
 
-func (o RoleAssignmentPtrOutput) Elem() RoleAssignmentOutput {
-	return o.ApplyT(func(v *RoleAssignment) RoleAssignment { return *v }).(RoleAssignmentOutput)
+func (o RoleAssignmentDefinitionPtrOutput) Elem() RoleAssignmentDefinitionOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) RoleAssignmentDefinition { return *v }).(RoleAssignmentDefinitionOutput)
 }
 
 // Widget types set for the assignment.
-func (o RoleAssignmentPtrOutput) ConflationPolicies() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) ConflationPolicies() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -13932,8 +13859,8 @@ func (o RoleAssignmentPtrOutput) ConflationPolicies() ResourceSetDescriptionPtrO
 }
 
 // Connectors set for the assignment.
-func (o RoleAssignmentPtrOutput) Connectors() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Connectors() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -13942,8 +13869,8 @@ func (o RoleAssignmentPtrOutput) Connectors() ResourceSetDescriptionPtrOutput {
 }
 
 // Localized description for the metadata.
-func (o RoleAssignmentPtrOutput) Description() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RoleAssignment) map[string]string {
+func (o RoleAssignmentDefinitionPtrOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -13952,8 +13879,8 @@ func (o RoleAssignmentPtrOutput) Description() pulumi.StringMapOutput {
 }
 
 // Localized display names for the metadata.
-func (o RoleAssignmentPtrOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RoleAssignment) map[string]string {
+func (o RoleAssignmentDefinitionPtrOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -13962,8 +13889,8 @@ func (o RoleAssignmentPtrOutput) DisplayName() pulumi.StringMapOutput {
 }
 
 // Interactions set for the assignment.
-func (o RoleAssignmentPtrOutput) Interactions() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Interactions() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -13972,8 +13899,8 @@ func (o RoleAssignmentPtrOutput) Interactions() ResourceSetDescriptionPtrOutput 
 }
 
 // Kpis set for the assignment.
-func (o RoleAssignmentPtrOutput) Kpis() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Kpis() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -13982,8 +13909,8 @@ func (o RoleAssignmentPtrOutput) Kpis() ResourceSetDescriptionPtrOutput {
 }
 
 // Links set for the assignment.
-func (o RoleAssignmentPtrOutput) Links() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Links() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -13992,8 +13919,8 @@ func (o RoleAssignmentPtrOutput) Links() ResourceSetDescriptionPtrOutput {
 }
 
 // The principals being assigned to.
-func (o RoleAssignmentPtrOutput) Principals() AssignmentPrincipalArrayOutput {
-	return o.ApplyT(func(v *RoleAssignment) []AssignmentPrincipal {
+func (o RoleAssignmentDefinitionPtrOutput) Principals() AssignmentPrincipalArrayOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) []AssignmentPrincipal {
 		if v == nil {
 			return nil
 		}
@@ -14002,8 +13929,8 @@ func (o RoleAssignmentPtrOutput) Principals() AssignmentPrincipalArrayOutput {
 }
 
 // Profiles set for the assignment.
-func (o RoleAssignmentPtrOutput) Profiles() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Profiles() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -14012,8 +13939,8 @@ func (o RoleAssignmentPtrOutput) Profiles() ResourceSetDescriptionPtrOutput {
 }
 
 // The Role assignments set for the relationship links.
-func (o RoleAssignmentPtrOutput) RelationshipLinks() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) RelationshipLinks() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -14022,8 +13949,8 @@ func (o RoleAssignmentPtrOutput) RelationshipLinks() ResourceSetDescriptionPtrOu
 }
 
 // The Role assignments set for the relationships.
-func (o RoleAssignmentPtrOutput) Relationships() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Relationships() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -14032,8 +13959,8 @@ func (o RoleAssignmentPtrOutput) Relationships() ResourceSetDescriptionPtrOutput
 }
 
 // Type of roles.
-func (o RoleAssignmentPtrOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *string {
+func (o RoleAssignmentDefinitionPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -14042,8 +13969,8 @@ func (o RoleAssignmentPtrOutput) Role() pulumi.StringPtrOutput {
 }
 
 // The Role assignments set for the assignment.
-func (o RoleAssignmentPtrOutput) RoleAssignments() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) RoleAssignments() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -14052,8 +13979,8 @@ func (o RoleAssignmentPtrOutput) RoleAssignments() ResourceSetDescriptionPtrOutp
 }
 
 // Sas Policies set for the assignment.
-func (o RoleAssignmentPtrOutput) SasPolicies() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) SasPolicies() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -14062,8 +13989,8 @@ func (o RoleAssignmentPtrOutput) SasPolicies() ResourceSetDescriptionPtrOutput {
 }
 
 // The Role assignments set for the assignment.
-func (o RoleAssignmentPtrOutput) Segments() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Segments() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -14072,8 +13999,8 @@ func (o RoleAssignmentPtrOutput) Segments() ResourceSetDescriptionPtrOutput {
 }
 
 // Views set for the assignment.
-func (o RoleAssignmentPtrOutput) Views() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) Views() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -14082,8 +14009,8 @@ func (o RoleAssignmentPtrOutput) Views() ResourceSetDescriptionPtrOutput {
 }
 
 // Widget types set for the assignment.
-func (o RoleAssignmentPtrOutput) WidgetTypes() ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v *RoleAssignment) *ResourceSetDescription {
+func (o RoleAssignmentDefinitionPtrOutput) WidgetTypes() ResourceSetDescriptionPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentDefinition) *ResourceSetDescription {
 		if v == nil {
 			return nil
 		}
@@ -15076,8 +15003,81 @@ func (o TypePropertiesMappingResponseArrayOutput) Index(i pulumi.IntInput) TypeP
 	}).(TypePropertiesMappingResponseOutput)
 }
 
+// The view resource format.
+type ViewType struct {
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The view in Customer 360 web application.
+	Properties ViewResponse `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// ViewTypeInput is an input type that accepts ViewTypeArgs and ViewTypeOutput values.
+// You can construct a concrete instance of `ViewTypeInput` via:
+//
+//          ViewTypeArgs{...}
+type ViewTypeInput interface {
+	pulumi.Input
+
+	ToViewTypeOutput() ViewTypeOutput
+	ToViewTypeOutputWithContext(context.Context) ViewTypeOutput
+}
+
+// The view resource format.
+type ViewTypeArgs struct {
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The view in Customer 360 web application.
+	Properties ViewResponseInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ViewTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewType)(nil)).Elem()
+}
+
+func (i ViewTypeArgs) ToViewTypeOutput() ViewTypeOutput {
+	return i.ToViewTypeOutputWithContext(context.Background())
+}
+
+func (i ViewTypeArgs) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewTypeOutput)
+}
+
+// The view resource format.
+type ViewTypeOutput struct{ *pulumi.OutputState }
+
+func (ViewTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewType)(nil)).Elem()
+}
+
+func (o ViewTypeOutput) ToViewTypeOutput() ViewTypeOutput {
+	return o
+}
+
+func (o ViewTypeOutput) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
+	return o
+}
+
+// Resource name.
+func (o ViewTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewType) string { return v.Name }).(pulumi.StringOutput)
+}
+
 // The view in Customer 360 web application.
-type View struct {
+func (o ViewTypeOutput) Properties() ViewResponseOutput {
+	return o.ApplyT(func(v ViewType) ViewResponse { return v.Properties }).(ViewResponseOutput)
+}
+
+// Resource type.
+func (o ViewTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The view in Customer 360 web application.
+type ViewDefinition struct {
 	// View definition.
 	Definition string `pulumi:"definition"`
 	// Localized display name for the view.
@@ -15086,19 +15086,19 @@ type View struct {
 	UserId *string `pulumi:"userId"`
 }
 
-// ViewInput is an input type that accepts ViewArgs and ViewOutput values.
-// You can construct a concrete instance of `ViewInput` via:
+// ViewDefinitionInput is an input type that accepts ViewDefinitionArgs and ViewDefinitionOutput values.
+// You can construct a concrete instance of `ViewDefinitionInput` via:
 //
-//          ViewArgs{...}
-type ViewInput interface {
+//          ViewDefinitionArgs{...}
+type ViewDefinitionInput interface {
 	pulumi.Input
 
-	ToViewOutput() ViewOutput
-	ToViewOutputWithContext(context.Context) ViewOutput
+	ToViewDefinitionOutput() ViewDefinitionOutput
+	ToViewDefinitionOutputWithContext(context.Context) ViewDefinitionOutput
 }
 
 // The view in Customer 360 web application.
-type ViewArgs struct {
+type ViewDefinitionArgs struct {
 	// View definition.
 	Definition pulumi.StringInput `pulumi:"definition"`
 	// Localized display name for the view.
@@ -15107,120 +15107,120 @@ type ViewArgs struct {
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 
-func (ViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*View)(nil)).Elem()
+func (ViewDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDefinition)(nil)).Elem()
 }
 
-func (i ViewArgs) ToViewOutput() ViewOutput {
-	return i.ToViewOutputWithContext(context.Background())
+func (i ViewDefinitionArgs) ToViewDefinitionOutput() ViewDefinitionOutput {
+	return i.ToViewDefinitionOutputWithContext(context.Background())
 }
 
-func (i ViewArgs) ToViewOutputWithContext(ctx context.Context) ViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput)
+func (i ViewDefinitionArgs) ToViewDefinitionOutputWithContext(ctx context.Context) ViewDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDefinitionOutput)
 }
 
-func (i ViewArgs) ToViewPtrOutput() ViewPtrOutput {
-	return i.ToViewPtrOutputWithContext(context.Background())
+func (i ViewDefinitionArgs) ToViewDefinitionPtrOutput() ViewDefinitionPtrOutput {
+	return i.ToViewDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i ViewArgs) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewOutput).ToViewPtrOutputWithContext(ctx)
+func (i ViewDefinitionArgs) ToViewDefinitionPtrOutputWithContext(ctx context.Context) ViewDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDefinitionOutput).ToViewDefinitionPtrOutputWithContext(ctx)
 }
 
-// ViewPtrInput is an input type that accepts ViewArgs, ViewPtr and ViewPtrOutput values.
-// You can construct a concrete instance of `ViewPtrInput` via:
+// ViewDefinitionPtrInput is an input type that accepts ViewDefinitionArgs, ViewDefinitionPtr and ViewDefinitionPtrOutput values.
+// You can construct a concrete instance of `ViewDefinitionPtrInput` via:
 //
-//          ViewArgs{...}
+//          ViewDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type ViewPtrInput interface {
+type ViewDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToViewPtrOutput() ViewPtrOutput
-	ToViewPtrOutputWithContext(context.Context) ViewPtrOutput
+	ToViewDefinitionPtrOutput() ViewDefinitionPtrOutput
+	ToViewDefinitionPtrOutputWithContext(context.Context) ViewDefinitionPtrOutput
 }
 
-type viewPtrType ViewArgs
+type viewDefinitionPtrType ViewDefinitionArgs
 
-func ViewPtr(v *ViewArgs) ViewPtrInput {
-	return (*viewPtrType)(v)
+func ViewDefinitionPtr(v *ViewDefinitionArgs) ViewDefinitionPtrInput {
+	return (*viewDefinitionPtrType)(v)
 }
 
-func (*viewPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**View)(nil)).Elem()
+func (*viewDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDefinition)(nil)).Elem()
 }
 
-func (i *viewPtrType) ToViewPtrOutput() ViewPtrOutput {
-	return i.ToViewPtrOutputWithContext(context.Background())
+func (i *viewDefinitionPtrType) ToViewDefinitionPtrOutput() ViewDefinitionPtrOutput {
+	return i.ToViewDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *viewPtrType) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewPtrOutput)
+func (i *viewDefinitionPtrType) ToViewDefinitionPtrOutputWithContext(ctx context.Context) ViewDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewDefinitionPtrOutput)
 }
 
 // The view in Customer 360 web application.
-type ViewOutput struct{ *pulumi.OutputState }
+type ViewDefinitionOutput struct{ *pulumi.OutputState }
 
-func (ViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*View)(nil)).Elem()
+func (ViewDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewDefinition)(nil)).Elem()
 }
 
-func (o ViewOutput) ToViewOutput() ViewOutput {
+func (o ViewDefinitionOutput) ToViewDefinitionOutput() ViewDefinitionOutput {
 	return o
 }
 
-func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
+func (o ViewDefinitionOutput) ToViewDefinitionOutputWithContext(ctx context.Context) ViewDefinitionOutput {
 	return o
 }
 
-func (o ViewOutput) ToViewPtrOutput() ViewPtrOutput {
-	return o.ToViewPtrOutputWithContext(context.Background())
+func (o ViewDefinitionOutput) ToViewDefinitionPtrOutput() ViewDefinitionPtrOutput {
+	return o.ToViewDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o ViewOutput) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
-	return o.ApplyT(func(v View) *View {
+func (o ViewDefinitionOutput) ToViewDefinitionPtrOutputWithContext(ctx context.Context) ViewDefinitionPtrOutput {
+	return o.ApplyT(func(v ViewDefinition) *ViewDefinition {
 		return &v
-	}).(ViewPtrOutput)
+	}).(ViewDefinitionPtrOutput)
 }
 
 // View definition.
-func (o ViewOutput) Definition() pulumi.StringOutput {
-	return o.ApplyT(func(v View) string { return v.Definition }).(pulumi.StringOutput)
+func (o ViewDefinitionOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewDefinition) string { return v.Definition }).(pulumi.StringOutput)
 }
 
 // Localized display name for the view.
-func (o ViewOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v View) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
+func (o ViewDefinitionOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ViewDefinition) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
 }
 
 // the user ID.
-func (o ViewOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v View) *string { return v.UserId }).(pulumi.StringPtrOutput)
+func (o ViewDefinitionOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ViewDefinition) *string { return v.UserId }).(pulumi.StringPtrOutput)
 }
 
-type ViewPtrOutput struct{ *pulumi.OutputState }
+type ViewDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (ViewPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**View)(nil)).Elem()
+func (ViewDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewDefinition)(nil)).Elem()
 }
 
-func (o ViewPtrOutput) ToViewPtrOutput() ViewPtrOutput {
+func (o ViewDefinitionPtrOutput) ToViewDefinitionPtrOutput() ViewDefinitionPtrOutput {
 	return o
 }
 
-func (o ViewPtrOutput) ToViewPtrOutputWithContext(ctx context.Context) ViewPtrOutput {
+func (o ViewDefinitionPtrOutput) ToViewDefinitionPtrOutputWithContext(ctx context.Context) ViewDefinitionPtrOutput {
 	return o
 }
 
-func (o ViewPtrOutput) Elem() ViewOutput {
-	return o.ApplyT(func(v *View) View { return *v }).(ViewOutput)
+func (o ViewDefinitionPtrOutput) Elem() ViewDefinitionOutput {
+	return o.ApplyT(func(v *ViewDefinition) ViewDefinition { return *v }).(ViewDefinitionOutput)
 }
 
 // View definition.
-func (o ViewPtrOutput) Definition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *View) *string {
+func (o ViewDefinitionPtrOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -15229,8 +15229,8 @@ func (o ViewPtrOutput) Definition() pulumi.StringPtrOutput {
 }
 
 // Localized display name for the view.
-func (o ViewPtrOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *View) map[string]string {
+func (o ViewDefinitionPtrOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ViewDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -15239,8 +15239,8 @@ func (o ViewPtrOutput) DisplayName() pulumi.StringMapOutput {
 }
 
 // the user ID.
-func (o ViewPtrOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *View) *string {
+func (o ViewDefinitionPtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -15501,10 +15501,10 @@ func init() {
 	pulumi.RegisterOutputType(AssignmentPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseArrayOutput{})
-	pulumi.RegisterOutputType(ConnectorOutput{})
-	pulumi.RegisterOutputType(ConnectorPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorDefinitionOutput{})
+	pulumi.RegisterOutputType(ConnectorDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponseOutput{})
@@ -15513,6 +15513,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingDefinitionOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementResponseOutput{})
@@ -15545,20 +15547,11 @@ func init() {
 	pulumi.RegisterOutputType(HubBillingInfoFormatPtrOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponseOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponsePtrOutput{})
-	pulumi.RegisterOutputType(HubConnectorTypeOutput{})
-	pulumi.RegisterOutputType(HubConnectorMappingTypeOutput{})
-	pulumi.RegisterOutputType(HubKpiTypeOutput{})
-	pulumi.RegisterOutputType(HubLinkTypeOutput{})
-	pulumi.RegisterOutputType(HubPredictionTypeOutput{})
-	pulumi.RegisterOutputType(HubProfileTypeOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatPtrOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatResponsePtrOutput{})
-	pulumi.RegisterOutputType(HubRelationshipTypeOutput{})
-	pulumi.RegisterOutputType(HubRelationshipLinkTypeOutput{})
-	pulumi.RegisterOutputType(HubRoleAssignmentTypeOutput{})
-	pulumi.RegisterOutputType(HubViewTypeOutput{})
+	pulumi.RegisterOutputType(KpiTypeOutput{})
 	pulumi.RegisterOutputType(KpiAliasOutput{})
 	pulumi.RegisterOutputType(KpiAliasArrayOutput{})
 	pulumi.RegisterOutputType(KpiAliasResponseOutput{})
@@ -15581,6 +15574,7 @@ func init() {
 	pulumi.RegisterOutputType(KpiThresholdsPtrOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponseOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponsePtrOutput{})
+	pulumi.RegisterOutputType(LinkTypeOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionResponseOutput{})
@@ -15593,8 +15587,9 @@ func init() {
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PredictionOutput{})
-	pulumi.RegisterOutputType(PredictionPtrOutput{})
+	pulumi.RegisterOutputType(PredictionTypeOutput{})
+	pulumi.RegisterOutputType(PredictionDefinitionOutput{})
+	pulumi.RegisterOutputType(PredictionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PredictionPropertiesOutput{})
 	pulumi.RegisterOutputType(PredictionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PredictionPropertiesArrayOutput{})
@@ -15603,6 +15598,7 @@ func init() {
 	pulumi.RegisterOutputType(PredictionResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(PredictionResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PredictionResponsePropertiesArrayOutput{})
+	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatArrayOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatResponseOutput{})
@@ -15615,10 +15611,12 @@ func init() {
 	pulumi.RegisterOutputType(PropertyDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseArrayOutput{})
+	pulumi.RegisterOutputType(RelationshipTypeOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionResponsePtrOutput{})
+	pulumi.RegisterOutputType(RelationshipLinkTypeOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkDefinitionOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkDefinitionResponseOutput{})
@@ -15639,8 +15637,9 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSetDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentPtrOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentTypeOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentDefinitionOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentResponseOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentResponsePtrOutput{})
 	pulumi.RegisterOutputType(StrongIdOutput{})
@@ -15651,8 +15650,9 @@ func init() {
 	pulumi.RegisterOutputType(TypePropertiesMappingArrayOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseArrayOutput{})
-	pulumi.RegisterOutputType(ViewOutput{})
-	pulumi.RegisterOutputType(ViewPtrOutput{})
+	pulumi.RegisterOutputType(ViewTypeOutput{})
+	pulumi.RegisterOutputType(ViewDefinitionOutput{})
+	pulumi.RegisterOutputType(ViewDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ViewResponseOutput{})
 	pulumi.RegisterOutputType(ViewResponsePtrOutput{})
 }

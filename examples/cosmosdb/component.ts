@@ -66,7 +66,7 @@ type MultipleLocations = {
 type Locationable = SingleLocation | MultipleLocations;
 
 interface MyDatabaseAccountArgs {
-    resourceGroup: azurerm.core.ResourceGroup;
+    resourceGroup: azurerm.ResourceGroup;
     api: Api;
     consisencyPolicy: ConsistencyPolicy;
     location: Locationable;

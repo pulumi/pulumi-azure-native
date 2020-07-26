@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func LookupWebtest(ctx *pulumi.Context, args *LookupWebtestArgs, opts ...pulumi.InvokeOption) (*LookupWebtestResult, error) {
-	var rv LookupWebtestResult
-	err := ctx.Invoke("azurerm:insights:getWebtest", args, &rv, opts...)
+func LookupWebTest(ctx *pulumi.Context, args *LookupWebTestArgs, opts ...pulumi.InvokeOption) (*LookupWebTestResult, error) {
+	var rv LookupWebTestResult
+	err := ctx.Invoke("azurerm:insights:getWebTest", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupWebtestArgs struct {
+type LookupWebTestArgs struct {
 	// The name of the Application Insights webtest resource.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
@@ -24,7 +24,7 @@ type LookupWebtestArgs struct {
 }
 
 // An Application Insights web test definition.
-type LookupWebtestResult struct {
+type LookupWebTestResult struct {
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location

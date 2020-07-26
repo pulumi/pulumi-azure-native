@@ -10,6 +10,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The application resource.
+type ApplicationType struct {
+	// Azure resource etag.
+	Etag string `pulumi:"etag"`
+	// Describes the managed identities for an Azure resource.
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location *string `pulumi:"location"`
+	// Azure resource name.
+	Name string `pulumi:"name"`
+	// The application resource properties.
+	Properties ApplicationResourcePropertiesResponse `pulumi:"properties"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type string `pulumi:"type"`
+}
+
+// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
+// You can construct a concrete instance of `ApplicationTypeInput` via:
+//
+//          ApplicationTypeArgs{...}
+type ApplicationTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeOutput() ApplicationTypeOutput
+	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
+}
+
+// The application resource.
+type ApplicationTypeArgs struct {
+	// Azure resource etag.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Describes the managed identities for an Azure resource.
+	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Azure resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The application resource properties.
+	Properties ApplicationResourcePropertiesResponseInput `pulumi:"properties"`
+	// Azure resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Azure resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (i ApplicationTypeArgs) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return i.ToApplicationTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationTypeArgs) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
+}
+
+// The application resource.
+type ApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return o
+}
+
+// Azure resource etag.
+func (o ApplicationTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Describes the managed identities for an Azure resource.
+func (o ApplicationTypeOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationType) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o ApplicationTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The application resource properties.
+func (o ApplicationTypeOutput) Properties() ApplicationResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v ApplicationType) ApplicationResourcePropertiesResponse { return v.Properties }).(ApplicationResourcePropertiesResponseOutput)
+}
+
+// Azure resource tags.
+func (o ApplicationTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Defines a map that contains specific application delta health policies for different applications.
 // Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
 // The application name should include the 'fabric:' URI scheme.
@@ -1563,6 +1672,106 @@ func (o ApplicationResourcePropertiesResponsePtrOutput) UpgradePolicy() Applicat
 	}).(ApplicationUpgradePolicyResponsePtrOutput)
 }
 
+// The application type name resource
+type ApplicationTypeType struct {
+	// Azure resource etag.
+	Etag string `pulumi:"etag"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location *string `pulumi:"location"`
+	// Azure resource name.
+	Name string `pulumi:"name"`
+	// The application type name properties
+	Properties ApplicationTypeResourcePropertiesResponse `pulumi:"properties"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type string `pulumi:"type"`
+}
+
+// ApplicationTypeTypeInput is an input type that accepts ApplicationTypeTypeArgs and ApplicationTypeTypeOutput values.
+// You can construct a concrete instance of `ApplicationTypeTypeInput` via:
+//
+//          ApplicationTypeTypeArgs{...}
+type ApplicationTypeTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeTypeOutput() ApplicationTypeTypeOutput
+	ToApplicationTypeTypeOutputWithContext(context.Context) ApplicationTypeTypeOutput
+}
+
+// The application type name resource
+type ApplicationTypeTypeArgs struct {
+	// Azure resource etag.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Azure resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The application type name properties
+	Properties ApplicationTypeResourcePropertiesResponseInput `pulumi:"properties"`
+	// Azure resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Azure resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationTypeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTypeType)(nil)).Elem()
+}
+
+func (i ApplicationTypeTypeArgs) ToApplicationTypeTypeOutput() ApplicationTypeTypeOutput {
+	return i.ToApplicationTypeTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationTypeTypeArgs) ToApplicationTypeTypeOutputWithContext(ctx context.Context) ApplicationTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeTypeOutput)
+}
+
+// The application type name resource
+type ApplicationTypeTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTypeType)(nil)).Elem()
+}
+
+func (o ApplicationTypeTypeOutput) ToApplicationTypeTypeOutput() ApplicationTypeTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeTypeOutput) ToApplicationTypeTypeOutputWithContext(ctx context.Context) ApplicationTypeTypeOutput {
+	return o
+}
+
+// Azure resource etag.
+func (o ApplicationTypeTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTypeType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o ApplicationTypeTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationTypeType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ApplicationTypeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTypeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The application type name properties
+func (o ApplicationTypeTypeOutput) Properties() ApplicationTypeResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v ApplicationTypeType) ApplicationTypeResourcePropertiesResponse { return v.Properties }).(ApplicationTypeResourcePropertiesResponseOutput)
+}
+
+// Azure resource tags.
+func (o ApplicationTypeTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationTypeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ApplicationTypeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTypeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // List of application type parameters that can be overridden when creating or updating the application.
 type ApplicationTypeParameterList struct {
 }
@@ -1973,6 +2182,108 @@ func (o ApplicationTypeResourcePropertiesResponsePtrOutput) ProvisioningState() 
 		}
 		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
+}
+
+// An application type version resource for the specified application type name resource.
+type ApplicationTypeVersionType struct {
+	// Azure resource etag.
+	Etag string `pulumi:"etag"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location *string `pulumi:"location"`
+	// Azure resource name.
+	Name string `pulumi:"name"`
+	// The properties of the application type version resource.
+	Properties ApplicationTypeVersionResourcePropertiesResponse `pulumi:"properties"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type string `pulumi:"type"`
+}
+
+// ApplicationTypeVersionTypeInput is an input type that accepts ApplicationTypeVersionTypeArgs and ApplicationTypeVersionTypeOutput values.
+// You can construct a concrete instance of `ApplicationTypeVersionTypeInput` via:
+//
+//          ApplicationTypeVersionTypeArgs{...}
+type ApplicationTypeVersionTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeVersionTypeOutput() ApplicationTypeVersionTypeOutput
+	ToApplicationTypeVersionTypeOutputWithContext(context.Context) ApplicationTypeVersionTypeOutput
+}
+
+// An application type version resource for the specified application type name resource.
+type ApplicationTypeVersionTypeArgs struct {
+	// Azure resource etag.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Azure resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the application type version resource.
+	Properties ApplicationTypeVersionResourcePropertiesResponseInput `pulumi:"properties"`
+	// Azure resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Azure resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationTypeVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTypeVersionType)(nil)).Elem()
+}
+
+func (i ApplicationTypeVersionTypeArgs) ToApplicationTypeVersionTypeOutput() ApplicationTypeVersionTypeOutput {
+	return i.ToApplicationTypeVersionTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationTypeVersionTypeArgs) ToApplicationTypeVersionTypeOutputWithContext(ctx context.Context) ApplicationTypeVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeVersionTypeOutput)
+}
+
+// An application type version resource for the specified application type name resource.
+type ApplicationTypeVersionTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypeVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTypeVersionType)(nil)).Elem()
+}
+
+func (o ApplicationTypeVersionTypeOutput) ToApplicationTypeVersionTypeOutput() ApplicationTypeVersionTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeVersionTypeOutput) ToApplicationTypeVersionTypeOutputWithContext(ctx context.Context) ApplicationTypeVersionTypeOutput {
+	return o
+}
+
+// Azure resource etag.
+func (o ApplicationTypeVersionTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o ApplicationTypeVersionTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ApplicationTypeVersionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the application type version resource.
+func (o ApplicationTypeVersionTypeOutput) Properties() ApplicationTypeVersionResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionType) ApplicationTypeVersionResourcePropertiesResponse {
+		return v.Properties
+	}).(ApplicationTypeVersionResourcePropertiesResponseOutput)
+}
+
+// Azure resource tags.
+func (o ApplicationTypeVersionTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ApplicationTypeVersionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of the application type version resource.
@@ -5909,417 +6220,6 @@ func (o ClusterTypeOutput) Tags() pulumi.StringMapOutput {
 // Azure resource type.
 func (o ClusterTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The application resource.
-type ClusterApplicationType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// Describes the managed identities for an Azure resource.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The application resource properties.
-	Properties ApplicationResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterApplicationTypeInput is an input type that accepts ClusterApplicationTypeArgs and ClusterApplicationTypeOutput values.
-// You can construct a concrete instance of `ClusterApplicationTypeInput` via:
-//
-//          ClusterApplicationTypeArgs{...}
-type ClusterApplicationTypeInput interface {
-	pulumi.Input
-
-	ToClusterApplicationTypeOutput() ClusterApplicationTypeOutput
-	ToClusterApplicationTypeOutputWithContext(context.Context) ClusterApplicationTypeOutput
-}
-
-// The application resource.
-type ClusterApplicationTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Describes the managed identities for an Azure resource.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The application resource properties.
-	Properties ApplicationResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterApplicationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationType)(nil)).Elem()
-}
-
-func (i ClusterApplicationTypeArgs) ToClusterApplicationTypeOutput() ClusterApplicationTypeOutput {
-	return i.ToClusterApplicationTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterApplicationTypeArgs) ToClusterApplicationTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterApplicationTypeOutput)
-}
-
-// The application resource.
-type ClusterApplicationTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterApplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationType)(nil)).Elem()
-}
-
-func (o ClusterApplicationTypeOutput) ToClusterApplicationTypeOutput() ClusterApplicationTypeOutput {
-	return o
-}
-
-func (o ClusterApplicationTypeOutput) ToClusterApplicationTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ClusterApplicationTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Describes the managed identities for an Azure resource.
-func (o ClusterApplicationTypeOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ClusterApplicationType) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ClusterApplicationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterApplicationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ClusterApplicationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The application resource properties.
-func (o ClusterApplicationTypeOutput) Properties() ApplicationResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterApplicationType) ApplicationResourcePropertiesResponse { return v.Properties }).(ApplicationResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ClusterApplicationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterApplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ClusterApplicationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The service resource.
-type ClusterApplicationServiceType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The service resource properties.
-	Properties ServiceResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterApplicationServiceTypeInput is an input type that accepts ClusterApplicationServiceTypeArgs and ClusterApplicationServiceTypeOutput values.
-// You can construct a concrete instance of `ClusterApplicationServiceTypeInput` via:
-//
-//          ClusterApplicationServiceTypeArgs{...}
-type ClusterApplicationServiceTypeInput interface {
-	pulumi.Input
-
-	ToClusterApplicationServiceTypeOutput() ClusterApplicationServiceTypeOutput
-	ToClusterApplicationServiceTypeOutputWithContext(context.Context) ClusterApplicationServiceTypeOutput
-}
-
-// The service resource.
-type ClusterApplicationServiceTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The service resource properties.
-	Properties ServiceResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterApplicationServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationServiceType)(nil)).Elem()
-}
-
-func (i ClusterApplicationServiceTypeArgs) ToClusterApplicationServiceTypeOutput() ClusterApplicationServiceTypeOutput {
-	return i.ToClusterApplicationServiceTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterApplicationServiceTypeArgs) ToClusterApplicationServiceTypeOutputWithContext(ctx context.Context) ClusterApplicationServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterApplicationServiceTypeOutput)
-}
-
-// The service resource.
-type ClusterApplicationServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterApplicationServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationServiceType)(nil)).Elem()
-}
-
-func (o ClusterApplicationServiceTypeOutput) ToClusterApplicationServiceTypeOutput() ClusterApplicationServiceTypeOutput {
-	return o
-}
-
-func (o ClusterApplicationServiceTypeOutput) ToClusterApplicationServiceTypeOutputWithContext(ctx context.Context) ClusterApplicationServiceTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ClusterApplicationServiceTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationServiceType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ClusterApplicationServiceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterApplicationServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ClusterApplicationServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The service resource properties.
-func (o ClusterApplicationServiceTypeOutput) Properties() ServiceResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterApplicationServiceType) ServiceResourcePropertiesResponse { return v.Properties }).(ServiceResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ClusterApplicationServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterApplicationServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ClusterApplicationServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The application type name resource
-type ClusterApplicationTypeType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterApplicationTypeTypeInput is an input type that accepts ClusterApplicationTypeTypeArgs and ClusterApplicationTypeTypeOutput values.
-// You can construct a concrete instance of `ClusterApplicationTypeTypeInput` via:
-//
-//          ClusterApplicationTypeTypeArgs{...}
-type ClusterApplicationTypeTypeInput interface {
-	pulumi.Input
-
-	ToClusterApplicationTypeTypeOutput() ClusterApplicationTypeTypeOutput
-	ToClusterApplicationTypeTypeOutputWithContext(context.Context) ClusterApplicationTypeTypeOutput
-}
-
-// The application type name resource
-type ClusterApplicationTypeTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterApplicationTypeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationTypeType)(nil)).Elem()
-}
-
-func (i ClusterApplicationTypeTypeArgs) ToClusterApplicationTypeTypeOutput() ClusterApplicationTypeTypeOutput {
-	return i.ToClusterApplicationTypeTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterApplicationTypeTypeArgs) ToClusterApplicationTypeTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterApplicationTypeTypeOutput)
-}
-
-// The application type name resource
-type ClusterApplicationTypeTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterApplicationTypeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationTypeType)(nil)).Elem()
-}
-
-func (o ClusterApplicationTypeTypeOutput) ToClusterApplicationTypeTypeOutput() ClusterApplicationTypeTypeOutput {
-	return o
-}
-
-func (o ClusterApplicationTypeTypeOutput) ToClusterApplicationTypeTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ClusterApplicationTypeTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ClusterApplicationTypeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ClusterApplicationTypeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The application type name properties
-func (o ClusterApplicationTypeTypeOutput) Properties() ApplicationTypeResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeType) ApplicationTypeResourcePropertiesResponse { return v.Properties }).(ApplicationTypeResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ClusterApplicationTypeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ClusterApplicationTypeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An application type version resource for the specified application type name resource.
-type ClusterApplicationTypeVersionType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The properties of the application type version resource.
-	Properties ApplicationTypeVersionResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterApplicationTypeVersionTypeInput is an input type that accepts ClusterApplicationTypeVersionTypeArgs and ClusterApplicationTypeVersionTypeOutput values.
-// You can construct a concrete instance of `ClusterApplicationTypeVersionTypeInput` via:
-//
-//          ClusterApplicationTypeVersionTypeArgs{...}
-type ClusterApplicationTypeVersionTypeInput interface {
-	pulumi.Input
-
-	ToClusterApplicationTypeVersionTypeOutput() ClusterApplicationTypeVersionTypeOutput
-	ToClusterApplicationTypeVersionTypeOutputWithContext(context.Context) ClusterApplicationTypeVersionTypeOutput
-}
-
-// An application type version resource for the specified application type name resource.
-type ClusterApplicationTypeVersionTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the application type version resource.
-	Properties ApplicationTypeVersionResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterApplicationTypeVersionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationTypeVersionType)(nil)).Elem()
-}
-
-func (i ClusterApplicationTypeVersionTypeArgs) ToClusterApplicationTypeVersionTypeOutput() ClusterApplicationTypeVersionTypeOutput {
-	return i.ToClusterApplicationTypeVersionTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterApplicationTypeVersionTypeArgs) ToClusterApplicationTypeVersionTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeVersionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterApplicationTypeVersionTypeOutput)
-}
-
-// An application type version resource for the specified application type name resource.
-type ClusterApplicationTypeVersionTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterApplicationTypeVersionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterApplicationTypeVersionType)(nil)).Elem()
-}
-
-func (o ClusterApplicationTypeVersionTypeOutput) ToClusterApplicationTypeVersionTypeOutput() ClusterApplicationTypeVersionTypeOutput {
-	return o
-}
-
-func (o ClusterApplicationTypeVersionTypeOutput) ToClusterApplicationTypeVersionTypeOutputWithContext(ctx context.Context) ClusterApplicationTypeVersionTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ClusterApplicationTypeVersionTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeVersionType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ClusterApplicationTypeVersionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeVersionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ClusterApplicationTypeVersionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeVersionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the application type version resource.
-func (o ClusterApplicationTypeVersionTypeOutput) Properties() ApplicationTypeVersionResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeVersionType) ApplicationTypeVersionResourcePropertiesResponse {
-		return v.Properties
-	}).(ApplicationTypeVersionResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ClusterApplicationTypeVersionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeVersionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ClusterApplicationTypeVersionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterApplicationTypeVersionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
@@ -11916,6 +11816,106 @@ func (o ServerCertificateCommonNamesResponsePtrOutput) X509StoreName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The service resource.
+type ServiceType struct {
+	// Azure resource etag.
+	Etag string `pulumi:"etag"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location *string `pulumi:"location"`
+	// Azure resource name.
+	Name string `pulumi:"name"`
+	// The service resource properties.
+	Properties ServiceResourcePropertiesResponse `pulumi:"properties"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type string `pulumi:"type"`
+}
+
+// ServiceTypeInput is an input type that accepts ServiceTypeArgs and ServiceTypeOutput values.
+// You can construct a concrete instance of `ServiceTypeInput` via:
+//
+//          ServiceTypeArgs{...}
+type ServiceTypeInput interface {
+	pulumi.Input
+
+	ToServiceTypeOutput() ServiceTypeOutput
+	ToServiceTypeOutputWithContext(context.Context) ServiceTypeOutput
+}
+
+// The service resource.
+type ServiceTypeArgs struct {
+	// Azure resource etag.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Azure resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The service resource properties.
+	Properties ServiceResourcePropertiesResponseInput `pulumi:"properties"`
+	// Azure resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Azure resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+}
+
+func (i ServiceTypeArgs) ToServiceTypeOutput() ServiceTypeOutput {
+	return i.ToServiceTypeOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeArgs) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeOutput)
+}
+
+// The service resource.
+type ServiceTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+}
+
+func (o ServiceTypeOutput) ToServiceTypeOutput() ServiceTypeOutput {
+	return o
+}
+
+func (o ServiceTypeOutput) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
+	return o
+}
+
+// Azure resource etag.
+func (o ServiceTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o ServiceTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ServiceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The service resource properties.
+func (o ServiceTypeOutput) Properties() ServiceResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v ServiceType) ServiceResourcePropertiesResponse { return v.Properties }).(ServiceResourcePropertiesResponseOutput)
+}
+
+// Azure resource tags.
+func (o ServiceTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ServiceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The service load metrics is given as an array of ServiceLoadMetricDescription objects.
 type ServiceLoadMetricsList struct {
 }
@@ -13682,6 +13682,7 @@ func (o UserAssignedIdentityMapResponsePtrOutput) Elem() UserAssignedIdentityMap
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapOutput{})
 	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapResponseOutput{})
@@ -13702,6 +13703,7 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationResourcePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationTypeTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeParameterListOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeParameterListResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeParameterListResponsePtrOutput{})
@@ -13709,6 +13711,7 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationTypeResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeResourcePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationTypeVersionTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionResourcePropertiesResponseOutput{})
@@ -13758,10 +13761,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterTypeOutput{})
-	pulumi.RegisterOutputType(ClusterApplicationTypeOutput{})
-	pulumi.RegisterOutputType(ClusterApplicationServiceTypeOutput{})
-	pulumi.RegisterOutputType(ClusterApplicationTypeTypeOutput{})
-	pulumi.RegisterOutputType(ClusterApplicationTypeVersionTypeOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyResponseOutput{})
@@ -13817,6 +13816,7 @@ func init() {
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesPtrOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponseOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeOutput{})
 	pulumi.RegisterOutputType(ServiceLoadMetricsListOutput{})
 	pulumi.RegisterOutputType(ServiceLoadMetricsListPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadMetricsListResponseOutput{})

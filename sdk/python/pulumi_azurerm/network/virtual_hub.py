@@ -91,26 +91,20 @@ class VirtualHub(pulumi.CustomResource):
           * `express_route_gateway` (`pulumi.Input[dict]`) - The expressRouteGateway associated with this VirtualHub.
           * `p2_s_vpn_gateway` (`pulumi.Input[dict]`) - The P2SVpnGateway associated with this VirtualHub.
           * `route_table` (`pulumi.Input[dict]`) - The routeTable associated with this virtual hub.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the virtual hub route table v2.
-              * `attached_connections` (`pulumi.Input[list]`) - List of all connections attached to this route table v2.
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual hub route table v2 resource.
-              * `routes` (`pulumi.Input[list]`) - List of all routes.
-                * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
-                * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-                * `next_hop_type` (`pulumi.Input[str]`) - The type of next hops.
-                * `next_hops` (`pulumi.Input[list]`) - NextHops ip address.
+            * `routes` (`pulumi.Input[list]`) - List of all routes.
+              * `address_prefixes` (`pulumi.Input[list]`) - List of all addressPrefixes.
+              * `next_hop_ip_address` (`pulumi.Input[str]`) - NextHop ip address.
 
           * `routing_state` (`pulumi.Input[str]`) - The routing state.
           * `security_partner_provider` (`pulumi.Input[dict]`) - The securityPartnerProvider associated with this VirtualHub.
           * `security_provider_name` (`pulumi.Input[str]`) - The Security Provider name.
           * `sku` (`pulumi.Input[str]`) - The sku of this VirtualHub.
           * `virtual_hub_route_table_v2s` (`pulumi.Input[list]`) - List of all virtual hub route table v2s associated with this VirtualHub.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
             * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
             * `properties` (`pulumi.Input[dict]`) - Properties of the virtual hub route table v2.
               * `attached_connections` (`pulumi.Input[list]`) - List of all connections attached to this route table v2.
+              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual hub route table v2 resource.
               * `routes` (`pulumi.Input[list]`) - List of all routes.
                 * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
                 * `destinations` (`pulumi.Input[list]`) - List of all destinations.

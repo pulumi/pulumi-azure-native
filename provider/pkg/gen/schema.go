@@ -56,7 +56,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 		for _, key := range paths {
 			path := swagger.Paths.Paths[key]
 
-			prov, _ := provider.ResourceQualifiedName(key)
+			prov := provider.ResourceProvider(key)
 			if prov != "" {
 				module := strings.ToLower(prov)
 				csharpNamespaces[module] = prov
@@ -102,8 +102,9 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		return
 	}
 
-	prov, typeName := provider.ResourceQualifiedName(key)
-	if typeName == "" {
+	prov := provider.ResourceProvider(key)
+	typeName := provider.ResourceName(path.Get.ID)
+	if prov == "" || typeName == "" {
 		return
 	}
 
@@ -213,8 +214,9 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	}
 
 	baseUrl := strings.TrimSuffix(key, "/"+listOperation)
-	prov, typeName := provider.ResourceQualifiedName(baseUrl)
-	if typeName == "" {
+	prov := provider.ResourceProvider(baseUrl)
+	typeName := provider.ResourceName(path.Post.ID)
+	if prov == "" || typeName == "" {
 		return
 	}
 
@@ -229,8 +231,7 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	}
 
 	// Generate the function to get this resource.
-	subject := strings.Title(strings.TrimPrefix(listOperation, "list"))
-	functionTok := fmt.Sprintf(`%s:%s:list%s%s`, g.pkg.Name, module, typeName, subject)
+	functionTok := fmt.Sprintf(`%s:%s:list%s`, g.pkg.Name, module, typeName)
 
 	request, err := gen.genMethodParameters(path.Post.Parameters, g.swagger.ReferenceContext)
 	if err != nil {

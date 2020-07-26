@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.StreamAnalytics
 {
-    public static class GetStreamingjob
+    public static class GetStreamingJob
     {
-        public static Task<GetStreamingjobResult> InvokeAsync(GetStreamingjobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingjobResult>("azurerm:streamanalytics:getStreamingjob", args ?? new GetStreamingjobArgs(), options.WithVersion());
+        public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azurerm:streamanalytics:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetStreamingjobArgs : Pulumi.InvokeArgs
+    public sealed class GetStreamingJobArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the streaming job.
@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.StreamAnalytics
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetStreamingjobArgs()
+        public GetStreamingJobArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetStreamingjobResult
+    public sealed class GetStreamingJobResult
     {
         /// <summary>
         /// Resource location. Required on PUT (CreateOrReplace) requests.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.StreamAnalytics
         public readonly string Type;
 
         [OutputConstructor]
-        private GetStreamingjobResult(
+        private GetStreamingJobResult(
             string? location,
 
             string name,

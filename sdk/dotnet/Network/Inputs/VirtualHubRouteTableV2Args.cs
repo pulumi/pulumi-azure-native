@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.Network.Inputs
     public sealed class VirtualHubRouteTableV2Args : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID.
+        /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("etag", required: true)]
+        public Input<string> Etag { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -30,8 +30,8 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// <summary>
         /// Properties of the virtual hub route table v2.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualHubRouteTableV2PropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.VirtualHubRouteTableV2PropertiesResponseArgs> Properties { get; set; } = null!;
 
         public VirtualHubRouteTableV2Args()
         {

@@ -7,16 +7,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-func LookupMediaservice(ctx *pulumi.Context, args *LookupMediaserviceArgs, opts ...pulumi.InvokeOption) (*LookupMediaserviceResult, error) {
-	var rv LookupMediaserviceResult
-	err := ctx.Invoke("azurerm:media:getMediaservice", args, &rv, opts...)
+func LookupMediaService(ctx *pulumi.Context, args *LookupMediaServiceArgs, opts ...pulumi.InvokeOption) (*LookupMediaServiceResult, error) {
+	var rv LookupMediaServiceResult
+	err := ctx.Invoke("azurerm:media:getMediaService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type LookupMediaserviceArgs struct {
+type LookupMediaServiceArgs struct {
 	// The Media Services account name.
 	Name string `pulumi:"name"`
 	// The name of the resource group within the Azure subscription.
@@ -24,7 +24,7 @@ type LookupMediaserviceArgs struct {
 }
 
 // A Media Services account.
-type LookupMediaserviceResult struct {
+type LookupMediaServiceResult struct {
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

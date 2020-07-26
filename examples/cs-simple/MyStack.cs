@@ -1,5 +1,5 @@
 using Pulumi;
-using Pulumi.AzureRM.Core;
+using Pulumi.AzureRM;
 
 class MyStack : Stack
 {

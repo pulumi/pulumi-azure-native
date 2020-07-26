@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getGuestConfigurationHCRPAssignment";
 export * from "./getMachine";
 export * from "./getMachineExtension";
-export * from "./getMachineProviderGuestConfigurationAssignment";
+export * from "./guestConfigurationHCRPAssignment";
 export * from "./machine";
 export * from "./machineExtension";
-export * from "./machineProviderGuestConfigurationAssignment";

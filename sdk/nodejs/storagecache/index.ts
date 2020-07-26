@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./cach";
-export * from "./cachStorageTarget";
-export * from "./getCach";
-export * from "./getCachStorageTarget";
+export * from "./cache";
+export * from "./getCache";
+export * from "./getStorageTarget";
+export * from "./storageTarget";

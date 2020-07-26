@@ -11,7 +11,7 @@ import (
 )
 
 // A streaming job object, containing all information associated with the named streaming job.
-type Streamingjob struct {
+type StreamingJob struct {
 	pulumi.CustomResourceState
 
 	// Resource location. Required on PUT (CreateOrReplace) requests.
@@ -26,9 +26,9 @@ type Streamingjob struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
-// NewStreamingjob registers a new resource with the given unique name, arguments, and options.
-func NewStreamingjob(ctx *pulumi.Context,
-	name string, args *StreamingjobArgs, opts ...pulumi.ResourceOption) (*Streamingjob, error) {
+// NewStreamingJob registers a new resource with the given unique name, arguments, and options.
+func NewStreamingJob(ctx *pulumi.Context,
+	name string, args *StreamingJobArgs, opts ...pulumi.ResourceOption) (*StreamingJob, error) {
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -36,30 +36,30 @@ func NewStreamingjob(ctx *pulumi.Context,
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil {
-		args = &StreamingjobArgs{}
+		args = &StreamingJobArgs{}
 	}
-	var resource Streamingjob
-	err := ctx.RegisterResource("azurerm:streamanalytics:Streamingjob", name, args, &resource, opts...)
+	var resource StreamingJob
+	err := ctx.RegisterResource("azurerm:streamanalytics:StreamingJob", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetStreamingjob gets an existing Streamingjob resource's state with the given name, ID, and optional
+// GetStreamingJob gets an existing StreamingJob resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetStreamingjob(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *StreamingjobState, opts ...pulumi.ResourceOption) (*Streamingjob, error) {
-	var resource Streamingjob
-	err := ctx.ReadResource("azurerm:streamanalytics:Streamingjob", name, id, state, &resource, opts...)
+func GetStreamingJob(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *StreamingJobState, opts ...pulumi.ResourceOption) (*StreamingJob, error) {
+	var resource StreamingJob
+	err := ctx.ReadResource("azurerm:streamanalytics:StreamingJob", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering Streamingjob resources.
-type streamingjobState struct {
+// Input properties used for looking up and filtering StreamingJob resources.
+type streamingJobState struct {
 	// Resource location. Required on PUT (CreateOrReplace) requests.
 	Location *string `pulumi:"location"`
 	// Resource name
@@ -72,7 +72,7 @@ type streamingjobState struct {
 	Type *string `pulumi:"type"`
 }
 
-type StreamingjobState struct {
+type StreamingJobState struct {
 	// Resource location. Required on PUT (CreateOrReplace) requests.
 	Location pulumi.StringPtrInput
 	// Resource name
@@ -85,11 +85,11 @@ type StreamingjobState struct {
 	Type pulumi.StringPtrInput
 }
 
-func (StreamingjobState) ElementType() reflect.Type {
-	return reflect.TypeOf((*streamingjobState)(nil)).Elem()
+func (StreamingJobState) ElementType() reflect.Type {
+	return reflect.TypeOf((*streamingJobState)(nil)).Elem()
 }
 
-type streamingjobArgs struct {
+type streamingJobArgs struct {
 	// Resource location. Required on PUT (CreateOrReplace) requests.
 	Location *string `pulumi:"location"`
 	// The name of the streaming job.
@@ -102,8 +102,8 @@ type streamingjobArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// The set of arguments for constructing a Streamingjob resource.
-type StreamingjobArgs struct {
+// The set of arguments for constructing a StreamingJob resource.
+type StreamingJobArgs struct {
 	// Resource location. Required on PUT (CreateOrReplace) requests.
 	Location pulumi.StringPtrInput
 	// The name of the streaming job.
@@ -116,6 +116,6 @@ type StreamingjobArgs struct {
 	Tags pulumi.StringMapInput
 }
 
-func (StreamingjobArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*streamingjobArgs)(nil)).Elem()
+func (StreamingJobArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*streamingJobArgs)(nil)).Elem()
 }

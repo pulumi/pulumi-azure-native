@@ -16,12 +16,6 @@ namespace Pulumi.AzureRM.Network.Inputs
     public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Input("name")]
@@ -30,8 +24,8 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// <summary>
         /// The properties of the Traffic Manager endpoint.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EndpointPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.EndpointPropertiesResponseArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.

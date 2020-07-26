@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
-const resourceGroup = new azurerm.core.ResourceGroup("rg", {
+const resourceGroup = new azurerm.ResourceGroup("rg", {
     name: "azurerm-appservice",
     location: "westus2",
     tags: {
@@ -32,7 +32,7 @@ const appServicePlan  = new azurerm.web.AppServicePlan("asp", {
     },
 });
 
-const storageContainer = new azurerm.storage.StorageAccountBlobServiceContainer("c", {
+const storageContainer = new azurerm.storage.BlobContainer("c", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     name: "files",
@@ -77,7 +77,7 @@ const sqlServer = new azurerm.sql.Server("sql", {
     },
 });
 
-const database = new azurerm.sql.ServerDatabase("db", {
+const database = new azurerm.sql.Database("db", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     serverName: sqlServer.name,
@@ -87,7 +87,7 @@ const database = new azurerm.sql.ServerDatabase("db", {
     }
 });
 
-const app = new azurerm.web.AppService("as", {
+const app = new azurerm.web.WebApp("as", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
     name: "pulumi-rm-as",

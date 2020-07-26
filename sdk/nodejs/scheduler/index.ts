@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getJob";
 export * from "./getJobCollection";
-export * from "./getJobCollectionJob";
+export * from "./job";
 export * from "./jobCollection";
-export * from "./jobCollectionJob";

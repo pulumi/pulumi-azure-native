@@ -1125,6 +1125,97 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
 }
 
+// Private endpoint connection resource.
+type PrivateEndpointConnectionType struct {
+	// Azure location of the key vault resource.
+	Location string `pulumi:"location"`
+	// Name of the key vault resource.
+	Name string `pulumi:"name"`
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// Tags assigned to the key vault resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type of the key vault resource.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
+//
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
+}
+
+// Private endpoint connection resource.
+type PrivateEndpointConnectionTypeArgs struct {
+	// Azure location of the key vault resource.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Name of the key vault resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource properties.
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// Tags assigned to the key vault resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type of the key vault resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
+}
+
+// Private endpoint connection resource.
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return o
+}
+
+// Azure location of the key vault resource.
+func (o PrivateEndpointConnectionTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the key vault resource.
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource properties.
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Tags assigned to the key vault resource.
+func (o PrivateEndpointConnectionTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type of the key vault resource.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Private endpoint connection item.
 type PrivateEndpointConnectionItem struct {
 	// Private endpoint connection properties.
@@ -2509,99 +2600,6 @@ func (o VaultTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Private endpoint connection resource.
-type VaultPrivateEndpointConnectionType struct {
-	// Azure location of the key vault resource.
-	Location string `pulumi:"location"`
-	// Name of the key vault resource.
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Tags assigned to the key vault resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type string `pulumi:"type"`
-}
-
-// VaultPrivateEndpointConnectionTypeInput is an input type that accepts VaultPrivateEndpointConnectionTypeArgs and VaultPrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `VaultPrivateEndpointConnectionTypeInput` via:
-//
-//          VaultPrivateEndpointConnectionTypeArgs{...}
-type VaultPrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToVaultPrivateEndpointConnectionTypeOutput() VaultPrivateEndpointConnectionTypeOutput
-	ToVaultPrivateEndpointConnectionTypeOutputWithContext(context.Context) VaultPrivateEndpointConnectionTypeOutput
-}
-
-// Private endpoint connection resource.
-type VaultPrivateEndpointConnectionTypeArgs struct {
-	// Azure location of the key vault resource.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Name of the key vault resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// Tags assigned to the key vault resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultPrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i VaultPrivateEndpointConnectionTypeArgs) ToVaultPrivateEndpointConnectionTypeOutput() VaultPrivateEndpointConnectionTypeOutput {
-	return i.ToVaultPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i VaultPrivateEndpointConnectionTypeArgs) ToVaultPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) VaultPrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultPrivateEndpointConnectionTypeOutput)
-}
-
-// Private endpoint connection resource.
-type VaultPrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultPrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o VaultPrivateEndpointConnectionTypeOutput) ToVaultPrivateEndpointConnectionTypeOutput() VaultPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o VaultPrivateEndpointConnectionTypeOutput) ToVaultPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) VaultPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// Azure location of the key vault resource.
-func (o VaultPrivateEndpointConnectionTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Name of the key vault resource.
-func (o VaultPrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o VaultPrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// Tags assigned to the key vault resource.
-func (o VaultPrivateEndpointConnectionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type of the key vault resource.
-func (o VaultPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultPrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the vault
 type VaultProperties struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
@@ -3564,6 +3562,7 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionItemOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionItemResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionItemResponseArrayOutput{})
@@ -3582,7 +3581,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(VaultTypeOutput{})
-	pulumi.RegisterOutputType(VaultPrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponseOutput{})

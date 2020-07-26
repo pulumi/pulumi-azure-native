@@ -143,12 +143,13 @@ class RouteFilter(pulumi.CustomResource):
         The **properties** object supports the following:
 
           * `rules` (`pulumi.Input[list]`) - Collection of RouteFilterRules contained within a route filter.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
             * `location` (`pulumi.Input[str]`) - Resource location.
             * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
             * `properties` (`pulumi.Input[dict]`) - Properties of the route filter rule.
               * `access` (`pulumi.Input[str]`) - The access type of the rule.
               * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the route filter rule resource.
               * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule.
         """
         if __name__ is not None:

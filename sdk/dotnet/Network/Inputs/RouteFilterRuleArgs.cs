@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.Network.Inputs
     public sealed class RouteFilterRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID.
+        /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("etag", required: true)]
+        public Input<string> Etag { get; set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -36,8 +36,8 @@ namespace Pulumi.AzureRM.Network.Inputs
         /// <summary>
         /// Properties of the route filter rule.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteFilterRulePropertiesFormatArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.RouteFilterRulePropertiesFormatResponseArgs> Properties { get; set; } = null!;
 
         public RouteFilterRuleArgs()
         {

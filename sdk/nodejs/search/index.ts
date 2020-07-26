@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getSearchService";
-export * from "./getSearchServicePrivateEndpointConnection";
-export * from "./getSearchServiceSharedPrivateLinkResource";
-export * from "./listSearchServiceAdminKeys";
-export * from "./listSearchServiceQueryKeys";
-export * from "./searchService";
-export * from "./searchServicePrivateEndpointConnection";
-export * from "./searchServiceSharedPrivateLinkResource";
+export * from "./getPrivateEndpointConnection";
+export * from "./getService";
+export * from "./getSharedPrivateLinkResource";
+export * from "./listAdminKey";
+export * from "./listQueryKeyBySearchService";
+export * from "./privateEndpointConnection";
+export * from "./service";
+export * from "./sharedPrivateLinkResource";

@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Contains information about an application in a Batch account.
+type ApplicationType struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag string `pulumi:"etag"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties associated with the Application.
+	Properties ApplicationPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
+// You can construct a concrete instance of `ApplicationTypeInput` via:
+//
+//          ApplicationTypeArgs{...}
+type ApplicationTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeOutput() ApplicationTypeOutput
+	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
+}
+
+// Contains information about an application in a Batch account.
+type ApplicationTypeArgs struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the Application.
+	Properties ApplicationPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (i ApplicationTypeArgs) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return i.ToApplicationTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationTypeArgs) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
+}
+
+// Contains information about an application in a Batch account.
+type ApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return o
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o ApplicationTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the Application.
+func (o ApplicationTypeOutput) Properties() ApplicationPropertiesResponseOutput {
+	return o.ApplyT(func(v ApplicationType) ApplicationPropertiesResponse { return v.Properties }).(ApplicationPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An application package which represents a particular version of an application.
+type ApplicationPackageType struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag string `pulumi:"etag"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties associated with the Application Package.
+	Properties ApplicationPackagePropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// ApplicationPackageTypeInput is an input type that accepts ApplicationPackageTypeArgs and ApplicationPackageTypeOutput values.
+// You can construct a concrete instance of `ApplicationPackageTypeInput` via:
+//
+//          ApplicationPackageTypeArgs{...}
+type ApplicationPackageTypeInput interface {
+	pulumi.Input
+
+	ToApplicationPackageTypeOutput() ApplicationPackageTypeOutput
+	ToApplicationPackageTypeOutputWithContext(context.Context) ApplicationPackageTypeOutput
+}
+
+// An application package which represents a particular version of an application.
+type ApplicationPackageTypeArgs struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the Application Package.
+	Properties ApplicationPackagePropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationPackageTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageType)(nil)).Elem()
+}
+
+func (i ApplicationPackageTypeArgs) ToApplicationPackageTypeOutput() ApplicationPackageTypeOutput {
+	return i.ToApplicationPackageTypeOutputWithContext(context.Background())
+}
+
+func (i ApplicationPackageTypeArgs) ToApplicationPackageTypeOutputWithContext(ctx context.Context) ApplicationPackageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageTypeOutput)
+}
+
+// An application package which represents a particular version of an application.
+type ApplicationPackageTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageType)(nil)).Elem()
+}
+
+func (o ApplicationPackageTypeOutput) ToApplicationPackageTypeOutput() ApplicationPackageTypeOutput {
+	return o
+}
+
+func (o ApplicationPackageTypeOutput) ToApplicationPackageTypeOutputWithContext(ctx context.Context) ApplicationPackageTypeOutput {
+	return o
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o ApplicationPackageTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ApplicationPackageTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the Application Package.
+func (o ApplicationPackageTypeOutput) Properties() ApplicationPackagePropertiesResponseOutput {
+	return o.ApplyT(func(v ApplicationPackageType) ApplicationPackagePropertiesResponse { return v.Properties }).(ApplicationPackagePropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o ApplicationPackageTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Properties of an application package
 type ApplicationPackageProperties struct {
 }
@@ -3340,252 +3504,6 @@ func (o BatchAccountTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchAccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Contains information about an application in a Batch account.
-type BatchAccountApplicationType struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag string `pulumi:"etag"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the Application.
-	Properties ApplicationPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// BatchAccountApplicationTypeInput is an input type that accepts BatchAccountApplicationTypeArgs and BatchAccountApplicationTypeOutput values.
-// You can construct a concrete instance of `BatchAccountApplicationTypeInput` via:
-//
-//          BatchAccountApplicationTypeArgs{...}
-type BatchAccountApplicationTypeInput interface {
-	pulumi.Input
-
-	ToBatchAccountApplicationTypeOutput() BatchAccountApplicationTypeOutput
-	ToBatchAccountApplicationTypeOutputWithContext(context.Context) BatchAccountApplicationTypeOutput
-}
-
-// Contains information about an application in a Batch account.
-type BatchAccountApplicationTypeArgs struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the Application.
-	Properties ApplicationPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BatchAccountApplicationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountApplicationType)(nil)).Elem()
-}
-
-func (i BatchAccountApplicationTypeArgs) ToBatchAccountApplicationTypeOutput() BatchAccountApplicationTypeOutput {
-	return i.ToBatchAccountApplicationTypeOutputWithContext(context.Background())
-}
-
-func (i BatchAccountApplicationTypeArgs) ToBatchAccountApplicationTypeOutputWithContext(ctx context.Context) BatchAccountApplicationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountApplicationTypeOutput)
-}
-
-// Contains information about an application in a Batch account.
-type BatchAccountApplicationTypeOutput struct{ *pulumi.OutputState }
-
-func (BatchAccountApplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountApplicationType)(nil)).Elem()
-}
-
-func (o BatchAccountApplicationTypeOutput) ToBatchAccountApplicationTypeOutput() BatchAccountApplicationTypeOutput {
-	return o
-}
-
-func (o BatchAccountApplicationTypeOutput) ToBatchAccountApplicationTypeOutputWithContext(ctx context.Context) BatchAccountApplicationTypeOutput {
-	return o
-}
-
-// The ETag of the resource, used for concurrency statements.
-func (o BatchAccountApplicationTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountApplicationType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o BatchAccountApplicationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountApplicationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the Application.
-func (o BatchAccountApplicationTypeOutput) Properties() ApplicationPropertiesResponseOutput {
-	return o.ApplyT(func(v BatchAccountApplicationType) ApplicationPropertiesResponse { return v.Properties }).(ApplicationPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o BatchAccountApplicationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountApplicationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An application package which represents a particular version of an application.
-type BatchAccountApplicationVersionType struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag string `pulumi:"etag"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the Application Package.
-	Properties ApplicationPackagePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// BatchAccountApplicationVersionTypeInput is an input type that accepts BatchAccountApplicationVersionTypeArgs and BatchAccountApplicationVersionTypeOutput values.
-// You can construct a concrete instance of `BatchAccountApplicationVersionTypeInput` via:
-//
-//          BatchAccountApplicationVersionTypeArgs{...}
-type BatchAccountApplicationVersionTypeInput interface {
-	pulumi.Input
-
-	ToBatchAccountApplicationVersionTypeOutput() BatchAccountApplicationVersionTypeOutput
-	ToBatchAccountApplicationVersionTypeOutputWithContext(context.Context) BatchAccountApplicationVersionTypeOutput
-}
-
-// An application package which represents a particular version of an application.
-type BatchAccountApplicationVersionTypeArgs struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the Application Package.
-	Properties ApplicationPackagePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BatchAccountApplicationVersionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountApplicationVersionType)(nil)).Elem()
-}
-
-func (i BatchAccountApplicationVersionTypeArgs) ToBatchAccountApplicationVersionTypeOutput() BatchAccountApplicationVersionTypeOutput {
-	return i.ToBatchAccountApplicationVersionTypeOutputWithContext(context.Background())
-}
-
-func (i BatchAccountApplicationVersionTypeArgs) ToBatchAccountApplicationVersionTypeOutputWithContext(ctx context.Context) BatchAccountApplicationVersionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountApplicationVersionTypeOutput)
-}
-
-// An application package which represents a particular version of an application.
-type BatchAccountApplicationVersionTypeOutput struct{ *pulumi.OutputState }
-
-func (BatchAccountApplicationVersionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountApplicationVersionType)(nil)).Elem()
-}
-
-func (o BatchAccountApplicationVersionTypeOutput) ToBatchAccountApplicationVersionTypeOutput() BatchAccountApplicationVersionTypeOutput {
-	return o
-}
-
-func (o BatchAccountApplicationVersionTypeOutput) ToBatchAccountApplicationVersionTypeOutputWithContext(ctx context.Context) BatchAccountApplicationVersionTypeOutput {
-	return o
-}
-
-// The ETag of the resource, used for concurrency statements.
-func (o BatchAccountApplicationVersionTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountApplicationVersionType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o BatchAccountApplicationVersionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountApplicationVersionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the Application Package.
-func (o BatchAccountApplicationVersionTypeOutput) Properties() ApplicationPackagePropertiesResponseOutput {
-	return o.ApplyT(func(v BatchAccountApplicationVersionType) ApplicationPackagePropertiesResponse { return v.Properties }).(ApplicationPackagePropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o BatchAccountApplicationVersionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountApplicationVersionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Contains information about a certificate.
-type BatchAccountCertificateType struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag string `pulumi:"etag"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the certificate.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// BatchAccountCertificateTypeInput is an input type that accepts BatchAccountCertificateTypeArgs and BatchAccountCertificateTypeOutput values.
-// You can construct a concrete instance of `BatchAccountCertificateTypeInput` via:
-//
-//          BatchAccountCertificateTypeArgs{...}
-type BatchAccountCertificateTypeInput interface {
-	pulumi.Input
-
-	ToBatchAccountCertificateTypeOutput() BatchAccountCertificateTypeOutput
-	ToBatchAccountCertificateTypeOutputWithContext(context.Context) BatchAccountCertificateTypeOutput
-}
-
-// Contains information about a certificate.
-type BatchAccountCertificateTypeArgs struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the certificate.
-	Properties CertificatePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BatchAccountCertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountCertificateType)(nil)).Elem()
-}
-
-func (i BatchAccountCertificateTypeArgs) ToBatchAccountCertificateTypeOutput() BatchAccountCertificateTypeOutput {
-	return i.ToBatchAccountCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i BatchAccountCertificateTypeArgs) ToBatchAccountCertificateTypeOutputWithContext(ctx context.Context) BatchAccountCertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountCertificateTypeOutput)
-}
-
-// Contains information about a certificate.
-type BatchAccountCertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (BatchAccountCertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountCertificateType)(nil)).Elem()
-}
-
-func (o BatchAccountCertificateTypeOutput) ToBatchAccountCertificateTypeOutput() BatchAccountCertificateTypeOutput {
-	return o
-}
-
-func (o BatchAccountCertificateTypeOutput) ToBatchAccountCertificateTypeOutputWithContext(ctx context.Context) BatchAccountCertificateTypeOutput {
-	return o
-}
-
-// The ETag of the resource, used for concurrency statements.
-func (o BatchAccountCertificateTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountCertificateType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o BatchAccountCertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountCertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the certificate.
-func (o BatchAccountCertificateTypeOutput) Properties() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v BatchAccountCertificateType) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o BatchAccountCertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a Batch account.
 type BatchAccountCreateProperties struct {
 	// The properties related to the auto-storage account.
@@ -4100,88 +4018,6 @@ func (o BatchAccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// Contains information about a pool.
-type BatchAccountPoolType struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag string `pulumi:"etag"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the pool.
-	Properties PoolPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// BatchAccountPoolTypeInput is an input type that accepts BatchAccountPoolTypeArgs and BatchAccountPoolTypeOutput values.
-// You can construct a concrete instance of `BatchAccountPoolTypeInput` via:
-//
-//          BatchAccountPoolTypeArgs{...}
-type BatchAccountPoolTypeInput interface {
-	pulumi.Input
-
-	ToBatchAccountPoolTypeOutput() BatchAccountPoolTypeOutput
-	ToBatchAccountPoolTypeOutputWithContext(context.Context) BatchAccountPoolTypeOutput
-}
-
-// Contains information about a pool.
-type BatchAccountPoolTypeArgs struct {
-	// The ETag of the resource, used for concurrency statements.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the pool.
-	Properties PoolPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BatchAccountPoolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountPoolType)(nil)).Elem()
-}
-
-func (i BatchAccountPoolTypeArgs) ToBatchAccountPoolTypeOutput() BatchAccountPoolTypeOutput {
-	return i.ToBatchAccountPoolTypeOutputWithContext(context.Background())
-}
-
-func (i BatchAccountPoolTypeArgs) ToBatchAccountPoolTypeOutputWithContext(ctx context.Context) BatchAccountPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountPoolTypeOutput)
-}
-
-// Contains information about a pool.
-type BatchAccountPoolTypeOutput struct{ *pulumi.OutputState }
-
-func (BatchAccountPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccountPoolType)(nil)).Elem()
-}
-
-func (o BatchAccountPoolTypeOutput) ToBatchAccountPoolTypeOutput() BatchAccountPoolTypeOutput {
-	return o
-}
-
-func (o BatchAccountPoolTypeOutput) ToBatchAccountPoolTypeOutputWithContext(ctx context.Context) BatchAccountPoolTypeOutput {
-	return o
-}
-
-// The ETag of the resource, used for concurrency statements.
-func (o BatchAccountPoolTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountPoolType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o BatchAccountPoolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountPoolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the pool.
-func (o BatchAccountPoolTypeOutput) Properties() PoolPropertiesResponseOutput {
-	return o.ApplyT(func(v BatchAccountPoolType) PoolPropertiesResponse { return v.Properties }).(PoolPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o BatchAccountPoolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BatchAccountPoolType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Account specific properties.
@@ -4949,6 +4785,88 @@ func (o CIFSMountConfigurationResponsePtrOutput) Username() pulumi.StringPtrOutp
 		}
 		return &v.Username
 	}).(pulumi.StringPtrOutput)
+}
+
+// Contains information about a certificate.
+type CertificateType struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag string `pulumi:"etag"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties associated with the certificate.
+	Properties CertificatePropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// CertificateTypeInput is an input type that accepts CertificateTypeArgs and CertificateTypeOutput values.
+// You can construct a concrete instance of `CertificateTypeInput` via:
+//
+//          CertificateTypeArgs{...}
+type CertificateTypeInput interface {
+	pulumi.Input
+
+	ToCertificateTypeOutput() CertificateTypeOutput
+	ToCertificateTypeOutputWithContext(context.Context) CertificateTypeOutput
+}
+
+// Contains information about a certificate.
+type CertificateTypeArgs struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the certificate.
+	Properties CertificatePropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CertificateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateType)(nil)).Elem()
+}
+
+func (i CertificateTypeArgs) ToCertificateTypeOutput() CertificateTypeOutput {
+	return i.ToCertificateTypeOutputWithContext(context.Background())
+}
+
+func (i CertificateTypeArgs) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTypeOutput)
+}
+
+// Contains information about a certificate.
+type CertificateTypeOutput struct{ *pulumi.OutputState }
+
+func (CertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateType)(nil)).Elem()
+}
+
+func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
+	return o
+}
+
+func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
+	return o
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o CertificateTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o CertificateTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the certificate.
+func (o CertificateTypeOutput) Properties() CertificatePropertiesResponseOutput {
+	return o.ApplyT(func(v CertificateType) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o CertificateTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Certificate properties for create operations
@@ -11719,6 +11637,88 @@ func (o NetworkSecurityGroupRuleResponseArrayOutput) Index(i pulumi.IntInput) Ne
 	}).(NetworkSecurityGroupRuleResponseOutput)
 }
 
+// Contains information about a pool.
+type PoolType struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag string `pulumi:"etag"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties associated with the pool.
+	Properties PoolPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// PoolTypeInput is an input type that accepts PoolTypeArgs and PoolTypeOutput values.
+// You can construct a concrete instance of `PoolTypeInput` via:
+//
+//          PoolTypeArgs{...}
+type PoolTypeInput interface {
+	pulumi.Input
+
+	ToPoolTypeOutput() PoolTypeOutput
+	ToPoolTypeOutputWithContext(context.Context) PoolTypeOutput
+}
+
+// Contains information about a pool.
+type PoolTypeArgs struct {
+	// The ETag of the resource, used for concurrency statements.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties associated with the pool.
+	Properties PoolPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PoolTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolType)(nil)).Elem()
+}
+
+func (i PoolTypeArgs) ToPoolTypeOutput() PoolTypeOutput {
+	return i.ToPoolTypeOutputWithContext(context.Background())
+}
+
+func (i PoolTypeArgs) ToPoolTypeOutputWithContext(ctx context.Context) PoolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTypeOutput)
+}
+
+// Contains information about a pool.
+type PoolTypeOutput struct{ *pulumi.OutputState }
+
+func (PoolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolType)(nil)).Elem()
+}
+
+func (o PoolTypeOutput) ToPoolTypeOutput() PoolTypeOutput {
+	return o
+}
+
+func (o PoolTypeOutput) ToPoolTypeOutputWithContext(ctx context.Context) PoolTypeOutput {
+	return o
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o PoolTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolType) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o PoolTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with the pool.
+func (o PoolTypeOutput) Properties() PoolPropertiesResponseOutput {
+	return o.ApplyT(func(v PoolType) PoolPropertiesResponse { return v.Properties }).(PoolPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o PoolTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type PoolEndpointConfiguration struct {
 	// The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.
 	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
@@ -17768,6 +17768,8 @@ func (o WindowsUserConfigurationResponsePtrOutput) LoginMode() pulumi.StringPtrO
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplicationTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationPackageTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationPackagePropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationPackagePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackagePropertiesResponseOutput{})
@@ -17810,22 +17812,19 @@ func init() {
 	pulumi.RegisterOutputType(AzureFileShareConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileShareConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(BatchAccountTypeOutput{})
-	pulumi.RegisterOutputType(BatchAccountApplicationTypeOutput{})
-	pulumi.RegisterOutputType(BatchAccountApplicationVersionTypeOutput{})
-	pulumi.RegisterOutputType(BatchAccountCertificateTypeOutput{})
 	pulumi.RegisterOutputType(BatchAccountCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(BatchAccountCreatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityResponseOutput{})
 	pulumi.RegisterOutputType(BatchAccountIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(BatchAccountPoolTypeOutput{})
 	pulumi.RegisterOutputType(BatchAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BatchAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(CIFSMountConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(CertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificateCreateOrUpdatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateCreateOrUpdatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
@@ -17915,6 +17914,7 @@ func init() {
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleResponseOutput{})
 	pulumi.RegisterOutputType(NetworkSecurityGroupRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(PoolTypeOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PoolEndpointConfigurationResponseOutput{})

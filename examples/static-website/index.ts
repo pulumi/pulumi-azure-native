@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 import { URL } from "url";
 
-const resourceGroup = new azurerm.core.ResourceGroup("rg", {
+const resourceGroup = new azurerm.ResourceGroup("rg", {
     name: "azurerm-static-website",
     location: "westus2",
     tags: {
@@ -57,7 +57,7 @@ const cdn =  new azurerm.cdn.Profile("website-cdn", {
     },
 });
 
-const endpoint = new azurerm.cdn.ProfileEndpoint("website-cdn-ep", {
+const endpoint = new azurerm.cdn.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
     profileName: cdn.name,
     name: "pulumi-static-website-ep",

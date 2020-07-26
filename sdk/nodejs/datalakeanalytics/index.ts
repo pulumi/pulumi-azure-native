@@ -3,9 +3,9 @@
 
 // Export members:
 export * from "./account";
-export * from "./accountComputePolicy";
-export * from "./accountFirewallRule";
+export * from "./computePolicy";
+export * from "./firewallRule";
 export * from "./getAccount";
-export * from "./getAccountComputePolicy";
-export * from "./getAccountFirewallRule";
-export * from "./listAccountStorageAccountContainerSasTokens";
+export * from "./getComputePolicy";
+export * from "./getFirewallRule";
+export * from "./listStorageAccountSasTokens";

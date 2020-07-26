@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getMediaservice(args: GetMediaserviceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaserviceResult> {
+export function getMediaService(args: GetMediaServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaServiceResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,13 +14,13 @@ export function getMediaservice(args: GetMediaserviceArgs, opts?: pulumi.InvokeO
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:media:getMediaservice", {
+    return pulumi.runtime.invoke("azurerm:media:getMediaService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetMediaserviceArgs {
+export interface GetMediaServiceArgs {
     /**
      * The Media Services account name.
      */
@@ -34,7 +34,7 @@ export interface GetMediaserviceArgs {
 /**
  * A Media Services account.
  */
-export interface GetMediaserviceResult {
+export interface GetMediaServiceResult {
     /**
      * The Managed Identity for the Media Services account.
      */

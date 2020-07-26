@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 import * as cosmosdb from "./component";
 
-const resourceGroup = new azurerm.core.ResourceGroup("rg", {
+const resourceGroup = new azurerm.ResourceGroup("rg", {
     name: "azurerm-cosmos",
     location: "westeurope",
     tags: {

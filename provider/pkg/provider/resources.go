@@ -129,46 +129,60 @@ func SwaggerLocations() ([]string, error) {
 	return locations, nil
 }
 
-// ResourceQualifiedName returns a tuple of (module, resource name) for a given PUT path.
-func ResourceQualifiedName(path string) (string, string) {
-	if path == "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}" {
-		return "core", "ResourceGroup"
-	}
-
+// ResourceProvider returns a provider name given resource's PUT path.
+func ResourceProvider(path string) string {
 	parts := strings.Split(path, "/")
-
-	// The path is /subscriptions/id/resoursegroups/id/providers/Microsoft.SomeProvider/foos/id/bars/id/...
-	if len(parts) < 8 || len(parts)%2 != 1 {
-		return "", ""
+	if len(parts) < 3 {
+		return ""
 	}
 
-	armProvider := parts[6]
-	// TODO: handle non-Microsoft providers.
-	if !strings.HasPrefix(armProvider, "Microsoft.") {
-		return "", ""
-	}
-
-	// Build a name like SomeProvider:FooBar.
-	provider := armProvider[10:]
-	resource := ""
-	for i := 7; i < len(parts); i += 2 {
-		if strings.Contains(parts[i], "{") {
-			// We don't support this shape of URLs yet. Example: dnszones/{zoneName}/{recordType}/{relativeRecordSetName}.
-			return "", ""
+	for _, part := range parts {
+		if strings.HasPrefix(part, "Microsoft.") {
+			return strings.TrimPrefix(part, "Microsoft.")
 		}
-
-		// TODO: generalize this case to a map of well-known aliases.
-		switch strings.ToLower(parts[i]) {
-		case "redis":
-			resource += "Redis"
-		case "sites":
-			resource += "AppService"
-		case "serverfarms":
-			resource += "AppServicePlan"
-		default:
-			// TODO: we may get better singular names from some metadata.
-			resource += strings.ReplaceAll(strings.Title(inflector.Singularize(parts[i])), "-", "")
+		if strings.HasPrefix(part, "microsoft.") {
+			return strings.Title(strings.TrimPrefix(part, "microsoft."))
 		}
 	}
-	return provider, resource
+
+	// TODO: this may cause some undesired resources in the index namespace, but it looks okay for now.
+	return "index"
+}
+
+var verbReplacer *strings.Replacer
+var wellKnownNames map[string]string
+
+func init() {
+	verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "")
+	wellKnownNames = map[string]string {
+		"Redis": "Redis",
+		"Caches": "Cache",
+		"AssessmentsMetadata": "AssessmentMetadata",
+		"Mediaservices": "MediaService",
+	}
+}
+
+// ResourceName constructs a name of a resource based on Get or List operation ID,
+// e.g. "Managers_GetActivationKey" -> "ManagerActivationKey".
+func ResourceName(operationId string) string {
+	parts := strings.Split(operationId, "_")
+	var name, verb string
+	if len(parts) == 1 {
+		verb = parts[0]
+	} else {
+		if v, ok := wellKnownNames[parts[0]]; ok {
+			name = v
+		} else {
+			name = inflector.Singularize(parts[0])
+		}
+		verb = parts[1]
+	}
+
+	subName := verbReplacer.Replace(verb)
+
+	if strings.HasPrefix(subName, name) {
+		return subName
+	}
+
+	return name + subName
 }

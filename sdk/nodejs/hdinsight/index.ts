@@ -2,8 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./application";
 export * from "./cluster";
-export * from "./clusterApplication";
+export * from "./getApplication";
 export * from "./getCluster";
-export * from "./getClusterApplication";
-export * from "./listClusterHosts";
+export * from "./listVirtualMachineHosts";

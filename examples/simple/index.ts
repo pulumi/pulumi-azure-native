@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
-const resourceGroup = new azurerm.core.ResourceGroup("rg", {
+const resourceGroup = new azurerm.ResourceGroup("rg", {
     name: "azurerm",
     location: "westus2",
     tags: {
@@ -73,7 +73,7 @@ const vnet = new azurerm.network.VirtualNetwork("vnet", {
     },
 });
 
-const subnet = new azurerm.network.VirtualNetworkSubnet("subnet2", {
+const subnet = new azurerm.network.Subnet("subnet2", {
     resourceGroupName: resourceGroup.name,
     name: "subnet2",
     virtualNetworkName: vnet.name,
@@ -139,7 +139,7 @@ const appServicePlan  = new azurerm.web.AppServicePlan("app-plan", {
     },
 });
 
-const appService = new azurerm.web.AppService("app", {
+const appService = new azurerm.web.WebApp("app", {
     resourceGroupName: resourceGroup.name,
     name: "pulumiapp2418a",
     location: "westus2",
@@ -162,7 +162,7 @@ const storageAccount = new azurerm.storage.StorageAccount("sa", {
     }
 });
 
-export const existingRg = azurerm.core.getResourceGroup({ name: "Azure-Account-Cleanup" });
+export const existingRg = azurerm.getResourceGroup({ name: "Azure-Account-Cleanup" });
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(([resourceGroupName, accountName]) => 
     azurerm.storage.listStorageAccountKeys({ resourceGroupName, accountName }));

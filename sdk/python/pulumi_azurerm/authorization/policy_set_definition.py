@@ -40,13 +40,12 @@ class PolicySetDefinition(pulumi.CustomResource):
     """
     The type of the resource (Microsoft.Authorization/policySetDefinitions).
     """
-    def __init__(__self__, resource_name, opts=None, management_group_id=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
         """
         The policy set definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] management_group_id: The ID of the management group.
         :param pulumi.Input[str] name: The name of the policy set definition to create.
         :param pulumi.Input[dict] properties: The policy definition properties.
 
@@ -88,9 +87,6 @@ class PolicySetDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if management_group_id is None:
-                raise TypeError("Missing required property 'management_group_id'")
-            __props__['management_group_id'] = management_group_id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

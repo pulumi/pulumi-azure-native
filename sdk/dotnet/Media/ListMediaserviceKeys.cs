@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Media
 {
-    public static class ListMediaserviceKeys
+    public static class ListMediaServiceKeys
     {
-        public static Task<ListMediaserviceKeysResult> InvokeAsync(ListMediaserviceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaserviceKeysResult>("azurerm:media:listMediaserviceKeys", args ?? new ListMediaserviceKeysArgs(), options.WithVersion());
+        public static Task<ListMediaServiceKeysResult> InvokeAsync(ListMediaServiceKeysArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceKeysResult>("azurerm:media:listMediaServiceKeys", args ?? new ListMediaServiceKeysArgs(), options.WithVersion());
     }
 
 
-    public sealed class ListMediaserviceKeysArgs : Pulumi.InvokeArgs
+    public sealed class ListMediaServiceKeysArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Media Service.
@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.Media
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public ListMediaserviceKeysArgs()
+        public ListMediaServiceKeysArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class ListMediaserviceKeysResult
+    public sealed class ListMediaServiceKeysResult
     {
         /// <summary>
         /// The primary authorization endpoint.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.Media
         public readonly string? SecondaryKey;
 
         [OutputConstructor]
-        private ListMediaserviceKeysResult(
+        private ListMediaServiceKeysResult(
             string? primaryAuthEndpoint,
 
             string? primaryKey,

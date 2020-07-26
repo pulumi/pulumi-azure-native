@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getWebtest(args: GetWebtestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebtestResult> {
+export function getWebTest(args: GetWebTestArgs, opts?: pulumi.InvokeOptions): Promise<GetWebTestResult> {
     if (!opts) {
         opts = {}
     }
@@ -14,13 +14,13 @@ export function getWebtest(args: GetWebtestArgs, opts?: pulumi.InvokeOptions): P
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azurerm:insights:getWebtest", {
+    return pulumi.runtime.invoke("azurerm:insights:getWebTest", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetWebtestArgs {
+export interface GetWebTestArgs {
     /**
      * The name of the Application Insights webtest resource.
      */
@@ -34,7 +34,7 @@ export interface GetWebtestArgs {
 /**
  * An Application Insights web test definition.
  */
-export interface GetWebtestResult {
+export interface GetWebTestResult {
     /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */

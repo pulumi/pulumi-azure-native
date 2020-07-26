@@ -29,6 +29,9 @@ type Schedule struct {
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSchedule(ctx *pulumi.Context,
 	name string, args *ScheduleArgs, opts ...pulumi.ResourceOption) (*Schedule, error) {
+	if args == nil || args.LabName == nil {
+		return nil, errors.New("missing required argument 'LabName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -93,6 +96,8 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
+	// The name of the lab.
+	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the schedule.
@@ -107,6 +112,8 @@ type scheduleArgs struct {
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
+	// The name of the lab.
+	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the schedule.

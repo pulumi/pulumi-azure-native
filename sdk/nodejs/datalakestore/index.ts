@@ -3,10 +3,10 @@
 
 // Export members:
 export * from "./account";
-export * from "./accountFirewallRule";
-export * from "./accountTrustedIdProvider";
-export * from "./accountVirtualNetworkRule";
+export * from "./firewallRule";
 export * from "./getAccount";
-export * from "./getAccountFirewallRule";
-export * from "./getAccountTrustedIdProvider";
-export * from "./getAccountVirtualNetworkRule";
+export * from "./getFirewallRule";
+export * from "./getTrustedIdProvider";
+export * from "./getVirtualNetworkRule";
+export * from "./trustedIdProvider";
+export * from "./virtualNetworkRule";

@@ -17,6 +17,8 @@ func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulum
 }
 
 type LookupScheduleArgs struct {
+	// The name of the lab.
+	LabName string `pulumi:"labName"`
 	// The name of the schedule.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

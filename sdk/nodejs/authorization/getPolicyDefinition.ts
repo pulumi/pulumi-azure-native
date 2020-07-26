@@ -15,16 +15,11 @@ export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:authorization:getPolicyDefinition", {
-        "managementGroupId": args.managementGroupId,
         "name": args.name,
     }, opts);
 }
 
 export interface GetPolicyDefinitionArgs {
-    /**
-     * The ID of the management group.
-     */
-    readonly managementGroupId: string;
     /**
      * The name of the policy definition to get.
      */

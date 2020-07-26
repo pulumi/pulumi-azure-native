@@ -3,6 +3,6 @@
 
 // Export members:
 export * from "./getWorkspace";
-export * from "./getWorkspaceVirtualNetworkPeering";
+export * from "./getvNetPeering";
+export * from "./vnetPeering";
 export * from "./workspace";
-export * from "./workspaceVirtualNetworkPeering";

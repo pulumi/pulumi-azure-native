@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.DevTestLab
     public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]

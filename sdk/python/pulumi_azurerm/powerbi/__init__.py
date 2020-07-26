@@ -4,5 +4,5 @@
 
 # Export this package's modules as members:
 from .get_workspace_collection import *
-from .list_workspace_collection_keys import *
+from .list_workspace_collection_access_keys import *
 from .workspace_collection import *

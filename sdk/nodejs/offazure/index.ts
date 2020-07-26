@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getHyperVSite";
-export * from "./getVMwareSite";
-export * from "./hyperVSite";
-export * from "./vmwareSite";
+export * from "./getHyperVSiteSite";
+export * from "./getSite";
+export * from "./hyperVSiteSite";
+export * from "./site";

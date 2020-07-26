@@ -2,19 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getIotHub";
-export * from "./getIotHubCertificate";
-export * from "./getIotHubEventHubEndpointConsumerGroup";
-export * from "./getIotHubPrivateEndpointConnection";
-export * from "./getProvisioningService";
-export * from "./getProvisioningServiceCertificate";
-export * from "./iotHub";
-export * from "./iotHubCertificate";
-export * from "./iotHubEventHubEndpointConsumerGroup";
-export * from "./iotHubPrivateEndpointConnection";
-export * from "./listIotHubIotHubKeyKeys";
-export * from "./listIotHubKeys";
-export * from "./listProvisioningServiceKeyKeys";
-export * from "./listProvisioningServiceKeys";
-export * from "./provisioningService";
-export * from "./provisioningServiceCertificate";
+export * from "./certificate";
+export * from "./dpsCertificate";
+export * from "./getCertificate";
+export * from "./getDpsCertificate";
+export * from "./getIotDpsResource";
+export * from "./getIotHubResource";
+export * from "./getIotHubResourceEventHubConsumerGroup";
+export * from "./getPrivateEndpointConnection";
+export * from "./iotDpsResource";
+export * from "./iotHubResource";
+export * from "./iotHubResourceEventHubConsumerGroup";
+export * from "./listIotDpsResourceKeys";
+export * from "./listIotDpsResourceKeysForKeyName";
+export * from "./listIotHubResourceKeys";
+export * from "./listIotHubResourceKeysForKeyName";
+export * from "./privateEndpointConnection";

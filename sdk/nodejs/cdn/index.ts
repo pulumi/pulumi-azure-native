@@ -2,15 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./cdnWebApplicationFirewallPolicy";
-export * from "./getCdnWebApplicationFirewallPolicy";
+export * from "./customDomain";
+export * from "./endpoint";
+export * from "./getCustomDomain";
+export * from "./getEndpoint";
+export * from "./getOrigin";
+export * from "./getOriginGroup";
+export * from "./getPolicy";
 export * from "./getProfile";
-export * from "./getProfileEndpoint";
-export * from "./getProfileEndpointCustomDomain";
-export * from "./getProfileEndpointOrigin";
-export * from "./getProfileEndpointOriginGroup";
+export * from "./origin";
+export * from "./originGroup";
+export * from "./policy";
 export * from "./profile";
-export * from "./profileEndpoint";
-export * from "./profileEndpointCustomDomain";
-export * from "./profileEndpointOrigin";
-export * from "./profileEndpointOriginGroup";

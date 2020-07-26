@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureRM.Insights
 {
-    public static class GetWebtest
+    public static class GetWebTest
     {
-        public static Task<GetWebtestResult> InvokeAsync(GetWebtestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebtestResult>("azurerm:insights:getWebtest", args ?? new GetWebtestArgs(), options.WithVersion());
+        public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azurerm:insights:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetWebtestArgs : Pulumi.InvokeArgs
+    public sealed class GetWebTestArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Application Insights webtest resource.
@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.Insights
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetWebtestArgs()
+        public GetWebTestArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetWebtestResult
+    public sealed class GetWebTestResult
     {
         /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureRM.Insights
         public readonly string Type;
 
         [OutputConstructor]
-        private GetWebtestResult(
+        private GetWebTestResult(
             string? kind,
 
             string location,

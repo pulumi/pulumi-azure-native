@@ -4,10 +4,10 @@
 
 # Export this package's modules as members:
 from .account import *
-from .account_firewall_rule import *
-from .account_trusted_id_provider import *
-from .account_virtual_network_rule import *
+from .firewall_rule import *
 from .get_account import *
-from .get_account_firewall_rule import *
-from .get_account_trusted_id_provider import *
-from .get_account_virtual_network_rule import *
+from .get_firewall_rule import *
+from .get_trusted_id_provider import *
+from .get_virtual_network_rule import *
+from .trusted_id_provider import *
+from .virtual_network_rule import *

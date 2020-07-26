@@ -9,31 +9,31 @@ import * as utilities from "../utilities";
 /**
  * A streaming job object, containing all information associated with the named streaming job.
  */
-export class Streamingjob extends pulumi.CustomResource {
+export class StreamingJob extends pulumi.CustomResource {
     /**
-     * Get an existing Streamingjob resource's state with the given name, ID, and optional extra
+     * Get an existing StreamingJob resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Streamingjob {
-        return new Streamingjob(name, undefined, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StreamingJob {
+        return new StreamingJob(name, undefined, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azurerm:streamanalytics:Streamingjob';
+    public static readonly __pulumiType = 'azurerm:streamanalytics:StreamingJob';
 
     /**
-     * Returns true if the given object is an instance of Streamingjob.  This is designed to work even
+     * Returns true if the given object is an instance of StreamingJob.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Streamingjob {
+    public static isInstance(obj: any): obj is StreamingJob {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Streamingjob.__pulumiType;
+        return obj['__pulumiType'] === StreamingJob.__pulumiType;
     }
 
     /**
@@ -58,18 +58,18 @@ export class Streamingjob extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a Streamingjob resource with the given unique name, arguments, and options.
+     * Create a StreamingJob resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StreamingjobArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: StreamingjobArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, argsOrState?: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            const args = argsOrState as StreamingjobArgs | undefined;
+            const args = argsOrState as StreamingJobArgs | undefined;
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -90,14 +90,14 @@ export class Streamingjob extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(Streamingjob.__pulumiType, name, inputs, opts);
+        super(StreamingJob.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a Streamingjob resource.
+ * The set of arguments for constructing a StreamingJob resource.
  */
-export interface StreamingjobArgs {
+export interface StreamingJobArgs {
     /**
      * Resource location. Required on PUT (CreateOrReplace) requests.
      */

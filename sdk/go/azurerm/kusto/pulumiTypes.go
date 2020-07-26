@@ -10,6 +10,90 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Class representing an attached database configuration.
+type AttachedDatabaseConfigurationType struct {
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The properties of the attached database configuration.
+	Properties AttachedDatabaseConfigurationPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// AttachedDatabaseConfigurationTypeInput is an input type that accepts AttachedDatabaseConfigurationTypeArgs and AttachedDatabaseConfigurationTypeOutput values.
+// You can construct a concrete instance of `AttachedDatabaseConfigurationTypeInput` via:
+//
+//          AttachedDatabaseConfigurationTypeArgs{...}
+type AttachedDatabaseConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToAttachedDatabaseConfigurationTypeOutput() AttachedDatabaseConfigurationTypeOutput
+	ToAttachedDatabaseConfigurationTypeOutputWithContext(context.Context) AttachedDatabaseConfigurationTypeOutput
+}
+
+// Class representing an attached database configuration.
+type AttachedDatabaseConfigurationTypeArgs struct {
+	// Resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the attached database configuration.
+	Properties AttachedDatabaseConfigurationPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AttachedDatabaseConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfigurationType)(nil)).Elem()
+}
+
+func (i AttachedDatabaseConfigurationTypeArgs) ToAttachedDatabaseConfigurationTypeOutput() AttachedDatabaseConfigurationTypeOutput {
+	return i.ToAttachedDatabaseConfigurationTypeOutputWithContext(context.Background())
+}
+
+func (i AttachedDatabaseConfigurationTypeArgs) ToAttachedDatabaseConfigurationTypeOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationTypeOutput)
+}
+
+// Class representing an attached database configuration.
+type AttachedDatabaseConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (AttachedDatabaseConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AttachedDatabaseConfigurationType)(nil)).Elem()
+}
+
+func (o AttachedDatabaseConfigurationTypeOutput) ToAttachedDatabaseConfigurationTypeOutput() AttachedDatabaseConfigurationTypeOutput {
+	return o
+}
+
+func (o AttachedDatabaseConfigurationTypeOutput) ToAttachedDatabaseConfigurationTypeOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationTypeOutput {
+	return o
+}
+
+// Resource location.
+func (o AttachedDatabaseConfigurationTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o AttachedDatabaseConfigurationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the attached database configuration.
+func (o AttachedDatabaseConfigurationTypeOutput) Properties() AttachedDatabaseConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationType) AttachedDatabaseConfigurationPropertiesResponse {
+		return v.Properties
+	}).(AttachedDatabaseConfigurationPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o AttachedDatabaseConfigurationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AttachedDatabaseConfigurationType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Class representing the an attached database configuration properties of kind specific.
 type AttachedDatabaseConfigurationProperties struct {
 	// The resource id of the cluster where the databases you would like to attach reside.
@@ -856,329 +940,6 @@ func (o ClusterTypeOutput) Type() pulumi.StringOutput {
 // The availability zones of the cluster.
 func (o ClusterTypeOutput) Zones() ZonesResponsePtrOutput {
 	return o.ApplyT(func(v ClusterType) *ZonesResponse { return v.Zones }).(ZonesResponsePtrOutput)
-}
-
-// Class representing an attached database configuration.
-type ClusterAttachedDatabaseConfigurationType struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the attached database configuration.
-	Properties AttachedDatabaseConfigurationPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ClusterAttachedDatabaseConfigurationTypeInput is an input type that accepts ClusterAttachedDatabaseConfigurationTypeArgs and ClusterAttachedDatabaseConfigurationTypeOutput values.
-// You can construct a concrete instance of `ClusterAttachedDatabaseConfigurationTypeInput` via:
-//
-//          ClusterAttachedDatabaseConfigurationTypeArgs{...}
-type ClusterAttachedDatabaseConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToClusterAttachedDatabaseConfigurationTypeOutput() ClusterAttachedDatabaseConfigurationTypeOutput
-	ToClusterAttachedDatabaseConfigurationTypeOutputWithContext(context.Context) ClusterAttachedDatabaseConfigurationTypeOutput
-}
-
-// Class representing an attached database configuration.
-type ClusterAttachedDatabaseConfigurationTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the attached database configuration.
-	Properties AttachedDatabaseConfigurationPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterAttachedDatabaseConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterAttachedDatabaseConfigurationType)(nil)).Elem()
-}
-
-func (i ClusterAttachedDatabaseConfigurationTypeArgs) ToClusterAttachedDatabaseConfigurationTypeOutput() ClusterAttachedDatabaseConfigurationTypeOutput {
-	return i.ToClusterAttachedDatabaseConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterAttachedDatabaseConfigurationTypeArgs) ToClusterAttachedDatabaseConfigurationTypeOutputWithContext(ctx context.Context) ClusterAttachedDatabaseConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterAttachedDatabaseConfigurationTypeOutput)
-}
-
-// Class representing an attached database configuration.
-type ClusterAttachedDatabaseConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterAttachedDatabaseConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterAttachedDatabaseConfigurationType)(nil)).Elem()
-}
-
-func (o ClusterAttachedDatabaseConfigurationTypeOutput) ToClusterAttachedDatabaseConfigurationTypeOutput() ClusterAttachedDatabaseConfigurationTypeOutput {
-	return o
-}
-
-func (o ClusterAttachedDatabaseConfigurationTypeOutput) ToClusterAttachedDatabaseConfigurationTypeOutputWithContext(ctx context.Context) ClusterAttachedDatabaseConfigurationTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o ClusterAttachedDatabaseConfigurationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterAttachedDatabaseConfigurationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ClusterAttachedDatabaseConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterAttachedDatabaseConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the attached database configuration.
-func (o ClusterAttachedDatabaseConfigurationTypeOutput) Properties() AttachedDatabaseConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterAttachedDatabaseConfigurationType) AttachedDatabaseConfigurationPropertiesResponse {
-		return v.Properties
-	}).(AttachedDatabaseConfigurationPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ClusterAttachedDatabaseConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterAttachedDatabaseConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Class representing a Kusto database.
-type ClusterDatabaseType struct {
-	// Kind of the database
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ClusterDatabaseTypeInput is an input type that accepts ClusterDatabaseTypeArgs and ClusterDatabaseTypeOutput values.
-// You can construct a concrete instance of `ClusterDatabaseTypeInput` via:
-//
-//          ClusterDatabaseTypeArgs{...}
-type ClusterDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToClusterDatabaseTypeOutput() ClusterDatabaseTypeOutput
-	ToClusterDatabaseTypeOutputWithContext(context.Context) ClusterDatabaseTypeOutput
-}
-
-// Class representing a Kusto database.
-type ClusterDatabaseTypeArgs struct {
-	// Kind of the database
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDatabaseType)(nil)).Elem()
-}
-
-func (i ClusterDatabaseTypeArgs) ToClusterDatabaseTypeOutput() ClusterDatabaseTypeOutput {
-	return i.ToClusterDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterDatabaseTypeArgs) ToClusterDatabaseTypeOutputWithContext(ctx context.Context) ClusterDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDatabaseTypeOutput)
-}
-
-// Class representing a Kusto database.
-type ClusterDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDatabaseType)(nil)).Elem()
-}
-
-func (o ClusterDatabaseTypeOutput) ToClusterDatabaseTypeOutput() ClusterDatabaseTypeOutput {
-	return o
-}
-
-func (o ClusterDatabaseTypeOutput) ToClusterDatabaseTypeOutputWithContext(ctx context.Context) ClusterDatabaseTypeOutput {
-	return o
-}
-
-// Kind of the database
-func (o ClusterDatabaseTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabaseType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o ClusterDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ClusterDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ClusterDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Class representing an data connection.
-type ClusterDatabaseDataConnectionType struct {
-	// Kind of the endpoint for the data connection
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ClusterDatabaseDataConnectionTypeInput is an input type that accepts ClusterDatabaseDataConnectionTypeArgs and ClusterDatabaseDataConnectionTypeOutput values.
-// You can construct a concrete instance of `ClusterDatabaseDataConnectionTypeInput` via:
-//
-//          ClusterDatabaseDataConnectionTypeArgs{...}
-type ClusterDatabaseDataConnectionTypeInput interface {
-	pulumi.Input
-
-	ToClusterDatabaseDataConnectionTypeOutput() ClusterDatabaseDataConnectionTypeOutput
-	ToClusterDatabaseDataConnectionTypeOutputWithContext(context.Context) ClusterDatabaseDataConnectionTypeOutput
-}
-
-// Class representing an data connection.
-type ClusterDatabaseDataConnectionTypeArgs struct {
-	// Kind of the endpoint for the data connection
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterDatabaseDataConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDatabaseDataConnectionType)(nil)).Elem()
-}
-
-func (i ClusterDatabaseDataConnectionTypeArgs) ToClusterDatabaseDataConnectionTypeOutput() ClusterDatabaseDataConnectionTypeOutput {
-	return i.ToClusterDatabaseDataConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterDatabaseDataConnectionTypeArgs) ToClusterDatabaseDataConnectionTypeOutputWithContext(ctx context.Context) ClusterDatabaseDataConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDatabaseDataConnectionTypeOutput)
-}
-
-// Class representing an data connection.
-type ClusterDatabaseDataConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterDatabaseDataConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDatabaseDataConnectionType)(nil)).Elem()
-}
-
-func (o ClusterDatabaseDataConnectionTypeOutput) ToClusterDatabaseDataConnectionTypeOutput() ClusterDatabaseDataConnectionTypeOutput {
-	return o
-}
-
-func (o ClusterDatabaseDataConnectionTypeOutput) ToClusterDatabaseDataConnectionTypeOutputWithContext(ctx context.Context) ClusterDatabaseDataConnectionTypeOutput {
-	return o
-}
-
-// Kind of the endpoint for the data connection
-func (o ClusterDatabaseDataConnectionTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabaseDataConnectionType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o ClusterDatabaseDataConnectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterDatabaseDataConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ClusterDatabaseDataConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabaseDataConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ClusterDatabaseDataConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabaseDataConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Class representing a database principal assignment.
-type ClusterDatabasePrincipalAssignmentType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The database principal.
-	Properties DatabasePrincipalPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ClusterDatabasePrincipalAssignmentTypeInput is an input type that accepts ClusterDatabasePrincipalAssignmentTypeArgs and ClusterDatabasePrincipalAssignmentTypeOutput values.
-// You can construct a concrete instance of `ClusterDatabasePrincipalAssignmentTypeInput` via:
-//
-//          ClusterDatabasePrincipalAssignmentTypeArgs{...}
-type ClusterDatabasePrincipalAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToClusterDatabasePrincipalAssignmentTypeOutput() ClusterDatabasePrincipalAssignmentTypeOutput
-	ToClusterDatabasePrincipalAssignmentTypeOutputWithContext(context.Context) ClusterDatabasePrincipalAssignmentTypeOutput
-}
-
-// Class representing a database principal assignment.
-type ClusterDatabasePrincipalAssignmentTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The database principal.
-	Properties DatabasePrincipalPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterDatabasePrincipalAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDatabasePrincipalAssignmentType)(nil)).Elem()
-}
-
-func (i ClusterDatabasePrincipalAssignmentTypeArgs) ToClusterDatabasePrincipalAssignmentTypeOutput() ClusterDatabasePrincipalAssignmentTypeOutput {
-	return i.ToClusterDatabasePrincipalAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterDatabasePrincipalAssignmentTypeArgs) ToClusterDatabasePrincipalAssignmentTypeOutputWithContext(ctx context.Context) ClusterDatabasePrincipalAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterDatabasePrincipalAssignmentTypeOutput)
-}
-
-// Class representing a database principal assignment.
-type ClusterDatabasePrincipalAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterDatabasePrincipalAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterDatabasePrincipalAssignmentType)(nil)).Elem()
-}
-
-func (o ClusterDatabasePrincipalAssignmentTypeOutput) ToClusterDatabasePrincipalAssignmentTypeOutput() ClusterDatabasePrincipalAssignmentTypeOutput {
-	return o
-}
-
-func (o ClusterDatabasePrincipalAssignmentTypeOutput) ToClusterDatabasePrincipalAssignmentTypeOutputWithContext(ctx context.Context) ClusterDatabasePrincipalAssignmentTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o ClusterDatabasePrincipalAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabasePrincipalAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The database principal.
-func (o ClusterDatabasePrincipalAssignmentTypeOutput) Properties() DatabasePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterDatabasePrincipalAssignmentType) DatabasePrincipalPropertiesResponse {
-		return v.Properties
-	}).(DatabasePrincipalPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ClusterDatabasePrincipalAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDatabasePrincipalAssignmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Class representing a cluster principal assignment.
@@ -2341,6 +2102,243 @@ func (o ClusterPropertiesResponsePtrOutput) VirtualNetworkConfiguration() Virtua
 		}
 		return v.VirtualNetworkConfiguration
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
+}
+
+// Class representing an data connection.
+type DataConnectionType struct {
+	// Kind of the endpoint for the data connection
+	Kind string `pulumi:"kind"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// DataConnectionTypeInput is an input type that accepts DataConnectionTypeArgs and DataConnectionTypeOutput values.
+// You can construct a concrete instance of `DataConnectionTypeInput` via:
+//
+//          DataConnectionTypeArgs{...}
+type DataConnectionTypeInput interface {
+	pulumi.Input
+
+	ToDataConnectionTypeOutput() DataConnectionTypeOutput
+	ToDataConnectionTypeOutputWithContext(context.Context) DataConnectionTypeOutput
+}
+
+// Class representing an data connection.
+type DataConnectionTypeArgs struct {
+	// Kind of the endpoint for the data connection
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectionType)(nil)).Elem()
+}
+
+func (i DataConnectionTypeArgs) ToDataConnectionTypeOutput() DataConnectionTypeOutput {
+	return i.ToDataConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i DataConnectionTypeArgs) ToDataConnectionTypeOutputWithContext(ctx context.Context) DataConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataConnectionTypeOutput)
+}
+
+// Class representing an data connection.
+type DataConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (DataConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectionType)(nil)).Elem()
+}
+
+func (o DataConnectionTypeOutput) ToDataConnectionTypeOutput() DataConnectionTypeOutput {
+	return o
+}
+
+func (o DataConnectionTypeOutput) ToDataConnectionTypeOutputWithContext(ctx context.Context) DataConnectionTypeOutput {
+	return o
+}
+
+// Kind of the endpoint for the data connection
+func (o DataConnectionTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DataConnectionType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DataConnectionTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o DataConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o DataConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataConnectionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Class representing a Kusto database.
+type DatabaseType struct {
+	// Kind of the database
+	Kind string `pulumi:"kind"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// DatabaseTypeInput is an input type that accepts DatabaseTypeArgs and DatabaseTypeOutput values.
+// You can construct a concrete instance of `DatabaseTypeInput` via:
+//
+//          DatabaseTypeArgs{...}
+type DatabaseTypeInput interface {
+	pulumi.Input
+
+	ToDatabaseTypeOutput() DatabaseTypeOutput
+	ToDatabaseTypeOutputWithContext(context.Context) DatabaseTypeOutput
+}
+
+// Class representing a Kusto database.
+type DatabaseTypeArgs struct {
+	// Kind of the database
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatabaseTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
+}
+
+func (i DatabaseTypeArgs) ToDatabaseTypeOutput() DatabaseTypeOutput {
+	return i.ToDatabaseTypeOutputWithContext(context.Background())
+}
+
+func (i DatabaseTypeArgs) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTypeOutput)
+}
+
+// Class representing a Kusto database.
+type DatabaseTypeOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
+}
+
+func (o DatabaseTypeOutput) ToDatabaseTypeOutput() DatabaseTypeOutput {
+	return o
+}
+
+func (o DatabaseTypeOutput) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
+	return o
+}
+
+// Kind of the database
+func (o DatabaseTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DatabaseTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o DatabaseTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o DatabaseTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Class representing a database principal assignment.
+type DatabasePrincipalAssignmentType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The database principal.
+	Properties DatabasePrincipalPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// DatabasePrincipalAssignmentTypeInput is an input type that accepts DatabasePrincipalAssignmentTypeArgs and DatabasePrincipalAssignmentTypeOutput values.
+// You can construct a concrete instance of `DatabasePrincipalAssignmentTypeInput` via:
+//
+//          DatabasePrincipalAssignmentTypeArgs{...}
+type DatabasePrincipalAssignmentTypeInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalAssignmentTypeOutput() DatabasePrincipalAssignmentTypeOutput
+	ToDatabasePrincipalAssignmentTypeOutputWithContext(context.Context) DatabasePrincipalAssignmentTypeOutput
+}
+
+// Class representing a database principal assignment.
+type DatabasePrincipalAssignmentTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The database principal.
+	Properties DatabasePrincipalPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatabasePrincipalAssignmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalAssignmentType)(nil)).Elem()
+}
+
+func (i DatabasePrincipalAssignmentTypeArgs) ToDatabasePrincipalAssignmentTypeOutput() DatabasePrincipalAssignmentTypeOutput {
+	return i.ToDatabasePrincipalAssignmentTypeOutputWithContext(context.Background())
+}
+
+func (i DatabasePrincipalAssignmentTypeArgs) ToDatabasePrincipalAssignmentTypeOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentTypeOutput)
+}
+
+// Class representing a database principal assignment.
+type DatabasePrincipalAssignmentTypeOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalAssignmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalAssignmentType)(nil)).Elem()
+}
+
+func (o DatabasePrincipalAssignmentTypeOutput) ToDatabasePrincipalAssignmentTypeOutput() DatabasePrincipalAssignmentTypeOutput {
+	return o
+}
+
+func (o DatabasePrincipalAssignmentTypeOutput) ToDatabasePrincipalAssignmentTypeOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentTypeOutput {
+	return o
+}
+
+// The name of the resource
+func (o DatabasePrincipalAssignmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalAssignmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The database principal.
+func (o DatabasePrincipalAssignmentTypeOutput) Properties() DatabasePrincipalPropertiesResponseOutput {
+	return o.ApplyT(func(v DatabasePrincipalAssignmentType) DatabasePrincipalPropertiesResponse { return v.Properties }).(DatabasePrincipalPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o DatabasePrincipalAssignmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalAssignmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A class representing database principal property.
@@ -5288,6 +5286,7 @@ func (o ZonesResponsePtrOutput) Elem() ZonesResponseOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AttachedDatabaseConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationPropertiesResponseOutput{})
@@ -5297,10 +5296,6 @@ func init() {
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterTypeOutput{})
-	pulumi.RegisterOutputType(ClusterAttachedDatabaseConfigurationTypeOutput{})
-	pulumi.RegisterOutputType(ClusterDatabaseTypeOutput{})
-	pulumi.RegisterOutputType(ClusterDatabaseDataConnectionTypeOutput{})
-	pulumi.RegisterOutputType(ClusterDatabasePrincipalAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(ClusterPrincipalAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(ClusterPrincipalPropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterPrincipalPropertiesPtrOutput{})
@@ -5310,6 +5305,9 @@ func init() {
 	pulumi.RegisterOutputType(ClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DataConnectionTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseTypeOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPropertiesOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPropertiesResponseOutput{})

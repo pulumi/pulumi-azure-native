@@ -2,15 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./cloudEndpoint";
+export * from "./getCloudEndpoint";
+export * from "./getPrivateEndpointConnection";
+export * from "./getRegisteredServer";
+export * from "./getServerEndpoint";
 export * from "./getStorageSyncService";
-export * from "./getStorageSyncServicePrivateEndpointConnection";
-export * from "./getStorageSyncServiceRegisteredServer";
-export * from "./getStorageSyncServiceSyncGroup";
-export * from "./getStorageSyncServiceSyncGroupCloudEndpoint";
-export * from "./getStorageSyncServiceSyncGroupServerEndpoint";
+export * from "./getSyncGroup";
+export * from "./privateEndpointConnection";
+export * from "./registeredServer";
+export * from "./serverEndpoint";
 export * from "./storageSyncService";
-export * from "./storageSyncServicePrivateEndpointConnection";
-export * from "./storageSyncServiceRegisteredServer";
-export * from "./storageSyncServiceSyncGroup";
-export * from "./storageSyncServiceSyncGroupCloudEndpoint";
-export * from "./storageSyncServiceSyncGroupServerEndpoint";
+export * from "./syncGroup";

@@ -17,8 +17,6 @@ func LookupPolicySetDefinition(ctx *pulumi.Context, args *LookupPolicySetDefinit
 }
 
 type LookupPolicySetDefinitionArgs struct {
-	// The ID of the management group.
-	ManagementGroupId string `pulumi:"managementGroupId"`
 	// The name of the policy set definition to get.
 	Name string `pulumi:"name"`
 }

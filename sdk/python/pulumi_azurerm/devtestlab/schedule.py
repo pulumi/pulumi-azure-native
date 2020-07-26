@@ -53,12 +53,13 @@ class Schedule(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A schedule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[dict] properties: The properties of the resource.
@@ -105,6 +106,9 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if lab_name is None:
+                raise TypeError("Missing required property 'lab_name'")
+            __props__['lab_name'] = lab_name
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")

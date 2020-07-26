@@ -3,7 +3,7 @@ import * as fs from "fs";
 
 class ResourceGroup extends pulumi.CustomResource {
     constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:core:ResourceGroup", name, args, opts);
+        super("azurerm:index:ResourceGroup", name, args, opts);
     }
 }
 
@@ -55,7 +55,7 @@ class Template extends pulumi.ComponentResource {
             } else if (resource.type === "Microsoft.Web/serverfarms") {
                 typeName = "azurerm:web:AppServicePlan";
             } else if (resource.type === "Microsoft.Web/sites") {
-                typeName = "azurerm:web:AppService";
+                typeName = "azurerm:web:WebApp";
             } else if (resource.type === "Microsoft.Cache/Redis") {
                 typeName = "azurerm:cache:Redis";
             } else if (resource.type === "Microsoft.ContainerInstance/containerGroups") {

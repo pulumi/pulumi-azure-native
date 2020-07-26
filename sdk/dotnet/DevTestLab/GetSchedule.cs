@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.DevTestLab
     public sealed class GetScheduleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name of the lab.
+        /// </summary>
+        [Input("labName", required: true)]
+        public string LabName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the schedule.
         /// </summary>
         [Input("name", required: true)]

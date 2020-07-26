@@ -137,81 +137,6 @@ func (o AccountTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Private Endpoint Connection resource.
-type AccountPrivateEndpointConnectionType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// AccountPrivateEndpointConnectionTypeInput is an input type that accepts AccountPrivateEndpointConnectionTypeArgs and AccountPrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `AccountPrivateEndpointConnectionTypeInput` via:
-//
-//          AccountPrivateEndpointConnectionTypeArgs{...}
-type AccountPrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToAccountPrivateEndpointConnectionTypeOutput() AccountPrivateEndpointConnectionTypeOutput
-	ToAccountPrivateEndpointConnectionTypeOutputWithContext(context.Context) AccountPrivateEndpointConnectionTypeOutput
-}
-
-// The Private Endpoint Connection resource.
-type AccountPrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountPrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i AccountPrivateEndpointConnectionTypeArgs) ToAccountPrivateEndpointConnectionTypeOutput() AccountPrivateEndpointConnectionTypeOutput {
-	return i.ToAccountPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i AccountPrivateEndpointConnectionTypeArgs) ToAccountPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountPrivateEndpointConnectionTypeOutput)
-}
-
-// The Private Endpoint Connection resource.
-type AccountPrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountPrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o AccountPrivateEndpointConnectionTypeOutput) ToAccountPrivateEndpointConnectionTypeOutput() AccountPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o AccountPrivateEndpointConnectionTypeOutput) ToAccountPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o AccountPrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountPrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o AccountPrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountPrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o AccountPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountPrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The api properties for special APIs.
 type CognitiveServicesAccountApiProperties struct {
 	// (Personalization Only) The flag to enable statistics of Bing Search.
@@ -607,7 +532,7 @@ type CognitiveServicesAccountProperties struct {
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
 	// The private endpoint connection associated with the Cognitive Services account.
-	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The storage accounts for this resource.
@@ -636,7 +561,7 @@ type CognitiveServicesAccountPropertiesArgs struct {
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls NetworkRuleSetPtrInput `pulumi:"networkAcls"`
 	// The private endpoint connection associated with the Cognitive Services account.
-	PrivateEndpointConnections PrivateEndpointConnectionArrayInput `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
 	// The storage accounts for this resource.
@@ -744,10 +669,10 @@ func (o CognitiveServicesAccountPropertiesOutput) NetworkAcls() NetworkRuleSetPt
 }
 
 // The private endpoint connection associated with the Cognitive Services account.
-func (o CognitiveServicesAccountPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
-	return o.ApplyT(func(v CognitiveServicesAccountProperties) []PrivateEndpointConnection {
+func (o CognitiveServicesAccountPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v CognitiveServicesAccountProperties) []PrivateEndpointConnectionType {
 		return v.PrivateEndpointConnections
-	}).(PrivateEndpointConnectionArrayOutput)
+	}).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
 // Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -819,13 +744,13 @@ func (o CognitiveServicesAccountPropertiesPtrOutput) NetworkAcls() NetworkRuleSe
 }
 
 // The private endpoint connection associated with the Cognitive Services account.
-func (o CognitiveServicesAccountPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
-	return o.ApplyT(func(v *CognitiveServicesAccountProperties) []PrivateEndpointConnection {
+func (o CognitiveServicesAccountPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccountProperties) []PrivateEndpointConnectionType {
 		if v == nil {
 			return nil
 		}
 		return v.PrivateEndpointConnections
-	}).(PrivateEndpointConnectionArrayOutput)
+	}).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
 // Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -2834,103 +2759,121 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 }
 
 // The Private Endpoint Connection resource.
-type PrivateEndpointConnection struct {
+type PrivateEndpointConnectionType struct {
+	// The name of the resource
+	Name string `pulumi:"name"`
 	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
 }
 
-// PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionInput` via:
+// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
 //
-//          PrivateEndpointConnectionArgs{...}
-type PrivateEndpointConnectionInput interface {
+//          PrivateEndpointConnectionTypeArgs{...}
+type PrivateEndpointConnectionTypeInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
-	ToPrivateEndpointConnectionOutputWithContext(context.Context) PrivateEndpointConnectionOutput
+	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
+	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
 // The Private Endpoint Connection resource.
-type PrivateEndpointConnectionArgs struct {
+type PrivateEndpointConnectionTypeArgs struct {
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
 	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
-	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
+	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
+func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
 }
 
-// PrivateEndpointConnectionArrayInput is an input type that accepts PrivateEndpointConnectionArray and PrivateEndpointConnectionArrayOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionArrayInput` via:
+// PrivateEndpointConnectionTypeArrayInput is an input type that accepts PrivateEndpointConnectionTypeArray and PrivateEndpointConnectionTypeArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionTypeArrayInput` via:
 //
-//          PrivateEndpointConnectionArray{ PrivateEndpointConnectionArgs{...} }
-type PrivateEndpointConnectionArrayInput interface {
+//          PrivateEndpointConnectionTypeArray{ PrivateEndpointConnectionTypeArgs{...} }
+type PrivateEndpointConnectionTypeArrayInput interface {
 	pulumi.Input
 
-	ToPrivateEndpointConnectionArrayOutput() PrivateEndpointConnectionArrayOutput
-	ToPrivateEndpointConnectionArrayOutputWithContext(context.Context) PrivateEndpointConnectionArrayOutput
+	ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput
+	ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Context) PrivateEndpointConnectionTypeArrayOutput
 }
 
-type PrivateEndpointConnectionArray []PrivateEndpointConnectionInput
+type PrivateEndpointConnectionTypeArray []PrivateEndpointConnectionTypeInput
 
-func (PrivateEndpointConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (i PrivateEndpointConnectionArray) ToPrivateEndpointConnectionArrayOutput() PrivateEndpointConnectionArrayOutput {
-	return i.ToPrivateEndpointConnectionArrayOutputWithContext(context.Background())
+func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
+	return i.ToPrivateEndpointConnectionTypeArrayOutputWithContext(context.Background())
 }
 
-func (i PrivateEndpointConnectionArray) ToPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionArrayOutput)
+func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
 // The Private Endpoint Connection resource.
-type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
-func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
+func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
+func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
 	return o
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Resource properties.
-func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-type PrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateEndpointConnection)(nil)).Elem()
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o PrivateEndpointConnectionArrayOutput) ToPrivateEndpointConnectionArrayOutput() PrivateEndpointConnectionArrayOutput {
+type PrivateEndpointConnectionTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionType)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutput() PrivateEndpointConnectionTypeArrayOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionArrayOutput) ToPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionArrayOutput {
+func (o PrivateEndpointConnectionTypeArrayOutput) ToPrivateEndpointConnectionTypeArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeArrayOutput {
 	return o
 }
 
-func (o PrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnection {
-		return vs[0].([]PrivateEndpointConnection)[vs[1].(int)]
-	}).(PrivateEndpointConnectionOutput)
+func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionType {
+		return vs[0].([]PrivateEndpointConnectionType)[vs[1].(int)]
+	}).(PrivateEndpointConnectionTypeOutput)
 }
 
 // Properties of the PrivateEndpointConnectProperties.
@@ -4790,7 +4733,6 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 
 func init() {
 	pulumi.RegisterOutputType(AccountTypeOutput{})
-	pulumi.RegisterOutputType(AccountPrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountApiPropertiesOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountApiPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountApiPropertiesResponseOutput{})
@@ -4821,8 +4763,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})

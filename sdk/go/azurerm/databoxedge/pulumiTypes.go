@@ -1194,6 +1194,79 @@ func (o AzureContainerInfoResponsePtrOutput) StorageAccountCredentialId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The bandwidth schedule details.
+type BandwidthScheduleType struct {
+	// The object name.
+	Name string `pulumi:"name"`
+	// The properties of the bandwidth schedule.
+	Properties BandwidthSchedulePropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// BandwidthScheduleTypeInput is an input type that accepts BandwidthScheduleTypeArgs and BandwidthScheduleTypeOutput values.
+// You can construct a concrete instance of `BandwidthScheduleTypeInput` via:
+//
+//          BandwidthScheduleTypeArgs{...}
+type BandwidthScheduleTypeInput interface {
+	pulumi.Input
+
+	ToBandwidthScheduleTypeOutput() BandwidthScheduleTypeOutput
+	ToBandwidthScheduleTypeOutputWithContext(context.Context) BandwidthScheduleTypeOutput
+}
+
+// The bandwidth schedule details.
+type BandwidthScheduleTypeArgs struct {
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the bandwidth schedule.
+	Properties BandwidthSchedulePropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BandwidthScheduleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthScheduleType)(nil)).Elem()
+}
+
+func (i BandwidthScheduleTypeArgs) ToBandwidthScheduleTypeOutput() BandwidthScheduleTypeOutput {
+	return i.ToBandwidthScheduleTypeOutputWithContext(context.Background())
+}
+
+func (i BandwidthScheduleTypeArgs) ToBandwidthScheduleTypeOutputWithContext(ctx context.Context) BandwidthScheduleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthScheduleTypeOutput)
+}
+
+// The bandwidth schedule details.
+type BandwidthScheduleTypeOutput struct{ *pulumi.OutputState }
+
+func (BandwidthScheduleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthScheduleType)(nil)).Elem()
+}
+
+func (o BandwidthScheduleTypeOutput) ToBandwidthScheduleTypeOutput() BandwidthScheduleTypeOutput {
+	return o
+}
+
+func (o BandwidthScheduleTypeOutput) ToBandwidthScheduleTypeOutputWithContext(ctx context.Context) BandwidthScheduleTypeOutput {
+	return o
+}
+
+// The object name.
+func (o BandwidthScheduleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BandwidthScheduleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the bandwidth schedule.
+func (o BandwidthScheduleTypeOutput) Properties() BandwidthSchedulePropertiesResponseOutput {
+	return o.ApplyT(func(v BandwidthScheduleType) BandwidthSchedulePropertiesResponse { return v.Properties }).(BandwidthSchedulePropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o BandwidthScheduleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BandwidthScheduleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The properties of the bandwidth schedule.
 type BandwidthScheduleProperties struct {
 	// The days of the week when this schedule is applicable.
@@ -2176,6 +2249,79 @@ func (o ContactDetailsResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents a container on the  Data Box Edge/Gateway device.
+type ContainerType struct {
+	// The object name.
+	Name string `pulumi:"name"`
+	// The container properties.
+	Properties ContainerPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// ContainerTypeInput is an input type that accepts ContainerTypeArgs and ContainerTypeOutput values.
+// You can construct a concrete instance of `ContainerTypeInput` via:
+//
+//          ContainerTypeArgs{...}
+type ContainerTypeInput interface {
+	pulumi.Input
+
+	ToContainerTypeOutput() ContainerTypeOutput
+	ToContainerTypeOutputWithContext(context.Context) ContainerTypeOutput
+}
+
+// Represents a container on the  Data Box Edge/Gateway device.
+type ContainerTypeArgs struct {
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The container properties.
+	Properties ContainerPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContainerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerType)(nil)).Elem()
+}
+
+func (i ContainerTypeArgs) ToContainerTypeOutput() ContainerTypeOutput {
+	return i.ToContainerTypeOutputWithContext(context.Background())
+}
+
+func (i ContainerTypeArgs) ToContainerTypeOutputWithContext(ctx context.Context) ContainerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerTypeOutput)
+}
+
+// Represents a container on the  Data Box Edge/Gateway device.
+type ContainerTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerType)(nil)).Elem()
+}
+
+func (o ContainerTypeOutput) ToContainerTypeOutput() ContainerTypeOutput {
+	return o
+}
+
+func (o ContainerTypeOutput) ToContainerTypeOutputWithContext(ctx context.Context) ContainerTypeOutput {
+	return o
+}
+
+// The object name.
+func (o ContainerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The container properties.
+func (o ContainerTypeOutput) Properties() ContainerPropertiesResponseOutput {
+	return o.ApplyT(func(v ContainerType) ContainerPropertiesResponse { return v.Properties }).(ContainerPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o ContainerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The container properties.
 type ContainerProperties struct {
 	// DataFormat for Container
@@ -2499,263 +2645,6 @@ func (o ContainerPropertiesResponsePtrOutput) RefreshDetails() RefreshDetailsRes
 		}
 		return &v.RefreshDetails
 	}).(RefreshDetailsResponsePtrOutput)
-}
-
-// The Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceType struct {
-	// The etag for the devices.
-	Etag *string `pulumi:"etag"`
-	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-	Location string `pulumi:"location"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// The properties of the Data Box Edge/Gateway device.
-	Properties DataBoxEdgeDevicePropertiesResponse `pulumi:"properties"`
-	// The SKU type.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-	Tags map[string]string `pulumi:"tags"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceTypeInput is an input type that accepts DataBoxEdgeDeviceTypeArgs and DataBoxEdgeDeviceTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceTypeInput` via:
-//
-//          DataBoxEdgeDeviceTypeArgs{...}
-type DataBoxEdgeDeviceTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceTypeOutput() DataBoxEdgeDeviceTypeOutput
-	ToDataBoxEdgeDeviceTypeOutputWithContext(context.Context) DataBoxEdgeDeviceTypeOutput
-}
-
-// The Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceTypeArgs struct {
-	// The etag for the devices.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Data Box Edge/Gateway device.
-	Properties DataBoxEdgeDevicePropertiesResponseInput `pulumi:"properties"`
-	// The SKU type.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceTypeArgs) ToDataBoxEdgeDeviceTypeOutput() DataBoxEdgeDeviceTypeOutput {
-	return i.ToDataBoxEdgeDeviceTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceTypeArgs) ToDataBoxEdgeDeviceTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceTypeOutput)
-}
-
-// The Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceTypeOutput) ToDataBoxEdgeDeviceTypeOutput() DataBoxEdgeDeviceTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceTypeOutput) ToDataBoxEdgeDeviceTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceTypeOutput {
-	return o
-}
-
-// The etag for the devices.
-func (o DataBoxEdgeDeviceTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-func (o DataBoxEdgeDeviceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Data Box Edge/Gateway device.
-func (o DataBoxEdgeDeviceTypeOutput) Properties() DataBoxEdgeDevicePropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceType) DataBoxEdgeDevicePropertiesResponse { return v.Properties }).(DataBoxEdgeDevicePropertiesResponseOutput)
-}
-
-// The SKU type.
-func (o DataBoxEdgeDeviceTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-func (o DataBoxEdgeDeviceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The bandwidth schedule details.
-type DataBoxEdgeDeviceBandwidthScheduleType struct {
-	// The object name.
-	Name string `pulumi:"name"`
-	// The properties of the bandwidth schedule.
-	Properties BandwidthSchedulePropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceBandwidthScheduleTypeInput is an input type that accepts DataBoxEdgeDeviceBandwidthScheduleTypeArgs and DataBoxEdgeDeviceBandwidthScheduleTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceBandwidthScheduleTypeInput` via:
-//
-//          DataBoxEdgeDeviceBandwidthScheduleTypeArgs{...}
-type DataBoxEdgeDeviceBandwidthScheduleTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceBandwidthScheduleTypeOutput() DataBoxEdgeDeviceBandwidthScheduleTypeOutput
-	ToDataBoxEdgeDeviceBandwidthScheduleTypeOutputWithContext(context.Context) DataBoxEdgeDeviceBandwidthScheduleTypeOutput
-}
-
-// The bandwidth schedule details.
-type DataBoxEdgeDeviceBandwidthScheduleTypeArgs struct {
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the bandwidth schedule.
-	Properties BandwidthSchedulePropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceBandwidthScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceBandwidthScheduleType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceBandwidthScheduleTypeArgs) ToDataBoxEdgeDeviceBandwidthScheduleTypeOutput() DataBoxEdgeDeviceBandwidthScheduleTypeOutput {
-	return i.ToDataBoxEdgeDeviceBandwidthScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceBandwidthScheduleTypeArgs) ToDataBoxEdgeDeviceBandwidthScheduleTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceBandwidthScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceBandwidthScheduleTypeOutput)
-}
-
-// The bandwidth schedule details.
-type DataBoxEdgeDeviceBandwidthScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceBandwidthScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceBandwidthScheduleType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceBandwidthScheduleTypeOutput) ToDataBoxEdgeDeviceBandwidthScheduleTypeOutput() DataBoxEdgeDeviceBandwidthScheduleTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceBandwidthScheduleTypeOutput) ToDataBoxEdgeDeviceBandwidthScheduleTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceBandwidthScheduleTypeOutput {
-	return o
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceBandwidthScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceBandwidthScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the bandwidth schedule.
-func (o DataBoxEdgeDeviceBandwidthScheduleTypeOutput) Properties() BandwidthSchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceBandwidthScheduleType) BandwidthSchedulePropertiesResponse {
-		return v.Properties
-	}).(BandwidthSchedulePropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceBandwidthScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceBandwidthScheduleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The order details.
-type DataBoxEdgeDeviceOrderType struct {
-	// The object name.
-	Name string `pulumi:"name"`
-	// The order properties.
-	Properties OrderPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceOrderTypeInput is an input type that accepts DataBoxEdgeDeviceOrderTypeArgs and DataBoxEdgeDeviceOrderTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceOrderTypeInput` via:
-//
-//          DataBoxEdgeDeviceOrderTypeArgs{...}
-type DataBoxEdgeDeviceOrderTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceOrderTypeOutput() DataBoxEdgeDeviceOrderTypeOutput
-	ToDataBoxEdgeDeviceOrderTypeOutputWithContext(context.Context) DataBoxEdgeDeviceOrderTypeOutput
-}
-
-// The order details.
-type DataBoxEdgeDeviceOrderTypeArgs struct {
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The order properties.
-	Properties OrderPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceOrderTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceOrderType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceOrderTypeArgs) ToDataBoxEdgeDeviceOrderTypeOutput() DataBoxEdgeDeviceOrderTypeOutput {
-	return i.ToDataBoxEdgeDeviceOrderTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceOrderTypeArgs) ToDataBoxEdgeDeviceOrderTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceOrderTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceOrderTypeOutput)
-}
-
-// The order details.
-type DataBoxEdgeDeviceOrderTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceOrderTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceOrderType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceOrderTypeOutput) ToDataBoxEdgeDeviceOrderTypeOutput() DataBoxEdgeDeviceOrderTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceOrderTypeOutput) ToDataBoxEdgeDeviceOrderTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceOrderTypeOutput {
-	return o
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceOrderTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceOrderType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The order properties.
-func (o DataBoxEdgeDeviceOrderTypeOutput) Properties() OrderPropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceOrderType) OrderPropertiesResponse { return v.Properties }).(OrderPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceOrderTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceOrderType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of the Data Box Edge/Gateway device.
@@ -3330,517 +3219,113 @@ func (o DataBoxEdgeDevicePropertiesResponsePtrOutput) TimeZone() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Compute role.
-type DataBoxEdgeDeviceRoleType struct {
-	// Role type.
-	Kind string `pulumi:"kind"`
+// The Data Box Edge/Gateway device.
+type DeviceType struct {
+	// The etag for the devices.
+	Etag *string `pulumi:"etag"`
+	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
+	Location string `pulumi:"location"`
 	// The object name.
 	Name string `pulumi:"name"`
+	// The properties of the Data Box Edge/Gateway device.
+	Properties DataBoxEdgeDevicePropertiesResponse `pulumi:"properties"`
+	// The SKU type.
+	Sku *SkuResponse `pulumi:"sku"`
+	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+	Tags map[string]string `pulumi:"tags"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }
 
-// DataBoxEdgeDeviceRoleTypeInput is an input type that accepts DataBoxEdgeDeviceRoleTypeArgs and DataBoxEdgeDeviceRoleTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceRoleTypeInput` via:
+// DeviceTypeInput is an input type that accepts DeviceTypeArgs and DeviceTypeOutput values.
+// You can construct a concrete instance of `DeviceTypeInput` via:
 //
-//          DataBoxEdgeDeviceRoleTypeArgs{...}
-type DataBoxEdgeDeviceRoleTypeInput interface {
+//          DeviceTypeArgs{...}
+type DeviceTypeInput interface {
 	pulumi.Input
 
-	ToDataBoxEdgeDeviceRoleTypeOutput() DataBoxEdgeDeviceRoleTypeOutput
-	ToDataBoxEdgeDeviceRoleTypeOutputWithContext(context.Context) DataBoxEdgeDeviceRoleTypeOutput
+	ToDeviceTypeOutput() DeviceTypeOutput
+	ToDeviceTypeOutputWithContext(context.Context) DeviceTypeOutput
 }
 
-// Compute role.
-type DataBoxEdgeDeviceRoleTypeArgs struct {
-	// Role type.
-	Kind pulumi.StringInput `pulumi:"kind"`
+// The Data Box Edge/Gateway device.
+type DeviceTypeArgs struct {
+	// The etag for the devices.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
+	Location pulumi.StringInput `pulumi:"location"`
 	// The object name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the Data Box Edge/Gateway device.
+	Properties DataBoxEdgeDevicePropertiesResponseInput `pulumi:"properties"`
+	// The SKU type.
+	Sku SkuResponsePtrInput `pulumi:"sku"`
+	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The hierarchical type of the object.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (DataBoxEdgeDeviceRoleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceRoleType)(nil)).Elem()
+func (DeviceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceType)(nil)).Elem()
 }
 
-func (i DataBoxEdgeDeviceRoleTypeArgs) ToDataBoxEdgeDeviceRoleTypeOutput() DataBoxEdgeDeviceRoleTypeOutput {
-	return i.ToDataBoxEdgeDeviceRoleTypeOutputWithContext(context.Background())
+func (i DeviceTypeArgs) ToDeviceTypeOutput() DeviceTypeOutput {
+	return i.ToDeviceTypeOutputWithContext(context.Background())
 }
 
-func (i DataBoxEdgeDeviceRoleTypeArgs) ToDataBoxEdgeDeviceRoleTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceRoleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceRoleTypeOutput)
+func (i DeviceTypeArgs) ToDeviceTypeOutputWithContext(ctx context.Context) DeviceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTypeOutput)
 }
 
-// Compute role.
-type DataBoxEdgeDeviceRoleTypeOutput struct{ *pulumi.OutputState }
+// The Data Box Edge/Gateway device.
+type DeviceTypeOutput struct{ *pulumi.OutputState }
 
-func (DataBoxEdgeDeviceRoleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceRoleType)(nil)).Elem()
+func (DeviceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceType)(nil)).Elem()
 }
 
-func (o DataBoxEdgeDeviceRoleTypeOutput) ToDataBoxEdgeDeviceRoleTypeOutput() DataBoxEdgeDeviceRoleTypeOutput {
+func (o DeviceTypeOutput) ToDeviceTypeOutput() DeviceTypeOutput {
 	return o
 }
 
-func (o DataBoxEdgeDeviceRoleTypeOutput) ToDataBoxEdgeDeviceRoleTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceRoleTypeOutput {
+func (o DeviceTypeOutput) ToDeviceTypeOutputWithContext(ctx context.Context) DeviceTypeOutput {
 	return o
 }
 
-// Role type.
-func (o DataBoxEdgeDeviceRoleTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceRoleType) string { return v.Kind }).(pulumi.StringOutput)
+// The etag for the devices.
+func (o DeviceTypeOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
+func (o DeviceTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceType) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The object name.
-func (o DataBoxEdgeDeviceRoleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceRoleType) string { return v.Name }).(pulumi.StringOutput)
+func (o DeviceTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the Data Box Edge/Gateway device.
+func (o DeviceTypeOutput) Properties() DataBoxEdgeDevicePropertiesResponseOutput {
+	return o.ApplyT(func(v DeviceType) DataBoxEdgeDevicePropertiesResponse { return v.Properties }).(DataBoxEdgeDevicePropertiesResponseOutput)
+}
+
+// The SKU type.
+func (o DeviceTypeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v DeviceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+func (o DeviceTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeviceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The hierarchical type of the object.
-func (o DataBoxEdgeDeviceRoleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceRoleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a share on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceShareType struct {
-	// The object name.
-	Name string `pulumi:"name"`
-	// The share properties.
-	Properties SharePropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceShareTypeInput is an input type that accepts DataBoxEdgeDeviceShareTypeArgs and DataBoxEdgeDeviceShareTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceShareTypeInput` via:
-//
-//          DataBoxEdgeDeviceShareTypeArgs{...}
-type DataBoxEdgeDeviceShareTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceShareTypeOutput() DataBoxEdgeDeviceShareTypeOutput
-	ToDataBoxEdgeDeviceShareTypeOutputWithContext(context.Context) DataBoxEdgeDeviceShareTypeOutput
-}
-
-// Represents a share on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceShareTypeArgs struct {
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The share properties.
-	Properties SharePropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceShareTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceShareType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceShareTypeArgs) ToDataBoxEdgeDeviceShareTypeOutput() DataBoxEdgeDeviceShareTypeOutput {
-	return i.ToDataBoxEdgeDeviceShareTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceShareTypeArgs) ToDataBoxEdgeDeviceShareTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceShareTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceShareTypeOutput)
-}
-
-// Represents a share on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceShareTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceShareTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceShareType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceShareTypeOutput) ToDataBoxEdgeDeviceShareTypeOutput() DataBoxEdgeDeviceShareTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceShareTypeOutput) ToDataBoxEdgeDeviceShareTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceShareTypeOutput {
-	return o
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceShareTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceShareType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The share properties.
-func (o DataBoxEdgeDeviceShareTypeOutput) Properties() SharePropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceShareType) SharePropertiesResponse { return v.Properties }).(SharePropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceShareTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceShareType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a Storage Account on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceStorageAccountType struct {
-	// The object name.
-	Name string `pulumi:"name"`
-	// The Storage Account properties.
-	Properties StorageAccountPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceStorageAccountTypeInput is an input type that accepts DataBoxEdgeDeviceStorageAccountTypeArgs and DataBoxEdgeDeviceStorageAccountTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceStorageAccountTypeInput` via:
-//
-//          DataBoxEdgeDeviceStorageAccountTypeArgs{...}
-type DataBoxEdgeDeviceStorageAccountTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceStorageAccountTypeOutput() DataBoxEdgeDeviceStorageAccountTypeOutput
-	ToDataBoxEdgeDeviceStorageAccountTypeOutputWithContext(context.Context) DataBoxEdgeDeviceStorageAccountTypeOutput
-}
-
-// Represents a Storage Account on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceStorageAccountTypeArgs struct {
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Storage Account properties.
-	Properties StorageAccountPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceStorageAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceStorageAccountType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceStorageAccountTypeArgs) ToDataBoxEdgeDeviceStorageAccountTypeOutput() DataBoxEdgeDeviceStorageAccountTypeOutput {
-	return i.ToDataBoxEdgeDeviceStorageAccountTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceStorageAccountTypeArgs) ToDataBoxEdgeDeviceStorageAccountTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceStorageAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceStorageAccountTypeOutput)
-}
-
-// Represents a Storage Account on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceStorageAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceStorageAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceStorageAccountType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceStorageAccountTypeOutput) ToDataBoxEdgeDeviceStorageAccountTypeOutput() DataBoxEdgeDeviceStorageAccountTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceStorageAccountTypeOutput) ToDataBoxEdgeDeviceStorageAccountTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceStorageAccountTypeOutput {
-	return o
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceStorageAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Storage Account properties.
-func (o DataBoxEdgeDeviceStorageAccountTypeOutput) Properties() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountType) StorageAccountPropertiesResponse { return v.Properties }).(StorageAccountPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceStorageAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a container on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceStorageAccountContainerType struct {
-	// The object name.
-	Name string `pulumi:"name"`
-	// The container properties.
-	Properties ContainerPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceStorageAccountContainerTypeInput is an input type that accepts DataBoxEdgeDeviceStorageAccountContainerTypeArgs and DataBoxEdgeDeviceStorageAccountContainerTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceStorageAccountContainerTypeInput` via:
-//
-//          DataBoxEdgeDeviceStorageAccountContainerTypeArgs{...}
-type DataBoxEdgeDeviceStorageAccountContainerTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceStorageAccountContainerTypeOutput() DataBoxEdgeDeviceStorageAccountContainerTypeOutput
-	ToDataBoxEdgeDeviceStorageAccountContainerTypeOutputWithContext(context.Context) DataBoxEdgeDeviceStorageAccountContainerTypeOutput
-}
-
-// Represents a container on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceStorageAccountContainerTypeArgs struct {
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The container properties.
-	Properties ContainerPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceStorageAccountContainerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceStorageAccountContainerType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceStorageAccountContainerTypeArgs) ToDataBoxEdgeDeviceStorageAccountContainerTypeOutput() DataBoxEdgeDeviceStorageAccountContainerTypeOutput {
-	return i.ToDataBoxEdgeDeviceStorageAccountContainerTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceStorageAccountContainerTypeArgs) ToDataBoxEdgeDeviceStorageAccountContainerTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceStorageAccountContainerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceStorageAccountContainerTypeOutput)
-}
-
-// Represents a container on the  Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceStorageAccountContainerTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceStorageAccountContainerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceStorageAccountContainerType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceStorageAccountContainerTypeOutput) ToDataBoxEdgeDeviceStorageAccountContainerTypeOutput() DataBoxEdgeDeviceStorageAccountContainerTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceStorageAccountContainerTypeOutput) ToDataBoxEdgeDeviceStorageAccountContainerTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceStorageAccountContainerTypeOutput {
-	return o
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceStorageAccountContainerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountContainerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The container properties.
-func (o DataBoxEdgeDeviceStorageAccountContainerTypeOutput) Properties() ContainerPropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountContainerType) ContainerPropertiesResponse { return v.Properties }).(ContainerPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceStorageAccountContainerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountContainerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The storage account credential.
-type DataBoxEdgeDeviceStorageAccountCredentialType struct {
-	// The object name.
-	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceStorageAccountCredentialTypeInput is an input type that accepts DataBoxEdgeDeviceStorageAccountCredentialTypeArgs and DataBoxEdgeDeviceStorageAccountCredentialTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceStorageAccountCredentialTypeInput` via:
-//
-//          DataBoxEdgeDeviceStorageAccountCredentialTypeArgs{...}
-type DataBoxEdgeDeviceStorageAccountCredentialTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceStorageAccountCredentialTypeOutput() DataBoxEdgeDeviceStorageAccountCredentialTypeOutput
-	ToDataBoxEdgeDeviceStorageAccountCredentialTypeOutputWithContext(context.Context) DataBoxEdgeDeviceStorageAccountCredentialTypeOutput
-}
-
-// The storage account credential.
-type DataBoxEdgeDeviceStorageAccountCredentialTypeArgs struct {
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceStorageAccountCredentialTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceStorageAccountCredentialType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceStorageAccountCredentialTypeArgs) ToDataBoxEdgeDeviceStorageAccountCredentialTypeOutput() DataBoxEdgeDeviceStorageAccountCredentialTypeOutput {
-	return i.ToDataBoxEdgeDeviceStorageAccountCredentialTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceStorageAccountCredentialTypeArgs) ToDataBoxEdgeDeviceStorageAccountCredentialTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceStorageAccountCredentialTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceStorageAccountCredentialTypeOutput)
-}
-
-// The storage account credential.
-type DataBoxEdgeDeviceStorageAccountCredentialTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceStorageAccountCredentialTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceStorageAccountCredentialType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceStorageAccountCredentialTypeOutput) ToDataBoxEdgeDeviceStorageAccountCredentialTypeOutput() DataBoxEdgeDeviceStorageAccountCredentialTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceStorageAccountCredentialTypeOutput) ToDataBoxEdgeDeviceStorageAccountCredentialTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceStorageAccountCredentialTypeOutput {
-	return o
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceStorageAccountCredentialTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountCredentialType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The storage account credential properties.
-func (o DataBoxEdgeDeviceStorageAccountCredentialTypeOutput) Properties() StorageAccountCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountCredentialType) StorageAccountCredentialPropertiesResponse {
-		return v.Properties
-	}).(StorageAccountCredentialPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceStorageAccountCredentialTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceStorageAccountCredentialType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Trigger details.
-type DataBoxEdgeDeviceTriggerType struct {
-	// Trigger Kind.
-	Kind string `pulumi:"kind"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceTriggerTypeInput is an input type that accepts DataBoxEdgeDeviceTriggerTypeArgs and DataBoxEdgeDeviceTriggerTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceTriggerTypeInput` via:
-//
-//          DataBoxEdgeDeviceTriggerTypeArgs{...}
-type DataBoxEdgeDeviceTriggerTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceTriggerTypeOutput() DataBoxEdgeDeviceTriggerTypeOutput
-	ToDataBoxEdgeDeviceTriggerTypeOutputWithContext(context.Context) DataBoxEdgeDeviceTriggerTypeOutput
-}
-
-// Trigger details.
-type DataBoxEdgeDeviceTriggerTypeArgs struct {
-	// Trigger Kind.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceTriggerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceTriggerType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceTriggerTypeArgs) ToDataBoxEdgeDeviceTriggerTypeOutput() DataBoxEdgeDeviceTriggerTypeOutput {
-	return i.ToDataBoxEdgeDeviceTriggerTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceTriggerTypeArgs) ToDataBoxEdgeDeviceTriggerTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceTriggerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceTriggerTypeOutput)
-}
-
-// Trigger details.
-type DataBoxEdgeDeviceTriggerTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceTriggerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceTriggerType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceTriggerTypeOutput) ToDataBoxEdgeDeviceTriggerTypeOutput() DataBoxEdgeDeviceTriggerTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceTriggerTypeOutput) ToDataBoxEdgeDeviceTriggerTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceTriggerTypeOutput {
-	return o
-}
-
-// Trigger Kind.
-func (o DataBoxEdgeDeviceTriggerTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceTriggerType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceTriggerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceTriggerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceTriggerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceTriggerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceUserType struct {
-	// The object name.
-	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties UserPropertiesResponse `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-}
-
-// DataBoxEdgeDeviceUserTypeInput is an input type that accepts DataBoxEdgeDeviceUserTypeArgs and DataBoxEdgeDeviceUserTypeOutput values.
-// You can construct a concrete instance of `DataBoxEdgeDeviceUserTypeInput` via:
-//
-//          DataBoxEdgeDeviceUserTypeArgs{...}
-type DataBoxEdgeDeviceUserTypeInput interface {
-	pulumi.Input
-
-	ToDataBoxEdgeDeviceUserTypeOutput() DataBoxEdgeDeviceUserTypeOutput
-	ToDataBoxEdgeDeviceUserTypeOutputWithContext(context.Context) DataBoxEdgeDeviceUserTypeOutput
-}
-
-// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceUserTypeArgs struct {
-	// The object name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The storage account credential properties.
-	Properties UserPropertiesResponseInput `pulumi:"properties"`
-	// The hierarchical type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataBoxEdgeDeviceUserTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceUserType)(nil)).Elem()
-}
-
-func (i DataBoxEdgeDeviceUserTypeArgs) ToDataBoxEdgeDeviceUserTypeOutput() DataBoxEdgeDeviceUserTypeOutput {
-	return i.ToDataBoxEdgeDeviceUserTypeOutputWithContext(context.Background())
-}
-
-func (i DataBoxEdgeDeviceUserTypeArgs) ToDataBoxEdgeDeviceUserTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceUserTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxEdgeDeviceUserTypeOutput)
-}
-
-// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-type DataBoxEdgeDeviceUserTypeOutput struct{ *pulumi.OutputState }
-
-func (DataBoxEdgeDeviceUserTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxEdgeDeviceUserType)(nil)).Elem()
-}
-
-func (o DataBoxEdgeDeviceUserTypeOutput) ToDataBoxEdgeDeviceUserTypeOutput() DataBoxEdgeDeviceUserTypeOutput {
-	return o
-}
-
-func (o DataBoxEdgeDeviceUserTypeOutput) ToDataBoxEdgeDeviceUserTypeOutputWithContext(ctx context.Context) DataBoxEdgeDeviceUserTypeOutput {
-	return o
-}
-
-// The object name.
-func (o DataBoxEdgeDeviceUserTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceUserType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The storage account credential properties.
-func (o DataBoxEdgeDeviceUserTypeOutput) Properties() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceUserType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
-}
-
-// The hierarchical type of the object.
-func (o DataBoxEdgeDeviceUserTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxEdgeDeviceUserType) string { return v.Type }).(pulumi.StringOutput)
+func (o DeviceTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The share mount point.
@@ -4023,6 +3508,79 @@ func (o MountPointMapResponseArrayOutput) Index(i pulumi.IntInput) MountPointMap
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MountPointMapResponse {
 		return vs[0].([]MountPointMapResponse)[vs[1].(int)]
 	}).(MountPointMapResponseOutput)
+}
+
+// The order details.
+type OrderType struct {
+	// The object name.
+	Name string `pulumi:"name"`
+	// The order properties.
+	Properties OrderPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// OrderTypeInput is an input type that accepts OrderTypeArgs and OrderTypeOutput values.
+// You can construct a concrete instance of `OrderTypeInput` via:
+//
+//          OrderTypeArgs{...}
+type OrderTypeInput interface {
+	pulumi.Input
+
+	ToOrderTypeOutput() OrderTypeOutput
+	ToOrderTypeOutputWithContext(context.Context) OrderTypeOutput
+}
+
+// The order details.
+type OrderTypeArgs struct {
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The order properties.
+	Properties OrderPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OrderTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderType)(nil)).Elem()
+}
+
+func (i OrderTypeArgs) ToOrderTypeOutput() OrderTypeOutput {
+	return i.ToOrderTypeOutputWithContext(context.Background())
+}
+
+func (i OrderTypeArgs) ToOrderTypeOutputWithContext(ctx context.Context) OrderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderTypeOutput)
+}
+
+// The order details.
+type OrderTypeOutput struct{ *pulumi.OutputState }
+
+func (OrderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderType)(nil)).Elem()
+}
+
+func (o OrderTypeOutput) ToOrderTypeOutput() OrderTypeOutput {
+	return o
+}
+
+func (o OrderTypeOutput) ToOrderTypeOutputWithContext(ctx context.Context) OrderTypeOutput {
+	return o
+}
+
+// The object name.
+func (o OrderTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The order properties.
+func (o OrderTypeOutput) Properties() OrderPropertiesResponseOutput {
+	return o.ApplyT(func(v OrderType) OrderPropertiesResponse { return v.Properties }).(OrderPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o OrderTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Order properties.
@@ -5220,6 +4778,152 @@ func (o RefreshDetailsResponsePtrOutput) LastJob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Compute role.
+type RoleType struct {
+	// Role type.
+	Kind string `pulumi:"kind"`
+	// The object name.
+	Name string `pulumi:"name"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// RoleTypeInput is an input type that accepts RoleTypeArgs and RoleTypeOutput values.
+// You can construct a concrete instance of `RoleTypeInput` via:
+//
+//          RoleTypeArgs{...}
+type RoleTypeInput interface {
+	pulumi.Input
+
+	ToRoleTypeOutput() RoleTypeOutput
+	ToRoleTypeOutputWithContext(context.Context) RoleTypeOutput
+}
+
+// Compute role.
+type RoleTypeArgs struct {
+	// Role type.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RoleTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleType)(nil)).Elem()
+}
+
+func (i RoleTypeArgs) ToRoleTypeOutput() RoleTypeOutput {
+	return i.ToRoleTypeOutputWithContext(context.Background())
+}
+
+func (i RoleTypeArgs) ToRoleTypeOutputWithContext(ctx context.Context) RoleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleTypeOutput)
+}
+
+// Compute role.
+type RoleTypeOutput struct{ *pulumi.OutputState }
+
+func (RoleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleType)(nil)).Elem()
+}
+
+func (o RoleTypeOutput) ToRoleTypeOutput() RoleTypeOutput {
+	return o
+}
+
+func (o RoleTypeOutput) ToRoleTypeOutputWithContext(ctx context.Context) RoleTypeOutput {
+	return o
+}
+
+// Role type.
+func (o RoleTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o RoleTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o RoleTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Represents a share on the  Data Box Edge/Gateway device.
+type ShareType struct {
+	// The object name.
+	Name string `pulumi:"name"`
+	// The share properties.
+	Properties SharePropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// ShareTypeInput is an input type that accepts ShareTypeArgs and ShareTypeOutput values.
+// You can construct a concrete instance of `ShareTypeInput` via:
+//
+//          ShareTypeArgs{...}
+type ShareTypeInput interface {
+	pulumi.Input
+
+	ToShareTypeOutput() ShareTypeOutput
+	ToShareTypeOutputWithContext(context.Context) ShareTypeOutput
+}
+
+// Represents a share on the  Data Box Edge/Gateway device.
+type ShareTypeArgs struct {
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The share properties.
+	Properties SharePropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ShareTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareType)(nil)).Elem()
+}
+
+func (i ShareTypeArgs) ToShareTypeOutput() ShareTypeOutput {
+	return i.ToShareTypeOutputWithContext(context.Background())
+}
+
+func (i ShareTypeArgs) ToShareTypeOutputWithContext(ctx context.Context) ShareTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareTypeOutput)
+}
+
+// Represents a share on the  Data Box Edge/Gateway device.
+type ShareTypeOutput struct{ *pulumi.OutputState }
+
+func (ShareTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareType)(nil)).Elem()
+}
+
+func (o ShareTypeOutput) ToShareTypeOutput() ShareTypeOutput {
+	return o
+}
+
+func (o ShareTypeOutput) ToShareTypeOutputWithContext(ctx context.Context) ShareTypeOutput {
+	return o
+}
+
+// The object name.
+func (o ShareTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The share properties.
+func (o ShareTypeOutput) Properties() SharePropertiesResponseOutput {
+	return o.ApplyT(func(v ShareType) SharePropertiesResponse { return v.Properties }).(SharePropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o ShareTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRight struct {
 	// Type of access to be allowed on the share for this user.
@@ -6333,6 +6037,152 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents a Storage Account on the  Data Box Edge/Gateway device.
+type StorageAccountType struct {
+	// The object name.
+	Name string `pulumi:"name"`
+	// The Storage Account properties.
+	Properties StorageAccountPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// StorageAccountTypeInput is an input type that accepts StorageAccountTypeArgs and StorageAccountTypeOutput values.
+// You can construct a concrete instance of `StorageAccountTypeInput` via:
+//
+//          StorageAccountTypeArgs{...}
+type StorageAccountTypeInput interface {
+	pulumi.Input
+
+	ToStorageAccountTypeOutput() StorageAccountTypeOutput
+	ToStorageAccountTypeOutputWithContext(context.Context) StorageAccountTypeOutput
+}
+
+// Represents a Storage Account on the  Data Box Edge/Gateway device.
+type StorageAccountTypeArgs struct {
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Storage Account properties.
+	Properties StorageAccountPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageAccountTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
+}
+
+func (i StorageAccountTypeArgs) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
+	return i.ToStorageAccountTypeOutputWithContext(context.Background())
+}
+
+func (i StorageAccountTypeArgs) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountTypeOutput)
+}
+
+// Represents a Storage Account on the  Data Box Edge/Gateway device.
+type StorageAccountTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
+}
+
+func (o StorageAccountTypeOutput) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
+	return o
+}
+
+func (o StorageAccountTypeOutput) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
+	return o
+}
+
+// The object name.
+func (o StorageAccountTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Storage Account properties.
+func (o StorageAccountTypeOutput) Properties() StorageAccountPropertiesResponseOutput {
+	return o.ApplyT(func(v StorageAccountType) StorageAccountPropertiesResponse { return v.Properties }).(StorageAccountPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o StorageAccountTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The storage account credential.
+type StorageAccountCredentialType struct {
+	// The object name.
+	Name string `pulumi:"name"`
+	// The storage account credential properties.
+	Properties StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// StorageAccountCredentialTypeInput is an input type that accepts StorageAccountCredentialTypeArgs and StorageAccountCredentialTypeOutput values.
+// You can construct a concrete instance of `StorageAccountCredentialTypeInput` via:
+//
+//          StorageAccountCredentialTypeArgs{...}
+type StorageAccountCredentialTypeInput interface {
+	pulumi.Input
+
+	ToStorageAccountCredentialTypeOutput() StorageAccountCredentialTypeOutput
+	ToStorageAccountCredentialTypeOutputWithContext(context.Context) StorageAccountCredentialTypeOutput
+}
+
+// The storage account credential.
+type StorageAccountCredentialTypeArgs struct {
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The storage account credential properties.
+	Properties StorageAccountCredentialPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageAccountCredentialTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialType)(nil)).Elem()
+}
+
+func (i StorageAccountCredentialTypeArgs) ToStorageAccountCredentialTypeOutput() StorageAccountCredentialTypeOutput {
+	return i.ToStorageAccountCredentialTypeOutputWithContext(context.Background())
+}
+
+func (i StorageAccountCredentialTypeArgs) ToStorageAccountCredentialTypeOutputWithContext(ctx context.Context) StorageAccountCredentialTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialTypeOutput)
+}
+
+// The storage account credential.
+type StorageAccountCredentialTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountCredentialTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialType)(nil)).Elem()
+}
+
+func (o StorageAccountCredentialTypeOutput) ToStorageAccountCredentialTypeOutput() StorageAccountCredentialTypeOutput {
+	return o
+}
+
+func (o StorageAccountCredentialTypeOutput) ToStorageAccountCredentialTypeOutputWithContext(ctx context.Context) StorageAccountCredentialTypeOutput {
+	return o
+}
+
+// The object name.
+func (o StorageAccountCredentialTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage account credential properties.
+func (o StorageAccountCredentialTypeOutput) Properties() StorageAccountCredentialPropertiesResponseOutput {
+	return o.ApplyT(func(v StorageAccountCredentialType) StorageAccountCredentialPropertiesResponse { return v.Properties }).(StorageAccountCredentialPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o StorageAccountCredentialTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The storage account credential properties.
@@ -7502,6 +7352,152 @@ func (o TrackingInfoResponseArrayOutput) Index(i pulumi.IntInput) TrackingInfoRe
 	}).(TrackingInfoResponseOutput)
 }
 
+// Trigger details.
+type TriggerType struct {
+	// Trigger Kind.
+	Kind string `pulumi:"kind"`
+	// The object name.
+	Name string `pulumi:"name"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// TriggerTypeInput is an input type that accepts TriggerTypeArgs and TriggerTypeOutput values.
+// You can construct a concrete instance of `TriggerTypeInput` via:
+//
+//          TriggerTypeArgs{...}
+type TriggerTypeInput interface {
+	pulumi.Input
+
+	ToTriggerTypeOutput() TriggerTypeOutput
+	ToTriggerTypeOutputWithContext(context.Context) TriggerTypeOutput
+}
+
+// Trigger details.
+type TriggerTypeArgs struct {
+	// Trigger Kind.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TriggerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (i TriggerTypeArgs) ToTriggerTypeOutput() TriggerTypeOutput {
+	return i.ToTriggerTypeOutputWithContext(context.Background())
+}
+
+func (i TriggerTypeArgs) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerTypeOutput)
+}
+
+// Trigger details.
+type TriggerTypeOutput struct{ *pulumi.OutputState }
+
+func (TriggerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutput() TriggerTypeOutput {
+	return o
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return o
+}
+
+// Trigger Kind.
+func (o TriggerTypeOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o TriggerTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o TriggerTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+type UserType struct {
+	// The object name.
+	Name string `pulumi:"name"`
+	// The storage account credential properties.
+	Properties UserPropertiesResponse `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type string `pulumi:"type"`
+}
+
+// UserTypeInput is an input type that accepts UserTypeArgs and UserTypeOutput values.
+// You can construct a concrete instance of `UserTypeInput` via:
+//
+//          UserTypeArgs{...}
+type UserTypeInput interface {
+	pulumi.Input
+
+	ToUserTypeOutput() UserTypeOutput
+	ToUserTypeOutputWithContext(context.Context) UserTypeOutput
+}
+
+// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+type UserTypeArgs struct {
+	// The object name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The storage account credential properties.
+	Properties UserPropertiesResponseInput `pulumi:"properties"`
+	// The hierarchical type of the object.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (UserTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (i UserTypeArgs) ToUserTypeOutput() UserTypeOutput {
+	return i.ToUserTypeOutputWithContext(context.Background())
+}
+
+func (i UserTypeArgs) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTypeOutput)
+}
+
+// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+type UserTypeOutput struct{ *pulumi.OutputState }
+
+func (UserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserType)(nil)).Elem()
+}
+
+func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {
+	return o
+}
+
+func (o UserTypeOutput) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
+	return o
+}
+
+// The object name.
+func (o UserTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage account credential properties.
+func (o UserTypeOutput) Properties() UserPropertiesResponseOutput {
+	return o.ApplyT(func(v UserType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o UserTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v UserType) string { return v.Type }).(pulumi.StringOutput)
+}
+
 // The mapping between a particular user and the access type on the SMB share.
 type UserAccessRight struct {
 	// Type of access to be allowed for the user.
@@ -8077,6 +8073,7 @@ func init() {
 	pulumi.RegisterOutputType(AzureContainerInfoPtrOutput{})
 	pulumi.RegisterOutputType(AzureContainerInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureContainerInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(BandwidthScheduleTypeOutput{})
 	pulumi.RegisterOutputType(BandwidthSchedulePropertiesOutput{})
 	pulumi.RegisterOutputType(BandwidthSchedulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BandwidthSchedulePropertiesResponseOutput{})
@@ -8089,27 +8086,20 @@ func init() {
 	pulumi.RegisterOutputType(ContactDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContainerTypeOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceBandwidthScheduleTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceOrderTypeOutput{})
 	pulumi.RegisterOutputType(DataBoxEdgeDevicePropertiesOutput{})
 	pulumi.RegisterOutputType(DataBoxEdgeDevicePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataBoxEdgeDevicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxEdgeDevicePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceRoleTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceShareTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceStorageAccountTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceStorageAccountContainerTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceStorageAccountCredentialTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceTriggerTypeOutput{})
-	pulumi.RegisterOutputType(DataBoxEdgeDeviceUserTypeOutput{})
+	pulumi.RegisterOutputType(DeviceTypeOutput{})
 	pulumi.RegisterOutputType(MountPointMapOutput{})
 	pulumi.RegisterOutputType(MountPointMapResponseOutput{})
 	pulumi.RegisterOutputType(MountPointMapResponseArrayOutput{})
+	pulumi.RegisterOutputType(OrderTypeOutput{})
 	pulumi.RegisterOutputType(OrderPropertiesOutput{})
 	pulumi.RegisterOutputType(OrderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OrderPropertiesResponseOutput{})
@@ -8123,6 +8113,8 @@ func init() {
 	pulumi.RegisterOutputType(RefreshDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(RoleTypeOutput{})
+	pulumi.RegisterOutputType(ShareTypeOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightArrayOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseOutput{})
@@ -8135,6 +8127,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
+	pulumi.RegisterOutputType(StorageAccountCredentialTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountCredentialPropertiesResponseOutput{})
@@ -8146,6 +8140,8 @@ func init() {
 	pulumi.RegisterOutputType(TrackingInfoOutput{})
 	pulumi.RegisterOutputType(TrackingInfoResponseOutput{})
 	pulumi.RegisterOutputType(TrackingInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(TriggerTypeOutput{})
+	pulumi.RegisterOutputType(UserTypeOutput{})
 	pulumi.RegisterOutputType(UserAccessRightOutput{})
 	pulumi.RegisterOutputType(UserAccessRightArrayOutput{})
 	pulumi.RegisterOutputType(UserAccessRightResponseOutput{})
