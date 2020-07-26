@@ -22,6 +22,7 @@ class NetAppAccountCapacityPoolVolumeSnapshot(pulumi.CustomResource):
     """
     Snapshot Properties
       * `created` (`str`) - The creation date of the snapshot
+      * `file_system_id` (`str`) - UUID v4 used to identify the FileSystem
       * `provisioning_state` (`str`) - Azure lifecycle management
       * `snapshot_id` (`str`) - UUID v4 used to identify the Snapshot
     """
@@ -42,6 +43,10 @@ class NetAppAccountCapacityPoolVolumeSnapshot(pulumi.CustomResource):
         :param pulumi.Input[dict] properties: Snapshot Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] volume_name: The name of the volume
+
+        The **properties** object supports the following:
+
+          * `file_system_id` (`pulumi.Input[str]`) - UUID v4 used to identify the FileSystem
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

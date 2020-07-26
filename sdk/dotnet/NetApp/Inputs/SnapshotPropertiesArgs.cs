@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.NetApp.Inputs
     /// </summary>
     public sealed class SnapshotPropertiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// UUID v4 used to identify the FileSystem
+        /// </summary>
+        [Input("fileSystemId")]
+        public Input<string>? FileSystemId { get; set; }
+
         public SnapshotPropertiesArgs()
         {
         }

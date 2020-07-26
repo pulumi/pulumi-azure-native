@@ -23,7 +23,6 @@ class NetAppAccount(pulumi.CustomResource):
     NetApp Account properties
       * `active_directories` (`list`) - Active Directories
         * `active_directory_id` (`str`) - Id of the Active Directory
-        * `backup_operators` (`list`) - Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         * `dns` (`str`) - Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         * `domain` (`str`) - Name of the Active Directory domain
         * `organizational_unit` (`str`) - The Organizational Unit (OU) within the Windows Active Directory
@@ -59,7 +58,6 @@ class NetAppAccount(pulumi.CustomResource):
 
           * `active_directories` (`pulumi.Input[list]`) - Active Directories
             * `active_directory_id` (`pulumi.Input[str]`) - Id of the Active Directory
-            * `backup_operators` (`pulumi.Input[list]`) - Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
             * `dns` (`pulumi.Input[str]`) - Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
             * `domain` (`pulumi.Input[str]`) - Name of the Active Directory domain
             * `organizational_unit` (`pulumi.Input[str]`) - The Organizational Unit (OU) within the Windows Active Directory

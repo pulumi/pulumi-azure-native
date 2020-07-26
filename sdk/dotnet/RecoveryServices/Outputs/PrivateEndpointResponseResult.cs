@@ -14,12 +14,12 @@ namespace Pulumi.AzureRM.RecoveryServices.Outputs
     public sealed class PrivateEndpointResponseResult
     {
         /// <summary>
-        /// Gets or sets id.
+        /// Gets or sets id
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
-        private PrivateEndpointResponseResult(string id)
+        private PrivateEndpointResponseResult(string? id)
         {
             Id = id;
         }

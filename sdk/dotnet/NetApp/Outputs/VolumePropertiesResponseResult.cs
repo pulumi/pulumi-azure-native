@@ -54,10 +54,6 @@ namespace Pulumi.AzureRM.NetApp.Outputs
         /// </summary>
         public readonly string? ServiceLevel;
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
-        /// </summary>
-        public readonly bool? SnapshotDirectoryVisible;
-        /// <summary>
         /// UUID v4 or resource identifier used to identify the Snapshot.
         /// </summary>
         public readonly string? SnapshotId;
@@ -96,8 +92,6 @@ namespace Pulumi.AzureRM.NetApp.Outputs
 
             string? serviceLevel,
 
-            bool? snapshotDirectoryVisible,
-
             string? snapshotId,
 
             string subnetId,
@@ -116,7 +110,6 @@ namespace Pulumi.AzureRM.NetApp.Outputs
             ProtocolTypes = protocolTypes;
             ProvisioningState = provisioningState;
             ServiceLevel = serviceLevel;
-            SnapshotDirectoryVisible = snapshotDirectoryVisible;
             SnapshotId = snapshotId;
             SubnetId = subnetId;
             UsageThreshold = usageThreshold;

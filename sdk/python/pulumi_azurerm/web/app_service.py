@@ -95,8 +95,6 @@ class AppService(pulumi.CustomResource):
       * `scm_site_also_stopped` (`bool`) - <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
       * `server_farm_id` (`str`) - Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
       * `site_config` (`dict`) - Configuration of the app.
-        * `acr_use_managed_identity_creds` (`bool`) - Flag to use Managed Identity Creds for ACR pull
-        * `acr_user_managed_identity_id` (`str`) - If using user managed identity, the user managed identity ClientId
         * `always_on` (`bool`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
         * `api_definition` (`dict`) - Information about the formal API definition for the app.
           * `url` (`str`) - The URL of the API definition.
@@ -346,8 +344,6 @@ class AppService(pulumi.CustomResource):
           * `scm_site_also_stopped` (`pulumi.Input[bool]`) - <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
           * `server_farm_id` (`pulumi.Input[str]`) - Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
           * `site_config` (`pulumi.Input[dict]`) - Configuration of the app.
-            * `acr_use_managed_identity_creds` (`pulumi.Input[bool]`) - Flag to use Managed Identity Creds for ACR pull
-            * `acr_user_managed_identity_id` (`pulumi.Input[str]`) - If using user managed identity, the user managed identity ClientId
             * `always_on` (`pulumi.Input[bool]`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
             * `api_definition` (`pulumi.Input[dict]`) - Information about the formal API definition for the app.
               * `url` (`pulumi.Input[str]`) - The URL of the API definition.

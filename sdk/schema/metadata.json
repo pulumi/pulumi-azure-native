@@ -6645,7 +6645,12 @@
                     "location": "body",
                     "required": true,
                     "properties": [
-                        "properties"
+                        "location",
+                        "properties",
+                        "tags"
+                    ],
+                    "requiredProperties": [
+                        "location"
                     ]
                 },
                 {
@@ -6739,7 +6744,7 @@
             ]
         },
         "azurerm:certificateregistration:CertificateOrder": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}",
             "GET": [
                 {
@@ -6803,7 +6808,7 @@
             ]
         },
         "azurerm:certificateregistration:CertificateOrderCertificate": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name}",
             "GET": [
                 {
@@ -17185,7 +17190,7 @@
             ]
         },
         "azurerm:domainregistration:Domain": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}",
             "GET": [
                 {
@@ -17249,7 +17254,7 @@
             ]
         },
         "azurerm:domainregistration:DomainDomainOwnershipIdentifier": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{name}",
             "GET": [
                 {
@@ -22552,6 +22557,10 @@
                     "name": "api-version",
                     "location": "query",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 }
             ],
             "PUT": [
@@ -22576,6 +22585,10 @@
                     "name": "api-version",
                     "location": "query",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 },
                 {
                     "name": "project",
@@ -22617,6 +22630,10 @@
                     "required": true
                 },
                 {
+                    "name": "Accept-Language",
+                    "location": "header"
+                },
+                {
                     "name": "api-version",
                     "location": "query",
                     "required": true
@@ -22645,6 +22662,10 @@
                     "location": "path",
                     "source": "method",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 },
                 {
                     "name": "api-version",
@@ -22698,6 +22719,10 @@
                     "required": true
                 },
                 {
+                    "name": "Accept-Language",
+                    "location": "header"
+                },
+                {
                     "name": "api-version",
                     "location": "query",
                     "required": true
@@ -22732,6 +22757,10 @@
                     "location": "path",
                     "source": "method",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 },
                 {
                     "name": "api-version",
@@ -22779,6 +22808,10 @@
                     "required": true
                 },
                 {
+                    "name": "Accept-Language",
+                    "location": "header"
+                },
+                {
                     "name": "api-version",
                     "location": "query",
                     "required": true
@@ -22807,6 +22840,10 @@
                     "location": "path",
                     "source": "method",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 },
                 {
                     "name": "api-version",
@@ -22851,6 +22888,10 @@
                     "required": true
                 },
                 {
+                    "name": "Accept-Language",
+                    "location": "header"
+                },
+                {
                     "name": "api-version",
                     "location": "query",
                     "required": true
@@ -22879,6 +22920,10 @@
                     "location": "path",
                     "source": "method",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 },
                 {
                     "name": "api-version",
@@ -22962,7 +23007,7 @@
             ]
         },
         "azurerm:netapp:NetAppAccount": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}",
             "GET": [
                 {
@@ -23027,7 +23072,7 @@
             ]
         },
         "azurerm:netapp:NetAppAccountCapacityPool": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
             "GET": [
                 {
@@ -23105,7 +23150,7 @@
             ]
         },
         "azurerm:netapp:NetAppAccountCapacityPoolVolume": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
             "GET": [
                 {
@@ -23195,7 +23240,7 @@
             ]
         },
         "azurerm:netapp:NetAppAccountCapacityPoolVolumeSnapshot": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
             "GET": [
                 {
@@ -29974,6 +30019,79 @@
                         "properties",
                         "tags",
                         "type"
+                    ]
+                }
+            ]
+        },
+        "azurerm:recoveryservices:VaultPrivateEndpointConnection": {
+            "apiVersion": "2020-02-02",
+            "path": "/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}",
+            "GET": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "vaultName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "privateEndpointConnectionName",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "PUT": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "vaultName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "privateEndpointConnectionName",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "parameters",
+                    "location": "body",
+                    "required": true,
+                    "properties": [
+                        "eTag",
+                        "location",
+                        "properties",
+                        "tags"
                     ]
                 }
             ]
@@ -43534,7 +43652,7 @@
             "POST": null
         },
         "azurerm:certificateregistration:getCertificateOrder": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}",
             "GET": [
                 {
@@ -43562,7 +43680,7 @@
             "POST": null
         },
         "azurerm:certificateregistration:getCertificateOrderCertificate": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name}",
             "GET": [
                 {
@@ -49448,7 +49566,7 @@
             ]
         },
         "azurerm:domainregistration:getDomain": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}",
             "GET": [
                 {
@@ -49476,7 +49594,7 @@
             "POST": null
         },
         "azurerm:domainregistration:getDomainDomainOwnershipIdentifier": {
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2019-08-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{name}",
             "GET": [
                 {
@@ -53148,6 +53266,10 @@
                     "name": "api-version",
                     "location": "query",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 }
             ],
             "POST": null
@@ -53178,6 +53300,10 @@
                     "location": "path",
                     "source": "method",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 },
                 {
                     "name": "api-version",
@@ -53221,6 +53347,10 @@
                     "required": true
                 },
                 {
+                    "name": "Accept-Language",
+                    "location": "header"
+                },
+                {
                     "name": "api-version",
                     "location": "query",
                     "required": true
@@ -53256,6 +53386,10 @@
                     "required": true
                 },
                 {
+                    "name": "Accept-Language",
+                    "location": "header"
+                },
+                {
                     "name": "api-version",
                     "location": "query",
                     "required": true
@@ -53289,6 +53423,10 @@
                     "location": "path",
                     "source": "method",
                     "required": true
+                },
+                {
+                    "name": "Accept-Language",
+                    "location": "header"
                 },
                 {
                     "name": "api-version",
@@ -53357,7 +53495,7 @@
             ]
         },
         "azurerm:netapp:getNetAppAccount": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}",
             "GET": [
                 {
@@ -53386,7 +53524,7 @@
             "POST": null
         },
         "azurerm:netapp:getNetAppAccountCapacityPool": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
             "GET": [
                 {
@@ -53421,7 +53559,7 @@
             "POST": null
         },
         "azurerm:netapp:getNetAppAccountCapacityPoolVolume": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
             "GET": [
                 {
@@ -53462,7 +53600,7 @@
             "POST": null
         },
         "azurerm:netapp:getNetAppAccountCapacityPoolVolumeSnapshot": {
-            "apiVersion": "2020-02-01",
+            "apiVersion": "2019-11-01",
             "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
             "GET": [
                 {
@@ -56766,6 +56904,40 @@
                 },
                 {
                     "name": "policyName",
+                    "location": "path",
+                    "required": true
+                }
+            ],
+            "POST": null
+        },
+        "azurerm:recoveryservices:getVaultPrivateEndpointConnection": {
+            "apiVersion": "2020-02-02",
+            "path": "/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName}",
+            "GET": [
+                {
+                    "name": "api-version",
+                    "location": "query",
+                    "required": true
+                },
+                {
+                    "name": "vaultName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "resourceGroupName",
+                    "location": "path",
+                    "source": "method",
+                    "required": true
+                },
+                {
+                    "name": "subscriptionId",
+                    "location": "path",
+                    "required": true
+                },
+                {
+                    "name": "privateEndpointConnectionName",
                     "location": "path",
                     "required": true
                 }

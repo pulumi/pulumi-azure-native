@@ -4322,7 +4322,7 @@ export namespace cache {
     }
 
     /**
-     * Patch schedule entry for a Redis Cache.
+     * Patch schedule entry for a Premium Redis Cache.
      */
     export interface ScheduleEntry {
         /**
@@ -21935,10 +21935,6 @@ export namespace netapp {
          */
         activeDirectoryId?: pulumi.Input<string>;
         /**
-         * Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-         */
-        backupOperators?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
          * Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
          */
         dns?: pulumi.Input<string>;
@@ -22056,6 +22052,10 @@ export namespace netapp {
      * Snapshot properties
      */
     export interface SnapshotProperties {
+        /**
+         * UUID v4 used to identify the FileSystem
+         */
+        fileSystemId?: pulumi.Input<string>;
     }
 
     /**
@@ -22091,10 +22091,6 @@ export namespace netapp {
          */
         serviceLevel?: pulumi.Input<string>;
         /**
-         * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
-         */
-        snapshotDirectoryVisible?: pulumi.Input<boolean>;
-        /**
          * UUID v4 or resource identifier used to identify the Snapshot.
          */
         snapshotId?: pulumi.Input<string>;
@@ -22120,20 +22116,6 @@ export namespace netapp {
          * Replication properties
          */
         replication?: pulumi.Input<inputs.netapp.ReplicationObject>;
-        /**
-         * Snapshot properties.
-         */
-        snapshot?: pulumi.Input<inputs.netapp.VolumeSnapshotProperties>;
-    }
-
-    /**
-     * Volume Snapshot Properties
-     */
-    export interface VolumeSnapshotProperties {
-        /**
-         * Snapshot Policy ResourceId
-         */
-        snapshotPolicyId?: pulumi.Input<string>;
     }
 
 }
@@ -30555,6 +30537,52 @@ export namespace recoveryservices {
     }
 
     /**
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection
+     */
+    export interface PrivateEndpoint {
+        /**
+         * Gets or sets id
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Private Endpoint Connection Response Properties
+     */
+    export interface PrivateEndpointConnection {
+        /**
+         * Gets or sets private endpoint associated with the private endpoint connection
+         */
+        privateEndpoint?: pulumi.Input<inputs.recoveryservices.PrivateEndpoint>;
+        /**
+         * Gets or sets private link service connection state
+         */
+        privateLinkServiceConnectionState?: pulumi.Input<inputs.recoveryservices.PrivateLinkServiceConnectionState>;
+        /**
+         * Gets or sets provisioning state of the private endpoint connection
+         */
+        provisioningState?: pulumi.Input<string>;
+    }
+
+    /**
+     * Private Link Service Connection State
+     */
+    export interface PrivateLinkServiceConnectionState {
+        /**
+         * Gets or sets actions required
+         */
+        actionRequired?: pulumi.Input<string>;
+        /**
+         * Gets or sets description
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Gets or sets the status
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
     export interface ProtectionPolicy {
@@ -36609,14 +36637,6 @@ export namespace web {
      * Configuration of an App Service app.
      */
     export interface SiteConfig {
-        /**
-         * Flag to use Managed Identity Creds for ACR pull
-         */
-        acrUseManagedIdentityCreds?: pulumi.Input<boolean>;
-        /**
-         * If using user managed identity, the user managed identity ClientId
-         */
-        acrUserManagedIdentityID?: pulumi.Input<string>;
         /**
          * <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
          */

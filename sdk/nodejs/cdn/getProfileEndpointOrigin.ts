@@ -46,6 +46,10 @@ export interface GetProfileEndpointOriginArgs {
  */
 export interface GetProfileEndpointOriginResult {
     /**
+     * Resource location.
+     */
+    readonly location: string;
+    /**
      * Resource name.
      */
     readonly name: string;
@@ -53,6 +57,10 @@ export interface GetProfileEndpointOriginResult {
      * The JSON object that contains the properties of the origin.
      */
     readonly properties: outputs.cdn.OriginPropertiesResponse;
+    /**
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * Resource type.
      */

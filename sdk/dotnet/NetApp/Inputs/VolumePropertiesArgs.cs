@@ -70,12 +70,6 @@ namespace Pulumi.AzureRM.NetApp.Inputs
         public Input<string>? ServiceLevel { get; set; }
 
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
-        /// </summary>
-        [Input("snapshotDirectoryVisible")]
-        public Input<bool>? SnapshotDirectoryVisible { get; set; }
-
-        /// <summary>
         /// UUID v4 or resource identifier used to identify the Snapshot.
         /// </summary>
         [Input("snapshotId")]

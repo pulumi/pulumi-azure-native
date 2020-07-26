@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.NetApp.Outputs
         /// </summary>
         public readonly string Created;
         /// <summary>
+        /// UUID v4 used to identify the FileSystem
+        /// </summary>
+        public readonly string? FileSystemId;
+        /// <summary>
         /// Azure lifecycle management
         /// </summary>
         public readonly string ProvisioningState;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureRM.NetApp.Outputs
         private SnapshotPropertiesResponseResult(
             string created,
 
+            string? fileSystemId,
+
             string provisioningState,
 
             string snapshotId)
         {
             Created = created;
+            FileSystemId = fileSystemId;
             ProvisioningState = provisioningState;
             SnapshotId = snapshotId;
         }

@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .get_vault import *
 from .get_vault_backup_policy import *
+from .get_vault_private_endpoint_connection import *
 from .get_vault_replication_fabric import *
 from .get_vault_replication_fabric_replication_network_replication_network_mapping import *
 from .get_vault_replication_fabric_replication_protection_container_replication_migration_item import *
@@ -17,6 +18,7 @@ from .get_vault_replication_policy import *
 from .get_vault_replication_recovery_plan import *
 from .vault import *
 from .vault_backup_policy import *
+from .vault_private_endpoint_connection import *
 from .vault_replication_fabric import *
 from .vault_replication_fabric_replication_network_replication_network_mapping import *
 from .vault_replication_fabric_replication_protection_container_replication_migration_item import *

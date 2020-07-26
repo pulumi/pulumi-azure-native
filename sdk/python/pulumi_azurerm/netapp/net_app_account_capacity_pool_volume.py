@@ -31,9 +31,6 @@ class NetAppAccountCapacityPoolVolume(pulumi.CustomResource):
           * `replication_id` (`str`) - Id
           * `replication_schedule` (`str`) - Schedule
 
-        * `snapshot` (`dict`) - Snapshot properties.
-          * `snapshot_policy_id` (`str`) - Snapshot Policy ResourceId
-
       * `export_policy` (`dict`) - Set of export policy rules
       * `file_system_id` (`str`) - Unique FileSystem Identifier.
       * `is_restoring` (`bool`) - Restoring
@@ -51,7 +48,6 @@ class NetAppAccountCapacityPoolVolume(pulumi.CustomResource):
       * `protocol_types` (`list`) - Set of protocol types
       * `provisioning_state` (`str`) - Azure lifecycle management
       * `service_level` (`str`) - The service level of the file system
-      * `snapshot_directory_visible` (`bool`) - If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
       * `snapshot_id` (`str`) - UUID v4 or resource identifier used to identify the Snapshot.
       * `subnet_id` (`str`) - The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
       * `usage_threshold` (`float`) - Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
@@ -90,9 +86,6 @@ class NetAppAccountCapacityPoolVolume(pulumi.CustomResource):
               * `replication_id` (`pulumi.Input[str]`) - Id
               * `replication_schedule` (`pulumi.Input[str]`) - Schedule
 
-            * `snapshot` (`pulumi.Input[dict]`) - Snapshot properties.
-              * `snapshot_policy_id` (`pulumi.Input[str]`) - Snapshot Policy ResourceId
-
           * `export_policy` (`pulumi.Input[dict]`) - Set of export policy rules
           * `is_restoring` (`pulumi.Input[bool]`) - Restoring
           * `mount_targets` (`pulumi.Input[list]`) - List of mount targets
@@ -106,7 +99,6 @@ class NetAppAccountCapacityPoolVolume(pulumi.CustomResource):
 
           * `protocol_types` (`pulumi.Input[list]`) - Set of protocol types
           * `service_level` (`pulumi.Input[str]`) - The service level of the file system
-          * `snapshot_directory_visible` (`pulumi.Input[bool]`) - If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
           * `snapshot_id` (`pulumi.Input[str]`) - UUID v4 or resource identifier used to identify the Snapshot.
           * `subnet_id` (`pulumi.Input[str]`) - The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
           * `usage_threshold` (`pulumi.Input[float]`) - Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.

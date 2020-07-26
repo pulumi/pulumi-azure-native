@@ -5636,7 +5636,7 @@ export namespace cache {
     }
 
     /**
-     * Patch schedule entry for a Redis Cache.
+     * Patch schedule entry for a Premium Redis Cache.
      */
     export interface ScheduleEntryResponse {
         /**
@@ -28123,10 +28123,6 @@ export namespace netapp {
          */
         activeDirectoryId?: string;
         /**
-         * Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-         */
-        backupOperators?: string[];
-        /**
          * Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
          */
         dns?: string;
@@ -28265,6 +28261,10 @@ export namespace netapp {
          */
         created: string;
         /**
+         * UUID v4 used to identify the FileSystem
+         */
+        fileSystemId?: string;
+        /**
          * Azure lifecycle management
          */
         provisioningState: string;
@@ -28319,10 +28319,6 @@ export namespace netapp {
          */
         serviceLevel?: string;
         /**
-         * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
-         */
-        snapshotDirectoryVisible?: boolean;
-        /**
          * UUID v4 or resource identifier used to identify the Snapshot.
          */
         snapshotId?: string;
@@ -28348,20 +28344,6 @@ export namespace netapp {
          * Replication properties
          */
         replication?: outputs.netapp.ReplicationObjectResponse;
-        /**
-         * Snapshot properties.
-         */
-        snapshot?: outputs.netapp.VolumeSnapshotPropertiesResponse;
-    }
-
-    /**
-     * Volume Snapshot Properties
-     */
-    export interface VolumeSnapshotPropertiesResponse {
-        /**
-         * Snapshot Policy ResourceId
-         */
-        snapshotPolicyId?: string;
     }
 }
 
@@ -39215,21 +39197,21 @@ export namespace recoveryservices {
     }
 
     /**
-     * Private Endpoint Connection Response Properties.
+     * Private Endpoint Connection Response Properties
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+         * Gets or sets private endpoint associated with the private endpoint connection
          */
         privateEndpoint?: outputs.recoveryservices.PrivateEndpointResponse;
         /**
-         * Gets or sets private link service connection state.
+         * Gets or sets private link service connection state
          */
         privateLinkServiceConnectionState?: outputs.recoveryservices.PrivateLinkServiceConnectionStateResponse;
         /**
-         * Gets or sets provisioning state of the private endpoint connection.
+         * Gets or sets provisioning state of the private endpoint connection
          */
-        provisioningState: string;
+        provisioningState?: string;
     }
 
     /**
@@ -39247,31 +39229,31 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection
      */
     export interface PrivateEndpointResponse {
         /**
-         * Gets or sets id.
+         * Gets or sets id
          */
-        id: string;
+        id?: string;
     }
 
     /**
-     * Gets or sets private link service connection state.
+     * Private Link Service Connection State
      */
     export interface PrivateLinkServiceConnectionStateResponse {
         /**
-         * Gets or sets actions required.
+         * Gets or sets actions required
          */
-        actionsRequired: string;
+        actionRequired?: string;
         /**
-         * Gets or sets description.
+         * Gets or sets description
          */
-        description: string;
+        description?: string;
         /**
-         * Gets or sets the status.
+         * Gets or sets the status
          */
-        status: string;
+        status?: string;
     }
 
     /**
@@ -48767,14 +48749,6 @@ export namespace web {
      * Configuration of an App Service app.
      */
     export interface SiteConfigResponse {
-        /**
-         * Flag to use Managed Identity Creds for ACR pull
-         */
-        acrUseManagedIdentityCreds?: boolean;
-        /**
-         * If using user managed identity, the user managed identity ClientId
-         */
-        acrUserManagedIdentityID?: string;
         /**
          * <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
          */

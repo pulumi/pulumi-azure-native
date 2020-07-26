@@ -21,18 +21,6 @@ namespace Pulumi.AzureRM.NetApp.Inputs
         [Input("activeDirectoryId")]
         public Input<string>? ActiveDirectoryId { get; set; }
 
-        [Input("backupOperators")]
-        private InputList<string>? _backupOperators;
-
-        /// <summary>
-        /// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-        /// </summary>
-        public InputList<string> BackupOperators
-        {
-            get => _backupOperators ?? (_backupOperators = new InputList<string>());
-            set => _backupOperators = value;
-        }
-
         /// <summary>
         /// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         /// </summary>

@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.NetApp.Inputs
         [Input("replication")]
         public Input<Inputs.ReplicationObjectArgs>? Replication { get; set; }
 
-        /// <summary>
-        /// Snapshot properties.
-        /// </summary>
-        [Input("snapshot")]
-        public Input<Inputs.VolumeSnapshotPropertiesArgs>? Snapshot { get; set; }
-
         public VolumePropertiesPropertiesArgs()
         {
         }
