@@ -40,6 +40,7 @@ from .get_web_app_swift_virtual_network_connection_slot import *
 from .get_web_app_vnet_connection import *
 from .get_web_app_vnet_connection_slot import *
 from .list_app_service_plan_hybrid_connection_keys import *
+from .list_site_identifiers_assigned_to_host_name import *
 from .list_static_site_build_function_app_settings import *
 from .list_static_site_function_app_settings import *
 from .list_static_site_secrets import *

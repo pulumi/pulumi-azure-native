@@ -1041,7 +1041,7 @@ func (o DeploymentTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Deployment information.
-type DeploymentAtManagementGroupScopeType struct {
+type DeploymentAtScopeType struct {
 	// the location of the deployment.
 	Location *string `pulumi:"location"`
 	// The name of the deployment.
@@ -1054,19 +1054,19 @@ type DeploymentAtManagementGroupScopeType struct {
 	Type string `pulumi:"type"`
 }
 
-// DeploymentAtManagementGroupScopeTypeInput is an input type that accepts DeploymentAtManagementGroupScopeTypeArgs and DeploymentAtManagementGroupScopeTypeOutput values.
-// You can construct a concrete instance of `DeploymentAtManagementGroupScopeTypeInput` via:
+// DeploymentAtScopeTypeInput is an input type that accepts DeploymentAtScopeTypeArgs and DeploymentAtScopeTypeOutput values.
+// You can construct a concrete instance of `DeploymentAtScopeTypeInput` via:
 //
-//          DeploymentAtManagementGroupScopeTypeArgs{...}
-type DeploymentAtManagementGroupScopeTypeInput interface {
+//          DeploymentAtScopeTypeArgs{...}
+type DeploymentAtScopeTypeInput interface {
 	pulumi.Input
 
-	ToDeploymentAtManagementGroupScopeTypeOutput() DeploymentAtManagementGroupScopeTypeOutput
-	ToDeploymentAtManagementGroupScopeTypeOutputWithContext(context.Context) DeploymentAtManagementGroupScopeTypeOutput
+	ToDeploymentAtScopeTypeOutput() DeploymentAtScopeTypeOutput
+	ToDeploymentAtScopeTypeOutputWithContext(context.Context) DeploymentAtScopeTypeOutput
 }
 
 // Deployment information.
-type DeploymentAtManagementGroupScopeTypeArgs struct {
+type DeploymentAtScopeTypeArgs struct {
 	// the location of the deployment.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The name of the deployment.
@@ -1079,56 +1079,238 @@ type DeploymentAtManagementGroupScopeTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (DeploymentAtManagementGroupScopeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScopeType)(nil)).Elem()
+func (DeploymentAtScopeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtScopeType)(nil)).Elem()
 }
 
-func (i DeploymentAtManagementGroupScopeTypeArgs) ToDeploymentAtManagementGroupScopeTypeOutput() DeploymentAtManagementGroupScopeTypeOutput {
-	return i.ToDeploymentAtManagementGroupScopeTypeOutputWithContext(context.Background())
+func (i DeploymentAtScopeTypeArgs) ToDeploymentAtScopeTypeOutput() DeploymentAtScopeTypeOutput {
+	return i.ToDeploymentAtScopeTypeOutputWithContext(context.Background())
 }
 
-func (i DeploymentAtManagementGroupScopeTypeArgs) ToDeploymentAtManagementGroupScopeTypeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtManagementGroupScopeTypeOutput)
+func (i DeploymentAtScopeTypeArgs) ToDeploymentAtScopeTypeOutputWithContext(ctx context.Context) DeploymentAtScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtScopeTypeOutput)
 }
 
 // Deployment information.
-type DeploymentAtManagementGroupScopeTypeOutput struct{ *pulumi.OutputState }
+type DeploymentAtScopeTypeOutput struct{ *pulumi.OutputState }
 
-func (DeploymentAtManagementGroupScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScopeType)(nil)).Elem()
+func (DeploymentAtScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtScopeType)(nil)).Elem()
 }
 
-func (o DeploymentAtManagementGroupScopeTypeOutput) ToDeploymentAtManagementGroupScopeTypeOutput() DeploymentAtManagementGroupScopeTypeOutput {
+func (o DeploymentAtScopeTypeOutput) ToDeploymentAtScopeTypeOutput() DeploymentAtScopeTypeOutput {
 	return o
 }
 
-func (o DeploymentAtManagementGroupScopeTypeOutput) ToDeploymentAtManagementGroupScopeTypeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeTypeOutput {
+func (o DeploymentAtScopeTypeOutput) ToDeploymentAtScopeTypeOutputWithContext(ctx context.Context) DeploymentAtScopeTypeOutput {
 	return o
 }
 
 // the location of the deployment.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o DeploymentAtScopeTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentAtScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The name of the deployment.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) string { return v.Name }).(pulumi.StringOutput)
+func (o DeploymentAtScopeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAtScopeType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Deployment properties.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
+func (o DeploymentAtScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v DeploymentAtScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
 }
 
 // Deployment tags
-func (o DeploymentAtManagementGroupScopeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o DeploymentAtScopeTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentAtScopeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The type of the deployment.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) string { return v.Type }).(pulumi.StringOutput)
+func (o DeploymentAtScopeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAtScopeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Deployment information.
+type DeploymentAtSubscriptionScopeType struct {
+	// the location of the deployment.
+	Location *string `pulumi:"location"`
+	// The name of the deployment.
+	Name string `pulumi:"name"`
+	// Deployment properties.
+	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
+	// Deployment tags
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the deployment.
+	Type string `pulumi:"type"`
+}
+
+// DeploymentAtSubscriptionScopeTypeInput is an input type that accepts DeploymentAtSubscriptionScopeTypeArgs and DeploymentAtSubscriptionScopeTypeOutput values.
+// You can construct a concrete instance of `DeploymentAtSubscriptionScopeTypeInput` via:
+//
+//          DeploymentAtSubscriptionScopeTypeArgs{...}
+type DeploymentAtSubscriptionScopeTypeInput interface {
+	pulumi.Input
+
+	ToDeploymentAtSubscriptionScopeTypeOutput() DeploymentAtSubscriptionScopeTypeOutput
+	ToDeploymentAtSubscriptionScopeTypeOutputWithContext(context.Context) DeploymentAtSubscriptionScopeTypeOutput
+}
+
+// Deployment information.
+type DeploymentAtSubscriptionScopeTypeArgs struct {
+	// the location of the deployment.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the deployment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Deployment properties.
+	Properties DeploymentPropertiesExtendedResponseInput `pulumi:"properties"`
+	// Deployment tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the deployment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DeploymentAtSubscriptionScopeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtSubscriptionScopeType)(nil)).Elem()
+}
+
+func (i DeploymentAtSubscriptionScopeTypeArgs) ToDeploymentAtSubscriptionScopeTypeOutput() DeploymentAtSubscriptionScopeTypeOutput {
+	return i.ToDeploymentAtSubscriptionScopeTypeOutputWithContext(context.Background())
+}
+
+func (i DeploymentAtSubscriptionScopeTypeArgs) ToDeploymentAtSubscriptionScopeTypeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtSubscriptionScopeTypeOutput)
+}
+
+// Deployment information.
+type DeploymentAtSubscriptionScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAtSubscriptionScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtSubscriptionScopeType)(nil)).Elem()
+}
+
+func (o DeploymentAtSubscriptionScopeTypeOutput) ToDeploymentAtSubscriptionScopeTypeOutput() DeploymentAtSubscriptionScopeTypeOutput {
+	return o
+}
+
+func (o DeploymentAtSubscriptionScopeTypeOutput) ToDeploymentAtSubscriptionScopeTypeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeTypeOutput {
+	return o
+}
+
+// the location of the deployment.
+func (o DeploymentAtSubscriptionScopeTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the deployment.
+func (o DeploymentAtSubscriptionScopeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment properties.
+func (o DeploymentAtSubscriptionScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
+}
+
+// Deployment tags
+func (o DeploymentAtSubscriptionScopeTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the deployment.
+func (o DeploymentAtSubscriptionScopeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Deployment information.
+type DeploymentAtTenantScopeType struct {
+	// the location of the deployment.
+	Location *string `pulumi:"location"`
+	// The name of the deployment.
+	Name string `pulumi:"name"`
+	// Deployment properties.
+	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
+	// Deployment tags
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the deployment.
+	Type string `pulumi:"type"`
+}
+
+// DeploymentAtTenantScopeTypeInput is an input type that accepts DeploymentAtTenantScopeTypeArgs and DeploymentAtTenantScopeTypeOutput values.
+// You can construct a concrete instance of `DeploymentAtTenantScopeTypeInput` via:
+//
+//          DeploymentAtTenantScopeTypeArgs{...}
+type DeploymentAtTenantScopeTypeInput interface {
+	pulumi.Input
+
+	ToDeploymentAtTenantScopeTypeOutput() DeploymentAtTenantScopeTypeOutput
+	ToDeploymentAtTenantScopeTypeOutputWithContext(context.Context) DeploymentAtTenantScopeTypeOutput
+}
+
+// Deployment information.
+type DeploymentAtTenantScopeTypeArgs struct {
+	// the location of the deployment.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the deployment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Deployment properties.
+	Properties DeploymentPropertiesExtendedResponseInput `pulumi:"properties"`
+	// Deployment tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the deployment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DeploymentAtTenantScopeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtTenantScopeType)(nil)).Elem()
+}
+
+func (i DeploymentAtTenantScopeTypeArgs) ToDeploymentAtTenantScopeTypeOutput() DeploymentAtTenantScopeTypeOutput {
+	return i.ToDeploymentAtTenantScopeTypeOutputWithContext(context.Background())
+}
+
+func (i DeploymentAtTenantScopeTypeArgs) ToDeploymentAtTenantScopeTypeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtTenantScopeTypeOutput)
+}
+
+// Deployment information.
+type DeploymentAtTenantScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAtTenantScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAtTenantScopeType)(nil)).Elem()
+}
+
+func (o DeploymentAtTenantScopeTypeOutput) ToDeploymentAtTenantScopeTypeOutput() DeploymentAtTenantScopeTypeOutput {
+	return o
+}
+
+func (o DeploymentAtTenantScopeTypeOutput) ToDeploymentAtTenantScopeTypeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeTypeOutput {
+	return o
+}
+
+// the location of the deployment.
+func (o DeploymentAtTenantScopeTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentAtTenantScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the deployment.
+func (o DeploymentAtTenantScopeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAtTenantScopeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment properties.
+func (o DeploymentAtTenantScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v DeploymentAtTenantScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
+}
+
+// Deployment tags
+func (o DeploymentAtTenantScopeTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentAtTenantScopeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the deployment.
+func (o DeploymentAtTenantScopeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentAtTenantScopeType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Deployment properties.
@@ -3195,6 +3377,337 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 	}).(ResourceReferenceResponseOutput)
 }
 
+// Wrapper resource for tags API requests and responses.
+type TagAtScopeType struct {
+	// The name of the tags wrapper resource.
+	Name string `pulumi:"name"`
+	// The set of tags.
+	Properties TagsResponse `pulumi:"properties"`
+	// The type of the tags wrapper resource.
+	Type string `pulumi:"type"`
+}
+
+// TagAtScopeTypeInput is an input type that accepts TagAtScopeTypeArgs and TagAtScopeTypeOutput values.
+// You can construct a concrete instance of `TagAtScopeTypeInput` via:
+//
+//          TagAtScopeTypeArgs{...}
+type TagAtScopeTypeInput interface {
+	pulumi.Input
+
+	ToTagAtScopeTypeOutput() TagAtScopeTypeOutput
+	ToTagAtScopeTypeOutputWithContext(context.Context) TagAtScopeTypeOutput
+}
+
+// Wrapper resource for tags API requests and responses.
+type TagAtScopeTypeArgs struct {
+	// The name of the tags wrapper resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The set of tags.
+	Properties TagsResponseInput `pulumi:"properties"`
+	// The type of the tags wrapper resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TagAtScopeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAtScopeType)(nil)).Elem()
+}
+
+func (i TagAtScopeTypeArgs) ToTagAtScopeTypeOutput() TagAtScopeTypeOutput {
+	return i.ToTagAtScopeTypeOutputWithContext(context.Background())
+}
+
+func (i TagAtScopeTypeArgs) ToTagAtScopeTypeOutputWithContext(ctx context.Context) TagAtScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagAtScopeTypeOutput)
+}
+
+// Wrapper resource for tags API requests and responses.
+type TagAtScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (TagAtScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagAtScopeType)(nil)).Elem()
+}
+
+func (o TagAtScopeTypeOutput) ToTagAtScopeTypeOutput() TagAtScopeTypeOutput {
+	return o
+}
+
+func (o TagAtScopeTypeOutput) ToTagAtScopeTypeOutputWithContext(ctx context.Context) TagAtScopeTypeOutput {
+	return o
+}
+
+// The name of the tags wrapper resource.
+func (o TagAtScopeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAtScopeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of tags.
+func (o TagAtScopeTypeOutput) Properties() TagsResponseOutput {
+	return o.ApplyT(func(v TagAtScopeType) TagsResponse { return v.Properties }).(TagsResponseOutput)
+}
+
+// The type of the tags wrapper resource.
+func (o TagAtScopeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TagAtScopeType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A dictionary of name and value pairs.
+type Tags struct {
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// TagsInput is an input type that accepts TagsArgs and TagsOutput values.
+// You can construct a concrete instance of `TagsInput` via:
+//
+//          TagsArgs{...}
+type TagsInput interface {
+	pulumi.Input
+
+	ToTagsOutput() TagsOutput
+	ToTagsOutputWithContext(context.Context) TagsOutput
+}
+
+// A dictionary of name and value pairs.
+type TagsArgs struct {
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (TagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Tags)(nil)).Elem()
+}
+
+func (i TagsArgs) ToTagsOutput() TagsOutput {
+	return i.ToTagsOutputWithContext(context.Background())
+}
+
+func (i TagsArgs) ToTagsOutputWithContext(ctx context.Context) TagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsOutput)
+}
+
+func (i TagsArgs) ToTagsPtrOutput() TagsPtrOutput {
+	return i.ToTagsPtrOutputWithContext(context.Background())
+}
+
+func (i TagsArgs) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsOutput).ToTagsPtrOutputWithContext(ctx)
+}
+
+// TagsPtrInput is an input type that accepts TagsArgs, TagsPtr and TagsPtrOutput values.
+// You can construct a concrete instance of `TagsPtrInput` via:
+//
+//          TagsArgs{...}
+//
+//  or:
+//
+//          nil
+type TagsPtrInput interface {
+	pulumi.Input
+
+	ToTagsPtrOutput() TagsPtrOutput
+	ToTagsPtrOutputWithContext(context.Context) TagsPtrOutput
+}
+
+type tagsPtrType TagsArgs
+
+func TagsPtr(v *TagsArgs) TagsPtrInput {
+	return (*tagsPtrType)(v)
+}
+
+func (*tagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Tags)(nil)).Elem()
+}
+
+func (i *tagsPtrType) ToTagsPtrOutput() TagsPtrOutput {
+	return i.ToTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *tagsPtrType) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsPtrOutput)
+}
+
+// A dictionary of name and value pairs.
+type TagsOutput struct{ *pulumi.OutputState }
+
+func (TagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Tags)(nil)).Elem()
+}
+
+func (o TagsOutput) ToTagsOutput() TagsOutput {
+	return o
+}
+
+func (o TagsOutput) ToTagsOutputWithContext(ctx context.Context) TagsOutput {
+	return o
+}
+
+func (o TagsOutput) ToTagsPtrOutput() TagsPtrOutput {
+	return o.ToTagsPtrOutputWithContext(context.Background())
+}
+
+func (o TagsOutput) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
+	return o.ApplyT(func(v Tags) *Tags {
+		return &v
+	}).(TagsPtrOutput)
+}
+func (o TagsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v Tags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type TagsPtrOutput struct{ *pulumi.OutputState }
+
+func (TagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Tags)(nil)).Elem()
+}
+
+func (o TagsPtrOutput) ToTagsPtrOutput() TagsPtrOutput {
+	return o
+}
+
+func (o TagsPtrOutput) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
+	return o
+}
+
+func (o TagsPtrOutput) Elem() TagsOutput {
+	return o.ApplyT(func(v *Tags) Tags { return *v }).(TagsOutput)
+}
+
+func (o TagsPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Tags) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// A dictionary of name and value pairs.
+type TagsResponse struct {
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// TagsResponseInput is an input type that accepts TagsResponseArgs and TagsResponseOutput values.
+// You can construct a concrete instance of `TagsResponseInput` via:
+//
+//          TagsResponseArgs{...}
+type TagsResponseInput interface {
+	pulumi.Input
+
+	ToTagsResponseOutput() TagsResponseOutput
+	ToTagsResponseOutputWithContext(context.Context) TagsResponseOutput
+}
+
+// A dictionary of name and value pairs.
+type TagsResponseArgs struct {
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (TagsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagsResponse)(nil)).Elem()
+}
+
+func (i TagsResponseArgs) ToTagsResponseOutput() TagsResponseOutput {
+	return i.ToTagsResponseOutputWithContext(context.Background())
+}
+
+func (i TagsResponseArgs) ToTagsResponseOutputWithContext(ctx context.Context) TagsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsResponseOutput)
+}
+
+func (i TagsResponseArgs) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
+	return i.ToTagsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TagsResponseArgs) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsResponseOutput).ToTagsResponsePtrOutputWithContext(ctx)
+}
+
+// TagsResponsePtrInput is an input type that accepts TagsResponseArgs, TagsResponsePtr and TagsResponsePtrOutput values.
+// You can construct a concrete instance of `TagsResponsePtrInput` via:
+//
+//          TagsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TagsResponsePtrInput interface {
+	pulumi.Input
+
+	ToTagsResponsePtrOutput() TagsResponsePtrOutput
+	ToTagsResponsePtrOutputWithContext(context.Context) TagsResponsePtrOutput
+}
+
+type tagsResponsePtrType TagsResponseArgs
+
+func TagsResponsePtr(v *TagsResponseArgs) TagsResponsePtrInput {
+	return (*tagsResponsePtrType)(v)
+}
+
+func (*tagsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagsResponse)(nil)).Elem()
+}
+
+func (i *tagsResponsePtrType) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
+	return i.ToTagsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *tagsResponsePtrType) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagsResponsePtrOutput)
+}
+
+// A dictionary of name and value pairs.
+type TagsResponseOutput struct{ *pulumi.OutputState }
+
+func (TagsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagsResponse)(nil)).Elem()
+}
+
+func (o TagsResponseOutput) ToTagsResponseOutput() TagsResponseOutput {
+	return o
+}
+
+func (o TagsResponseOutput) ToTagsResponseOutputWithContext(ctx context.Context) TagsResponseOutput {
+	return o
+}
+
+func (o TagsResponseOutput) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
+	return o.ToTagsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TagsResponseOutput) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
+	return o.ApplyT(func(v TagsResponse) *TagsResponse {
+		return &v
+	}).(TagsResponsePtrOutput)
+}
+func (o TagsResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TagsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type TagsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TagsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagsResponse)(nil)).Elem()
+}
+
+func (o TagsResponsePtrOutput) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
+	return o
+}
+
+func (o TagsResponsePtrOutput) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
+	return o
+}
+
+func (o TagsResponsePtrOutput) Elem() TagsResponseOutput {
+	return o.ApplyT(func(v *TagsResponse) TagsResponse { return *v }).(TagsResponseOutput)
+}
+
+func (o TagsResponsePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TagsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
 // Entity representing the reference to the template.
 type TemplateLink struct {
 	// If included, must match the ContentVersion in the template.
@@ -3593,7 +4106,9 @@ func init() {
 	pulumi.RegisterOutputType(DependencyResponseOutput{})
 	pulumi.RegisterOutputType(DependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentTypeOutput{})
-	pulumi.RegisterOutputType(DeploymentAtManagementGroupScopeTypeOutput{})
+	pulumi.RegisterOutputType(DeploymentAtScopeTypeOutput{})
+	pulumi.RegisterOutputType(DeploymentAtSubscriptionScopeTypeOutput{})
+	pulumi.RegisterOutputType(DeploymentAtTenantScopeTypeOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponseOutput{})
@@ -3617,6 +4132,11 @@ func init() {
 	pulumi.RegisterOutputType(ProviderResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(TagAtScopeTypeOutput{})
+	pulumi.RegisterOutputType(TagsOutput{})
+	pulumi.RegisterOutputType(TagsPtrOutput{})
+	pulumi.RegisterOutputType(TagsResponseOutput{})
+	pulumi.RegisterOutputType(TagsResponsePtrOutput{})
 	pulumi.RegisterOutputType(TemplateLinkOutput{})
 	pulumi.RegisterOutputType(TemplateLinkPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponseOutput{})

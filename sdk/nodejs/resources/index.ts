@@ -3,6 +3,12 @@
 
 // Export members:
 export * from "./deployment";
-export * from "./deploymentAtManagementGroupScope";
+export * from "./deploymentAtScope";
+export * from "./deploymentAtSubscriptionScope";
+export * from "./deploymentAtTenantScope";
 export * from "./getDeployment";
-export * from "./getDeploymentAtManagementGroupScope";
+export * from "./getDeploymentAtScope";
+export * from "./getDeploymentAtSubscriptionScope";
+export * from "./getDeploymentAtTenantScope";
+export * from "./getTagAtScope";
+export * from "./tagAtScope";

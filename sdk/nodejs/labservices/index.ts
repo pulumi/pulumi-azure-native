@@ -13,4 +13,6 @@ export * from "./getLabAccount";
 export * from "./getUser";
 export * from "./lab";
 export * from "./labAccount";
+export * from "./listGlobalUserEnvironments";
+export * from "./listGlobalUserLabs";
 export * from "./user";

@@ -2,11 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getPeerAsn";
 export * from "./getPeering";
 export * from "./getPeeringService";
 export * from "./getPrefix";
 export * from "./getRegisteredAsn";
 export * from "./getRegisteredPrefix";
+export * from "./peerAsn";
 export * from "./peering";
 export * from "./peeringService";
 export * from "./prefix";

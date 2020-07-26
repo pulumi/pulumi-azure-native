@@ -10,6 +10,312 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Identity for the resource.
+type Identity struct {
+	// The identity type. This is the only required field when adding a system assigned identity to a resource.
+	Type *string `pulumi:"type"`
+}
+
+// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
+// You can construct a concrete instance of `IdentityInput` via:
+//
+//          IdentityArgs{...}
+type IdentityInput interface {
+	pulumi.Input
+
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(context.Context) IdentityOutput
+}
+
+// Identity for the resource.
+type IdentityArgs struct {
+	// The identity type. This is the only required field when adding a system assigned identity to a resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
+}
+
+func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
+}
+
+// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
+// You can construct a concrete instance of `IdentityPtrInput` via:
+//
+//          IdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPtrOutput() IdentityPtrOutput
+	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
+}
+
+type identityPtrType IdentityArgs
+
+func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
+	return (*identityPtrType)(v)
+}
+
+func (*identityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityOutput struct{ *pulumi.OutputState }
+
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o.ApplyT(func(v Identity) *Identity {
+		return &v
+	}).(IdentityPtrOutput)
+}
+
+// The identity type. This is the only required field when adding a system assigned identity to a resource.
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) Elem() IdentityOutput {
+	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+}
+
+// The identity type. This is the only required field when adding a system assigned identity to a resource.
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityResponse struct {
+	// The principal ID of the resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the resource identity.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. This is the only required field when adding a system assigned identity to a resource.
+	Type *string `pulumi:"type"`
+}
+
+// IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
+// You can construct a concrete instance of `IdentityResponseInput` via:
+//
+//          IdentityResponseArgs{...}
+type IdentityResponseInput interface {
+	pulumi.Input
+
+	ToIdentityResponseOutput() IdentityResponseOutput
+	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
+}
+
+// Identity for the resource.
+type IdentityResponseArgs struct {
+	// The principal ID of the resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of the resource identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type. This is the only required field when adding a system assigned identity to a resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (i IdentityResponseArgs) ToIdentityResponseOutput() IdentityResponseOutput {
+	return i.ToIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityResponseArgs) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseOutput)
+}
+
+func (i IdentityResponseArgs) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return i.ToIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IdentityResponseArgs) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseOutput).ToIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// IdentityResponsePtrInput is an input type that accepts IdentityResponseArgs, IdentityResponsePtr and IdentityResponsePtrOutput values.
+// You can construct a concrete instance of `IdentityResponsePtrInput` via:
+//
+//          IdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToIdentityResponsePtrOutput() IdentityResponsePtrOutput
+	ToIdentityResponsePtrOutputWithContext(context.Context) IdentityResponsePtrOutput
+}
+
+type identityResponsePtrType IdentityResponseArgs
+
+func IdentityResponsePtr(v *IdentityResponseArgs) IdentityResponsePtrInput {
+	return (*identityResponsePtrType)(v)
+}
+
+func (*identityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (i *identityResponsePtrType) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return i.ToIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
+}
+
+// Identity for the resource.
+type IdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o.ToIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+		return &v
+	}).(IdentityResponsePtrOutput)
+}
+
+// The principal ID of the resource identity.
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of the resource identity.
+func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type. This is the only required field when adding a system assigned identity to a resource.
+func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+}
+
+// The principal ID of the resource identity.
+func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of the resource identity.
+func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type. This is the only required field when adding a system assigned identity to a resource.
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // The lock information.
 type ManagementLockAtResourceGroupLevelType struct {
 	// The name of the lock.
@@ -81,6 +387,225 @@ func (o ManagementLockAtResourceGroupLevelTypeOutput) Properties() ManagementLoc
 // The resource type of the lock - Microsoft.Authorization/locks.
 func (o ManagementLockAtResourceGroupLevelTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementLockAtResourceGroupLevelType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The lock information.
+type ManagementLockAtResourceLevelType struct {
+	// The name of the lock.
+	Name string `pulumi:"name"`
+	// The properties of the lock.
+	Properties ManagementLockPropertiesResponse `pulumi:"properties"`
+	// The resource type of the lock - Microsoft.Authorization/locks.
+	Type string `pulumi:"type"`
+}
+
+// ManagementLockAtResourceLevelTypeInput is an input type that accepts ManagementLockAtResourceLevelTypeArgs and ManagementLockAtResourceLevelTypeOutput values.
+// You can construct a concrete instance of `ManagementLockAtResourceLevelTypeInput` via:
+//
+//          ManagementLockAtResourceLevelTypeArgs{...}
+type ManagementLockAtResourceLevelTypeInput interface {
+	pulumi.Input
+
+	ToManagementLockAtResourceLevelTypeOutput() ManagementLockAtResourceLevelTypeOutput
+	ToManagementLockAtResourceLevelTypeOutputWithContext(context.Context) ManagementLockAtResourceLevelTypeOutput
+}
+
+// The lock information.
+type ManagementLockAtResourceLevelTypeArgs struct {
+	// The name of the lock.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the lock.
+	Properties ManagementLockPropertiesResponseInput `pulumi:"properties"`
+	// The resource type of the lock - Microsoft.Authorization/locks.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagementLockAtResourceLevelTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtResourceLevelType)(nil)).Elem()
+}
+
+func (i ManagementLockAtResourceLevelTypeArgs) ToManagementLockAtResourceLevelTypeOutput() ManagementLockAtResourceLevelTypeOutput {
+	return i.ToManagementLockAtResourceLevelTypeOutputWithContext(context.Background())
+}
+
+func (i ManagementLockAtResourceLevelTypeArgs) ToManagementLockAtResourceLevelTypeOutputWithContext(ctx context.Context) ManagementLockAtResourceLevelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtResourceLevelTypeOutput)
+}
+
+// The lock information.
+type ManagementLockAtResourceLevelTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagementLockAtResourceLevelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtResourceLevelType)(nil)).Elem()
+}
+
+func (o ManagementLockAtResourceLevelTypeOutput) ToManagementLockAtResourceLevelTypeOutput() ManagementLockAtResourceLevelTypeOutput {
+	return o
+}
+
+func (o ManagementLockAtResourceLevelTypeOutput) ToManagementLockAtResourceLevelTypeOutputWithContext(ctx context.Context) ManagementLockAtResourceLevelTypeOutput {
+	return o
+}
+
+// The name of the lock.
+func (o ManagementLockAtResourceLevelTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementLockAtResourceLevelType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the lock.
+func (o ManagementLockAtResourceLevelTypeOutput) Properties() ManagementLockPropertiesResponseOutput {
+	return o.ApplyT(func(v ManagementLockAtResourceLevelType) ManagementLockPropertiesResponse { return v.Properties }).(ManagementLockPropertiesResponseOutput)
+}
+
+// The resource type of the lock - Microsoft.Authorization/locks.
+func (o ManagementLockAtResourceLevelTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementLockAtResourceLevelType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The lock information.
+type ManagementLockAtSubscriptionLevelType struct {
+	// The name of the lock.
+	Name string `pulumi:"name"`
+	// The properties of the lock.
+	Properties ManagementLockPropertiesResponse `pulumi:"properties"`
+	// The resource type of the lock - Microsoft.Authorization/locks.
+	Type string `pulumi:"type"`
+}
+
+// ManagementLockAtSubscriptionLevelTypeInput is an input type that accepts ManagementLockAtSubscriptionLevelTypeArgs and ManagementLockAtSubscriptionLevelTypeOutput values.
+// You can construct a concrete instance of `ManagementLockAtSubscriptionLevelTypeInput` via:
+//
+//          ManagementLockAtSubscriptionLevelTypeArgs{...}
+type ManagementLockAtSubscriptionLevelTypeInput interface {
+	pulumi.Input
+
+	ToManagementLockAtSubscriptionLevelTypeOutput() ManagementLockAtSubscriptionLevelTypeOutput
+	ToManagementLockAtSubscriptionLevelTypeOutputWithContext(context.Context) ManagementLockAtSubscriptionLevelTypeOutput
+}
+
+// The lock information.
+type ManagementLockAtSubscriptionLevelTypeArgs struct {
+	// The name of the lock.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the lock.
+	Properties ManagementLockPropertiesResponseInput `pulumi:"properties"`
+	// The resource type of the lock - Microsoft.Authorization/locks.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagementLockAtSubscriptionLevelTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtSubscriptionLevelType)(nil)).Elem()
+}
+
+func (i ManagementLockAtSubscriptionLevelTypeArgs) ToManagementLockAtSubscriptionLevelTypeOutput() ManagementLockAtSubscriptionLevelTypeOutput {
+	return i.ToManagementLockAtSubscriptionLevelTypeOutputWithContext(context.Background())
+}
+
+func (i ManagementLockAtSubscriptionLevelTypeArgs) ToManagementLockAtSubscriptionLevelTypeOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtSubscriptionLevelTypeOutput)
+}
+
+// The lock information.
+type ManagementLockAtSubscriptionLevelTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagementLockAtSubscriptionLevelTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockAtSubscriptionLevelType)(nil)).Elem()
+}
+
+func (o ManagementLockAtSubscriptionLevelTypeOutput) ToManagementLockAtSubscriptionLevelTypeOutput() ManagementLockAtSubscriptionLevelTypeOutput {
+	return o
+}
+
+func (o ManagementLockAtSubscriptionLevelTypeOutput) ToManagementLockAtSubscriptionLevelTypeOutputWithContext(ctx context.Context) ManagementLockAtSubscriptionLevelTypeOutput {
+	return o
+}
+
+// The name of the lock.
+func (o ManagementLockAtSubscriptionLevelTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementLockAtSubscriptionLevelType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the lock.
+func (o ManagementLockAtSubscriptionLevelTypeOutput) Properties() ManagementLockPropertiesResponseOutput {
+	return o.ApplyT(func(v ManagementLockAtSubscriptionLevelType) ManagementLockPropertiesResponse { return v.Properties }).(ManagementLockPropertiesResponseOutput)
+}
+
+// The resource type of the lock - Microsoft.Authorization/locks.
+func (o ManagementLockAtSubscriptionLevelTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementLockAtSubscriptionLevelType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The lock information.
+type ManagementLockByScopeType struct {
+	// The name of the lock.
+	Name string `pulumi:"name"`
+	// The properties of the lock.
+	Properties ManagementLockPropertiesResponse `pulumi:"properties"`
+	// The resource type of the lock - Microsoft.Authorization/locks.
+	Type string `pulumi:"type"`
+}
+
+// ManagementLockByScopeTypeInput is an input type that accepts ManagementLockByScopeTypeArgs and ManagementLockByScopeTypeOutput values.
+// You can construct a concrete instance of `ManagementLockByScopeTypeInput` via:
+//
+//          ManagementLockByScopeTypeArgs{...}
+type ManagementLockByScopeTypeInput interface {
+	pulumi.Input
+
+	ToManagementLockByScopeTypeOutput() ManagementLockByScopeTypeOutput
+	ToManagementLockByScopeTypeOutputWithContext(context.Context) ManagementLockByScopeTypeOutput
+}
+
+// The lock information.
+type ManagementLockByScopeTypeArgs struct {
+	// The name of the lock.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of the lock.
+	Properties ManagementLockPropertiesResponseInput `pulumi:"properties"`
+	// The resource type of the lock - Microsoft.Authorization/locks.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagementLockByScopeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockByScopeType)(nil)).Elem()
+}
+
+func (i ManagementLockByScopeTypeArgs) ToManagementLockByScopeTypeOutput() ManagementLockByScopeTypeOutput {
+	return i.ToManagementLockByScopeTypeOutputWithContext(context.Background())
+}
+
+func (i ManagementLockByScopeTypeArgs) ToManagementLockByScopeTypeOutputWithContext(ctx context.Context) ManagementLockByScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockByScopeTypeOutput)
+}
+
+// The lock information.
+type ManagementLockByScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagementLockByScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementLockByScopeType)(nil)).Elem()
+}
+
+func (o ManagementLockByScopeTypeOutput) ToManagementLockByScopeTypeOutput() ManagementLockByScopeTypeOutput {
+	return o
+}
+
+func (o ManagementLockByScopeTypeOutput) ToManagementLockByScopeTypeOutputWithContext(ctx context.Context) ManagementLockByScopeTypeOutput {
+	return o
+}
+
+// The name of the lock.
+func (o ManagementLockByScopeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementLockByScopeType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the lock.
+func (o ManagementLockByScopeTypeOutput) Properties() ManagementLockPropertiesResponseOutput {
+	return o.ApplyT(func(v ManagementLockByScopeType) ManagementLockPropertiesResponse { return v.Properties }).(ManagementLockPropertiesResponseOutput)
+}
+
+// The resource type of the lock - Microsoft.Authorization/locks.
+func (o ManagementLockByScopeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementLockByScopeType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Lock owner properties.
@@ -1087,8 +1612,860 @@ func (o ParameterValuesResponsePtrOutput) Elem() ParameterValuesResponseOutput {
 	return o.ApplyT(func(v *ParameterValuesResponse) ParameterValuesResponse { return *v }).(ParameterValuesResponseOutput)
 }
 
+// Role definition permissions.
+type Permission struct {
+	// Allowed actions.
+	Actions []string `pulumi:"actions"`
+	// Denied actions.
+	NotActions []string `pulumi:"notActions"`
+}
+
+// PermissionInput is an input type that accepts PermissionArgs and PermissionOutput values.
+// You can construct a concrete instance of `PermissionInput` via:
+//
+//          PermissionArgs{...}
+type PermissionInput interface {
+	pulumi.Input
+
+	ToPermissionOutput() PermissionOutput
+	ToPermissionOutputWithContext(context.Context) PermissionOutput
+}
+
+// Role definition permissions.
+type PermissionArgs struct {
+	// Allowed actions.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Denied actions.
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+}
+
+func (PermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Permission)(nil)).Elem()
+}
+
+func (i PermissionArgs) ToPermissionOutput() PermissionOutput {
+	return i.ToPermissionOutputWithContext(context.Background())
+}
+
+func (i PermissionArgs) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionOutput)
+}
+
+// PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
+// You can construct a concrete instance of `PermissionArrayInput` via:
+//
+//          PermissionArray{ PermissionArgs{...} }
+type PermissionArrayInput interface {
+	pulumi.Input
+
+	ToPermissionArrayOutput() PermissionArrayOutput
+	ToPermissionArrayOutputWithContext(context.Context) PermissionArrayOutput
+}
+
+type PermissionArray []PermissionInput
+
+func (PermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Permission)(nil)).Elem()
+}
+
+func (i PermissionArray) ToPermissionArrayOutput() PermissionArrayOutput {
+	return i.ToPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionArrayOutput)
+}
+
+// Role definition permissions.
+type PermissionOutput struct{ *pulumi.OutputState }
+
+func (PermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Permission)(nil)).Elem()
+}
+
+func (o PermissionOutput) ToPermissionOutput() PermissionOutput {
+	return o
+}
+
+func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) PermissionOutput {
+	return o
+}
+
+// Allowed actions.
+func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Permission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// Denied actions.
+func (o PermissionOutput) NotActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Permission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+}
+
+type PermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Permission)(nil)).Elem()
+}
+
+func (o PermissionArrayOutput) ToPermissionArrayOutput() PermissionArrayOutput {
+	return o
+}
+
+func (o PermissionArrayOutput) ToPermissionArrayOutputWithContext(ctx context.Context) PermissionArrayOutput {
+	return o
+}
+
+func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Permission {
+		return vs[0].([]Permission)[vs[1].(int)]
+	}).(PermissionOutput)
+}
+
+// Role definition permissions.
+type PermissionResponse struct {
+	// Allowed actions.
+	Actions []string `pulumi:"actions"`
+	// Denied actions.
+	NotActions []string `pulumi:"notActions"`
+}
+
+// PermissionResponseInput is an input type that accepts PermissionResponseArgs and PermissionResponseOutput values.
+// You can construct a concrete instance of `PermissionResponseInput` via:
+//
+//          PermissionResponseArgs{...}
+type PermissionResponseInput interface {
+	pulumi.Input
+
+	ToPermissionResponseOutput() PermissionResponseOutput
+	ToPermissionResponseOutputWithContext(context.Context) PermissionResponseOutput
+}
+
+// Role definition permissions.
+type PermissionResponseArgs struct {
+	// Allowed actions.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Denied actions.
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+}
+
+func (PermissionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionResponse)(nil)).Elem()
+}
+
+func (i PermissionResponseArgs) ToPermissionResponseOutput() PermissionResponseOutput {
+	return i.ToPermissionResponseOutputWithContext(context.Background())
+}
+
+func (i PermissionResponseArgs) ToPermissionResponseOutputWithContext(ctx context.Context) PermissionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseOutput)
+}
+
+// PermissionResponseArrayInput is an input type that accepts PermissionResponseArray and PermissionResponseArrayOutput values.
+// You can construct a concrete instance of `PermissionResponseArrayInput` via:
+//
+//          PermissionResponseArray{ PermissionResponseArgs{...} }
+type PermissionResponseArrayInput interface {
+	pulumi.Input
+
+	ToPermissionResponseArrayOutput() PermissionResponseArrayOutput
+	ToPermissionResponseArrayOutputWithContext(context.Context) PermissionResponseArrayOutput
+}
+
+type PermissionResponseArray []PermissionResponseInput
+
+func (PermissionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionResponse)(nil)).Elem()
+}
+
+func (i PermissionResponseArray) ToPermissionResponseArrayOutput() PermissionResponseArrayOutput {
+	return i.ToPermissionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionResponseArray) ToPermissionResponseArrayOutputWithContext(ctx context.Context) PermissionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseArrayOutput)
+}
+
+// Role definition permissions.
+type PermissionResponseOutput struct{ *pulumi.OutputState }
+
+func (PermissionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionResponse)(nil)).Elem()
+}
+
+func (o PermissionResponseOutput) ToPermissionResponseOutput() PermissionResponseOutput {
+	return o
+}
+
+func (o PermissionResponseOutput) ToPermissionResponseOutputWithContext(ctx context.Context) PermissionResponseOutput {
+	return o
+}
+
+// Allowed actions.
+func (o PermissionResponseOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// Denied actions.
+func (o PermissionResponseOutput) NotActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionResponse) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+}
+
+type PermissionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionResponse)(nil)).Elem()
+}
+
+func (o PermissionResponseArrayOutput) ToPermissionResponseArrayOutput() PermissionResponseArrayOutput {
+	return o
+}
+
+func (o PermissionResponseArrayOutput) ToPermissionResponseArrayOutputWithContext(ctx context.Context) PermissionResponseArrayOutput {
+	return o
+}
+
+func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionResponse {
+		return vs[0].([]PermissionResponse)[vs[1].(int)]
+	}).(PermissionResponseOutput)
+}
+
+// The policy assignment.
+type PolicyAssignmentType struct {
+	// The managed identity associated with the policy assignment.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The location of the policy assignment. Only required when utilizing managed identity.
+	Location *string `pulumi:"location"`
+	// The name of the policy assignment.
+	Name string `pulumi:"name"`
+	// Properties for the policy assignment.
+	Properties PolicyAssignmentPropertiesResponse `pulumi:"properties"`
+	// The policy sku. This property is optional, obsolete, and will be ignored.
+	Sku *PolicySkuResponse `pulumi:"sku"`
+	// The type of the policy assignment.
+	Type string `pulumi:"type"`
+}
+
+// PolicyAssignmentTypeInput is an input type that accepts PolicyAssignmentTypeArgs and PolicyAssignmentTypeOutput values.
+// You can construct a concrete instance of `PolicyAssignmentTypeInput` via:
+//
+//          PolicyAssignmentTypeArgs{...}
+type PolicyAssignmentTypeInput interface {
+	pulumi.Input
+
+	ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput
+	ToPolicyAssignmentTypeOutputWithContext(context.Context) PolicyAssignmentTypeOutput
+}
+
+// The policy assignment.
+type PolicyAssignmentTypeArgs struct {
+	// The managed identity associated with the policy assignment.
+	Identity IdentityResponsePtrInput `pulumi:"identity"`
+	// The location of the policy assignment. Only required when utilizing managed identity.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the policy assignment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties for the policy assignment.
+	Properties PolicyAssignmentPropertiesResponseInput `pulumi:"properties"`
+	// The policy sku. This property is optional, obsolete, and will be ignored.
+	Sku PolicySkuResponsePtrInput `pulumi:"sku"`
+	// The type of the policy assignment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PolicyAssignmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignmentType)(nil)).Elem()
+}
+
+func (i PolicyAssignmentTypeArgs) ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput {
+	return i.ToPolicyAssignmentTypeOutputWithContext(context.Background())
+}
+
+func (i PolicyAssignmentTypeArgs) ToPolicyAssignmentTypeOutputWithContext(ctx context.Context) PolicyAssignmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentTypeOutput)
+}
+
+// The policy assignment.
+type PolicyAssignmentTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssignmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignmentType)(nil)).Elem()
+}
+
+func (o PolicyAssignmentTypeOutput) ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput {
+	return o
+}
+
+func (o PolicyAssignmentTypeOutput) ToPolicyAssignmentTypeOutputWithContext(ctx context.Context) PolicyAssignmentTypeOutput {
+	return o
+}
+
+// The managed identity associated with the policy assignment.
+func (o PolicyAssignmentTypeOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The location of the policy assignment. Only required when utilizing managed identity.
+func (o PolicyAssignmentTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy assignment.
+func (o PolicyAssignmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyAssignmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties for the policy assignment.
+func (o PolicyAssignmentTypeOutput) Properties() PolicyAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v PolicyAssignmentType) PolicyAssignmentPropertiesResponse { return v.Properties }).(PolicyAssignmentPropertiesResponseOutput)
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+func (o PolicyAssignmentTypeOutput) Sku() PolicySkuResponsePtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentType) *PolicySkuResponse { return v.Sku }).(PolicySkuResponsePtrOutput)
+}
+
+// The type of the policy assignment.
+func (o PolicyAssignmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyAssignmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The policy assignment properties.
+type PolicyAssignmentProperties struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode *string `pulumi:"enforcementMode"`
+	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The policy's excluded scopes.
+	NotScopes []string `pulumi:"notScopes"`
+	// The parameter values for the assigned policy rule. The keys are the parameter names.
+	Parameters *ParameterValues `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
+}
+
+// PolicyAssignmentPropertiesInput is an input type that accepts PolicyAssignmentPropertiesArgs and PolicyAssignmentPropertiesOutput values.
+// You can construct a concrete instance of `PolicyAssignmentPropertiesInput` via:
+//
+//          PolicyAssignmentPropertiesArgs{...}
+type PolicyAssignmentPropertiesInput interface {
+	pulumi.Input
+
+	ToPolicyAssignmentPropertiesOutput() PolicyAssignmentPropertiesOutput
+	ToPolicyAssignmentPropertiesOutputWithContext(context.Context) PolicyAssignmentPropertiesOutput
+}
+
+// The policy assignment properties.
+type PolicyAssignmentPropertiesArgs struct {
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode pulumi.StringPtrInput `pulumi:"enforcementMode"`
+	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The policy's excluded scopes.
+	NotScopes pulumi.StringArrayInput `pulumi:"notScopes"`
+	// The parameter values for the assigned policy rule. The keys are the parameter names.
+	Parameters ParameterValuesPtrInput `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (PolicyAssignmentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignmentProperties)(nil)).Elem()
+}
+
+func (i PolicyAssignmentPropertiesArgs) ToPolicyAssignmentPropertiesOutput() PolicyAssignmentPropertiesOutput {
+	return i.ToPolicyAssignmentPropertiesOutputWithContext(context.Background())
+}
+
+func (i PolicyAssignmentPropertiesArgs) ToPolicyAssignmentPropertiesOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesOutput)
+}
+
+func (i PolicyAssignmentPropertiesArgs) ToPolicyAssignmentPropertiesPtrOutput() PolicyAssignmentPropertiesPtrOutput {
+	return i.ToPolicyAssignmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyAssignmentPropertiesArgs) ToPolicyAssignmentPropertiesPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesOutput).ToPolicyAssignmentPropertiesPtrOutputWithContext(ctx)
+}
+
+// PolicyAssignmentPropertiesPtrInput is an input type that accepts PolicyAssignmentPropertiesArgs, PolicyAssignmentPropertiesPtr and PolicyAssignmentPropertiesPtrOutput values.
+// You can construct a concrete instance of `PolicyAssignmentPropertiesPtrInput` via:
+//
+//          PolicyAssignmentPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyAssignmentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPolicyAssignmentPropertiesPtrOutput() PolicyAssignmentPropertiesPtrOutput
+	ToPolicyAssignmentPropertiesPtrOutputWithContext(context.Context) PolicyAssignmentPropertiesPtrOutput
+}
+
+type policyAssignmentPropertiesPtrType PolicyAssignmentPropertiesArgs
+
+func PolicyAssignmentPropertiesPtr(v *PolicyAssignmentPropertiesArgs) PolicyAssignmentPropertiesPtrInput {
+	return (*policyAssignmentPropertiesPtrType)(v)
+}
+
+func (*policyAssignmentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyAssignmentProperties)(nil)).Elem()
+}
+
+func (i *policyAssignmentPropertiesPtrType) ToPolicyAssignmentPropertiesPtrOutput() PolicyAssignmentPropertiesPtrOutput {
+	return i.ToPolicyAssignmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *policyAssignmentPropertiesPtrType) ToPolicyAssignmentPropertiesPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesPtrOutput)
+}
+
+// The policy assignment properties.
+type PolicyAssignmentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssignmentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignmentProperties)(nil)).Elem()
+}
+
+func (o PolicyAssignmentPropertiesOutput) ToPolicyAssignmentPropertiesOutput() PolicyAssignmentPropertiesOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesOutput) ToPolicyAssignmentPropertiesOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesOutput) ToPolicyAssignmentPropertiesPtrOutput() PolicyAssignmentPropertiesPtrOutput {
+	return o.ToPolicyAssignmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssignmentPropertiesOutput) ToPolicyAssignmentPropertiesPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) *PolicyAssignmentProperties {
+		return &v
+	}).(PolicyAssignmentPropertiesPtrOutput)
+}
+
+// This message will be part of response in case of policy violation.
+func (o PolicyAssignmentPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o PolicyAssignmentPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+func (o PolicyAssignmentPropertiesOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) *string { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+func (o PolicyAssignmentPropertiesOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The policy's excluded scopes.
+func (o PolicyAssignmentPropertiesOutput) NotScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) []string { return v.NotScopes }).(pulumi.StringArrayOutput)
+}
+
+// The parameter values for the assigned policy rule. The keys are the parameter names.
+func (o PolicyAssignmentPropertiesOutput) Parameters() ParameterValuesPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) *ParameterValues { return v.Parameters }).(ParameterValuesPtrOutput)
+}
+
+// The ID of the policy definition or policy set definition being assigned.
+func (o PolicyAssignmentPropertiesOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o PolicyAssignmentPropertiesOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+type PolicyAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssignmentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyAssignmentProperties)(nil)).Elem()
+}
+
+func (o PolicyAssignmentPropertiesPtrOutput) ToPolicyAssignmentPropertiesPtrOutput() PolicyAssignmentPropertiesPtrOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesPtrOutput) ToPolicyAssignmentPropertiesPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesPtrOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesPtrOutput) Elem() PolicyAssignmentPropertiesOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) PolicyAssignmentProperties { return *v }).(PolicyAssignmentPropertiesOutput)
+}
+
+// This message will be part of response in case of policy violation.
+func (o PolicyAssignmentPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o PolicyAssignmentPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+func (o PolicyAssignmentPropertiesPtrOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnforcementMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+func (o PolicyAssignmentPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(pulumi.StringMapOutput)
+}
+
+// The policy's excluded scopes.
+func (o PolicyAssignmentPropertiesPtrOutput) NotScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NotScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The parameter values for the assigned policy rule. The keys are the parameter names.
+func (o PolicyAssignmentPropertiesPtrOutput) Parameters() ParameterValuesPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) *ParameterValues {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(ParameterValuesPtrOutput)
+}
+
+// The ID of the policy definition or policy set definition being assigned.
+func (o PolicyAssignmentPropertiesPtrOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyDefinitionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o PolicyAssignmentPropertiesPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment properties.
+type PolicyAssignmentPropertiesResponse struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode *string `pulumi:"enforcementMode"`
+	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The policy's excluded scopes.
+	NotScopes []string `pulumi:"notScopes"`
+	// The parameter values for the assigned policy rule. The keys are the parameter names.
+	Parameters *ParameterValuesResponse `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
+}
+
+// PolicyAssignmentPropertiesResponseInput is an input type that accepts PolicyAssignmentPropertiesResponseArgs and PolicyAssignmentPropertiesResponseOutput values.
+// You can construct a concrete instance of `PolicyAssignmentPropertiesResponseInput` via:
+//
+//          PolicyAssignmentPropertiesResponseArgs{...}
+type PolicyAssignmentPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPolicyAssignmentPropertiesResponseOutput() PolicyAssignmentPropertiesResponseOutput
+	ToPolicyAssignmentPropertiesResponseOutputWithContext(context.Context) PolicyAssignmentPropertiesResponseOutput
+}
+
+// The policy assignment properties.
+type PolicyAssignmentPropertiesResponseArgs struct {
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode pulumi.StringPtrInput `pulumi:"enforcementMode"`
+	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The policy's excluded scopes.
+	NotScopes pulumi.StringArrayInput `pulumi:"notScopes"`
+	// The parameter values for the assigned policy rule. The keys are the parameter names.
+	Parameters ParameterValuesResponsePtrInput `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (PolicyAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignmentPropertiesResponse)(nil)).Elem()
+}
+
+func (i PolicyAssignmentPropertiesResponseArgs) ToPolicyAssignmentPropertiesResponseOutput() PolicyAssignmentPropertiesResponseOutput {
+	return i.ToPolicyAssignmentPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PolicyAssignmentPropertiesResponseArgs) ToPolicyAssignmentPropertiesResponseOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesResponseOutput)
+}
+
+func (i PolicyAssignmentPropertiesResponseArgs) ToPolicyAssignmentPropertiesResponsePtrOutput() PolicyAssignmentPropertiesResponsePtrOutput {
+	return i.ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyAssignmentPropertiesResponseArgs) ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesResponseOutput).ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PolicyAssignmentPropertiesResponsePtrInput is an input type that accepts PolicyAssignmentPropertiesResponseArgs, PolicyAssignmentPropertiesResponsePtr and PolicyAssignmentPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PolicyAssignmentPropertiesResponsePtrInput` via:
+//
+//          PolicyAssignmentPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicyAssignmentPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPolicyAssignmentPropertiesResponsePtrOutput() PolicyAssignmentPropertiesResponsePtrOutput
+	ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(context.Context) PolicyAssignmentPropertiesResponsePtrOutput
+}
+
+type policyAssignmentPropertiesResponsePtrType PolicyAssignmentPropertiesResponseArgs
+
+func PolicyAssignmentPropertiesResponsePtr(v *PolicyAssignmentPropertiesResponseArgs) PolicyAssignmentPropertiesResponsePtrInput {
+	return (*policyAssignmentPropertiesResponsePtrType)(v)
+}
+
+func (*policyAssignmentPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyAssignmentPropertiesResponse)(nil)).Elem()
+}
+
+func (i *policyAssignmentPropertiesResponsePtrType) ToPolicyAssignmentPropertiesResponsePtrOutput() PolicyAssignmentPropertiesResponsePtrOutput {
+	return i.ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *policyAssignmentPropertiesResponsePtrType) ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentPropertiesResponsePtrOutput)
+}
+
+// The policy assignment properties.
+type PolicyAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyAssignmentPropertiesResponse)(nil)).Elem()
+}
+
+func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesResponseOutput() PolicyAssignmentPropertiesResponseOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesResponseOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponseOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesResponsePtrOutput() PolicyAssignmentPropertiesResponsePtrOutput {
+	return o.ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponse {
+		return &v
+	}).(PolicyAssignmentPropertiesResponsePtrOutput)
+}
+
+// This message will be part of response in case of policy violation.
+func (o PolicyAssignmentPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o PolicyAssignmentPropertiesResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+func (o PolicyAssignmentPropertiesResponseOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *string { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+func (o PolicyAssignmentPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The policy's excluded scopes.
+func (o PolicyAssignmentPropertiesResponseOutput) NotScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) []string { return v.NotScopes }).(pulumi.StringArrayOutput)
+}
+
+// The parameter values for the assigned policy rule. The keys are the parameter names.
+func (o PolicyAssignmentPropertiesResponseOutput) Parameters() ParameterValuesResponsePtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *ParameterValuesResponse { return v.Parameters }).(ParameterValuesResponsePtrOutput)
+}
+
+// The ID of the policy definition or policy set definition being assigned.
+func (o PolicyAssignmentPropertiesResponseOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o PolicyAssignmentPropertiesResponseOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+type PolicyAssignmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyAssignmentPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyAssignmentPropertiesResponse)(nil)).Elem()
+}
+
+func (o PolicyAssignmentPropertiesResponsePtrOutput) ToPolicyAssignmentPropertiesResponsePtrOutput() PolicyAssignmentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesResponsePtrOutput) ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PolicyAssignmentPropertiesResponsePtrOutput) Elem() PolicyAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) PolicyAssignmentPropertiesResponse { return *v }).(PolicyAssignmentPropertiesResponseOutput)
+}
+
+// This message will be part of response in case of policy violation.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnforcementMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(pulumi.StringMapOutput)
+}
+
+// The policy's excluded scopes.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) NotScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NotScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The parameter values for the assigned policy rule. The keys are the parameter names.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) Parameters() ParameterValuesResponsePtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *ParameterValuesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(ParameterValuesResponsePtrOutput)
+}
+
+// The ID of the policy definition or policy set definition being assigned.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyDefinitionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o PolicyAssignmentPropertiesResponsePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
 // The policy definition.
-type PolicyDefinitionAtManagementGroupType struct {
+type PolicyDefinitionType struct {
 	// The name of the policy definition.
 	Name string `pulumi:"name"`
 	// The policy definition properties.
@@ -1097,19 +2474,19 @@ type PolicyDefinitionAtManagementGroupType struct {
 	Type string `pulumi:"type"`
 }
 
-// PolicyDefinitionAtManagementGroupTypeInput is an input type that accepts PolicyDefinitionAtManagementGroupTypeArgs and PolicyDefinitionAtManagementGroupTypeOutput values.
-// You can construct a concrete instance of `PolicyDefinitionAtManagementGroupTypeInput` via:
+// PolicyDefinitionTypeInput is an input type that accepts PolicyDefinitionTypeArgs and PolicyDefinitionTypeOutput values.
+// You can construct a concrete instance of `PolicyDefinitionTypeInput` via:
 //
-//          PolicyDefinitionAtManagementGroupTypeArgs{...}
-type PolicyDefinitionAtManagementGroupTypeInput interface {
+//          PolicyDefinitionTypeArgs{...}
+type PolicyDefinitionTypeInput interface {
 	pulumi.Input
 
-	ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput
-	ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(context.Context) PolicyDefinitionAtManagementGroupTypeOutput
+	ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput
+	ToPolicyDefinitionTypeOutputWithContext(context.Context) PolicyDefinitionTypeOutput
 }
 
 // The policy definition.
-type PolicyDefinitionAtManagementGroupTypeArgs struct {
+type PolicyDefinitionTypeArgs struct {
 	// The name of the policy definition.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The policy definition properties.
@@ -1118,46 +2495,46 @@ type PolicyDefinitionAtManagementGroupTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (PolicyDefinitionAtManagementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupType)(nil)).Elem()
+func (PolicyDefinitionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionType)(nil)).Elem()
 }
 
-func (i PolicyDefinitionAtManagementGroupTypeArgs) ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput {
-	return i.ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(context.Background())
+func (i PolicyDefinitionTypeArgs) ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput {
+	return i.ToPolicyDefinitionTypeOutputWithContext(context.Background())
 }
 
-func (i PolicyDefinitionAtManagementGroupTypeArgs) ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionAtManagementGroupTypeOutput)
+func (i PolicyDefinitionTypeArgs) ToPolicyDefinitionTypeOutputWithContext(ctx context.Context) PolicyDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTypeOutput)
 }
 
 // The policy definition.
-type PolicyDefinitionAtManagementGroupTypeOutput struct{ *pulumi.OutputState }
+type PolicyDefinitionTypeOutput struct{ *pulumi.OutputState }
 
-func (PolicyDefinitionAtManagementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupType)(nil)).Elem()
+func (PolicyDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionType)(nil)).Elem()
 }
 
-func (o PolicyDefinitionAtManagementGroupTypeOutput) ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput {
+func (o PolicyDefinitionTypeOutput) ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput {
 	return o
 }
 
-func (o PolicyDefinitionAtManagementGroupTypeOutput) ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupTypeOutput {
+func (o PolicyDefinitionTypeOutput) ToPolicyDefinitionTypeOutputWithContext(ctx context.Context) PolicyDefinitionTypeOutput {
 	return o
 }
 
 // The name of the policy definition.
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
+func (o PolicyDefinitionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The policy definition properties.
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Properties() PolicyDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) PolicyDefinitionPropertiesResponse { return v.Properties }).(PolicyDefinitionPropertiesResponseOutput)
+func (o PolicyDefinitionTypeOutput) Properties() PolicyDefinitionPropertiesResponseOutput {
+	return o.ApplyT(func(v PolicyDefinitionType) PolicyDefinitionPropertiesResponse { return v.Properties }).(PolicyDefinitionPropertiesResponseOutput)
 }
 
 // The type of the resource (Microsoft.Authorization/policyDefinitions).
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
+func (o PolicyDefinitionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDefinitionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The policy definition group.
@@ -2183,7 +3560,7 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 // The policy set definition.
-type PolicySetDefinitionAtManagementGroupType struct {
+type PolicySetDefinitionType struct {
 	// The name of the policy set definition.
 	Name string `pulumi:"name"`
 	// The policy definition properties.
@@ -2192,19 +3569,19 @@ type PolicySetDefinitionAtManagementGroupType struct {
 	Type string `pulumi:"type"`
 }
 
-// PolicySetDefinitionAtManagementGroupTypeInput is an input type that accepts PolicySetDefinitionAtManagementGroupTypeArgs and PolicySetDefinitionAtManagementGroupTypeOutput values.
-// You can construct a concrete instance of `PolicySetDefinitionAtManagementGroupTypeInput` via:
+// PolicySetDefinitionTypeInput is an input type that accepts PolicySetDefinitionTypeArgs and PolicySetDefinitionTypeOutput values.
+// You can construct a concrete instance of `PolicySetDefinitionTypeInput` via:
 //
-//          PolicySetDefinitionAtManagementGroupTypeArgs{...}
-type PolicySetDefinitionAtManagementGroupTypeInput interface {
+//          PolicySetDefinitionTypeArgs{...}
+type PolicySetDefinitionTypeInput interface {
 	pulumi.Input
 
-	ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput
-	ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(context.Context) PolicySetDefinitionAtManagementGroupTypeOutput
+	ToPolicySetDefinitionTypeOutput() PolicySetDefinitionTypeOutput
+	ToPolicySetDefinitionTypeOutputWithContext(context.Context) PolicySetDefinitionTypeOutput
 }
 
 // The policy set definition.
-type PolicySetDefinitionAtManagementGroupTypeArgs struct {
+type PolicySetDefinitionTypeArgs struct {
 	// The name of the policy set definition.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The policy definition properties.
@@ -2213,48 +3590,46 @@ type PolicySetDefinitionAtManagementGroupTypeArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (PolicySetDefinitionAtManagementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroupType)(nil)).Elem()
+func (PolicySetDefinitionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySetDefinitionType)(nil)).Elem()
 }
 
-func (i PolicySetDefinitionAtManagementGroupTypeArgs) ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput {
-	return i.ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(context.Background())
+func (i PolicySetDefinitionTypeArgs) ToPolicySetDefinitionTypeOutput() PolicySetDefinitionTypeOutput {
+	return i.ToPolicySetDefinitionTypeOutputWithContext(context.Background())
 }
 
-func (i PolicySetDefinitionAtManagementGroupTypeArgs) ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicySetDefinitionAtManagementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionAtManagementGroupTypeOutput)
+func (i PolicySetDefinitionTypeArgs) ToPolicySetDefinitionTypeOutputWithContext(ctx context.Context) PolicySetDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionTypeOutput)
 }
 
 // The policy set definition.
-type PolicySetDefinitionAtManagementGroupTypeOutput struct{ *pulumi.OutputState }
+type PolicySetDefinitionTypeOutput struct{ *pulumi.OutputState }
 
-func (PolicySetDefinitionAtManagementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroupType)(nil)).Elem()
+func (PolicySetDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySetDefinitionType)(nil)).Elem()
 }
 
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput {
+func (o PolicySetDefinitionTypeOutput) ToPolicySetDefinitionTypeOutput() PolicySetDefinitionTypeOutput {
 	return o
 }
 
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicySetDefinitionAtManagementGroupTypeOutput {
+func (o PolicySetDefinitionTypeOutput) ToPolicySetDefinitionTypeOutputWithContext(ctx context.Context) PolicySetDefinitionTypeOutput {
 	return o
 }
 
 // The name of the policy set definition.
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
+func (o PolicySetDefinitionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySetDefinitionType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The policy definition properties.
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Properties() PolicySetDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) PolicySetDefinitionPropertiesResponse {
-		return v.Properties
-	}).(PolicySetDefinitionPropertiesResponseOutput)
+func (o PolicySetDefinitionTypeOutput) Properties() PolicySetDefinitionPropertiesResponseOutput {
+	return o.ApplyT(func(v PolicySetDefinitionType) PolicySetDefinitionPropertiesResponse { return v.Properties }).(PolicySetDefinitionPropertiesResponseOutput)
 }
 
 // The type of the resource (Microsoft.Authorization/policySetDefinitions).
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
+func (o PolicySetDefinitionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySetDefinitionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The policy set definition properties.
@@ -2757,8 +4132,1214 @@ func (o PolicySetDefinitionPropertiesResponsePtrOutput) PolicyType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySku struct {
+	// The name of the policy sku. Possible values are A0 and A1.
+	Name string `pulumi:"name"`
+	// The policy sku tier. Possible values are Free and Standard.
+	Tier *string `pulumi:"tier"`
+}
+
+// PolicySkuInput is an input type that accepts PolicySkuArgs and PolicySkuOutput values.
+// You can construct a concrete instance of `PolicySkuInput` via:
+//
+//          PolicySkuArgs{...}
+type PolicySkuInput interface {
+	pulumi.Input
+
+	ToPolicySkuOutput() PolicySkuOutput
+	ToPolicySkuOutputWithContext(context.Context) PolicySkuOutput
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuArgs struct {
+	// The name of the policy sku. Possible values are A0 and A1.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The policy sku tier. Possible values are Free and Standard.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (PolicySkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySku)(nil)).Elem()
+}
+
+func (i PolicySkuArgs) ToPolicySkuOutput() PolicySkuOutput {
+	return i.ToPolicySkuOutputWithContext(context.Background())
+}
+
+func (i PolicySkuArgs) ToPolicySkuOutputWithContext(ctx context.Context) PolicySkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuOutput)
+}
+
+func (i PolicySkuArgs) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
+	return i.ToPolicySkuPtrOutputWithContext(context.Background())
+}
+
+func (i PolicySkuArgs) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuOutput).ToPolicySkuPtrOutputWithContext(ctx)
+}
+
+// PolicySkuPtrInput is an input type that accepts PolicySkuArgs, PolicySkuPtr and PolicySkuPtrOutput values.
+// You can construct a concrete instance of `PolicySkuPtrInput` via:
+//
+//          PolicySkuArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicySkuPtrInput interface {
+	pulumi.Input
+
+	ToPolicySkuPtrOutput() PolicySkuPtrOutput
+	ToPolicySkuPtrOutputWithContext(context.Context) PolicySkuPtrOutput
+}
+
+type policySkuPtrType PolicySkuArgs
+
+func PolicySkuPtr(v *PolicySkuArgs) PolicySkuPtrInput {
+	return (*policySkuPtrType)(v)
+}
+
+func (*policySkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySku)(nil)).Elem()
+}
+
+func (i *policySkuPtrType) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
+	return i.ToPolicySkuPtrOutputWithContext(context.Background())
+}
+
+func (i *policySkuPtrType) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuPtrOutput)
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuOutput struct{ *pulumi.OutputState }
+
+func (PolicySkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySku)(nil)).Elem()
+}
+
+func (o PolicySkuOutput) ToPolicySkuOutput() PolicySkuOutput {
+	return o
+}
+
+func (o PolicySkuOutput) ToPolicySkuOutputWithContext(ctx context.Context) PolicySkuOutput {
+	return o
+}
+
+func (o PolicySkuOutput) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
+	return o.ToPolicySkuPtrOutputWithContext(context.Background())
+}
+
+func (o PolicySkuOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
+	return o.ApplyT(func(v PolicySku) *PolicySku {
+		return &v
+	}).(PolicySkuPtrOutput)
+}
+
+// The name of the policy sku. Possible values are A0 and A1.
+func (o PolicySkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy sku tier. Possible values are Free and Standard.
+func (o PolicySkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type PolicySkuPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySku)(nil)).Elem()
+}
+
+func (o PolicySkuPtrOutput) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
+	return o
+}
+
+func (o PolicySkuPtrOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
+	return o
+}
+
+func (o PolicySkuPtrOutput) Elem() PolicySkuOutput {
+	return o.ApplyT(func(v *PolicySku) PolicySku { return *v }).(PolicySkuOutput)
+}
+
+// The name of the policy sku. Possible values are A0 and A1.
+func (o PolicySkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy sku tier. Possible values are Free and Standard.
+func (o PolicySkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuResponse struct {
+	// The name of the policy sku. Possible values are A0 and A1.
+	Name string `pulumi:"name"`
+	// The policy sku tier. Possible values are Free and Standard.
+	Tier *string `pulumi:"tier"`
+}
+
+// PolicySkuResponseInput is an input type that accepts PolicySkuResponseArgs and PolicySkuResponseOutput values.
+// You can construct a concrete instance of `PolicySkuResponseInput` via:
+//
+//          PolicySkuResponseArgs{...}
+type PolicySkuResponseInput interface {
+	pulumi.Input
+
+	ToPolicySkuResponseOutput() PolicySkuResponseOutput
+	ToPolicySkuResponseOutputWithContext(context.Context) PolicySkuResponseOutput
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuResponseArgs struct {
+	// The name of the policy sku. Possible values are A0 and A1.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The policy sku tier. Possible values are Free and Standard.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (PolicySkuResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySkuResponse)(nil)).Elem()
+}
+
+func (i PolicySkuResponseArgs) ToPolicySkuResponseOutput() PolicySkuResponseOutput {
+	return i.ToPolicySkuResponseOutputWithContext(context.Background())
+}
+
+func (i PolicySkuResponseArgs) ToPolicySkuResponseOutputWithContext(ctx context.Context) PolicySkuResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponseOutput)
+}
+
+func (i PolicySkuResponseArgs) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
+	return i.ToPolicySkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PolicySkuResponseArgs) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponseOutput).ToPolicySkuResponsePtrOutputWithContext(ctx)
+}
+
+// PolicySkuResponsePtrInput is an input type that accepts PolicySkuResponseArgs, PolicySkuResponsePtr and PolicySkuResponsePtrOutput values.
+// You can construct a concrete instance of `PolicySkuResponsePtrInput` via:
+//
+//          PolicySkuResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PolicySkuResponsePtrInput interface {
+	pulumi.Input
+
+	ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput
+	ToPolicySkuResponsePtrOutputWithContext(context.Context) PolicySkuResponsePtrOutput
+}
+
+type policySkuResponsePtrType PolicySkuResponseArgs
+
+func PolicySkuResponsePtr(v *PolicySkuResponseArgs) PolicySkuResponsePtrInput {
+	return (*policySkuResponsePtrType)(v)
+}
+
+func (*policySkuResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySkuResponse)(nil)).Elem()
+}
+
+func (i *policySkuResponsePtrType) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
+	return i.ToPolicySkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *policySkuResponsePtrType) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuResponsePtrOutput)
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicySkuResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySkuResponse)(nil)).Elem()
+}
+
+func (o PolicySkuResponseOutput) ToPolicySkuResponseOutput() PolicySkuResponseOutput {
+	return o
+}
+
+func (o PolicySkuResponseOutput) ToPolicySkuResponseOutputWithContext(ctx context.Context) PolicySkuResponseOutput {
+	return o
+}
+
+func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
+	return o.ToPolicySkuResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
+	return o.ApplyT(func(v PolicySkuResponse) *PolicySkuResponse {
+		return &v
+	}).(PolicySkuResponsePtrOutput)
+}
+
+// The name of the policy sku. Possible values are A0 and A1.
+func (o PolicySkuResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySkuResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy sku tier. Possible values are Free and Standard.
+func (o PolicySkuResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type PolicySkuResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicySkuResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicySkuResponse)(nil)).Elem()
+}
+
+func (o PolicySkuResponsePtrOutput) ToPolicySkuResponsePtrOutput() PolicySkuResponsePtrOutput {
+	return o
+}
+
+func (o PolicySkuResponsePtrOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
+	return o
+}
+
+func (o PolicySkuResponsePtrOutput) Elem() PolicySkuResponseOutput {
+	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse { return *v }).(PolicySkuResponseOutput)
+}
+
+// The name of the policy sku. Possible values are A0 and A1.
+func (o PolicySkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy sku tier. Possible values are Free and Standard.
+func (o PolicySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySkuResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role Assignments
+type RoleAssignmentType struct {
+	// The role assignment name.
+	Name string `pulumi:"name"`
+	// Role assignment properties.
+	Properties RoleAssignmentPropertiesWithScopeResponse `pulumi:"properties"`
+	// The role assignment type.
+	Type string `pulumi:"type"`
+}
+
+// RoleAssignmentTypeInput is an input type that accepts RoleAssignmentTypeArgs and RoleAssignmentTypeOutput values.
+// You can construct a concrete instance of `RoleAssignmentTypeInput` via:
+//
+//          RoleAssignmentTypeArgs{...}
+type RoleAssignmentTypeInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput
+	ToRoleAssignmentTypeOutputWithContext(context.Context) RoleAssignmentTypeOutput
+}
+
+// Role Assignments
+type RoleAssignmentTypeArgs struct {
+	// The role assignment name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Role assignment properties.
+	Properties RoleAssignmentPropertiesWithScopeResponseInput `pulumi:"properties"`
+	// The role assignment type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RoleAssignmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
+}
+
+func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
+	return i.ToRoleAssignmentTypeOutputWithContext(context.Background())
+}
+
+func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentTypeOutput)
+}
+
+// Role Assignments
+type RoleAssignmentTypeOutput struct{ *pulumi.OutputState }
+
+func (RoleAssignmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
+}
+
+func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
+	return o
+}
+
+func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
+	return o
+}
+
+// The role assignment name.
+func (o RoleAssignmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAssignmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role assignment properties.
+func (o RoleAssignmentTypeOutput) Properties() RoleAssignmentPropertiesWithScopeResponseOutput {
+	return o.ApplyT(func(v RoleAssignmentType) RoleAssignmentPropertiesWithScopeResponse { return v.Properties }).(RoleAssignmentPropertiesWithScopeResponseOutput)
+}
+
+// The role assignment type.
+func (o RoleAssignmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAssignmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Role assignment properties.
+type RoleAssignmentProperties struct {
+	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+	PrincipalId string `pulumi:"principalId"`
+	// The role definition ID used in the role assignment.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// RoleAssignmentPropertiesInput is an input type that accepts RoleAssignmentPropertiesArgs and RoleAssignmentPropertiesOutput values.
+// You can construct a concrete instance of `RoleAssignmentPropertiesInput` via:
+//
+//          RoleAssignmentPropertiesArgs{...}
+type RoleAssignmentPropertiesInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentPropertiesOutput() RoleAssignmentPropertiesOutput
+	ToRoleAssignmentPropertiesOutputWithContext(context.Context) RoleAssignmentPropertiesOutput
+}
+
+// Role assignment properties.
+type RoleAssignmentPropertiesArgs struct {
+	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The role definition ID used in the role assignment.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (RoleAssignmentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentProperties)(nil)).Elem()
+}
+
+func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesOutput() RoleAssignmentPropertiesOutput {
+	return i.ToRoleAssignmentPropertiesOutputWithContext(context.Background())
+}
+
+func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesOutputWithContext(ctx context.Context) RoleAssignmentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesOutput)
+}
+
+func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
+	return i.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesOutput).ToRoleAssignmentPropertiesPtrOutputWithContext(ctx)
+}
+
+// RoleAssignmentPropertiesPtrInput is an input type that accepts RoleAssignmentPropertiesArgs, RoleAssignmentPropertiesPtr and RoleAssignmentPropertiesPtrOutput values.
+// You can construct a concrete instance of `RoleAssignmentPropertiesPtrInput` via:
+//
+//          RoleAssignmentPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RoleAssignmentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput
+	ToRoleAssignmentPropertiesPtrOutputWithContext(context.Context) RoleAssignmentPropertiesPtrOutput
+}
+
+type roleAssignmentPropertiesPtrType RoleAssignmentPropertiesArgs
+
+func RoleAssignmentPropertiesPtr(v *RoleAssignmentPropertiesArgs) RoleAssignmentPropertiesPtrInput {
+	return (*roleAssignmentPropertiesPtrType)(v)
+}
+
+func (*roleAssignmentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssignmentProperties)(nil)).Elem()
+}
+
+func (i *roleAssignmentPropertiesPtrType) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
+	return i.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *roleAssignmentPropertiesPtrType) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesPtrOutput)
+}
+
+// Role assignment properties.
+type RoleAssignmentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RoleAssignmentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentProperties)(nil)).Elem()
+}
+
+func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesOutput() RoleAssignmentPropertiesOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesOutputWithContext(ctx context.Context) RoleAssignmentPropertiesOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
+	return o.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentProperties) *RoleAssignmentProperties {
+		return &v
+	}).(RoleAssignmentPropertiesPtrOutput)
+}
+
+// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+func (o RoleAssignmentPropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The role definition ID used in the role assignment.
+func (o RoleAssignmentPropertiesOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type RoleAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleAssignmentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssignmentProperties)(nil)).Elem()
+}
+
+func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesPtrOutput) Elem() RoleAssignmentPropertiesOutput {
+	return o.ApplyT(func(v *RoleAssignmentProperties) RoleAssignmentProperties { return *v }).(RoleAssignmentPropertiesOutput)
+}
+
+// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
+func (o RoleAssignmentPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The role definition ID used in the role assignment.
+func (o RoleAssignmentPropertiesPtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleDefinitionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role assignment properties with scope.
+type RoleAssignmentPropertiesWithScopeResponse struct {
+	// The principal ID.
+	PrincipalId *string `pulumi:"principalId"`
+	// The role definition ID.
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	// The role assignment scope.
+	Scope *string `pulumi:"scope"`
+}
+
+// RoleAssignmentPropertiesWithScopeResponseInput is an input type that accepts RoleAssignmentPropertiesWithScopeResponseArgs and RoleAssignmentPropertiesWithScopeResponseOutput values.
+// You can construct a concrete instance of `RoleAssignmentPropertiesWithScopeResponseInput` via:
+//
+//          RoleAssignmentPropertiesWithScopeResponseArgs{...}
+type RoleAssignmentPropertiesWithScopeResponseInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput
+	ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeResponseOutput
+}
+
+// Role assignment properties with scope.
+type RoleAssignmentPropertiesWithScopeResponseArgs struct {
+	// The principal ID.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The role definition ID.
+	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
+	// The role assignment scope.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (RoleAssignmentPropertiesWithScopeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
+}
+
+func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput {
+	return i.ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(context.Background())
+}
+
+func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponseOutput)
+}
+
+func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return i.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponseOutput).ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx)
+}
+
+// RoleAssignmentPropertiesWithScopeResponsePtrInput is an input type that accepts RoleAssignmentPropertiesWithScopeResponseArgs, RoleAssignmentPropertiesWithScopeResponsePtr and RoleAssignmentPropertiesWithScopeResponsePtrOutput values.
+// You can construct a concrete instance of `RoleAssignmentPropertiesWithScopeResponsePtrInput` via:
+//
+//          RoleAssignmentPropertiesWithScopeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RoleAssignmentPropertiesWithScopeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput
+	ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput
+}
+
+type roleAssignmentPropertiesWithScopeResponsePtrType RoleAssignmentPropertiesWithScopeResponseArgs
+
+func RoleAssignmentPropertiesWithScopeResponsePtr(v *RoleAssignmentPropertiesWithScopeResponseArgs) RoleAssignmentPropertiesWithScopeResponsePtrInput {
+	return (*roleAssignmentPropertiesWithScopeResponsePtrType)(v)
+}
+
+func (*roleAssignmentPropertiesWithScopeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
+}
+
+func (i *roleAssignmentPropertiesWithScopeResponsePtrType) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return i.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *roleAssignmentPropertiesWithScopeResponsePtrType) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
+}
+
+// Role assignment properties with scope.
+type RoleAssignmentPropertiesWithScopeResponseOutput struct{ *pulumi.OutputState }
+
+func (RoleAssignmentPropertiesWithScopeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
+}
+
+func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponseOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return o.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *RoleAssignmentPropertiesWithScopeResponse {
+		return &v
+	}).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
+}
+
+// The principal ID.
+func (o RoleAssignmentPropertiesWithScopeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The role definition ID.
+func (o RoleAssignmentPropertiesWithScopeResponseOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The role assignment scope.
+func (o RoleAssignmentPropertiesWithScopeResponseOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+type RoleAssignmentPropertiesWithScopeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RoleAssignmentPropertiesWithScopeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
+}
+
+func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Elem() RoleAssignmentPropertiesWithScopeResponseOutput {
+	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) RoleAssignmentPropertiesWithScopeResponse {
+		return *v
+	}).(RoleAssignmentPropertiesWithScopeResponseOutput)
+}
+
+// The principal ID.
+func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The role definition ID.
+func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleDefinitionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The role assignment scope.
+func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role definition.
+type RoleDefinitionType struct {
+	// The role definition name.
+	Name string `pulumi:"name"`
+	// Role definition properties.
+	Properties RoleDefinitionPropertiesResponse `pulumi:"properties"`
+	// The role definition type.
+	Type string `pulumi:"type"`
+}
+
+// RoleDefinitionTypeInput is an input type that accepts RoleDefinitionTypeArgs and RoleDefinitionTypeOutput values.
+// You can construct a concrete instance of `RoleDefinitionTypeInput` via:
+//
+//          RoleDefinitionTypeArgs{...}
+type RoleDefinitionTypeInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionTypeOutput() RoleDefinitionTypeOutput
+	ToRoleDefinitionTypeOutputWithContext(context.Context) RoleDefinitionTypeOutput
+}
+
+// Role definition.
+type RoleDefinitionTypeArgs struct {
+	// The role definition name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Role definition properties.
+	Properties RoleDefinitionPropertiesResponseInput `pulumi:"properties"`
+	// The role definition type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RoleDefinitionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinitionType)(nil)).Elem()
+}
+
+func (i RoleDefinitionTypeArgs) ToRoleDefinitionTypeOutput() RoleDefinitionTypeOutput {
+	return i.ToRoleDefinitionTypeOutputWithContext(context.Background())
+}
+
+func (i RoleDefinitionTypeArgs) ToRoleDefinitionTypeOutputWithContext(ctx context.Context) RoleDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionTypeOutput)
+}
+
+// Role definition.
+type RoleDefinitionTypeOutput struct{ *pulumi.OutputState }
+
+func (RoleDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinitionType)(nil)).Elem()
+}
+
+func (o RoleDefinitionTypeOutput) ToRoleDefinitionTypeOutput() RoleDefinitionTypeOutput {
+	return o
+}
+
+func (o RoleDefinitionTypeOutput) ToRoleDefinitionTypeOutputWithContext(ctx context.Context) RoleDefinitionTypeOutput {
+	return o
+}
+
+// The role definition name.
+func (o RoleDefinitionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleDefinitionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role definition properties.
+func (o RoleDefinitionTypeOutput) Properties() RoleDefinitionPropertiesResponseOutput {
+	return o.ApplyT(func(v RoleDefinitionType) RoleDefinitionPropertiesResponse { return v.Properties }).(RoleDefinitionPropertiesResponseOutput)
+}
+
+// The role definition type.
+func (o RoleDefinitionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleDefinitionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Role definition properties.
+type RoleDefinitionProperties struct {
+	// Role definition assignable scopes.
+	AssignableScopes []string `pulumi:"assignableScopes"`
+	// The role definition description.
+	Description *string `pulumi:"description"`
+	// Role definition permissions.
+	Permissions []Permission `pulumi:"permissions"`
+	// The role name.
+	RoleName *string `pulumi:"roleName"`
+	// The role type.
+	Type *string `pulumi:"type"`
+}
+
+// RoleDefinitionPropertiesInput is an input type that accepts RoleDefinitionPropertiesArgs and RoleDefinitionPropertiesOutput values.
+// You can construct a concrete instance of `RoleDefinitionPropertiesInput` via:
+//
+//          RoleDefinitionPropertiesArgs{...}
+type RoleDefinitionPropertiesInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionPropertiesOutput() RoleDefinitionPropertiesOutput
+	ToRoleDefinitionPropertiesOutputWithContext(context.Context) RoleDefinitionPropertiesOutput
+}
+
+// Role definition properties.
+type RoleDefinitionPropertiesArgs struct {
+	// Role definition assignable scopes.
+	AssignableScopes pulumi.StringArrayInput `pulumi:"assignableScopes"`
+	// The role definition description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Role definition permissions.
+	Permissions PermissionArrayInput `pulumi:"permissions"`
+	// The role name.
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+	// The role type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RoleDefinitionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinitionProperties)(nil)).Elem()
+}
+
+func (i RoleDefinitionPropertiesArgs) ToRoleDefinitionPropertiesOutput() RoleDefinitionPropertiesOutput {
+	return i.ToRoleDefinitionPropertiesOutputWithContext(context.Background())
+}
+
+func (i RoleDefinitionPropertiesArgs) ToRoleDefinitionPropertiesOutputWithContext(ctx context.Context) RoleDefinitionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPropertiesOutput)
+}
+
+func (i RoleDefinitionPropertiesArgs) ToRoleDefinitionPropertiesPtrOutput() RoleDefinitionPropertiesPtrOutput {
+	return i.ToRoleDefinitionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RoleDefinitionPropertiesArgs) ToRoleDefinitionPropertiesPtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPropertiesOutput).ToRoleDefinitionPropertiesPtrOutputWithContext(ctx)
+}
+
+// RoleDefinitionPropertiesPtrInput is an input type that accepts RoleDefinitionPropertiesArgs, RoleDefinitionPropertiesPtr and RoleDefinitionPropertiesPtrOutput values.
+// You can construct a concrete instance of `RoleDefinitionPropertiesPtrInput` via:
+//
+//          RoleDefinitionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RoleDefinitionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionPropertiesPtrOutput() RoleDefinitionPropertiesPtrOutput
+	ToRoleDefinitionPropertiesPtrOutputWithContext(context.Context) RoleDefinitionPropertiesPtrOutput
+}
+
+type roleDefinitionPropertiesPtrType RoleDefinitionPropertiesArgs
+
+func RoleDefinitionPropertiesPtr(v *RoleDefinitionPropertiesArgs) RoleDefinitionPropertiesPtrInput {
+	return (*roleDefinitionPropertiesPtrType)(v)
+}
+
+func (*roleDefinitionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleDefinitionProperties)(nil)).Elem()
+}
+
+func (i *roleDefinitionPropertiesPtrType) ToRoleDefinitionPropertiesPtrOutput() RoleDefinitionPropertiesPtrOutput {
+	return i.ToRoleDefinitionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *roleDefinitionPropertiesPtrType) ToRoleDefinitionPropertiesPtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPropertiesPtrOutput)
+}
+
+// Role definition properties.
+type RoleDefinitionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RoleDefinitionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinitionProperties)(nil)).Elem()
+}
+
+func (o RoleDefinitionPropertiesOutput) ToRoleDefinitionPropertiesOutput() RoleDefinitionPropertiesOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesOutput) ToRoleDefinitionPropertiesOutputWithContext(ctx context.Context) RoleDefinitionPropertiesOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesOutput) ToRoleDefinitionPropertiesPtrOutput() RoleDefinitionPropertiesPtrOutput {
+	return o.ToRoleDefinitionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RoleDefinitionPropertiesOutput) ToRoleDefinitionPropertiesPtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionProperties) *RoleDefinitionProperties {
+		return &v
+	}).(RoleDefinitionPropertiesPtrOutput)
+}
+
+// Role definition assignable scopes.
+func (o RoleDefinitionPropertiesOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleDefinitionProperties) []string { return v.AssignableScopes }).(pulumi.StringArrayOutput)
+}
+
+// The role definition description.
+func (o RoleDefinitionPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Role definition permissions.
+func (o RoleDefinitionPropertiesOutput) Permissions() PermissionArrayOutput {
+	return o.ApplyT(func(v RoleDefinitionProperties) []Permission { return v.Permissions }).(PermissionArrayOutput)
+}
+
+// The role name.
+func (o RoleDefinitionPropertiesOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionProperties) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The role type.
+func (o RoleDefinitionPropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RoleDefinitionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleDefinitionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleDefinitionProperties)(nil)).Elem()
+}
+
+func (o RoleDefinitionPropertiesPtrOutput) ToRoleDefinitionPropertiesPtrOutput() RoleDefinitionPropertiesPtrOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesPtrOutput) ToRoleDefinitionPropertiesPtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesPtrOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesPtrOutput) Elem() RoleDefinitionPropertiesOutput {
+	return o.ApplyT(func(v *RoleDefinitionProperties) RoleDefinitionProperties { return *v }).(RoleDefinitionPropertiesOutput)
+}
+
+// Role definition assignable scopes.
+func (o RoleDefinitionPropertiesPtrOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleDefinitionProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignableScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The role definition description.
+func (o RoleDefinitionPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinitionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role definition permissions.
+func (o RoleDefinitionPropertiesPtrOutput) Permissions() PermissionArrayOutput {
+	return o.ApplyT(func(v *RoleDefinitionProperties) []Permission {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(PermissionArrayOutput)
+}
+
+// The role name.
+func (o RoleDefinitionPropertiesPtrOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinitionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The role type.
+func (o RoleDefinitionPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinitionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role definition properties.
+type RoleDefinitionPropertiesResponse struct {
+	// Role definition assignable scopes.
+	AssignableScopes []string `pulumi:"assignableScopes"`
+	// The role definition description.
+	Description *string `pulumi:"description"`
+	// Role definition permissions.
+	Permissions []PermissionResponse `pulumi:"permissions"`
+	// The role name.
+	RoleName *string `pulumi:"roleName"`
+	// The role type.
+	Type *string `pulumi:"type"`
+}
+
+// RoleDefinitionPropertiesResponseInput is an input type that accepts RoleDefinitionPropertiesResponseArgs and RoleDefinitionPropertiesResponseOutput values.
+// You can construct a concrete instance of `RoleDefinitionPropertiesResponseInput` via:
+//
+//          RoleDefinitionPropertiesResponseArgs{...}
+type RoleDefinitionPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionPropertiesResponseOutput() RoleDefinitionPropertiesResponseOutput
+	ToRoleDefinitionPropertiesResponseOutputWithContext(context.Context) RoleDefinitionPropertiesResponseOutput
+}
+
+// Role definition properties.
+type RoleDefinitionPropertiesResponseArgs struct {
+	// Role definition assignable scopes.
+	AssignableScopes pulumi.StringArrayInput `pulumi:"assignableScopes"`
+	// The role definition description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Role definition permissions.
+	Permissions PermissionResponseArrayInput `pulumi:"permissions"`
+	// The role name.
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+	// The role type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RoleDefinitionPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinitionPropertiesResponse)(nil)).Elem()
+}
+
+func (i RoleDefinitionPropertiesResponseArgs) ToRoleDefinitionPropertiesResponseOutput() RoleDefinitionPropertiesResponseOutput {
+	return i.ToRoleDefinitionPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i RoleDefinitionPropertiesResponseArgs) ToRoleDefinitionPropertiesResponseOutputWithContext(ctx context.Context) RoleDefinitionPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPropertiesResponseOutput)
+}
+
+func (i RoleDefinitionPropertiesResponseArgs) ToRoleDefinitionPropertiesResponsePtrOutput() RoleDefinitionPropertiesResponsePtrOutput {
+	return i.ToRoleDefinitionPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RoleDefinitionPropertiesResponseArgs) ToRoleDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPropertiesResponseOutput).ToRoleDefinitionPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// RoleDefinitionPropertiesResponsePtrInput is an input type that accepts RoleDefinitionPropertiesResponseArgs, RoleDefinitionPropertiesResponsePtr and RoleDefinitionPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `RoleDefinitionPropertiesResponsePtrInput` via:
+//
+//          RoleDefinitionPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RoleDefinitionPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToRoleDefinitionPropertiesResponsePtrOutput() RoleDefinitionPropertiesResponsePtrOutput
+	ToRoleDefinitionPropertiesResponsePtrOutputWithContext(context.Context) RoleDefinitionPropertiesResponsePtrOutput
+}
+
+type roleDefinitionPropertiesResponsePtrType RoleDefinitionPropertiesResponseArgs
+
+func RoleDefinitionPropertiesResponsePtr(v *RoleDefinitionPropertiesResponseArgs) RoleDefinitionPropertiesResponsePtrInput {
+	return (*roleDefinitionPropertiesResponsePtrType)(v)
+}
+
+func (*roleDefinitionPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleDefinitionPropertiesResponse)(nil)).Elem()
+}
+
+func (i *roleDefinitionPropertiesResponsePtrType) ToRoleDefinitionPropertiesResponsePtrOutput() RoleDefinitionPropertiesResponsePtrOutput {
+	return i.ToRoleDefinitionPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *roleDefinitionPropertiesResponsePtrType) ToRoleDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionPropertiesResponsePtrOutput)
+}
+
+// Role definition properties.
+type RoleDefinitionPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (RoleDefinitionPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleDefinitionPropertiesResponse)(nil)).Elem()
+}
+
+func (o RoleDefinitionPropertiesResponseOutput) ToRoleDefinitionPropertiesResponseOutput() RoleDefinitionPropertiesResponseOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesResponseOutput) ToRoleDefinitionPropertiesResponseOutputWithContext(ctx context.Context) RoleDefinitionPropertiesResponseOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesResponseOutput) ToRoleDefinitionPropertiesResponsePtrOutput() RoleDefinitionPropertiesResponsePtrOutput {
+	return o.ToRoleDefinitionPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RoleDefinitionPropertiesResponseOutput) ToRoleDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v RoleDefinitionPropertiesResponse) *RoleDefinitionPropertiesResponse {
+		return &v
+	}).(RoleDefinitionPropertiesResponsePtrOutput)
+}
+
+// Role definition assignable scopes.
+func (o RoleDefinitionPropertiesResponseOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleDefinitionPropertiesResponse) []string { return v.AssignableScopes }).(pulumi.StringArrayOutput)
+}
+
+// The role definition description.
+func (o RoleDefinitionPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Role definition permissions.
+func (o RoleDefinitionPropertiesResponseOutput) Permissions() PermissionResponseArrayOutput {
+	return o.ApplyT(func(v RoleDefinitionPropertiesResponse) []PermissionResponse { return v.Permissions }).(PermissionResponseArrayOutput)
+}
+
+// The role name.
+func (o RoleDefinitionPropertiesResponseOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionPropertiesResponse) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The role type.
+func (o RoleDefinitionPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RoleDefinitionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RoleDefinitionPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleDefinitionPropertiesResponse)(nil)).Elem()
+}
+
+func (o RoleDefinitionPropertiesResponsePtrOutput) ToRoleDefinitionPropertiesResponsePtrOutput() RoleDefinitionPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesResponsePtrOutput) ToRoleDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RoleDefinitionPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o RoleDefinitionPropertiesResponsePtrOutput) Elem() RoleDefinitionPropertiesResponseOutput {
+	return o.ApplyT(func(v *RoleDefinitionPropertiesResponse) RoleDefinitionPropertiesResponse { return *v }).(RoleDefinitionPropertiesResponseOutput)
+}
+
+// Role definition assignable scopes.
+func (o RoleDefinitionPropertiesResponsePtrOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleDefinitionPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AssignableScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The role definition description.
+func (o RoleDefinitionPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinitionPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Role definition permissions.
+func (o RoleDefinitionPropertiesResponsePtrOutput) Permissions() PermissionResponseArrayOutput {
+	return o.ApplyT(func(v *RoleDefinitionPropertiesResponse) []PermissionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Permissions
+	}).(PermissionResponseArrayOutput)
+}
+
+// The role name.
+func (o RoleDefinitionPropertiesResponsePtrOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinitionPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The role type.
+func (o RoleDefinitionPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinitionPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(IdentityOutput{})
+	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementLockAtResourceGroupLevelTypeOutput{})
+	pulumi.RegisterOutputType(ManagementLockAtResourceLevelTypeOutput{})
+	pulumi.RegisterOutputType(ManagementLockAtSubscriptionLevelTypeOutput{})
+	pulumi.RegisterOutputType(ManagementLockByScopeTypeOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerArrayOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseOutput{})
@@ -2775,7 +5356,16 @@ func init() {
 	pulumi.RegisterOutputType(ParameterValuesPtrOutput{})
 	pulumi.RegisterOutputType(ParameterValuesResponseOutput{})
 	pulumi.RegisterOutputType(ParameterValuesResponsePtrOutput{})
-	pulumi.RegisterOutputType(PolicyDefinitionAtManagementGroupTypeOutput{})
+	pulumi.RegisterOutputType(PermissionOutput{})
+	pulumi.RegisterOutputType(PermissionArrayOutput{})
+	pulumi.RegisterOutputType(PermissionResponseOutput{})
+	pulumi.RegisterOutputType(PermissionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PolicyAssignmentTypeOutput{})
+	pulumi.RegisterOutputType(PolicyAssignmentPropertiesOutput{})
+	pulumi.RegisterOutputType(PolicyAssignmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionGroupOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionGroupArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionGroupResponseOutput{})
@@ -2788,9 +5378,23 @@ func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PolicySetDefinitionAtManagementGroupTypeOutput{})
+	pulumi.RegisterOutputType(PolicySetDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PolicySkuOutput{})
+	pulumi.RegisterOutputType(PolicySkuPtrOutput{})
+	pulumi.RegisterOutputType(PolicySkuResponseOutput{})
+	pulumi.RegisterOutputType(PolicySkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentTypeOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentPropertiesOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponseOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponsePtrOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionTypeOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionPropertiesOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(RoleDefinitionPropertiesResponsePtrOutput{})
 }

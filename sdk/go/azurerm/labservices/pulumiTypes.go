@@ -101,6 +101,178 @@ func (o EnvironmentTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// This represents the details about a User's environment and its state.
+type EnvironmentDetailsResponse struct {
+	// Description of the Environment
+	Description string `pulumi:"description"`
+	// Publishing state of the environment setting Possible values are Creating, Created, Failed
+	EnvironmentState string `pulumi:"environmentState"`
+	// Resource Id of the environment
+	Id string `pulumi:"id"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
+	// Name of the Environment
+	Name string `pulumi:"name"`
+	// When the password was last reset on the environment.
+	PasswordLastReset string `pulumi:"passwordLastReset"`
+	// The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// How long the environment has been used by a lab user
+	TotalUsage string `pulumi:"totalUsage"`
+	// Details of backing DTL virtual machine with compute and network details.
+	VirtualMachineDetails VirtualMachineDetailsResponse `pulumi:"virtualMachineDetails"`
+}
+
+// EnvironmentDetailsResponseInput is an input type that accepts EnvironmentDetailsResponseArgs and EnvironmentDetailsResponseOutput values.
+// You can construct a concrete instance of `EnvironmentDetailsResponseInput` via:
+//
+//          EnvironmentDetailsResponseArgs{...}
+type EnvironmentDetailsResponseInput interface {
+	pulumi.Input
+
+	ToEnvironmentDetailsResponseOutput() EnvironmentDetailsResponseOutput
+	ToEnvironmentDetailsResponseOutputWithContext(context.Context) EnvironmentDetailsResponseOutput
+}
+
+// This represents the details about a User's environment and its state.
+type EnvironmentDetailsResponseArgs struct {
+	// Description of the Environment
+	Description pulumi.StringInput `pulumi:"description"`
+	// Publishing state of the environment setting Possible values are Creating, Created, Failed
+	EnvironmentState pulumi.StringInput `pulumi:"environmentState"`
+	// Resource Id of the environment
+	Id pulumi.StringInput `pulumi:"id"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponseInput `pulumi:"latestOperationResult"`
+	// Name of the Environment
+	Name pulumi.StringInput `pulumi:"name"`
+	// When the password was last reset on the environment.
+	PasswordLastReset pulumi.StringInput `pulumi:"passwordLastReset"`
+	// The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// How long the environment has been used by a lab user
+	TotalUsage pulumi.StringInput `pulumi:"totalUsage"`
+	// Details of backing DTL virtual machine with compute and network details.
+	VirtualMachineDetails VirtualMachineDetailsResponseInput `pulumi:"virtualMachineDetails"`
+}
+
+func (EnvironmentDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentDetailsResponse)(nil)).Elem()
+}
+
+func (i EnvironmentDetailsResponseArgs) ToEnvironmentDetailsResponseOutput() EnvironmentDetailsResponseOutput {
+	return i.ToEnvironmentDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i EnvironmentDetailsResponseArgs) ToEnvironmentDetailsResponseOutputWithContext(ctx context.Context) EnvironmentDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDetailsResponseOutput)
+}
+
+// EnvironmentDetailsResponseArrayInput is an input type that accepts EnvironmentDetailsResponseArray and EnvironmentDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `EnvironmentDetailsResponseArrayInput` via:
+//
+//          EnvironmentDetailsResponseArray{ EnvironmentDetailsResponseArgs{...} }
+type EnvironmentDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentDetailsResponseArrayOutput() EnvironmentDetailsResponseArrayOutput
+	ToEnvironmentDetailsResponseArrayOutputWithContext(context.Context) EnvironmentDetailsResponseArrayOutput
+}
+
+type EnvironmentDetailsResponseArray []EnvironmentDetailsResponseInput
+
+func (EnvironmentDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentDetailsResponse)(nil)).Elem()
+}
+
+func (i EnvironmentDetailsResponseArray) ToEnvironmentDetailsResponseArrayOutput() EnvironmentDetailsResponseArrayOutput {
+	return i.ToEnvironmentDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentDetailsResponseArray) ToEnvironmentDetailsResponseArrayOutputWithContext(ctx context.Context) EnvironmentDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDetailsResponseArrayOutput)
+}
+
+// This represents the details about a User's environment and its state.
+type EnvironmentDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentDetailsResponse)(nil)).Elem()
+}
+
+func (o EnvironmentDetailsResponseOutput) ToEnvironmentDetailsResponseOutput() EnvironmentDetailsResponseOutput {
+	return o
+}
+
+func (o EnvironmentDetailsResponseOutput) ToEnvironmentDetailsResponseOutputWithContext(ctx context.Context) EnvironmentDetailsResponseOutput {
+	return o
+}
+
+// Description of the Environment
+func (o EnvironmentDetailsResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Publishing state of the environment setting Possible values are Creating, Created, Failed
+func (o EnvironmentDetailsResponseOutput) EnvironmentState() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.EnvironmentState }).(pulumi.StringOutput)
+}
+
+// Resource Id of the environment
+func (o EnvironmentDetailsResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o EnvironmentDetailsResponseOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) LatestOperationResultResponse { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// Name of the Environment
+func (o EnvironmentDetailsResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// When the password was last reset on the environment.
+func (o EnvironmentDetailsResponseOutput) PasswordLastReset() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.PasswordLastReset }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the environment. This also includes LabIsFull and NotYetProvisioned status.
+func (o EnvironmentDetailsResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// How long the environment has been used by a lab user
+func (o EnvironmentDetailsResponseOutput) TotalUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) string { return v.TotalUsage }).(pulumi.StringOutput)
+}
+
+// Details of backing DTL virtual machine with compute and network details.
+func (o EnvironmentDetailsResponseOutput) VirtualMachineDetails() VirtualMachineDetailsResponseOutput {
+	return o.ApplyT(func(v EnvironmentDetailsResponse) VirtualMachineDetailsResponse { return v.VirtualMachineDetails }).(VirtualMachineDetailsResponseOutput)
+}
+
+type EnvironmentDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentDetailsResponse)(nil)).Elem()
+}
+
+func (o EnvironmentDetailsResponseArrayOutput) ToEnvironmentDetailsResponseArrayOutput() EnvironmentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentDetailsResponseArrayOutput) ToEnvironmentDetailsResponseArrayOutputWithContext(ctx context.Context) EnvironmentDetailsResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentDetailsResponseArrayOutput) Index(i pulumi.IntInput) EnvironmentDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentDetailsResponse {
+		return vs[0].([]EnvironmentDetailsResponse)[vs[1].(int)]
+	}).(EnvironmentDetailsResponseOutput)
+}
+
 // Properties of an environment
 type EnvironmentProperties struct {
 	// The provisioning status of the resource.
@@ -2995,6 +3167,133 @@ func (o LabAccountPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringP
 		}
 		return v.UniqueIdentifier
 	}).(pulumi.StringPtrOutput)
+}
+
+// This represents the details about a lab that the User is in, and its state.
+type LabDetailsResponse struct {
+	// The Id of the lab.
+	Id *string `pulumi:"id"`
+	// Name of the lab
+	Name *string `pulumi:"name"`
+	// The provisioning state of the lab.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The maximum duration a user can use a VM in this lab.
+	UsageQuota string `pulumi:"usageQuota"`
+}
+
+// LabDetailsResponseInput is an input type that accepts LabDetailsResponseArgs and LabDetailsResponseOutput values.
+// You can construct a concrete instance of `LabDetailsResponseInput` via:
+//
+//          LabDetailsResponseArgs{...}
+type LabDetailsResponseInput interface {
+	pulumi.Input
+
+	ToLabDetailsResponseOutput() LabDetailsResponseOutput
+	ToLabDetailsResponseOutputWithContext(context.Context) LabDetailsResponseOutput
+}
+
+// This represents the details about a lab that the User is in, and its state.
+type LabDetailsResponseArgs struct {
+	// The Id of the lab.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the lab
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The provisioning state of the lab.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The maximum duration a user can use a VM in this lab.
+	UsageQuota pulumi.StringInput `pulumi:"usageQuota"`
+}
+
+func (LabDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabDetailsResponse)(nil)).Elem()
+}
+
+func (i LabDetailsResponseArgs) ToLabDetailsResponseOutput() LabDetailsResponseOutput {
+	return i.ToLabDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i LabDetailsResponseArgs) ToLabDetailsResponseOutputWithContext(ctx context.Context) LabDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabDetailsResponseOutput)
+}
+
+// LabDetailsResponseArrayInput is an input type that accepts LabDetailsResponseArray and LabDetailsResponseArrayOutput values.
+// You can construct a concrete instance of `LabDetailsResponseArrayInput` via:
+//
+//          LabDetailsResponseArray{ LabDetailsResponseArgs{...} }
+type LabDetailsResponseArrayInput interface {
+	pulumi.Input
+
+	ToLabDetailsResponseArrayOutput() LabDetailsResponseArrayOutput
+	ToLabDetailsResponseArrayOutputWithContext(context.Context) LabDetailsResponseArrayOutput
+}
+
+type LabDetailsResponseArray []LabDetailsResponseInput
+
+func (LabDetailsResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabDetailsResponse)(nil)).Elem()
+}
+
+func (i LabDetailsResponseArray) ToLabDetailsResponseArrayOutput() LabDetailsResponseArrayOutput {
+	return i.ToLabDetailsResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LabDetailsResponseArray) ToLabDetailsResponseArrayOutputWithContext(ctx context.Context) LabDetailsResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabDetailsResponseArrayOutput)
+}
+
+// This represents the details about a lab that the User is in, and its state.
+type LabDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (LabDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabDetailsResponse)(nil)).Elem()
+}
+
+func (o LabDetailsResponseOutput) ToLabDetailsResponseOutput() LabDetailsResponseOutput {
+	return o
+}
+
+func (o LabDetailsResponseOutput) ToLabDetailsResponseOutputWithContext(ctx context.Context) LabDetailsResponseOutput {
+	return o
+}
+
+// The Id of the lab.
+func (o LabDetailsResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabDetailsResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the lab
+func (o LabDetailsResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabDetailsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the lab.
+func (o LabDetailsResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabDetailsResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The maximum duration a user can use a VM in this lab.
+func (o LabDetailsResponseOutput) UsageQuota() pulumi.StringOutput {
+	return o.ApplyT(func(v LabDetailsResponse) string { return v.UsageQuota }).(pulumi.StringOutput)
+}
+
+type LabDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LabDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabDetailsResponse)(nil)).Elem()
+}
+
+func (o LabDetailsResponseArrayOutput) ToLabDetailsResponseArrayOutput() LabDetailsResponseArrayOutput {
+	return o
+}
+
+func (o LabDetailsResponseArrayOutput) ToLabDetailsResponseArrayOutputWithContext(ctx context.Context) LabDetailsResponseArrayOutput {
+	return o
+}
+
+func (o LabDetailsResponseArrayOutput) Index(i pulumi.IntInput) LabDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabDetailsResponse {
+		return vs[0].([]LabDetailsResponse)[vs[1].(int)]
+	}).(LabDetailsResponseOutput)
 }
 
 // Properties of a Lab.
@@ -6048,6 +6347,106 @@ func (o UserPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Details of the backing virtual machine.
+type VirtualMachineDetailsResponse struct {
+	// Last known compute power state captured in DTL
+	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
+	// PrivateIp address of the compute VM
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// Provisioning state of the Dtl VM
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Connection information for Windows
+	RdpAuthority string `pulumi:"rdpAuthority"`
+	// Connection information for Linux
+	SshAuthority string `pulumi:"sshAuthority"`
+	// Compute VM login user name
+	UserName string `pulumi:"userName"`
+}
+
+// VirtualMachineDetailsResponseInput is an input type that accepts VirtualMachineDetailsResponseArgs and VirtualMachineDetailsResponseOutput values.
+// You can construct a concrete instance of `VirtualMachineDetailsResponseInput` via:
+//
+//          VirtualMachineDetailsResponseArgs{...}
+type VirtualMachineDetailsResponseInput interface {
+	pulumi.Input
+
+	ToVirtualMachineDetailsResponseOutput() VirtualMachineDetailsResponseOutput
+	ToVirtualMachineDetailsResponseOutputWithContext(context.Context) VirtualMachineDetailsResponseOutput
+}
+
+// Details of the backing virtual machine.
+type VirtualMachineDetailsResponseArgs struct {
+	// Last known compute power state captured in DTL
+	LastKnownPowerState pulumi.StringInput `pulumi:"lastKnownPowerState"`
+	// PrivateIp address of the compute VM
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// Provisioning state of the Dtl VM
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Connection information for Windows
+	RdpAuthority pulumi.StringInput `pulumi:"rdpAuthority"`
+	// Connection information for Linux
+	SshAuthority pulumi.StringInput `pulumi:"sshAuthority"`
+	// Compute VM login user name
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (VirtualMachineDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineDetailsResponse)(nil)).Elem()
+}
+
+func (i VirtualMachineDetailsResponseArgs) ToVirtualMachineDetailsResponseOutput() VirtualMachineDetailsResponseOutput {
+	return i.ToVirtualMachineDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineDetailsResponseArgs) ToVirtualMachineDetailsResponseOutputWithContext(ctx context.Context) VirtualMachineDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineDetailsResponseOutput)
+}
+
+// Details of the backing virtual machine.
+type VirtualMachineDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineDetailsResponse)(nil)).Elem()
+}
+
+func (o VirtualMachineDetailsResponseOutput) ToVirtualMachineDetailsResponseOutput() VirtualMachineDetailsResponseOutput {
+	return o
+}
+
+func (o VirtualMachineDetailsResponseOutput) ToVirtualMachineDetailsResponseOutputWithContext(ctx context.Context) VirtualMachineDetailsResponseOutput {
+	return o
+}
+
+// Last known compute power state captured in DTL
+func (o VirtualMachineDetailsResponseOutput) LastKnownPowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.LastKnownPowerState }).(pulumi.StringOutput)
+}
+
+// PrivateIp address of the compute VM
+func (o VirtualMachineDetailsResponseOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Dtl VM
+func (o VirtualMachineDetailsResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Connection information for Windows
+func (o VirtualMachineDetailsResponseOutput) RdpAuthority() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.RdpAuthority }).(pulumi.StringOutput)
+}
+
+// Connection information for Linux
+func (o VirtualMachineDetailsResponseOutput) SshAuthority() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.SshAuthority }).(pulumi.StringOutput)
+}
+
+// Compute VM login user name
+func (o VirtualMachineDetailsResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineDetailsResponse) string { return v.UserName }).(pulumi.StringOutput)
+}
+
 // Details about the state of the reference virtual machine.
 type VmStateDetails struct {
 }
@@ -6287,6 +6686,8 @@ func (o VmStateDetailsResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(EnvironmentTypeOutput{})
+	pulumi.RegisterOutputType(EnvironmentDetailsResponseOutput{})
+	pulumi.RegisterOutputType(EnvironmentDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesResponseOutput{})
@@ -6314,6 +6715,8 @@ func init() {
 	pulumi.RegisterOutputType(LabAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabAccountPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(LabDetailsResponseOutput{})
+	pulumi.RegisterOutputType(LabDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabPropertiesOutput{})
 	pulumi.RegisterOutputType(LabPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LabPropertiesResponseOutput{})
@@ -6348,6 +6751,7 @@ func init() {
 	pulumi.RegisterOutputType(UserPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponsePtrOutput{})

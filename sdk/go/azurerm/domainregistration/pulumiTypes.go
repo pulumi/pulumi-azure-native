@@ -2900,6 +2900,233 @@ func (o HostNameResponseArrayOutput) Index(i pulumi.IntInput) HostNameResponseOu
 	}).(HostNameResponseOutput)
 }
 
+// Identifies an object.
+type NameIdentifierResponse struct {
+	// Name of the object.
+	Name *string `pulumi:"name"`
+}
+
+// NameIdentifierResponseInput is an input type that accepts NameIdentifierResponseArgs and NameIdentifierResponseOutput values.
+// You can construct a concrete instance of `NameIdentifierResponseInput` via:
+//
+//          NameIdentifierResponseArgs{...}
+type NameIdentifierResponseInput interface {
+	pulumi.Input
+
+	ToNameIdentifierResponseOutput() NameIdentifierResponseOutput
+	ToNameIdentifierResponseOutputWithContext(context.Context) NameIdentifierResponseOutput
+}
+
+// Identifies an object.
+type NameIdentifierResponseArgs struct {
+	// Name of the object.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (NameIdentifierResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NameIdentifierResponse)(nil)).Elem()
+}
+
+func (i NameIdentifierResponseArgs) ToNameIdentifierResponseOutput() NameIdentifierResponseOutput {
+	return i.ToNameIdentifierResponseOutputWithContext(context.Background())
+}
+
+func (i NameIdentifierResponseArgs) ToNameIdentifierResponseOutputWithContext(ctx context.Context) NameIdentifierResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseOutput)
+}
+
+// NameIdentifierResponseArrayInput is an input type that accepts NameIdentifierResponseArray and NameIdentifierResponseArrayOutput values.
+// You can construct a concrete instance of `NameIdentifierResponseArrayInput` via:
+//
+//          NameIdentifierResponseArray{ NameIdentifierResponseArgs{...} }
+type NameIdentifierResponseArrayInput interface {
+	pulumi.Input
+
+	ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput
+	ToNameIdentifierResponseArrayOutputWithContext(context.Context) NameIdentifierResponseArrayOutput
+}
+
+type NameIdentifierResponseArray []NameIdentifierResponseInput
+
+func (NameIdentifierResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NameIdentifierResponse)(nil)).Elem()
+}
+
+func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput {
+	return i.ToNameIdentifierResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutputWithContext(ctx context.Context) NameIdentifierResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseArrayOutput)
+}
+
+// Identifies an object.
+type NameIdentifierResponseOutput struct{ *pulumi.OutputState }
+
+func (NameIdentifierResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NameIdentifierResponse)(nil)).Elem()
+}
+
+func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutput() NameIdentifierResponseOutput {
+	return o
+}
+
+func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutputWithContext(ctx context.Context) NameIdentifierResponseOutput {
+	return o
+}
+
+// Name of the object.
+func (o NameIdentifierResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NameIdentifierResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type NameIdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NameIdentifierResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NameIdentifierResponse)(nil)).Elem()
+}
+
+func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutputWithContext(ctx context.Context) NameIdentifierResponseArrayOutput {
+	return o
+}
+
+func (o NameIdentifierResponseArrayOutput) Index(i pulumi.IntInput) NameIdentifierResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NameIdentifierResponse {
+		return vs[0].([]NameIdentifierResponse)[vs[1].(int)]
+	}).(NameIdentifierResponseOutput)
+}
+
+// Legal agreement for a top level domain.
+type TldLegalAgreementResponse struct {
+	// Unique identifier for the agreement.
+	AgreementKey string `pulumi:"agreementKey"`
+	// Agreement details.
+	Content string `pulumi:"content"`
+	// Agreement title.
+	Title string `pulumi:"title"`
+	// URL where a copy of the agreement details is hosted.
+	Url *string `pulumi:"url"`
+}
+
+// TldLegalAgreementResponseInput is an input type that accepts TldLegalAgreementResponseArgs and TldLegalAgreementResponseOutput values.
+// You can construct a concrete instance of `TldLegalAgreementResponseInput` via:
+//
+//          TldLegalAgreementResponseArgs{...}
+type TldLegalAgreementResponseInput interface {
+	pulumi.Input
+
+	ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput
+	ToTldLegalAgreementResponseOutputWithContext(context.Context) TldLegalAgreementResponseOutput
+}
+
+// Legal agreement for a top level domain.
+type TldLegalAgreementResponseArgs struct {
+	// Unique identifier for the agreement.
+	AgreementKey pulumi.StringInput `pulumi:"agreementKey"`
+	// Agreement details.
+	Content pulumi.StringInput `pulumi:"content"`
+	// Agreement title.
+	Title pulumi.StringInput `pulumi:"title"`
+	// URL where a copy of the agreement details is hosted.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (TldLegalAgreementResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TldLegalAgreementResponse)(nil)).Elem()
+}
+
+func (i TldLegalAgreementResponseArgs) ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput {
+	return i.ToTldLegalAgreementResponseOutputWithContext(context.Background())
+}
+
+func (i TldLegalAgreementResponseArgs) ToTldLegalAgreementResponseOutputWithContext(ctx context.Context) TldLegalAgreementResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseOutput)
+}
+
+// TldLegalAgreementResponseArrayInput is an input type that accepts TldLegalAgreementResponseArray and TldLegalAgreementResponseArrayOutput values.
+// You can construct a concrete instance of `TldLegalAgreementResponseArrayInput` via:
+//
+//          TldLegalAgreementResponseArray{ TldLegalAgreementResponseArgs{...} }
+type TldLegalAgreementResponseArrayInput interface {
+	pulumi.Input
+
+	ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput
+	ToTldLegalAgreementResponseArrayOutputWithContext(context.Context) TldLegalAgreementResponseArrayOutput
+}
+
+type TldLegalAgreementResponseArray []TldLegalAgreementResponseInput
+
+func (TldLegalAgreementResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TldLegalAgreementResponse)(nil)).Elem()
+}
+
+func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput {
+	return i.ToTldLegalAgreementResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseArrayOutput)
+}
+
+// Legal agreement for a top level domain.
+type TldLegalAgreementResponseOutput struct{ *pulumi.OutputState }
+
+func (TldLegalAgreementResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TldLegalAgreementResponse)(nil)).Elem()
+}
+
+func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput {
+	return o
+}
+
+func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutputWithContext(ctx context.Context) TldLegalAgreementResponseOutput {
+	return o
+}
+
+// Unique identifier for the agreement.
+func (o TldLegalAgreementResponseOutput) AgreementKey() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.AgreementKey }).(pulumi.StringOutput)
+}
+
+// Agreement details.
+func (o TldLegalAgreementResponseOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// Agreement title.
+func (o TldLegalAgreementResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// URL where a copy of the agreement details is hosted.
+func (o TldLegalAgreementResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TldLegalAgreementResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type TldLegalAgreementResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TldLegalAgreementResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TldLegalAgreementResponse)(nil)).Elem()
+}
+
+func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput {
+	return o
+}
+
+func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementResponseArrayOutput {
+	return o
+}
+
+func (o TldLegalAgreementResponseArrayOutput) Index(i pulumi.IntInput) TldLegalAgreementResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TldLegalAgreementResponse {
+		return vs[0].([]TldLegalAgreementResponse)[vs[1].(int)]
+	}).(TldLegalAgreementResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddressOutput{})
 	pulumi.RegisterOutputType(AddressPtrOutput{})
@@ -2926,4 +3153,8 @@ func init() {
 	pulumi.RegisterOutputType(HostNameOutput{})
 	pulumi.RegisterOutputType(HostNameResponseOutput{})
 	pulumi.RegisterOutputType(HostNameResponseArrayOutput{})
+	pulumi.RegisterOutputType(NameIdentifierResponseOutput{})
+	pulumi.RegisterOutputType(NameIdentifierResponseArrayOutput{})
+	pulumi.RegisterOutputType(TldLegalAgreementResponseOutput{})
+	pulumi.RegisterOutputType(TldLegalAgreementResponseArrayOutput{})
 }

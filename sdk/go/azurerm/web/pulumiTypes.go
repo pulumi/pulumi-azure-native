@@ -12040,6 +12040,142 @@ func (o IdentifierPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A domain specific resource identifier.
+type IdentifierResponse struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name string `pulumi:"name"`
+	// Identifier resource specific properties
+	Properties *IdentifierResponseProperties `pulumi:"properties"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// IdentifierResponseInput is an input type that accepts IdentifierResponseArgs and IdentifierResponseOutput values.
+// You can construct a concrete instance of `IdentifierResponseInput` via:
+//
+//          IdentifierResponseArgs{...}
+type IdentifierResponseInput interface {
+	pulumi.Input
+
+	ToIdentifierResponseOutput() IdentifierResponseOutput
+	ToIdentifierResponseOutputWithContext(context.Context) IdentifierResponseOutput
+}
+
+// A domain specific resource identifier.
+type IdentifierResponseArgs struct {
+	// Resource Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Kind of resource.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Identifier resource specific properties
+	Properties IdentifierResponsePropertiesPtrInput `pulumi:"properties"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IdentifierResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentifierResponse)(nil)).Elem()
+}
+
+func (i IdentifierResponseArgs) ToIdentifierResponseOutput() IdentifierResponseOutput {
+	return i.ToIdentifierResponseOutputWithContext(context.Background())
+}
+
+func (i IdentifierResponseArgs) ToIdentifierResponseOutputWithContext(ctx context.Context) IdentifierResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentifierResponseOutput)
+}
+
+// IdentifierResponseArrayInput is an input type that accepts IdentifierResponseArray and IdentifierResponseArrayOutput values.
+// You can construct a concrete instance of `IdentifierResponseArrayInput` via:
+//
+//          IdentifierResponseArray{ IdentifierResponseArgs{...} }
+type IdentifierResponseArrayInput interface {
+	pulumi.Input
+
+	ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput
+	ToIdentifierResponseArrayOutputWithContext(context.Context) IdentifierResponseArrayOutput
+}
+
+type IdentifierResponseArray []IdentifierResponseInput
+
+func (IdentifierResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentifierResponse)(nil)).Elem()
+}
+
+func (i IdentifierResponseArray) ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput {
+	return i.ToIdentifierResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IdentifierResponseArray) ToIdentifierResponseArrayOutputWithContext(ctx context.Context) IdentifierResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentifierResponseArrayOutput)
+}
+
+// A domain specific resource identifier.
+type IdentifierResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentifierResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentifierResponse)(nil)).Elem()
+}
+
+func (o IdentifierResponseOutput) ToIdentifierResponseOutput() IdentifierResponseOutput {
+	return o
+}
+
+func (o IdentifierResponseOutput) ToIdentifierResponseOutputWithContext(ctx context.Context) IdentifierResponseOutput {
+	return o
+}
+
+// Resource Id.
+func (o IdentifierResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o IdentifierResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentifierResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identifier resource specific properties
+func (o IdentifierResponseOutput) Properties() IdentifierResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v IdentifierResponse) *IdentifierResponseProperties { return v.Properties }).(IdentifierResponsePropertiesPtrOutput)
+}
+
+// Resource type.
+func (o IdentifierResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentifierResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentifierResponse)(nil)).Elem()
+}
+
+func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput {
+	return o
+}
+
+func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutputWithContext(ctx context.Context) IdentifierResponseArrayOutput {
+	return o
+}
+
+func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentifierResponse {
+		return vs[0].([]IdentifierResponse)[vs[1].(int)]
+	}).(IdentifierResponseOutput)
+}
+
 // Identifier resource specific properties
 type IdentifierResponseProperties struct {
 	// String representation of the identity.
@@ -30608,6 +30744,8 @@ func init() {
 	pulumi.RegisterOutputType(HybridConnectionResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdentifierPropertiesOutput{})
 	pulumi.RegisterOutputType(IdentifierPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdentifierResponseOutput{})
+	pulumi.RegisterOutputType(IdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentifierResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(IdentifierResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpSecurityRestrictionOutput{})

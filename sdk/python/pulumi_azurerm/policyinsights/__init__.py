@@ -4,8 +4,14 @@
 
 # Export this package's modules as members:
 from .get_remediation_at_management_group import *
+from .get_remediation_at_resource import *
 from .get_remediation_at_resource_group import *
+from .get_remediation_at_subscription import *
 from .list_remediation_deployments_at_management_group import *
+from .list_remediation_deployments_at_resource import *
 from .list_remediation_deployments_at_resource_group import *
+from .list_remediation_deployments_at_subscription import *
 from .remediation_at_management_group import *
+from .remediation_at_resource import *
 from .remediation_at_resource_group import *
+from .remediation_at_subscription import *

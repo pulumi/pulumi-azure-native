@@ -3,8 +3,14 @@
 
 // Export members:
 export * from "./getRemediationAtManagementGroup";
+export * from "./getRemediationAtResource";
 export * from "./getRemediationAtResourceGroup";
+export * from "./getRemediationAtSubscription";
 export * from "./listRemediationDeploymentsAtManagementGroup";
+export * from "./listRemediationDeploymentsAtResource";
 export * from "./listRemediationDeploymentsAtResourceGroup";
+export * from "./listRemediationDeploymentsAtSubscription";
 export * from "./remediationAtManagementGroup";
+export * from "./remediationAtResource";
 export * from "./remediationAtResourceGroup";
+export * from "./remediationAtSubscription";

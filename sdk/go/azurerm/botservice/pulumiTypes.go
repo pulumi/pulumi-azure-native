@@ -1994,6 +1994,480 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) SettingId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Extra Parameters specific to each Service Provider
+type ServiceProviderParameterResponse struct {
+	// Default Name for the Service Provider
+	Default string `pulumi:"default"`
+	// Description of the Service Provider
+	Description string `pulumi:"description"`
+	// Display Name of the Service Provider
+	DisplayName string `pulumi:"displayName"`
+	// Help Url for the  Service Provider
+	HelpUrl string `pulumi:"helpUrl"`
+	// Name of the Service Provider
+	Name string `pulumi:"name"`
+	// Type of the Service Provider
+	Type string `pulumi:"type"`
+}
+
+// ServiceProviderParameterResponseInput is an input type that accepts ServiceProviderParameterResponseArgs and ServiceProviderParameterResponseOutput values.
+// You can construct a concrete instance of `ServiceProviderParameterResponseInput` via:
+//
+//          ServiceProviderParameterResponseArgs{...}
+type ServiceProviderParameterResponseInput interface {
+	pulumi.Input
+
+	ToServiceProviderParameterResponseOutput() ServiceProviderParameterResponseOutput
+	ToServiceProviderParameterResponseOutputWithContext(context.Context) ServiceProviderParameterResponseOutput
+}
+
+// Extra Parameters specific to each Service Provider
+type ServiceProviderParameterResponseArgs struct {
+	// Default Name for the Service Provider
+	Default pulumi.StringInput `pulumi:"default"`
+	// Description of the Service Provider
+	Description pulumi.StringInput `pulumi:"description"`
+	// Display Name of the Service Provider
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Help Url for the  Service Provider
+	HelpUrl pulumi.StringInput `pulumi:"helpUrl"`
+	// Name of the Service Provider
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the Service Provider
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceProviderParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterResponse)(nil)).Elem()
+}
+
+func (i ServiceProviderParameterResponseArgs) ToServiceProviderParameterResponseOutput() ServiceProviderParameterResponseOutput {
+	return i.ToServiceProviderParameterResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderParameterResponseArgs) ToServiceProviderParameterResponseOutputWithContext(ctx context.Context) ServiceProviderParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseOutput)
+}
+
+// ServiceProviderParameterResponseArrayInput is an input type that accepts ServiceProviderParameterResponseArray and ServiceProviderParameterResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceProviderParameterResponseArrayInput` via:
+//
+//          ServiceProviderParameterResponseArray{ ServiceProviderParameterResponseArgs{...} }
+type ServiceProviderParameterResponseArrayInput interface {
+	pulumi.Input
+
+	ToServiceProviderParameterResponseArrayOutput() ServiceProviderParameterResponseArrayOutput
+	ToServiceProviderParameterResponseArrayOutputWithContext(context.Context) ServiceProviderParameterResponseArrayOutput
+}
+
+type ServiceProviderParameterResponseArray []ServiceProviderParameterResponseInput
+
+func (ServiceProviderParameterResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderParameterResponse)(nil)).Elem()
+}
+
+func (i ServiceProviderParameterResponseArray) ToServiceProviderParameterResponseArrayOutput() ServiceProviderParameterResponseArrayOutput {
+	return i.ToServiceProviderParameterResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderParameterResponseArray) ToServiceProviderParameterResponseArrayOutputWithContext(ctx context.Context) ServiceProviderParameterResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseArrayOutput)
+}
+
+// Extra Parameters specific to each Service Provider
+type ServiceProviderParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderParameterResponseOutput) ToServiceProviderParameterResponseOutput() ServiceProviderParameterResponseOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseOutput) ToServiceProviderParameterResponseOutputWithContext(ctx context.Context) ServiceProviderParameterResponseOutput {
+	return o
+}
+
+// Default Name for the Service Provider
+func (o ServiceProviderParameterResponseOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Default }).(pulumi.StringOutput)
+}
+
+// Description of the Service Provider
+func (o ServiceProviderParameterResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderParameterResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Help Url for the  Service Provider
+func (o ServiceProviderParameterResponseOutput) HelpUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.HelpUrl }).(pulumi.StringOutput)
+}
+
+// Name of the Service Provider
+func (o ServiceProviderParameterResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the Service Provider
+func (o ServiceProviderParameterResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServiceProviderParameterResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderParameterResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderParameterResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderParameterResponseArrayOutput) ToServiceProviderParameterResponseArrayOutput() ServiceProviderParameterResponseArrayOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseArrayOutput) ToServiceProviderParameterResponseArrayOutputWithContext(ctx context.Context) ServiceProviderParameterResponseArrayOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseArrayOutput) Index(i pulumi.IntInput) ServiceProviderParameterResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProviderParameterResponse {
+		return vs[0].([]ServiceProviderParameterResponse)[vs[1].(int)]
+	}).(ServiceProviderParameterResponseOutput)
+}
+
+// The Object used to describe a Service Provider supported by Bot Service
+type ServiceProviderPropertiesResponse struct {
+	// Display Name of the Service Provider
+	DevPortalUrl string `pulumi:"devPortalUrl"`
+	// Display Name of the Service Provider
+	DisplayName string `pulumi:"displayName"`
+	// Display Name of the Service Provider
+	IconUrl string `pulumi:"iconUrl"`
+	// Id for Service Provider
+	Id string `pulumi:"id"`
+	// The list of parameters for the Service Provider
+	Parameters []ServiceProviderParameterResponse `pulumi:"parameters"`
+	// Display Name of the Service Provider
+	ServiceProviderName string `pulumi:"serviceProviderName"`
+}
+
+// ServiceProviderPropertiesResponseInput is an input type that accepts ServiceProviderPropertiesResponseArgs and ServiceProviderPropertiesResponseOutput values.
+// You can construct a concrete instance of `ServiceProviderPropertiesResponseInput` via:
+//
+//          ServiceProviderPropertiesResponseArgs{...}
+type ServiceProviderPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToServiceProviderPropertiesResponseOutput() ServiceProviderPropertiesResponseOutput
+	ToServiceProviderPropertiesResponseOutputWithContext(context.Context) ServiceProviderPropertiesResponseOutput
+}
+
+// The Object used to describe a Service Provider supported by Bot Service
+type ServiceProviderPropertiesResponseArgs struct {
+	// Display Name of the Service Provider
+	DevPortalUrl pulumi.StringInput `pulumi:"devPortalUrl"`
+	// Display Name of the Service Provider
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Display Name of the Service Provider
+	IconUrl pulumi.StringInput `pulumi:"iconUrl"`
+	// Id for Service Provider
+	Id pulumi.StringInput `pulumi:"id"`
+	// The list of parameters for the Service Provider
+	Parameters ServiceProviderParameterResponseArrayInput `pulumi:"parameters"`
+	// Display Name of the Service Provider
+	ServiceProviderName pulumi.StringInput `pulumi:"serviceProviderName"`
+}
+
+func (ServiceProviderPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderPropertiesResponse)(nil)).Elem()
+}
+
+func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponseOutput() ServiceProviderPropertiesResponseOutput {
+	return i.ToServiceProviderPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponseOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesResponseOutput)
+}
+
+func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
+	return i.ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesResponseOutput).ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceProviderPropertiesResponsePtrInput is an input type that accepts ServiceProviderPropertiesResponseArgs, ServiceProviderPropertiesResponsePtr and ServiceProviderPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceProviderPropertiesResponsePtrInput` via:
+//
+//          ServiceProviderPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceProviderPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput
+	ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Context) ServiceProviderPropertiesResponsePtrOutput
+}
+
+type serviceProviderPropertiesResponsePtrType ServiceProviderPropertiesResponseArgs
+
+func ServiceProviderPropertiesResponsePtr(v *ServiceProviderPropertiesResponseArgs) ServiceProviderPropertiesResponsePtrInput {
+	return (*serviceProviderPropertiesResponsePtrType)(v)
+}
+
+func (*serviceProviderPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProviderPropertiesResponse)(nil)).Elem()
+}
+
+func (i *serviceProviderPropertiesResponsePtrType) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
+	return i.ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceProviderPropertiesResponsePtrType) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesResponsePtrOutput)
+}
+
+// The Object used to describe a Service Provider supported by Bot Service
+type ServiceProviderPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderPropertiesResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponseOutput() ServiceProviderPropertiesResponseOutput {
+	return o
+}
+
+func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponseOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponseOutput {
+	return o
+}
+
+func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
+	return o.ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesResponse) *ServiceProviderPropertiesResponse {
+		return &v
+	}).(ServiceProviderPropertiesResponsePtrOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponseOutput) DevPortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.DevPortalUrl }).(pulumi.StringOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponseOutput) IconUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.IconUrl }).(pulumi.StringOutput)
+}
+
+// Id for Service Provider
+func (o ServiceProviderPropertiesResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The list of parameters for the Service Provider
+func (o ServiceProviderPropertiesResponseOutput) Parameters() ServiceProviderParameterResponseArrayOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesResponse) []ServiceProviderParameterResponse { return v.Parameters }).(ServiceProviderParameterResponseArrayOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponseOutput) ServiceProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.ServiceProviderName }).(pulumi.StringOutput)
+}
+
+type ServiceProviderPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProviderPropertiesResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderPropertiesResponsePtrOutput) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ServiceProviderPropertiesResponsePtrOutput) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ServiceProviderPropertiesResponsePtrOutput) Elem() ServiceProviderPropertiesResponseOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) ServiceProviderPropertiesResponse { return *v }).(ServiceProviderPropertiesResponseOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponsePtrOutput) DevPortalUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DevPortalUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponsePtrOutput) IconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IconUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id for Service Provider
+func (o ServiceProviderPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of parameters for the Service Provider
+func (o ServiceProviderPropertiesResponsePtrOutput) Parameters() ServiceProviderParameterResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) []ServiceProviderParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(ServiceProviderParameterResponseArrayOutput)
+}
+
+// Display Name of the Service Provider
+func (o ServiceProviderPropertiesResponsePtrOutput) ServiceProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceProviderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Service Provider Definition
+type ServiceProviderResponse struct {
+	// The Properties of a Service Provider Object
+	Properties *ServiceProviderPropertiesResponse `pulumi:"properties"`
+}
+
+// ServiceProviderResponseInput is an input type that accepts ServiceProviderResponseArgs and ServiceProviderResponseOutput values.
+// You can construct a concrete instance of `ServiceProviderResponseInput` via:
+//
+//          ServiceProviderResponseArgs{...}
+type ServiceProviderResponseInput interface {
+	pulumi.Input
+
+	ToServiceProviderResponseOutput() ServiceProviderResponseOutput
+	ToServiceProviderResponseOutputWithContext(context.Context) ServiceProviderResponseOutput
+}
+
+// Service Provider Definition
+type ServiceProviderResponseArgs struct {
+	// The Properties of a Service Provider Object
+	Properties ServiceProviderPropertiesResponsePtrInput `pulumi:"properties"`
+}
+
+func (ServiceProviderResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderResponse)(nil)).Elem()
+}
+
+func (i ServiceProviderResponseArgs) ToServiceProviderResponseOutput() ServiceProviderResponseOutput {
+	return i.ToServiceProviderResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderResponseArgs) ToServiceProviderResponseOutputWithContext(ctx context.Context) ServiceProviderResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderResponseOutput)
+}
+
+// ServiceProviderResponseArrayInput is an input type that accepts ServiceProviderResponseArray and ServiceProviderResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceProviderResponseArrayInput` via:
+//
+//          ServiceProviderResponseArray{ ServiceProviderResponseArgs{...} }
+type ServiceProviderResponseArrayInput interface {
+	pulumi.Input
+
+	ToServiceProviderResponseArrayOutput() ServiceProviderResponseArrayOutput
+	ToServiceProviderResponseArrayOutputWithContext(context.Context) ServiceProviderResponseArrayOutput
+}
+
+type ServiceProviderResponseArray []ServiceProviderResponseInput
+
+func (ServiceProviderResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderResponse)(nil)).Elem()
+}
+
+func (i ServiceProviderResponseArray) ToServiceProviderResponseArrayOutput() ServiceProviderResponseArrayOutput {
+	return i.ToServiceProviderResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderResponseArray) ToServiceProviderResponseArrayOutputWithContext(ctx context.Context) ServiceProviderResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderResponseArrayOutput)
+}
+
+// Service Provider Definition
+type ServiceProviderResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderResponseOutput) ToServiceProviderResponseOutput() ServiceProviderResponseOutput {
+	return o
+}
+
+func (o ServiceProviderResponseOutput) ToServiceProviderResponseOutputWithContext(ctx context.Context) ServiceProviderResponseOutput {
+	return o
+}
+
+// The Properties of a Service Provider Object
+func (o ServiceProviderResponseOutput) Properties() ServiceProviderPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ServiceProviderResponse) *ServiceProviderPropertiesResponse { return v.Properties }).(ServiceProviderPropertiesResponsePtrOutput)
+}
+
+type ServiceProviderResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderResponseArrayOutput) ToServiceProviderResponseArrayOutput() ServiceProviderResponseArrayOutput {
+	return o
+}
+
+func (o ServiceProviderResponseArrayOutput) ToServiceProviderResponseArrayOutputWithContext(ctx context.Context) ServiceProviderResponseArrayOutput {
+	return o
+}
+
+func (o ServiceProviderResponseArrayOutput) Index(i pulumi.IntInput) ServiceProviderResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProviderResponse {
+		return vs[0].([]ServiceProviderResponse)[vs[1].(int)]
+	}).(ServiceProviderResponseOutput)
+}
+
 // The SKU of the cognitive services account.
 type Sku struct {
 	// The sku name
@@ -2301,6 +2775,12 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceProviderParameterResponseOutput{})
+	pulumi.RegisterOutputType(ServiceProviderParameterResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceProviderPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ServiceProviderPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceProviderResponseOutput{})
+	pulumi.RegisterOutputType(ServiceProviderResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

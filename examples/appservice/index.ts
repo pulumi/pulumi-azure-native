@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
-const resourceGroup = new azurerm.core.ResourceGroup("rg", {
+const resourceGroup = new azurerm.ResourceGroup("rg", {
     name: "azurerm-appservice",
     location: "westus2",
     tags: {

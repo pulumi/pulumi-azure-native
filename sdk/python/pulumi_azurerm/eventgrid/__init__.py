@@ -5,8 +5,10 @@
 # Export this package's modules as members:
 from .domain import *
 from .domain_topic import *
+from .event_subscription import *
 from .get_domain import *
 from .get_domain_topic import *
+from .get_event_subscription import *
 from .get_private_endpoint_connection import *
 from .get_topic import *
 from .list_domain_shared_access_keys import *

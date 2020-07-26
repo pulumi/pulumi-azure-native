@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 
-const resourceGroup = new azurerm.core.ResourceGroup("rg", {
+const resourceGroup = new azurerm.ResourceGroup("rg", {
     name: "azurerm",
     location: "westus2",
     tags: {
@@ -162,7 +162,7 @@ const storageAccount = new azurerm.storage.StorageAccount("sa", {
     }
 });
 
-export const existingRg = azurerm.core.getResourceGroup({ name: "Azure-Account-Cleanup" });
+export const existingRg = azurerm.getResourceGroup({ name: "Azure-Account-Cleanup" });
 
 const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, storageAccount.id]).apply(([resourceGroupName, accountName]) => 
     azurerm.storage.listStorageAccountKeys({ resourceGroupName, accountName }));

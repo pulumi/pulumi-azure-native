@@ -4,8 +4,10 @@
 // Export members:
 export * from "./domain";
 export * from "./domainTopic";
+export * from "./eventSubscription";
 export * from "./getDomain";
 export * from "./getDomainTopic";
+export * from "./getEventSubscription";
 export * from "./getPrivateEndpointConnection";
 export * from "./getTopic";
 export * from "./listDomainSharedAccessKeys";

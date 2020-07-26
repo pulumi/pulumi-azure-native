@@ -620,6 +620,242 @@ func (o BgpSessionResponsePtrOutput) SessionStateV6() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The contact detail class.
+type ContactDetail struct {
+	// The e-mail address of the contact.
+	Email *string `pulumi:"email"`
+	// The phone number of the contact.
+	Phone *string `pulumi:"phone"`
+	// The role of the contact.
+	Role *string `pulumi:"role"`
+}
+
+// ContactDetailInput is an input type that accepts ContactDetailArgs and ContactDetailOutput values.
+// You can construct a concrete instance of `ContactDetailInput` via:
+//
+//          ContactDetailArgs{...}
+type ContactDetailInput interface {
+	pulumi.Input
+
+	ToContactDetailOutput() ContactDetailOutput
+	ToContactDetailOutputWithContext(context.Context) ContactDetailOutput
+}
+
+// The contact detail class.
+type ContactDetailArgs struct {
+	// The e-mail address of the contact.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The phone number of the contact.
+	Phone pulumi.StringPtrInput `pulumi:"phone"`
+	// The role of the contact.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (ContactDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetail)(nil)).Elem()
+}
+
+func (i ContactDetailArgs) ToContactDetailOutput() ContactDetailOutput {
+	return i.ToContactDetailOutputWithContext(context.Background())
+}
+
+func (i ContactDetailArgs) ToContactDetailOutputWithContext(ctx context.Context) ContactDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailOutput)
+}
+
+// ContactDetailArrayInput is an input type that accepts ContactDetailArray and ContactDetailArrayOutput values.
+// You can construct a concrete instance of `ContactDetailArrayInput` via:
+//
+//          ContactDetailArray{ ContactDetailArgs{...} }
+type ContactDetailArrayInput interface {
+	pulumi.Input
+
+	ToContactDetailArrayOutput() ContactDetailArrayOutput
+	ToContactDetailArrayOutputWithContext(context.Context) ContactDetailArrayOutput
+}
+
+type ContactDetailArray []ContactDetailInput
+
+func (ContactDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactDetail)(nil)).Elem()
+}
+
+func (i ContactDetailArray) ToContactDetailArrayOutput() ContactDetailArrayOutput {
+	return i.ToContactDetailArrayOutputWithContext(context.Background())
+}
+
+func (i ContactDetailArray) ToContactDetailArrayOutputWithContext(ctx context.Context) ContactDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailArrayOutput)
+}
+
+// The contact detail class.
+type ContactDetailOutput struct{ *pulumi.OutputState }
+
+func (ContactDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetail)(nil)).Elem()
+}
+
+func (o ContactDetailOutput) ToContactDetailOutput() ContactDetailOutput {
+	return o
+}
+
+func (o ContactDetailOutput) ToContactDetailOutputWithContext(ctx context.Context) ContactDetailOutput {
+	return o
+}
+
+// The e-mail address of the contact.
+func (o ContactDetailOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetail) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact.
+func (o ContactDetailOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetail) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+// The role of the contact.
+func (o ContactDetailOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetail) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type ContactDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactDetail)(nil)).Elem()
+}
+
+func (o ContactDetailArrayOutput) ToContactDetailArrayOutput() ContactDetailArrayOutput {
+	return o
+}
+
+func (o ContactDetailArrayOutput) ToContactDetailArrayOutputWithContext(ctx context.Context) ContactDetailArrayOutput {
+	return o
+}
+
+func (o ContactDetailArrayOutput) Index(i pulumi.IntInput) ContactDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactDetail {
+		return vs[0].([]ContactDetail)[vs[1].(int)]
+	}).(ContactDetailOutput)
+}
+
+// The contact detail class.
+type ContactDetailResponse struct {
+	// The e-mail address of the contact.
+	Email *string `pulumi:"email"`
+	// The phone number of the contact.
+	Phone *string `pulumi:"phone"`
+	// The role of the contact.
+	Role *string `pulumi:"role"`
+}
+
+// ContactDetailResponseInput is an input type that accepts ContactDetailResponseArgs and ContactDetailResponseOutput values.
+// You can construct a concrete instance of `ContactDetailResponseInput` via:
+//
+//          ContactDetailResponseArgs{...}
+type ContactDetailResponseInput interface {
+	pulumi.Input
+
+	ToContactDetailResponseOutput() ContactDetailResponseOutput
+	ToContactDetailResponseOutputWithContext(context.Context) ContactDetailResponseOutput
+}
+
+// The contact detail class.
+type ContactDetailResponseArgs struct {
+	// The e-mail address of the contact.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The phone number of the contact.
+	Phone pulumi.StringPtrInput `pulumi:"phone"`
+	// The role of the contact.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (ContactDetailResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetailResponse)(nil)).Elem()
+}
+
+func (i ContactDetailResponseArgs) ToContactDetailResponseOutput() ContactDetailResponseOutput {
+	return i.ToContactDetailResponseOutputWithContext(context.Background())
+}
+
+func (i ContactDetailResponseArgs) ToContactDetailResponseOutputWithContext(ctx context.Context) ContactDetailResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailResponseOutput)
+}
+
+// ContactDetailResponseArrayInput is an input type that accepts ContactDetailResponseArray and ContactDetailResponseArrayOutput values.
+// You can construct a concrete instance of `ContactDetailResponseArrayInput` via:
+//
+//          ContactDetailResponseArray{ ContactDetailResponseArgs{...} }
+type ContactDetailResponseArrayInput interface {
+	pulumi.Input
+
+	ToContactDetailResponseArrayOutput() ContactDetailResponseArrayOutput
+	ToContactDetailResponseArrayOutputWithContext(context.Context) ContactDetailResponseArrayOutput
+}
+
+type ContactDetailResponseArray []ContactDetailResponseInput
+
+func (ContactDetailResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactDetailResponse)(nil)).Elem()
+}
+
+func (i ContactDetailResponseArray) ToContactDetailResponseArrayOutput() ContactDetailResponseArrayOutput {
+	return i.ToContactDetailResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContactDetailResponseArray) ToContactDetailResponseArrayOutputWithContext(ctx context.Context) ContactDetailResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailResponseArrayOutput)
+}
+
+// The contact detail class.
+type ContactDetailResponseOutput struct{ *pulumi.OutputState }
+
+func (ContactDetailResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetailResponse)(nil)).Elem()
+}
+
+func (o ContactDetailResponseOutput) ToContactDetailResponseOutput() ContactDetailResponseOutput {
+	return o
+}
+
+func (o ContactDetailResponseOutput) ToContactDetailResponseOutputWithContext(ctx context.Context) ContactDetailResponseOutput {
+	return o
+}
+
+// The e-mail address of the contact.
+func (o ContactDetailResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetailResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The phone number of the contact.
+func (o ContactDetailResponseOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetailResponse) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+// The role of the contact.
+func (o ContactDetailResponseOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetailResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type ContactDetailResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactDetailResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactDetailResponse)(nil)).Elem()
+}
+
+func (o ContactDetailResponseArrayOutput) ToContactDetailResponseArrayOutput() ContactDetailResponseArrayOutput {
+	return o
+}
+
+func (o ContactDetailResponseArrayOutput) ToContactDetailResponseArrayOutputWithContext(ctx context.Context) ContactDetailResponseArrayOutput {
+	return o
+}
+
+func (o ContactDetailResponseArrayOutput) Index(i pulumi.IntInput) ContactDetailResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactDetailResponse {
+		return vs[0].([]ContactDetailResponse)[vs[1].(int)]
+	}).(ContactDetailResponseOutput)
+}
+
 // The properties that define a direct connection.
 type DirectConnection struct {
 	// The bandwidth of the connection.
@@ -1189,6 +1425,480 @@ func (o ExchangeConnectionResponseArrayOutput) Index(i pulumi.IntInput) Exchange
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExchangeConnectionResponse {
 		return vs[0].([]ExchangeConnectionResponse)[vs[1].(int)]
 	}).(ExchangeConnectionResponseOutput)
+}
+
+// The essential information related to the peer's ASN.
+type PeerAsnType struct {
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The properties that define a peer's ASN.
+	Properties PeerAsnPropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// PeerAsnTypeInput is an input type that accepts PeerAsnTypeArgs and PeerAsnTypeOutput values.
+// You can construct a concrete instance of `PeerAsnTypeInput` via:
+//
+//          PeerAsnTypeArgs{...}
+type PeerAsnTypeInput interface {
+	pulumi.Input
+
+	ToPeerAsnTypeOutput() PeerAsnTypeOutput
+	ToPeerAsnTypeOutputWithContext(context.Context) PeerAsnTypeOutput
+}
+
+// The essential information related to the peer's ASN.
+type PeerAsnTypeArgs struct {
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties that define a peer's ASN.
+	Properties PeerAsnPropertiesResponseInput `pulumi:"properties"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PeerAsnTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsnType)(nil)).Elem()
+}
+
+func (i PeerAsnTypeArgs) ToPeerAsnTypeOutput() PeerAsnTypeOutput {
+	return i.ToPeerAsnTypeOutputWithContext(context.Background())
+}
+
+func (i PeerAsnTypeArgs) ToPeerAsnTypeOutputWithContext(ctx context.Context) PeerAsnTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnTypeOutput)
+}
+
+// The essential information related to the peer's ASN.
+type PeerAsnTypeOutput struct{ *pulumi.OutputState }
+
+func (PeerAsnTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsnType)(nil)).Elem()
+}
+
+func (o PeerAsnTypeOutput) ToPeerAsnTypeOutput() PeerAsnTypeOutput {
+	return o
+}
+
+func (o PeerAsnTypeOutput) ToPeerAsnTypeOutputWithContext(ctx context.Context) PeerAsnTypeOutput {
+	return o
+}
+
+// The name of the resource.
+func (o PeerAsnTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PeerAsnType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties that define a peer's ASN.
+func (o PeerAsnTypeOutput) Properties() PeerAsnPropertiesResponseOutput {
+	return o.ApplyT(func(v PeerAsnType) PeerAsnPropertiesResponse { return v.Properties }).(PeerAsnPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o PeerAsnTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PeerAsnType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The properties that define a peer's ASN.
+type PeerAsnProperties struct {
+	// The Autonomous System Number (ASN) of the peer.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// The contact details of the peer.
+	PeerContactDetail []ContactDetail `pulumi:"peerContactDetail"`
+	// The name of the peer.
+	PeerName *string `pulumi:"peerName"`
+	// The validation state of the ASN associated with the peer.
+	ValidationState *string `pulumi:"validationState"`
+}
+
+// PeerAsnPropertiesInput is an input type that accepts PeerAsnPropertiesArgs and PeerAsnPropertiesOutput values.
+// You can construct a concrete instance of `PeerAsnPropertiesInput` via:
+//
+//          PeerAsnPropertiesArgs{...}
+type PeerAsnPropertiesInput interface {
+	pulumi.Input
+
+	ToPeerAsnPropertiesOutput() PeerAsnPropertiesOutput
+	ToPeerAsnPropertiesOutputWithContext(context.Context) PeerAsnPropertiesOutput
+}
+
+// The properties that define a peer's ASN.
+type PeerAsnPropertiesArgs struct {
+	// The Autonomous System Number (ASN) of the peer.
+	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
+	// The contact details of the peer.
+	PeerContactDetail ContactDetailArrayInput `pulumi:"peerContactDetail"`
+	// The name of the peer.
+	PeerName pulumi.StringPtrInput `pulumi:"peerName"`
+	// The validation state of the ASN associated with the peer.
+	ValidationState pulumi.StringPtrInput `pulumi:"validationState"`
+}
+
+func (PeerAsnPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsnProperties)(nil)).Elem()
+}
+
+func (i PeerAsnPropertiesArgs) ToPeerAsnPropertiesOutput() PeerAsnPropertiesOutput {
+	return i.ToPeerAsnPropertiesOutputWithContext(context.Background())
+}
+
+func (i PeerAsnPropertiesArgs) ToPeerAsnPropertiesOutputWithContext(ctx context.Context) PeerAsnPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnPropertiesOutput)
+}
+
+func (i PeerAsnPropertiesArgs) ToPeerAsnPropertiesPtrOutput() PeerAsnPropertiesPtrOutput {
+	return i.ToPeerAsnPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PeerAsnPropertiesArgs) ToPeerAsnPropertiesPtrOutputWithContext(ctx context.Context) PeerAsnPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnPropertiesOutput).ToPeerAsnPropertiesPtrOutputWithContext(ctx)
+}
+
+// PeerAsnPropertiesPtrInput is an input type that accepts PeerAsnPropertiesArgs, PeerAsnPropertiesPtr and PeerAsnPropertiesPtrOutput values.
+// You can construct a concrete instance of `PeerAsnPropertiesPtrInput` via:
+//
+//          PeerAsnPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PeerAsnPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPeerAsnPropertiesPtrOutput() PeerAsnPropertiesPtrOutput
+	ToPeerAsnPropertiesPtrOutputWithContext(context.Context) PeerAsnPropertiesPtrOutput
+}
+
+type peerAsnPropertiesPtrType PeerAsnPropertiesArgs
+
+func PeerAsnPropertiesPtr(v *PeerAsnPropertiesArgs) PeerAsnPropertiesPtrInput {
+	return (*peerAsnPropertiesPtrType)(v)
+}
+
+func (*peerAsnPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeerAsnProperties)(nil)).Elem()
+}
+
+func (i *peerAsnPropertiesPtrType) ToPeerAsnPropertiesPtrOutput() PeerAsnPropertiesPtrOutput {
+	return i.ToPeerAsnPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *peerAsnPropertiesPtrType) ToPeerAsnPropertiesPtrOutputWithContext(ctx context.Context) PeerAsnPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnPropertiesPtrOutput)
+}
+
+// The properties that define a peer's ASN.
+type PeerAsnPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PeerAsnPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsnProperties)(nil)).Elem()
+}
+
+func (o PeerAsnPropertiesOutput) ToPeerAsnPropertiesOutput() PeerAsnPropertiesOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesOutput) ToPeerAsnPropertiesOutputWithContext(ctx context.Context) PeerAsnPropertiesOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesOutput) ToPeerAsnPropertiesPtrOutput() PeerAsnPropertiesPtrOutput {
+	return o.ToPeerAsnPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PeerAsnPropertiesOutput) ToPeerAsnPropertiesPtrOutputWithContext(ctx context.Context) PeerAsnPropertiesPtrOutput {
+	return o.ApplyT(func(v PeerAsnProperties) *PeerAsnProperties {
+		return &v
+	}).(PeerAsnPropertiesPtrOutput)
+}
+
+// The Autonomous System Number (ASN) of the peer.
+func (o PeerAsnPropertiesOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeerAsnProperties) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
+}
+
+// The contact details of the peer.
+func (o PeerAsnPropertiesOutput) PeerContactDetail() ContactDetailArrayOutput {
+	return o.ApplyT(func(v PeerAsnProperties) []ContactDetail { return v.PeerContactDetail }).(ContactDetailArrayOutput)
+}
+
+// The name of the peer.
+func (o PeerAsnPropertiesOutput) PeerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeerAsnProperties) *string { return v.PeerName }).(pulumi.StringPtrOutput)
+}
+
+// The validation state of the ASN associated with the peer.
+func (o PeerAsnPropertiesOutput) ValidationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeerAsnProperties) *string { return v.ValidationState }).(pulumi.StringPtrOutput)
+}
+
+type PeerAsnPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PeerAsnPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeerAsnProperties)(nil)).Elem()
+}
+
+func (o PeerAsnPropertiesPtrOutput) ToPeerAsnPropertiesPtrOutput() PeerAsnPropertiesPtrOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesPtrOutput) ToPeerAsnPropertiesPtrOutputWithContext(ctx context.Context) PeerAsnPropertiesPtrOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesPtrOutput) Elem() PeerAsnPropertiesOutput {
+	return o.ApplyT(func(v *PeerAsnProperties) PeerAsnProperties { return *v }).(PeerAsnPropertiesOutput)
+}
+
+// The Autonomous System Number (ASN) of the peer.
+func (o PeerAsnPropertiesPtrOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeerAsnProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeerAsn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The contact details of the peer.
+func (o PeerAsnPropertiesPtrOutput) PeerContactDetail() ContactDetailArrayOutput {
+	return o.ApplyT(func(v *PeerAsnProperties) []ContactDetail {
+		if v == nil {
+			return nil
+		}
+		return v.PeerContactDetail
+	}).(ContactDetailArrayOutput)
+}
+
+// The name of the peer.
+func (o PeerAsnPropertiesPtrOutput) PeerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeerAsnProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PeerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The validation state of the ASN associated with the peer.
+func (o PeerAsnPropertiesPtrOutput) ValidationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeerAsnProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties that define a peer's ASN.
+type PeerAsnPropertiesResponse struct {
+	// The error message for the validation state
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The Autonomous System Number (ASN) of the peer.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// The contact details of the peer.
+	PeerContactDetail []ContactDetailResponse `pulumi:"peerContactDetail"`
+	// The name of the peer.
+	PeerName *string `pulumi:"peerName"`
+	// The validation state of the ASN associated with the peer.
+	ValidationState *string `pulumi:"validationState"`
+}
+
+// PeerAsnPropertiesResponseInput is an input type that accepts PeerAsnPropertiesResponseArgs and PeerAsnPropertiesResponseOutput values.
+// You can construct a concrete instance of `PeerAsnPropertiesResponseInput` via:
+//
+//          PeerAsnPropertiesResponseArgs{...}
+type PeerAsnPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToPeerAsnPropertiesResponseOutput() PeerAsnPropertiesResponseOutput
+	ToPeerAsnPropertiesResponseOutputWithContext(context.Context) PeerAsnPropertiesResponseOutput
+}
+
+// The properties that define a peer's ASN.
+type PeerAsnPropertiesResponseArgs struct {
+	// The error message for the validation state
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// The Autonomous System Number (ASN) of the peer.
+	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
+	// The contact details of the peer.
+	PeerContactDetail ContactDetailResponseArrayInput `pulumi:"peerContactDetail"`
+	// The name of the peer.
+	PeerName pulumi.StringPtrInput `pulumi:"peerName"`
+	// The validation state of the ASN associated with the peer.
+	ValidationState pulumi.StringPtrInput `pulumi:"validationState"`
+}
+
+func (PeerAsnPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsnPropertiesResponse)(nil)).Elem()
+}
+
+func (i PeerAsnPropertiesResponseArgs) ToPeerAsnPropertiesResponseOutput() PeerAsnPropertiesResponseOutput {
+	return i.ToPeerAsnPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i PeerAsnPropertiesResponseArgs) ToPeerAsnPropertiesResponseOutputWithContext(ctx context.Context) PeerAsnPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnPropertiesResponseOutput)
+}
+
+func (i PeerAsnPropertiesResponseArgs) ToPeerAsnPropertiesResponsePtrOutput() PeerAsnPropertiesResponsePtrOutput {
+	return i.ToPeerAsnPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PeerAsnPropertiesResponseArgs) ToPeerAsnPropertiesResponsePtrOutputWithContext(ctx context.Context) PeerAsnPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnPropertiesResponseOutput).ToPeerAsnPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// PeerAsnPropertiesResponsePtrInput is an input type that accepts PeerAsnPropertiesResponseArgs, PeerAsnPropertiesResponsePtr and PeerAsnPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `PeerAsnPropertiesResponsePtrInput` via:
+//
+//          PeerAsnPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PeerAsnPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToPeerAsnPropertiesResponsePtrOutput() PeerAsnPropertiesResponsePtrOutput
+	ToPeerAsnPropertiesResponsePtrOutputWithContext(context.Context) PeerAsnPropertiesResponsePtrOutput
+}
+
+type peerAsnPropertiesResponsePtrType PeerAsnPropertiesResponseArgs
+
+func PeerAsnPropertiesResponsePtr(v *PeerAsnPropertiesResponseArgs) PeerAsnPropertiesResponsePtrInput {
+	return (*peerAsnPropertiesResponsePtrType)(v)
+}
+
+func (*peerAsnPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeerAsnPropertiesResponse)(nil)).Elem()
+}
+
+func (i *peerAsnPropertiesResponsePtrType) ToPeerAsnPropertiesResponsePtrOutput() PeerAsnPropertiesResponsePtrOutput {
+	return i.ToPeerAsnPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *peerAsnPropertiesResponsePtrType) ToPeerAsnPropertiesResponsePtrOutputWithContext(ctx context.Context) PeerAsnPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnPropertiesResponsePtrOutput)
+}
+
+// The properties that define a peer's ASN.
+type PeerAsnPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (PeerAsnPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeerAsnPropertiesResponse)(nil)).Elem()
+}
+
+func (o PeerAsnPropertiesResponseOutput) ToPeerAsnPropertiesResponseOutput() PeerAsnPropertiesResponseOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesResponseOutput) ToPeerAsnPropertiesResponseOutputWithContext(ctx context.Context) PeerAsnPropertiesResponseOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesResponseOutput) ToPeerAsnPropertiesResponsePtrOutput() PeerAsnPropertiesResponsePtrOutput {
+	return o.ToPeerAsnPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PeerAsnPropertiesResponseOutput) ToPeerAsnPropertiesResponsePtrOutputWithContext(ctx context.Context) PeerAsnPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v PeerAsnPropertiesResponse) *PeerAsnPropertiesResponse {
+		return &v
+	}).(PeerAsnPropertiesResponsePtrOutput)
+}
+
+// The error message for the validation state
+func (o PeerAsnPropertiesResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v PeerAsnPropertiesResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The Autonomous System Number (ASN) of the peer.
+func (o PeerAsnPropertiesResponseOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PeerAsnPropertiesResponse) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
+}
+
+// The contact details of the peer.
+func (o PeerAsnPropertiesResponseOutput) PeerContactDetail() ContactDetailResponseArrayOutput {
+	return o.ApplyT(func(v PeerAsnPropertiesResponse) []ContactDetailResponse { return v.PeerContactDetail }).(ContactDetailResponseArrayOutput)
+}
+
+// The name of the peer.
+func (o PeerAsnPropertiesResponseOutput) PeerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeerAsnPropertiesResponse) *string { return v.PeerName }).(pulumi.StringPtrOutput)
+}
+
+// The validation state of the ASN associated with the peer.
+func (o PeerAsnPropertiesResponseOutput) ValidationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeerAsnPropertiesResponse) *string { return v.ValidationState }).(pulumi.StringPtrOutput)
+}
+
+type PeerAsnPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PeerAsnPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeerAsnPropertiesResponse)(nil)).Elem()
+}
+
+func (o PeerAsnPropertiesResponsePtrOutput) ToPeerAsnPropertiesResponsePtrOutput() PeerAsnPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesResponsePtrOutput) ToPeerAsnPropertiesResponsePtrOutputWithContext(ctx context.Context) PeerAsnPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o PeerAsnPropertiesResponsePtrOutput) Elem() PeerAsnPropertiesResponseOutput {
+	return o.ApplyT(func(v *PeerAsnPropertiesResponse) PeerAsnPropertiesResponse { return *v }).(PeerAsnPropertiesResponseOutput)
+}
+
+// The error message for the validation state
+func (o PeerAsnPropertiesResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeerAsnPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Autonomous System Number (ASN) of the peer.
+func (o PeerAsnPropertiesResponsePtrOutput) PeerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PeerAsnPropertiesResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeerAsn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The contact details of the peer.
+func (o PeerAsnPropertiesResponsePtrOutput) PeerContactDetail() ContactDetailResponseArrayOutput {
+	return o.ApplyT(func(v *PeerAsnPropertiesResponse) []ContactDetailResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PeerContactDetail
+	}).(ContactDetailResponseArrayOutput)
+}
+
+// The name of the peer.
+func (o PeerAsnPropertiesResponsePtrOutput) PeerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeerAsnPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PeerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The validation state of the ASN associated with the peer.
+func (o PeerAsnPropertiesResponsePtrOutput) ValidationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeerAsnPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationState
+	}).(pulumi.StringPtrOutput)
 }
 
 // Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
@@ -5134,6 +5844,10 @@ func init() {
 	pulumi.RegisterOutputType(BgpSessionPtrOutput{})
 	pulumi.RegisterOutputType(BgpSessionResponseOutput{})
 	pulumi.RegisterOutputType(BgpSessionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContactDetailOutput{})
+	pulumi.RegisterOutputType(ContactDetailArrayOutput{})
+	pulumi.RegisterOutputType(ContactDetailResponseOutput{})
+	pulumi.RegisterOutputType(ContactDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(DirectConnectionOutput{})
 	pulumi.RegisterOutputType(DirectConnectionArrayOutput{})
 	pulumi.RegisterOutputType(DirectConnectionResponseOutput{})
@@ -5142,6 +5856,11 @@ func init() {
 	pulumi.RegisterOutputType(ExchangeConnectionArrayOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PeerAsnTypeOutput{})
+	pulumi.RegisterOutputType(PeerAsnPropertiesOutput{})
+	pulumi.RegisterOutputType(PeerAsnPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PeerAsnPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(PeerAsnPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeeringTypeOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesPtrOutput{})

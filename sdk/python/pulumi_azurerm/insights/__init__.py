@@ -3,13 +3,29 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .action_group import *
+from .activity_log_alert import *
+from .alert_rule import *
+from .analytics_item import *
+from .autoscale_setting import *
 from .component import *
 from .export_configuration import *
 from .favorite import *
+from .get_action_group import *
+from .get_activity_log_alert import *
+from .get_alert_rule import *
+from .get_analytics_item import *
+from .get_autoscale_setting import *
 from .get_component import *
 from .get_export_configuration import *
 from .get_favorite import *
+from .get_log_profile import *
 from .get_metric_alert import *
+from .get_scheduled_query_rule import *
 from .get_web_test import *
+from .get_workbook import *
+from .log_profile import *
 from .metric_alert import *
+from .scheduled_query_rule import *
 from .web_test import *
+from .workbook import *

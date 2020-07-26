@@ -131,24 +131,22 @@ func SwaggerLocations() ([]string, error) {
 
 // ResourceProvider returns a provider name given resource's PUT path.
 func ResourceProvider(path string) string {
-	if path == "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}" {
-		return "Core"
-	}
-
 	parts := strings.Split(path, "/")
-
-	// The path is /subscriptions/id/resoursegroups/id/providers/Microsoft.SomeProvider/foos/id/bars/id/...
-	if len(parts) < 8 {
+	if len(parts) < 3 {
 		return ""
 	}
 
-	armProvider := parts[6]
-	// TODO: handle non-Microsoft providers.
-	if !strings.HasPrefix(armProvider, "Microsoft.") {
-		return ""
+	for _, part := range parts {
+		if strings.HasPrefix(part, "Microsoft.") {
+			return strings.TrimPrefix(part, "Microsoft.")
+		}
+		if strings.HasPrefix(part, "microsoft.") {
+			return strings.Title(strings.TrimPrefix(part, "microsoft."))
+		}
 	}
 
-	return strings.TrimPrefix(armProvider, "Microsoft.")
+	// TODO: this may cause some undesired resources in the index namespace, but it looks okay for now.
+	return "index"
 }
 
 var verbReplacer *strings.Replacer

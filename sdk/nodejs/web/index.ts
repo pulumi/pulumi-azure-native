@@ -39,6 +39,7 @@ export * from "./getWebAppSwiftVirtualNetworkConnectionSlot";
 export * from "./getWebAppVnetConnection";
 export * from "./getWebAppVnetConnectionSlot";
 export * from "./listAppServicePlanHybridConnectionKeys";
+export * from "./listSiteIdentifiersAssignedToHostName";
 export * from "./listStaticSiteBuildFunctionAppSettings";
 export * from "./listStaticSiteFunctionAppSettings";
 export * from "./listStaticSiteSecrets";

@@ -10,6 +10,2408 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AdaptiveApplicationControlType struct {
+	// Location where the resource is stored
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
+	// Represents a VM/server group and set of rules to be allowed running on a machine
+	Properties AppWhitelistingGroupDataResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// AdaptiveApplicationControlTypeInput is an input type that accepts AdaptiveApplicationControlTypeArgs and AdaptiveApplicationControlTypeOutput values.
+// You can construct a concrete instance of `AdaptiveApplicationControlTypeInput` via:
+//
+//          AdaptiveApplicationControlTypeArgs{...}
+type AdaptiveApplicationControlTypeInput interface {
+	pulumi.Input
+
+	ToAdaptiveApplicationControlTypeOutput() AdaptiveApplicationControlTypeOutput
+	ToAdaptiveApplicationControlTypeOutputWithContext(context.Context) AdaptiveApplicationControlTypeOutput
+}
+
+type AdaptiveApplicationControlTypeArgs struct {
+	// Location where the resource is stored
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Represents a VM/server group and set of rules to be allowed running on a machine
+	Properties AppWhitelistingGroupDataResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AdaptiveApplicationControlTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdaptiveApplicationControlType)(nil)).Elem()
+}
+
+func (i AdaptiveApplicationControlTypeArgs) ToAdaptiveApplicationControlTypeOutput() AdaptiveApplicationControlTypeOutput {
+	return i.ToAdaptiveApplicationControlTypeOutputWithContext(context.Background())
+}
+
+func (i AdaptiveApplicationControlTypeArgs) ToAdaptiveApplicationControlTypeOutputWithContext(ctx context.Context) AdaptiveApplicationControlTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlTypeOutput)
+}
+
+type AdaptiveApplicationControlTypeOutput struct{ *pulumi.OutputState }
+
+func (AdaptiveApplicationControlTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdaptiveApplicationControlType)(nil)).Elem()
+}
+
+func (o AdaptiveApplicationControlTypeOutput) ToAdaptiveApplicationControlTypeOutput() AdaptiveApplicationControlTypeOutput {
+	return o
+}
+
+func (o AdaptiveApplicationControlTypeOutput) ToAdaptiveApplicationControlTypeOutputWithContext(ctx context.Context) AdaptiveApplicationControlTypeOutput {
+	return o
+}
+
+// Location where the resource is stored
+func (o AdaptiveApplicationControlTypeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v AdaptiveApplicationControlType) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o AdaptiveApplicationControlTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AdaptiveApplicationControlType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Represents a VM/server group and set of rules to be allowed running on a machine
+func (o AdaptiveApplicationControlTypeOutput) Properties() AppWhitelistingGroupDataResponseOutput {
+	return o.ApplyT(func(v AdaptiveApplicationControlType) AppWhitelistingGroupDataResponse { return v.Properties }).(AppWhitelistingGroupDataResponseOutput)
+}
+
+// Resource type
+func (o AdaptiveApplicationControlTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AdaptiveApplicationControlType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRule struct {
+	// The values to allow. The format of the values depends on the rule type.
+	AllowlistValues []string `pulumi:"allowlistValues"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// AllowlistCustomAlertRuleInput is an input type that accepts AllowlistCustomAlertRuleArgs and AllowlistCustomAlertRuleOutput values.
+// You can construct a concrete instance of `AllowlistCustomAlertRuleInput` via:
+//
+//          AllowlistCustomAlertRuleArgs{...}
+type AllowlistCustomAlertRuleInput interface {
+	pulumi.Input
+
+	ToAllowlistCustomAlertRuleOutput() AllowlistCustomAlertRuleOutput
+	ToAllowlistCustomAlertRuleOutputWithContext(context.Context) AllowlistCustomAlertRuleOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleArgs struct {
+	// The values to allow. The format of the values depends on the rule type.
+	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (AllowlistCustomAlertRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowlistCustomAlertRule)(nil)).Elem()
+}
+
+func (i AllowlistCustomAlertRuleArgs) ToAllowlistCustomAlertRuleOutput() AllowlistCustomAlertRuleOutput {
+	return i.ToAllowlistCustomAlertRuleOutputWithContext(context.Background())
+}
+
+func (i AllowlistCustomAlertRuleArgs) ToAllowlistCustomAlertRuleOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleOutput)
+}
+
+// AllowlistCustomAlertRuleArrayInput is an input type that accepts AllowlistCustomAlertRuleArray and AllowlistCustomAlertRuleArrayOutput values.
+// You can construct a concrete instance of `AllowlistCustomAlertRuleArrayInput` via:
+//
+//          AllowlistCustomAlertRuleArray{ AllowlistCustomAlertRuleArgs{...} }
+type AllowlistCustomAlertRuleArrayInput interface {
+	pulumi.Input
+
+	ToAllowlistCustomAlertRuleArrayOutput() AllowlistCustomAlertRuleArrayOutput
+	ToAllowlistCustomAlertRuleArrayOutputWithContext(context.Context) AllowlistCustomAlertRuleArrayOutput
+}
+
+type AllowlistCustomAlertRuleArray []AllowlistCustomAlertRuleInput
+
+func (AllowlistCustomAlertRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowlistCustomAlertRule)(nil)).Elem()
+}
+
+func (i AllowlistCustomAlertRuleArray) ToAllowlistCustomAlertRuleArrayOutput() AllowlistCustomAlertRuleArrayOutput {
+	return i.ToAllowlistCustomAlertRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AllowlistCustomAlertRuleArray) ToAllowlistCustomAlertRuleArrayOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleOutput struct{ *pulumi.OutputState }
+
+func (AllowlistCustomAlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowlistCustomAlertRule)(nil)).Elem()
+}
+
+func (o AllowlistCustomAlertRuleOutput) ToAllowlistCustomAlertRuleOutput() AllowlistCustomAlertRuleOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleOutput) ToAllowlistCustomAlertRuleOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleOutput {
+	return o
+}
+
+// The values to allow. The format of the values depends on the rule type.
+func (o AllowlistCustomAlertRuleOutput) AllowlistValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRule) []string { return v.AllowlistValues }).(pulumi.StringArrayOutput)
+}
+
+// Status of the custom alert.
+func (o AllowlistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of the custom alert rule.
+func (o AllowlistCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type AllowlistCustomAlertRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AllowlistCustomAlertRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowlistCustomAlertRule)(nil)).Elem()
+}
+
+func (o AllowlistCustomAlertRuleArrayOutput) ToAllowlistCustomAlertRuleArrayOutput() AllowlistCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleArrayOutput) ToAllowlistCustomAlertRuleArrayOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) AllowlistCustomAlertRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AllowlistCustomAlertRule {
+		return vs[0].([]AllowlistCustomAlertRule)[vs[1].(int)]
+	}).(AllowlistCustomAlertRuleOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleResponse struct {
+	// The values to allow. The format of the values depends on the rule type.
+	AllowlistValues []string `pulumi:"allowlistValues"`
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType string `pulumi:"valueType"`
+}
+
+// AllowlistCustomAlertRuleResponseInput is an input type that accepts AllowlistCustomAlertRuleResponseArgs and AllowlistCustomAlertRuleResponseOutput values.
+// You can construct a concrete instance of `AllowlistCustomAlertRuleResponseInput` via:
+//
+//          AllowlistCustomAlertRuleResponseArgs{...}
+type AllowlistCustomAlertRuleResponseInput interface {
+	pulumi.Input
+
+	ToAllowlistCustomAlertRuleResponseOutput() AllowlistCustomAlertRuleResponseOutput
+	ToAllowlistCustomAlertRuleResponseOutputWithContext(context.Context) AllowlistCustomAlertRuleResponseOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleResponseArgs struct {
+	// The values to allow. The format of the values depends on the rule type.
+	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType pulumi.StringInput `pulumi:"valueType"`
+}
+
+func (AllowlistCustomAlertRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowlistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i AllowlistCustomAlertRuleResponseArgs) ToAllowlistCustomAlertRuleResponseOutput() AllowlistCustomAlertRuleResponseOutput {
+	return i.ToAllowlistCustomAlertRuleResponseOutputWithContext(context.Background())
+}
+
+func (i AllowlistCustomAlertRuleResponseArgs) ToAllowlistCustomAlertRuleResponseOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleResponseOutput)
+}
+
+// AllowlistCustomAlertRuleResponseArrayInput is an input type that accepts AllowlistCustomAlertRuleResponseArray and AllowlistCustomAlertRuleResponseArrayOutput values.
+// You can construct a concrete instance of `AllowlistCustomAlertRuleResponseArrayInput` via:
+//
+//          AllowlistCustomAlertRuleResponseArray{ AllowlistCustomAlertRuleResponseArgs{...} }
+type AllowlistCustomAlertRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToAllowlistCustomAlertRuleResponseArrayOutput() AllowlistCustomAlertRuleResponseArrayOutput
+	ToAllowlistCustomAlertRuleResponseArrayOutputWithContext(context.Context) AllowlistCustomAlertRuleResponseArrayOutput
+}
+
+type AllowlistCustomAlertRuleResponseArray []AllowlistCustomAlertRuleResponseInput
+
+func (AllowlistCustomAlertRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowlistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i AllowlistCustomAlertRuleResponseArray) ToAllowlistCustomAlertRuleResponseArrayOutput() AllowlistCustomAlertRuleResponseArrayOutput {
+	return i.ToAllowlistCustomAlertRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AllowlistCustomAlertRuleResponseArray) ToAllowlistCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleResponseArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (AllowlistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowlistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o AllowlistCustomAlertRuleResponseOutput) ToAllowlistCustomAlertRuleResponseOutput() AllowlistCustomAlertRuleResponseOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleResponseOutput) ToAllowlistCustomAlertRuleResponseOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleResponseOutput {
+	return o
+}
+
+// The values to allow. The format of the values depends on the rule type.
+func (o AllowlistCustomAlertRuleResponseOutput) AllowlistValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) []string { return v.AllowlistValues }).(pulumi.StringArrayOutput)
+}
+
+// The description of the custom alert.
+func (o AllowlistCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o AllowlistCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o AllowlistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of the custom alert rule.
+func (o AllowlistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The value type of the items in the list.
+func (o AllowlistCustomAlertRuleResponseOutput) ValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.ValueType }).(pulumi.StringOutput)
+}
+
+type AllowlistCustomAlertRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AllowlistCustomAlertRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowlistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o AllowlistCustomAlertRuleResponseArrayOutput) ToAllowlistCustomAlertRuleResponseArrayOutput() AllowlistCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleResponseArrayOutput) ToAllowlistCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) AllowlistCustomAlertRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AllowlistCustomAlertRuleResponse {
+		return vs[0].([]AllowlistCustomAlertRuleResponse)[vs[1].(int)]
+	}).(AllowlistCustomAlertRuleResponseOutput)
+}
+
+// Represents a VM/server group and set of rules to be allowed running on a machine
+type AppWhitelistingGroupData struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	EnforcementMode     *string              `pulumi:"enforcementMode"`
+	PathRecommendations *PathRecommendations `pulumi:"pathRecommendations"`
+	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+	ProtectionMode    *ProtectionMode    `pulumi:"protectionMode"`
+	VmRecommendations *VmRecommendations `pulumi:"vmRecommendations"`
+}
+
+// AppWhitelistingGroupDataInput is an input type that accepts AppWhitelistingGroupDataArgs and AppWhitelistingGroupDataOutput values.
+// You can construct a concrete instance of `AppWhitelistingGroupDataInput` via:
+//
+//          AppWhitelistingGroupDataArgs{...}
+type AppWhitelistingGroupDataInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingGroupDataOutput() AppWhitelistingGroupDataOutput
+	ToAppWhitelistingGroupDataOutputWithContext(context.Context) AppWhitelistingGroupDataOutput
+}
+
+// Represents a VM/server group and set of rules to be allowed running on a machine
+type AppWhitelistingGroupDataArgs struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	EnforcementMode     pulumi.StringPtrInput       `pulumi:"enforcementMode"`
+	PathRecommendations PathRecommendationsPtrInput `pulumi:"pathRecommendations"`
+	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+	ProtectionMode    ProtectionModePtrInput    `pulumi:"protectionMode"`
+	VmRecommendations VmRecommendationsPtrInput `pulumi:"vmRecommendations"`
+}
+
+func (AppWhitelistingGroupDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingGroupData)(nil)).Elem()
+}
+
+func (i AppWhitelistingGroupDataArgs) ToAppWhitelistingGroupDataOutput() AppWhitelistingGroupDataOutput {
+	return i.ToAppWhitelistingGroupDataOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingGroupDataArgs) ToAppWhitelistingGroupDataOutputWithContext(ctx context.Context) AppWhitelistingGroupDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingGroupDataOutput)
+}
+
+func (i AppWhitelistingGroupDataArgs) ToAppWhitelistingGroupDataPtrOutput() AppWhitelistingGroupDataPtrOutput {
+	return i.ToAppWhitelistingGroupDataPtrOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingGroupDataArgs) ToAppWhitelistingGroupDataPtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingGroupDataOutput).ToAppWhitelistingGroupDataPtrOutputWithContext(ctx)
+}
+
+// AppWhitelistingGroupDataPtrInput is an input type that accepts AppWhitelistingGroupDataArgs, AppWhitelistingGroupDataPtr and AppWhitelistingGroupDataPtrOutput values.
+// You can construct a concrete instance of `AppWhitelistingGroupDataPtrInput` via:
+//
+//          AppWhitelistingGroupDataArgs{...}
+//
+//  or:
+//
+//          nil
+type AppWhitelistingGroupDataPtrInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingGroupDataPtrOutput() AppWhitelistingGroupDataPtrOutput
+	ToAppWhitelistingGroupDataPtrOutputWithContext(context.Context) AppWhitelistingGroupDataPtrOutput
+}
+
+type appWhitelistingGroupDataPtrType AppWhitelistingGroupDataArgs
+
+func AppWhitelistingGroupDataPtr(v *AppWhitelistingGroupDataArgs) AppWhitelistingGroupDataPtrInput {
+	return (*appWhitelistingGroupDataPtrType)(v)
+}
+
+func (*appWhitelistingGroupDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppWhitelistingGroupData)(nil)).Elem()
+}
+
+func (i *appWhitelistingGroupDataPtrType) ToAppWhitelistingGroupDataPtrOutput() AppWhitelistingGroupDataPtrOutput {
+	return i.ToAppWhitelistingGroupDataPtrOutputWithContext(context.Background())
+}
+
+func (i *appWhitelistingGroupDataPtrType) ToAppWhitelistingGroupDataPtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingGroupDataPtrOutput)
+}
+
+// Represents a VM/server group and set of rules to be allowed running on a machine
+type AppWhitelistingGroupDataOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingGroupDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingGroupData)(nil)).Elem()
+}
+
+func (o AppWhitelistingGroupDataOutput) ToAppWhitelistingGroupDataOutput() AppWhitelistingGroupDataOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataOutput) ToAppWhitelistingGroupDataOutputWithContext(ctx context.Context) AppWhitelistingGroupDataOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataOutput) ToAppWhitelistingGroupDataPtrOutput() AppWhitelistingGroupDataPtrOutput {
+	return o.ToAppWhitelistingGroupDataPtrOutputWithContext(context.Background())
+}
+
+func (o AppWhitelistingGroupDataOutput) ToAppWhitelistingGroupDataPtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataPtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupData) *AppWhitelistingGroupData {
+		return &v
+	}).(AppWhitelistingGroupDataPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o AppWhitelistingGroupDataOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupData) *string { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+func (o AppWhitelistingGroupDataOutput) PathRecommendations() PathRecommendationsPtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupData) *PathRecommendations { return v.PathRecommendations }).(PathRecommendationsPtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+func (o AppWhitelistingGroupDataOutput) ProtectionMode() ProtectionModePtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupData) *ProtectionMode { return v.ProtectionMode }).(ProtectionModePtrOutput)
+}
+
+func (o AppWhitelistingGroupDataOutput) VmRecommendations() VmRecommendationsPtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupData) *VmRecommendations { return v.VmRecommendations }).(VmRecommendationsPtrOutput)
+}
+
+type AppWhitelistingGroupDataPtrOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingGroupDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppWhitelistingGroupData)(nil)).Elem()
+}
+
+func (o AppWhitelistingGroupDataPtrOutput) ToAppWhitelistingGroupDataPtrOutput() AppWhitelistingGroupDataPtrOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataPtrOutput) ToAppWhitelistingGroupDataPtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataPtrOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataPtrOutput) Elem() AppWhitelistingGroupDataOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupData) AppWhitelistingGroupData { return *v }).(AppWhitelistingGroupDataOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o AppWhitelistingGroupDataPtrOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnforcementMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppWhitelistingGroupDataPtrOutput) PathRecommendations() PathRecommendationsPtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupData) *PathRecommendations {
+		if v == nil {
+			return nil
+		}
+		return v.PathRecommendations
+	}).(PathRecommendationsPtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+func (o AppWhitelistingGroupDataPtrOutput) ProtectionMode() ProtectionModePtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupData) *ProtectionMode {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectionMode
+	}).(ProtectionModePtrOutput)
+}
+
+func (o AppWhitelistingGroupDataPtrOutput) VmRecommendations() VmRecommendationsPtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupData) *VmRecommendations {
+		if v == nil {
+			return nil
+		}
+		return v.VmRecommendations
+	}).(VmRecommendationsPtrOutput)
+}
+
+// Represents a VM/server group and set of rules to be allowed running on a machine
+type AppWhitelistingGroupDataResponse struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus string `pulumi:"configurationStatus"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	EnforcementMode     *string                                `pulumi:"enforcementMode"`
+	Issues              AppWhitelistingIssuesSummariesResponse `pulumi:"issues"`
+	PathRecommendations *PathRecommendationsResponse           `pulumi:"pathRecommendations"`
+	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+	ProtectionMode *ProtectionModeResponse `pulumi:"protectionMode"`
+	// The recommendation status of the VM/server group or VM/server
+	RecommendationStatus string `pulumi:"recommendationStatus"`
+	// The source type of the VM/server group
+	SourceSystem      string                     `pulumi:"sourceSystem"`
+	VmRecommendations *VmRecommendationsResponse `pulumi:"vmRecommendations"`
+}
+
+// AppWhitelistingGroupDataResponseInput is an input type that accepts AppWhitelistingGroupDataResponseArgs and AppWhitelistingGroupDataResponseOutput values.
+// You can construct a concrete instance of `AppWhitelistingGroupDataResponseInput` via:
+//
+//          AppWhitelistingGroupDataResponseArgs{...}
+type AppWhitelistingGroupDataResponseInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingGroupDataResponseOutput() AppWhitelistingGroupDataResponseOutput
+	ToAppWhitelistingGroupDataResponseOutputWithContext(context.Context) AppWhitelistingGroupDataResponseOutput
+}
+
+// Represents a VM/server group and set of rules to be allowed running on a machine
+type AppWhitelistingGroupDataResponseArgs struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus pulumi.StringInput `pulumi:"configurationStatus"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	EnforcementMode     pulumi.StringPtrInput                       `pulumi:"enforcementMode"`
+	Issues              AppWhitelistingIssuesSummariesResponseInput `pulumi:"issues"`
+	PathRecommendations PathRecommendationsResponsePtrInput         `pulumi:"pathRecommendations"`
+	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+	ProtectionMode ProtectionModeResponsePtrInput `pulumi:"protectionMode"`
+	// The recommendation status of the VM/server group or VM/server
+	RecommendationStatus pulumi.StringInput `pulumi:"recommendationStatus"`
+	// The source type of the VM/server group
+	SourceSystem      pulumi.StringInput                `pulumi:"sourceSystem"`
+	VmRecommendations VmRecommendationsResponsePtrInput `pulumi:"vmRecommendations"`
+}
+
+func (AppWhitelistingGroupDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingGroupDataResponse)(nil)).Elem()
+}
+
+func (i AppWhitelistingGroupDataResponseArgs) ToAppWhitelistingGroupDataResponseOutput() AppWhitelistingGroupDataResponseOutput {
+	return i.ToAppWhitelistingGroupDataResponseOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingGroupDataResponseArgs) ToAppWhitelistingGroupDataResponseOutputWithContext(ctx context.Context) AppWhitelistingGroupDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingGroupDataResponseOutput)
+}
+
+func (i AppWhitelistingGroupDataResponseArgs) ToAppWhitelistingGroupDataResponsePtrOutput() AppWhitelistingGroupDataResponsePtrOutput {
+	return i.ToAppWhitelistingGroupDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingGroupDataResponseArgs) ToAppWhitelistingGroupDataResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingGroupDataResponseOutput).ToAppWhitelistingGroupDataResponsePtrOutputWithContext(ctx)
+}
+
+// AppWhitelistingGroupDataResponsePtrInput is an input type that accepts AppWhitelistingGroupDataResponseArgs, AppWhitelistingGroupDataResponsePtr and AppWhitelistingGroupDataResponsePtrOutput values.
+// You can construct a concrete instance of `AppWhitelistingGroupDataResponsePtrInput` via:
+//
+//          AppWhitelistingGroupDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AppWhitelistingGroupDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingGroupDataResponsePtrOutput() AppWhitelistingGroupDataResponsePtrOutput
+	ToAppWhitelistingGroupDataResponsePtrOutputWithContext(context.Context) AppWhitelistingGroupDataResponsePtrOutput
+}
+
+type appWhitelistingGroupDataResponsePtrType AppWhitelistingGroupDataResponseArgs
+
+func AppWhitelistingGroupDataResponsePtr(v *AppWhitelistingGroupDataResponseArgs) AppWhitelistingGroupDataResponsePtrInput {
+	return (*appWhitelistingGroupDataResponsePtrType)(v)
+}
+
+func (*appWhitelistingGroupDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppWhitelistingGroupDataResponse)(nil)).Elem()
+}
+
+func (i *appWhitelistingGroupDataResponsePtrType) ToAppWhitelistingGroupDataResponsePtrOutput() AppWhitelistingGroupDataResponsePtrOutput {
+	return i.ToAppWhitelistingGroupDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *appWhitelistingGroupDataResponsePtrType) ToAppWhitelistingGroupDataResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingGroupDataResponsePtrOutput)
+}
+
+// Represents a VM/server group and set of rules to be allowed running on a machine
+type AppWhitelistingGroupDataResponseOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingGroupDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingGroupDataResponse)(nil)).Elem()
+}
+
+func (o AppWhitelistingGroupDataResponseOutput) ToAppWhitelistingGroupDataResponseOutput() AppWhitelistingGroupDataResponseOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataResponseOutput) ToAppWhitelistingGroupDataResponseOutputWithContext(ctx context.Context) AppWhitelistingGroupDataResponseOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataResponseOutput) ToAppWhitelistingGroupDataResponsePtrOutput() AppWhitelistingGroupDataResponsePtrOutput {
+	return o.ToAppWhitelistingGroupDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AppWhitelistingGroupDataResponseOutput) ToAppWhitelistingGroupDataResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataResponsePtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *AppWhitelistingGroupDataResponse {
+		return &v
+	}).(AppWhitelistingGroupDataResponsePtrOutput)
+}
+
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o AppWhitelistingGroupDataResponseOutput) ConfigurationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) string { return v.ConfigurationStatus }).(pulumi.StringOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o AppWhitelistingGroupDataResponseOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *string { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+func (o AppWhitelistingGroupDataResponseOutput) Issues() AppWhitelistingIssuesSummariesResponseOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) AppWhitelistingIssuesSummariesResponse { return v.Issues }).(AppWhitelistingIssuesSummariesResponseOutput)
+}
+
+func (o AppWhitelistingGroupDataResponseOutput) PathRecommendations() PathRecommendationsResponsePtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *PathRecommendationsResponse { return v.PathRecommendations }).(PathRecommendationsResponsePtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+func (o AppWhitelistingGroupDataResponseOutput) ProtectionMode() ProtectionModeResponsePtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *ProtectionModeResponse { return v.ProtectionMode }).(ProtectionModeResponsePtrOutput)
+}
+
+// The recommendation status of the VM/server group or VM/server
+func (o AppWhitelistingGroupDataResponseOutput) RecommendationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) string { return v.RecommendationStatus }).(pulumi.StringOutput)
+}
+
+// The source type of the VM/server group
+func (o AppWhitelistingGroupDataResponseOutput) SourceSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) string { return v.SourceSystem }).(pulumi.StringOutput)
+}
+
+func (o AppWhitelistingGroupDataResponseOutput) VmRecommendations() VmRecommendationsResponsePtrOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *VmRecommendationsResponse { return v.VmRecommendations }).(VmRecommendationsResponsePtrOutput)
+}
+
+type AppWhitelistingGroupDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingGroupDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppWhitelistingGroupDataResponse)(nil)).Elem()
+}
+
+func (o AppWhitelistingGroupDataResponsePtrOutput) ToAppWhitelistingGroupDataResponsePtrOutput() AppWhitelistingGroupDataResponsePtrOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataResponsePtrOutput) ToAppWhitelistingGroupDataResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingGroupDataResponsePtrOutput {
+	return o
+}
+
+func (o AppWhitelistingGroupDataResponsePtrOutput) Elem() AppWhitelistingGroupDataResponseOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) AppWhitelistingGroupDataResponse { return *v }).(AppWhitelistingGroupDataResponseOutput)
+}
+
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o AppWhitelistingGroupDataResponsePtrOutput) ConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfigurationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o AppWhitelistingGroupDataResponsePtrOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnforcementMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppWhitelistingGroupDataResponsePtrOutput) Issues() AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *AppWhitelistingIssuesSummariesResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Issues
+	}).(AppWhitelistingIssuesSummariesResponsePtrOutput)
+}
+
+func (o AppWhitelistingGroupDataResponsePtrOutput) PathRecommendations() PathRecommendationsResponsePtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *PathRecommendationsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PathRecommendations
+	}).(PathRecommendationsResponsePtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+func (o AppWhitelistingGroupDataResponsePtrOutput) ProtectionMode() ProtectionModeResponsePtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *ProtectionModeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectionMode
+	}).(ProtectionModeResponsePtrOutput)
+}
+
+// The recommendation status of the VM/server group or VM/server
+func (o AppWhitelistingGroupDataResponsePtrOutput) RecommendationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecommendationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source type of the VM/server group
+func (o AppWhitelistingGroupDataResponsePtrOutput) SourceSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceSystem
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AppWhitelistingGroupDataResponsePtrOutput) VmRecommendations() VmRecommendationsResponsePtrOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *VmRecommendationsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VmRecommendations
+	}).(VmRecommendationsResponsePtrOutput)
+}
+
+type AppWhitelistingIssuesSummaries struct {
+}
+
+// AppWhitelistingIssuesSummariesInput is an input type that accepts AppWhitelistingIssuesSummariesArgs and AppWhitelistingIssuesSummariesOutput values.
+// You can construct a concrete instance of `AppWhitelistingIssuesSummariesInput` via:
+//
+//          AppWhitelistingIssuesSummariesArgs{...}
+type AppWhitelistingIssuesSummariesInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingIssuesSummariesOutput() AppWhitelistingIssuesSummariesOutput
+	ToAppWhitelistingIssuesSummariesOutputWithContext(context.Context) AppWhitelistingIssuesSummariesOutput
+}
+
+type AppWhitelistingIssuesSummariesArgs struct {
+}
+
+func (AppWhitelistingIssuesSummariesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssuesSummaries)(nil)).Elem()
+}
+
+func (i AppWhitelistingIssuesSummariesArgs) ToAppWhitelistingIssuesSummariesOutput() AppWhitelistingIssuesSummariesOutput {
+	return i.ToAppWhitelistingIssuesSummariesOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingIssuesSummariesArgs) ToAppWhitelistingIssuesSummariesOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesOutput)
+}
+
+type AppWhitelistingIssuesSummariesOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingIssuesSummariesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssuesSummaries)(nil)).Elem()
+}
+
+func (o AppWhitelistingIssuesSummariesOutput) ToAppWhitelistingIssuesSummariesOutput() AppWhitelistingIssuesSummariesOutput {
+	return o
+}
+
+func (o AppWhitelistingIssuesSummariesOutput) ToAppWhitelistingIssuesSummariesOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesOutput {
+	return o
+}
+
+type AppWhitelistingIssuesSummariesResponse struct {
+}
+
+// AppWhitelistingIssuesSummariesResponseInput is an input type that accepts AppWhitelistingIssuesSummariesResponseArgs and AppWhitelistingIssuesSummariesResponseOutput values.
+// You can construct a concrete instance of `AppWhitelistingIssuesSummariesResponseInput` via:
+//
+//          AppWhitelistingIssuesSummariesResponseArgs{...}
+type AppWhitelistingIssuesSummariesResponseInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingIssuesSummariesResponseOutput() AppWhitelistingIssuesSummariesResponseOutput
+	ToAppWhitelistingIssuesSummariesResponseOutputWithContext(context.Context) AppWhitelistingIssuesSummariesResponseOutput
+}
+
+type AppWhitelistingIssuesSummariesResponseArgs struct {
+}
+
+func (AppWhitelistingIssuesSummariesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
+}
+
+func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponseOutput() AppWhitelistingIssuesSummariesResponseOutput {
+	return i.ToAppWhitelistingIssuesSummariesResponseOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponseOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesResponseOutput)
+}
+
+func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return i.ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesResponseOutput).ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx)
+}
+
+// AppWhitelistingIssuesSummariesResponsePtrInput is an input type that accepts AppWhitelistingIssuesSummariesResponseArgs, AppWhitelistingIssuesSummariesResponsePtr and AppWhitelistingIssuesSummariesResponsePtrOutput values.
+// You can construct a concrete instance of `AppWhitelistingIssuesSummariesResponsePtrInput` via:
+//
+//          AppWhitelistingIssuesSummariesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AppWhitelistingIssuesSummariesResponsePtrInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput
+	ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput
+}
+
+type appWhitelistingIssuesSummariesResponsePtrType AppWhitelistingIssuesSummariesResponseArgs
+
+func AppWhitelistingIssuesSummariesResponsePtr(v *AppWhitelistingIssuesSummariesResponseArgs) AppWhitelistingIssuesSummariesResponsePtrInput {
+	return (*appWhitelistingIssuesSummariesResponsePtrType)(v)
+}
+
+func (*appWhitelistingIssuesSummariesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
+}
+
+func (i *appWhitelistingIssuesSummariesResponsePtrType) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return i.ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *appWhitelistingIssuesSummariesResponsePtrType) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesResponsePtrOutput)
+}
+
+type AppWhitelistingIssuesSummariesResponseOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingIssuesSummariesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
+}
+
+func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponseOutput() AppWhitelistingIssuesSummariesResponseOutput {
+	return o
+}
+
+func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponseOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponseOutput {
+	return o
+}
+
+func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return o.ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return o.ApplyT(func(v AppWhitelistingIssuesSummariesResponse) *AppWhitelistingIssuesSummariesResponse {
+		return &v
+	}).(AppWhitelistingIssuesSummariesResponsePtrOutput)
+}
+
+type AppWhitelistingIssuesSummariesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingIssuesSummariesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
+}
+
+func (o AppWhitelistingIssuesSummariesResponsePtrOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return o
+}
+
+func (o AppWhitelistingIssuesSummariesResponsePtrOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
+	return o
+}
+
+func (o AppWhitelistingIssuesSummariesResponsePtrOutput) Elem() AppWhitelistingIssuesSummariesResponseOutput {
+	return o.ApplyT(func(v *AppWhitelistingIssuesSummariesResponse) AppWhitelistingIssuesSummariesResponse { return *v }).(AppWhitelistingIssuesSummariesResponseOutput)
+}
+
+// Security assessment on a resource
+type AssessmentType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// Describes properties of an assessment.
+	Properties SecurityAssessmentPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// AssessmentTypeInput is an input type that accepts AssessmentTypeArgs and AssessmentTypeOutput values.
+// You can construct a concrete instance of `AssessmentTypeInput` via:
+//
+//          AssessmentTypeArgs{...}
+type AssessmentTypeInput interface {
+	pulumi.Input
+
+	ToAssessmentTypeOutput() AssessmentTypeOutput
+	ToAssessmentTypeOutputWithContext(context.Context) AssessmentTypeOutput
+}
+
+// Security assessment on a resource
+type AssessmentTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Describes properties of an assessment.
+	Properties SecurityAssessmentPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssessmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentType)(nil)).Elem()
+}
+
+func (i AssessmentTypeArgs) ToAssessmentTypeOutput() AssessmentTypeOutput {
+	return i.ToAssessmentTypeOutputWithContext(context.Background())
+}
+
+func (i AssessmentTypeArgs) ToAssessmentTypeOutputWithContext(ctx context.Context) AssessmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTypeOutput)
+}
+
+// Security assessment on a resource
+type AssessmentTypeOutput struct{ *pulumi.OutputState }
+
+func (AssessmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentType)(nil)).Elem()
+}
+
+func (o AssessmentTypeOutput) ToAssessmentTypeOutput() AssessmentTypeOutput {
+	return o
+}
+
+func (o AssessmentTypeOutput) ToAssessmentTypeOutputWithContext(ctx context.Context) AssessmentTypeOutput {
+	return o
+}
+
+// Resource name
+func (o AssessmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes properties of an assessment.
+func (o AssessmentTypeOutput) Properties() SecurityAssessmentPropertiesResponseOutput {
+	return o.ApplyT(func(v AssessmentType) SecurityAssessmentPropertiesResponse { return v.Properties }).(SecurityAssessmentPropertiesResponseOutput)
+}
+
+// Resource type
+func (o AssessmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Links relevant to the assessment
+type AssessmentLinks struct {
+}
+
+// AssessmentLinksInput is an input type that accepts AssessmentLinksArgs and AssessmentLinksOutput values.
+// You can construct a concrete instance of `AssessmentLinksInput` via:
+//
+//          AssessmentLinksArgs{...}
+type AssessmentLinksInput interface {
+	pulumi.Input
+
+	ToAssessmentLinksOutput() AssessmentLinksOutput
+	ToAssessmentLinksOutputWithContext(context.Context) AssessmentLinksOutput
+}
+
+// Links relevant to the assessment
+type AssessmentLinksArgs struct {
+}
+
+func (AssessmentLinksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentLinks)(nil)).Elem()
+}
+
+func (i AssessmentLinksArgs) ToAssessmentLinksOutput() AssessmentLinksOutput {
+	return i.ToAssessmentLinksOutputWithContext(context.Background())
+}
+
+func (i AssessmentLinksArgs) ToAssessmentLinksOutputWithContext(ctx context.Context) AssessmentLinksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksOutput)
+}
+
+func (i AssessmentLinksArgs) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
+	return i.ToAssessmentLinksPtrOutputWithContext(context.Background())
+}
+
+func (i AssessmentLinksArgs) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksOutput).ToAssessmentLinksPtrOutputWithContext(ctx)
+}
+
+// AssessmentLinksPtrInput is an input type that accepts AssessmentLinksArgs, AssessmentLinksPtr and AssessmentLinksPtrOutput values.
+// You can construct a concrete instance of `AssessmentLinksPtrInput` via:
+//
+//          AssessmentLinksArgs{...}
+//
+//  or:
+//
+//          nil
+type AssessmentLinksPtrInput interface {
+	pulumi.Input
+
+	ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput
+	ToAssessmentLinksPtrOutputWithContext(context.Context) AssessmentLinksPtrOutput
+}
+
+type assessmentLinksPtrType AssessmentLinksArgs
+
+func AssessmentLinksPtr(v *AssessmentLinksArgs) AssessmentLinksPtrInput {
+	return (*assessmentLinksPtrType)(v)
+}
+
+func (*assessmentLinksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentLinks)(nil)).Elem()
+}
+
+func (i *assessmentLinksPtrType) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
+	return i.ToAssessmentLinksPtrOutputWithContext(context.Background())
+}
+
+func (i *assessmentLinksPtrType) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksPtrOutput)
+}
+
+// Links relevant to the assessment
+type AssessmentLinksOutput struct{ *pulumi.OutputState }
+
+func (AssessmentLinksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentLinks)(nil)).Elem()
+}
+
+func (o AssessmentLinksOutput) ToAssessmentLinksOutput() AssessmentLinksOutput {
+	return o
+}
+
+func (o AssessmentLinksOutput) ToAssessmentLinksOutputWithContext(ctx context.Context) AssessmentLinksOutput {
+	return o
+}
+
+func (o AssessmentLinksOutput) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
+	return o.ToAssessmentLinksPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentLinksOutput) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
+	return o.ApplyT(func(v AssessmentLinks) *AssessmentLinks {
+		return &v
+	}).(AssessmentLinksPtrOutput)
+}
+
+type AssessmentLinksPtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentLinksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentLinks)(nil)).Elem()
+}
+
+func (o AssessmentLinksPtrOutput) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
+	return o
+}
+
+func (o AssessmentLinksPtrOutput) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
+	return o
+}
+
+func (o AssessmentLinksPtrOutput) Elem() AssessmentLinksOutput {
+	return o.ApplyT(func(v *AssessmentLinks) AssessmentLinks { return *v }).(AssessmentLinksOutput)
+}
+
+// Links relevant to the assessment
+type AssessmentLinksResponse struct {
+	// Link to assessment in Azure Portal
+	AzurePortalUri string `pulumi:"azurePortalUri"`
+}
+
+// AssessmentLinksResponseInput is an input type that accepts AssessmentLinksResponseArgs and AssessmentLinksResponseOutput values.
+// You can construct a concrete instance of `AssessmentLinksResponseInput` via:
+//
+//          AssessmentLinksResponseArgs{...}
+type AssessmentLinksResponseInput interface {
+	pulumi.Input
+
+	ToAssessmentLinksResponseOutput() AssessmentLinksResponseOutput
+	ToAssessmentLinksResponseOutputWithContext(context.Context) AssessmentLinksResponseOutput
+}
+
+// Links relevant to the assessment
+type AssessmentLinksResponseArgs struct {
+	// Link to assessment in Azure Portal
+	AzurePortalUri pulumi.StringInput `pulumi:"azurePortalUri"`
+}
+
+func (AssessmentLinksResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentLinksResponse)(nil)).Elem()
+}
+
+func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponseOutput() AssessmentLinksResponseOutput {
+	return i.ToAssessmentLinksResponseOutputWithContext(context.Background())
+}
+
+func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponseOutputWithContext(ctx context.Context) AssessmentLinksResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponseOutput)
+}
+
+func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput {
+	return i.ToAssessmentLinksResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AssessmentLinksResponseArgs) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponseOutput).ToAssessmentLinksResponsePtrOutputWithContext(ctx)
+}
+
+// AssessmentLinksResponsePtrInput is an input type that accepts AssessmentLinksResponseArgs, AssessmentLinksResponsePtr and AssessmentLinksResponsePtrOutput values.
+// You can construct a concrete instance of `AssessmentLinksResponsePtrInput` via:
+//
+//          AssessmentLinksResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AssessmentLinksResponsePtrInput interface {
+	pulumi.Input
+
+	ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput
+	ToAssessmentLinksResponsePtrOutputWithContext(context.Context) AssessmentLinksResponsePtrOutput
+}
+
+type assessmentLinksResponsePtrType AssessmentLinksResponseArgs
+
+func AssessmentLinksResponsePtr(v *AssessmentLinksResponseArgs) AssessmentLinksResponsePtrInput {
+	return (*assessmentLinksResponsePtrType)(v)
+}
+
+func (*assessmentLinksResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentLinksResponse)(nil)).Elem()
+}
+
+func (i *assessmentLinksResponsePtrType) ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput {
+	return i.ToAssessmentLinksResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *assessmentLinksResponsePtrType) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponsePtrOutput)
+}
+
+// Links relevant to the assessment
+type AssessmentLinksResponseOutput struct{ *pulumi.OutputState }
+
+func (AssessmentLinksResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentLinksResponse)(nil)).Elem()
+}
+
+func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponseOutput() AssessmentLinksResponseOutput {
+	return o
+}
+
+func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponseOutputWithContext(ctx context.Context) AssessmentLinksResponseOutput {
+	return o
+}
+
+func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput {
+	return o.ToAssessmentLinksResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
+	return o.ApplyT(func(v AssessmentLinksResponse) *AssessmentLinksResponse {
+		return &v
+	}).(AssessmentLinksResponsePtrOutput)
+}
+
+// Link to assessment in Azure Portal
+func (o AssessmentLinksResponseOutput) AzurePortalUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentLinksResponse) string { return v.AzurePortalUri }).(pulumi.StringOutput)
+}
+
+type AssessmentLinksResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentLinksResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentLinksResponse)(nil)).Elem()
+}
+
+func (o AssessmentLinksResponsePtrOutput) ToAssessmentLinksResponsePtrOutput() AssessmentLinksResponsePtrOutput {
+	return o
+}
+
+func (o AssessmentLinksResponsePtrOutput) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
+	return o
+}
+
+func (o AssessmentLinksResponsePtrOutput) Elem() AssessmentLinksResponseOutput {
+	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse { return *v }).(AssessmentLinksResponseOutput)
+}
+
+// Link to assessment in Azure Portal
+func (o AssessmentLinksResponsePtrOutput) AzurePortalUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentLinksResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzurePortalUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Security assessment metadata
+type AssessmentMetadataInSubscriptionType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// Describes properties of an assessment metadata.
+	Properties SecurityAssessmentMetadataPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// AssessmentMetadataInSubscriptionTypeInput is an input type that accepts AssessmentMetadataInSubscriptionTypeArgs and AssessmentMetadataInSubscriptionTypeOutput values.
+// You can construct a concrete instance of `AssessmentMetadataInSubscriptionTypeInput` via:
+//
+//          AssessmentMetadataInSubscriptionTypeArgs{...}
+type AssessmentMetadataInSubscriptionTypeInput interface {
+	pulumi.Input
+
+	ToAssessmentMetadataInSubscriptionTypeOutput() AssessmentMetadataInSubscriptionTypeOutput
+	ToAssessmentMetadataInSubscriptionTypeOutputWithContext(context.Context) AssessmentMetadataInSubscriptionTypeOutput
+}
+
+// Security assessment metadata
+type AssessmentMetadataInSubscriptionTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Describes properties of an assessment metadata.
+	Properties SecurityAssessmentMetadataPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssessmentMetadataInSubscriptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentMetadataInSubscriptionType)(nil)).Elem()
+}
+
+func (i AssessmentMetadataInSubscriptionTypeArgs) ToAssessmentMetadataInSubscriptionTypeOutput() AssessmentMetadataInSubscriptionTypeOutput {
+	return i.ToAssessmentMetadataInSubscriptionTypeOutputWithContext(context.Background())
+}
+
+func (i AssessmentMetadataInSubscriptionTypeArgs) ToAssessmentMetadataInSubscriptionTypeOutputWithContext(ctx context.Context) AssessmentMetadataInSubscriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMetadataInSubscriptionTypeOutput)
+}
+
+// Security assessment metadata
+type AssessmentMetadataInSubscriptionTypeOutput struct{ *pulumi.OutputState }
+
+func (AssessmentMetadataInSubscriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentMetadataInSubscriptionType)(nil)).Elem()
+}
+
+func (o AssessmentMetadataInSubscriptionTypeOutput) ToAssessmentMetadataInSubscriptionTypeOutput() AssessmentMetadataInSubscriptionTypeOutput {
+	return o
+}
+
+func (o AssessmentMetadataInSubscriptionTypeOutput) ToAssessmentMetadataInSubscriptionTypeOutputWithContext(ctx context.Context) AssessmentMetadataInSubscriptionTypeOutput {
+	return o
+}
+
+// Resource name
+func (o AssessmentMetadataInSubscriptionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentMetadataInSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes properties of an assessment metadata.
+func (o AssessmentMetadataInSubscriptionTypeOutput) Properties() SecurityAssessmentMetadataPropertiesResponseOutput {
+	return o.ApplyT(func(v AssessmentMetadataInSubscriptionType) SecurityAssessmentMetadataPropertiesResponse {
+		return v.Properties
+	}).(SecurityAssessmentMetadataPropertiesResponseOutput)
+}
+
+// Resource type
+func (o AssessmentMetadataInSubscriptionTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentMetadataInSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The result of the assessment
+type AssessmentStatus struct {
+	// Programmatic code for the cause of the assessment status
+	Cause *string `pulumi:"cause"`
+	// Programmatic code for the status of the assessment
+	Code string `pulumi:"code"`
+	// Human readable description of the assessment status
+	Description *string `pulumi:"description"`
+}
+
+// AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
+// You can construct a concrete instance of `AssessmentStatusInput` via:
+//
+//          AssessmentStatusArgs{...}
+type AssessmentStatusInput interface {
+	pulumi.Input
+
+	ToAssessmentStatusOutput() AssessmentStatusOutput
+	ToAssessmentStatusOutputWithContext(context.Context) AssessmentStatusOutput
+}
+
+// The result of the assessment
+type AssessmentStatusArgs struct {
+	// Programmatic code for the cause of the assessment status
+	Cause pulumi.StringPtrInput `pulumi:"cause"`
+	// Programmatic code for the status of the assessment
+	Code pulumi.StringInput `pulumi:"code"`
+	// Human readable description of the assessment status
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (AssessmentStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatus)(nil)).Elem()
+}
+
+func (i AssessmentStatusArgs) ToAssessmentStatusOutput() AssessmentStatusOutput {
+	return i.ToAssessmentStatusOutputWithContext(context.Background())
+}
+
+func (i AssessmentStatusArgs) ToAssessmentStatusOutputWithContext(ctx context.Context) AssessmentStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusOutput)
+}
+
+func (i AssessmentStatusArgs) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return i.ToAssessmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (i AssessmentStatusArgs) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusOutput).ToAssessmentStatusPtrOutputWithContext(ctx)
+}
+
+// AssessmentStatusPtrInput is an input type that accepts AssessmentStatusArgs, AssessmentStatusPtr and AssessmentStatusPtrOutput values.
+// You can construct a concrete instance of `AssessmentStatusPtrInput` via:
+//
+//          AssessmentStatusArgs{...}
+//
+//  or:
+//
+//          nil
+type AssessmentStatusPtrInput interface {
+	pulumi.Input
+
+	ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput
+	ToAssessmentStatusPtrOutputWithContext(context.Context) AssessmentStatusPtrOutput
+}
+
+type assessmentStatusPtrType AssessmentStatusArgs
+
+func AssessmentStatusPtr(v *AssessmentStatusArgs) AssessmentStatusPtrInput {
+	return (*assessmentStatusPtrType)(v)
+}
+
+func (*assessmentStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentStatus)(nil)).Elem()
+}
+
+func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return i.ToAssessmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusPtrOutput)
+}
+
+// The result of the assessment
+type AssessmentStatusOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatus)(nil)).Elem()
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusOutput() AssessmentStatusOutput {
+	return o
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusOutputWithContext(ctx context.Context) AssessmentStatusOutput {
+	return o
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return o.ToAssessmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return o.ApplyT(func(v AssessmentStatus) *AssessmentStatus {
+		return &v
+	}).(AssessmentStatusPtrOutput)
+}
+
+// Programmatic code for the cause of the assessment status
+func (o AssessmentStatusOutput) Cause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatus) *string { return v.Cause }).(pulumi.StringPtrOutput)
+}
+
+// Programmatic code for the status of the assessment
+func (o AssessmentStatusOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentStatus) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Human readable description of the assessment status
+func (o AssessmentStatusOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatus) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type AssessmentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentStatus)(nil)).Elem()
+}
+
+func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return o
+}
+
+func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return o
+}
+
+func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
+	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus { return *v }).(AssessmentStatusOutput)
+}
+
+// Programmatic code for the cause of the assessment status
+func (o AssessmentStatusPtrOutput) Cause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cause
+	}).(pulumi.StringPtrOutput)
+}
+
+// Programmatic code for the status of the assessment
+func (o AssessmentStatusPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// Human readable description of the assessment status
+func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The result of the assessment
+type AssessmentStatusResponse struct {
+	// Programmatic code for the cause of the assessment status
+	Cause *string `pulumi:"cause"`
+	// Programmatic code for the status of the assessment
+	Code string `pulumi:"code"`
+	// Human readable description of the assessment status
+	Description *string `pulumi:"description"`
+}
+
+// AssessmentStatusResponseInput is an input type that accepts AssessmentStatusResponseArgs and AssessmentStatusResponseOutput values.
+// You can construct a concrete instance of `AssessmentStatusResponseInput` via:
+//
+//          AssessmentStatusResponseArgs{...}
+type AssessmentStatusResponseInput interface {
+	pulumi.Input
+
+	ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput
+	ToAssessmentStatusResponseOutputWithContext(context.Context) AssessmentStatusResponseOutput
+}
+
+// The result of the assessment
+type AssessmentStatusResponseArgs struct {
+	// Programmatic code for the cause of the assessment status
+	Cause pulumi.StringPtrInput `pulumi:"cause"`
+	// Programmatic code for the status of the assessment
+	Code pulumi.StringInput `pulumi:"code"`
+	// Human readable description of the assessment status
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (AssessmentStatusResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatusResponse)(nil)).Elem()
+}
+
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput {
+	return i.ToAssessmentStatusResponseOutputWithContext(context.Background())
+}
+
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponseOutputWithContext(ctx context.Context) AssessmentStatusResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseOutput)
+}
+
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
+	return i.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AssessmentStatusResponseArgs) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponseOutput).ToAssessmentStatusResponsePtrOutputWithContext(ctx)
+}
+
+// AssessmentStatusResponsePtrInput is an input type that accepts AssessmentStatusResponseArgs, AssessmentStatusResponsePtr and AssessmentStatusResponsePtrOutput values.
+// You can construct a concrete instance of `AssessmentStatusResponsePtrInput` via:
+//
+//          AssessmentStatusResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AssessmentStatusResponsePtrInput interface {
+	pulumi.Input
+
+	ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput
+	ToAssessmentStatusResponsePtrOutputWithContext(context.Context) AssessmentStatusResponsePtrOutput
+}
+
+type assessmentStatusResponsePtrType AssessmentStatusResponseArgs
+
+func AssessmentStatusResponsePtr(v *AssessmentStatusResponseArgs) AssessmentStatusResponsePtrInput {
+	return (*assessmentStatusResponsePtrType)(v)
+}
+
+func (*assessmentStatusResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentStatusResponse)(nil)).Elem()
+}
+
+func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
+	return i.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponsePtrOutput)
+}
+
+// The result of the assessment
+type AssessmentStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatusResponse)(nil)).Elem()
+}
+
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponseOutput() AssessmentStatusResponseOutput {
+	return o
+}
+
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponseOutputWithContext(ctx context.Context) AssessmentStatusResponseOutput {
+	return o
+}
+
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
+	return o.ToAssessmentStatusResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
+	return o.ApplyT(func(v AssessmentStatusResponse) *AssessmentStatusResponse {
+		return &v
+	}).(AssessmentStatusResponsePtrOutput)
+}
+
+// Programmatic code for the cause of the assessment status
+func (o AssessmentStatusResponseOutput) Cause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatusResponse) *string { return v.Cause }).(pulumi.StringPtrOutput)
+}
+
+// Programmatic code for the status of the assessment
+func (o AssessmentStatusResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentStatusResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Human readable description of the assessment status
+func (o AssessmentStatusResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatusResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type AssessmentStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentStatusResponse)(nil)).Elem()
+}
+
+func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutput() AssessmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
+	return o
+}
+
+func (o AssessmentStatusResponsePtrOutput) Elem() AssessmentStatusResponseOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse { return *v }).(AssessmentStatusResponseOutput)
+}
+
+// Programmatic code for the cause of the assessment status
+func (o AssessmentStatusResponsePtrOutput) Cause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cause
+	}).(pulumi.StringPtrOutput)
+}
+
+// Programmatic code for the status of the assessment
+func (o AssessmentStatusResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// Human readable description of the assessment status
+func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRule struct {
+	// The values to deny. The format of the values depends on the rule type.
+	DenylistValues []string `pulumi:"denylistValues"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// DenylistCustomAlertRuleInput is an input type that accepts DenylistCustomAlertRuleArgs and DenylistCustomAlertRuleOutput values.
+// You can construct a concrete instance of `DenylistCustomAlertRuleInput` via:
+//
+//          DenylistCustomAlertRuleArgs{...}
+type DenylistCustomAlertRuleInput interface {
+	pulumi.Input
+
+	ToDenylistCustomAlertRuleOutput() DenylistCustomAlertRuleOutput
+	ToDenylistCustomAlertRuleOutputWithContext(context.Context) DenylistCustomAlertRuleOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleArgs struct {
+	// The values to deny. The format of the values depends on the rule type.
+	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (DenylistCustomAlertRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DenylistCustomAlertRule)(nil)).Elem()
+}
+
+func (i DenylistCustomAlertRuleArgs) ToDenylistCustomAlertRuleOutput() DenylistCustomAlertRuleOutput {
+	return i.ToDenylistCustomAlertRuleOutputWithContext(context.Background())
+}
+
+func (i DenylistCustomAlertRuleArgs) ToDenylistCustomAlertRuleOutputWithContext(ctx context.Context) DenylistCustomAlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleOutput)
+}
+
+// DenylistCustomAlertRuleArrayInput is an input type that accepts DenylistCustomAlertRuleArray and DenylistCustomAlertRuleArrayOutput values.
+// You can construct a concrete instance of `DenylistCustomAlertRuleArrayInput` via:
+//
+//          DenylistCustomAlertRuleArray{ DenylistCustomAlertRuleArgs{...} }
+type DenylistCustomAlertRuleArrayInput interface {
+	pulumi.Input
+
+	ToDenylistCustomAlertRuleArrayOutput() DenylistCustomAlertRuleArrayOutput
+	ToDenylistCustomAlertRuleArrayOutputWithContext(context.Context) DenylistCustomAlertRuleArrayOutput
+}
+
+type DenylistCustomAlertRuleArray []DenylistCustomAlertRuleInput
+
+func (DenylistCustomAlertRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DenylistCustomAlertRule)(nil)).Elem()
+}
+
+func (i DenylistCustomAlertRuleArray) ToDenylistCustomAlertRuleArrayOutput() DenylistCustomAlertRuleArrayOutput {
+	return i.ToDenylistCustomAlertRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DenylistCustomAlertRuleArray) ToDenylistCustomAlertRuleArrayOutputWithContext(ctx context.Context) DenylistCustomAlertRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleOutput struct{ *pulumi.OutputState }
+
+func (DenylistCustomAlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DenylistCustomAlertRule)(nil)).Elem()
+}
+
+func (o DenylistCustomAlertRuleOutput) ToDenylistCustomAlertRuleOutput() DenylistCustomAlertRuleOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleOutput) ToDenylistCustomAlertRuleOutputWithContext(ctx context.Context) DenylistCustomAlertRuleOutput {
+	return o
+}
+
+// The values to deny. The format of the values depends on the rule type.
+func (o DenylistCustomAlertRuleOutput) DenylistValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRule) []string { return v.DenylistValues }).(pulumi.StringArrayOutput)
+}
+
+// Status of the custom alert.
+func (o DenylistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of the custom alert rule.
+func (o DenylistCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type DenylistCustomAlertRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DenylistCustomAlertRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DenylistCustomAlertRule)(nil)).Elem()
+}
+
+func (o DenylistCustomAlertRuleArrayOutput) ToDenylistCustomAlertRuleArrayOutput() DenylistCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleArrayOutput) ToDenylistCustomAlertRuleArrayOutputWithContext(ctx context.Context) DenylistCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) DenylistCustomAlertRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DenylistCustomAlertRule {
+		return vs[0].([]DenylistCustomAlertRule)[vs[1].(int)]
+	}).(DenylistCustomAlertRuleOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleResponse struct {
+	// The values to deny. The format of the values depends on the rule type.
+	DenylistValues []string `pulumi:"denylistValues"`
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType string `pulumi:"valueType"`
+}
+
+// DenylistCustomAlertRuleResponseInput is an input type that accepts DenylistCustomAlertRuleResponseArgs and DenylistCustomAlertRuleResponseOutput values.
+// You can construct a concrete instance of `DenylistCustomAlertRuleResponseInput` via:
+//
+//          DenylistCustomAlertRuleResponseArgs{...}
+type DenylistCustomAlertRuleResponseInput interface {
+	pulumi.Input
+
+	ToDenylistCustomAlertRuleResponseOutput() DenylistCustomAlertRuleResponseOutput
+	ToDenylistCustomAlertRuleResponseOutputWithContext(context.Context) DenylistCustomAlertRuleResponseOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleResponseArgs struct {
+	// The values to deny. The format of the values depends on the rule type.
+	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType pulumi.StringInput `pulumi:"valueType"`
+}
+
+func (DenylistCustomAlertRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DenylistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i DenylistCustomAlertRuleResponseArgs) ToDenylistCustomAlertRuleResponseOutput() DenylistCustomAlertRuleResponseOutput {
+	return i.ToDenylistCustomAlertRuleResponseOutputWithContext(context.Background())
+}
+
+func (i DenylistCustomAlertRuleResponseArgs) ToDenylistCustomAlertRuleResponseOutputWithContext(ctx context.Context) DenylistCustomAlertRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleResponseOutput)
+}
+
+// DenylistCustomAlertRuleResponseArrayInput is an input type that accepts DenylistCustomAlertRuleResponseArray and DenylistCustomAlertRuleResponseArrayOutput values.
+// You can construct a concrete instance of `DenylistCustomAlertRuleResponseArrayInput` via:
+//
+//          DenylistCustomAlertRuleResponseArray{ DenylistCustomAlertRuleResponseArgs{...} }
+type DenylistCustomAlertRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToDenylistCustomAlertRuleResponseArrayOutput() DenylistCustomAlertRuleResponseArrayOutput
+	ToDenylistCustomAlertRuleResponseArrayOutputWithContext(context.Context) DenylistCustomAlertRuleResponseArrayOutput
+}
+
+type DenylistCustomAlertRuleResponseArray []DenylistCustomAlertRuleResponseInput
+
+func (DenylistCustomAlertRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DenylistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i DenylistCustomAlertRuleResponseArray) ToDenylistCustomAlertRuleResponseArrayOutput() DenylistCustomAlertRuleResponseArrayOutput {
+	return i.ToDenylistCustomAlertRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DenylistCustomAlertRuleResponseArray) ToDenylistCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) DenylistCustomAlertRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleResponseArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (DenylistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DenylistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o DenylistCustomAlertRuleResponseOutput) ToDenylistCustomAlertRuleResponseOutput() DenylistCustomAlertRuleResponseOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleResponseOutput) ToDenylistCustomAlertRuleResponseOutputWithContext(ctx context.Context) DenylistCustomAlertRuleResponseOutput {
+	return o
+}
+
+// The values to deny. The format of the values depends on the rule type.
+func (o DenylistCustomAlertRuleResponseOutput) DenylistValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) []string { return v.DenylistValues }).(pulumi.StringArrayOutput)
+}
+
+// The description of the custom alert.
+func (o DenylistCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o DenylistCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o DenylistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of the custom alert rule.
+func (o DenylistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The value type of the items in the list.
+func (o DenylistCustomAlertRuleResponseOutput) ValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.ValueType }).(pulumi.StringOutput)
+}
+
+type DenylistCustomAlertRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DenylistCustomAlertRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DenylistCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o DenylistCustomAlertRuleResponseArrayOutput) ToDenylistCustomAlertRuleResponseArrayOutput() DenylistCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleResponseArrayOutput) ToDenylistCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) DenylistCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) DenylistCustomAlertRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DenylistCustomAlertRuleResponse {
+		return vs[0].([]DenylistCustomAlertRuleResponse)[vs[1].(int)]
+	}).(DenylistCustomAlertRuleResponseOutput)
+}
+
+// The device security group resource
+type DeviceSecurityGroupType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// Device Security group data
+	Properties DeviceSecurityGroupPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// DeviceSecurityGroupTypeInput is an input type that accepts DeviceSecurityGroupTypeArgs and DeviceSecurityGroupTypeOutput values.
+// You can construct a concrete instance of `DeviceSecurityGroupTypeInput` via:
+//
+//          DeviceSecurityGroupTypeArgs{...}
+type DeviceSecurityGroupTypeInput interface {
+	pulumi.Input
+
+	ToDeviceSecurityGroupTypeOutput() DeviceSecurityGroupTypeOutput
+	ToDeviceSecurityGroupTypeOutputWithContext(context.Context) DeviceSecurityGroupTypeOutput
+}
+
+// The device security group resource
+type DeviceSecurityGroupTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Device Security group data
+	Properties DeviceSecurityGroupPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DeviceSecurityGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroupType)(nil)).Elem()
+}
+
+func (i DeviceSecurityGroupTypeArgs) ToDeviceSecurityGroupTypeOutput() DeviceSecurityGroupTypeOutput {
+	return i.ToDeviceSecurityGroupTypeOutputWithContext(context.Background())
+}
+
+func (i DeviceSecurityGroupTypeArgs) ToDeviceSecurityGroupTypeOutputWithContext(ctx context.Context) DeviceSecurityGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupTypeOutput)
+}
+
+// The device security group resource
+type DeviceSecurityGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (DeviceSecurityGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroupType)(nil)).Elem()
+}
+
+func (o DeviceSecurityGroupTypeOutput) ToDeviceSecurityGroupTypeOutput() DeviceSecurityGroupTypeOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupTypeOutput) ToDeviceSecurityGroupTypeOutputWithContext(ctx context.Context) DeviceSecurityGroupTypeOutput {
+	return o
+}
+
+// Resource name
+func (o DeviceSecurityGroupTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Device Security group data
+func (o DeviceSecurityGroupTypeOutput) Properties() DeviceSecurityGroupPropertiesResponseOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupType) DeviceSecurityGroupPropertiesResponse { return v.Properties }).(DeviceSecurityGroupPropertiesResponseOutput)
+}
+
+// Resource type
+func (o DeviceSecurityGroupTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// describes properties of a security group.
+type DeviceSecurityGroupProperties struct {
+	// The allow-list custom alert rules.
+	AllowlistRules []AllowlistCustomAlertRule `pulumi:"allowlistRules"`
+	// The deny-list custom alert rules.
+	DenylistRules []DenylistCustomAlertRule `pulumi:"denylistRules"`
+	// The list of custom alert threshold rules.
+	ThresholdRules []ThresholdCustomAlertRule `pulumi:"thresholdRules"`
+	// The list of custom alert time-window rules.
+	TimeWindowRules []TimeWindowCustomAlertRule `pulumi:"timeWindowRules"`
+}
+
+// DeviceSecurityGroupPropertiesInput is an input type that accepts DeviceSecurityGroupPropertiesArgs and DeviceSecurityGroupPropertiesOutput values.
+// You can construct a concrete instance of `DeviceSecurityGroupPropertiesInput` via:
+//
+//          DeviceSecurityGroupPropertiesArgs{...}
+type DeviceSecurityGroupPropertiesInput interface {
+	pulumi.Input
+
+	ToDeviceSecurityGroupPropertiesOutput() DeviceSecurityGroupPropertiesOutput
+	ToDeviceSecurityGroupPropertiesOutputWithContext(context.Context) DeviceSecurityGroupPropertiesOutput
+}
+
+// describes properties of a security group.
+type DeviceSecurityGroupPropertiesArgs struct {
+	// The allow-list custom alert rules.
+	AllowlistRules AllowlistCustomAlertRuleArrayInput `pulumi:"allowlistRules"`
+	// The deny-list custom alert rules.
+	DenylistRules DenylistCustomAlertRuleArrayInput `pulumi:"denylistRules"`
+	// The list of custom alert threshold rules.
+	ThresholdRules ThresholdCustomAlertRuleArrayInput `pulumi:"thresholdRules"`
+	// The list of custom alert time-window rules.
+	TimeWindowRules TimeWindowCustomAlertRuleArrayInput `pulumi:"timeWindowRules"`
+}
+
+func (DeviceSecurityGroupPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroupProperties)(nil)).Elem()
+}
+
+func (i DeviceSecurityGroupPropertiesArgs) ToDeviceSecurityGroupPropertiesOutput() DeviceSecurityGroupPropertiesOutput {
+	return i.ToDeviceSecurityGroupPropertiesOutputWithContext(context.Background())
+}
+
+func (i DeviceSecurityGroupPropertiesArgs) ToDeviceSecurityGroupPropertiesOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupPropertiesOutput)
+}
+
+func (i DeviceSecurityGroupPropertiesArgs) ToDeviceSecurityGroupPropertiesPtrOutput() DeviceSecurityGroupPropertiesPtrOutput {
+	return i.ToDeviceSecurityGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DeviceSecurityGroupPropertiesArgs) ToDeviceSecurityGroupPropertiesPtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupPropertiesOutput).ToDeviceSecurityGroupPropertiesPtrOutputWithContext(ctx)
+}
+
+// DeviceSecurityGroupPropertiesPtrInput is an input type that accepts DeviceSecurityGroupPropertiesArgs, DeviceSecurityGroupPropertiesPtr and DeviceSecurityGroupPropertiesPtrOutput values.
+// You can construct a concrete instance of `DeviceSecurityGroupPropertiesPtrInput` via:
+//
+//          DeviceSecurityGroupPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DeviceSecurityGroupPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDeviceSecurityGroupPropertiesPtrOutput() DeviceSecurityGroupPropertiesPtrOutput
+	ToDeviceSecurityGroupPropertiesPtrOutputWithContext(context.Context) DeviceSecurityGroupPropertiesPtrOutput
+}
+
+type deviceSecurityGroupPropertiesPtrType DeviceSecurityGroupPropertiesArgs
+
+func DeviceSecurityGroupPropertiesPtr(v *DeviceSecurityGroupPropertiesArgs) DeviceSecurityGroupPropertiesPtrInput {
+	return (*deviceSecurityGroupPropertiesPtrType)(v)
+}
+
+func (*deviceSecurityGroupPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceSecurityGroupProperties)(nil)).Elem()
+}
+
+func (i *deviceSecurityGroupPropertiesPtrType) ToDeviceSecurityGroupPropertiesPtrOutput() DeviceSecurityGroupPropertiesPtrOutput {
+	return i.ToDeviceSecurityGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *deviceSecurityGroupPropertiesPtrType) ToDeviceSecurityGroupPropertiesPtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupPropertiesPtrOutput)
+}
+
+// describes properties of a security group.
+type DeviceSecurityGroupPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DeviceSecurityGroupPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroupProperties)(nil)).Elem()
+}
+
+func (o DeviceSecurityGroupPropertiesOutput) ToDeviceSecurityGroupPropertiesOutput() DeviceSecurityGroupPropertiesOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesOutput) ToDeviceSecurityGroupPropertiesOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesOutput) ToDeviceSecurityGroupPropertiesPtrOutput() DeviceSecurityGroupPropertiesPtrOutput {
+	return o.ToDeviceSecurityGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DeviceSecurityGroupPropertiesOutput) ToDeviceSecurityGroupPropertiesPtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesPtrOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupProperties) *DeviceSecurityGroupProperties {
+		return &v
+	}).(DeviceSecurityGroupPropertiesPtrOutput)
+}
+
+// The allow-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesOutput) AllowlistRules() AllowlistCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupProperties) []AllowlistCustomAlertRule { return v.AllowlistRules }).(AllowlistCustomAlertRuleArrayOutput)
+}
+
+// The deny-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesOutput) DenylistRules() DenylistCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupProperties) []DenylistCustomAlertRule { return v.DenylistRules }).(DenylistCustomAlertRuleArrayOutput)
+}
+
+// The list of custom alert threshold rules.
+func (o DeviceSecurityGroupPropertiesOutput) ThresholdRules() ThresholdCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupProperties) []ThresholdCustomAlertRule { return v.ThresholdRules }).(ThresholdCustomAlertRuleArrayOutput)
+}
+
+// The list of custom alert time-window rules.
+func (o DeviceSecurityGroupPropertiesOutput) TimeWindowRules() TimeWindowCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupProperties) []TimeWindowCustomAlertRule { return v.TimeWindowRules }).(TimeWindowCustomAlertRuleArrayOutput)
+}
+
+type DeviceSecurityGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeviceSecurityGroupPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceSecurityGroupProperties)(nil)).Elem()
+}
+
+func (o DeviceSecurityGroupPropertiesPtrOutput) ToDeviceSecurityGroupPropertiesPtrOutput() DeviceSecurityGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesPtrOutput) ToDeviceSecurityGroupPropertiesPtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesPtrOutput) Elem() DeviceSecurityGroupPropertiesOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupProperties) DeviceSecurityGroupProperties { return *v }).(DeviceSecurityGroupPropertiesOutput)
+}
+
+// The allow-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesPtrOutput) AllowlistRules() AllowlistCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupProperties) []AllowlistCustomAlertRule {
+		if v == nil {
+			return nil
+		}
+		return v.AllowlistRules
+	}).(AllowlistCustomAlertRuleArrayOutput)
+}
+
+// The deny-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesPtrOutput) DenylistRules() DenylistCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupProperties) []DenylistCustomAlertRule {
+		if v == nil {
+			return nil
+		}
+		return v.DenylistRules
+	}).(DenylistCustomAlertRuleArrayOutput)
+}
+
+// The list of custom alert threshold rules.
+func (o DeviceSecurityGroupPropertiesPtrOutput) ThresholdRules() ThresholdCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupProperties) []ThresholdCustomAlertRule {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdRules
+	}).(ThresholdCustomAlertRuleArrayOutput)
+}
+
+// The list of custom alert time-window rules.
+func (o DeviceSecurityGroupPropertiesPtrOutput) TimeWindowRules() TimeWindowCustomAlertRuleArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupProperties) []TimeWindowCustomAlertRule {
+		if v == nil {
+			return nil
+		}
+		return v.TimeWindowRules
+	}).(TimeWindowCustomAlertRuleArrayOutput)
+}
+
+// describes properties of a security group.
+type DeviceSecurityGroupPropertiesResponse struct {
+	// The allow-list custom alert rules.
+	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
+	// The deny-list custom alert rules.
+	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
+	// The list of custom alert threshold rules.
+	ThresholdRules []ThresholdCustomAlertRuleResponse `pulumi:"thresholdRules"`
+	// The list of custom alert time-window rules.
+	TimeWindowRules []TimeWindowCustomAlertRuleResponse `pulumi:"timeWindowRules"`
+}
+
+// DeviceSecurityGroupPropertiesResponseInput is an input type that accepts DeviceSecurityGroupPropertiesResponseArgs and DeviceSecurityGroupPropertiesResponseOutput values.
+// You can construct a concrete instance of `DeviceSecurityGroupPropertiesResponseInput` via:
+//
+//          DeviceSecurityGroupPropertiesResponseArgs{...}
+type DeviceSecurityGroupPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToDeviceSecurityGroupPropertiesResponseOutput() DeviceSecurityGroupPropertiesResponseOutput
+	ToDeviceSecurityGroupPropertiesResponseOutputWithContext(context.Context) DeviceSecurityGroupPropertiesResponseOutput
+}
+
+// describes properties of a security group.
+type DeviceSecurityGroupPropertiesResponseArgs struct {
+	// The allow-list custom alert rules.
+	AllowlistRules AllowlistCustomAlertRuleResponseArrayInput `pulumi:"allowlistRules"`
+	// The deny-list custom alert rules.
+	DenylistRules DenylistCustomAlertRuleResponseArrayInput `pulumi:"denylistRules"`
+	// The list of custom alert threshold rules.
+	ThresholdRules ThresholdCustomAlertRuleResponseArrayInput `pulumi:"thresholdRules"`
+	// The list of custom alert time-window rules.
+	TimeWindowRules TimeWindowCustomAlertRuleResponseArrayInput `pulumi:"timeWindowRules"`
+}
+
+func (DeviceSecurityGroupPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroupPropertiesResponse)(nil)).Elem()
+}
+
+func (i DeviceSecurityGroupPropertiesResponseArgs) ToDeviceSecurityGroupPropertiesResponseOutput() DeviceSecurityGroupPropertiesResponseOutput {
+	return i.ToDeviceSecurityGroupPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i DeviceSecurityGroupPropertiesResponseArgs) ToDeviceSecurityGroupPropertiesResponseOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupPropertiesResponseOutput)
+}
+
+func (i DeviceSecurityGroupPropertiesResponseArgs) ToDeviceSecurityGroupPropertiesResponsePtrOutput() DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return i.ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeviceSecurityGroupPropertiesResponseArgs) ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupPropertiesResponseOutput).ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// DeviceSecurityGroupPropertiesResponsePtrInput is an input type that accepts DeviceSecurityGroupPropertiesResponseArgs, DeviceSecurityGroupPropertiesResponsePtr and DeviceSecurityGroupPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `DeviceSecurityGroupPropertiesResponsePtrInput` via:
+//
+//          DeviceSecurityGroupPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeviceSecurityGroupPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeviceSecurityGroupPropertiesResponsePtrOutput() DeviceSecurityGroupPropertiesResponsePtrOutput
+	ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(context.Context) DeviceSecurityGroupPropertiesResponsePtrOutput
+}
+
+type deviceSecurityGroupPropertiesResponsePtrType DeviceSecurityGroupPropertiesResponseArgs
+
+func DeviceSecurityGroupPropertiesResponsePtr(v *DeviceSecurityGroupPropertiesResponseArgs) DeviceSecurityGroupPropertiesResponsePtrInput {
+	return (*deviceSecurityGroupPropertiesResponsePtrType)(v)
+}
+
+func (*deviceSecurityGroupPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceSecurityGroupPropertiesResponse)(nil)).Elem()
+}
+
+func (i *deviceSecurityGroupPropertiesResponsePtrType) ToDeviceSecurityGroupPropertiesResponsePtrOutput() DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return i.ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deviceSecurityGroupPropertiesResponsePtrType) ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupPropertiesResponsePtrOutput)
+}
+
+// describes properties of a security group.
+type DeviceSecurityGroupPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (DeviceSecurityGroupPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceSecurityGroupPropertiesResponse)(nil)).Elem()
+}
+
+func (o DeviceSecurityGroupPropertiesResponseOutput) ToDeviceSecurityGroupPropertiesResponseOutput() DeviceSecurityGroupPropertiesResponseOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesResponseOutput) ToDeviceSecurityGroupPropertiesResponseOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesResponseOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesResponseOutput) ToDeviceSecurityGroupPropertiesResponsePtrOutput() DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return o.ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeviceSecurityGroupPropertiesResponseOutput) ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupPropertiesResponse) *DeviceSecurityGroupPropertiesResponse {
+		return &v
+	}).(DeviceSecurityGroupPropertiesResponsePtrOutput)
+}
+
+// The allow-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesResponseOutput) AllowlistRules() AllowlistCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupPropertiesResponse) []AllowlistCustomAlertRuleResponse {
+		return v.AllowlistRules
+	}).(AllowlistCustomAlertRuleResponseArrayOutput)
+}
+
+// The deny-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesResponseOutput) DenylistRules() DenylistCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupPropertiesResponse) []DenylistCustomAlertRuleResponse {
+		return v.DenylistRules
+	}).(DenylistCustomAlertRuleResponseArrayOutput)
+}
+
+// The list of custom alert threshold rules.
+func (o DeviceSecurityGroupPropertiesResponseOutput) ThresholdRules() ThresholdCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupPropertiesResponse) []ThresholdCustomAlertRuleResponse {
+		return v.ThresholdRules
+	}).(ThresholdCustomAlertRuleResponseArrayOutput)
+}
+
+// The list of custom alert time-window rules.
+func (o DeviceSecurityGroupPropertiesResponseOutput) TimeWindowRules() TimeWindowCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v DeviceSecurityGroupPropertiesResponse) []TimeWindowCustomAlertRuleResponse {
+		return v.TimeWindowRules
+	}).(TimeWindowCustomAlertRuleResponseArrayOutput)
+}
+
+type DeviceSecurityGroupPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeviceSecurityGroupPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceSecurityGroupPropertiesResponse)(nil)).Elem()
+}
+
+func (o DeviceSecurityGroupPropertiesResponsePtrOutput) ToDeviceSecurityGroupPropertiesResponsePtrOutput() DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesResponsePtrOutput) ToDeviceSecurityGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeviceSecurityGroupPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DeviceSecurityGroupPropertiesResponsePtrOutput) Elem() DeviceSecurityGroupPropertiesResponseOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupPropertiesResponse) DeviceSecurityGroupPropertiesResponse { return *v }).(DeviceSecurityGroupPropertiesResponseOutput)
+}
+
+// The allow-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesResponsePtrOutput) AllowlistRules() AllowlistCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupPropertiesResponse) []AllowlistCustomAlertRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AllowlistRules
+	}).(AllowlistCustomAlertRuleResponseArrayOutput)
+}
+
+// The deny-list custom alert rules.
+func (o DeviceSecurityGroupPropertiesResponsePtrOutput) DenylistRules() DenylistCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupPropertiesResponse) []DenylistCustomAlertRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DenylistRules
+	}).(DenylistCustomAlertRuleResponseArrayOutput)
+}
+
+// The list of custom alert threshold rules.
+func (o DeviceSecurityGroupPropertiesResponsePtrOutput) ThresholdRules() ThresholdCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupPropertiesResponse) []ThresholdCustomAlertRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdRules
+	}).(ThresholdCustomAlertRuleResponseArrayOutput)
+}
+
+// The list of custom alert time-window rules.
+func (o DeviceSecurityGroupPropertiesResponsePtrOutput) TimeWindowRules() TimeWindowCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroupPropertiesResponse) []TimeWindowCustomAlertRuleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TimeWindowRules
+	}).(TimeWindowCustomAlertRuleResponseArrayOutput)
+}
+
 // Security Solution setting data
 type IoTSecuritySolutionProperties struct {
 	// Disabled data sources. Disabling these data sources compromises the system.
@@ -2337,6 +4739,230 @@ func (o JitNetworkAccessRequestVirtualMachineResponseArrayOutput) Index(i pulumi
 	}).(JitNetworkAccessRequestVirtualMachineResponseOutput)
 }
 
+type PathRecommendations struct {
+}
+
+// PathRecommendationsInput is an input type that accepts PathRecommendationsArgs and PathRecommendationsOutput values.
+// You can construct a concrete instance of `PathRecommendationsInput` via:
+//
+//          PathRecommendationsArgs{...}
+type PathRecommendationsInput interface {
+	pulumi.Input
+
+	ToPathRecommendationsOutput() PathRecommendationsOutput
+	ToPathRecommendationsOutputWithContext(context.Context) PathRecommendationsOutput
+}
+
+type PathRecommendationsArgs struct {
+}
+
+func (PathRecommendationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendations)(nil)).Elem()
+}
+
+func (i PathRecommendationsArgs) ToPathRecommendationsOutput() PathRecommendationsOutput {
+	return i.ToPathRecommendationsOutputWithContext(context.Background())
+}
+
+func (i PathRecommendationsArgs) ToPathRecommendationsOutputWithContext(ctx context.Context) PathRecommendationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsOutput)
+}
+
+func (i PathRecommendationsArgs) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
+	return i.ToPathRecommendationsPtrOutputWithContext(context.Background())
+}
+
+func (i PathRecommendationsArgs) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsOutput).ToPathRecommendationsPtrOutputWithContext(ctx)
+}
+
+// PathRecommendationsPtrInput is an input type that accepts PathRecommendationsArgs, PathRecommendationsPtr and PathRecommendationsPtrOutput values.
+// You can construct a concrete instance of `PathRecommendationsPtrInput` via:
+//
+//          PathRecommendationsArgs{...}
+//
+//  or:
+//
+//          nil
+type PathRecommendationsPtrInput interface {
+	pulumi.Input
+
+	ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput
+	ToPathRecommendationsPtrOutputWithContext(context.Context) PathRecommendationsPtrOutput
+}
+
+type pathRecommendationsPtrType PathRecommendationsArgs
+
+func PathRecommendationsPtr(v *PathRecommendationsArgs) PathRecommendationsPtrInput {
+	return (*pathRecommendationsPtrType)(v)
+}
+
+func (*pathRecommendationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathRecommendations)(nil)).Elem()
+}
+
+func (i *pathRecommendationsPtrType) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
+	return i.ToPathRecommendationsPtrOutputWithContext(context.Background())
+}
+
+func (i *pathRecommendationsPtrType) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsPtrOutput)
+}
+
+type PathRecommendationsOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendations)(nil)).Elem()
+}
+
+func (o PathRecommendationsOutput) ToPathRecommendationsOutput() PathRecommendationsOutput {
+	return o
+}
+
+func (o PathRecommendationsOutput) ToPathRecommendationsOutputWithContext(ctx context.Context) PathRecommendationsOutput {
+	return o
+}
+
+func (o PathRecommendationsOutput) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
+	return o.ToPathRecommendationsPtrOutputWithContext(context.Background())
+}
+
+func (o PathRecommendationsOutput) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
+	return o.ApplyT(func(v PathRecommendations) *PathRecommendations {
+		return &v
+	}).(PathRecommendationsPtrOutput)
+}
+
+type PathRecommendationsPtrOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathRecommendations)(nil)).Elem()
+}
+
+func (o PathRecommendationsPtrOutput) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
+	return o
+}
+
+func (o PathRecommendationsPtrOutput) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
+	return o
+}
+
+func (o PathRecommendationsPtrOutput) Elem() PathRecommendationsOutput {
+	return o.ApplyT(func(v *PathRecommendations) PathRecommendations { return *v }).(PathRecommendationsOutput)
+}
+
+type PathRecommendationsResponse struct {
+}
+
+// PathRecommendationsResponseInput is an input type that accepts PathRecommendationsResponseArgs and PathRecommendationsResponseOutput values.
+// You can construct a concrete instance of `PathRecommendationsResponseInput` via:
+//
+//          PathRecommendationsResponseArgs{...}
+type PathRecommendationsResponseInput interface {
+	pulumi.Input
+
+	ToPathRecommendationsResponseOutput() PathRecommendationsResponseOutput
+	ToPathRecommendationsResponseOutputWithContext(context.Context) PathRecommendationsResponseOutput
+}
+
+type PathRecommendationsResponseArgs struct {
+}
+
+func (PathRecommendationsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendationsResponse)(nil)).Elem()
+}
+
+func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponseOutput() PathRecommendationsResponseOutput {
+	return i.ToPathRecommendationsResponseOutputWithContext(context.Background())
+}
+
+func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponseOutputWithContext(ctx context.Context) PathRecommendationsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsResponseOutput)
+}
+
+func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
+	return i.ToPathRecommendationsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsResponseOutput).ToPathRecommendationsResponsePtrOutputWithContext(ctx)
+}
+
+// PathRecommendationsResponsePtrInput is an input type that accepts PathRecommendationsResponseArgs, PathRecommendationsResponsePtr and PathRecommendationsResponsePtrOutput values.
+// You can construct a concrete instance of `PathRecommendationsResponsePtrInput` via:
+//
+//          PathRecommendationsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PathRecommendationsResponsePtrInput interface {
+	pulumi.Input
+
+	ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput
+	ToPathRecommendationsResponsePtrOutputWithContext(context.Context) PathRecommendationsResponsePtrOutput
+}
+
+type pathRecommendationsResponsePtrType PathRecommendationsResponseArgs
+
+func PathRecommendationsResponsePtr(v *PathRecommendationsResponseArgs) PathRecommendationsResponsePtrInput {
+	return (*pathRecommendationsResponsePtrType)(v)
+}
+
+func (*pathRecommendationsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathRecommendationsResponse)(nil)).Elem()
+}
+
+func (i *pathRecommendationsResponsePtrType) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
+	return i.ToPathRecommendationsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *pathRecommendationsResponsePtrType) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsResponsePtrOutput)
+}
+
+type PathRecommendationsResponseOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendationsResponse)(nil)).Elem()
+}
+
+func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponseOutput() PathRecommendationsResponseOutput {
+	return o
+}
+
+func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponseOutputWithContext(ctx context.Context) PathRecommendationsResponseOutput {
+	return o
+}
+
+func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
+	return o.ToPathRecommendationsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
+	return o.ApplyT(func(v PathRecommendationsResponse) *PathRecommendationsResponse {
+		return &v
+	}).(PathRecommendationsResponsePtrOutput)
+}
+
+type PathRecommendationsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PathRecommendationsResponse)(nil)).Elem()
+}
+
+func (o PathRecommendationsResponsePtrOutput) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
+	return o
+}
+
+func (o PathRecommendationsResponsePtrOutput) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
+	return o
+}
+
+func (o PathRecommendationsResponsePtrOutput) Elem() PathRecommendationsResponseOutput {
+	return o.ApplyT(func(v *PathRecommendationsResponse) PathRecommendationsResponse { return *v }).(PathRecommendationsResponseOutput)
+}
+
 type PortNumber struct {
 }
 
@@ -2421,6 +5047,388 @@ func (o PortNumberResponseOutput) ToPortNumberResponseOutput() PortNumberRespons
 
 func (o PortNumberResponseOutput) ToPortNumberResponseOutputWithContext(ctx context.Context) PortNumberResponseOutput {
 	return o
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionMode struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	Exe *string `pulumi:"exe"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Executable *string `pulumi:"executable"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Msi *string `pulumi:"msi"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Script *string `pulumi:"script"`
+}
+
+// ProtectionModeInput is an input type that accepts ProtectionModeArgs and ProtectionModeOutput values.
+// You can construct a concrete instance of `ProtectionModeInput` via:
+//
+//          ProtectionModeArgs{...}
+type ProtectionModeInput interface {
+	pulumi.Input
+
+	ToProtectionModeOutput() ProtectionModeOutput
+	ToProtectionModeOutputWithContext(context.Context) ProtectionModeOutput
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeArgs struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	Exe pulumi.StringPtrInput `pulumi:"exe"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Executable pulumi.StringPtrInput `pulumi:"executable"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Msi pulumi.StringPtrInput `pulumi:"msi"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Script pulumi.StringPtrInput `pulumi:"script"`
+}
+
+func (ProtectionModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionMode)(nil)).Elem()
+}
+
+func (i ProtectionModeArgs) ToProtectionModeOutput() ProtectionModeOutput {
+	return i.ToProtectionModeOutputWithContext(context.Background())
+}
+
+func (i ProtectionModeArgs) ToProtectionModeOutputWithContext(ctx context.Context) ProtectionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeOutput)
+}
+
+func (i ProtectionModeArgs) ToProtectionModePtrOutput() ProtectionModePtrOutput {
+	return i.ToProtectionModePtrOutputWithContext(context.Background())
+}
+
+func (i ProtectionModeArgs) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeOutput).ToProtectionModePtrOutputWithContext(ctx)
+}
+
+// ProtectionModePtrInput is an input type that accepts ProtectionModeArgs, ProtectionModePtr and ProtectionModePtrOutput values.
+// You can construct a concrete instance of `ProtectionModePtrInput` via:
+//
+//          ProtectionModeArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtectionModePtrInput interface {
+	pulumi.Input
+
+	ToProtectionModePtrOutput() ProtectionModePtrOutput
+	ToProtectionModePtrOutputWithContext(context.Context) ProtectionModePtrOutput
+}
+
+type protectionModePtrType ProtectionModeArgs
+
+func ProtectionModePtr(v *ProtectionModeArgs) ProtectionModePtrInput {
+	return (*protectionModePtrType)(v)
+}
+
+func (*protectionModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionMode)(nil)).Elem()
+}
+
+func (i *protectionModePtrType) ToProtectionModePtrOutput() ProtectionModePtrOutput {
+	return i.ToProtectionModePtrOutputWithContext(context.Background())
+}
+
+func (i *protectionModePtrType) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModePtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeOutput struct{ *pulumi.OutputState }
+
+func (ProtectionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionMode)(nil)).Elem()
+}
+
+func (o ProtectionModeOutput) ToProtectionModeOutput() ProtectionModeOutput {
+	return o
+}
+
+func (o ProtectionModeOutput) ToProtectionModeOutputWithContext(ctx context.Context) ProtectionModeOutput {
+	return o
+}
+
+func (o ProtectionModeOutput) ToProtectionModePtrOutput() ProtectionModePtrOutput {
+	return o.ToProtectionModePtrOutputWithContext(context.Background())
+}
+
+func (o ProtectionModeOutput) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
+	return o.ApplyT(func(v ProtectionMode) *ProtectionMode {
+		return &v
+	}).(ProtectionModePtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeOutput) Exe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionMode) *string { return v.Exe }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeOutput) Executable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionMode) *string { return v.Executable }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeOutput) Msi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionMode) *string { return v.Msi }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionMode) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+type ProtectionModePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtectionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionMode)(nil)).Elem()
+}
+
+func (o ProtectionModePtrOutput) ToProtectionModePtrOutput() ProtectionModePtrOutput {
+	return o
+}
+
+func (o ProtectionModePtrOutput) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
+	return o
+}
+
+func (o ProtectionModePtrOutput) Elem() ProtectionModeOutput {
+	return o.ApplyT(func(v *ProtectionMode) ProtectionMode { return *v }).(ProtectionModeOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModePtrOutput) Exe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionMode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exe
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModePtrOutput) Executable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionMode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Executable
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModePtrOutput) Msi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionMode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Msi
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModePtrOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionMode) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeResponse struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	Exe *string `pulumi:"exe"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Executable *string `pulumi:"executable"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Msi *string `pulumi:"msi"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Script *string `pulumi:"script"`
+}
+
+// ProtectionModeResponseInput is an input type that accepts ProtectionModeResponseArgs and ProtectionModeResponseOutput values.
+// You can construct a concrete instance of `ProtectionModeResponseInput` via:
+//
+//          ProtectionModeResponseArgs{...}
+type ProtectionModeResponseInput interface {
+	pulumi.Input
+
+	ToProtectionModeResponseOutput() ProtectionModeResponseOutput
+	ToProtectionModeResponseOutputWithContext(context.Context) ProtectionModeResponseOutput
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeResponseArgs struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	Exe pulumi.StringPtrInput `pulumi:"exe"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Executable pulumi.StringPtrInput `pulumi:"executable"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Msi pulumi.StringPtrInput `pulumi:"msi"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Script pulumi.StringPtrInput `pulumi:"script"`
+}
+
+func (ProtectionModeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionModeResponse)(nil)).Elem()
+}
+
+func (i ProtectionModeResponseArgs) ToProtectionModeResponseOutput() ProtectionModeResponseOutput {
+	return i.ToProtectionModeResponseOutputWithContext(context.Background())
+}
+
+func (i ProtectionModeResponseArgs) ToProtectionModeResponseOutputWithContext(ctx context.Context) ProtectionModeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponseOutput)
+}
+
+func (i ProtectionModeResponseArgs) ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput {
+	return i.ToProtectionModeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProtectionModeResponseArgs) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponseOutput).ToProtectionModeResponsePtrOutputWithContext(ctx)
+}
+
+// ProtectionModeResponsePtrInput is an input type that accepts ProtectionModeResponseArgs, ProtectionModeResponsePtr and ProtectionModeResponsePtrOutput values.
+// You can construct a concrete instance of `ProtectionModeResponsePtrInput` via:
+//
+//          ProtectionModeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtectionModeResponsePtrInput interface {
+	pulumi.Input
+
+	ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput
+	ToProtectionModeResponsePtrOutputWithContext(context.Context) ProtectionModeResponsePtrOutput
+}
+
+type protectionModeResponsePtrType ProtectionModeResponseArgs
+
+func ProtectionModeResponsePtr(v *ProtectionModeResponseArgs) ProtectionModeResponsePtrInput {
+	return (*protectionModeResponsePtrType)(v)
+}
+
+func (*protectionModeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionModeResponse)(nil)).Elem()
+}
+
+func (i *protectionModeResponsePtrType) ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput {
+	return i.ToProtectionModeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *protectionModeResponsePtrType) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponsePtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProtectionModeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionModeResponse)(nil)).Elem()
+}
+
+func (o ProtectionModeResponseOutput) ToProtectionModeResponseOutput() ProtectionModeResponseOutput {
+	return o
+}
+
+func (o ProtectionModeResponseOutput) ToProtectionModeResponseOutputWithContext(ctx context.Context) ProtectionModeResponseOutput {
+	return o
+}
+
+func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput {
+	return o.ToProtectionModeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
+	return o.ApplyT(func(v ProtectionModeResponse) *ProtectionModeResponse {
+		return &v
+	}).(ProtectionModeResponsePtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponseOutput) Exe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Exe }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponseOutput) Executable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Executable }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponseOutput) Msi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Msi }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+type ProtectionModeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtectionModeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionModeResponse)(nil)).Elem()
+}
+
+func (o ProtectionModeResponsePtrOutput) ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput {
+	return o
+}
+
+func (o ProtectionModeResponsePtrOutput) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
+	return o
+}
+
+func (o ProtectionModeResponsePtrOutput) Elem() ProtectionModeResponseOutput {
+	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse { return *v }).(ProtectionModeResponseOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponsePtrOutput) Exe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionModeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exe
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponsePtrOutput) Executable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionModeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Executable
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponsePtrOutput) Msi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionModeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Msi
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeResponsePtrOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionModeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Script
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of the configuration status for each recommendation type.
@@ -2651,6 +5659,2837 @@ func (o RecommendationConfigurationListResponsePtrOutput) ToRecommendationConfig
 
 func (o RecommendationConfigurationListResponsePtrOutput) Elem() RecommendationConfigurationListResponseOutput {
 	return o.ApplyT(func(v *RecommendationConfigurationListResponse) RecommendationConfigurationListResponse { return *v }).(RecommendationConfigurationListResponseOutput)
+}
+
+// Details of the resource that was assessed
+type ResourceDetails struct {
+	// The platform where the assessed resource resides
+	Source string `pulumi:"source"`
+}
+
+// ResourceDetailsInput is an input type that accepts ResourceDetailsArgs and ResourceDetailsOutput values.
+// You can construct a concrete instance of `ResourceDetailsInput` via:
+//
+//          ResourceDetailsArgs{...}
+type ResourceDetailsInput interface {
+	pulumi.Input
+
+	ToResourceDetailsOutput() ResourceDetailsOutput
+	ToResourceDetailsOutputWithContext(context.Context) ResourceDetailsOutput
+}
+
+// Details of the resource that was assessed
+type ResourceDetailsArgs struct {
+	// The platform where the assessed resource resides
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (ResourceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDetails)(nil)).Elem()
+}
+
+func (i ResourceDetailsArgs) ToResourceDetailsOutput() ResourceDetailsOutput {
+	return i.ToResourceDetailsOutputWithContext(context.Background())
+}
+
+func (i ResourceDetailsArgs) ToResourceDetailsOutputWithContext(ctx context.Context) ResourceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsOutput)
+}
+
+func (i ResourceDetailsArgs) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
+	return i.ToResourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDetailsArgs) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsOutput).ToResourceDetailsPtrOutputWithContext(ctx)
+}
+
+// ResourceDetailsPtrInput is an input type that accepts ResourceDetailsArgs, ResourceDetailsPtr and ResourceDetailsPtrOutput values.
+// You can construct a concrete instance of `ResourceDetailsPtrInput` via:
+//
+//          ResourceDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceDetailsPtrInput interface {
+	pulumi.Input
+
+	ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput
+	ToResourceDetailsPtrOutputWithContext(context.Context) ResourceDetailsPtrOutput
+}
+
+type resourceDetailsPtrType ResourceDetailsArgs
+
+func ResourceDetailsPtr(v *ResourceDetailsArgs) ResourceDetailsPtrInput {
+	return (*resourceDetailsPtrType)(v)
+}
+
+func (*resourceDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDetails)(nil)).Elem()
+}
+
+func (i *resourceDetailsPtrType) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
+	return i.ToResourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDetailsPtrType) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsPtrOutput)
+}
+
+// Details of the resource that was assessed
+type ResourceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ResourceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDetails)(nil)).Elem()
+}
+
+func (o ResourceDetailsOutput) ToResourceDetailsOutput() ResourceDetailsOutput {
+	return o
+}
+
+func (o ResourceDetailsOutput) ToResourceDetailsOutputWithContext(ctx context.Context) ResourceDetailsOutput {
+	return o
+}
+
+func (o ResourceDetailsOutput) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
+	return o.ToResourceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDetailsOutput) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
+	return o.ApplyT(func(v ResourceDetails) *ResourceDetails {
+		return &v
+	}).(ResourceDetailsPtrOutput)
+}
+
+// The platform where the assessed resource resides
+func (o ResourceDetailsOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDetails) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type ResourceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDetails)(nil)).Elem()
+}
+
+func (o ResourceDetailsPtrOutput) ToResourceDetailsPtrOutput() ResourceDetailsPtrOutput {
+	return o
+}
+
+func (o ResourceDetailsPtrOutput) ToResourceDetailsPtrOutputWithContext(ctx context.Context) ResourceDetailsPtrOutput {
+	return o
+}
+
+func (o ResourceDetailsPtrOutput) Elem() ResourceDetailsOutput {
+	return o.ApplyT(func(v *ResourceDetails) ResourceDetails { return *v }).(ResourceDetailsOutput)
+}
+
+// The platform where the assessed resource resides
+func (o ResourceDetailsPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the resource that was assessed
+type ResourceDetailsResponse struct {
+	// The platform where the assessed resource resides
+	Source string `pulumi:"source"`
+}
+
+// ResourceDetailsResponseInput is an input type that accepts ResourceDetailsResponseArgs and ResourceDetailsResponseOutput values.
+// You can construct a concrete instance of `ResourceDetailsResponseInput` via:
+//
+//          ResourceDetailsResponseArgs{...}
+type ResourceDetailsResponseInput interface {
+	pulumi.Input
+
+	ToResourceDetailsResponseOutput() ResourceDetailsResponseOutput
+	ToResourceDetailsResponseOutputWithContext(context.Context) ResourceDetailsResponseOutput
+}
+
+// Details of the resource that was assessed
+type ResourceDetailsResponseArgs struct {
+	// The platform where the assessed resource resides
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (ResourceDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDetailsResponse)(nil)).Elem()
+}
+
+func (i ResourceDetailsResponseArgs) ToResourceDetailsResponseOutput() ResourceDetailsResponseOutput {
+	return i.ToResourceDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceDetailsResponseArgs) ToResourceDetailsResponseOutputWithContext(ctx context.Context) ResourceDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsResponseOutput)
+}
+
+func (i ResourceDetailsResponseArgs) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
+	return i.ToResourceDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDetailsResponseArgs) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsResponseOutput).ToResourceDetailsResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceDetailsResponsePtrInput is an input type that accepts ResourceDetailsResponseArgs, ResourceDetailsResponsePtr and ResourceDetailsResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceDetailsResponsePtrInput` via:
+//
+//          ResourceDetailsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput
+	ToResourceDetailsResponsePtrOutputWithContext(context.Context) ResourceDetailsResponsePtrOutput
+}
+
+type resourceDetailsResponsePtrType ResourceDetailsResponseArgs
+
+func ResourceDetailsResponsePtr(v *ResourceDetailsResponseArgs) ResourceDetailsResponsePtrInput {
+	return (*resourceDetailsResponsePtrType)(v)
+}
+
+func (*resourceDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDetailsResponse)(nil)).Elem()
+}
+
+func (i *resourceDetailsResponsePtrType) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
+	return i.ToResourceDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDetailsResponsePtrType) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDetailsResponsePtrOutput)
+}
+
+// Details of the resource that was assessed
+type ResourceDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDetailsResponse)(nil)).Elem()
+}
+
+func (o ResourceDetailsResponseOutput) ToResourceDetailsResponseOutput() ResourceDetailsResponseOutput {
+	return o
+}
+
+func (o ResourceDetailsResponseOutput) ToResourceDetailsResponseOutputWithContext(ctx context.Context) ResourceDetailsResponseOutput {
+	return o
+}
+
+func (o ResourceDetailsResponseOutput) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
+	return o.ToResourceDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDetailsResponseOutput) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ResourceDetailsResponse) *ResourceDetailsResponse {
+		return &v
+	}).(ResourceDetailsResponsePtrOutput)
+}
+
+// The platform where the assessed resource resides
+func (o ResourceDetailsResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type ResourceDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDetailsResponse)(nil)).Elem()
+}
+
+func (o ResourceDetailsResponsePtrOutput) ToResourceDetailsResponsePtrOutput() ResourceDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceDetailsResponsePtrOutput) ToResourceDetailsResponsePtrOutputWithContext(ctx context.Context) ResourceDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ResourceDetailsResponsePtrOutput) Elem() ResourceDetailsResponseOutput {
+	return o.ApplyT(func(v *ResourceDetailsResponse) ResourceDetailsResponse { return *v }).(ResourceDetailsResponseOutput)
+}
+
+// The platform where the assessed resource resides
+func (o ResourceDetailsResponsePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the partner that created the assessment
+type SecurityAssessmentMetadataPartnerData struct {
+	// Name of the company of the partner
+	PartnerName string `pulumi:"partnerName"`
+	// Name of the product of the partner that created the assessment
+	ProductName *string `pulumi:"productName"`
+	// Secret to authenticate the partner and verify it created the assessment - write only
+	Secret string `pulumi:"secret"`
+}
+
+// SecurityAssessmentMetadataPartnerDataInput is an input type that accepts SecurityAssessmentMetadataPartnerDataArgs and SecurityAssessmentMetadataPartnerDataOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataInput` via:
+//
+//          SecurityAssessmentMetadataPartnerDataArgs{...}
+type SecurityAssessmentMetadataPartnerDataInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPartnerDataOutput() SecurityAssessmentMetadataPartnerDataOutput
+	ToSecurityAssessmentMetadataPartnerDataOutputWithContext(context.Context) SecurityAssessmentMetadataPartnerDataOutput
+}
+
+// Describes the partner that created the assessment
+type SecurityAssessmentMetadataPartnerDataArgs struct {
+	// Name of the company of the partner
+	PartnerName pulumi.StringInput `pulumi:"partnerName"`
+	// Name of the product of the partner that created the assessment
+	ProductName pulumi.StringPtrInput `pulumi:"productName"`
+	// Secret to authenticate the partner and verify it created the assessment - write only
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SecurityAssessmentMetadataPartnerDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataPartnerData)(nil)).Elem()
+}
+
+func (i SecurityAssessmentMetadataPartnerDataArgs) ToSecurityAssessmentMetadataPartnerDataOutput() SecurityAssessmentMetadataPartnerDataOutput {
+	return i.ToSecurityAssessmentMetadataPartnerDataOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPartnerDataArgs) ToSecurityAssessmentMetadataPartnerDataOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataOutput)
+}
+
+func (i SecurityAssessmentMetadataPartnerDataArgs) ToSecurityAssessmentMetadataPartnerDataPtrOutput() SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return i.ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPartnerDataArgs) ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataOutput).ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentMetadataPartnerDataPtrInput is an input type that accepts SecurityAssessmentMetadataPartnerDataArgs, SecurityAssessmentMetadataPartnerDataPtr and SecurityAssessmentMetadataPartnerDataPtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataPtrInput` via:
+//
+//          SecurityAssessmentMetadataPartnerDataArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentMetadataPartnerDataPtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPartnerDataPtrOutput() SecurityAssessmentMetadataPartnerDataPtrOutput
+	ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(context.Context) SecurityAssessmentMetadataPartnerDataPtrOutput
+}
+
+type securityAssessmentMetadataPartnerDataPtrType SecurityAssessmentMetadataPartnerDataArgs
+
+func SecurityAssessmentMetadataPartnerDataPtr(v *SecurityAssessmentMetadataPartnerDataArgs) SecurityAssessmentMetadataPartnerDataPtrInput {
+	return (*securityAssessmentMetadataPartnerDataPtrType)(v)
+}
+
+func (*securityAssessmentMetadataPartnerDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataPartnerData)(nil)).Elem()
+}
+
+func (i *securityAssessmentMetadataPartnerDataPtrType) ToSecurityAssessmentMetadataPartnerDataPtrOutput() SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return i.ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentMetadataPartnerDataPtrType) ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataPtrOutput)
+}
+
+// Describes the partner that created the assessment
+type SecurityAssessmentMetadataPartnerDataOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPartnerDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataPartnerData)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadataPartnerDataOutput() SecurityAssessmentMetadataPartnerDataOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadataPartnerDataOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadataPartnerDataPtrOutput() SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return o.ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentMetadataPartnerDataOutput) ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerData) *SecurityAssessmentMetadataPartnerData {
+		return &v
+	}).(SecurityAssessmentMetadataPartnerDataPtrOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentMetadataPartnerDataOutput) PartnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerData) string { return v.PartnerName }).(pulumi.StringOutput)
+}
+
+// Name of the product of the partner that created the assessment
+func (o SecurityAssessmentMetadataPartnerDataOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerData) *string { return v.ProductName }).(pulumi.StringPtrOutput)
+}
+
+// Secret to authenticate the partner and verify it created the assessment - write only
+func (o SecurityAssessmentMetadataPartnerDataOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerData) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SecurityAssessmentMetadataPartnerDataPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPartnerDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataPartnerData)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPartnerDataPtrOutput) ToSecurityAssessmentMetadataPartnerDataPtrOutput() SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataPtrOutput) ToSecurityAssessmentMetadataPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataPtrOutput) Elem() SecurityAssessmentMetadataPartnerDataOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) SecurityAssessmentMetadataPartnerData { return *v }).(SecurityAssessmentMetadataPartnerDataOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentMetadataPartnerDataPtrOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartnerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the product of the partner that created the assessment
+func (o SecurityAssessmentMetadataPartnerDataPtrOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProductName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret to authenticate the partner and verify it created the assessment - write only
+func (o SecurityAssessmentMetadataPartnerDataPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the partner that created the assessment
+type SecurityAssessmentMetadataPartnerDataResponse struct {
+	// Name of the company of the partner
+	PartnerName string `pulumi:"partnerName"`
+	// Name of the product of the partner that created the assessment
+	ProductName *string `pulumi:"productName"`
+	// Secret to authenticate the partner and verify it created the assessment - write only
+	Secret string `pulumi:"secret"`
+}
+
+// SecurityAssessmentMetadataPartnerDataResponseInput is an input type that accepts SecurityAssessmentMetadataPartnerDataResponseArgs and SecurityAssessmentMetadataPartnerDataResponseOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataResponseInput` via:
+//
+//          SecurityAssessmentMetadataPartnerDataResponseArgs{...}
+type SecurityAssessmentMetadataPartnerDataResponseInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPartnerDataResponseOutput() SecurityAssessmentMetadataPartnerDataResponseOutput
+	ToSecurityAssessmentMetadataPartnerDataResponseOutputWithContext(context.Context) SecurityAssessmentMetadataPartnerDataResponseOutput
+}
+
+// Describes the partner that created the assessment
+type SecurityAssessmentMetadataPartnerDataResponseArgs struct {
+	// Name of the company of the partner
+	PartnerName pulumi.StringInput `pulumi:"partnerName"`
+	// Name of the product of the partner that created the assessment
+	ProductName pulumi.StringPtrInput `pulumi:"productName"`
+	// Secret to authenticate the partner and verify it created the assessment - write only
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SecurityAssessmentMetadataPartnerDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataPartnerDataResponse)(nil)).Elem()
+}
+
+func (i SecurityAssessmentMetadataPartnerDataResponseArgs) ToSecurityAssessmentMetadataPartnerDataResponseOutput() SecurityAssessmentMetadataPartnerDataResponseOutput {
+	return i.ToSecurityAssessmentMetadataPartnerDataResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPartnerDataResponseArgs) ToSecurityAssessmentMetadataPartnerDataResponseOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataResponseOutput)
+}
+
+func (i SecurityAssessmentMetadataPartnerDataResponseArgs) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutput() SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return i.ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPartnerDataResponseArgs) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataResponseOutput).ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentMetadataPartnerDataResponsePtrInput is an input type that accepts SecurityAssessmentMetadataPartnerDataResponseArgs, SecurityAssessmentMetadataPartnerDataResponsePtr and SecurityAssessmentMetadataPartnerDataResponsePtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPartnerDataResponsePtrInput` via:
+//
+//          SecurityAssessmentMetadataPartnerDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentMetadataPartnerDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPartnerDataResponsePtrOutput() SecurityAssessmentMetadataPartnerDataResponsePtrOutput
+	ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(context.Context) SecurityAssessmentMetadataPartnerDataResponsePtrOutput
+}
+
+type securityAssessmentMetadataPartnerDataResponsePtrType SecurityAssessmentMetadataPartnerDataResponseArgs
+
+func SecurityAssessmentMetadataPartnerDataResponsePtr(v *SecurityAssessmentMetadataPartnerDataResponseArgs) SecurityAssessmentMetadataPartnerDataResponsePtrInput {
+	return (*securityAssessmentMetadataPartnerDataResponsePtrType)(v)
+}
+
+func (*securityAssessmentMetadataPartnerDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataPartnerDataResponse)(nil)).Elem()
+}
+
+func (i *securityAssessmentMetadataPartnerDataResponsePtrType) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutput() SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return i.ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentMetadataPartnerDataResponsePtrType) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
+}
+
+// Describes the partner that created the assessment
+type SecurityAssessmentMetadataPartnerDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPartnerDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataPartnerDataResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmentMetadataPartnerDataResponseOutput() SecurityAssessmentMetadataPartnerDataResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmentMetadataPartnerDataResponseOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutput() SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return o.ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerDataResponse) *SecurityAssessmentMetadataPartnerDataResponse {
+		return &v
+	}).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentMetadataPartnerDataResponseOutput) PartnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerDataResponse) string { return v.PartnerName }).(pulumi.StringOutput)
+}
+
+// Name of the product of the partner that created the assessment
+func (o SecurityAssessmentMetadataPartnerDataResponseOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerDataResponse) *string { return v.ProductName }).(pulumi.StringPtrOutput)
+}
+
+// Secret to authenticate the partner and verify it created the assessment - write only
+func (o SecurityAssessmentMetadataPartnerDataResponseOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPartnerDataResponse) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SecurityAssessmentMetadataPartnerDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPartnerDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataPartnerDataResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutput() SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) ToSecurityAssessmentMetadataPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) Elem() SecurityAssessmentMetadataPartnerDataResponseOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerDataResponse) SecurityAssessmentMetadataPartnerDataResponse {
+		return *v
+	}).(SecurityAssessmentMetadataPartnerDataResponseOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartnerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the product of the partner that created the assessment
+func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProductName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret to authenticate the partner and verify it created the assessment - write only
+func (o SecurityAssessmentMetadataPartnerDataResponsePtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPartnerDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+type SecurityAssessmentMetadataProperties struct {
+	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+	AssessmentType string   `pulumi:"assessmentType"`
+	Category       []string `pulumi:"category"`
+	// Human readable description of the assessment
+	Description *string `pulumi:"description"`
+	// User friendly display name of the assessment
+	DisplayName string `pulumi:"displayName"`
+	// The implementation effort required to remediate this assessment
+	ImplementationEffort *string `pulumi:"implementationEffort"`
+	// Describes the partner that created the assessment
+	PartnerData *SecurityAssessmentMetadataPartnerData `pulumi:"partnerData"`
+	// True if this assessment is in preview release status
+	Preview *bool `pulumi:"preview"`
+	// Human readable description of what you should do to mitigate this security issue
+	RemediationDescription *string `pulumi:"remediationDescription"`
+	// The severity level of the assessment
+	Severity string   `pulumi:"severity"`
+	Threats  []string `pulumi:"threats"`
+	// The user impact of the assessment
+	UserImpact *string `pulumi:"userImpact"`
+}
+
+// SecurityAssessmentMetadataPropertiesInput is an input type that accepts SecurityAssessmentMetadataPropertiesArgs and SecurityAssessmentMetadataPropertiesOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesInput` via:
+//
+//          SecurityAssessmentMetadataPropertiesArgs{...}
+type SecurityAssessmentMetadataPropertiesInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPropertiesOutput() SecurityAssessmentMetadataPropertiesOutput
+	ToSecurityAssessmentMetadataPropertiesOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesOutput
+}
+
+// Describes properties of an assessment metadata.
+type SecurityAssessmentMetadataPropertiesArgs struct {
+	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+	AssessmentType pulumi.StringInput      `pulumi:"assessmentType"`
+	Category       pulumi.StringArrayInput `pulumi:"category"`
+	// Human readable description of the assessment
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// User friendly display name of the assessment
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The implementation effort required to remediate this assessment
+	ImplementationEffort pulumi.StringPtrInput `pulumi:"implementationEffort"`
+	// Describes the partner that created the assessment
+	PartnerData SecurityAssessmentMetadataPartnerDataPtrInput `pulumi:"partnerData"`
+	// True if this assessment is in preview release status
+	Preview pulumi.BoolPtrInput `pulumi:"preview"`
+	// Human readable description of what you should do to mitigate this security issue
+	RemediationDescription pulumi.StringPtrInput `pulumi:"remediationDescription"`
+	// The severity level of the assessment
+	Severity pulumi.StringInput      `pulumi:"severity"`
+	Threats  pulumi.StringArrayInput `pulumi:"threats"`
+	// The user impact of the assessment
+	UserImpact pulumi.StringPtrInput `pulumi:"userImpact"`
+}
+
+func (SecurityAssessmentMetadataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataProperties)(nil)).Elem()
+}
+
+func (i SecurityAssessmentMetadataPropertiesArgs) ToSecurityAssessmentMetadataPropertiesOutput() SecurityAssessmentMetadataPropertiesOutput {
+	return i.ToSecurityAssessmentMetadataPropertiesOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPropertiesArgs) ToSecurityAssessmentMetadataPropertiesOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesOutput)
+}
+
+func (i SecurityAssessmentMetadataPropertiesArgs) ToSecurityAssessmentMetadataPropertiesPtrOutput() SecurityAssessmentMetadataPropertiesPtrOutput {
+	return i.ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPropertiesArgs) ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesOutput).ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentMetadataPropertiesPtrInput is an input type that accepts SecurityAssessmentMetadataPropertiesArgs, SecurityAssessmentMetadataPropertiesPtr and SecurityAssessmentMetadataPropertiesPtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesPtrInput` via:
+//
+//          SecurityAssessmentMetadataPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentMetadataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPropertiesPtrOutput() SecurityAssessmentMetadataPropertiesPtrOutput
+	ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesPtrOutput
+}
+
+type securityAssessmentMetadataPropertiesPtrType SecurityAssessmentMetadataPropertiesArgs
+
+func SecurityAssessmentMetadataPropertiesPtr(v *SecurityAssessmentMetadataPropertiesArgs) SecurityAssessmentMetadataPropertiesPtrInput {
+	return (*securityAssessmentMetadataPropertiesPtrType)(v)
+}
+
+func (*securityAssessmentMetadataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataProperties)(nil)).Elem()
+}
+
+func (i *securityAssessmentMetadataPropertiesPtrType) ToSecurityAssessmentMetadataPropertiesPtrOutput() SecurityAssessmentMetadataPropertiesPtrOutput {
+	return i.ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentMetadataPropertiesPtrType) ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesPtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+type SecurityAssessmentMetadataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataProperties)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadataPropertiesOutput() SecurityAssessmentMetadataPropertiesOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadataPropertiesOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadataPropertiesPtrOutput() SecurityAssessmentMetadataPropertiesPtrOutput {
+	return o.ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentMetadataPropertiesOutput) ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *SecurityAssessmentMetadataProperties {
+		return &v
+	}).(SecurityAssessmentMetadataPropertiesPtrOutput)
+}
+
+// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+func (o SecurityAssessmentMetadataPropertiesOutput) AssessmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) string { return v.AssessmentType }).(pulumi.StringOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesOutput) Category() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) []string { return v.Category }).(pulumi.StringArrayOutput)
+}
+
+// Human readable description of the assessment
+func (o SecurityAssessmentMetadataPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User friendly display name of the assessment
+func (o SecurityAssessmentMetadataPropertiesOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The implementation effort required to remediate this assessment
+func (o SecurityAssessmentMetadataPropertiesOutput) ImplementationEffort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *string { return v.ImplementationEffort }).(pulumi.StringPtrOutput)
+}
+
+// Describes the partner that created the assessment
+func (o SecurityAssessmentMetadataPropertiesOutput) PartnerData() SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *SecurityAssessmentMetadataPartnerData {
+		return v.PartnerData
+	}).(SecurityAssessmentMetadataPartnerDataPtrOutput)
+}
+
+// True if this assessment is in preview release status
+func (o SecurityAssessmentMetadataPropertiesOutput) Preview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *bool { return v.Preview }).(pulumi.BoolPtrOutput)
+}
+
+// Human readable description of what you should do to mitigate this security issue
+func (o SecurityAssessmentMetadataPropertiesOutput) RemediationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *string { return v.RemediationDescription }).(pulumi.StringPtrOutput)
+}
+
+// The severity level of the assessment
+func (o SecurityAssessmentMetadataPropertiesOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesOutput) Threats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) []string { return v.Threats }).(pulumi.StringArrayOutput)
+}
+
+// The user impact of the assessment
+func (o SecurityAssessmentMetadataPropertiesOutput) UserImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataProperties) *string { return v.UserImpact }).(pulumi.StringPtrOutput)
+}
+
+type SecurityAssessmentMetadataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataProperties)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) ToSecurityAssessmentMetadataPropertiesPtrOutput() SecurityAssessmentMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) ToSecurityAssessmentMetadataPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) Elem() SecurityAssessmentMetadataPropertiesOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) SecurityAssessmentMetadataProperties { return *v }).(SecurityAssessmentMetadataPropertiesOutput)
+}
+
+// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) AssessmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssessmentType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) Category() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Category
+	}).(pulumi.StringArrayOutput)
+}
+
+// Human readable description of the assessment
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// User friendly display name of the assessment
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The implementation effort required to remediate this assessment
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) ImplementationEffort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImplementationEffort
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the partner that created the assessment
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) PartnerData() SecurityAssessmentMetadataPartnerDataPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *SecurityAssessmentMetadataPartnerData {
+		if v == nil {
+			return nil
+		}
+		return v.PartnerData
+	}).(SecurityAssessmentMetadataPartnerDataPtrOutput)
+}
+
+// True if this assessment is in preview release status
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) Preview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Preview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Human readable description of what you should do to mitigate this security issue
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) RemediationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RemediationDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// The severity level of the assessment
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) Threats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Threats
+	}).(pulumi.StringArrayOutput)
+}
+
+// The user impact of the assessment
+func (o SecurityAssessmentMetadataPropertiesPtrOutput) UserImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserImpact
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+type SecurityAssessmentMetadataPropertiesResponse struct {
+	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+	AssessmentType string   `pulumi:"assessmentType"`
+	Category       []string `pulumi:"category"`
+	// Human readable description of the assessment
+	Description *string `pulumi:"description"`
+	// User friendly display name of the assessment
+	DisplayName string `pulumi:"displayName"`
+	// The implementation effort required to remediate this assessment
+	ImplementationEffort *string `pulumi:"implementationEffort"`
+	// Describes the partner that created the assessment
+	PartnerData *SecurityAssessmentMetadataPartnerDataResponse `pulumi:"partnerData"`
+	// Azure resource ID of the policy definition that turns this assessment calculation on
+	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
+	// True if this assessment is in preview release status
+	Preview *bool `pulumi:"preview"`
+	// Human readable description of what you should do to mitigate this security issue
+	RemediationDescription *string `pulumi:"remediationDescription"`
+	// The severity level of the assessment
+	Severity string   `pulumi:"severity"`
+	Threats  []string `pulumi:"threats"`
+	// The user impact of the assessment
+	UserImpact *string `pulumi:"userImpact"`
+}
+
+// SecurityAssessmentMetadataPropertiesResponseInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponseArgs and SecurityAssessmentMetadataPropertiesResponseOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponseInput` via:
+//
+//          SecurityAssessmentMetadataPropertiesResponseArgs{...}
+type SecurityAssessmentMetadataPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPropertiesResponseOutput() SecurityAssessmentMetadataPropertiesResponseOutput
+	ToSecurityAssessmentMetadataPropertiesResponseOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesResponseOutput
+}
+
+// Describes properties of an assessment metadata.
+type SecurityAssessmentMetadataPropertiesResponseArgs struct {
+	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+	AssessmentType pulumi.StringInput      `pulumi:"assessmentType"`
+	Category       pulumi.StringArrayInput `pulumi:"category"`
+	// Human readable description of the assessment
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// User friendly display name of the assessment
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The implementation effort required to remediate this assessment
+	ImplementationEffort pulumi.StringPtrInput `pulumi:"implementationEffort"`
+	// Describes the partner that created the assessment
+	PartnerData SecurityAssessmentMetadataPartnerDataResponsePtrInput `pulumi:"partnerData"`
+	// Azure resource ID of the policy definition that turns this assessment calculation on
+	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
+	// True if this assessment is in preview release status
+	Preview pulumi.BoolPtrInput `pulumi:"preview"`
+	// Human readable description of what you should do to mitigate this security issue
+	RemediationDescription pulumi.StringPtrInput `pulumi:"remediationDescription"`
+	// The severity level of the assessment
+	Severity pulumi.StringInput      `pulumi:"severity"`
+	Threats  pulumi.StringArrayInput `pulumi:"threats"`
+	// The user impact of the assessment
+	UserImpact pulumi.StringPtrInput `pulumi:"userImpact"`
+}
+
+func (SecurityAssessmentMetadataPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataPropertiesResponse)(nil)).Elem()
+}
+
+func (i SecurityAssessmentMetadataPropertiesResponseArgs) ToSecurityAssessmentMetadataPropertiesResponseOutput() SecurityAssessmentMetadataPropertiesResponseOutput {
+	return i.ToSecurityAssessmentMetadataPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPropertiesResponseArgs) ToSecurityAssessmentMetadataPropertiesResponseOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponseOutput)
+}
+
+func (i SecurityAssessmentMetadataPropertiesResponseArgs) ToSecurityAssessmentMetadataPropertiesResponsePtrOutput() SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return i.ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentMetadataPropertiesResponseArgs) ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponseOutput).ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentMetadataPropertiesResponsePtrInput is an input type that accepts SecurityAssessmentMetadataPropertiesResponseArgs, SecurityAssessmentMetadataPropertiesResponsePtr and SecurityAssessmentMetadataPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentMetadataPropertiesResponsePtrInput` via:
+//
+//          SecurityAssessmentMetadataPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentMetadataPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentMetadataPropertiesResponsePtrOutput() SecurityAssessmentMetadataPropertiesResponsePtrOutput
+	ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(context.Context) SecurityAssessmentMetadataPropertiesResponsePtrOutput
+}
+
+type securityAssessmentMetadataPropertiesResponsePtrType SecurityAssessmentMetadataPropertiesResponseArgs
+
+func SecurityAssessmentMetadataPropertiesResponsePtr(v *SecurityAssessmentMetadataPropertiesResponseArgs) SecurityAssessmentMetadataPropertiesResponsePtrInput {
+	return (*securityAssessmentMetadataPropertiesResponsePtrType)(v)
+}
+
+func (*securityAssessmentMetadataPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataPropertiesResponse)(nil)).Elem()
+}
+
+func (i *securityAssessmentMetadataPropertiesResponsePtrType) ToSecurityAssessmentMetadataPropertiesResponsePtrOutput() SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return i.ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentMetadataPropertiesResponsePtrType) ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentMetadataPropertiesResponsePtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+type SecurityAssessmentMetadataPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentMetadataPropertiesResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessmentMetadataPropertiesResponseOutput() SecurityAssessmentMetadataPropertiesResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessmentMetadataPropertiesResponseOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessmentMetadataPropertiesResponsePtrOutput() SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return o.ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *SecurityAssessmentMetadataPropertiesResponse {
+		return &v
+	}).(SecurityAssessmentMetadataPropertiesResponsePtrOutput)
+}
+
+// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) AssessmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) string { return v.AssessmentType }).(pulumi.StringOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) Category() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) []string { return v.Category }).(pulumi.StringArrayOutput)
+}
+
+// Human readable description of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User friendly display name of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The implementation effort required to remediate this assessment
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) ImplementationEffort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *string { return v.ImplementationEffort }).(pulumi.StringPtrOutput)
+}
+
+// Describes the partner that created the assessment
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) PartnerData() SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *SecurityAssessmentMetadataPartnerDataResponse {
+		return v.PartnerData
+	}).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
+}
+
+// Azure resource ID of the policy definition that turns this assessment calculation on
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) PolicyDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+// True if this assessment is in preview release status
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) Preview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *bool { return v.Preview }).(pulumi.BoolPtrOutput)
+}
+
+// Human readable description of what you should do to mitigate this security issue
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) RemediationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *string { return v.RemediationDescription }).(pulumi.StringPtrOutput)
+}
+
+// The severity level of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) Threats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) []string { return v.Threats }).(pulumi.StringArrayOutput)
+}
+
+// The user impact of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponseOutput) UserImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentMetadataPropertiesResponse) *string { return v.UserImpact }).(pulumi.StringPtrOutput)
+}
+
+type SecurityAssessmentMetadataPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentMetadataPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentMetadataPropertiesResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) ToSecurityAssessmentMetadataPropertiesResponsePtrOutput() SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) ToSecurityAssessmentMetadataPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Elem() SecurityAssessmentMetadataPropertiesResponseOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) SecurityAssessmentMetadataPropertiesResponse {
+		return *v
+	}).(SecurityAssessmentMetadataPropertiesResponseOutput)
+}
+
+// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) AssessmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssessmentType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Category() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Category
+	}).(pulumi.StringArrayOutput)
+}
+
+// Human readable description of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// User friendly display name of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The implementation effort required to remediate this assessment
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) ImplementationEffort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImplementationEffort
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the partner that created the assessment
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) PartnerData() SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *SecurityAssessmentMetadataPartnerDataResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PartnerData
+	}).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
+}
+
+// Azure resource ID of the policy definition that turns this assessment calculation on
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyDefinitionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// True if this assessment is in preview release status
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Preview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Preview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Human readable description of what you should do to mitigate this security issue
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) RemediationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RemediationDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// The severity level of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) Threats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Threats
+	}).(pulumi.StringArrayOutput)
+}
+
+// The user impact of the assessment
+func (o SecurityAssessmentMetadataPropertiesResponsePtrOutput) UserImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentMetadataPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserImpact
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+type SecurityAssessmentPartnerData struct {
+	// Name of the company of the partner
+	PartnerName string `pulumi:"partnerName"`
+	// secret to authenticate the partner - write only
+	Secret string `pulumi:"secret"`
+}
+
+// SecurityAssessmentPartnerDataInput is an input type that accepts SecurityAssessmentPartnerDataArgs and SecurityAssessmentPartnerDataOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPartnerDataInput` via:
+//
+//          SecurityAssessmentPartnerDataArgs{...}
+type SecurityAssessmentPartnerDataInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPartnerDataOutput() SecurityAssessmentPartnerDataOutput
+	ToSecurityAssessmentPartnerDataOutputWithContext(context.Context) SecurityAssessmentPartnerDataOutput
+}
+
+// Data regarding 3rd party partner integration
+type SecurityAssessmentPartnerDataArgs struct {
+	// Name of the company of the partner
+	PartnerName pulumi.StringInput `pulumi:"partnerName"`
+	// secret to authenticate the partner - write only
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SecurityAssessmentPartnerDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentPartnerData)(nil)).Elem()
+}
+
+func (i SecurityAssessmentPartnerDataArgs) ToSecurityAssessmentPartnerDataOutput() SecurityAssessmentPartnerDataOutput {
+	return i.ToSecurityAssessmentPartnerDataOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPartnerDataArgs) ToSecurityAssessmentPartnerDataOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataOutput)
+}
+
+func (i SecurityAssessmentPartnerDataArgs) ToSecurityAssessmentPartnerDataPtrOutput() SecurityAssessmentPartnerDataPtrOutput {
+	return i.ToSecurityAssessmentPartnerDataPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPartnerDataArgs) ToSecurityAssessmentPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataOutput).ToSecurityAssessmentPartnerDataPtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentPartnerDataPtrInput is an input type that accepts SecurityAssessmentPartnerDataArgs, SecurityAssessmentPartnerDataPtr and SecurityAssessmentPartnerDataPtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPartnerDataPtrInput` via:
+//
+//          SecurityAssessmentPartnerDataArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentPartnerDataPtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPartnerDataPtrOutput() SecurityAssessmentPartnerDataPtrOutput
+	ToSecurityAssessmentPartnerDataPtrOutputWithContext(context.Context) SecurityAssessmentPartnerDataPtrOutput
+}
+
+type securityAssessmentPartnerDataPtrType SecurityAssessmentPartnerDataArgs
+
+func SecurityAssessmentPartnerDataPtr(v *SecurityAssessmentPartnerDataArgs) SecurityAssessmentPartnerDataPtrInput {
+	return (*securityAssessmentPartnerDataPtrType)(v)
+}
+
+func (*securityAssessmentPartnerDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentPartnerData)(nil)).Elem()
+}
+
+func (i *securityAssessmentPartnerDataPtrType) ToSecurityAssessmentPartnerDataPtrOutput() SecurityAssessmentPartnerDataPtrOutput {
+	return i.ToSecurityAssessmentPartnerDataPtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentPartnerDataPtrType) ToSecurityAssessmentPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataPtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+type SecurityAssessmentPartnerDataOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPartnerDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentPartnerData)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataOutput() SecurityAssessmentPartnerDataOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataPtrOutput() SecurityAssessmentPartnerDataPtrOutput {
+	return o.ToSecurityAssessmentPartnerDataPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentPartnerDataOutput) ToSecurityAssessmentPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentPartnerData) *SecurityAssessmentPartnerData {
+		return &v
+	}).(SecurityAssessmentPartnerDataPtrOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentPartnerDataOutput) PartnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentPartnerData) string { return v.PartnerName }).(pulumi.StringOutput)
+}
+
+// secret to authenticate the partner - write only
+func (o SecurityAssessmentPartnerDataOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentPartnerData) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SecurityAssessmentPartnerDataPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPartnerDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentPartnerData)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPartnerDataPtrOutput) ToSecurityAssessmentPartnerDataPtrOutput() SecurityAssessmentPartnerDataPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataPtrOutput) ToSecurityAssessmentPartnerDataPtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataPtrOutput) Elem() SecurityAssessmentPartnerDataOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPartnerData) SecurityAssessmentPartnerData { return *v }).(SecurityAssessmentPartnerDataOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentPartnerDataPtrOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPartnerData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartnerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// secret to authenticate the partner - write only
+func (o SecurityAssessmentPartnerDataPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPartnerData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+type SecurityAssessmentPartnerDataResponse struct {
+	// Name of the company of the partner
+	PartnerName string `pulumi:"partnerName"`
+	// secret to authenticate the partner - write only
+	Secret string `pulumi:"secret"`
+}
+
+// SecurityAssessmentPartnerDataResponseInput is an input type that accepts SecurityAssessmentPartnerDataResponseArgs and SecurityAssessmentPartnerDataResponseOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPartnerDataResponseInput` via:
+//
+//          SecurityAssessmentPartnerDataResponseArgs{...}
+type SecurityAssessmentPartnerDataResponseInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPartnerDataResponseOutput() SecurityAssessmentPartnerDataResponseOutput
+	ToSecurityAssessmentPartnerDataResponseOutputWithContext(context.Context) SecurityAssessmentPartnerDataResponseOutput
+}
+
+// Data regarding 3rd party partner integration
+type SecurityAssessmentPartnerDataResponseArgs struct {
+	// Name of the company of the partner
+	PartnerName pulumi.StringInput `pulumi:"partnerName"`
+	// secret to authenticate the partner - write only
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (SecurityAssessmentPartnerDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentPartnerDataResponse)(nil)).Elem()
+}
+
+func (i SecurityAssessmentPartnerDataResponseArgs) ToSecurityAssessmentPartnerDataResponseOutput() SecurityAssessmentPartnerDataResponseOutput {
+	return i.ToSecurityAssessmentPartnerDataResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPartnerDataResponseArgs) ToSecurityAssessmentPartnerDataResponseOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataResponseOutput)
+}
+
+func (i SecurityAssessmentPartnerDataResponseArgs) ToSecurityAssessmentPartnerDataResponsePtrOutput() SecurityAssessmentPartnerDataResponsePtrOutput {
+	return i.ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPartnerDataResponseArgs) ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataResponseOutput).ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentPartnerDataResponsePtrInput is an input type that accepts SecurityAssessmentPartnerDataResponseArgs, SecurityAssessmentPartnerDataResponsePtr and SecurityAssessmentPartnerDataResponsePtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPartnerDataResponsePtrInput` via:
+//
+//          SecurityAssessmentPartnerDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentPartnerDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPartnerDataResponsePtrOutput() SecurityAssessmentPartnerDataResponsePtrOutput
+	ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(context.Context) SecurityAssessmentPartnerDataResponsePtrOutput
+}
+
+type securityAssessmentPartnerDataResponsePtrType SecurityAssessmentPartnerDataResponseArgs
+
+func SecurityAssessmentPartnerDataResponsePtr(v *SecurityAssessmentPartnerDataResponseArgs) SecurityAssessmentPartnerDataResponsePtrInput {
+	return (*securityAssessmentPartnerDataResponsePtrType)(v)
+}
+
+func (*securityAssessmentPartnerDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentPartnerDataResponse)(nil)).Elem()
+}
+
+func (i *securityAssessmentPartnerDataResponsePtrType) ToSecurityAssessmentPartnerDataResponsePtrOutput() SecurityAssessmentPartnerDataResponsePtrOutput {
+	return i.ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentPartnerDataResponsePtrType) ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPartnerDataResponsePtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+type SecurityAssessmentPartnerDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPartnerDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentPartnerDataResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartnerDataResponseOutput() SecurityAssessmentPartnerDataResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartnerDataResponseOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartnerDataResponsePtrOutput() SecurityAssessmentPartnerDataResponsePtrOutput {
+	return o.ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentPartnerDataResponseOutput) ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentPartnerDataResponse) *SecurityAssessmentPartnerDataResponse {
+		return &v
+	}).(SecurityAssessmentPartnerDataResponsePtrOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentPartnerDataResponseOutput) PartnerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentPartnerDataResponse) string { return v.PartnerName }).(pulumi.StringOutput)
+}
+
+// secret to authenticate the partner - write only
+func (o SecurityAssessmentPartnerDataResponseOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentPartnerDataResponse) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type SecurityAssessmentPartnerDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPartnerDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentPartnerDataResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPartnerDataResponsePtrOutput) ToSecurityAssessmentPartnerDataResponsePtrOutput() SecurityAssessmentPartnerDataResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataResponsePtrOutput) ToSecurityAssessmentPartnerDataResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPartnerDataResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPartnerDataResponsePtrOutput) Elem() SecurityAssessmentPartnerDataResponseOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPartnerDataResponse) SecurityAssessmentPartnerDataResponse { return *v }).(SecurityAssessmentPartnerDataResponseOutput)
+}
+
+// Name of the company of the partner
+func (o SecurityAssessmentPartnerDataResponsePtrOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPartnerDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartnerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// secret to authenticate the partner - write only
+func (o SecurityAssessmentPartnerDataResponsePtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPartnerDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes properties of an assessment.
+type SecurityAssessmentProperties struct {
+	// Additional data regarding the assessment
+	AdditionalData map[string]string `pulumi:"additionalData"`
+	// Links relevant to the assessment
+	Links *AssessmentLinks `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata *SecurityAssessmentMetadataProperties `pulumi:"metadata"`
+	// Data regarding 3rd party partner integration
+	PartnersData *SecurityAssessmentPartnerData `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetails `pulumi:"resourceDetails"`
+	// The result of the assessment
+	Status AssessmentStatus `pulumi:"status"`
+}
+
+// SecurityAssessmentPropertiesInput is an input type that accepts SecurityAssessmentPropertiesArgs and SecurityAssessmentPropertiesOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPropertiesInput` via:
+//
+//          SecurityAssessmentPropertiesArgs{...}
+type SecurityAssessmentPropertiesInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPropertiesOutput() SecurityAssessmentPropertiesOutput
+	ToSecurityAssessmentPropertiesOutputWithContext(context.Context) SecurityAssessmentPropertiesOutput
+}
+
+// Describes properties of an assessment.
+type SecurityAssessmentPropertiesArgs struct {
+	// Additional data regarding the assessment
+	AdditionalData pulumi.StringMapInput `pulumi:"additionalData"`
+	// Links relevant to the assessment
+	Links AssessmentLinksPtrInput `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata SecurityAssessmentMetadataPropertiesPtrInput `pulumi:"metadata"`
+	// Data regarding 3rd party partner integration
+	PartnersData SecurityAssessmentPartnerDataPtrInput `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetailsInput `pulumi:"resourceDetails"`
+	// The result of the assessment
+	Status AssessmentStatusInput `pulumi:"status"`
+}
+
+func (SecurityAssessmentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentProperties)(nil)).Elem()
+}
+
+func (i SecurityAssessmentPropertiesArgs) ToSecurityAssessmentPropertiesOutput() SecurityAssessmentPropertiesOutput {
+	return i.ToSecurityAssessmentPropertiesOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPropertiesArgs) ToSecurityAssessmentPropertiesOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPropertiesOutput)
+}
+
+func (i SecurityAssessmentPropertiesArgs) ToSecurityAssessmentPropertiesPtrOutput() SecurityAssessmentPropertiesPtrOutput {
+	return i.ToSecurityAssessmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPropertiesArgs) ToSecurityAssessmentPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPropertiesOutput).ToSecurityAssessmentPropertiesPtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentPropertiesPtrInput is an input type that accepts SecurityAssessmentPropertiesArgs, SecurityAssessmentPropertiesPtr and SecurityAssessmentPropertiesPtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPropertiesPtrInput` via:
+//
+//          SecurityAssessmentPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPropertiesPtrOutput() SecurityAssessmentPropertiesPtrOutput
+	ToSecurityAssessmentPropertiesPtrOutputWithContext(context.Context) SecurityAssessmentPropertiesPtrOutput
+}
+
+type securityAssessmentPropertiesPtrType SecurityAssessmentPropertiesArgs
+
+func SecurityAssessmentPropertiesPtr(v *SecurityAssessmentPropertiesArgs) SecurityAssessmentPropertiesPtrInput {
+	return (*securityAssessmentPropertiesPtrType)(v)
+}
+
+func (*securityAssessmentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentProperties)(nil)).Elem()
+}
+
+func (i *securityAssessmentPropertiesPtrType) ToSecurityAssessmentPropertiesPtrOutput() SecurityAssessmentPropertiesPtrOutput {
+	return i.ToSecurityAssessmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentPropertiesPtrType) ToSecurityAssessmentPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPropertiesPtrOutput)
+}
+
+// Describes properties of an assessment.
+type SecurityAssessmentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentProperties)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPropertiesOutput) ToSecurityAssessmentPropertiesOutput() SecurityAssessmentPropertiesOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesOutput) ToSecurityAssessmentPropertiesOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesOutput) ToSecurityAssessmentPropertiesPtrOutput() SecurityAssessmentPropertiesPtrOutput {
+	return o.ToSecurityAssessmentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentPropertiesOutput) ToSecurityAssessmentPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentProperties) *SecurityAssessmentProperties {
+		return &v
+	}).(SecurityAssessmentPropertiesPtrOutput)
+}
+
+// Additional data regarding the assessment
+func (o SecurityAssessmentPropertiesOutput) AdditionalData() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SecurityAssessmentProperties) map[string]string { return v.AdditionalData }).(pulumi.StringMapOutput)
+}
+
+// Links relevant to the assessment
+func (o SecurityAssessmentPropertiesOutput) Links() AssessmentLinksPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentProperties) *AssessmentLinks { return v.Links }).(AssessmentLinksPtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+func (o SecurityAssessmentPropertiesOutput) Metadata() SecurityAssessmentMetadataPropertiesPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentProperties) *SecurityAssessmentMetadataProperties { return v.Metadata }).(SecurityAssessmentMetadataPropertiesPtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+func (o SecurityAssessmentPropertiesOutput) PartnersData() SecurityAssessmentPartnerDataPtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentProperties) *SecurityAssessmentPartnerData { return v.PartnersData }).(SecurityAssessmentPartnerDataPtrOutput)
+}
+
+// Details of the resource that was assessed
+func (o SecurityAssessmentPropertiesOutput) ResourceDetails() ResourceDetailsOutput {
+	return o.ApplyT(func(v SecurityAssessmentProperties) ResourceDetails { return v.ResourceDetails }).(ResourceDetailsOutput)
+}
+
+// The result of the assessment
+func (o SecurityAssessmentPropertiesOutput) Status() AssessmentStatusOutput {
+	return o.ApplyT(func(v SecurityAssessmentProperties) AssessmentStatus { return v.Status }).(AssessmentStatusOutput)
+}
+
+type SecurityAssessmentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentProperties)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPropertiesPtrOutput) ToSecurityAssessmentPropertiesPtrOutput() SecurityAssessmentPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesPtrOutput) ToSecurityAssessmentPropertiesPtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesPtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesPtrOutput) Elem() SecurityAssessmentPropertiesOutput {
+	return o.ApplyT(func(v *SecurityAssessmentProperties) SecurityAssessmentProperties { return *v }).(SecurityAssessmentPropertiesOutput)
+}
+
+// Additional data regarding the assessment
+func (o SecurityAssessmentPropertiesPtrOutput) AdditionalData() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SecurityAssessmentProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalData
+	}).(pulumi.StringMapOutput)
+}
+
+// Links relevant to the assessment
+func (o SecurityAssessmentPropertiesPtrOutput) Links() AssessmentLinksPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentProperties) *AssessmentLinks {
+		if v == nil {
+			return nil
+		}
+		return v.Links
+	}).(AssessmentLinksPtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+func (o SecurityAssessmentPropertiesPtrOutput) Metadata() SecurityAssessmentMetadataPropertiesPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentProperties) *SecurityAssessmentMetadataProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(SecurityAssessmentMetadataPropertiesPtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+func (o SecurityAssessmentPropertiesPtrOutput) PartnersData() SecurityAssessmentPartnerDataPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentProperties) *SecurityAssessmentPartnerData {
+		if v == nil {
+			return nil
+		}
+		return v.PartnersData
+	}).(SecurityAssessmentPartnerDataPtrOutput)
+}
+
+// Details of the resource that was assessed
+func (o SecurityAssessmentPropertiesPtrOutput) ResourceDetails() ResourceDetailsPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentProperties) *ResourceDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceDetails
+	}).(ResourceDetailsPtrOutput)
+}
+
+// The result of the assessment
+func (o SecurityAssessmentPropertiesPtrOutput) Status() AssessmentStatusPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentProperties) *AssessmentStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(AssessmentStatusPtrOutput)
+}
+
+// Describes properties of an assessment.
+type SecurityAssessmentPropertiesResponse struct {
+	// Additional data regarding the assessment
+	AdditionalData map[string]string `pulumi:"additionalData"`
+	// User friendly display name of the assessment
+	DisplayName string `pulumi:"displayName"`
+	// Links relevant to the assessment
+	Links *AssessmentLinksResponse `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata *SecurityAssessmentMetadataPropertiesResponse `pulumi:"metadata"`
+	// Data regarding 3rd party partner integration
+	PartnersData *SecurityAssessmentPartnerDataResponse `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetailsResponse `pulumi:"resourceDetails"`
+	// The result of the assessment
+	Status AssessmentStatusResponse `pulumi:"status"`
+}
+
+// SecurityAssessmentPropertiesResponseInput is an input type that accepts SecurityAssessmentPropertiesResponseArgs and SecurityAssessmentPropertiesResponseOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPropertiesResponseInput` via:
+//
+//          SecurityAssessmentPropertiesResponseArgs{...}
+type SecurityAssessmentPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPropertiesResponseOutput() SecurityAssessmentPropertiesResponseOutput
+	ToSecurityAssessmentPropertiesResponseOutputWithContext(context.Context) SecurityAssessmentPropertiesResponseOutput
+}
+
+// Describes properties of an assessment.
+type SecurityAssessmentPropertiesResponseArgs struct {
+	// Additional data regarding the assessment
+	AdditionalData pulumi.StringMapInput `pulumi:"additionalData"`
+	// User friendly display name of the assessment
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Links relevant to the assessment
+	Links AssessmentLinksResponsePtrInput `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata SecurityAssessmentMetadataPropertiesResponsePtrInput `pulumi:"metadata"`
+	// Data regarding 3rd party partner integration
+	PartnersData SecurityAssessmentPartnerDataResponsePtrInput `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetailsResponseInput `pulumi:"resourceDetails"`
+	// The result of the assessment
+	Status AssessmentStatusResponseInput `pulumi:"status"`
+}
+
+func (SecurityAssessmentPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (i SecurityAssessmentPropertiesResponseArgs) ToSecurityAssessmentPropertiesResponseOutput() SecurityAssessmentPropertiesResponseOutput {
+	return i.ToSecurityAssessmentPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPropertiesResponseArgs) ToSecurityAssessmentPropertiesResponseOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPropertiesResponseOutput)
+}
+
+func (i SecurityAssessmentPropertiesResponseArgs) ToSecurityAssessmentPropertiesResponsePtrOutput() SecurityAssessmentPropertiesResponsePtrOutput {
+	return i.ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityAssessmentPropertiesResponseArgs) ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPropertiesResponseOutput).ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// SecurityAssessmentPropertiesResponsePtrInput is an input type that accepts SecurityAssessmentPropertiesResponseArgs, SecurityAssessmentPropertiesResponsePtr and SecurityAssessmentPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `SecurityAssessmentPropertiesResponsePtrInput` via:
+//
+//          SecurityAssessmentPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityAssessmentPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecurityAssessmentPropertiesResponsePtrOutput() SecurityAssessmentPropertiesResponsePtrOutput
+	ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(context.Context) SecurityAssessmentPropertiesResponsePtrOutput
+}
+
+type securityAssessmentPropertiesResponsePtrType SecurityAssessmentPropertiesResponseArgs
+
+func SecurityAssessmentPropertiesResponsePtr(v *SecurityAssessmentPropertiesResponseArgs) SecurityAssessmentPropertiesResponsePtrInput {
+	return (*securityAssessmentPropertiesResponsePtrType)(v)
+}
+
+func (*securityAssessmentPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (i *securityAssessmentPropertiesResponsePtrType) ToSecurityAssessmentPropertiesResponsePtrOutput() SecurityAssessmentPropertiesResponsePtrOutput {
+	return i.ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *securityAssessmentPropertiesResponsePtrType) ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityAssessmentPropertiesResponsePtrOutput)
+}
+
+// Describes properties of an assessment.
+type SecurityAssessmentPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPropertiesResponseOutput) ToSecurityAssessmentPropertiesResponseOutput() SecurityAssessmentPropertiesResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesResponseOutput) ToSecurityAssessmentPropertiesResponseOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesResponseOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesResponseOutput) ToSecurityAssessmentPropertiesResponsePtrOutput() SecurityAssessmentPropertiesResponsePtrOutput {
+	return o.ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityAssessmentPropertiesResponseOutput) ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) *SecurityAssessmentPropertiesResponse {
+		return &v
+	}).(SecurityAssessmentPropertiesResponsePtrOutput)
+}
+
+// Additional data regarding the assessment
+func (o SecurityAssessmentPropertiesResponseOutput) AdditionalData() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) map[string]string { return v.AdditionalData }).(pulumi.StringMapOutput)
+}
+
+// User friendly display name of the assessment
+func (o SecurityAssessmentPropertiesResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Links relevant to the assessment
+func (o SecurityAssessmentPropertiesResponseOutput) Links() AssessmentLinksResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) *AssessmentLinksResponse { return v.Links }).(AssessmentLinksResponsePtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+func (o SecurityAssessmentPropertiesResponseOutput) Metadata() SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) *SecurityAssessmentMetadataPropertiesResponse {
+		return v.Metadata
+	}).(SecurityAssessmentMetadataPropertiesResponsePtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+func (o SecurityAssessmentPropertiesResponseOutput) PartnersData() SecurityAssessmentPartnerDataResponsePtrOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) *SecurityAssessmentPartnerDataResponse {
+		return v.PartnersData
+	}).(SecurityAssessmentPartnerDataResponsePtrOutput)
+}
+
+// Details of the resource that was assessed
+func (o SecurityAssessmentPropertiesResponseOutput) ResourceDetails() ResourceDetailsResponseOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) ResourceDetailsResponse { return v.ResourceDetails }).(ResourceDetailsResponseOutput)
+}
+
+// The result of the assessment
+func (o SecurityAssessmentPropertiesResponseOutput) Status() AssessmentStatusResponseOutput {
+	return o.ApplyT(func(v SecurityAssessmentPropertiesResponse) AssessmentStatusResponse { return v.Status }).(AssessmentStatusResponseOutput)
+}
+
+type SecurityAssessmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityAssessmentPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (o SecurityAssessmentPropertiesResponsePtrOutput) ToSecurityAssessmentPropertiesResponsePtrOutput() SecurityAssessmentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesResponsePtrOutput) ToSecurityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) SecurityAssessmentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SecurityAssessmentPropertiesResponsePtrOutput) Elem() SecurityAssessmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) SecurityAssessmentPropertiesResponse { return *v }).(SecurityAssessmentPropertiesResponseOutput)
+}
+
+// Additional data regarding the assessment
+func (o SecurityAssessmentPropertiesResponsePtrOutput) AdditionalData() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalData
+	}).(pulumi.StringMapOutput)
+}
+
+// User friendly display name of the assessment
+func (o SecurityAssessmentPropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Links relevant to the assessment
+func (o SecurityAssessmentPropertiesResponsePtrOutput) Links() AssessmentLinksResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) *AssessmentLinksResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Links
+	}).(AssessmentLinksResponsePtrOutput)
+}
+
+// Describes properties of an assessment metadata.
+func (o SecurityAssessmentPropertiesResponsePtrOutput) Metadata() SecurityAssessmentMetadataPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) *SecurityAssessmentMetadataPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(SecurityAssessmentMetadataPropertiesResponsePtrOutput)
+}
+
+// Data regarding 3rd party partner integration
+func (o SecurityAssessmentPropertiesResponsePtrOutput) PartnersData() SecurityAssessmentPartnerDataResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) *SecurityAssessmentPartnerDataResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PartnersData
+	}).(SecurityAssessmentPartnerDataResponsePtrOutput)
+}
+
+// Details of the resource that was assessed
+func (o SecurityAssessmentPropertiesResponsePtrOutput) ResourceDetails() ResourceDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) *ResourceDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceDetails
+	}).(ResourceDetailsResponsePtrOutput)
+}
+
+// The result of the assessment
+func (o SecurityAssessmentPropertiesResponsePtrOutput) Status() AssessmentStatusResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityAssessmentPropertiesResponse) *AssessmentStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(AssessmentStatusResponsePtrOutput)
+}
+
+// Describes the server vulnerability assessment details on a resource
+type ServerVulnerabilityAssessmentType struct {
+	// Resource name
+	Name string `pulumi:"name"`
+	// describes ServerVulnerabilityAssessment properties.
+	Properties ServerVulnerabilityAssessmentPropertiesResponse `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// ServerVulnerabilityAssessmentTypeInput is an input type that accepts ServerVulnerabilityAssessmentTypeArgs and ServerVulnerabilityAssessmentTypeOutput values.
+// You can construct a concrete instance of `ServerVulnerabilityAssessmentTypeInput` via:
+//
+//          ServerVulnerabilityAssessmentTypeArgs{...}
+type ServerVulnerabilityAssessmentTypeInput interface {
+	pulumi.Input
+
+	ToServerVulnerabilityAssessmentTypeOutput() ServerVulnerabilityAssessmentTypeOutput
+	ToServerVulnerabilityAssessmentTypeOutputWithContext(context.Context) ServerVulnerabilityAssessmentTypeOutput
+}
+
+// Describes the server vulnerability assessment details on a resource
+type ServerVulnerabilityAssessmentTypeArgs struct {
+	// Resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// describes ServerVulnerabilityAssessment properties.
+	Properties ServerVulnerabilityAssessmentPropertiesResponseInput `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServerVulnerabilityAssessmentTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerVulnerabilityAssessmentType)(nil)).Elem()
+}
+
+func (i ServerVulnerabilityAssessmentTypeArgs) ToServerVulnerabilityAssessmentTypeOutput() ServerVulnerabilityAssessmentTypeOutput {
+	return i.ToServerVulnerabilityAssessmentTypeOutputWithContext(context.Background())
+}
+
+func (i ServerVulnerabilityAssessmentTypeArgs) ToServerVulnerabilityAssessmentTypeOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentTypeOutput)
+}
+
+// Describes the server vulnerability assessment details on a resource
+type ServerVulnerabilityAssessmentTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerVulnerabilityAssessmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerVulnerabilityAssessmentType)(nil)).Elem()
+}
+
+func (o ServerVulnerabilityAssessmentTypeOutput) ToServerVulnerabilityAssessmentTypeOutput() ServerVulnerabilityAssessmentTypeOutput {
+	return o
+}
+
+func (o ServerVulnerabilityAssessmentTypeOutput) ToServerVulnerabilityAssessmentTypeOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentTypeOutput {
+	return o
+}
+
+// Resource name
+func (o ServerVulnerabilityAssessmentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// describes ServerVulnerabilityAssessment properties.
+func (o ServerVulnerabilityAssessmentTypeOutput) Properties() ServerVulnerabilityAssessmentPropertiesResponseOutput {
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentType) ServerVulnerabilityAssessmentPropertiesResponse {
+		return v.Properties
+	}).(ServerVulnerabilityAssessmentPropertiesResponseOutput)
+}
+
+// Resource type
+func (o ServerVulnerabilityAssessmentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// describes ServerVulnerabilityAssessment properties.
+type ServerVulnerabilityAssessmentPropertiesResponse struct {
+	// The provisioningState of the vulnerability assessment capability on the VM
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// ServerVulnerabilityAssessmentPropertiesResponseInput is an input type that accepts ServerVulnerabilityAssessmentPropertiesResponseArgs and ServerVulnerabilityAssessmentPropertiesResponseOutput values.
+// You can construct a concrete instance of `ServerVulnerabilityAssessmentPropertiesResponseInput` via:
+//
+//          ServerVulnerabilityAssessmentPropertiesResponseArgs{...}
+type ServerVulnerabilityAssessmentPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToServerVulnerabilityAssessmentPropertiesResponseOutput() ServerVulnerabilityAssessmentPropertiesResponseOutput
+	ToServerVulnerabilityAssessmentPropertiesResponseOutputWithContext(context.Context) ServerVulnerabilityAssessmentPropertiesResponseOutput
+}
+
+// describes ServerVulnerabilityAssessment properties.
+type ServerVulnerabilityAssessmentPropertiesResponseArgs struct {
+	// The provisioningState of the vulnerability assessment capability on the VM
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (ServerVulnerabilityAssessmentPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerVulnerabilityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (i ServerVulnerabilityAssessmentPropertiesResponseArgs) ToServerVulnerabilityAssessmentPropertiesResponseOutput() ServerVulnerabilityAssessmentPropertiesResponseOutput {
+	return i.ToServerVulnerabilityAssessmentPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i ServerVulnerabilityAssessmentPropertiesResponseArgs) ToServerVulnerabilityAssessmentPropertiesResponseOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentPropertiesResponseOutput)
+}
+
+func (i ServerVulnerabilityAssessmentPropertiesResponseArgs) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutput() ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return i.ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServerVulnerabilityAssessmentPropertiesResponseArgs) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentPropertiesResponseOutput).ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// ServerVulnerabilityAssessmentPropertiesResponsePtrInput is an input type that accepts ServerVulnerabilityAssessmentPropertiesResponseArgs, ServerVulnerabilityAssessmentPropertiesResponsePtr and ServerVulnerabilityAssessmentPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `ServerVulnerabilityAssessmentPropertiesResponsePtrInput` via:
+//
+//          ServerVulnerabilityAssessmentPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerVulnerabilityAssessmentPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToServerVulnerabilityAssessmentPropertiesResponsePtrOutput() ServerVulnerabilityAssessmentPropertiesResponsePtrOutput
+	ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(context.Context) ServerVulnerabilityAssessmentPropertiesResponsePtrOutput
+}
+
+type serverVulnerabilityAssessmentPropertiesResponsePtrType ServerVulnerabilityAssessmentPropertiesResponseArgs
+
+func ServerVulnerabilityAssessmentPropertiesResponsePtr(v *ServerVulnerabilityAssessmentPropertiesResponseArgs) ServerVulnerabilityAssessmentPropertiesResponsePtrInput {
+	return (*serverVulnerabilityAssessmentPropertiesResponsePtrType)(v)
+}
+
+func (*serverVulnerabilityAssessmentPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerVulnerabilityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (i *serverVulnerabilityAssessmentPropertiesResponsePtrType) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutput() ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return i.ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serverVulnerabilityAssessmentPropertiesResponsePtrType) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentPropertiesResponsePtrOutput)
+}
+
+// describes ServerVulnerabilityAssessment properties.
+type ServerVulnerabilityAssessmentPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerVulnerabilityAssessmentPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerVulnerabilityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (o ServerVulnerabilityAssessmentPropertiesResponseOutput) ToServerVulnerabilityAssessmentPropertiesResponseOutput() ServerVulnerabilityAssessmentPropertiesResponseOutput {
+	return o
+}
+
+func (o ServerVulnerabilityAssessmentPropertiesResponseOutput) ToServerVulnerabilityAssessmentPropertiesResponseOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentPropertiesResponseOutput {
+	return o
+}
+
+func (o ServerVulnerabilityAssessmentPropertiesResponseOutput) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutput() ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return o.ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServerVulnerabilityAssessmentPropertiesResponseOutput) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentPropertiesResponse) *ServerVulnerabilityAssessmentPropertiesResponse {
+		return &v
+	}).(ServerVulnerabilityAssessmentPropertiesResponsePtrOutput)
+}
+
+// The provisioningState of the vulnerability assessment capability on the VM
+func (o ServerVulnerabilityAssessmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerVulnerabilityAssessmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type ServerVulnerabilityAssessmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerVulnerabilityAssessmentPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerVulnerabilityAssessmentPropertiesResponse)(nil)).Elem()
+}
+
+func (o ServerVulnerabilityAssessmentPropertiesResponsePtrOutput) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutput() ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ServerVulnerabilityAssessmentPropertiesResponsePtrOutput) ToServerVulnerabilityAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o ServerVulnerabilityAssessmentPropertiesResponsePtrOutput) Elem() ServerVulnerabilityAssessmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *ServerVulnerabilityAssessmentPropertiesResponse) ServerVulnerabilityAssessmentPropertiesResponse {
+		return *v
+	}).(ServerVulnerabilityAssessmentPropertiesResponseOutput)
+}
+
+// The provisioningState of the vulnerability assessment capability on the VM
+func (o ServerVulnerabilityAssessmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerVulnerabilityAssessmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRule struct {
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold int `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold int `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// ThresholdCustomAlertRuleInput is an input type that accepts ThresholdCustomAlertRuleArgs and ThresholdCustomAlertRuleOutput values.
+// You can construct a concrete instance of `ThresholdCustomAlertRuleInput` via:
+//
+//          ThresholdCustomAlertRuleArgs{...}
+type ThresholdCustomAlertRuleInput interface {
+	pulumi.Input
+
+	ToThresholdCustomAlertRuleOutput() ThresholdCustomAlertRuleOutput
+	ToThresholdCustomAlertRuleOutputWithContext(context.Context) ThresholdCustomAlertRuleOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleArgs struct {
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (ThresholdCustomAlertRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdCustomAlertRule)(nil)).Elem()
+}
+
+func (i ThresholdCustomAlertRuleArgs) ToThresholdCustomAlertRuleOutput() ThresholdCustomAlertRuleOutput {
+	return i.ToThresholdCustomAlertRuleOutputWithContext(context.Background())
+}
+
+func (i ThresholdCustomAlertRuleArgs) ToThresholdCustomAlertRuleOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleOutput)
+}
+
+// ThresholdCustomAlertRuleArrayInput is an input type that accepts ThresholdCustomAlertRuleArray and ThresholdCustomAlertRuleArrayOutput values.
+// You can construct a concrete instance of `ThresholdCustomAlertRuleArrayInput` via:
+//
+//          ThresholdCustomAlertRuleArray{ ThresholdCustomAlertRuleArgs{...} }
+type ThresholdCustomAlertRuleArrayInput interface {
+	pulumi.Input
+
+	ToThresholdCustomAlertRuleArrayOutput() ThresholdCustomAlertRuleArrayOutput
+	ToThresholdCustomAlertRuleArrayOutputWithContext(context.Context) ThresholdCustomAlertRuleArrayOutput
+}
+
+type ThresholdCustomAlertRuleArray []ThresholdCustomAlertRuleInput
+
+func (ThresholdCustomAlertRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThresholdCustomAlertRule)(nil)).Elem()
+}
+
+func (i ThresholdCustomAlertRuleArray) ToThresholdCustomAlertRuleArrayOutput() ThresholdCustomAlertRuleArrayOutput {
+	return i.ToThresholdCustomAlertRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ThresholdCustomAlertRuleArray) ToThresholdCustomAlertRuleArrayOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleOutput struct{ *pulumi.OutputState }
+
+func (ThresholdCustomAlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdCustomAlertRule)(nil)).Elem()
+}
+
+func (o ThresholdCustomAlertRuleOutput) ToThresholdCustomAlertRuleOutput() ThresholdCustomAlertRuleOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleOutput) ToThresholdCustomAlertRuleOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleOutput {
+	return o
+}
+
+// Status of the custom alert.
+func (o ThresholdCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The maximum threshold.
+func (o ThresholdCustomAlertRuleOutput) MaxThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRule) int { return v.MaxThreshold }).(pulumi.IntOutput)
+}
+
+// The minimum threshold.
+func (o ThresholdCustomAlertRuleOutput) MinThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRule) int { return v.MinThreshold }).(pulumi.IntOutput)
+}
+
+// The type of the custom alert rule.
+func (o ThresholdCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type ThresholdCustomAlertRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ThresholdCustomAlertRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThresholdCustomAlertRule)(nil)).Elem()
+}
+
+func (o ThresholdCustomAlertRuleArrayOutput) ToThresholdCustomAlertRuleArrayOutput() ThresholdCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleArrayOutput) ToThresholdCustomAlertRuleArrayOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) ThresholdCustomAlertRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThresholdCustomAlertRule {
+		return vs[0].([]ThresholdCustomAlertRule)[vs[1].(int)]
+	}).(ThresholdCustomAlertRuleOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleResponse struct {
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold int `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold int `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// ThresholdCustomAlertRuleResponseInput is an input type that accepts ThresholdCustomAlertRuleResponseArgs and ThresholdCustomAlertRuleResponseOutput values.
+// You can construct a concrete instance of `ThresholdCustomAlertRuleResponseInput` via:
+//
+//          ThresholdCustomAlertRuleResponseArgs{...}
+type ThresholdCustomAlertRuleResponseInput interface {
+	pulumi.Input
+
+	ToThresholdCustomAlertRuleResponseOutput() ThresholdCustomAlertRuleResponseOutput
+	ToThresholdCustomAlertRuleResponseOutputWithContext(context.Context) ThresholdCustomAlertRuleResponseOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleResponseArgs struct {
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (ThresholdCustomAlertRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i ThresholdCustomAlertRuleResponseArgs) ToThresholdCustomAlertRuleResponseOutput() ThresholdCustomAlertRuleResponseOutput {
+	return i.ToThresholdCustomAlertRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ThresholdCustomAlertRuleResponseArgs) ToThresholdCustomAlertRuleResponseOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleResponseOutput)
+}
+
+// ThresholdCustomAlertRuleResponseArrayInput is an input type that accepts ThresholdCustomAlertRuleResponseArray and ThresholdCustomAlertRuleResponseArrayOutput values.
+// You can construct a concrete instance of `ThresholdCustomAlertRuleResponseArrayInput` via:
+//
+//          ThresholdCustomAlertRuleResponseArray{ ThresholdCustomAlertRuleResponseArgs{...} }
+type ThresholdCustomAlertRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToThresholdCustomAlertRuleResponseArrayOutput() ThresholdCustomAlertRuleResponseArrayOutput
+	ToThresholdCustomAlertRuleResponseArrayOutputWithContext(context.Context) ThresholdCustomAlertRuleResponseArrayOutput
+}
+
+type ThresholdCustomAlertRuleResponseArray []ThresholdCustomAlertRuleResponseInput
+
+func (ThresholdCustomAlertRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThresholdCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i ThresholdCustomAlertRuleResponseArray) ToThresholdCustomAlertRuleResponseArrayOutput() ThresholdCustomAlertRuleResponseArrayOutput {
+	return i.ToThresholdCustomAlertRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ThresholdCustomAlertRuleResponseArray) ToThresholdCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleResponseArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ThresholdCustomAlertRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o ThresholdCustomAlertRuleResponseOutput) ToThresholdCustomAlertRuleResponseOutput() ThresholdCustomAlertRuleResponseOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleResponseOutput) ToThresholdCustomAlertRuleResponseOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleResponseOutput {
+	return o
+}
+
+// The description of the custom alert.
+func (o ThresholdCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o ThresholdCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o ThresholdCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The maximum threshold.
+func (o ThresholdCustomAlertRuleResponseOutput) MaxThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) int { return v.MaxThreshold }).(pulumi.IntOutput)
+}
+
+// The minimum threshold.
+func (o ThresholdCustomAlertRuleResponseOutput) MinThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) int { return v.MinThreshold }).(pulumi.IntOutput)
+}
+
+// The type of the custom alert rule.
+func (o ThresholdCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type ThresholdCustomAlertRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ThresholdCustomAlertRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThresholdCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o ThresholdCustomAlertRuleResponseArrayOutput) ToThresholdCustomAlertRuleResponseArrayOutput() ThresholdCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleResponseArrayOutput) ToThresholdCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) ThresholdCustomAlertRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThresholdCustomAlertRuleResponse {
+		return vs[0].([]ThresholdCustomAlertRuleResponse)[vs[1].(int)]
+	}).(ThresholdCustomAlertRuleResponseOutput)
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRule struct {
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold int `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold int `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+	// The time window size in iso8601 format.
+	TimeWindowSize string `pulumi:"timeWindowSize"`
+}
+
+// TimeWindowCustomAlertRuleInput is an input type that accepts TimeWindowCustomAlertRuleArgs and TimeWindowCustomAlertRuleOutput values.
+// You can construct a concrete instance of `TimeWindowCustomAlertRuleInput` via:
+//
+//          TimeWindowCustomAlertRuleArgs{...}
+type TimeWindowCustomAlertRuleInput interface {
+	pulumi.Input
+
+	ToTimeWindowCustomAlertRuleOutput() TimeWindowCustomAlertRuleOutput
+	ToTimeWindowCustomAlertRuleOutputWithContext(context.Context) TimeWindowCustomAlertRuleOutput
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleArgs struct {
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The time window size in iso8601 format.
+	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
+}
+
+func (TimeWindowCustomAlertRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeWindowCustomAlertRule)(nil)).Elem()
+}
+
+func (i TimeWindowCustomAlertRuleArgs) ToTimeWindowCustomAlertRuleOutput() TimeWindowCustomAlertRuleOutput {
+	return i.ToTimeWindowCustomAlertRuleOutputWithContext(context.Background())
+}
+
+func (i TimeWindowCustomAlertRuleArgs) ToTimeWindowCustomAlertRuleOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleOutput)
+}
+
+// TimeWindowCustomAlertRuleArrayInput is an input type that accepts TimeWindowCustomAlertRuleArray and TimeWindowCustomAlertRuleArrayOutput values.
+// You can construct a concrete instance of `TimeWindowCustomAlertRuleArrayInput` via:
+//
+//          TimeWindowCustomAlertRuleArray{ TimeWindowCustomAlertRuleArgs{...} }
+type TimeWindowCustomAlertRuleArrayInput interface {
+	pulumi.Input
+
+	ToTimeWindowCustomAlertRuleArrayOutput() TimeWindowCustomAlertRuleArrayOutput
+	ToTimeWindowCustomAlertRuleArrayOutputWithContext(context.Context) TimeWindowCustomAlertRuleArrayOutput
+}
+
+type TimeWindowCustomAlertRuleArray []TimeWindowCustomAlertRuleInput
+
+func (TimeWindowCustomAlertRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeWindowCustomAlertRule)(nil)).Elem()
+}
+
+func (i TimeWindowCustomAlertRuleArray) ToTimeWindowCustomAlertRuleArrayOutput() TimeWindowCustomAlertRuleArrayOutput {
+	return i.ToTimeWindowCustomAlertRuleArrayOutputWithContext(context.Background())
+}
+
+func (i TimeWindowCustomAlertRuleArray) ToTimeWindowCustomAlertRuleArrayOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleArrayOutput)
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleOutput struct{ *pulumi.OutputState }
+
+func (TimeWindowCustomAlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeWindowCustomAlertRule)(nil)).Elem()
+}
+
+func (o TimeWindowCustomAlertRuleOutput) ToTimeWindowCustomAlertRuleOutput() TimeWindowCustomAlertRuleOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleOutput) ToTimeWindowCustomAlertRuleOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleOutput {
+	return o
+}
+
+// Status of the custom alert.
+func (o TimeWindowCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The maximum threshold.
+func (o TimeWindowCustomAlertRuleOutput) MaxThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRule) int { return v.MaxThreshold }).(pulumi.IntOutput)
+}
+
+// The minimum threshold.
+func (o TimeWindowCustomAlertRuleOutput) MinThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRule) int { return v.MinThreshold }).(pulumi.IntOutput)
+}
+
+// The type of the custom alert rule.
+func (o TimeWindowCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The time window size in iso8601 format.
+func (o TimeWindowCustomAlertRuleOutput) TimeWindowSize() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRule) string { return v.TimeWindowSize }).(pulumi.StringOutput)
+}
+
+type TimeWindowCustomAlertRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeWindowCustomAlertRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeWindowCustomAlertRule)(nil)).Elem()
+}
+
+func (o TimeWindowCustomAlertRuleArrayOutput) ToTimeWindowCustomAlertRuleArrayOutput() TimeWindowCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleArrayOutput) ToTimeWindowCustomAlertRuleArrayOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleArrayOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) TimeWindowCustomAlertRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeWindowCustomAlertRule {
+		return vs[0].([]TimeWindowCustomAlertRule)[vs[1].(int)]
+	}).(TimeWindowCustomAlertRuleOutput)
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleResponse struct {
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold int `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold int `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType string `pulumi:"ruleType"`
+	// The time window size in iso8601 format.
+	TimeWindowSize string `pulumi:"timeWindowSize"`
+}
+
+// TimeWindowCustomAlertRuleResponseInput is an input type that accepts TimeWindowCustomAlertRuleResponseArgs and TimeWindowCustomAlertRuleResponseOutput values.
+// You can construct a concrete instance of `TimeWindowCustomAlertRuleResponseInput` via:
+//
+//          TimeWindowCustomAlertRuleResponseArgs{...}
+type TimeWindowCustomAlertRuleResponseInput interface {
+	pulumi.Input
+
+	ToTimeWindowCustomAlertRuleResponseOutput() TimeWindowCustomAlertRuleResponseOutput
+	ToTimeWindowCustomAlertRuleResponseOutputWithContext(context.Context) TimeWindowCustomAlertRuleResponseOutput
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleResponseArgs struct {
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The time window size in iso8601 format.
+	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
+}
+
+func (TimeWindowCustomAlertRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeWindowCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i TimeWindowCustomAlertRuleResponseArgs) ToTimeWindowCustomAlertRuleResponseOutput() TimeWindowCustomAlertRuleResponseOutput {
+	return i.ToTimeWindowCustomAlertRuleResponseOutputWithContext(context.Background())
+}
+
+func (i TimeWindowCustomAlertRuleResponseArgs) ToTimeWindowCustomAlertRuleResponseOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleResponseOutput)
+}
+
+// TimeWindowCustomAlertRuleResponseArrayInput is an input type that accepts TimeWindowCustomAlertRuleResponseArray and TimeWindowCustomAlertRuleResponseArrayOutput values.
+// You can construct a concrete instance of `TimeWindowCustomAlertRuleResponseArrayInput` via:
+//
+//          TimeWindowCustomAlertRuleResponseArray{ TimeWindowCustomAlertRuleResponseArgs{...} }
+type TimeWindowCustomAlertRuleResponseArrayInput interface {
+	pulumi.Input
+
+	ToTimeWindowCustomAlertRuleResponseArrayOutput() TimeWindowCustomAlertRuleResponseArrayOutput
+	ToTimeWindowCustomAlertRuleResponseArrayOutputWithContext(context.Context) TimeWindowCustomAlertRuleResponseArrayOutput
+}
+
+type TimeWindowCustomAlertRuleResponseArray []TimeWindowCustomAlertRuleResponseInput
+
+func (TimeWindowCustomAlertRuleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeWindowCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (i TimeWindowCustomAlertRuleResponseArray) ToTimeWindowCustomAlertRuleResponseArrayOutput() TimeWindowCustomAlertRuleResponseArrayOutput {
+	return i.ToTimeWindowCustomAlertRuleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TimeWindowCustomAlertRuleResponseArray) ToTimeWindowCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleResponseArrayOutput)
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeWindowCustomAlertRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeWindowCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o TimeWindowCustomAlertRuleResponseOutput) ToTimeWindowCustomAlertRuleResponseOutput() TimeWindowCustomAlertRuleResponseOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleResponseOutput) ToTimeWindowCustomAlertRuleResponseOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleResponseOutput {
+	return o
+}
+
+// The description of the custom alert.
+func (o TimeWindowCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o TimeWindowCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o TimeWindowCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The maximum threshold.
+func (o TimeWindowCustomAlertRuleResponseOutput) MaxThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) int { return v.MaxThreshold }).(pulumi.IntOutput)
+}
+
+// The minimum threshold.
+func (o TimeWindowCustomAlertRuleResponseOutput) MinThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) int { return v.MinThreshold }).(pulumi.IntOutput)
+}
+
+// The type of the custom alert rule.
+func (o TimeWindowCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The time window size in iso8601 format.
+func (o TimeWindowCustomAlertRuleResponseOutput) TimeWindowSize() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.TimeWindowSize }).(pulumi.StringOutput)
+}
+
+type TimeWindowCustomAlertRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeWindowCustomAlertRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeWindowCustomAlertRuleResponse)(nil)).Elem()
+}
+
+func (o TimeWindowCustomAlertRuleResponseArrayOutput) ToTimeWindowCustomAlertRuleResponseArrayOutput() TimeWindowCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleResponseArrayOutput) ToTimeWindowCustomAlertRuleResponseArrayOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleResponseArrayOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) TimeWindowCustomAlertRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeWindowCustomAlertRuleResponse {
+		return vs[0].([]TimeWindowCustomAlertRuleResponse)[vs[1].(int)]
+	}).(TimeWindowCustomAlertRuleResponseOutput)
 }
 
 // Properties of the IoT Security solution's user defined resources.
@@ -2959,7 +8798,262 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) QuerySubscriptions() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+type VmRecommendations struct {
+}
+
+// VmRecommendationsInput is an input type that accepts VmRecommendationsArgs and VmRecommendationsOutput values.
+// You can construct a concrete instance of `VmRecommendationsInput` via:
+//
+//          VmRecommendationsArgs{...}
+type VmRecommendationsInput interface {
+	pulumi.Input
+
+	ToVmRecommendationsOutput() VmRecommendationsOutput
+	ToVmRecommendationsOutputWithContext(context.Context) VmRecommendationsOutput
+}
+
+type VmRecommendationsArgs struct {
+}
+
+func (VmRecommendationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendations)(nil)).Elem()
+}
+
+func (i VmRecommendationsArgs) ToVmRecommendationsOutput() VmRecommendationsOutput {
+	return i.ToVmRecommendationsOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationsArgs) ToVmRecommendationsOutputWithContext(ctx context.Context) VmRecommendationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsOutput)
+}
+
+func (i VmRecommendationsArgs) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
+	return i.ToVmRecommendationsPtrOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationsArgs) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsOutput).ToVmRecommendationsPtrOutputWithContext(ctx)
+}
+
+// VmRecommendationsPtrInput is an input type that accepts VmRecommendationsArgs, VmRecommendationsPtr and VmRecommendationsPtrOutput values.
+// You can construct a concrete instance of `VmRecommendationsPtrInput` via:
+//
+//          VmRecommendationsArgs{...}
+//
+//  or:
+//
+//          nil
+type VmRecommendationsPtrInput interface {
+	pulumi.Input
+
+	ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput
+	ToVmRecommendationsPtrOutputWithContext(context.Context) VmRecommendationsPtrOutput
+}
+
+type vmRecommendationsPtrType VmRecommendationsArgs
+
+func VmRecommendationsPtr(v *VmRecommendationsArgs) VmRecommendationsPtrInput {
+	return (*vmRecommendationsPtrType)(v)
+}
+
+func (*vmRecommendationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VmRecommendations)(nil)).Elem()
+}
+
+func (i *vmRecommendationsPtrType) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
+	return i.ToVmRecommendationsPtrOutputWithContext(context.Background())
+}
+
+func (i *vmRecommendationsPtrType) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsPtrOutput)
+}
+
+type VmRecommendationsOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendations)(nil)).Elem()
+}
+
+func (o VmRecommendationsOutput) ToVmRecommendationsOutput() VmRecommendationsOutput {
+	return o
+}
+
+func (o VmRecommendationsOutput) ToVmRecommendationsOutputWithContext(ctx context.Context) VmRecommendationsOutput {
+	return o
+}
+
+func (o VmRecommendationsOutput) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
+	return o.ToVmRecommendationsPtrOutputWithContext(context.Background())
+}
+
+func (o VmRecommendationsOutput) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
+	return o.ApplyT(func(v VmRecommendations) *VmRecommendations {
+		return &v
+	}).(VmRecommendationsPtrOutput)
+}
+
+type VmRecommendationsPtrOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VmRecommendations)(nil)).Elem()
+}
+
+func (o VmRecommendationsPtrOutput) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
+	return o
+}
+
+func (o VmRecommendationsPtrOutput) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
+	return o
+}
+
+func (o VmRecommendationsPtrOutput) Elem() VmRecommendationsOutput {
+	return o.ApplyT(func(v *VmRecommendations) VmRecommendations { return *v }).(VmRecommendationsOutput)
+}
+
+type VmRecommendationsResponse struct {
+}
+
+// VmRecommendationsResponseInput is an input type that accepts VmRecommendationsResponseArgs and VmRecommendationsResponseOutput values.
+// You can construct a concrete instance of `VmRecommendationsResponseInput` via:
+//
+//          VmRecommendationsResponseArgs{...}
+type VmRecommendationsResponseInput interface {
+	pulumi.Input
+
+	ToVmRecommendationsResponseOutput() VmRecommendationsResponseOutput
+	ToVmRecommendationsResponseOutputWithContext(context.Context) VmRecommendationsResponseOutput
+}
+
+type VmRecommendationsResponseArgs struct {
+}
+
+func (VmRecommendationsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendationsResponse)(nil)).Elem()
+}
+
+func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponseOutput() VmRecommendationsResponseOutput {
+	return i.ToVmRecommendationsResponseOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponseOutputWithContext(ctx context.Context) VmRecommendationsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsResponseOutput)
+}
+
+func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
+	return i.ToVmRecommendationsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsResponseOutput).ToVmRecommendationsResponsePtrOutputWithContext(ctx)
+}
+
+// VmRecommendationsResponsePtrInput is an input type that accepts VmRecommendationsResponseArgs, VmRecommendationsResponsePtr and VmRecommendationsResponsePtrOutput values.
+// You can construct a concrete instance of `VmRecommendationsResponsePtrInput` via:
+//
+//          VmRecommendationsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VmRecommendationsResponsePtrInput interface {
+	pulumi.Input
+
+	ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput
+	ToVmRecommendationsResponsePtrOutputWithContext(context.Context) VmRecommendationsResponsePtrOutput
+}
+
+type vmRecommendationsResponsePtrType VmRecommendationsResponseArgs
+
+func VmRecommendationsResponsePtr(v *VmRecommendationsResponseArgs) VmRecommendationsResponsePtrInput {
+	return (*vmRecommendationsResponsePtrType)(v)
+}
+
+func (*vmRecommendationsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VmRecommendationsResponse)(nil)).Elem()
+}
+
+func (i *vmRecommendationsResponsePtrType) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
+	return i.ToVmRecommendationsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *vmRecommendationsResponsePtrType) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsResponsePtrOutput)
+}
+
+type VmRecommendationsResponseOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendationsResponse)(nil)).Elem()
+}
+
+func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponseOutput() VmRecommendationsResponseOutput {
+	return o
+}
+
+func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponseOutputWithContext(ctx context.Context) VmRecommendationsResponseOutput {
+	return o
+}
+
+func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
+	return o.ToVmRecommendationsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
+	return o.ApplyT(func(v VmRecommendationsResponse) *VmRecommendationsResponse {
+		return &v
+	}).(VmRecommendationsResponsePtrOutput)
+}
+
+type VmRecommendationsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VmRecommendationsResponse)(nil)).Elem()
+}
+
+func (o VmRecommendationsResponsePtrOutput) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
+	return o
+}
+
+func (o VmRecommendationsResponsePtrOutput) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
+	return o
+}
+
+func (o VmRecommendationsResponsePtrOutput) Elem() VmRecommendationsResponseOutput {
+	return o.ApplyT(func(v *VmRecommendationsResponse) VmRecommendationsResponse { return *v }).(VmRecommendationsResponseOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AdaptiveApplicationControlTypeOutput{})
+	pulumi.RegisterOutputType(AllowlistCustomAlertRuleOutput{})
+	pulumi.RegisterOutputType(AllowlistCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(AllowlistCustomAlertRuleResponseOutput{})
+	pulumi.RegisterOutputType(AllowlistCustomAlertRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingGroupDataOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingGroupDataPtrOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingGroupDataResponseOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingGroupDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingIssuesSummariesOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingIssuesSummariesResponseOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingIssuesSummariesResponsePtrOutput{})
+	pulumi.RegisterOutputType(AssessmentTypeOutput{})
+	pulumi.RegisterOutputType(AssessmentLinksOutput{})
+	pulumi.RegisterOutputType(AssessmentLinksPtrOutput{})
+	pulumi.RegisterOutputType(AssessmentLinksResponseOutput{})
+	pulumi.RegisterOutputType(AssessmentLinksResponsePtrOutput{})
+	pulumi.RegisterOutputType(AssessmentMetadataInSubscriptionTypeOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusResponseOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(DenylistCustomAlertRuleOutput{})
+	pulumi.RegisterOutputType(DenylistCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseOutput{})
+	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(DeviceSecurityGroupTypeOutput{})
+	pulumi.RegisterOutputType(DeviceSecurityGroupPropertiesOutput{})
+	pulumi.RegisterOutputType(DeviceSecurityGroupPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DeviceSecurityGroupPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(DeviceSecurityGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IoTSecuritySolutionPropertiesOutput{})
 	pulumi.RegisterOutputType(IoTSecuritySolutionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IoTSecuritySolutionPropertiesResponseOutput{})
@@ -2990,14 +9084,57 @@ func init() {
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseArrayOutput{})
+	pulumi.RegisterOutputType(PathRecommendationsOutput{})
+	pulumi.RegisterOutputType(PathRecommendationsPtrOutput{})
+	pulumi.RegisterOutputType(PathRecommendationsResponseOutput{})
+	pulumi.RegisterOutputType(PathRecommendationsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PortNumberOutput{})
 	pulumi.RegisterOutputType(PortNumberResponseOutput{})
+	pulumi.RegisterOutputType(ProtectionModeOutput{})
+	pulumi.RegisterOutputType(ProtectionModePtrOutput{})
+	pulumi.RegisterOutputType(ProtectionModeResponseOutput{})
+	pulumi.RegisterOutputType(ProtectionModeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationListOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationListPtrOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationListResponseOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationListResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceDetailsOutput{})
+	pulumi.RegisterOutputType(ResourceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ResourceDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataPtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataResponseOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPartnerDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentMetadataPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataPtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataResponseOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPropertiesOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SecurityAssessmentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentTypeOutput{})
+	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ThresholdCustomAlertRuleOutput{})
+	pulumi.RegisterOutputType(ThresholdCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(ThresholdCustomAlertRuleResponseOutput{})
+	pulumi.RegisterOutputType(ThresholdCustomAlertRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleOutput{})
+	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleResponseOutput{})
+	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(VmRecommendationsOutput{})
+	pulumi.RegisterOutputType(VmRecommendationsPtrOutput{})
+	pulumi.RegisterOutputType(VmRecommendationsResponseOutput{})
+	pulumi.RegisterOutputType(VmRecommendationsResponsePtrOutput{})
 }

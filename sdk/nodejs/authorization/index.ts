@@ -3,8 +3,20 @@
 
 // Export members:
 export * from "./getManagementLockAtResourceGroupLevel";
-export * from "./getPolicyDefinitionAtManagementGroup";
-export * from "./getPolicySetDefinitionAtManagementGroup";
+export * from "./getManagementLockAtResourceLevel";
+export * from "./getManagementLockAtSubscriptionLevel";
+export * from "./getManagementLockByScope";
+export * from "./getPolicyAssignment";
+export * from "./getPolicyDefinition";
+export * from "./getPolicySetDefinition";
+export * from "./getRoleAssignment";
+export * from "./getRoleDefinition";
 export * from "./managementLockAtResourceGroupLevel";
-export * from "./policyDefinitionAtManagementGroup";
-export * from "./policySetDefinitionAtManagementGroup";
+export * from "./managementLockAtResourceLevel";
+export * from "./managementLockAtSubscriptionLevel";
+export * from "./managementLockByScope";
+export * from "./policyAssignment";
+export * from "./policyDefinition";
+export * from "./policySetDefinition";
+export * from "./roleAssignment";
+export * from "./roleDefinition";

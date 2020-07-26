@@ -2,10 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getResource";
+export * from "./getResourceGroup";
 export * from "./provider";
+export * from "./resource";
+export * from "./resourceGroup";
 
 // Export sub-modules:
 import * as aad from "./aad";
+import * as aadiam from "./aadiam";
+import * as advisor from "./advisor";
+import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
 import * as appconfiguration from "./appconfiguration";
@@ -15,16 +22,18 @@ import * as avs from "./avs";
 import * as azurestack from "./azurestack";
 import * as batch from "./batch";
 import * as batchai from "./batchai";
+import * as billing from "./billing";
 import * as botservice from "./botservice";
 import * as cache from "./cache";
 import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as cognitiveservices from "./cognitiveservices";
 import * as compute from "./compute";
+import * as consumption from "./consumption";
 import * as containerinstance from "./containerinstance";
 import * as containerregistry from "./containerregistry";
 import * as containerservice from "./containerservice";
-import * as core from "./core";
+import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as databox from "./databox";
 import * as databoxedge from "./databoxedge";
@@ -59,6 +68,8 @@ import * as machinelearning from "./machinelearning";
 import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managedidentity from "./managedidentity";
+import * as managedservices from "./managedservices";
+import * as management from "./management";
 import * as maps from "./maps";
 import * as media from "./media";
 import * as migrate from "./migrate";
@@ -70,6 +81,7 @@ import * as offazure from "./offazure";
 import * as operationalinsights from "./operationalinsights";
 import * as peering from "./peering";
 import * as policyinsights from "./policyinsights";
+import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as recoveryservices from "./recoveryservices";
@@ -82,6 +94,7 @@ import * as security from "./security";
 import * as servicebus from "./servicebus";
 import * as servicefabric from "./servicefabric";
 import * as signalrservice from "./signalrservice";
+import * as softwareplan from "./softwareplan";
 import * as solutions from "./solutions";
 import * as sql from "./sql";
 import * as storage from "./storage";
@@ -95,4 +108,4 @@ import * as virtualmachineimages from "./virtualmachineimages";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
 import * as web from "./web";
 import * as windowsiot from "./windowsiot";
-export {aad, analysisservices, apimanagement, appconfiguration, authorization, automation, avs, azurestack, batch, batchai, botservice, cache, cdn, certificateregistration, cognitiveservices, compute, containerinstance, containerregistry, containerservice, core, customerinsights, databox, databoxedge, databricks, datacatalog, datafactory, datalakeanalytics, datalakestore, datashare, dbformariadb, dbformysql, dbforpostgresql, devices, devspaces, devtestlab, documentdb, domainregistration, eventgrid, eventhub, hdinsight, healthcareapis, hybridcompute, hybriddata, importexport, insights, iotcentral, keyvault, kusto, labservices, logic, machinelearning, machinelearningservices, maintenance, managedidentity, maps, media, migrate, mixedreality, netapp, network, notificationhubs, offazure, operationalinsights, peering, policyinsights, powerbi, powerbidedicated, recoveryservices, redhatopenshift, relay, resources, scheduler, search, security, servicebus, servicefabric, signalrservice, solutions, sql, storage, storagecache, storagesync, storsimple, streamanalytics, timeseriesinsights, types, virtualmachineimages, vmwarecloudsimple, web, windowsiot};
+export {aad, aadiam, advisor, alertsmanagement, analysisservices, apimanagement, appconfiguration, authorization, automation, avs, azurestack, batch, batchai, billing, botservice, cache, cdn, certificateregistration, cognitiveservices, compute, consumption, containerinstance, containerregistry, containerservice, costmanagement, customerinsights, databox, databoxedge, databricks, datacatalog, datafactory, datalakeanalytics, datalakestore, datashare, dbformariadb, dbformysql, dbforpostgresql, devices, devspaces, devtestlab, documentdb, domainregistration, eventgrid, eventhub, hdinsight, healthcareapis, hybridcompute, hybriddata, importexport, insights, iotcentral, keyvault, kusto, labservices, logic, machinelearning, machinelearningservices, maintenance, managedidentity, managedservices, management, maps, media, migrate, mixedreality, netapp, network, notificationhubs, offazure, operationalinsights, peering, policyinsights, portal, powerbi, powerbidedicated, recoveryservices, redhatopenshift, relay, resources, scheduler, search, security, servicebus, servicefabric, signalrservice, softwareplan, solutions, sql, storage, storagecache, storagesync, storsimple, streamanalytics, timeseriesinsights, types, virtualmachineimages, vmwarecloudsimple, web, windowsiot};

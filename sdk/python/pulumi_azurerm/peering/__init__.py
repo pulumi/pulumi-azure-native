@@ -3,11 +3,13 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_peer_asn import *
 from .get_peering import *
 from .get_peering_service import *
 from .get_prefix import *
 from .get_registered_asn import *
 from .get_registered_prefix import *
+from .peer_asn import *
 from .peering import *
 from .peering_service import *
 from .prefix import *
