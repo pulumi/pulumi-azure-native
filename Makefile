@@ -16,23 +16,11 @@ ensure::
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
-update_specs::
-	if [ ! -d "azure-rest-api-specs" ]; then git clone https://github.com/Azure/azure-rest-api-specs; fi
-	cd azure-rest-api-specs && git pull
-
 generate_schema::
 	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(CODEGEN)
 	echo "Generating Pulumi schema..."
 	$(CODEGEN) schema $(VERSION)
 	echo "Finished generating schema."
-
-build_provider:: generate_schema
-	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
-
-build:: generate build_provider
-
-builddebug:
-	cd provider; $(GO) install $(VERSION_FLAGS) -gcflags="all=-N -l" $(PROJECT)/cmd/$(PROVIDER)
 
 generate:: generate_schema
 	rm -rf sdk/nodejs
@@ -53,3 +41,8 @@ generate:: generate_schema
 	cd ${PACKDIR}/dotnet/ && \
 		echo "${VERSION:v%=%}" >version.txt && \
 		dotnet build
+
+build_provider:: generate_schema
+	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
+
+build:: generate build_provider
