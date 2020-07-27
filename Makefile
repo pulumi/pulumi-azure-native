@@ -22,7 +22,7 @@ generate_schema::
 	$(CODEGEN) schema $(VERSION)
 	echo "Finished generating schema."
 
-generate:: generate_schema
+generate::
 	rm -rf sdk/nodejs
 	rm -rf sdk/python
 	rm -rf sdk/dotnet
@@ -42,7 +42,7 @@ generate:: generate_schema
 		echo "${VERSION:v%=%}" >version.txt && \
 		dotnet build
 
-build_provider:: generate_schema
+build_provider::
 	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
 
 build:: generate build_provider

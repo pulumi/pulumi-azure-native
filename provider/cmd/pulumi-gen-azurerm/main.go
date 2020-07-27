@@ -90,7 +90,7 @@ func emitMetadata(metadata *provider.AzureApiMetadata, outDir string) error {
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	err = ioutil.WriteFile("./provider/pkg/provider/metadata.go", []byte(fmt.Sprintf(`package provider
+	err = ioutil.WriteFile("./provider/cmd/pulumi-resource-azurerm/metadata.go", []byte(fmt.Sprintf(`package main
 var azureApiResources = %#v
 `, raw)), 0600)
 	if err != nil {

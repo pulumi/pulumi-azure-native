@@ -22,5 +22,5 @@ import (
 var providerName = "azurerm"
 
 func main() {
-	provider.Serve(providerName, version.Version, pulumiSchema)
+	provider.Serve(providerName, version.Version, pulumiSchema, azureApiResources)
 }

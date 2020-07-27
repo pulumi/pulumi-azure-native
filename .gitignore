@@ -6,4 +6,5 @@ package-lock.json
 .idea/
 **/bin/
 **/obj/
+/provider/cmd/pulumi-resource-azurerm/metadata.go
 /provider/cmd/pulumi-resource-azurerm/schema.go

@@ -59,14 +59,14 @@ type azurermProvider struct {
 	schemaBytes    []byte
 }
 
-func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte) (rpc.ResourceProviderServer, error) {
+func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte, azureApiResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 	// Creating a REST client
 	client := autorest.NewClientWithUserAgent("pulumi")
 	// Set a long timeout of 2 hours for now.
 	client.PollingDuration = 120 * time.Minute
 
 	var resourceMap *AzureApiMetadata
-	err := json.Unmarshal(azureApiResources, &resourceMap)
+	err := json.Unmarshal(azureApiResourcesBytes, &resourceMap)
 	if err != nil {
 		return nil, errors.Wrap(err, "unmarshalling resource map")
 	}
