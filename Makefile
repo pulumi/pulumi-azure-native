@@ -12,7 +12,12 @@ VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/v2/pkg
 GO              ?= go
 CURL            ?= curl
 
-ensure::
+update_submodules::
+	@if [ ! -d "azure-rest-api-specs/.git" ]; then \
+		git submodule update --init --recursive; \
+	fi
+
+ensure:: update_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
@@ -46,3 +51,5 @@ build_provider::
 	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
 
 build:: generate build_provider
+
+.PHONY: update_submodules
