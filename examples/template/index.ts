@@ -1,11 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as fs from "fs";
-
-class ResourceGroup extends pulumi.CustomResource {
-    constructor(name: string, args: any, opts?: pulumi.CustomResourceOptions) {
-        super("azurerm:index:ResourceGroup", name, args, opts);
-    }
-}
+import * as azurerm from "../../sdk/nodejs";
 
 interface TemplateResourceArgs {
     resourceGroupName: string;
@@ -38,28 +33,29 @@ class Template extends pulumi.ComponentResource {
                 ...resource
             };
             const childOpts = { ...opts, parent: this, dependsOn: [...dependsOn] };
+            const version = "v" + resource.apiVersion.replace("-", "").replace("-", "");
 
             let typeName;
             if (resource.type === "Microsoft.Compute/virtualMachines") {
-                typeName = "azurerm:compute:VirtualMachine";
+                typeName = `azurerm:compute/${version}:VirtualMachine`;
             } else if (resource.type === "Microsoft.Network/networkInterfaces") {
-                typeName = "azurerm:network:NetworkInterface";
+                typeName = `azurerm:network/${version}:NetworkInterface`;
             } else if (resource.type === "Microsoft.Network/networkSecurityGroups") {
-                typeName = "azurerm:network:NetworkSecurityGroup";
+                typeName = `azurerm:network/${version}:NetworkSecurityGroup`;
             } else if (resource.type === "Microsoft.Network/publicIPAddresses") {
-                typeName = "azurerm:network:PublicIPAddress";
+                typeName = `azurerm:network/${version}:PublicIPAddress`;
             } else if (resource.type === "Microsoft.Network/virtualNetworks") {
-                typeName = "azurerm:network:VirtualNetwork";
+                typeName = `azurerm:network/${version}:VirtualNetwork`;
             } else if (resource.type === "Microsoft.Storage/storageAccounts") {
-                typeName = "azurerm:storage:StorageAccount";
+                typeName = `azurerm:storage/${version}:StorageAccount`;
             } else if (resource.type === "Microsoft.Web/serverfarms") {
-                typeName = "azurerm:web:AppServicePlan";
+                typeName = `azurerm:web/${version}:ServerFarm`;
             } else if (resource.type === "Microsoft.Web/sites") {
-                typeName = "azurerm:web:WebApp";
+                typeName = `azurerm:web/${version}:Site`;
             } else if (resource.type === "Microsoft.Cache/Redis") {
-                typeName = "azurerm:cache:Redis";
+                typeName = `azurerm:cache/${version}:Redis`;
             } else if (resource.type === "Microsoft.ContainerInstance/containerGroups") {
-                typeName = "azurerm:containerinstance:ContainerGroup";
+                typeName = `azurerm:containerinstance/${version}:ContainerGroup`;
             } else {
                 throw new Error(`Unknown type ${resource.type}`);
             }
@@ -71,7 +67,7 @@ class Template extends pulumi.ComponentResource {
 
 const resourceGroupName = "azurermtemplates";
 
-const resourceGroup = new ResourceGroup("azurerm", {
+const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("azurerm", {
     name: resourceGroupName,
     location: "westus2",
     tags: {

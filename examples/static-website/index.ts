@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 import { URL } from "url";
 
-const resourceGroup = new azurerm.ResourceGroup("rg", {
+const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
     name: "azurerm-static-website",
     location: "westus2",
     tags: {
@@ -12,7 +12,7 @@ const resourceGroup = new azurerm.ResourceGroup("rg", {
 });
 
 // Create a Storage Account for our static website
-const storageAccount = new azurerm.storage.StorageAccount("websitesa", {
+const storageAccount = new azurerm.storage.v20190601.StorageAccount("websitesa", {
     resourceGroupName: resourceGroup.name,
     name: "pulumiswsa",
     location: "westus2",
@@ -45,10 +45,10 @@ const storageAccount = new azurerm.storage.StorageAccount("websitesa", {
 // Web endpoint to the website
 export const staticEndpoint = storageAccount.properties.primaryEndpoints.web;
 // TODO: figure out why this output is resolved to undefined during the preview, which breaks the URL constructor call.
-const staticHostname = staticEndpoint.apply(url => url && new URL(url).hostname);
+const staticHostname = staticEndpoint.apply(url => url ? new URL(url).hostname : "<preview>");
 
 // We can add a CDN in front of the website
-const cdn =  new azurerm.cdn.Profile("website-cdn", {
+const cdn =  new azurerm.cdn.v20200331.Profile("website-cdn", {
     resourceGroupName: resourceGroup.name,
     name: "pulumi-static-website",
     location: "global",
@@ -57,7 +57,7 @@ const cdn =  new azurerm.cdn.Profile("website-cdn", {
     },
 });
 
-const endpoint = new azurerm.cdn.Endpoint("website-cdn-ep", {
+const endpoint = new azurerm.cdn.v20200331.Endpoint("website-cdn-ep", {
     resourceGroupName: resourceGroup.name,
     profileName: cdn.name,
     name: "pulumi-static-website-ep",

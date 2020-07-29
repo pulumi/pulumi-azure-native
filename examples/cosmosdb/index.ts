@@ -2,7 +2,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurerm from "../../sdk/nodejs";
 import * as cosmosdb from "./component";
 
-const resourceGroup = new azurerm.ResourceGroup("rg", {
+const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
     name: "azurerm-cosmos",
     location: "westeurope",
     tags: {
@@ -22,7 +22,7 @@ export const cosmosdbAccount = new cosmosdb.DatabaseAccount("pulumicosmosdb", {
     },    
 });
 
-// const cosmosdbAccount2 = new azurerm.documentdb.DatabaseAccount("pulumicosmosdb", {
+// const cosmosdbAccount2 = new azurerm.documentdb.v20200401.DatabaseAccount("pulumicosmosdb", {
 //     resourceGroupName: resourceGroup.name,
 //     name: "pulumicosmosdb",
 //     location: resourceGroup.location,

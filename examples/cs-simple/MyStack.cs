@@ -1,15 +1,29 @@
 using Pulumi;
-using Pulumi.AzureRM;
+using Pulumi.AzureRM.Resources.V20200601;
+using Pulumi.AzureRM.Storage.V20190601;
+using Pulumi.AzureRM.Storage.V20190601.Inputs;
 
 class MyStack : Stack
 {
     public MyStack()
     {
-        // Create an Azure Resource Group
         var resourceGroup = new ResourceGroup("resourceGroup", new ResourceGroupArgs
         {
             Name = "azurerm-dotnet",
             Location = "WestUS"
+        });
+
+        var storageAccount = new StorageAccount("sa", new StorageAccountArgs
+        {
+            ResourceGroupName = resourceGroup.Name,
+            Name = "pulumiassacs",
+            Location = "WestUS",
+            Sku = new SkuArgs
+            {
+                Name = "Standard_LRS",
+                Tier = "Standard"
+            },
+            Kind = "StorageV2"
         });
     }
 }
