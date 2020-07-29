@@ -32,7 +32,7 @@ class ManagedCluster(pulumi.CustomResource):
         * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         * `max_pods` (`float`) - Maximum number of pods that can run on a node.
         * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-        * `os_disk_size_gb` (`dict`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Defaults to ManagedDisks.
         * `vm_size` (`str`) - Size of agent VMs.
@@ -95,7 +95,7 @@ class ManagedCluster(pulumi.CustomResource):
             * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
             * `max_pods` (`pulumi.Input[float]`) - Maximum number of pods that can run on a node.
             * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-            * `os_disk_size_gb` (`pulumi.Input[dict]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+            * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
             * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
             * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
             * `vnet_subnet_id` (`pulumi.Input[str]`) - VNet SubnetID specifies the VNet's subnet identifier.

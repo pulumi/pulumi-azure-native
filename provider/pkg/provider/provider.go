@@ -19,6 +19,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math"
 	"net/http"
 	"os"
 	"regexp"
@@ -359,6 +360,31 @@ func (k *azurermProvider) validateProperty(ctx string, prop *AzureApiProperty, v
 					Reason: fmt.Sprintf("'%s' is '%s' but expected one of [%s]", ctx, value, possible),
 				})
 			}
+		}
+	case float64:
+		if prop.Type != "number" && prop.Type != "integer" {
+			return append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("'%s' should be of type '%s' but got a number", ctx, prop.Type),
+			})
+		}
+		if prop.Type == "integer" {
+			if _, frac := math.Modf(math.Abs(value)); frac > 1e-9 && frac < 1.0-1e-9 {
+				failures = append(failures, &rpc.CheckFailure{
+					Reason: fmt.Sprintf("'%s' must be an integer but got %f", ctx, value),
+				})
+			}
+		}
+
+		// Validate min/max inclusive ranges per https://swagger.io/docs/specification/data-models/data-types/#numbers
+		if prop.Minimum != nil && value < *prop.Minimum {
+			failures = append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("'%s' is too low (%f < %f)", ctx, value, *prop.Minimum),
+			})
+		}
+		if prop.Maximum != nil && value > *prop.Maximum {
+			failures = append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("'%s' is too high (%f > %f)", ctx, value, *prop.Maximum),
+			})
 		}
 	}
 

@@ -26,7 +26,7 @@ class ContainerService(pulumi.CustomResource):
         * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the agent pool.
         * `fqdn` (`str`) - FQDN for the agent pool.
         * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-        * `os_disk_size_gb` (`dict`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         * `ports` (`list`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
         * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
@@ -52,7 +52,7 @@ class ContainerService(pulumi.CustomResource):
         * `dns_prefix` (`str`) - DNS prefix to be used to create the FQDN for the master pool.
         * `first_consecutive_static_ip` (`str`) - FirstConsecutiveStaticIP used to specify the first static ip of masters.
         * `fqdn` (`str`) - FQDN for the master pool.
-        * `os_disk_size_gb` (`dict`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         * `storage_profile` (`str`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
         * `vm_size` (`str`) - Size of agent VMs.
         * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
@@ -101,7 +101,7 @@ class ContainerService(pulumi.CustomResource):
             * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
             * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix to be used to create the FQDN for the agent pool.
             * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-            * `os_disk_size_gb` (`pulumi.Input[dict]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+            * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
             * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
             * `ports` (`pulumi.Input[list]`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
             * `storage_profile` (`pulumi.Input[str]`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
@@ -125,7 +125,7 @@ class ContainerService(pulumi.CustomResource):
             * `count` (`pulumi.Input[float]`) - Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
             * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix to be used to create the FQDN for the master pool.
             * `first_consecutive_static_ip` (`pulumi.Input[str]`) - FirstConsecutiveStaticIP used to specify the first static ip of masters.
-            * `os_disk_size_gb` (`pulumi.Input[dict]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+            * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
             * `storage_profile` (`pulumi.Input[str]`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
             * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
             * `vnet_subnet_id` (`pulumi.Input[str]`) - VNet SubnetID specifies the VNet's subnet identifier.

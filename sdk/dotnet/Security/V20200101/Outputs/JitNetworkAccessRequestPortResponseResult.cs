@@ -29,7 +29,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
         /// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
         /// </summary>
         public readonly int? MappedPort;
-        public readonly Outputs.PortNumberResponseResult Number;
+        public readonly int Number;
         /// <summary>
         /// The status of the port
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
 
             int? mappedPort,
 
-            Outputs.PortNumberResponseResult number,
+            int number,
 
             string status,
 

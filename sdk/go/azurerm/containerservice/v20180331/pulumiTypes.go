@@ -829,236 +829,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDisk struct {
-}
-
-// ContainerServiceOSDiskInput is an input type that accepts ContainerServiceOSDiskArgs and ContainerServiceOSDiskOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskInput` via:
-//
-//          ContainerServiceOSDiskArgs{...}
-type ContainerServiceOSDiskInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskOutput() ContainerServiceOSDiskOutput
-	ToContainerServiceOSDiskOutputWithContext(context.Context) ContainerServiceOSDiskOutput
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskArgs struct {
-}
-
-func (ContainerServiceOSDiskArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskOutput() ContainerServiceOSDiskOutput {
-	return i.ToContainerServiceOSDiskOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskOutputWithContext(ctx context.Context) ContainerServiceOSDiskOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskOutput)
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return i.ToContainerServiceOSDiskPtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskOutput).ToContainerServiceOSDiskPtrOutputWithContext(ctx)
-}
-
-// ContainerServiceOSDiskPtrInput is an input type that accepts ContainerServiceOSDiskArgs, ContainerServiceOSDiskPtr and ContainerServiceOSDiskPtrOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskPtrInput` via:
-//
-//          ContainerServiceOSDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerServiceOSDiskPtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput
-	ToContainerServiceOSDiskPtrOutputWithContext(context.Context) ContainerServiceOSDiskPtrOutput
-}
-
-type containerServiceOSDiskPtrType ContainerServiceOSDiskArgs
-
-func ContainerServiceOSDiskPtr(v *ContainerServiceOSDiskArgs) ContainerServiceOSDiskPtrInput {
-	return (*containerServiceOSDiskPtrType)(v)
-}
-
-func (*containerServiceOSDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (i *containerServiceOSDiskPtrType) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return i.ToContainerServiceOSDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceOSDiskPtrType) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskPtrOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskOutput() ContainerServiceOSDiskOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskOutputWithContext(ctx context.Context) ContainerServiceOSDiskOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return o.ToContainerServiceOSDiskPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return o.ApplyT(func(v ContainerServiceOSDisk) *ContainerServiceOSDisk {
-		return &v
-	}).(ContainerServiceOSDiskPtrOutput)
-}
-
-type ContainerServiceOSDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskPtrOutput) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskPtrOutput) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskPtrOutput) Elem() ContainerServiceOSDiskOutput {
-	return o.ApplyT(func(v *ContainerServiceOSDisk) ContainerServiceOSDisk { return *v }).(ContainerServiceOSDiskOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskResponse struct {
-}
-
-// ContainerServiceOSDiskResponseInput is an input type that accepts ContainerServiceOSDiskResponseArgs and ContainerServiceOSDiskResponseOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskResponseInput` via:
-//
-//          ContainerServiceOSDiskResponseArgs{...}
-type ContainerServiceOSDiskResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskResponseOutput() ContainerServiceOSDiskResponseOutput
-	ToContainerServiceOSDiskResponseOutputWithContext(context.Context) ContainerServiceOSDiskResponseOutput
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskResponseArgs struct {
-}
-
-func (ContainerServiceOSDiskResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponseOutput() ContainerServiceOSDiskResponseOutput {
-	return i.ToContainerServiceOSDiskResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponseOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskResponseOutput)
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return i.ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskResponseOutput).ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx)
-}
-
-// ContainerServiceOSDiskResponsePtrInput is an input type that accepts ContainerServiceOSDiskResponseArgs, ContainerServiceOSDiskResponsePtr and ContainerServiceOSDiskResponsePtrOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskResponsePtrInput` via:
-//
-//          ContainerServiceOSDiskResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerServiceOSDiskResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput
-	ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Context) ContainerServiceOSDiskResponsePtrOutput
-}
-
-type containerServiceOSDiskResponsePtrType ContainerServiceOSDiskResponseArgs
-
-func ContainerServiceOSDiskResponsePtr(v *ContainerServiceOSDiskResponseArgs) ContainerServiceOSDiskResponsePtrInput {
-	return (*containerServiceOSDiskResponsePtrType)(v)
-}
-
-func (*containerServiceOSDiskResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (i *containerServiceOSDiskResponsePtrType) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return i.ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceOSDiskResponsePtrType) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskResponsePtrOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskResponseOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponseOutput() ContainerServiceOSDiskResponseOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponseOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponseOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return o.ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceOSDiskResponse) *ContainerServiceOSDiskResponse {
-		return &v
-	}).(ContainerServiceOSDiskResponsePtrOutput)
-}
-
-type ContainerServiceOSDiskResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskResponsePtrOutput) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponsePtrOutput) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponsePtrOutput) Elem() ContainerServiceOSDiskResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceOSDiskResponse) ContainerServiceOSDiskResponse { return *v }).(ContainerServiceOSDiskResponseOutput)
-}
-
 // SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfiguration struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -2338,7 +2108,7 @@ type ManagedClusterAgentPoolProfile struct {
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name string `pulumi:"name"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *ContainerServiceOSDisk `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Size of agent VMs.
@@ -2367,7 +2137,7 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB ContainerServiceOSDiskPtrInput `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Size of agent VMs.
@@ -2444,8 +2214,8 @@ func (o ManagedClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() ContainerServiceOSDiskPtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *ContainerServiceOSDisk { return v.OsDiskSizeGB }).(ContainerServiceOSDiskPtrOutput)
+func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -2492,7 +2262,7 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name string `pulumi:"name"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *ContainerServiceOSDiskResponse `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Storage profile specifies what kind of storage used. Defaults to ManagedDisks.
@@ -2523,7 +2293,7 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	// Unique name of the agent pool profile in the context of the subscription and resource group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB ContainerServiceOSDiskResponsePtrInput `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Storage profile specifies what kind of storage used. Defaults to ManagedDisks.
@@ -2602,8 +2372,8 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) Name() pulumi.StringOutput
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() ContainerServiceOSDiskResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *ContainerServiceOSDiskResponse { return v.OsDiskSizeGB }).(ContainerServiceOSDiskResponsePtrOutput)
+func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -3603,10 +3373,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskPtrOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskResponseOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponseOutput{})

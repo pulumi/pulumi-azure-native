@@ -53,13 +53,13 @@ class ManagedCluster(pulumi.CustomResource):
         * `node_labels` (`dict`) - Agent pool node labels to be persisted across all nodes in agent pool.
         * `node_taints` (`list`) - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         * `orchestrator_version` (`str`) - Version of orchestrator specified when creating the managed cluster.
-        * `os_disk_size_gb` (`dict`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
         * `proximity_placement_group_id` (`str`) - The ID for Proximity Placement Group.
         * `scale_set_eviction_policy` (`str`) - ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
         * `scale_set_priority` (`str`) - ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-        * `spot_max_price` (`dict`) - SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+        * `spot_max_price` (`float`) - SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
         * `tags` (`dict`) - Agent pool tags to be persisted on the agent pool virtual machine scale set.
         * `type` (`str`) - AgentPoolType represents types of an agent pool
         * `upgrade_settings` (`dict`) - Settings for upgrading the agentpool
@@ -180,12 +180,12 @@ class ManagedCluster(pulumi.CustomResource):
             * `node_labels` (`pulumi.Input[dict]`) - Agent pool node labels to be persisted across all nodes in agent pool.
             * `node_taints` (`pulumi.Input[list]`) - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
             * `orchestrator_version` (`pulumi.Input[str]`) - Version of orchestrator specified when creating the managed cluster.
-            * `os_disk_size_gb` (`pulumi.Input[dict]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+            * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
             * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
             * `proximity_placement_group_id` (`pulumi.Input[str]`) - The ID for Proximity Placement Group.
             * `scale_set_eviction_policy` (`pulumi.Input[str]`) - ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
             * `scale_set_priority` (`pulumi.Input[str]`) - ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-            * `spot_max_price` (`pulumi.Input[dict]`) - SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+            * `spot_max_price` (`pulumi.Input[float]`) - SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
             * `tags` (`pulumi.Input[dict]`) - Agent pool tags to be persisted on the agent pool virtual machine scale set.
             * `type` (`pulumi.Input[str]`) - AgentPoolType represents types of an agent pool
             * `upgrade_settings` (`pulumi.Input[dict]`) - Settings for upgrading the agentpool

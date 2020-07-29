@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
         /// <summary>
         /// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         /// </summary>
-        public readonly Outputs.ForceRestartResponseResult? ForceRestart;
+        public readonly bool? ForceRestart;
         /// <summary>
         /// The policy used for monitoring the application upgrade
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
         private ApplicationUpgradePolicyResponseResult(
             Outputs.ArmApplicationHealthPolicyResponseResult? applicationHealthPolicy,
 
-            Outputs.ForceRestartResponseResult? forceRestart,
+            bool? forceRestart,
 
             Outputs.ArmRollingUpgradeMonitoringPolicyResponseResult? rollingUpgradeMonitoringPolicy,
 

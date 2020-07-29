@@ -37,7 +37,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Inputs
         public Input<string> MaxRequestAccessDuration { get; set; } = null!;
 
         [Input("number", required: true)]
-        public Input<Inputs.PortNumberArgs> Number { get; set; } = null!;
+        public Input<int> Number { get; set; } = null!;
 
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

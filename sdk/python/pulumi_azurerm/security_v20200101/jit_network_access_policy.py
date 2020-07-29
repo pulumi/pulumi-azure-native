@@ -50,7 +50,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                 * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
                 * `end_time_utc` (`pulumi.Input[str]`) - The date & time at which the request ends in UTC
                 * `mapped_port` (`pulumi.Input[float]`) - The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-                * `number` (`pulumi.Input[dict]`)
+                * `number` (`pulumi.Input[float]`)
                 * `status` (`pulumi.Input[str]`) - The status of the port
                 * `status_reason` (`pulumi.Input[str]`) - A description of why the `status` has its value
 
@@ -60,7 +60,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
               * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
               * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
               * `max_request_access_duration` (`pulumi.Input[str]`) - Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-              * `number` (`pulumi.Input[dict]`)
+              * `number` (`pulumi.Input[float]`)
               * `protocol` (`pulumi.Input[str]`)
 
             * `public_ip_address` (`pulumi.Input[str]`) - Public IP address of the Azure Firewall that is linked to this policy, if applicable

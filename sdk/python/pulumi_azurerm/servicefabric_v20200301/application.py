@@ -60,7 +60,7 @@ class Application(pulumi.CustomResource):
             The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
           * `service_type_health_policy_map` (`dict`) - The map with service type health policy per service type name. The map is empty by default.
 
-        * `force_restart` (`dict`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+        * `force_restart` (`bool`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         * `rolling_upgrade_monitoring_policy` (`dict`) - The policy used for monitoring the application upgrade
           * `failure_action` (`str`) - The activation Mode of the service package
           * `health_check_retry_timeout` (`str`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
@@ -127,7 +127,7 @@ class Application(pulumi.CustomResource):
                 The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
               * `service_type_health_policy_map` (`pulumi.Input[dict]`) - The map with service type health policy per service type name. The map is empty by default.
 
-            * `force_restart` (`pulumi.Input[dict]`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+            * `force_restart` (`pulumi.Input[bool]`) - If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
             * `rolling_upgrade_monitoring_policy` (`pulumi.Input[dict]`) - The policy used for monitoring the application upgrade
               * `failure_action` (`pulumi.Input[str]`) - The activation Mode of the service package
               * `health_check_retry_timeout` (`pulumi.Input[str]`) - The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.

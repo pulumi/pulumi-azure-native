@@ -1058,236 +1058,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDisk struct {
-}
-
-// ContainerServiceOSDiskInput is an input type that accepts ContainerServiceOSDiskArgs and ContainerServiceOSDiskOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskInput` via:
-//
-//          ContainerServiceOSDiskArgs{...}
-type ContainerServiceOSDiskInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskOutput() ContainerServiceOSDiskOutput
-	ToContainerServiceOSDiskOutputWithContext(context.Context) ContainerServiceOSDiskOutput
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskArgs struct {
-}
-
-func (ContainerServiceOSDiskArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskOutput() ContainerServiceOSDiskOutput {
-	return i.ToContainerServiceOSDiskOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskOutputWithContext(ctx context.Context) ContainerServiceOSDiskOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskOutput)
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return i.ToContainerServiceOSDiskPtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskArgs) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskOutput).ToContainerServiceOSDiskPtrOutputWithContext(ctx)
-}
-
-// ContainerServiceOSDiskPtrInput is an input type that accepts ContainerServiceOSDiskArgs, ContainerServiceOSDiskPtr and ContainerServiceOSDiskPtrOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskPtrInput` via:
-//
-//          ContainerServiceOSDiskArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerServiceOSDiskPtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput
-	ToContainerServiceOSDiskPtrOutputWithContext(context.Context) ContainerServiceOSDiskPtrOutput
-}
-
-type containerServiceOSDiskPtrType ContainerServiceOSDiskArgs
-
-func ContainerServiceOSDiskPtr(v *ContainerServiceOSDiskArgs) ContainerServiceOSDiskPtrInput {
-	return (*containerServiceOSDiskPtrType)(v)
-}
-
-func (*containerServiceOSDiskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (i *containerServiceOSDiskPtrType) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return i.ToContainerServiceOSDiskPtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceOSDiskPtrType) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskPtrOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskOutput() ContainerServiceOSDiskOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskOutputWithContext(ctx context.Context) ContainerServiceOSDiskOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return o.ToContainerServiceOSDiskPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceOSDiskOutput) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return o.ApplyT(func(v ContainerServiceOSDisk) *ContainerServiceOSDisk {
-		return &v
-	}).(ContainerServiceOSDiskPtrOutput)
-}
-
-type ContainerServiceOSDiskPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDisk)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskPtrOutput) ToContainerServiceOSDiskPtrOutput() ContainerServiceOSDiskPtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskPtrOutput) ToContainerServiceOSDiskPtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskPtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskPtrOutput) Elem() ContainerServiceOSDiskOutput {
-	return o.ApplyT(func(v *ContainerServiceOSDisk) ContainerServiceOSDisk { return *v }).(ContainerServiceOSDiskOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskResponse struct {
-}
-
-// ContainerServiceOSDiskResponseInput is an input type that accepts ContainerServiceOSDiskResponseArgs and ContainerServiceOSDiskResponseOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskResponseInput` via:
-//
-//          ContainerServiceOSDiskResponseArgs{...}
-type ContainerServiceOSDiskResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskResponseOutput() ContainerServiceOSDiskResponseOutput
-	ToContainerServiceOSDiskResponseOutputWithContext(context.Context) ContainerServiceOSDiskResponseOutput
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskResponseArgs struct {
-}
-
-func (ContainerServiceOSDiskResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponseOutput() ContainerServiceOSDiskResponseOutput {
-	return i.ToContainerServiceOSDiskResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponseOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskResponseOutput)
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return i.ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOSDiskResponseArgs) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskResponseOutput).ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx)
-}
-
-// ContainerServiceOSDiskResponsePtrInput is an input type that accepts ContainerServiceOSDiskResponseArgs, ContainerServiceOSDiskResponsePtr and ContainerServiceOSDiskResponsePtrOutput values.
-// You can construct a concrete instance of `ContainerServiceOSDiskResponsePtrInput` via:
-//
-//          ContainerServiceOSDiskResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerServiceOSDiskResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput
-	ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Context) ContainerServiceOSDiskResponsePtrOutput
-}
-
-type containerServiceOSDiskResponsePtrType ContainerServiceOSDiskResponseArgs
-
-func ContainerServiceOSDiskResponsePtr(v *ContainerServiceOSDiskResponseArgs) ContainerServiceOSDiskResponsePtrInput {
-	return (*containerServiceOSDiskResponsePtrType)(v)
-}
-
-func (*containerServiceOSDiskResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (i *containerServiceOSDiskResponsePtrType) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return i.ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceOSDiskResponsePtrType) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOSDiskResponsePtrOutput)
-}
-
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-type ContainerServiceOSDiskResponseOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponseOutput() ContainerServiceOSDiskResponseOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponseOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponseOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return o.ToContainerServiceOSDiskResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceOSDiskResponseOutput) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceOSDiskResponse) *ContainerServiceOSDiskResponse {
-		return &v
-	}).(ContainerServiceOSDiskResponsePtrOutput)
-}
-
-type ContainerServiceOSDiskResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceOSDiskResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOSDiskResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceOSDiskResponsePtrOutput) ToContainerServiceOSDiskResponsePtrOutput() ContainerServiceOSDiskResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponsePtrOutput) ToContainerServiceOSDiskResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOSDiskResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceOSDiskResponsePtrOutput) Elem() ContainerServiceOSDiskResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceOSDiskResponse) ContainerServiceOSDiskResponse { return *v }).(ContainerServiceOSDiskResponseOutput)
-}
-
 // SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfiguration struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -2909,7 +2679,7 @@ type ManagedClusterAgentPoolProfile struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *ContainerServiceOSDisk `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
@@ -2917,7 +2687,7 @@ type ManagedClusterAgentPoolProfile struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice *SpotMaxPrice `pulumi:"spotMaxPrice"`
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags map[string]string `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -2964,7 +2734,7 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB ContainerServiceOSDiskPtrInput `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
@@ -2972,7 +2742,7 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice SpotMaxPricePtrInput `pulumi:"spotMaxPrice"`
+	SpotMaxPrice pulumi.Float64PtrInput `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -3091,8 +2861,8 @@ func (o ManagedClusterAgentPoolProfileOutput) OrchestratorVersion() pulumi.Strin
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() ContainerServiceOSDiskPtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *ContainerServiceOSDisk { return v.OsDiskSizeGB }).(ContainerServiceOSDiskPtrOutput)
+func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -3111,8 +2881,8 @@ func (o ManagedClusterAgentPoolProfileOutput) ScaleSetPriority() pulumi.StringPt
 }
 
 // SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-func (o ManagedClusterAgentPoolProfileOutput) SpotMaxPrice() SpotMaxPricePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *SpotMaxPrice { return v.SpotMaxPrice }).(SpotMaxPricePtrOutput)
+func (o ManagedClusterAgentPoolProfileOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *float64 { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
 // Agent pool tags to be persisted on the agent pool virtual machine scale set.
@@ -3178,7 +2948,7 @@ type ManagedClusterAgentPoolProfileProperties struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *ContainerServiceOSDisk `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
@@ -3186,7 +2956,7 @@ type ManagedClusterAgentPoolProfileProperties struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice *SpotMaxPrice `pulumi:"spotMaxPrice"`
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags map[string]string `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -3231,7 +3001,7 @@ type ManagedClusterAgentPoolProfilePropertiesArgs struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB ContainerServiceOSDiskPtrInput `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
@@ -3239,7 +3009,7 @@ type ManagedClusterAgentPoolProfilePropertiesArgs struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice SpotMaxPricePtrInput `pulumi:"spotMaxPrice"`
+	SpotMaxPrice pulumi.Float64PtrInput `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -3379,8 +3149,8 @@ func (o ManagedClusterAgentPoolProfilePropertiesOutput) OrchestratorVersion() pu
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfilePropertiesOutput) OsDiskSizeGB() ContainerServiceOSDiskPtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfileProperties) *ContainerServiceOSDisk { return v.OsDiskSizeGB }).(ContainerServiceOSDiskPtrOutput)
+func (o ManagedClusterAgentPoolProfilePropertiesOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileProperties) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -3399,8 +3169,8 @@ func (o ManagedClusterAgentPoolProfilePropertiesOutput) ScaleSetPriority() pulum
 }
 
 // SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-func (o ManagedClusterAgentPoolProfilePropertiesOutput) SpotMaxPrice() SpotMaxPricePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfileProperties) *SpotMaxPrice { return v.SpotMaxPrice }).(SpotMaxPricePtrOutput)
+func (o ManagedClusterAgentPoolProfilePropertiesOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileProperties) *float64 { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
 // Agent pool tags to be persisted on the agent pool virtual machine scale set.
@@ -3542,13 +3312,13 @@ func (o ManagedClusterAgentPoolProfilePropertiesPtrOutput) OrchestratorVersion()
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfilePropertiesPtrOutput) OsDiskSizeGB() ContainerServiceOSDiskPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterAgentPoolProfileProperties) *ContainerServiceOSDisk {
+func (o ManagedClusterAgentPoolProfilePropertiesPtrOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAgentPoolProfileProperties) *int {
 		if v == nil {
 			return nil
 		}
 		return v.OsDiskSizeGB
-	}).(ContainerServiceOSDiskPtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -3582,13 +3352,13 @@ func (o ManagedClusterAgentPoolProfilePropertiesPtrOutput) ScaleSetPriority() pu
 }
 
 // SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-func (o ManagedClusterAgentPoolProfilePropertiesPtrOutput) SpotMaxPrice() SpotMaxPricePtrOutput {
-	return o.ApplyT(func(v *ManagedClusterAgentPoolProfileProperties) *SpotMaxPrice {
+func (o ManagedClusterAgentPoolProfilePropertiesPtrOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAgentPoolProfileProperties) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SpotMaxPrice
-	}).(SpotMaxPricePtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Agent pool tags to be persisted on the agent pool virtual machine scale set.
@@ -3654,7 +3424,7 @@ type ManagedClusterAgentPoolProfilePropertiesResponse struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *ContainerServiceOSDiskResponse `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -3664,7 +3434,7 @@ type ManagedClusterAgentPoolProfilePropertiesResponse struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice *SpotMaxPriceResponse `pulumi:"spotMaxPrice"`
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags map[string]string `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -3709,7 +3479,7 @@ type ManagedClusterAgentPoolProfilePropertiesResponseArgs struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB ContainerServiceOSDiskResponsePtrInput `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -3719,7 +3489,7 @@ type ManagedClusterAgentPoolProfilePropertiesResponseArgs struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice SpotMaxPriceResponsePtrInput `pulumi:"spotMaxPrice"`
+	SpotMaxPrice pulumi.Float64PtrInput `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -3859,10 +3629,8 @@ func (o ManagedClusterAgentPoolProfilePropertiesResponseOutput) OrchestratorVers
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfilePropertiesResponseOutput) OsDiskSizeGB() ContainerServiceOSDiskResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfilePropertiesResponse) *ContainerServiceOSDiskResponse {
-		return v.OsDiskSizeGB
-	}).(ContainerServiceOSDiskResponsePtrOutput)
+func (o ManagedClusterAgentPoolProfilePropertiesResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfilePropertiesResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -3886,8 +3654,8 @@ func (o ManagedClusterAgentPoolProfilePropertiesResponseOutput) ScaleSetPriority
 }
 
 // SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-func (o ManagedClusterAgentPoolProfilePropertiesResponseOutput) SpotMaxPrice() SpotMaxPriceResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfilePropertiesResponse) *SpotMaxPriceResponse { return v.SpotMaxPrice }).(SpotMaxPriceResponsePtrOutput)
+func (o ManagedClusterAgentPoolProfilePropertiesResponseOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfilePropertiesResponse) *float64 { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
 // Agent pool tags to be persisted on the agent pool virtual machine scale set.
@@ -4031,13 +3799,13 @@ func (o ManagedClusterAgentPoolProfilePropertiesResponsePtrOutput) OrchestratorV
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfilePropertiesResponsePtrOutput) OsDiskSizeGB() ContainerServiceOSDiskResponsePtrOutput {
-	return o.ApplyT(func(v *ManagedClusterAgentPoolProfilePropertiesResponse) *ContainerServiceOSDiskResponse {
+func (o ManagedClusterAgentPoolProfilePropertiesResponsePtrOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAgentPoolProfilePropertiesResponse) *int {
 		if v == nil {
 			return nil
 		}
 		return v.OsDiskSizeGB
-	}).(ContainerServiceOSDiskResponsePtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -4081,13 +3849,13 @@ func (o ManagedClusterAgentPoolProfilePropertiesResponsePtrOutput) ScaleSetPrior
 }
 
 // SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-func (o ManagedClusterAgentPoolProfilePropertiesResponsePtrOutput) SpotMaxPrice() SpotMaxPriceResponsePtrOutput {
-	return o.ApplyT(func(v *ManagedClusterAgentPoolProfilePropertiesResponse) *SpotMaxPriceResponse {
+func (o ManagedClusterAgentPoolProfilePropertiesResponsePtrOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ManagedClusterAgentPoolProfilePropertiesResponse) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SpotMaxPrice
-	}).(SpotMaxPriceResponsePtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Agent pool tags to be persisted on the agent pool virtual machine scale set.
@@ -4155,7 +3923,7 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *ContainerServiceOSDiskResponse `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -4165,7 +3933,7 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice *SpotMaxPriceResponse `pulumi:"spotMaxPrice"`
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags map[string]string `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -4212,7 +3980,7 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	// Version of orchestrator specified when creating the managed cluster.
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB ContainerServiceOSDiskResponsePtrInput `pulumi:"osDiskSizeGB"`
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// The current deployment or provisioning state, which only appears in the response.
@@ -4222,7 +3990,7 @@ type ManagedClusterAgentPoolProfileResponseArgs struct {
 	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
 	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-	SpotMaxPrice SpotMaxPriceResponsePtrInput `pulumi:"spotMaxPrice"`
+	SpotMaxPrice pulumi.Float64PtrInput `pulumi:"spotMaxPrice"`
 	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// AgentPoolType represents types of an agent pool
@@ -4341,8 +4109,8 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) OrchestratorVersion() pulu
 }
 
 // OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() ContainerServiceOSDiskResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *ContainerServiceOSDiskResponse { return v.OsDiskSizeGB }).(ContainerServiceOSDiskResponsePtrOutput)
+func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -4366,8 +4134,8 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) ScaleSetPriority() pulumi.
 }
 
 // SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-func (o ManagedClusterAgentPoolProfileResponseOutput) SpotMaxPrice() SpotMaxPriceResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *SpotMaxPriceResponse { return v.SpotMaxPrice }).(SpotMaxPriceResponsePtrOutput)
+func (o ManagedClusterAgentPoolProfileResponseOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *float64 { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
 // Agent pool tags to be persisted on the agent pool virtual machine scale set.
@@ -7440,236 +7208,6 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 	}).(ResourceReferenceResponseOutput)
 }
 
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-type SpotMaxPrice struct {
-}
-
-// SpotMaxPriceInput is an input type that accepts SpotMaxPriceArgs and SpotMaxPriceOutput values.
-// You can construct a concrete instance of `SpotMaxPriceInput` via:
-//
-//          SpotMaxPriceArgs{...}
-type SpotMaxPriceInput interface {
-	pulumi.Input
-
-	ToSpotMaxPriceOutput() SpotMaxPriceOutput
-	ToSpotMaxPriceOutputWithContext(context.Context) SpotMaxPriceOutput
-}
-
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-type SpotMaxPriceArgs struct {
-}
-
-func (SpotMaxPriceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotMaxPrice)(nil)).Elem()
-}
-
-func (i SpotMaxPriceArgs) ToSpotMaxPriceOutput() SpotMaxPriceOutput {
-	return i.ToSpotMaxPriceOutputWithContext(context.Background())
-}
-
-func (i SpotMaxPriceArgs) ToSpotMaxPriceOutputWithContext(ctx context.Context) SpotMaxPriceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotMaxPriceOutput)
-}
-
-func (i SpotMaxPriceArgs) ToSpotMaxPricePtrOutput() SpotMaxPricePtrOutput {
-	return i.ToSpotMaxPricePtrOutputWithContext(context.Background())
-}
-
-func (i SpotMaxPriceArgs) ToSpotMaxPricePtrOutputWithContext(ctx context.Context) SpotMaxPricePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotMaxPriceOutput).ToSpotMaxPricePtrOutputWithContext(ctx)
-}
-
-// SpotMaxPricePtrInput is an input type that accepts SpotMaxPriceArgs, SpotMaxPricePtr and SpotMaxPricePtrOutput values.
-// You can construct a concrete instance of `SpotMaxPricePtrInput` via:
-//
-//          SpotMaxPriceArgs{...}
-//
-//  or:
-//
-//          nil
-type SpotMaxPricePtrInput interface {
-	pulumi.Input
-
-	ToSpotMaxPricePtrOutput() SpotMaxPricePtrOutput
-	ToSpotMaxPricePtrOutputWithContext(context.Context) SpotMaxPricePtrOutput
-}
-
-type spotMaxPricePtrType SpotMaxPriceArgs
-
-func SpotMaxPricePtr(v *SpotMaxPriceArgs) SpotMaxPricePtrInput {
-	return (*spotMaxPricePtrType)(v)
-}
-
-func (*spotMaxPricePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotMaxPrice)(nil)).Elem()
-}
-
-func (i *spotMaxPricePtrType) ToSpotMaxPricePtrOutput() SpotMaxPricePtrOutput {
-	return i.ToSpotMaxPricePtrOutputWithContext(context.Background())
-}
-
-func (i *spotMaxPricePtrType) ToSpotMaxPricePtrOutputWithContext(ctx context.Context) SpotMaxPricePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotMaxPricePtrOutput)
-}
-
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-type SpotMaxPriceOutput struct{ *pulumi.OutputState }
-
-func (SpotMaxPriceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotMaxPrice)(nil)).Elem()
-}
-
-func (o SpotMaxPriceOutput) ToSpotMaxPriceOutput() SpotMaxPriceOutput {
-	return o
-}
-
-func (o SpotMaxPriceOutput) ToSpotMaxPriceOutputWithContext(ctx context.Context) SpotMaxPriceOutput {
-	return o
-}
-
-func (o SpotMaxPriceOutput) ToSpotMaxPricePtrOutput() SpotMaxPricePtrOutput {
-	return o.ToSpotMaxPricePtrOutputWithContext(context.Background())
-}
-
-func (o SpotMaxPriceOutput) ToSpotMaxPricePtrOutputWithContext(ctx context.Context) SpotMaxPricePtrOutput {
-	return o.ApplyT(func(v SpotMaxPrice) *SpotMaxPrice {
-		return &v
-	}).(SpotMaxPricePtrOutput)
-}
-
-type SpotMaxPricePtrOutput struct{ *pulumi.OutputState }
-
-func (SpotMaxPricePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotMaxPrice)(nil)).Elem()
-}
-
-func (o SpotMaxPricePtrOutput) ToSpotMaxPricePtrOutput() SpotMaxPricePtrOutput {
-	return o
-}
-
-func (o SpotMaxPricePtrOutput) ToSpotMaxPricePtrOutputWithContext(ctx context.Context) SpotMaxPricePtrOutput {
-	return o
-}
-
-func (o SpotMaxPricePtrOutput) Elem() SpotMaxPriceOutput {
-	return o.ApplyT(func(v *SpotMaxPrice) SpotMaxPrice { return *v }).(SpotMaxPriceOutput)
-}
-
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-type SpotMaxPriceResponse struct {
-}
-
-// SpotMaxPriceResponseInput is an input type that accepts SpotMaxPriceResponseArgs and SpotMaxPriceResponseOutput values.
-// You can construct a concrete instance of `SpotMaxPriceResponseInput` via:
-//
-//          SpotMaxPriceResponseArgs{...}
-type SpotMaxPriceResponseInput interface {
-	pulumi.Input
-
-	ToSpotMaxPriceResponseOutput() SpotMaxPriceResponseOutput
-	ToSpotMaxPriceResponseOutputWithContext(context.Context) SpotMaxPriceResponseOutput
-}
-
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-type SpotMaxPriceResponseArgs struct {
-}
-
-func (SpotMaxPriceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotMaxPriceResponse)(nil)).Elem()
-}
-
-func (i SpotMaxPriceResponseArgs) ToSpotMaxPriceResponseOutput() SpotMaxPriceResponseOutput {
-	return i.ToSpotMaxPriceResponseOutputWithContext(context.Background())
-}
-
-func (i SpotMaxPriceResponseArgs) ToSpotMaxPriceResponseOutputWithContext(ctx context.Context) SpotMaxPriceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotMaxPriceResponseOutput)
-}
-
-func (i SpotMaxPriceResponseArgs) ToSpotMaxPriceResponsePtrOutput() SpotMaxPriceResponsePtrOutput {
-	return i.ToSpotMaxPriceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SpotMaxPriceResponseArgs) ToSpotMaxPriceResponsePtrOutputWithContext(ctx context.Context) SpotMaxPriceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotMaxPriceResponseOutput).ToSpotMaxPriceResponsePtrOutputWithContext(ctx)
-}
-
-// SpotMaxPriceResponsePtrInput is an input type that accepts SpotMaxPriceResponseArgs, SpotMaxPriceResponsePtr and SpotMaxPriceResponsePtrOutput values.
-// You can construct a concrete instance of `SpotMaxPriceResponsePtrInput` via:
-//
-//          SpotMaxPriceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SpotMaxPriceResponsePtrInput interface {
-	pulumi.Input
-
-	ToSpotMaxPriceResponsePtrOutput() SpotMaxPriceResponsePtrOutput
-	ToSpotMaxPriceResponsePtrOutputWithContext(context.Context) SpotMaxPriceResponsePtrOutput
-}
-
-type spotMaxPriceResponsePtrType SpotMaxPriceResponseArgs
-
-func SpotMaxPriceResponsePtr(v *SpotMaxPriceResponseArgs) SpotMaxPriceResponsePtrInput {
-	return (*spotMaxPriceResponsePtrType)(v)
-}
-
-func (*spotMaxPriceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotMaxPriceResponse)(nil)).Elem()
-}
-
-func (i *spotMaxPriceResponsePtrType) ToSpotMaxPriceResponsePtrOutput() SpotMaxPriceResponsePtrOutput {
-	return i.ToSpotMaxPriceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *spotMaxPriceResponsePtrType) ToSpotMaxPriceResponsePtrOutputWithContext(ctx context.Context) SpotMaxPriceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotMaxPriceResponsePtrOutput)
-}
-
-// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
-type SpotMaxPriceResponseOutput struct{ *pulumi.OutputState }
-
-func (SpotMaxPriceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotMaxPriceResponse)(nil)).Elem()
-}
-
-func (o SpotMaxPriceResponseOutput) ToSpotMaxPriceResponseOutput() SpotMaxPriceResponseOutput {
-	return o
-}
-
-func (o SpotMaxPriceResponseOutput) ToSpotMaxPriceResponseOutputWithContext(ctx context.Context) SpotMaxPriceResponseOutput {
-	return o
-}
-
-func (o SpotMaxPriceResponseOutput) ToSpotMaxPriceResponsePtrOutput() SpotMaxPriceResponsePtrOutput {
-	return o.ToSpotMaxPriceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SpotMaxPriceResponseOutput) ToSpotMaxPriceResponsePtrOutputWithContext(ctx context.Context) SpotMaxPriceResponsePtrOutput {
-	return o.ApplyT(func(v SpotMaxPriceResponse) *SpotMaxPriceResponse {
-		return &v
-	}).(SpotMaxPriceResponsePtrOutput)
-}
-
-type SpotMaxPriceResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SpotMaxPriceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotMaxPriceResponse)(nil)).Elem()
-}
-
-func (o SpotMaxPriceResponsePtrOutput) ToSpotMaxPriceResponsePtrOutput() SpotMaxPriceResponsePtrOutput {
-	return o
-}
-
-func (o SpotMaxPriceResponsePtrOutput) ToSpotMaxPriceResponsePtrOutputWithContext(ctx context.Context) SpotMaxPriceResponsePtrOutput {
-	return o
-}
-
-func (o SpotMaxPriceResponsePtrOutput) Elem() SpotMaxPriceResponseOutput {
-	return o.ApplyT(func(v *SpotMaxPriceResponse) SpotMaxPriceResponse { return *v }).(SpotMaxPriceResponseOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AccessProfileResponseOutput{})
 	pulumi.RegisterOutputType(AgentPoolTypeOutput{})
@@ -7681,10 +7219,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskPtrOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskResponseOutput{})
-	pulumi.RegisterOutputType(ContainerServiceOSDiskResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponseOutput{})
@@ -7748,8 +7282,4 @@ func init() {
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(SpotMaxPriceOutput{})
-	pulumi.RegisterOutputType(SpotMaxPricePtrOutput{})
-	pulumi.RegisterOutputType(SpotMaxPriceResponseOutput{})
-	pulumi.RegisterOutputType(SpotMaxPriceResponsePtrOutput{})
 }

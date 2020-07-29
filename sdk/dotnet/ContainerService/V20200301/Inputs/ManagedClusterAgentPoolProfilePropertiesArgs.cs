@@ -103,7 +103,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200301.Inputs
         /// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         /// </summary>
         [Input("osDiskSizeGB")]
-        public Input<Inputs.ContainerServiceOSDiskArgs>? OsDiskSizeGB { get; set; }
+        public Input<int>? OsDiskSizeGB { get; set; }
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -127,7 +127,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200301.Inputs
         /// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
         /// </summary>
         [Input("spotMaxPrice")]
-        public Input<Inputs.SpotMaxPriceArgs>? SpotMaxPrice { get; set; }
+        public Input<double>? SpotMaxPrice { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

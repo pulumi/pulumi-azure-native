@@ -43,7 +43,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Inputs
         public Input<int>? MappedPort { get; set; }
 
         [Input("number", required: true)]
-        public Input<Inputs.PortNumberArgs> Number { get; set; } = null!;
+        public Input<int> Number { get; set; } = null!;
 
         /// <summary>
         /// The status of the port
