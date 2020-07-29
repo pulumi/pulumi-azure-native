@@ -13,9 +13,12 @@ GO              ?= go
 CURL            ?= curl
 
 update_submodules::
-	@if [ ! -d "azure-rest-api-specs/.git" ]; then \
-		git submodule update --init --recursive; \
-	fi
+	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
+		if [ ! -d "$$submodule/.git" ]; then \
+			echo "Initializing submodule $$submodule" ; \
+			(cd $$submodule && git submodule update --init); \
+		fi; \
+	done
 
 ensure:: update_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
