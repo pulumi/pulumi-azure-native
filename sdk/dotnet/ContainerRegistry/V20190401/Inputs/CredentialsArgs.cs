@@ -16,16 +16,16 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401.Inputs
     public sealed class CredentialsArgs : Pulumi.ResourceArgs
     {
         [Input("customRegistries")]
-        private InputMap<string>? _customRegistries;
+        private InputMap<Inputs.CustomRegistryCredentialsArgs>? _customRegistries;
 
         /// <summary>
         /// Describes the credential parameters for accessing other custom registries. The key
         /// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
         /// the value of the item will be the registry credentials for accessing the registry.
         /// </summary>
-        public InputMap<string> CustomRegistries
+        public InputMap<Inputs.CustomRegistryCredentialsArgs> CustomRegistries
         {
-            get => _customRegistries ?? (_customRegistries = new InputMap<string>());
+            get => _customRegistries ?? (_customRegistries = new InputMap<Inputs.CustomRegistryCredentialsArgs>());
             set => _customRegistries = value;
         }
 

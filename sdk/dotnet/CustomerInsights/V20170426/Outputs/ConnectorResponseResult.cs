@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// The connector properties.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> ConnectorProperties;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>> ConnectorProperties;
         /// <summary>
         /// Type of connector.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
 
             string? connectorName,
 
-            ImmutableDictionary<string, string> connectorProperties,
+            ImmutableDictionary<string, ImmutableDictionary<string, object>> connectorProperties,
 
             string connectorType,
 

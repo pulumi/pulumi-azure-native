@@ -49,14 +49,14 @@ namespace Pulumi.AzureRM.Automation.V20151031.Inputs
         }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<Inputs.RunbookParameterArgs>? _parameters;
 
         /// <summary>
         /// Gets or sets the runbook draft parameters.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<Inputs.RunbookParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<Inputs.RunbookParameterArgs>());
             set => _parameters = value;
         }
 

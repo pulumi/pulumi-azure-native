@@ -21,7 +21,7 @@ type SmartDetectorAlertRule struct {
 	// The properties of the alert rule.
 	Properties AlertRulePropertiesResponseOutput `pulumi:"properties"`
 	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,7 +67,7 @@ type smartDetectorAlertRuleState struct {
 	// The properties of the alert rule.
 	Properties *AlertRulePropertiesResponse `pulumi:"properties"`
 	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -80,7 +80,7 @@ type SmartDetectorAlertRuleState struct {
 	// The properties of the alert rule.
 	Properties AlertRulePropertiesResponsePtrInput
 	// The resource tags.
-	Tags pulumi.StringMapInput
+	Tags pulumi.MapInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 }
@@ -99,7 +99,7 @@ type smartDetectorAlertRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SmartDetectorAlertRule resource.
@@ -113,7 +113,7 @@ type SmartDetectorAlertRuleArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
-	Tags pulumi.StringMapInput
+	Tags pulumi.MapInput
 }
 
 func (SmartDetectorAlertRuleArgs) ElementType() reflect.Type {

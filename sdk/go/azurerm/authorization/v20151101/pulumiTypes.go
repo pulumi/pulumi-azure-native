@@ -489,7 +489,7 @@ type PolicyDefinitionProperties struct {
 	// Gets or sets the policy definition display name.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 }
 
 // PolicyDefinitionPropertiesInput is an input type that accepts PolicyDefinitionPropertiesArgs and PolicyDefinitionPropertiesOutput values.
@@ -510,7 +510,7 @@ type PolicyDefinitionPropertiesArgs struct {
 	// Gets or sets the policy definition display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 }
 
 func (PolicyDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -602,8 +602,8 @@ func (o PolicyDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 type PolicyDefinitionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -645,13 +645,13 @@ func (o PolicyDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]string {
+func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Policy definition properties.
@@ -661,7 +661,7 @@ type PolicyDefinitionPropertiesResponse struct {
 	// Gets or sets the policy definition display name.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 }
 
 // PolicyDefinitionPropertiesResponseInput is an input type that accepts PolicyDefinitionPropertiesResponseArgs and PolicyDefinitionPropertiesResponseOutput values.
@@ -682,7 +682,7 @@ type PolicyDefinitionPropertiesResponseArgs struct {
 	// Gets or sets the policy definition display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy rule json.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 }
 
 func (PolicyDefinitionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -774,8 +774,8 @@ func (o PolicyDefinitionPropertiesResponseOutput) DisplayName() pulumi.StringPtr
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 type PolicyDefinitionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -817,13 +817,13 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) DisplayName() pulumi.String
 }
 
 // The policy rule json.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]string {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 func init() {

@@ -1274,7 +1274,7 @@ type Credentials struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 	// the value of the item will be the registry credentials for accessing the registry.
-	CustomRegistries map[string]string `pulumi:"customRegistries"`
+	CustomRegistries map[string]CustomRegistryCredentials `pulumi:"customRegistries"`
 	// Describes the credential parameters for accessing the source registry.
 	SourceRegistry *SourceRegistryCredentials `pulumi:"sourceRegistry"`
 }
@@ -1295,7 +1295,7 @@ type CredentialsArgs struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 	// the value of the item will be the registry credentials for accessing the registry.
-	CustomRegistries pulumi.StringMapInput `pulumi:"customRegistries"`
+	CustomRegistries CustomRegistryCredentialsMapInput `pulumi:"customRegistries"`
 	// Describes the credential parameters for accessing the source registry.
 	SourceRegistry SourceRegistryCredentialsPtrInput `pulumi:"sourceRegistry"`
 }
@@ -1381,8 +1381,8 @@ func (o CredentialsOutput) ToCredentialsPtrOutputWithContext(ctx context.Context
 // Describes the credential parameters for accessing other custom registries. The key
 // for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 // the value of the item will be the registry credentials for accessing the registry.
-func (o CredentialsOutput) CustomRegistries() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Credentials) map[string]string { return v.CustomRegistries }).(pulumi.StringMapOutput)
+func (o CredentialsOutput) CustomRegistries() CustomRegistryCredentialsMapOutput {
+	return o.ApplyT(func(v Credentials) map[string]CustomRegistryCredentials { return v.CustomRegistries }).(CustomRegistryCredentialsMapOutput)
 }
 
 // Describes the credential parameters for accessing the source registry.
@@ -1411,13 +1411,13 @@ func (o CredentialsPtrOutput) Elem() CredentialsOutput {
 // Describes the credential parameters for accessing other custom registries. The key
 // for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 // the value of the item will be the registry credentials for accessing the registry.
-func (o CredentialsPtrOutput) CustomRegistries() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Credentials) map[string]string {
+func (o CredentialsPtrOutput) CustomRegistries() CustomRegistryCredentialsMapOutput {
+	return o.ApplyT(func(v *Credentials) map[string]CustomRegistryCredentials {
 		if v == nil {
 			return nil
 		}
 		return v.CustomRegistries
-	}).(pulumi.StringMapOutput)
+	}).(CustomRegistryCredentialsMapOutput)
 }
 
 // Describes the credential parameters for accessing the source registry.
@@ -1435,7 +1435,7 @@ type CredentialsResponse struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 	// the value of the item will be the registry credentials for accessing the registry.
-	CustomRegistries map[string]string `pulumi:"customRegistries"`
+	CustomRegistries map[string]CustomRegistryCredentialsResponse `pulumi:"customRegistries"`
 	// Describes the credential parameters for accessing the source registry.
 	SourceRegistry *SourceRegistryCredentialsResponse `pulumi:"sourceRegistry"`
 }
@@ -1456,7 +1456,7 @@ type CredentialsResponseArgs struct {
 	// Describes the credential parameters for accessing other custom registries. The key
 	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 	// the value of the item will be the registry credentials for accessing the registry.
-	CustomRegistries pulumi.StringMapInput `pulumi:"customRegistries"`
+	CustomRegistries CustomRegistryCredentialsResponseMapInput `pulumi:"customRegistries"`
 	// Describes the credential parameters for accessing the source registry.
 	SourceRegistry SourceRegistryCredentialsResponsePtrInput `pulumi:"sourceRegistry"`
 }
@@ -1542,8 +1542,8 @@ func (o CredentialsResponseOutput) ToCredentialsResponsePtrOutputWithContext(ctx
 // Describes the credential parameters for accessing other custom registries. The key
 // for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 // the value of the item will be the registry credentials for accessing the registry.
-func (o CredentialsResponseOutput) CustomRegistries() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CredentialsResponse) map[string]string { return v.CustomRegistries }).(pulumi.StringMapOutput)
+func (o CredentialsResponseOutput) CustomRegistries() CustomRegistryCredentialsResponseMapOutput {
+	return o.ApplyT(func(v CredentialsResponse) map[string]CustomRegistryCredentialsResponse { return v.CustomRegistries }).(CustomRegistryCredentialsResponseMapOutput)
 }
 
 // Describes the credential parameters for accessing the source registry.
@@ -1572,13 +1572,13 @@ func (o CredentialsResponsePtrOutput) Elem() CredentialsResponseOutput {
 // Describes the credential parameters for accessing other custom registries. The key
 // for the dictionary item will be the registry login server (myregistry.azurecr.io) and
 // the value of the item will be the registry credentials for accessing the registry.
-func (o CredentialsResponsePtrOutput) CustomRegistries() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CredentialsResponse) map[string]string {
+func (o CredentialsResponsePtrOutput) CustomRegistries() CustomRegistryCredentialsResponseMapOutput {
+	return o.ApplyT(func(v *CredentialsResponse) map[string]CustomRegistryCredentialsResponse {
 		if v == nil {
 			return nil
 		}
 		return v.CustomRegistries
-	}).(pulumi.StringMapOutput)
+	}).(CustomRegistryCredentialsResponseMapOutput)
 }
 
 // Describes the credential parameters for accessing the source registry.
@@ -1589,6 +1589,230 @@ func (o CredentialsResponsePtrOutput) SourceRegistry() SourceRegistryCredentials
 		}
 		return v.SourceRegistry
 	}).(SourceRegistryCredentialsResponsePtrOutput)
+}
+
+// Describes the credentials that will be used to access a custom registry during a run.
+type CustomRegistryCredentials struct {
+	// The password for logging into the custom registry. The password is a secret
+	// object that allows multiple ways of providing the value for it.
+	Password *SecretObject `pulumi:"password"`
+	// The username for logging into the custom registry.
+	UserName *SecretObject `pulumi:"userName"`
+}
+
+// CustomRegistryCredentialsInput is an input type that accepts CustomRegistryCredentialsArgs and CustomRegistryCredentialsOutput values.
+// You can construct a concrete instance of `CustomRegistryCredentialsInput` via:
+//
+//          CustomRegistryCredentialsArgs{...}
+type CustomRegistryCredentialsInput interface {
+	pulumi.Input
+
+	ToCustomRegistryCredentialsOutput() CustomRegistryCredentialsOutput
+	ToCustomRegistryCredentialsOutputWithContext(context.Context) CustomRegistryCredentialsOutput
+}
+
+// Describes the credentials that will be used to access a custom registry during a run.
+type CustomRegistryCredentialsArgs struct {
+	// The password for logging into the custom registry. The password is a secret
+	// object that allows multiple ways of providing the value for it.
+	Password SecretObjectPtrInput `pulumi:"password"`
+	// The username for logging into the custom registry.
+	UserName SecretObjectPtrInput `pulumi:"userName"`
+}
+
+func (CustomRegistryCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRegistryCredentials)(nil)).Elem()
+}
+
+func (i CustomRegistryCredentialsArgs) ToCustomRegistryCredentialsOutput() CustomRegistryCredentialsOutput {
+	return i.ToCustomRegistryCredentialsOutputWithContext(context.Background())
+}
+
+func (i CustomRegistryCredentialsArgs) ToCustomRegistryCredentialsOutputWithContext(ctx context.Context) CustomRegistryCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsOutput)
+}
+
+// CustomRegistryCredentialsMapInput is an input type that accepts CustomRegistryCredentialsMap and CustomRegistryCredentialsMapOutput values.
+// You can construct a concrete instance of `CustomRegistryCredentialsMapInput` via:
+//
+//          CustomRegistryCredentialsMap{ "key": CustomRegistryCredentialsArgs{...} }
+type CustomRegistryCredentialsMapInput interface {
+	pulumi.Input
+
+	ToCustomRegistryCredentialsMapOutput() CustomRegistryCredentialsMapOutput
+	ToCustomRegistryCredentialsMapOutputWithContext(context.Context) CustomRegistryCredentialsMapOutput
+}
+
+type CustomRegistryCredentialsMap map[string]CustomRegistryCredentialsInput
+
+func (CustomRegistryCredentialsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CustomRegistryCredentials)(nil)).Elem()
+}
+
+func (i CustomRegistryCredentialsMap) ToCustomRegistryCredentialsMapOutput() CustomRegistryCredentialsMapOutput {
+	return i.ToCustomRegistryCredentialsMapOutputWithContext(context.Background())
+}
+
+func (i CustomRegistryCredentialsMap) ToCustomRegistryCredentialsMapOutputWithContext(ctx context.Context) CustomRegistryCredentialsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsMapOutput)
+}
+
+// Describes the credentials that will be used to access a custom registry during a run.
+type CustomRegistryCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CustomRegistryCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRegistryCredentials)(nil)).Elem()
+}
+
+func (o CustomRegistryCredentialsOutput) ToCustomRegistryCredentialsOutput() CustomRegistryCredentialsOutput {
+	return o
+}
+
+func (o CustomRegistryCredentialsOutput) ToCustomRegistryCredentialsOutputWithContext(ctx context.Context) CustomRegistryCredentialsOutput {
+	return o
+}
+
+// The password for logging into the custom registry. The password is a secret
+// object that allows multiple ways of providing the value for it.
+func (o CustomRegistryCredentialsOutput) Password() SecretObjectPtrOutput {
+	return o.ApplyT(func(v CustomRegistryCredentials) *SecretObject { return v.Password }).(SecretObjectPtrOutput)
+}
+
+// The username for logging into the custom registry.
+func (o CustomRegistryCredentialsOutput) UserName() SecretObjectPtrOutput {
+	return o.ApplyT(func(v CustomRegistryCredentials) *SecretObject { return v.UserName }).(SecretObjectPtrOutput)
+}
+
+type CustomRegistryCredentialsMapOutput struct{ *pulumi.OutputState }
+
+func (CustomRegistryCredentialsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CustomRegistryCredentials)(nil)).Elem()
+}
+
+func (o CustomRegistryCredentialsMapOutput) ToCustomRegistryCredentialsMapOutput() CustomRegistryCredentialsMapOutput {
+	return o
+}
+
+func (o CustomRegistryCredentialsMapOutput) ToCustomRegistryCredentialsMapOutputWithContext(ctx context.Context) CustomRegistryCredentialsMapOutput {
+	return o
+}
+
+func (o CustomRegistryCredentialsMapOutput) MapIndex(k pulumi.StringInput) CustomRegistryCredentialsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomRegistryCredentials {
+		return vs[0].(map[string]CustomRegistryCredentials)[vs[1].(string)]
+	}).(CustomRegistryCredentialsOutput)
+}
+
+// Describes the credentials that will be used to access a custom registry during a run.
+type CustomRegistryCredentialsResponse struct {
+	// The password for logging into the custom registry. The password is a secret
+	// object that allows multiple ways of providing the value for it.
+	Password *SecretObjectResponse `pulumi:"password"`
+	// The username for logging into the custom registry.
+	UserName *SecretObjectResponse `pulumi:"userName"`
+}
+
+// CustomRegistryCredentialsResponseInput is an input type that accepts CustomRegistryCredentialsResponseArgs and CustomRegistryCredentialsResponseOutput values.
+// You can construct a concrete instance of `CustomRegistryCredentialsResponseInput` via:
+//
+//          CustomRegistryCredentialsResponseArgs{...}
+type CustomRegistryCredentialsResponseInput interface {
+	pulumi.Input
+
+	ToCustomRegistryCredentialsResponseOutput() CustomRegistryCredentialsResponseOutput
+	ToCustomRegistryCredentialsResponseOutputWithContext(context.Context) CustomRegistryCredentialsResponseOutput
+}
+
+// Describes the credentials that will be used to access a custom registry during a run.
+type CustomRegistryCredentialsResponseArgs struct {
+	// The password for logging into the custom registry. The password is a secret
+	// object that allows multiple ways of providing the value for it.
+	Password SecretObjectResponsePtrInput `pulumi:"password"`
+	// The username for logging into the custom registry.
+	UserName SecretObjectResponsePtrInput `pulumi:"userName"`
+}
+
+func (CustomRegistryCredentialsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (i CustomRegistryCredentialsResponseArgs) ToCustomRegistryCredentialsResponseOutput() CustomRegistryCredentialsResponseOutput {
+	return i.ToCustomRegistryCredentialsResponseOutputWithContext(context.Background())
+}
+
+func (i CustomRegistryCredentialsResponseArgs) ToCustomRegistryCredentialsResponseOutputWithContext(ctx context.Context) CustomRegistryCredentialsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsResponseOutput)
+}
+
+// CustomRegistryCredentialsResponseMapInput is an input type that accepts CustomRegistryCredentialsResponseMap and CustomRegistryCredentialsResponseMapOutput values.
+// You can construct a concrete instance of `CustomRegistryCredentialsResponseMapInput` via:
+//
+//          CustomRegistryCredentialsResponseMap{ "key": CustomRegistryCredentialsResponseArgs{...} }
+type CustomRegistryCredentialsResponseMapInput interface {
+	pulumi.Input
+
+	ToCustomRegistryCredentialsResponseMapOutput() CustomRegistryCredentialsResponseMapOutput
+	ToCustomRegistryCredentialsResponseMapOutputWithContext(context.Context) CustomRegistryCredentialsResponseMapOutput
+}
+
+type CustomRegistryCredentialsResponseMap map[string]CustomRegistryCredentialsResponseInput
+
+func (CustomRegistryCredentialsResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CustomRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (i CustomRegistryCredentialsResponseMap) ToCustomRegistryCredentialsResponseMapOutput() CustomRegistryCredentialsResponseMapOutput {
+	return i.ToCustomRegistryCredentialsResponseMapOutputWithContext(context.Background())
+}
+
+func (i CustomRegistryCredentialsResponseMap) ToCustomRegistryCredentialsResponseMapOutputWithContext(ctx context.Context) CustomRegistryCredentialsResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsResponseMapOutput)
+}
+
+// Describes the credentials that will be used to access a custom registry during a run.
+type CustomRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomRegistryCredentialsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (o CustomRegistryCredentialsResponseOutput) ToCustomRegistryCredentialsResponseOutput() CustomRegistryCredentialsResponseOutput {
+	return o
+}
+
+func (o CustomRegistryCredentialsResponseOutput) ToCustomRegistryCredentialsResponseOutputWithContext(ctx context.Context) CustomRegistryCredentialsResponseOutput {
+	return o
+}
+
+// The password for logging into the custom registry. The password is a secret
+// object that allows multiple ways of providing the value for it.
+func (o CustomRegistryCredentialsResponseOutput) Password() SecretObjectResponsePtrOutput {
+	return o.ApplyT(func(v CustomRegistryCredentialsResponse) *SecretObjectResponse { return v.Password }).(SecretObjectResponsePtrOutput)
+}
+
+// The username for logging into the custom registry.
+func (o CustomRegistryCredentialsResponseOutput) UserName() SecretObjectResponsePtrOutput {
+	return o.ApplyT(func(v CustomRegistryCredentialsResponse) *SecretObjectResponse { return v.UserName }).(SecretObjectResponsePtrOutput)
+}
+
+type CustomRegistryCredentialsResponseMapOutput struct{ *pulumi.OutputState }
+
+func (CustomRegistryCredentialsResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CustomRegistryCredentialsResponse)(nil)).Elem()
+}
+
+func (o CustomRegistryCredentialsResponseMapOutput) ToCustomRegistryCredentialsResponseMapOutput() CustomRegistryCredentialsResponseMapOutput {
+	return o
+}
+
+func (o CustomRegistryCredentialsResponseMapOutput) ToCustomRegistryCredentialsResponseMapOutputWithContext(ctx context.Context) CustomRegistryCredentialsResponseMapOutput {
+	return o
+}
+
+func (o CustomRegistryCredentialsResponseMapOutput) MapIndex(k pulumi.StringInput) CustomRegistryCredentialsResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CustomRegistryCredentialsResponse {
+		return vs[0].(map[string]CustomRegistryCredentialsResponse)[vs[1].(string)]
+	}).(CustomRegistryCredentialsResponseOutput)
 }
 
 // The platform properties against which the run has to happen.
@@ -1932,6 +2156,336 @@ func (o PlatformPropertiesResponsePtrOutput) Variant() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Variant
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties of a secret object value.
+type SecretObject struct {
+	// The type of the secret object which determines how the value of the secret object has to be
+	// interpreted.
+	Type *string `pulumi:"type"`
+	// The value of the secret. The format of this value will be determined
+	// based on the type of the secret object. If the type is Opaque, the value will be
+	// used as is without any modification.
+	Value *string `pulumi:"value"`
+}
+
+// SecretObjectInput is an input type that accepts SecretObjectArgs and SecretObjectOutput values.
+// You can construct a concrete instance of `SecretObjectInput` via:
+//
+//          SecretObjectArgs{...}
+type SecretObjectInput interface {
+	pulumi.Input
+
+	ToSecretObjectOutput() SecretObjectOutput
+	ToSecretObjectOutputWithContext(context.Context) SecretObjectOutput
+}
+
+// Describes the properties of a secret object value.
+type SecretObjectArgs struct {
+	// The type of the secret object which determines how the value of the secret object has to be
+	// interpreted.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value of the secret. The format of this value will be determined
+	// based on the type of the secret object. If the type is Opaque, the value will be
+	// used as is without any modification.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SecretObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretObject)(nil)).Elem()
+}
+
+func (i SecretObjectArgs) ToSecretObjectOutput() SecretObjectOutput {
+	return i.ToSecretObjectOutputWithContext(context.Background())
+}
+
+func (i SecretObjectArgs) ToSecretObjectOutputWithContext(ctx context.Context) SecretObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectOutput)
+}
+
+func (i SecretObjectArgs) ToSecretObjectPtrOutput() SecretObjectPtrOutput {
+	return i.ToSecretObjectPtrOutputWithContext(context.Background())
+}
+
+func (i SecretObjectArgs) ToSecretObjectPtrOutputWithContext(ctx context.Context) SecretObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectOutput).ToSecretObjectPtrOutputWithContext(ctx)
+}
+
+// SecretObjectPtrInput is an input type that accepts SecretObjectArgs, SecretObjectPtr and SecretObjectPtrOutput values.
+// You can construct a concrete instance of `SecretObjectPtrInput` via:
+//
+//          SecretObjectArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretObjectPtrInput interface {
+	pulumi.Input
+
+	ToSecretObjectPtrOutput() SecretObjectPtrOutput
+	ToSecretObjectPtrOutputWithContext(context.Context) SecretObjectPtrOutput
+}
+
+type secretObjectPtrType SecretObjectArgs
+
+func SecretObjectPtr(v *SecretObjectArgs) SecretObjectPtrInput {
+	return (*secretObjectPtrType)(v)
+}
+
+func (*secretObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretObject)(nil)).Elem()
+}
+
+func (i *secretObjectPtrType) ToSecretObjectPtrOutput() SecretObjectPtrOutput {
+	return i.ToSecretObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *secretObjectPtrType) ToSecretObjectPtrOutputWithContext(ctx context.Context) SecretObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectPtrOutput)
+}
+
+// Describes the properties of a secret object value.
+type SecretObjectOutput struct{ *pulumi.OutputState }
+
+func (SecretObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretObject)(nil)).Elem()
+}
+
+func (o SecretObjectOutput) ToSecretObjectOutput() SecretObjectOutput {
+	return o
+}
+
+func (o SecretObjectOutput) ToSecretObjectOutputWithContext(ctx context.Context) SecretObjectOutput {
+	return o
+}
+
+func (o SecretObjectOutput) ToSecretObjectPtrOutput() SecretObjectPtrOutput {
+	return o.ToSecretObjectPtrOutputWithContext(context.Background())
+}
+
+func (o SecretObjectOutput) ToSecretObjectPtrOutputWithContext(ctx context.Context) SecretObjectPtrOutput {
+	return o.ApplyT(func(v SecretObject) *SecretObject {
+		return &v
+	}).(SecretObjectPtrOutput)
+}
+
+// The type of the secret object which determines how the value of the secret object has to be
+// interpreted.
+func (o SecretObjectOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretObject) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret. The format of this value will be determined
+// based on the type of the secret object. If the type is Opaque, the value will be
+// used as is without any modification.
+func (o SecretObjectOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretObject) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SecretObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (SecretObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretObject)(nil)).Elem()
+}
+
+func (o SecretObjectPtrOutput) ToSecretObjectPtrOutput() SecretObjectPtrOutput {
+	return o
+}
+
+func (o SecretObjectPtrOutput) ToSecretObjectPtrOutputWithContext(ctx context.Context) SecretObjectPtrOutput {
+	return o
+}
+
+func (o SecretObjectPtrOutput) Elem() SecretObjectOutput {
+	return o.ApplyT(func(v *SecretObject) SecretObject { return *v }).(SecretObjectOutput)
+}
+
+// The type of the secret object which determines how the value of the secret object has to be
+// interpreted.
+func (o SecretObjectPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret. The format of this value will be determined
+// based on the type of the secret object. If the type is Opaque, the value will be
+// used as is without any modification.
+func (o SecretObjectPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretObject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties of a secret object value.
+type SecretObjectResponse struct {
+	// The type of the secret object which determines how the value of the secret object has to be
+	// interpreted.
+	Type *string `pulumi:"type"`
+	// The value of the secret. The format of this value will be determined
+	// based on the type of the secret object. If the type is Opaque, the value will be
+	// used as is without any modification.
+	Value *string `pulumi:"value"`
+}
+
+// SecretObjectResponseInput is an input type that accepts SecretObjectResponseArgs and SecretObjectResponseOutput values.
+// You can construct a concrete instance of `SecretObjectResponseInput` via:
+//
+//          SecretObjectResponseArgs{...}
+type SecretObjectResponseInput interface {
+	pulumi.Input
+
+	ToSecretObjectResponseOutput() SecretObjectResponseOutput
+	ToSecretObjectResponseOutputWithContext(context.Context) SecretObjectResponseOutput
+}
+
+// Describes the properties of a secret object value.
+type SecretObjectResponseArgs struct {
+	// The type of the secret object which determines how the value of the secret object has to be
+	// interpreted.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value of the secret. The format of this value will be determined
+	// based on the type of the secret object. If the type is Opaque, the value will be
+	// used as is without any modification.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SecretObjectResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretObjectResponse)(nil)).Elem()
+}
+
+func (i SecretObjectResponseArgs) ToSecretObjectResponseOutput() SecretObjectResponseOutput {
+	return i.ToSecretObjectResponseOutputWithContext(context.Background())
+}
+
+func (i SecretObjectResponseArgs) ToSecretObjectResponseOutputWithContext(ctx context.Context) SecretObjectResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectResponseOutput)
+}
+
+func (i SecretObjectResponseArgs) ToSecretObjectResponsePtrOutput() SecretObjectResponsePtrOutput {
+	return i.ToSecretObjectResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SecretObjectResponseArgs) ToSecretObjectResponsePtrOutputWithContext(ctx context.Context) SecretObjectResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectResponseOutput).ToSecretObjectResponsePtrOutputWithContext(ctx)
+}
+
+// SecretObjectResponsePtrInput is an input type that accepts SecretObjectResponseArgs, SecretObjectResponsePtr and SecretObjectResponsePtrOutput values.
+// You can construct a concrete instance of `SecretObjectResponsePtrInput` via:
+//
+//          SecretObjectResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SecretObjectResponsePtrInput interface {
+	pulumi.Input
+
+	ToSecretObjectResponsePtrOutput() SecretObjectResponsePtrOutput
+	ToSecretObjectResponsePtrOutputWithContext(context.Context) SecretObjectResponsePtrOutput
+}
+
+type secretObjectResponsePtrType SecretObjectResponseArgs
+
+func SecretObjectResponsePtr(v *SecretObjectResponseArgs) SecretObjectResponsePtrInput {
+	return (*secretObjectResponsePtrType)(v)
+}
+
+func (*secretObjectResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretObjectResponse)(nil)).Elem()
+}
+
+func (i *secretObjectResponsePtrType) ToSecretObjectResponsePtrOutput() SecretObjectResponsePtrOutput {
+	return i.ToSecretObjectResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *secretObjectResponsePtrType) ToSecretObjectResponsePtrOutputWithContext(ctx context.Context) SecretObjectResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectResponsePtrOutput)
+}
+
+// Describes the properties of a secret object value.
+type SecretObjectResponseOutput struct{ *pulumi.OutputState }
+
+func (SecretObjectResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretObjectResponse)(nil)).Elem()
+}
+
+func (o SecretObjectResponseOutput) ToSecretObjectResponseOutput() SecretObjectResponseOutput {
+	return o
+}
+
+func (o SecretObjectResponseOutput) ToSecretObjectResponseOutputWithContext(ctx context.Context) SecretObjectResponseOutput {
+	return o
+}
+
+func (o SecretObjectResponseOutput) ToSecretObjectResponsePtrOutput() SecretObjectResponsePtrOutput {
+	return o.ToSecretObjectResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SecretObjectResponseOutput) ToSecretObjectResponsePtrOutputWithContext(ctx context.Context) SecretObjectResponsePtrOutput {
+	return o.ApplyT(func(v SecretObjectResponse) *SecretObjectResponse {
+		return &v
+	}).(SecretObjectResponsePtrOutput)
+}
+
+// The type of the secret object which determines how the value of the secret object has to be
+// interpreted.
+func (o SecretObjectResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretObjectResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret. The format of this value will be determined
+// based on the type of the secret object. If the type is Opaque, the value will be
+// used as is without any modification.
+func (o SecretObjectResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretObjectResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SecretObjectResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SecretObjectResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecretObjectResponse)(nil)).Elem()
+}
+
+func (o SecretObjectResponsePtrOutput) ToSecretObjectResponsePtrOutput() SecretObjectResponsePtrOutput {
+	return o
+}
+
+func (o SecretObjectResponsePtrOutput) ToSecretObjectResponsePtrOutputWithContext(ctx context.Context) SecretObjectResponsePtrOutput {
+	return o
+}
+
+func (o SecretObjectResponsePtrOutput) Elem() SecretObjectResponseOutput {
+	return o.ApplyT(func(v *SecretObjectResponse) SecretObjectResponse { return *v }).(SecretObjectResponseOutput)
+}
+
+// The type of the secret object which determines how the value of the secret object has to be
+// interpreted.
+func (o SecretObjectResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretObjectResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret. The format of this value will be determined
+// based on the type of the secret object. If the type is Opaque, the value will be
+// used as is without any modification.
+func (o SecretObjectResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretObjectResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3941,10 +4495,18 @@ func init() {
 	pulumi.RegisterOutputType(CredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CredentialsResponseOutput{})
 	pulumi.RegisterOutputType(CredentialsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CustomRegistryCredentialsOutput{})
+	pulumi.RegisterOutputType(CustomRegistryCredentialsMapOutput{})
+	pulumi.RegisterOutputType(CustomRegistryCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(CustomRegistryCredentialsResponseMapOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecretObjectOutput{})
+	pulumi.RegisterOutputType(SecretObjectPtrOutput{})
+	pulumi.RegisterOutputType(SecretObjectResponseOutput{})
+	pulumi.RegisterOutputType(SecretObjectResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourcePropertiesOutput{})
 	pulumi.RegisterOutputType(SourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SourceRegistryCredentialsOutput{})

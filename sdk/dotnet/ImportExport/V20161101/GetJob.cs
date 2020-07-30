@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.ImportExport.V20161101
         /// <summary>
         /// Specifies the tags that are assigned to the job.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, object>? Tags;
         /// <summary>
         /// Specifies the type of the job resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ImportExport.V20161101
 
             Outputs.JobDetailsResponseResult properties,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, object>? tags,
 
             string type)
         {

@@ -101,7 +101,7 @@ type BudgetProperties struct {
 	// May be used to filter budgets by resource group, resource, or meter.
 	Filters *Filters `pulumi:"filters"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-	Notifications map[string]string `pulumi:"notifications"`
+	Notifications map[string]Notification `pulumi:"notifications"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
 	TimeGrain string `pulumi:"timeGrain"`
 	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
@@ -128,7 +128,7 @@ type BudgetPropertiesArgs struct {
 	// May be used to filter budgets by resource group, resource, or meter.
 	Filters FiltersPtrInput `pulumi:"filters"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-	Notifications pulumi.StringMapInput `pulumi:"notifications"`
+	Notifications NotificationMapInput `pulumi:"notifications"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
 	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
 	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
@@ -229,8 +229,8 @@ func (o BudgetPropertiesOutput) Filters() FiltersPtrOutput {
 }
 
 // Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-func (o BudgetPropertiesOutput) Notifications() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BudgetProperties) map[string]string { return v.Notifications }).(pulumi.StringMapOutput)
+func (o BudgetPropertiesOutput) Notifications() NotificationMapOutput {
+	return o.ApplyT(func(v BudgetProperties) map[string]Notification { return v.Notifications }).(NotificationMapOutput)
 }
 
 // The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -292,13 +292,13 @@ func (o BudgetPropertiesPtrOutput) Filters() FiltersPtrOutput {
 }
 
 // Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-func (o BudgetPropertiesPtrOutput) Notifications() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BudgetProperties) map[string]string {
+func (o BudgetPropertiesPtrOutput) Notifications() NotificationMapOutput {
+	return o.ApplyT(func(v *BudgetProperties) map[string]Notification {
 		if v == nil {
 			return nil
 		}
 		return v.Notifications
-	}).(pulumi.StringMapOutput)
+	}).(NotificationMapOutput)
 }
 
 // The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -332,7 +332,7 @@ type BudgetPropertiesResponse struct {
 	// May be used to filter budgets by resource group, resource, or meter.
 	Filters *FiltersResponse `pulumi:"filters"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-	Notifications map[string]string `pulumi:"notifications"`
+	Notifications map[string]NotificationResponse `pulumi:"notifications"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
 	TimeGrain string `pulumi:"timeGrain"`
 	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
@@ -361,7 +361,7 @@ type BudgetPropertiesResponseArgs struct {
 	// May be used to filter budgets by resource group, resource, or meter.
 	Filters FiltersResponsePtrInput `pulumi:"filters"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-	Notifications pulumi.StringMapInput `pulumi:"notifications"`
+	Notifications NotificationResponseMapInput `pulumi:"notifications"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
 	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
 	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
@@ -467,8 +467,8 @@ func (o BudgetPropertiesResponseOutput) Filters() FiltersResponsePtrOutput {
 }
 
 // Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-func (o BudgetPropertiesResponseOutput) Notifications() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BudgetPropertiesResponse) map[string]string { return v.Notifications }).(pulumi.StringMapOutput)
+func (o BudgetPropertiesResponseOutput) Notifications() NotificationResponseMapOutput {
+	return o.ApplyT(func(v BudgetPropertiesResponse) map[string]NotificationResponse { return v.Notifications }).(NotificationResponseMapOutput)
 }
 
 // The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -540,13 +540,13 @@ func (o BudgetPropertiesResponsePtrOutput) Filters() FiltersResponsePtrOutput {
 }
 
 // Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-func (o BudgetPropertiesResponsePtrOutput) Notifications() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BudgetPropertiesResponse) map[string]string {
+func (o BudgetPropertiesResponsePtrOutput) Notifications() NotificationResponseMapOutput {
+	return o.ApplyT(func(v *BudgetPropertiesResponse) map[string]NotificationResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Notifications
-	}).(pulumi.StringMapOutput)
+	}).(NotificationResponseMapOutput)
 }
 
 // The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -1083,7 +1083,7 @@ type Filters struct {
 	// The list of filters on resources.
 	Resources []string `pulumi:"resources"`
 	// The dictionary of filters on tags.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string][]string `pulumi:"tags"`
 }
 
 // FiltersInput is an input type that accepts FiltersArgs and FiltersOutput values.
@@ -1106,7 +1106,7 @@ type FiltersArgs struct {
 	// The list of filters on resources.
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
 	// The dictionary of filters on tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
 }
 
 func (FiltersArgs) ElementType() reflect.Type {
@@ -1203,8 +1203,8 @@ func (o FiltersOutput) Resources() pulumi.StringArrayOutput {
 }
 
 // The dictionary of filters on tags.
-func (o FiltersOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Filters) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o FiltersOutput) Tags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v Filters) map[string][]string { return v.Tags }).(pulumi.StringArrayMapOutput)
 }
 
 type FiltersPtrOutput struct{ *pulumi.OutputState }
@@ -1256,13 +1256,13 @@ func (o FiltersPtrOutput) Resources() pulumi.StringArrayOutput {
 }
 
 // The dictionary of filters on tags.
-func (o FiltersPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Filters) map[string]string {
+func (o FiltersPtrOutput) Tags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *Filters) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // May be used to filter budgets by resource group, resource, or meter.
@@ -1274,7 +1274,7 @@ type FiltersResponse struct {
 	// The list of filters on resources.
 	Resources []string `pulumi:"resources"`
 	// The dictionary of filters on tags.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string][]string `pulumi:"tags"`
 }
 
 // FiltersResponseInput is an input type that accepts FiltersResponseArgs and FiltersResponseOutput values.
@@ -1297,7 +1297,7 @@ type FiltersResponseArgs struct {
 	// The list of filters on resources.
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
 	// The dictionary of filters on tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
 }
 
 func (FiltersResponseArgs) ElementType() reflect.Type {
@@ -1394,8 +1394,8 @@ func (o FiltersResponseOutput) Resources() pulumi.StringArrayOutput {
 }
 
 // The dictionary of filters on tags.
-func (o FiltersResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FiltersResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o FiltersResponseOutput) Tags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v FiltersResponse) map[string][]string { return v.Tags }).(pulumi.StringArrayMapOutput)
 }
 
 type FiltersResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1447,13 +1447,303 @@ func (o FiltersResponsePtrOutput) Resources() pulumi.StringArrayOutput {
 }
 
 // The dictionary of filters on tags.
-func (o FiltersResponsePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *FiltersResponse) map[string]string {
+func (o FiltersResponsePtrOutput) Tags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *FiltersResponse) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
+}
+
+// The notification associated with a budget.
+type Notification struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// The comparison operator.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+// NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
+// You can construct a concrete instance of `NotificationInput` via:
+//
+//          NotificationArgs{...}
+type NotificationInput interface {
+	pulumi.Input
+
+	ToNotificationOutput() NotificationOutput
+	ToNotificationOutputWithContext(context.Context) NotificationOutput
+}
+
+// The notification associated with a budget.
+type NotificationArgs struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The comparison operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (NotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Notification)(nil)).Elem()
+}
+
+func (i NotificationArgs) ToNotificationOutput() NotificationOutput {
+	return i.ToNotificationOutputWithContext(context.Background())
+}
+
+func (i NotificationArgs) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationOutput)
+}
+
+// NotificationMapInput is an input type that accepts NotificationMap and NotificationMapOutput values.
+// You can construct a concrete instance of `NotificationMapInput` via:
+//
+//          NotificationMap{ "key": NotificationArgs{...} }
+type NotificationMapInput interface {
+	pulumi.Input
+
+	ToNotificationMapOutput() NotificationMapOutput
+	ToNotificationMapOutputWithContext(context.Context) NotificationMapOutput
+}
+
+type NotificationMap map[string]NotificationInput
+
+func (NotificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Notification)(nil)).Elem()
+}
+
+func (i NotificationMap) ToNotificationMapOutput() NotificationMapOutput {
+	return i.ToNotificationMapOutputWithContext(context.Background())
+}
+
+func (i NotificationMap) ToNotificationMapOutputWithContext(ctx context.Context) NotificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationMapOutput)
+}
+
+// The notification associated with a budget.
+type NotificationOutput struct{ *pulumi.OutputState }
+
+func (NotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Notification)(nil)).Elem()
+}
+
+func (o NotificationOutput) ToNotificationOutput() NotificationOutput {
+	return o
+}
+
+func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
+	return o
+}
+
+// Email addresses to send the budget notification to when the threshold is exceeded.
+func (o NotificationOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Notification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// Action groups to send the budget notification to when the threshold is exceeded.
+func (o NotificationOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Notification) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// Contact roles to send the budget notification to when the threshold is exceeded.
+func (o NotificationOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Notification) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// The notification is enabled or not.
+func (o NotificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v Notification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The comparison operator.
+func (o NotificationOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v Notification) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+func (o NotificationOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v Notification) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type NotificationMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Notification)(nil)).Elem()
+}
+
+func (o NotificationMapOutput) ToNotificationMapOutput() NotificationMapOutput {
+	return o
+}
+
+func (o NotificationMapOutput) ToNotificationMapOutputWithContext(ctx context.Context) NotificationMapOutput {
+	return o
+}
+
+func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Notification {
+		return vs[0].(map[string]Notification)[vs[1].(string)]
+	}).(NotificationOutput)
+}
+
+// The notification associated with a budget.
+type NotificationResponse struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// The comparison operator.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+// NotificationResponseInput is an input type that accepts NotificationResponseArgs and NotificationResponseOutput values.
+// You can construct a concrete instance of `NotificationResponseInput` via:
+//
+//          NotificationResponseArgs{...}
+type NotificationResponseInput interface {
+	pulumi.Input
+
+	ToNotificationResponseOutput() NotificationResponseOutput
+	ToNotificationResponseOutputWithContext(context.Context) NotificationResponseOutput
+}
+
+// The notification associated with a budget.
+type NotificationResponseArgs struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The comparison operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (NotificationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationResponse)(nil)).Elem()
+}
+
+func (i NotificationResponseArgs) ToNotificationResponseOutput() NotificationResponseOutput {
+	return i.ToNotificationResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationResponseArgs) ToNotificationResponseOutputWithContext(ctx context.Context) NotificationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseOutput)
+}
+
+// NotificationResponseMapInput is an input type that accepts NotificationResponseMap and NotificationResponseMapOutput values.
+// You can construct a concrete instance of `NotificationResponseMapInput` via:
+//
+//          NotificationResponseMap{ "key": NotificationResponseArgs{...} }
+type NotificationResponseMapInput interface {
+	pulumi.Input
+
+	ToNotificationResponseMapOutput() NotificationResponseMapOutput
+	ToNotificationResponseMapOutputWithContext(context.Context) NotificationResponseMapOutput
+}
+
+type NotificationResponseMap map[string]NotificationResponseInput
+
+func (NotificationResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationResponse)(nil)).Elem()
+}
+
+func (i NotificationResponseMap) ToNotificationResponseMapOutput() NotificationResponseMapOutput {
+	return i.ToNotificationResponseMapOutputWithContext(context.Background())
+}
+
+func (i NotificationResponseMap) ToNotificationResponseMapOutputWithContext(ctx context.Context) NotificationResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseMapOutput)
+}
+
+// The notification associated with a budget.
+type NotificationResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationResponse)(nil)).Elem()
+}
+
+func (o NotificationResponseOutput) ToNotificationResponseOutput() NotificationResponseOutput {
+	return o
+}
+
+func (o NotificationResponseOutput) ToNotificationResponseOutputWithContext(ctx context.Context) NotificationResponseOutput {
+	return o
+}
+
+// Email addresses to send the budget notification to when the threshold is exceeded.
+func (o NotificationResponseOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// Action groups to send the budget notification to when the threshold is exceeded.
+func (o NotificationResponseOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// Contact roles to send the budget notification to when the threshold is exceeded.
+func (o NotificationResponseOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationResponse) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// The notification is enabled or not.
+func (o NotificationResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v NotificationResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The comparison operator.
+func (o NotificationResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+func (o NotificationResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v NotificationResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type NotificationResponseMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationResponse)(nil)).Elem()
+}
+
+func (o NotificationResponseMapOutput) ToNotificationResponseMapOutput() NotificationResponseMapOutput {
+	return o
+}
+
+func (o NotificationResponseMapOutput) ToNotificationResponseMapOutputWithContext(ctx context.Context) NotificationResponseMapOutput {
+	return o
+}
+
+func (o NotificationResponseMapOutput) MapIndex(k pulumi.StringInput) NotificationResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationResponse {
+		return vs[0].(map[string]NotificationResponse)[vs[1].(string)]
+	}).(NotificationResponseOutput)
 }
 
 func init() {
@@ -1473,4 +1763,8 @@ func init() {
 	pulumi.RegisterOutputType(FiltersPtrOutput{})
 	pulumi.RegisterOutputType(FiltersResponseOutput{})
 	pulumi.RegisterOutputType(FiltersResponsePtrOutput{})
+	pulumi.RegisterOutputType(NotificationOutput{})
+	pulumi.RegisterOutputType(NotificationMapOutput{})
+	pulumi.RegisterOutputType(NotificationResponseOutput{})
+	pulumi.RegisterOutputType(NotificationResponseMapOutput{})
 }

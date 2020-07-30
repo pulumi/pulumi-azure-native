@@ -329,7 +329,7 @@ type DedicatedCloudNodePropertiesResponse struct {
 	// VMWare Cloud Rack Name
 	CloudRackName string `pulumi:"cloudRackName"`
 	// date time the resource was created
-	Created map[string]string `pulumi:"created"`
+	Created map[string]interface{} `pulumi:"created"`
 	// count of nodes to create
 	NodesCount int `pulumi:"nodesCount"`
 	// Placement Group id, e.g. "n1"
@@ -372,7 +372,7 @@ type DedicatedCloudNodePropertiesResponseArgs struct {
 	// VMWare Cloud Rack Name
 	CloudRackName pulumi.StringInput `pulumi:"cloudRackName"`
 	// date time the resource was created
-	Created pulumi.StringMapInput `pulumi:"created"`
+	Created pulumi.MapInput `pulumi:"created"`
 	// count of nodes to create
 	NodesCount pulumi.IntInput `pulumi:"nodesCount"`
 	// Placement Group id, e.g. "n1"
@@ -489,8 +489,8 @@ func (o DedicatedCloudNodePropertiesResponseOutput) CloudRackName() pulumi.Strin
 }
 
 // date time the resource was created
-func (o DedicatedCloudNodePropertiesResponseOutput) Created() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DedicatedCloudNodePropertiesResponse) map[string]string { return v.Created }).(pulumi.StringMapOutput)
+func (o DedicatedCloudNodePropertiesResponseOutput) Created() pulumi.MapOutput {
+	return o.ApplyT(func(v DedicatedCloudNodePropertiesResponse) map[string]interface{} { return v.Created }).(pulumi.MapOutput)
 }
 
 // count of nodes to create
@@ -592,13 +592,13 @@ func (o DedicatedCloudNodePropertiesResponsePtrOutput) CloudRackName() pulumi.St
 }
 
 // date time the resource was created
-func (o DedicatedCloudNodePropertiesResponsePtrOutput) Created() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DedicatedCloudNodePropertiesResponse) map[string]string {
+func (o DedicatedCloudNodePropertiesResponsePtrOutput) Created() pulumi.MapOutput {
+	return o.ApplyT(func(v *DedicatedCloudNodePropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Created
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // count of nodes to create

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Management.V20161201.Outputs
         /// <summary>
         /// The policy definition metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureRM.Management.V20161201.Outputs
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? PolicyRule;
+        public readonly ImmutableDictionary<string, object>? PolicyRule;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Management.V20161201.Outputs
 
             string? displayName,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string? mode,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
-            ImmutableDictionary<string, string>? policyRule,
+            ImmutableDictionary<string, object>? policyRule,
 
             string? policyType)
         {

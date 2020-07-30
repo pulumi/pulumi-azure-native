@@ -19,7 +19,7 @@ type MachineExtension struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes Machine Extension Properties.
-	Properties pulumi.StringMapOutput `pulumi:"properties"`
+	Properties pulumi.MapOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -68,7 +68,7 @@ type machineExtensionState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Describes Machine Extension Properties.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -81,7 +81,7 @@ type MachineExtensionState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Describes Machine Extension Properties.
-	Properties pulumi.StringMapInput
+	Properties pulumi.MapInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -98,7 +98,7 @@ type machineExtensionArgs struct {
 	// The name of the machine extension.
 	Name string `pulumi:"name"`
 	// Describes Machine Extension Properties.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -112,7 +112,7 @@ type MachineExtensionArgs struct {
 	// The name of the machine extension.
 	Name pulumi.StringInput
 	// Describes Machine Extension Properties.
-	Properties pulumi.StringMapInput
+	Properties pulumi.MapInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

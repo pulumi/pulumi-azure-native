@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
         /// <summary>
         /// Gets the field definitions of the connection type.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> FieldDefinitions;
+        public readonly ImmutableDictionary<string, Outputs.FieldDefinitionResponseResult> FieldDefinitions;
         /// <summary>
         /// Gets or sets a Boolean value to indicate if the connection type is global.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, string> fieldDefinitions,
+            ImmutableDictionary<string, Outputs.FieldDefinitionResponseResult> fieldDefinitions,
 
             bool? isGlobal,
 

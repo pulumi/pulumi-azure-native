@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> _ts;
+        public readonly ImmutableDictionary<string, object> _ts;
         /// <summary>
         /// A system generated property that specifies the addressable path of the users resource.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
 
             string _rid,
 
-            ImmutableDictionary<string, string> _ts,
+            ImmutableDictionary<string, object> _ts,
 
             string? _users,
 

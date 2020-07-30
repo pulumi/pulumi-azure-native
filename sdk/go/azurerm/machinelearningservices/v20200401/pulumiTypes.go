@@ -1229,7 +1229,7 @@ type Identity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]IdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1248,7 +1248,7 @@ type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities IdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1335,8 +1335,8 @@ func (o IdentityOutput) Type() pulumi.StringOutput {
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Identity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o IdentityOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
+	return o.ApplyT(func(v Identity) map[string]IdentityProperties { return v.UserAssignedIdentities }).(IdentityPropertiesMapOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1368,13 +1368,101 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Identity) map[string]string {
+func (o IdentityPtrOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *Identity) map[string]IdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(IdentityPropertiesMapOutput)
+}
+
+type IdentityProperties struct {
+}
+
+// IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
+// You can construct a concrete instance of `IdentityPropertiesInput` via:
+//
+//          IdentityPropertiesArgs{...}
+type IdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesOutput() IdentityPropertiesOutput
+	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
+}
+
+type IdentityPropertiesArgs struct {
+}
+
+func (IdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
+	return i.ToIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesOutput)
+}
+
+// IdentityPropertiesMapInput is an input type that accepts IdentityPropertiesMap and IdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `IdentityPropertiesMapInput` via:
+//
+//          IdentityPropertiesMap{ "key": IdentityPropertiesArgs{...} }
+type IdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput
+	ToIdentityPropertiesMapOutputWithContext(context.Context) IdentityPropertiesMapOutput
+}
+
+type IdentityPropertiesMap map[string]IdentityPropertiesInput
+
+func (IdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
+}
+
+func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
+	return i.ToIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesMapOutput)
+}
+
+type IdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
+	return o
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
+	return o
+}
+
+type IdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
+}
+
+func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
+	return o
+}
+
+func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
+	return o
+}
+
+func (o IdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProperties {
+		return vs[0].(map[string]IdentityProperties)[vs[1].(string)]
+	}).(IdentityPropertiesOutput)
 }
 
 // Identity for the resource.
@@ -1386,7 +1474,7 @@ type IdentityResponse struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]IdentityResponseProperties `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -1409,7 +1497,7 @@ type IdentityResponseArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities IdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -1506,8 +1594,8 @@ func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseProperties { return v.UserAssignedIdentities }).(IdentityResponsePropertiesMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1559,13 +1647,119 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IdentityResponse) map[string]string {
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(IdentityResponsePropertiesMapOutput)
+}
+
+type IdentityResponseProperties struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// IdentityResponsePropertiesInput is an input type that accepts IdentityResponsePropertiesArgs and IdentityResponsePropertiesOutput values.
+// You can construct a concrete instance of `IdentityResponsePropertiesInput` via:
+//
+//          IdentityResponsePropertiesArgs{...}
+type IdentityResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput
+	ToIdentityResponsePropertiesOutputWithContext(context.Context) IdentityResponsePropertiesOutput
+}
+
+type IdentityResponsePropertiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (IdentityResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+}
+
+func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
+	return i.ToIdentityResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesOutput)
+}
+
+// IdentityResponsePropertiesMapInput is an input type that accepts IdentityResponsePropertiesMap and IdentityResponsePropertiesMapOutput values.
+// You can construct a concrete instance of `IdentityResponsePropertiesMapInput` via:
+//
+//          IdentityResponsePropertiesMap{ "key": IdentityResponsePropertiesArgs{...} }
+type IdentityResponsePropertiesMapInput interface {
+	pulumi.Input
+
+	ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput
+	ToIdentityResponsePropertiesMapOutputWithContext(context.Context) IdentityResponsePropertiesMapOutput
+}
+
+type IdentityResponsePropertiesMap map[string]IdentityResponsePropertiesInput
+
+func (IdentityResponsePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+}
+
+func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
+	return i.ToIdentityResponsePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesMapOutput)
+}
+
+type IdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+}
+
+func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
+	return o
+}
+
+func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o IdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o IdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type IdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+}
+
+func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o IdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponsePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseProperties {
+		return vs[0].(map[string]IdentityResponseProperties)[vs[1].(string)]
+	}).(IdentityResponsePropertiesOutput)
 }
 
 type KeyVaultProperties struct {
@@ -5965,8 +6159,12 @@ func init() {
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePropertiesMapOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})

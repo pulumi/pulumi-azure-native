@@ -18,7 +18,7 @@ type WorkspaceCollection struct {
 	// Workspace collection name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Properties
-	Properties pulumi.StringMapOutput    `pulumi:"properties"`
+	Properties pulumi.MapOutput          `pulumi:"properties"`
 	Sku        AzureSkuResponsePtrOutput `pulumi:"sku"`
 	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
 	// Resource type
@@ -64,9 +64,9 @@ type workspaceCollectionState struct {
 	// Workspace collection name
 	Name *string `pulumi:"name"`
 	// Properties
-	Properties map[string]string `pulumi:"properties"`
-	Sku        *AzureSkuResponse `pulumi:"sku"`
-	Tags       map[string]string `pulumi:"tags"`
+	Properties map[string]interface{} `pulumi:"properties"`
+	Sku        *AzureSkuResponse      `pulumi:"sku"`
+	Tags       map[string]string      `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type WorkspaceCollectionState struct {
 	// Workspace collection name
 	Name pulumi.StringPtrInput
 	// Properties
-	Properties pulumi.StringMapInput
+	Properties pulumi.MapInput
 	Sku        AzureSkuResponsePtrInput
 	Tags       pulumi.StringMapInput
 	// Resource type

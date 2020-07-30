@@ -1736,6 +1736,224 @@ func (o ExportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The aggregation expression to be used in the query.
+type QueryAggregation struct {
+	// The name of the aggregation function to use.
+	Function string `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name string `pulumi:"name"`
+}
+
+// QueryAggregationInput is an input type that accepts QueryAggregationArgs and QueryAggregationOutput values.
+// You can construct a concrete instance of `QueryAggregationInput` via:
+//
+//          QueryAggregationArgs{...}
+type QueryAggregationInput interface {
+	pulumi.Input
+
+	ToQueryAggregationOutput() QueryAggregationOutput
+	ToQueryAggregationOutputWithContext(context.Context) QueryAggregationOutput
+}
+
+// The aggregation expression to be used in the query.
+type QueryAggregationArgs struct {
+	// The name of the aggregation function to use.
+	Function pulumi.StringInput `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (QueryAggregationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryAggregation)(nil)).Elem()
+}
+
+func (i QueryAggregationArgs) ToQueryAggregationOutput() QueryAggregationOutput {
+	return i.ToQueryAggregationOutputWithContext(context.Background())
+}
+
+func (i QueryAggregationArgs) ToQueryAggregationOutputWithContext(ctx context.Context) QueryAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryAggregationOutput)
+}
+
+// QueryAggregationMapInput is an input type that accepts QueryAggregationMap and QueryAggregationMapOutput values.
+// You can construct a concrete instance of `QueryAggregationMapInput` via:
+//
+//          QueryAggregationMap{ "key": QueryAggregationArgs{...} }
+type QueryAggregationMapInput interface {
+	pulumi.Input
+
+	ToQueryAggregationMapOutput() QueryAggregationMapOutput
+	ToQueryAggregationMapOutputWithContext(context.Context) QueryAggregationMapOutput
+}
+
+type QueryAggregationMap map[string]QueryAggregationInput
+
+func (QueryAggregationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]QueryAggregation)(nil)).Elem()
+}
+
+func (i QueryAggregationMap) ToQueryAggregationMapOutput() QueryAggregationMapOutput {
+	return i.ToQueryAggregationMapOutputWithContext(context.Background())
+}
+
+func (i QueryAggregationMap) ToQueryAggregationMapOutputWithContext(ctx context.Context) QueryAggregationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryAggregationMapOutput)
+}
+
+// The aggregation expression to be used in the query.
+type QueryAggregationOutput struct{ *pulumi.OutputState }
+
+func (QueryAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryAggregation)(nil)).Elem()
+}
+
+func (o QueryAggregationOutput) ToQueryAggregationOutput() QueryAggregationOutput {
+	return o
+}
+
+func (o QueryAggregationOutput) ToQueryAggregationOutputWithContext(ctx context.Context) QueryAggregationOutput {
+	return o
+}
+
+// The name of the aggregation function to use.
+func (o QueryAggregationOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryAggregation) string { return v.Function }).(pulumi.StringOutput)
+}
+
+// The name of the column to aggregate.
+func (o QueryAggregationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryAggregation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type QueryAggregationMapOutput struct{ *pulumi.OutputState }
+
+func (QueryAggregationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]QueryAggregation)(nil)).Elem()
+}
+
+func (o QueryAggregationMapOutput) ToQueryAggregationMapOutput() QueryAggregationMapOutput {
+	return o
+}
+
+func (o QueryAggregationMapOutput) ToQueryAggregationMapOutputWithContext(ctx context.Context) QueryAggregationMapOutput {
+	return o
+}
+
+func (o QueryAggregationMapOutput) MapIndex(k pulumi.StringInput) QueryAggregationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) QueryAggregation {
+		return vs[0].(map[string]QueryAggregation)[vs[1].(string)]
+	}).(QueryAggregationOutput)
+}
+
+// The aggregation expression to be used in the query.
+type QueryAggregationResponse struct {
+	// The name of the aggregation function to use.
+	Function string `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name string `pulumi:"name"`
+}
+
+// QueryAggregationResponseInput is an input type that accepts QueryAggregationResponseArgs and QueryAggregationResponseOutput values.
+// You can construct a concrete instance of `QueryAggregationResponseInput` via:
+//
+//          QueryAggregationResponseArgs{...}
+type QueryAggregationResponseInput interface {
+	pulumi.Input
+
+	ToQueryAggregationResponseOutput() QueryAggregationResponseOutput
+	ToQueryAggregationResponseOutputWithContext(context.Context) QueryAggregationResponseOutput
+}
+
+// The aggregation expression to be used in the query.
+type QueryAggregationResponseArgs struct {
+	// The name of the aggregation function to use.
+	Function pulumi.StringInput `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (QueryAggregationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryAggregationResponse)(nil)).Elem()
+}
+
+func (i QueryAggregationResponseArgs) ToQueryAggregationResponseOutput() QueryAggregationResponseOutput {
+	return i.ToQueryAggregationResponseOutputWithContext(context.Background())
+}
+
+func (i QueryAggregationResponseArgs) ToQueryAggregationResponseOutputWithContext(ctx context.Context) QueryAggregationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryAggregationResponseOutput)
+}
+
+// QueryAggregationResponseMapInput is an input type that accepts QueryAggregationResponseMap and QueryAggregationResponseMapOutput values.
+// You can construct a concrete instance of `QueryAggregationResponseMapInput` via:
+//
+//          QueryAggregationResponseMap{ "key": QueryAggregationResponseArgs{...} }
+type QueryAggregationResponseMapInput interface {
+	pulumi.Input
+
+	ToQueryAggregationResponseMapOutput() QueryAggregationResponseMapOutput
+	ToQueryAggregationResponseMapOutputWithContext(context.Context) QueryAggregationResponseMapOutput
+}
+
+type QueryAggregationResponseMap map[string]QueryAggregationResponseInput
+
+func (QueryAggregationResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]QueryAggregationResponse)(nil)).Elem()
+}
+
+func (i QueryAggregationResponseMap) ToQueryAggregationResponseMapOutput() QueryAggregationResponseMapOutput {
+	return i.ToQueryAggregationResponseMapOutputWithContext(context.Background())
+}
+
+func (i QueryAggregationResponseMap) ToQueryAggregationResponseMapOutputWithContext(ctx context.Context) QueryAggregationResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryAggregationResponseMapOutput)
+}
+
+// The aggregation expression to be used in the query.
+type QueryAggregationResponseOutput struct{ *pulumi.OutputState }
+
+func (QueryAggregationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryAggregationResponse)(nil)).Elem()
+}
+
+func (o QueryAggregationResponseOutput) ToQueryAggregationResponseOutput() QueryAggregationResponseOutput {
+	return o
+}
+
+func (o QueryAggregationResponseOutput) ToQueryAggregationResponseOutputWithContext(ctx context.Context) QueryAggregationResponseOutput {
+	return o
+}
+
+// The name of the aggregation function to use.
+func (o QueryAggregationResponseOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryAggregationResponse) string { return v.Function }).(pulumi.StringOutput)
+}
+
+// The name of the column to aggregate.
+func (o QueryAggregationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryAggregationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type QueryAggregationResponseMapOutput struct{ *pulumi.OutputState }
+
+func (QueryAggregationResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]QueryAggregationResponse)(nil)).Elem()
+}
+
+func (o QueryAggregationResponseMapOutput) ToQueryAggregationResponseMapOutput() QueryAggregationResponseMapOutput {
+	return o
+}
+
+func (o QueryAggregationResponseMapOutput) ToQueryAggregationResponseMapOutputWithContext(ctx context.Context) QueryAggregationResponseMapOutput {
+	return o
+}
+
+func (o QueryAggregationResponseMapOutput) MapIndex(k pulumi.StringInput) QueryAggregationResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) QueryAggregationResponse {
+		return vs[0].(map[string]QueryAggregationResponse)[vs[1].(string)]
+	}).(QueryAggregationResponseOutput)
+}
+
 // The comparison expression to be used in the query.
 type QueryComparisonExpression struct {
 	// The name of the column to use in comparison.
@@ -2083,7 +2301,7 @@ func (o QueryComparisonExpressionResponsePtrOutput) Values() pulumi.StringArrayO
 // The definition of data present in the query.
 type QueryDataset struct {
 	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation map[string]string `pulumi:"aggregation"`
+	Aggregation map[string]QueryAggregation `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration *QueryDatasetConfiguration `pulumi:"configuration"`
 	// Has filter expression to use in the query.
@@ -2110,7 +2328,7 @@ type QueryDatasetInput interface {
 // The definition of data present in the query.
 type QueryDatasetArgs struct {
 	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation pulumi.StringMapInput `pulumi:"aggregation"`
+	Aggregation QueryAggregationMapInput `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration QueryDatasetConfigurationPtrInput `pulumi:"configuration"`
 	// Has filter expression to use in the query.
@@ -2202,8 +2420,8 @@ func (o QueryDatasetOutput) ToQueryDatasetPtrOutputWithContext(ctx context.Conte
 }
 
 // Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-func (o QueryDatasetOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v QueryDataset) map[string]string { return v.Aggregation }).(pulumi.StringMapOutput)
+func (o QueryDatasetOutput) Aggregation() QueryAggregationMapOutput {
+	return o.ApplyT(func(v QueryDataset) map[string]QueryAggregation { return v.Aggregation }).(QueryAggregationMapOutput)
 }
 
 // Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
@@ -2250,13 +2468,13 @@ func (o QueryDatasetPtrOutput) Elem() QueryDatasetOutput {
 }
 
 // Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-func (o QueryDatasetPtrOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *QueryDataset) map[string]string {
+func (o QueryDatasetPtrOutput) Aggregation() QueryAggregationMapOutput {
+	return o.ApplyT(func(v *QueryDataset) map[string]QueryAggregation {
 		if v == nil {
 			return nil
 		}
 		return v.Aggregation
-	}).(pulumi.StringMapOutput)
+	}).(QueryAggregationMapOutput)
 }
 
 // Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
@@ -2580,7 +2798,7 @@ func (o QueryDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArray
 // The definition of data present in the query.
 type QueryDatasetResponse struct {
 	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation map[string]string `pulumi:"aggregation"`
+	Aggregation map[string]QueryAggregationResponse `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration *QueryDatasetConfigurationResponse `pulumi:"configuration"`
 	// Has filter expression to use in the query.
@@ -2607,7 +2825,7 @@ type QueryDatasetResponseInput interface {
 // The definition of data present in the query.
 type QueryDatasetResponseArgs struct {
 	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation pulumi.StringMapInput `pulumi:"aggregation"`
+	Aggregation QueryAggregationResponseMapInput `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration QueryDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
 	// Has filter expression to use in the query.
@@ -2699,8 +2917,8 @@ func (o QueryDatasetResponseOutput) ToQueryDatasetResponsePtrOutputWithContext(c
 }
 
 // Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-func (o QueryDatasetResponseOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v QueryDatasetResponse) map[string]string { return v.Aggregation }).(pulumi.StringMapOutput)
+func (o QueryDatasetResponseOutput) Aggregation() QueryAggregationResponseMapOutput {
+	return o.ApplyT(func(v QueryDatasetResponse) map[string]QueryAggregationResponse { return v.Aggregation }).(QueryAggregationResponseMapOutput)
 }
 
 // Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
@@ -2747,13 +2965,13 @@ func (o QueryDatasetResponsePtrOutput) Elem() QueryDatasetResponseOutput {
 }
 
 // Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-func (o QueryDatasetResponsePtrOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *QueryDatasetResponse) map[string]string {
+func (o QueryDatasetResponsePtrOutput) Aggregation() QueryAggregationResponseMapOutput {
+	return o.ApplyT(func(v *QueryDatasetResponse) map[string]QueryAggregationResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Aggregation
-	}).(pulumi.StringMapOutput)
+	}).(QueryAggregationResponseMapOutput)
 }
 
 // Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
@@ -4462,6 +4680,10 @@ func init() {
 	pulumi.RegisterOutputType(ExportSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ExportScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ExportScheduleResponsePtrOutput{})
+	pulumi.RegisterOutputType(QueryAggregationOutput{})
+	pulumi.RegisterOutputType(QueryAggregationMapOutput{})
+	pulumi.RegisterOutputType(QueryAggregationResponseOutput{})
+	pulumi.RegisterOutputType(QueryAggregationResponseMapOutput{})
 	pulumi.RegisterOutputType(QueryComparisonExpressionOutput{})
 	pulumi.RegisterOutputType(QueryComparisonExpressionPtrOutput{})
 	pulumi.RegisterOutputType(QueryComparisonExpressionResponseOutput{})

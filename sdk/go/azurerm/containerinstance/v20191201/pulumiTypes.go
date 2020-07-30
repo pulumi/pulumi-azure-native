@@ -1142,7 +1142,7 @@ type ContainerGroupIdentity struct {
 	// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ContainerGroupIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ContainerGroupIdentityInput is an input type that accepts ContainerGroupIdentityArgs and ContainerGroupIdentityOutput values.
@@ -1161,7 +1161,7 @@ type ContainerGroupIdentityArgs struct {
 	// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ContainerGroupIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ContainerGroupIdentityArgs) ElementType() reflect.Type {
@@ -1248,8 +1248,10 @@ func (o ContainerGroupIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ContainerGroupIdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ContainerGroupIdentity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ContainerGroupIdentityOutput) UserAssignedIdentities() ContainerGroupIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v ContainerGroupIdentity) map[string]ContainerGroupIdentityProperties {
+		return v.UserAssignedIdentities
+	}).(ContainerGroupIdentityPropertiesMapOutput)
 }
 
 type ContainerGroupIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1281,13 +1283,101 @@ func (o ContainerGroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ContainerGroupIdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ContainerGroupIdentity) map[string]string {
+func (o ContainerGroupIdentityPtrOutput) UserAssignedIdentities() ContainerGroupIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *ContainerGroupIdentity) map[string]ContainerGroupIdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(ContainerGroupIdentityPropertiesMapOutput)
+}
+
+type ContainerGroupIdentityProperties struct {
+}
+
+// ContainerGroupIdentityPropertiesInput is an input type that accepts ContainerGroupIdentityPropertiesArgs and ContainerGroupIdentityPropertiesOutput values.
+// You can construct a concrete instance of `ContainerGroupIdentityPropertiesInput` via:
+//
+//          ContainerGroupIdentityPropertiesArgs{...}
+type ContainerGroupIdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToContainerGroupIdentityPropertiesOutput() ContainerGroupIdentityPropertiesOutput
+	ToContainerGroupIdentityPropertiesOutputWithContext(context.Context) ContainerGroupIdentityPropertiesOutput
+}
+
+type ContainerGroupIdentityPropertiesArgs struct {
+}
+
+func (ContainerGroupIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupIdentityProperties)(nil)).Elem()
+}
+
+func (i ContainerGroupIdentityPropertiesArgs) ToContainerGroupIdentityPropertiesOutput() ContainerGroupIdentityPropertiesOutput {
+	return i.ToContainerGroupIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupIdentityPropertiesArgs) ToContainerGroupIdentityPropertiesOutputWithContext(ctx context.Context) ContainerGroupIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupIdentityPropertiesOutput)
+}
+
+// ContainerGroupIdentityPropertiesMapInput is an input type that accepts ContainerGroupIdentityPropertiesMap and ContainerGroupIdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `ContainerGroupIdentityPropertiesMapInput` via:
+//
+//          ContainerGroupIdentityPropertiesMap{ "key": ContainerGroupIdentityPropertiesArgs{...} }
+type ContainerGroupIdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToContainerGroupIdentityPropertiesMapOutput() ContainerGroupIdentityPropertiesMapOutput
+	ToContainerGroupIdentityPropertiesMapOutputWithContext(context.Context) ContainerGroupIdentityPropertiesMapOutput
+}
+
+type ContainerGroupIdentityPropertiesMap map[string]ContainerGroupIdentityPropertiesInput
+
+func (ContainerGroupIdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ContainerGroupIdentityProperties)(nil)).Elem()
+}
+
+func (i ContainerGroupIdentityPropertiesMap) ToContainerGroupIdentityPropertiesMapOutput() ContainerGroupIdentityPropertiesMapOutput {
+	return i.ToContainerGroupIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupIdentityPropertiesMap) ToContainerGroupIdentityPropertiesMapOutputWithContext(ctx context.Context) ContainerGroupIdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupIdentityPropertiesMapOutput)
+}
+
+type ContainerGroupIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupIdentityProperties)(nil)).Elem()
+}
+
+func (o ContainerGroupIdentityPropertiesOutput) ToContainerGroupIdentityPropertiesOutput() ContainerGroupIdentityPropertiesOutput {
+	return o
+}
+
+func (o ContainerGroupIdentityPropertiesOutput) ToContainerGroupIdentityPropertiesOutputWithContext(ctx context.Context) ContainerGroupIdentityPropertiesOutput {
+	return o
+}
+
+type ContainerGroupIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupIdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ContainerGroupIdentityProperties)(nil)).Elem()
+}
+
+func (o ContainerGroupIdentityPropertiesMapOutput) ToContainerGroupIdentityPropertiesMapOutput() ContainerGroupIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o ContainerGroupIdentityPropertiesMapOutput) ToContainerGroupIdentityPropertiesMapOutputWithContext(ctx context.Context) ContainerGroupIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o ContainerGroupIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) ContainerGroupIdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ContainerGroupIdentityProperties {
+		return vs[0].(map[string]ContainerGroupIdentityProperties)[vs[1].(string)]
+	}).(ContainerGroupIdentityPropertiesOutput)
 }
 
 // Identity for the container group.
@@ -1299,7 +1389,7 @@ type ContainerGroupIdentityResponse struct {
 	// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ContainerGroupIdentityResponseProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ContainerGroupIdentityResponseInput is an input type that accepts ContainerGroupIdentityResponseArgs and ContainerGroupIdentityResponseOutput values.
@@ -1322,7 +1412,7 @@ type ContainerGroupIdentityResponseArgs struct {
 	// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ContainerGroupIdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ContainerGroupIdentityResponseArgs) ElementType() reflect.Type {
@@ -1419,8 +1509,10 @@ func (o ContainerGroupIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ContainerGroupIdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ContainerGroupIdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ContainerGroupIdentityResponseOutput) UserAssignedIdentities() ContainerGroupIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v ContainerGroupIdentityResponse) map[string]ContainerGroupIdentityResponseProperties {
+		return v.UserAssignedIdentities
+	}).(ContainerGroupIdentityResponsePropertiesMapOutput)
 }
 
 type ContainerGroupIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1472,13 +1564,119 @@ func (o ContainerGroupIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ContainerGroupIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ContainerGroupIdentityResponse) map[string]string {
+func (o ContainerGroupIdentityResponsePtrOutput) UserAssignedIdentities() ContainerGroupIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v *ContainerGroupIdentityResponse) map[string]ContainerGroupIdentityResponseProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(ContainerGroupIdentityResponsePropertiesMapOutput)
+}
+
+type ContainerGroupIdentityResponseProperties struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// ContainerGroupIdentityResponsePropertiesInput is an input type that accepts ContainerGroupIdentityResponsePropertiesArgs and ContainerGroupIdentityResponsePropertiesOutput values.
+// You can construct a concrete instance of `ContainerGroupIdentityResponsePropertiesInput` via:
+//
+//          ContainerGroupIdentityResponsePropertiesArgs{...}
+type ContainerGroupIdentityResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToContainerGroupIdentityResponsePropertiesOutput() ContainerGroupIdentityResponsePropertiesOutput
+	ToContainerGroupIdentityResponsePropertiesOutputWithContext(context.Context) ContainerGroupIdentityResponsePropertiesOutput
+}
+
+type ContainerGroupIdentityResponsePropertiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (ContainerGroupIdentityResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i ContainerGroupIdentityResponsePropertiesArgs) ToContainerGroupIdentityResponsePropertiesOutput() ContainerGroupIdentityResponsePropertiesOutput {
+	return i.ToContainerGroupIdentityResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupIdentityResponsePropertiesArgs) ToContainerGroupIdentityResponsePropertiesOutputWithContext(ctx context.Context) ContainerGroupIdentityResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupIdentityResponsePropertiesOutput)
+}
+
+// ContainerGroupIdentityResponsePropertiesMapInput is an input type that accepts ContainerGroupIdentityResponsePropertiesMap and ContainerGroupIdentityResponsePropertiesMapOutput values.
+// You can construct a concrete instance of `ContainerGroupIdentityResponsePropertiesMapInput` via:
+//
+//          ContainerGroupIdentityResponsePropertiesMap{ "key": ContainerGroupIdentityResponsePropertiesArgs{...} }
+type ContainerGroupIdentityResponsePropertiesMapInput interface {
+	pulumi.Input
+
+	ToContainerGroupIdentityResponsePropertiesMapOutput() ContainerGroupIdentityResponsePropertiesMapOutput
+	ToContainerGroupIdentityResponsePropertiesMapOutputWithContext(context.Context) ContainerGroupIdentityResponsePropertiesMapOutput
+}
+
+type ContainerGroupIdentityResponsePropertiesMap map[string]ContainerGroupIdentityResponsePropertiesInput
+
+func (ContainerGroupIdentityResponsePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ContainerGroupIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i ContainerGroupIdentityResponsePropertiesMap) ToContainerGroupIdentityResponsePropertiesMapOutput() ContainerGroupIdentityResponsePropertiesMapOutput {
+	return i.ToContainerGroupIdentityResponsePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupIdentityResponsePropertiesMap) ToContainerGroupIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ContainerGroupIdentityResponsePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupIdentityResponsePropertiesMapOutput)
+}
+
+type ContainerGroupIdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupIdentityResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o ContainerGroupIdentityResponsePropertiesOutput) ToContainerGroupIdentityResponsePropertiesOutput() ContainerGroupIdentityResponsePropertiesOutput {
+	return o
+}
+
+func (o ContainerGroupIdentityResponsePropertiesOutput) ToContainerGroupIdentityResponsePropertiesOutputWithContext(ctx context.Context) ContainerGroupIdentityResponsePropertiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o ContainerGroupIdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupIdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o ContainerGroupIdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupIdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ContainerGroupIdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupIdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ContainerGroupIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o ContainerGroupIdentityResponsePropertiesMapOutput) ToContainerGroupIdentityResponsePropertiesMapOutput() ContainerGroupIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o ContainerGroupIdentityResponsePropertiesMapOutput) ToContainerGroupIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ContainerGroupIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o ContainerGroupIdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) ContainerGroupIdentityResponsePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ContainerGroupIdentityResponseProperties {
+		return vs[0].(map[string]ContainerGroupIdentityResponseProperties)[vs[1].(string)]
+	}).(ContainerGroupIdentityResponsePropertiesOutput)
 }
 
 // Container group network profile information.
@@ -9311,8 +9509,12 @@ func init() {
 	pulumi.RegisterOutputType(ContainerGroupDiagnosticsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(ContainerGroupIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ContainerGroupIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupIdentityResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(ContainerGroupIdentityResponsePropertiesMapOutput{})
 	pulumi.RegisterOutputType(ContainerGroupNetworkProfileOutput{})
 	pulumi.RegisterOutputType(ContainerGroupNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupNetworkProfileResponseOutput{})

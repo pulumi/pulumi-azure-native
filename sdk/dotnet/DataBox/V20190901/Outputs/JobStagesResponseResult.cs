@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBox.V20190901.Outputs
         /// <summary>
         /// Job Stage Details
         /// </summary>
-        public readonly ImmutableDictionary<string, string> JobStageDetails;
+        public readonly ImmutableDictionary<string, object> JobStageDetails;
         /// <summary>
         /// Name of the job stage.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.DataBox.V20190901.Outputs
 
             ImmutableArray<Outputs.JobErrorDetailsResponseResult> errorDetails,
 
-            ImmutableDictionary<string, string> jobStageDetails,
+            ImmutableDictionary<string, object> jobStageDetails,
 
             string stageName,
 

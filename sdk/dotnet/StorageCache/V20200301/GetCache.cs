@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// ARM tags as name/value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, object>? Tags;
         /// <summary>
         /// Type of the Cache; Microsoft.StorageCache/Cache
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
 
             Outputs.CacheResponsePropertiesResult? sku,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, object>? tags,
 
             string type)
         {

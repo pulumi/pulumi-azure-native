@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101.Inputs
         public Input<string>? ConnectorName { get; set; }
 
         [Input("connectorProperties", required: true)]
-        private InputMap<string>? _connectorProperties;
+        private InputMap<ImmutableDictionary<string, object>>? _connectorProperties;
 
         /// <summary>
         /// The connector properties.
         /// </summary>
-        public InputMap<string> ConnectorProperties
+        public InputMap<ImmutableDictionary<string, object>> ConnectorProperties
         {
-            get => _connectorProperties ?? (_connectorProperties = new InputMap<string>());
+            get => _connectorProperties ?? (_connectorProperties = new InputMap<ImmutableDictionary<string, object>>());
             set => _connectorProperties = value;
         }
 

@@ -34,7 +34,7 @@ export class Machine extends pulumi.CustomResource {
         return obj['__pulumiType'] === Machine.__pulumiType;
     }
 
-    public readonly identity!: pulumi.Output<{[key: string]: string}>;
+    public readonly identity!: pulumi.Output<{[key: string]: any}>;
     /**
      * The geo-location where the resource lives
      */
@@ -46,7 +46,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Hybrid Compute Machine properties
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string}>;
+    public readonly properties!: pulumi.Output<{[key: string]: any}>;
     /**
      * Resource tags.
      */
@@ -101,7 +101,7 @@ export class Machine extends pulumi.CustomResource {
  * The set of arguments for constructing a Machine resource.
  */
 export interface MachineArgs {
-    readonly identity?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly identity?: pulumi.Input<{[key: string]: any}>;
     /**
      * The geo-location where the resource lives
      */
@@ -113,7 +113,7 @@ export interface MachineArgs {
     /**
      * Hybrid Compute Machine properties
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly properties?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group.
      */

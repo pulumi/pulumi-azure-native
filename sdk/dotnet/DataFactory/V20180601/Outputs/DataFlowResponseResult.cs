@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the data flow.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, string>> Annotations;
+        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
         /// <summary>
         /// The description of the data flow.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private DataFlowResponseResult(
-            ImmutableArray<ImmutableDictionary<string, string>> annotations,
+            ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
             string? description,
 

@@ -435,7 +435,7 @@ type DataStoreProperties struct {
 	// The arm id of the data store type.
 	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
-	ExtendedProperties map[string]string `pulumi:"extendedProperties"`
+	ExtendedProperties map[string]interface{} `pulumi:"extendedProperties"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
 	RepositoryId *string `pulumi:"repositoryId"`
 	// State of the data source.
@@ -460,7 +460,7 @@ type DataStorePropertiesArgs struct {
 	// The arm id of the data store type.
 	DataStoreTypeId pulumi.StringInput `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
-	ExtendedProperties pulumi.StringMapInput `pulumi:"extendedProperties"`
+	ExtendedProperties pulumi.MapInput `pulumi:"extendedProperties"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
 	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
 	// State of the data source.
@@ -556,8 +556,8 @@ func (o DataStorePropertiesOutput) DataStoreTypeId() pulumi.StringOutput {
 }
 
 // A generic json used differently by each data source type.
-func (o DataStorePropertiesOutput) ExtendedProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataStoreProperties) map[string]string { return v.ExtendedProperties }).(pulumi.StringMapOutput)
+func (o DataStorePropertiesOutput) ExtendedProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v DataStoreProperties) map[string]interface{} { return v.ExtendedProperties }).(pulumi.MapOutput)
 }
 
 // Arm Id for the manager resource to which the data source is associated. This is optional.
@@ -609,13 +609,13 @@ func (o DataStorePropertiesPtrOutput) DataStoreTypeId() pulumi.StringPtrOutput {
 }
 
 // A generic json used differently by each data source type.
-func (o DataStorePropertiesPtrOutput) ExtendedProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DataStoreProperties) map[string]string {
+func (o DataStorePropertiesPtrOutput) ExtendedProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v *DataStoreProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ExtendedProperties
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Arm Id for the manager resource to which the data source is associated. This is optional.
@@ -645,7 +645,7 @@ type DataStorePropertiesResponse struct {
 	// The arm id of the data store type.
 	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
-	ExtendedProperties map[string]string `pulumi:"extendedProperties"`
+	ExtendedProperties map[string]interface{} `pulumi:"extendedProperties"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
 	RepositoryId *string `pulumi:"repositoryId"`
 	// State of the data source.
@@ -670,7 +670,7 @@ type DataStorePropertiesResponseArgs struct {
 	// The arm id of the data store type.
 	DataStoreTypeId pulumi.StringInput `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
-	ExtendedProperties pulumi.StringMapInput `pulumi:"extendedProperties"`
+	ExtendedProperties pulumi.MapInput `pulumi:"extendedProperties"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.
 	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
 	// State of the data source.
@@ -766,8 +766,8 @@ func (o DataStorePropertiesResponseOutput) DataStoreTypeId() pulumi.StringOutput
 }
 
 // A generic json used differently by each data source type.
-func (o DataStorePropertiesResponseOutput) ExtendedProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataStorePropertiesResponse) map[string]string { return v.ExtendedProperties }).(pulumi.StringMapOutput)
+func (o DataStorePropertiesResponseOutput) ExtendedProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v DataStorePropertiesResponse) map[string]interface{} { return v.ExtendedProperties }).(pulumi.MapOutput)
 }
 
 // Arm Id for the manager resource to which the data source is associated. This is optional.
@@ -819,13 +819,13 @@ func (o DataStorePropertiesResponsePtrOutput) DataStoreTypeId() pulumi.StringPtr
 }
 
 // A generic json used differently by each data source type.
-func (o DataStorePropertiesResponsePtrOutput) ExtendedProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DataStorePropertiesResponse) map[string]string {
+func (o DataStorePropertiesResponsePtrOutput) ExtendedProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v *DataStorePropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ExtendedProperties
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Arm Id for the manager resource to which the data source is associated. This is optional.
@@ -926,7 +926,7 @@ type JobDefinitionProperties struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets []CustomerSecret `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
-	DataServiceInput map[string]string `pulumi:"dataServiceInput"`
+	DataServiceInput map[string]interface{} `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
 	DataSinkId string `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
@@ -959,7 +959,7 @@ type JobDefinitionPropertiesArgs struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets CustomerSecretArrayInput `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.StringMapInput `pulumi:"dataServiceInput"`
+	DataServiceInput pulumi.MapInput `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
 	DataSinkId pulumi.StringInput `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
@@ -1060,8 +1060,8 @@ func (o JobDefinitionPropertiesOutput) CustomerSecrets() CustomerSecretArrayOutp
 }
 
 // A generic json used differently by each data service type.
-func (o JobDefinitionPropertiesOutput) DataServiceInput() pulumi.StringMapOutput {
-	return o.ApplyT(func(v JobDefinitionProperties) map[string]string { return v.DataServiceInput }).(pulumi.StringMapOutput)
+func (o JobDefinitionPropertiesOutput) DataServiceInput() pulumi.MapOutput {
+	return o.ApplyT(func(v JobDefinitionProperties) map[string]interface{} { return v.DataServiceInput }).(pulumi.MapOutput)
 }
 
 // Data Sink Id associated to the job definition.
@@ -1128,13 +1128,13 @@ func (o JobDefinitionPropertiesPtrOutput) CustomerSecrets() CustomerSecretArrayO
 }
 
 // A generic json used differently by each data service type.
-func (o JobDefinitionPropertiesPtrOutput) DataServiceInput() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *JobDefinitionProperties) map[string]string {
+func (o JobDefinitionPropertiesPtrOutput) DataServiceInput() pulumi.MapOutput {
+	return o.ApplyT(func(v *JobDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.DataServiceInput
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Data Sink Id associated to the job definition.
@@ -1212,7 +1212,7 @@ type JobDefinitionPropertiesResponse struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
-	DataServiceInput map[string]string `pulumi:"dataServiceInput"`
+	DataServiceInput map[string]interface{} `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
 	DataSinkId string `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
@@ -1245,7 +1245,7 @@ type JobDefinitionPropertiesResponseArgs struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
 	CustomerSecrets CustomerSecretResponseArrayInput `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
-	DataServiceInput pulumi.StringMapInput `pulumi:"dataServiceInput"`
+	DataServiceInput pulumi.MapInput `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
 	DataSinkId pulumi.StringInput `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
@@ -1346,8 +1346,8 @@ func (o JobDefinitionPropertiesResponseOutput) CustomerSecrets() CustomerSecretR
 }
 
 // A generic json used differently by each data service type.
-func (o JobDefinitionPropertiesResponseOutput) DataServiceInput() pulumi.StringMapOutput {
-	return o.ApplyT(func(v JobDefinitionPropertiesResponse) map[string]string { return v.DataServiceInput }).(pulumi.StringMapOutput)
+func (o JobDefinitionPropertiesResponseOutput) DataServiceInput() pulumi.MapOutput {
+	return o.ApplyT(func(v JobDefinitionPropertiesResponse) map[string]interface{} { return v.DataServiceInput }).(pulumi.MapOutput)
 }
 
 // Data Sink Id associated to the job definition.
@@ -1414,13 +1414,13 @@ func (o JobDefinitionPropertiesResponsePtrOutput) CustomerSecrets() CustomerSecr
 }
 
 // A generic json used differently by each data service type.
-func (o JobDefinitionPropertiesResponsePtrOutput) DataServiceInput() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *JobDefinitionPropertiesResponse) map[string]string {
+func (o JobDefinitionPropertiesResponsePtrOutput) DataServiceInput() pulumi.MapOutput {
+	return o.ApplyT(func(v *JobDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.DataServiceInput
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Data Sink Id associated to the job definition.

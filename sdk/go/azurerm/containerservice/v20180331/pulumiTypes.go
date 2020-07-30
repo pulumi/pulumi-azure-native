@@ -2111,6 +2111,224 @@ func (o ManagedClusterAADProfileResponsePtrOutput) TenantID() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfile struct {
+	// Key-value pairs for configuring an add-on.
+	Config map[string]string `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ManagedClusterAddonProfileInput is an input type that accepts ManagedClusterAddonProfileArgs and ManagedClusterAddonProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileInput` via:
+//
+//          ManagedClusterAddonProfileArgs{...}
+type ManagedClusterAddonProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput
+	ToManagedClusterAddonProfileOutputWithContext(context.Context) ManagedClusterAddonProfileOutput
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileArgs struct {
+	// Key-value pairs for configuring an add-on.
+	Config pulumi.StringMapInput `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ManagedClusterAddonProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileArgs) ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput {
+	return i.ToManagedClusterAddonProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileArgs) ToManagedClusterAddonProfileOutputWithContext(ctx context.Context) ManagedClusterAddonProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileOutput)
+}
+
+// ManagedClusterAddonProfileMapInput is an input type that accepts ManagedClusterAddonProfileMap and ManagedClusterAddonProfileMapOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileMapInput` via:
+//
+//          ManagedClusterAddonProfileMap{ "key": ManagedClusterAddonProfileArgs{...} }
+type ManagedClusterAddonProfileMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput
+	ToManagedClusterAddonProfileMapOutputWithContext(context.Context) ManagedClusterAddonProfileMapOutput
+}
+
+type ManagedClusterAddonProfileMap map[string]ManagedClusterAddonProfileInput
+
+func (ManagedClusterAddonProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput {
+	return i.ToManagedClusterAddonProfileMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileMapOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutputWithContext(ctx context.Context) ManagedClusterAddonProfileOutput {
+	return o
+}
+
+// Key-value pairs for configuring an add-on.
+func (o ManagedClusterAddonProfileOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfile) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+}
+
+// Whether the add-on is enabled or not.
+func (o ManagedClusterAddonProfileOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfile) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ManagedClusterAddonProfileMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileMapOutput) ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileMapOutput) ToManagedClusterAddonProfileMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterAddonProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfile {
+		return vs[0].(map[string]ManagedClusterAddonProfile)[vs[1].(string)]
+	}).(ManagedClusterAddonProfileOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponse struct {
+	// Key-value pairs for configuring an add-on.
+	Config map[string]string `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ManagedClusterAddonProfileResponseInput is an input type that accepts ManagedClusterAddonProfileResponseArgs and ManagedClusterAddonProfileResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileResponseInput` via:
+//
+//          ManagedClusterAddonProfileResponseArgs{...}
+type ManagedClusterAddonProfileResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput
+	ToManagedClusterAddonProfileResponseOutputWithContext(context.Context) ManagedClusterAddonProfileResponseOutput
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponseArgs struct {
+	// Key-value pairs for configuring an add-on.
+	Config pulumi.StringMapInput `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ManagedClusterAddonProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput {
+	return i.ToManagedClusterAddonProfileResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseOutput)
+}
+
+// ManagedClusterAddonProfileResponseMapInput is an input type that accepts ManagedClusterAddonProfileResponseMap and ManagedClusterAddonProfileResponseMapOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileResponseMapInput` via:
+//
+//          ManagedClusterAddonProfileResponseMap{ "key": ManagedClusterAddonProfileResponseArgs{...} }
+type ManagedClusterAddonProfileResponseMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput
+	ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Context) ManagedClusterAddonProfileResponseMapOutput
+}
+
+type ManagedClusterAddonProfileResponseMap map[string]ManagedClusterAddonProfileResponseInput
+
+func (ManagedClusterAddonProfileResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput {
+	return i.ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseMapOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseOutput {
+	return o
+}
+
+// Key-value pairs for configuring an add-on.
+func (o ManagedClusterAddonProfileResponseOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+}
+
+// Whether the add-on is enabled or not.
+func (o ManagedClusterAddonProfileResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ManagedClusterAddonProfileResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) ToManagedClusterAddonProfileResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterAddonProfileResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfileResponse {
+		return vs[0].(map[string]ManagedClusterAddonProfileResponse)[vs[1].(string)]
+	}).(ManagedClusterAddonProfileResponseOutput)
+}
+
 // Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfile struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -2433,7 +2651,7 @@ type ManagedClusterProperties struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfile `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles map[string]string `pulumi:"addonProfiles"`
+	AddonProfiles map[string]ManagedClusterAddonProfile `pulumi:"addonProfiles"`
 	// Properties of the agent pool. Currently only one agent pool can exist.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// DNS prefix specified when creating the managed cluster.
@@ -2466,7 +2684,7 @@ type ManagedClusterPropertiesArgs struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfilePtrInput `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles pulumi.StringMapInput `pulumi:"addonProfiles"`
+	AddonProfiles ManagedClusterAddonProfileMapInput `pulumi:"addonProfiles"`
 	// Properties of the agent pool. Currently only one agent pool can exist.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileArrayInput `pulumi:"agentPoolProfiles"`
 	// DNS prefix specified when creating the managed cluster.
@@ -2567,8 +2785,8 @@ func (o ManagedClusterPropertiesOutput) AadProfile() ManagedClusterAADProfilePtr
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterProperties) map[string]string { return v.AddonProfiles }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesOutput) AddonProfiles() ManagedClusterAddonProfileMapOutput {
+	return o.ApplyT(func(v ManagedClusterProperties) map[string]ManagedClusterAddonProfile { return v.AddonProfiles }).(ManagedClusterAddonProfileMapOutput)
 }
 
 // Properties of the agent pool. Currently only one agent pool can exist.
@@ -2637,13 +2855,13 @@ func (o ManagedClusterPropertiesPtrOutput) AadProfile() ManagedClusterAADProfile
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesPtrOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterProperties) map[string]string {
+func (o ManagedClusterPropertiesPtrOutput) AddonProfiles() ManagedClusterAddonProfileMapOutput {
+	return o.ApplyT(func(v *ManagedClusterProperties) map[string]ManagedClusterAddonProfile {
 		if v == nil {
 			return nil
 		}
 		return v.AddonProfiles
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterAddonProfileMapOutput)
 }
 
 // Properties of the agent pool. Currently only one agent pool can exist.
@@ -2721,7 +2939,7 @@ type ManagedClusterPropertiesResponse struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles map[string]string `pulumi:"addonProfiles"`
+	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
 	// Properties of the agent pool. Currently only one agent pool can exist.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
 	// DNS prefix specified when creating the managed cluster.
@@ -2760,7 +2978,7 @@ type ManagedClusterPropertiesResponseArgs struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfileResponsePtrInput `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles pulumi.StringMapInput `pulumi:"addonProfiles"`
+	AddonProfiles ManagedClusterAddonProfileResponseMapInput `pulumi:"addonProfiles"`
 	// Properties of the agent pool. Currently only one agent pool can exist.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayInput `pulumi:"agentPoolProfiles"`
 	// DNS prefix specified when creating the managed cluster.
@@ -2867,8 +3085,10 @@ func (o ManagedClusterPropertiesResponseOutput) AadProfile() ManagedClusterAADPr
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesResponseOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]string { return v.AddonProfiles }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesResponseOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]ManagedClusterAddonProfileResponse {
+		return v.AddonProfiles
+	}).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
 // Properties of the agent pool. Currently only one agent pool can exist.
@@ -2956,13 +3176,13 @@ func (o ManagedClusterPropertiesResponsePtrOutput) AadProfile() ManagedClusterAA
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesResponsePtrOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]string {
+func (o ManagedClusterPropertiesResponsePtrOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]ManagedClusterAddonProfileResponse {
 		if v == nil {
 			return nil
 		}
 		return v.AddonProfiles
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
 // Properties of the agent pool. Currently only one agent pool can exist.
@@ -3402,6 +3622,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileMapOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileResponseOutput{})

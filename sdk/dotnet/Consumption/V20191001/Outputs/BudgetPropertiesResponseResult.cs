@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Consumption.V20191001.Outputs
         /// <summary>
         /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Notifications;
+        public readonly ImmutableDictionary<string, Outputs.NotificationResponseResult>? Notifications;
         /// <summary>
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Consumption.V20191001.Outputs
 
             Outputs.BudgetFilterResponseResult? filter,
 
-            ImmutableDictionary<string, string>? notifications,
+            ImmutableDictionary<string, Outputs.NotificationResponseResult>? notifications,
 
             string timeGrain,
 

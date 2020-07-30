@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.Consumption.V20190101.Inputs
         public Input<Inputs.FiltersArgs>? Filters { get; set; }
 
         [Input("notifications")]
-        private InputMap<string>? _notifications;
+        private InputMap<Inputs.NotificationArgs>? _notifications;
 
         /// <summary>
         /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
-        public InputMap<string> Notifications
+        public InputMap<Inputs.NotificationArgs> Notifications
         {
-            get => _notifications ?? (_notifications = new InputMap<string>());
+            get => _notifications ?? (_notifications = new InputMap<Inputs.NotificationArgs>());
             set => _notifications = value;
         }
 

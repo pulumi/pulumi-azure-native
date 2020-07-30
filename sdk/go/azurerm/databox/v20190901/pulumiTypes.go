@@ -2956,7 +2956,7 @@ type JobStagesResponse struct {
 	// Error details for the stage.
 	ErrorDetails []JobErrorDetailsResponse `pulumi:"errorDetails"`
 	// Job Stage Details
-	JobStageDetails map[string]string `pulumi:"jobStageDetails"`
+	JobStageDetails map[string]interface{} `pulumi:"jobStageDetails"`
 	// Name of the job stage.
 	StageName string `pulumi:"stageName"`
 	// Status of the job stage.
@@ -2983,7 +2983,7 @@ type JobStagesResponseArgs struct {
 	// Error details for the stage.
 	ErrorDetails JobErrorDetailsResponseArrayInput `pulumi:"errorDetails"`
 	// Job Stage Details
-	JobStageDetails pulumi.StringMapInput `pulumi:"jobStageDetails"`
+	JobStageDetails pulumi.MapInput `pulumi:"jobStageDetails"`
 	// Name of the job stage.
 	StageName pulumi.StringInput `pulumi:"stageName"`
 	// Status of the job stage.
@@ -3055,8 +3055,8 @@ func (o JobStagesResponseOutput) ErrorDetails() JobErrorDetailsResponseArrayOutp
 }
 
 // Job Stage Details
-func (o JobStagesResponseOutput) JobStageDetails() pulumi.StringMapOutput {
-	return o.ApplyT(func(v JobStagesResponse) map[string]string { return v.JobStageDetails }).(pulumi.StringMapOutput)
+func (o JobStagesResponseOutput) JobStageDetails() pulumi.MapOutput {
+	return o.ApplyT(func(v JobStagesResponse) map[string]interface{} { return v.JobStageDetails }).(pulumi.MapOutput)
 }
 
 // Name of the job stage.

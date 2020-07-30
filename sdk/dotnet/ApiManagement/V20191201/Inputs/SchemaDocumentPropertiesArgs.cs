@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Inputs
     public sealed class SchemaDocumentPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("definitions")]
-        private InputMap<string>? _definitions;
+        private InputMap<object>? _definitions;
 
         /// <summary>
         /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         /// </summary>
-        public InputMap<string> Definitions
+        public InputMap<object> Definitions
         {
-            get => _definitions ?? (_definitions = new InputMap<string>());
+            get => _definitions ?? (_definitions = new InputMap<object>());
             set => _definitions = value;
         }
 

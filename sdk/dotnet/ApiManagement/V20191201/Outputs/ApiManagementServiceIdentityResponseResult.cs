@@ -31,7 +31,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
         /// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
         ///     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserIdentityPropertiesResponseResult>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ApiManagementServiceIdentityResponseResult(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
 
             string type,
 
-            ImmutableDictionary<string, string>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserIdentityPropertiesResponseResult>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

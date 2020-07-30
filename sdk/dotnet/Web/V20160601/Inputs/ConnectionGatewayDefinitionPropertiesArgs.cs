@@ -55,14 +55,14 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
         public Input<string>? MachineName { get; set; }
 
         [Input("status")]
-        private InputMap<string>? _status;
+        private InputMap<object>? _status;
 
         /// <summary>
         /// The gateway status
         /// </summary>
-        public InputMap<string> Status
+        public InputMap<object> Status
         {
-            get => _status ?? (_status = new InputMap<string>());
+            get => _status ?? (_status = new InputMap<object>());
             set => _status = value;
         }
 

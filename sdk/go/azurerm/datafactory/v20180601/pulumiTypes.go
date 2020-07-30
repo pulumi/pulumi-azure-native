@@ -585,7 +585,7 @@ func (o DataFlowTypeOutput) Type() pulumi.StringOutput {
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
 type DataFlowDefinition struct {
 	// List of tags that can be used for describing the data flow.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The description of the data flow.
 	Description *string `pulumi:"description"`
 	// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -608,7 +608,7 @@ type DataFlowDefinitionInput interface {
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
 type DataFlowDefinitionArgs struct {
 	// List of tags that can be used for describing the data flow.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The description of the data flow.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -696,8 +696,8 @@ func (o DataFlowDefinitionOutput) ToDataFlowDefinitionPtrOutputWithContext(ctx c
 }
 
 // List of tags that can be used for describing the data flow.
-func (o DataFlowDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v DataFlowDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o DataFlowDefinitionOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v DataFlowDefinition) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // The description of the data flow.
@@ -734,13 +734,13 @@ func (o DataFlowDefinitionPtrOutput) Elem() DataFlowDefinitionOutput {
 }
 
 // List of tags that can be used for describing the data flow.
-func (o DataFlowDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *DataFlowDefinition) []map[string]string {
+func (o DataFlowDefinitionPtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *DataFlowDefinition) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // The description of the data flow.
@@ -910,7 +910,7 @@ func (o DataFlowPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
 type DataFlowResponse struct {
 	// List of tags that can be used for describing the data flow.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The description of the data flow.
 	Description *string `pulumi:"description"`
 	// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -933,7 +933,7 @@ type DataFlowResponseInput interface {
 // Azure Data Factory nested object which contains a flow with data movements and transformations.
 type DataFlowResponseArgs struct {
 	// List of tags that can be used for describing the data flow.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The description of the data flow.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -1021,8 +1021,8 @@ func (o DataFlowResponseOutput) ToDataFlowResponsePtrOutputWithContext(ctx conte
 }
 
 // List of tags that can be used for describing the data flow.
-func (o DataFlowResponseOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v DataFlowResponse) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o DataFlowResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v DataFlowResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // The description of the data flow.
@@ -1059,13 +1059,13 @@ func (o DataFlowResponsePtrOutput) Elem() DataFlowResponseOutput {
 }
 
 // List of tags that can be used for describing the data flow.
-func (o DataFlowResponsePtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *DataFlowResponse) []map[string]string {
+func (o DataFlowResponsePtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *DataFlowResponse) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // The description of the data flow.
@@ -1317,7 +1317,7 @@ func (o DatasetTypeOutput) Type() pulumi.StringOutput {
 // The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
 type DatasetDefinition struct {
 	// List of tags that can be used for describing the Dataset.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// Dataset description.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -1327,9 +1327,9 @@ type DatasetDefinition struct {
 	// Parameters for dataset.
 	Parameters *ParameterDefinitionSpecification `pulumi:"parameters"`
 	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-	Schema map[string]string `pulumi:"schema"`
+	Schema map[string]interface{} `pulumi:"schema"`
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure map[string]string `pulumi:"structure"`
+	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
 }
@@ -1348,7 +1348,7 @@ type DatasetDefinitionInput interface {
 // The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
 type DatasetDefinitionArgs struct {
 	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// Dataset description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -1358,9 +1358,9 @@ type DatasetDefinitionArgs struct {
 	// Parameters for dataset.
 	Parameters ParameterDefinitionSpecificationPtrInput `pulumi:"parameters"`
 	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-	Schema pulumi.StringMapInput `pulumi:"schema"`
+	Schema pulumi.MapInput `pulumi:"schema"`
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.StringMapInput `pulumi:"structure"`
+	Structure pulumi.MapInput `pulumi:"structure"`
 	// Type of dataset.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1444,8 +1444,8 @@ func (o DatasetDefinitionOutput) ToDatasetDefinitionPtrOutputWithContext(ctx con
 }
 
 // List of tags that can be used for describing the Dataset.
-func (o DatasetDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v DatasetDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o DatasetDefinitionOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v DatasetDefinition) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // Dataset description.
@@ -1469,13 +1469,13 @@ func (o DatasetDefinitionOutput) Parameters() ParameterDefinitionSpecificationPt
 }
 
 // Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-func (o DatasetDefinitionOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetDefinition) map[string]string { return v.Schema }).(pulumi.StringMapOutput)
+func (o DatasetDefinitionOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v DatasetDefinition) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
 }
 
 // Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DatasetDefinitionOutput) Structure() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetDefinition) map[string]string { return v.Structure }).(pulumi.StringMapOutput)
+func (o DatasetDefinitionOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v DatasetDefinition) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
 }
 
 // Type of dataset.
@@ -1502,13 +1502,13 @@ func (o DatasetDefinitionPtrOutput) Elem() DatasetDefinitionOutput {
 }
 
 // List of tags that can be used for describing the Dataset.
-func (o DatasetDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *DatasetDefinition) []map[string]string {
+func (o DatasetDefinitionPtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *DatasetDefinition) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // Dataset description.
@@ -1552,23 +1552,23 @@ func (o DatasetDefinitionPtrOutput) Parameters() ParameterDefinitionSpecificatio
 }
 
 // Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-func (o DatasetDefinitionPtrOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DatasetDefinition) map[string]string {
+func (o DatasetDefinitionPtrOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v *DatasetDefinition) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Schema
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DatasetDefinitionPtrOutput) Structure() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DatasetDefinition) map[string]string {
+func (o DatasetDefinitionPtrOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v *DatasetDefinition) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Structure
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Type of dataset.
@@ -1718,7 +1718,7 @@ func (o DatasetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 // The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
 type DatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// Dataset description.
 	Description *string `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -1728,9 +1728,9 @@ type DatasetResponse struct {
 	// Parameters for dataset.
 	Parameters *ParameterDefinitionSpecificationResponse `pulumi:"parameters"`
 	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-	Schema map[string]string `pulumi:"schema"`
+	Schema map[string]interface{} `pulumi:"schema"`
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure map[string]string `pulumi:"structure"`
+	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
 }
@@ -1749,7 +1749,7 @@ type DatasetResponseInput interface {
 // The Azure Data Factory nested object which identifies data within different data stores, such as tables, files, folders, and documents.
 type DatasetResponseArgs struct {
 	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// Dataset description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -1759,9 +1759,9 @@ type DatasetResponseArgs struct {
 	// Parameters for dataset.
 	Parameters ParameterDefinitionSpecificationResponsePtrInput `pulumi:"parameters"`
 	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-	Schema pulumi.StringMapInput `pulumi:"schema"`
+	Schema pulumi.MapInput `pulumi:"schema"`
 	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.StringMapInput `pulumi:"structure"`
+	Structure pulumi.MapInput `pulumi:"structure"`
 	// Type of dataset.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1845,8 +1845,8 @@ func (o DatasetResponseOutput) ToDatasetResponsePtrOutputWithContext(ctx context
 }
 
 // List of tags that can be used for describing the Dataset.
-func (o DatasetResponseOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v DatasetResponse) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o DatasetResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v DatasetResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // Dataset description.
@@ -1870,13 +1870,13 @@ func (o DatasetResponseOutput) Parameters() ParameterDefinitionSpecificationResp
 }
 
 // Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-func (o DatasetResponseOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetResponse) map[string]string { return v.Schema }).(pulumi.StringMapOutput)
+func (o DatasetResponseOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v DatasetResponse) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
 }
 
 // Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DatasetResponseOutput) Structure() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DatasetResponse) map[string]string { return v.Structure }).(pulumi.StringMapOutput)
+func (o DatasetResponseOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v DatasetResponse) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
 }
 
 // Type of dataset.
@@ -1903,13 +1903,13 @@ func (o DatasetResponsePtrOutput) Elem() DatasetResponseOutput {
 }
 
 // List of tags that can be used for describing the Dataset.
-func (o DatasetResponsePtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *DatasetResponse) []map[string]string {
+func (o DatasetResponsePtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *DatasetResponse) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // Dataset description.
@@ -1953,23 +1953,23 @@ func (o DatasetResponsePtrOutput) Parameters() ParameterDefinitionSpecificationR
 }
 
 // Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
-func (o DatasetResponsePtrOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DatasetResponse) map[string]string {
+func (o DatasetResponsePtrOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v *DatasetResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Schema
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DatasetResponsePtrOutput) Structure() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DatasetResponse) map[string]string {
+func (o DatasetResponsePtrOutput) Structure() pulumi.MapOutput {
+	return o.ApplyT(func(v *DatasetResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Structure
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Type of dataset.
@@ -4403,7 +4403,7 @@ func (o LinkedServiceTypeOutput) Type() pulumi.StringOutput {
 // The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
 type LinkedServiceDefinition struct {
 	// List of tags that can be used for describing the linked service.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
 	// Linked service description.
@@ -4428,7 +4428,7 @@ type LinkedServiceDefinitionInput interface {
 // The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
 type LinkedServiceDefinitionArgs struct {
 	// List of tags that can be used for describing the linked service.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferencePtrInput `pulumi:"connectVia"`
 	// Linked service description.
@@ -4518,8 +4518,8 @@ func (o LinkedServiceDefinitionOutput) ToLinkedServiceDefinitionPtrOutputWithCon
 }
 
 // List of tags that can be used for describing the linked service.
-func (o LinkedServiceDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v LinkedServiceDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o LinkedServiceDefinitionOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v LinkedServiceDefinition) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // The integration runtime reference.
@@ -4561,13 +4561,13 @@ func (o LinkedServiceDefinitionPtrOutput) Elem() LinkedServiceDefinitionOutput {
 }
 
 // List of tags that can be used for describing the linked service.
-func (o LinkedServiceDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *LinkedServiceDefinition) []map[string]string {
+func (o LinkedServiceDefinitionPtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *LinkedServiceDefinition) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // The integration runtime reference.
@@ -4957,7 +4957,7 @@ func (o LinkedServiceReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
 type LinkedServiceResponse struct {
 	// List of tags that can be used for describing the linked service.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
 	// Linked service description.
@@ -4982,7 +4982,7 @@ type LinkedServiceResponseInput interface {
 // The Azure Data Factory nested object which contains the information and credential which can be used to connect with related store or compute resource.
 type LinkedServiceResponseArgs struct {
 	// List of tags that can be used for describing the linked service.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The integration runtime reference.
 	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
 	// Linked service description.
@@ -5072,8 +5072,8 @@ func (o LinkedServiceResponseOutput) ToLinkedServiceResponsePtrOutputWithContext
 }
 
 // List of tags that can be used for describing the linked service.
-func (o LinkedServiceResponseOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v LinkedServiceResponse) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o LinkedServiceResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v LinkedServiceResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // The integration runtime reference.
@@ -5115,13 +5115,13 @@ func (o LinkedServiceResponsePtrOutput) Elem() LinkedServiceResponseOutput {
 }
 
 // List of tags that can be used for describing the linked service.
-func (o LinkedServiceResponsePtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *LinkedServiceResponse) []map[string]string {
+func (o LinkedServiceResponsePtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *LinkedServiceResponse) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // The integration runtime reference.
@@ -5711,7 +5711,7 @@ type PipelineDefinition struct {
 	// List of activities in pipeline.
 	Activities []Activity `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency *int `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -5721,7 +5721,7 @@ type PipelineDefinition struct {
 	// List of parameters for pipeline.
 	Parameters *ParameterDefinitionSpecification `pulumi:"parameters"`
 	// Dimensions emitted by Pipeline.
-	RunDimensions map[string]string `pulumi:"runDimensions"`
+	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
 	// List of variables for pipeline.
 	Variables *VariableDefinitionSpecification `pulumi:"variables"`
 }
@@ -5742,7 +5742,7 @@ type PipelineDefinitionArgs struct {
 	// List of activities in pipeline.
 	Activities ActivityArrayInput `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrInput `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -5752,7 +5752,7 @@ type PipelineDefinitionArgs struct {
 	// List of parameters for pipeline.
 	Parameters ParameterDefinitionSpecificationPtrInput `pulumi:"parameters"`
 	// Dimensions emitted by Pipeline.
-	RunDimensions pulumi.StringMapInput `pulumi:"runDimensions"`
+	RunDimensions pulumi.MapMapInput `pulumi:"runDimensions"`
 	// List of variables for pipeline.
 	Variables VariableDefinitionSpecificationPtrInput `pulumi:"variables"`
 }
@@ -5841,8 +5841,8 @@ func (o PipelineDefinitionOutput) Activities() ActivityArrayOutput {
 }
 
 // List of tags that can be used for describing the Pipeline.
-func (o PipelineDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v PipelineDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o PipelineDefinitionOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v PipelineDefinition) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // The max number of concurrent runs for the pipeline.
@@ -5866,8 +5866,8 @@ func (o PipelineDefinitionOutput) Parameters() ParameterDefinitionSpecificationP
 }
 
 // Dimensions emitted by Pipeline.
-func (o PipelineDefinitionOutput) RunDimensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PipelineDefinition) map[string]string { return v.RunDimensions }).(pulumi.StringMapOutput)
+func (o PipelineDefinitionOutput) RunDimensions() pulumi.MapMapOutput {
+	return o.ApplyT(func(v PipelineDefinition) map[string]map[string]interface{} { return v.RunDimensions }).(pulumi.MapMapOutput)
 }
 
 // List of variables for pipeline.
@@ -5904,13 +5904,13 @@ func (o PipelineDefinitionPtrOutput) Activities() ActivityArrayOutput {
 }
 
 // List of tags that can be used for describing the Pipeline.
-func (o PipelineDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *PipelineDefinition) []map[string]string {
+func (o PipelineDefinitionPtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *PipelineDefinition) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // The max number of concurrent runs for the pipeline.
@@ -5954,13 +5954,13 @@ func (o PipelineDefinitionPtrOutput) Parameters() ParameterDefinitionSpecificati
 }
 
 // Dimensions emitted by Pipeline.
-func (o PipelineDefinitionPtrOutput) RunDimensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PipelineDefinition) map[string]string {
+func (o PipelineDefinitionPtrOutput) RunDimensions() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *PipelineDefinition) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.RunDimensions
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // List of variables for pipeline.
@@ -6112,7 +6112,7 @@ type PipelineResponse struct {
 	// List of activities in pipeline.
 	Activities []ActivityResponse `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency *int `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -6122,7 +6122,7 @@ type PipelineResponse struct {
 	// List of parameters for pipeline.
 	Parameters *ParameterDefinitionSpecificationResponse `pulumi:"parameters"`
 	// Dimensions emitted by Pipeline.
-	RunDimensions map[string]string `pulumi:"runDimensions"`
+	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
 	// List of variables for pipeline.
 	Variables *VariableDefinitionSpecificationResponse `pulumi:"variables"`
 }
@@ -6143,7 +6143,7 @@ type PipelineResponseArgs struct {
 	// List of activities in pipeline.
 	Activities ActivityResponseArrayInput `pulumi:"activities"`
 	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// The max number of concurrent runs for the pipeline.
 	Concurrency pulumi.IntPtrInput `pulumi:"concurrency"`
 	// The description of the pipeline.
@@ -6153,7 +6153,7 @@ type PipelineResponseArgs struct {
 	// List of parameters for pipeline.
 	Parameters ParameterDefinitionSpecificationResponsePtrInput `pulumi:"parameters"`
 	// Dimensions emitted by Pipeline.
-	RunDimensions pulumi.StringMapInput `pulumi:"runDimensions"`
+	RunDimensions pulumi.MapMapInput `pulumi:"runDimensions"`
 	// List of variables for pipeline.
 	Variables VariableDefinitionSpecificationResponsePtrInput `pulumi:"variables"`
 }
@@ -6242,8 +6242,8 @@ func (o PipelineResponseOutput) Activities() ActivityResponseArrayOutput {
 }
 
 // List of tags that can be used for describing the Pipeline.
-func (o PipelineResponseOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v PipelineResponse) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o PipelineResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v PipelineResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // The max number of concurrent runs for the pipeline.
@@ -6267,8 +6267,8 @@ func (o PipelineResponseOutput) Parameters() ParameterDefinitionSpecificationRes
 }
 
 // Dimensions emitted by Pipeline.
-func (o PipelineResponseOutput) RunDimensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PipelineResponse) map[string]string { return v.RunDimensions }).(pulumi.StringMapOutput)
+func (o PipelineResponseOutput) RunDimensions() pulumi.MapMapOutput {
+	return o.ApplyT(func(v PipelineResponse) map[string]map[string]interface{} { return v.RunDimensions }).(pulumi.MapMapOutput)
 }
 
 // List of variables for pipeline.
@@ -6305,13 +6305,13 @@ func (o PipelineResponsePtrOutput) Activities() ActivityResponseArrayOutput {
 }
 
 // List of tags that can be used for describing the Pipeline.
-func (o PipelineResponsePtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *PipelineResponse) []map[string]string {
+func (o PipelineResponsePtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *PipelineResponse) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // The max number of concurrent runs for the pipeline.
@@ -6355,13 +6355,13 @@ func (o PipelineResponsePtrOutput) Parameters() ParameterDefinitionSpecification
 }
 
 // Dimensions emitted by Pipeline.
-func (o PipelineResponsePtrOutput) RunDimensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PipelineResponse) map[string]string {
+func (o PipelineResponsePtrOutput) RunDimensions() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *PipelineResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.RunDimensions
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // List of variables for pipeline.
@@ -6593,7 +6593,7 @@ func (o TriggerTypeOutput) Type() pulumi.StringOutput {
 // Azure data factory nested object which contains information about creating pipeline run
 type TriggerDefinition struct {
 	// List of tags that can be used for describing the trigger.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// Trigger description.
 	Description *string `pulumi:"description"`
 	// Trigger type.
@@ -6614,7 +6614,7 @@ type TriggerDefinitionInput interface {
 // Azure data factory nested object which contains information about creating pipeline run
 type TriggerDefinitionArgs struct {
 	// List of tags that can be used for describing the trigger.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// Trigger description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Trigger type.
@@ -6700,8 +6700,8 @@ func (o TriggerDefinitionOutput) ToTriggerDefinitionPtrOutputWithContext(ctx con
 }
 
 // List of tags that can be used for describing the trigger.
-func (o TriggerDefinitionOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v TriggerDefinition) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o TriggerDefinitionOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v TriggerDefinition) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // Trigger description.
@@ -6733,13 +6733,13 @@ func (o TriggerDefinitionPtrOutput) Elem() TriggerDefinitionOutput {
 }
 
 // List of tags that can be used for describing the trigger.
-func (o TriggerDefinitionPtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *TriggerDefinition) []map[string]string {
+func (o TriggerDefinitionPtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *TriggerDefinition) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // Trigger description.
@@ -6765,7 +6765,7 @@ func (o TriggerDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 // Azure data factory nested object which contains information about creating pipeline run
 type TriggerResponse struct {
 	// List of tags that can be used for describing the trigger.
-	Annotations []map[string]string `pulumi:"annotations"`
+	Annotations []map[string]interface{} `pulumi:"annotations"`
 	// Trigger description.
 	Description *string `pulumi:"description"`
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
@@ -6788,7 +6788,7 @@ type TriggerResponseInput interface {
 // Azure data factory nested object which contains information about creating pipeline run
 type TriggerResponseArgs struct {
 	// List of tags that can be used for describing the trigger.
-	Annotations pulumi.StringMapArrayInput `pulumi:"annotations"`
+	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
 	// Trigger description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
@@ -6876,8 +6876,8 @@ func (o TriggerResponseOutput) ToTriggerResponsePtrOutputWithContext(ctx context
 }
 
 // List of tags that can be used for describing the trigger.
-func (o TriggerResponseOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v TriggerResponse) []map[string]string { return v.Annotations }).(pulumi.StringMapArrayOutput)
+func (o TriggerResponseOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v TriggerResponse) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
 }
 
 // Trigger description.
@@ -6914,13 +6914,13 @@ func (o TriggerResponsePtrOutput) Elem() TriggerResponseOutput {
 }
 
 // List of tags that can be used for describing the trigger.
-func (o TriggerResponsePtrOutput) Annotations() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *TriggerResponse) []map[string]string {
+func (o TriggerResponsePtrOutput) Annotations() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v *TriggerResponse) []map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Annotations
-	}).(pulumi.StringMapArrayOutput)
+	}).(pulumi.MapArrayOutput)
 }
 
 // Trigger description.
@@ -6958,7 +6958,7 @@ type UserProperty struct {
 	// User property name.
 	Name string `pulumi:"name"`
 	// User property value. Type: string (or Expression with resultType string).
-	Value map[string]string `pulumi:"value"`
+	Value map[string]interface{} `pulumi:"value"`
 }
 
 // UserPropertyInput is an input type that accepts UserPropertyArgs and UserPropertyOutput values.
@@ -6977,7 +6977,7 @@ type UserPropertyArgs struct {
 	// User property name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// User property value. Type: string (or Expression with resultType string).
-	Value pulumi.StringMapInput `pulumi:"value"`
+	Value pulumi.MapInput `pulumi:"value"`
 }
 
 func (UserPropertyArgs) ElementType() reflect.Type {
@@ -7038,8 +7038,8 @@ func (o UserPropertyOutput) Name() pulumi.StringOutput {
 }
 
 // User property value. Type: string (or Expression with resultType string).
-func (o UserPropertyOutput) Value() pulumi.StringMapOutput {
-	return o.ApplyT(func(v UserProperty) map[string]string { return v.Value }).(pulumi.StringMapOutput)
+func (o UserPropertyOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v UserProperty) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
 type UserPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -7067,7 +7067,7 @@ type UserPropertyResponse struct {
 	// User property name.
 	Name string `pulumi:"name"`
 	// User property value. Type: string (or Expression with resultType string).
-	Value map[string]string `pulumi:"value"`
+	Value map[string]interface{} `pulumi:"value"`
 }
 
 // UserPropertyResponseInput is an input type that accepts UserPropertyResponseArgs and UserPropertyResponseOutput values.
@@ -7086,7 +7086,7 @@ type UserPropertyResponseArgs struct {
 	// User property name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// User property value. Type: string (or Expression with resultType string).
-	Value pulumi.StringMapInput `pulumi:"value"`
+	Value pulumi.MapInput `pulumi:"value"`
 }
 
 func (UserPropertyResponseArgs) ElementType() reflect.Type {
@@ -7147,8 +7147,8 @@ func (o UserPropertyResponseOutput) Name() pulumi.StringOutput {
 }
 
 // User property value. Type: string (or Expression with resultType string).
-func (o UserPropertyResponseOutput) Value() pulumi.StringMapOutput {
-	return o.ApplyT(func(v UserPropertyResponse) map[string]string { return v.Value }).(pulumi.StringMapOutput)
+func (o UserPropertyResponseOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v UserPropertyResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
 type UserPropertyResponseArrayOutput struct{ *pulumi.OutputState }

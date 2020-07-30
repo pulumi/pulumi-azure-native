@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.StorageSync.V20180402.Outputs
         /// <summary>
         /// Sync Health Status
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? SyncStatus;
+        public readonly ImmutableDictionary<string, object>? SyncStatus;
         /// <summary>
         /// Level of free space to be maintained by Cloud Tiering if it is enabled.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.StorageSync.V20180402.Outputs
 
             string? serverResourceId,
 
-            ImmutableDictionary<string, string>? syncStatus,
+            ImmutableDictionary<string, object>? syncStatus,
 
             int? volumeFreeSpacePercent)
         {

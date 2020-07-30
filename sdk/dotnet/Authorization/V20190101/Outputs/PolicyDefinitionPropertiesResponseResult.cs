@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Authorization.V20190101.Outputs
         /// <summary>
         /// The policy definition metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         /// </summary>
@@ -32,11 +32,11 @@ namespace Pulumi.AzureRM.Authorization.V20190101.Outputs
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? PolicyRule;
+        public readonly ImmutableDictionary<string, object>? PolicyRule;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Authorization.V20190101.Outputs
 
             string? displayName,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string? mode,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
-            ImmutableDictionary<string, string>? policyRule,
+            ImmutableDictionary<string, object>? policyRule,
 
             string? policyType)
         {

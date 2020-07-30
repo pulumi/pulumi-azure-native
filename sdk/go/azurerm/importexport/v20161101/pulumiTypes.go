@@ -1138,7 +1138,7 @@ type JobType struct {
 	// Specifies the job properties
 	Properties JobDetailsResponse `pulumi:"properties"`
 	// Specifies the tags that are assigned to the job.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Specifies the type of the job resource.
 	Type string `pulumi:"type"`
 }
@@ -1163,7 +1163,7 @@ type JobTypeArgs struct {
 	// Specifies the job properties
 	Properties JobDetailsResponseInput `pulumi:"properties"`
 	// Specifies the tags that are assigned to the job.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the type of the job resource.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1211,8 +1211,8 @@ func (o JobTypeOutput) Properties() JobDetailsResponseOutput {
 }
 
 // Specifies the tags that are assigned to the job.
-func (o JobTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v JobType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o JobTypeOutput) Tags() pulumi.MapOutput {
+	return o.ApplyT(func(v JobType) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
 
 // Specifies the type of the job resource.

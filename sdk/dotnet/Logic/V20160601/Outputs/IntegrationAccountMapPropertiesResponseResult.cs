@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The parameters schema of integration account map.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             string mapType,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             Outputs.IntegrationAccountMapPropertiesResponsePropertiesResult? parametersSchema)
         {

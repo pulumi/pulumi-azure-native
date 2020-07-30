@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
         /// <summary>
         /// The resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, object>? Tags;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
 
             Outputs.AlertRulePropertiesResponseResult properties,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, object>? tags,
 
             string type)
         {

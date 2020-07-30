@@ -324,11 +324,11 @@ type DeploymentProperties struct {
 	// Gets or sets the deployment mode.
 	Mode *string `pulumi:"mode"`
 	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 	ParametersLink *ParametersLink `pulumi:"parametersLink"`
 	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template map[string]string `pulumi:"template"`
+	Template map[string]interface{} `pulumi:"template"`
 	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 	TemplateLink *TemplateLink `pulumi:"templateLink"`
 }
@@ -349,11 +349,11 @@ type DeploymentPropertiesArgs struct {
 	// Gets or sets the deployment mode.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 	ParametersLink ParametersLinkPtrInput `pulumi:"parametersLink"`
 	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template pulumi.StringMapInput `pulumi:"template"`
+	Template pulumi.MapInput `pulumi:"template"`
 	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 	TemplateLink TemplateLinkPtrInput `pulumi:"templateLink"`
 }
@@ -442,8 +442,8 @@ func (o DeploymentPropertiesOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Deployment parameters. Use only one of Parameters or ParametersLink.
-func (o DeploymentPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
@@ -452,8 +452,8 @@ func (o DeploymentPropertiesOutput) ParametersLink() ParametersLinkPtrOutput {
 }
 
 // Gets or sets the template content. Use only one of Template or TemplateLink.
-func (o DeploymentPropertiesOutput) Template() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentProperties) map[string]string { return v.Template }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentProperties) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
@@ -490,13 +490,13 @@ func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Deployment parameters. Use only one of Parameters or ParametersLink.
-func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentProperties) map[string]string {
+func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
@@ -510,13 +510,13 @@ func (o DeploymentPropertiesPtrOutput) ParametersLink() ParametersLinkPtrOutput 
 }
 
 // Gets or sets the template content. Use only one of Template or TemplateLink.
-func (o DeploymentPropertiesPtrOutput) Template() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentProperties) map[string]string {
+func (o DeploymentPropertiesPtrOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Template
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
@@ -538,9 +538,9 @@ type DeploymentPropertiesExtendedResponse struct {
 	// Gets or sets the deployment mode.
 	Mode *string `pulumi:"mode"`
 	// Gets or sets key/value pairs that represent deployment output.
-	Outputs map[string]string `pulumi:"outputs"`
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 	ParametersLink *ParametersLinkResponse `pulumi:"parametersLink"`
 	// Gets the list of resource providers needed for the deployment.
@@ -548,7 +548,7 @@ type DeploymentPropertiesExtendedResponse struct {
 	// Gets or sets the state of the provisioning.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template map[string]string `pulumi:"template"`
+	Template map[string]interface{} `pulumi:"template"`
 	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 	TemplateLink *TemplateLinkResponse `pulumi:"templateLink"`
 	// Gets or sets the timestamp of the template deployment.
@@ -575,9 +575,9 @@ type DeploymentPropertiesExtendedResponseArgs struct {
 	// Gets or sets the deployment mode.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Gets or sets key/value pairs that represent deployment output.
-	Outputs pulumi.StringMapInput `pulumi:"outputs"`
+	Outputs pulumi.MapInput `pulumi:"outputs"`
 	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 	ParametersLink ParametersLinkResponsePtrInput `pulumi:"parametersLink"`
 	// Gets the list of resource providers needed for the deployment.
@@ -585,7 +585,7 @@ type DeploymentPropertiesExtendedResponseArgs struct {
 	// Gets or sets the state of the provisioning.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template pulumi.StringMapInput `pulumi:"template"`
+	Template pulumi.MapInput `pulumi:"template"`
 	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 	TemplateLink TemplateLinkResponsePtrInput `pulumi:"templateLink"`
 	// Gets or sets the timestamp of the template deployment.
@@ -686,13 +686,13 @@ func (o DeploymentPropertiesExtendedResponseOutput) Mode() pulumi.StringPtrOutpu
 }
 
 // Gets or sets key/value pairs that represent deployment output.
-func (o DeploymentPropertiesExtendedResponseOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]string { return v.Outputs }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesExtendedResponseOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]interface{} { return v.Outputs }).(pulumi.MapOutput)
 }
 
 // Deployment parameters. Use only one of Parameters or ParametersLink.
-func (o DeploymentPropertiesExtendedResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesExtendedResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
@@ -711,8 +711,8 @@ func (o DeploymentPropertiesExtendedResponseOutput) ProvisioningState() pulumi.S
 }
 
 // Gets or sets the template content. Use only one of Template or TemplateLink.
-func (o DeploymentPropertiesExtendedResponseOutput) Template() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]string { return v.Template }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesExtendedResponseOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
@@ -774,23 +774,23 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Mode() pulumi.StringPtrOu
 }
 
 // Gets or sets key/value pairs that represent deployment output.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]string {
+func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Outputs
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Deployment parameters. Use only one of Parameters or ParametersLink.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]string {
+func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
@@ -824,13 +824,13 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ProvisioningState() pulum
 }
 
 // Gets or sets the template content. Use only one of Template or TemplateLink.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) Template() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]string {
+func (o DeploymentPropertiesExtendedResponsePtrOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Template
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
@@ -1804,7 +1804,7 @@ type ResourceType struct {
 	// Gets or sets the plan of the resource.
 	Plan *PlanResponse `pulumi:"plan"`
 	// Gets or sets the resource properties.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -1831,7 +1831,7 @@ type ResourceTypeArgs struct {
 	// Gets or sets the plan of the resource.
 	Plan PlanResponsePtrInput `pulumi:"plan"`
 	// Gets or sets the resource properties.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties pulumi.MapInput `pulumi:"properties"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
@@ -1881,8 +1881,8 @@ func (o ResourceTypeOutput) Plan() PlanResponsePtrOutput {
 }
 
 // Gets or sets the resource properties.
-func (o ResourceTypeOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ResourceType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o ResourceTypeOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ResourceType) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
 }
 
 // Resource tags

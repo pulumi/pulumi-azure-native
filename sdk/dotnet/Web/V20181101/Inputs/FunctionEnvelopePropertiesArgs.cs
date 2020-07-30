@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.Web.V20181101.Inputs
     public sealed class FunctionEnvelopePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("config")]
-        private InputMap<string>? _config;
+        private InputMap<object>? _config;
 
         /// <summary>
         /// Config information.
         /// </summary>
-        public InputMap<string> Config
+        public InputMap<object> Config
         {
-            get => _config ?? (_config = new InputMap<string>());
+            get => _config ?? (_config = new InputMap<object>());
             set => _config = value;
         }
 

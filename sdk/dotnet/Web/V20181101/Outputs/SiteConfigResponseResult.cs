@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Web.V20181101.Outputs
         /// <summary>
         /// User-provided Azure storage accounts.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? AzureStorageAccounts;
+        public readonly ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult>? AzureStorageAccounts;
         /// <summary>
         /// Connection strings.
         /// </summary>
@@ -243,7 +243,7 @@ namespace Pulumi.AzureRM.Web.V20181101.Outputs
 
             string? autoSwapSlotName,
 
-            ImmutableDictionary<string, string>? azureStorageAccounts,
+            ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult>? azureStorageAccounts,
 
             ImmutableArray<Outputs.ConnStringInfoResponseResult> connectionStrings,
 

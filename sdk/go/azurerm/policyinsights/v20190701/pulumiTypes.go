@@ -1539,7 +1539,7 @@ func (o RemediationPropertiesResponsePtrOutput) ResourceDiscoveryMode() pulumi.S
 // Scenario specific error details.
 type TypedErrorInfoResponse struct {
 	// The scenario specific error details.
-	Info map[string]string `pulumi:"info"`
+	Info map[string]interface{} `pulumi:"info"`
 	// The type of included error details.
 	Type string `pulumi:"type"`
 }
@@ -1558,7 +1558,7 @@ type TypedErrorInfoResponseInput interface {
 // Scenario specific error details.
 type TypedErrorInfoResponseArgs struct {
 	// The scenario specific error details.
-	Info pulumi.StringMapInput `pulumi:"info"`
+	Info pulumi.MapInput `pulumi:"info"`
 	// The type of included error details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1616,8 +1616,8 @@ func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutputWithContext(
 }
 
 // The scenario specific error details.
-func (o TypedErrorInfoResponseOutput) Info() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TypedErrorInfoResponse) map[string]string { return v.Info }).(pulumi.StringMapOutput)
+func (o TypedErrorInfoResponseOutput) Info() pulumi.MapOutput {
+	return o.ApplyT(func(v TypedErrorInfoResponse) map[string]interface{} { return v.Info }).(pulumi.MapOutput)
 }
 
 // The type of included error details.

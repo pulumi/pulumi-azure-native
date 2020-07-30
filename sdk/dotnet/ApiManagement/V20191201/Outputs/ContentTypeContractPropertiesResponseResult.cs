@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
         /// <summary>
         /// Content type schema.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Schema;
+        public readonly ImmutableDictionary<string, object>? Schema;
         /// <summary>
         /// Content type version.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
 
             string? name,
 
-            ImmutableDictionary<string, string>? schema,
+            ImmutableDictionary<string, object>? schema,
 
             string? version)
         {

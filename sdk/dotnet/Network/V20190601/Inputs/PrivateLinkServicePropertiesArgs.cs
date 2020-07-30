@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
     public sealed class PrivateLinkServicePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("autoApproval")]
-        private InputMap<string>? _autoApproval;
+        private InputMap<object>? _autoApproval;
 
         /// <summary>
         /// The auto-approval list of the private link service.
         /// </summary>
-        public InputMap<string> AutoApproval
+        public InputMap<object> AutoApproval
         {
-            get => _autoApproval ?? (_autoApproval = new InputMap<string>());
+            get => _autoApproval ?? (_autoApproval = new InputMap<object>());
             set => _autoApproval = value;
         }
 
@@ -82,14 +82,14 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
         public Input<string>? ProvisioningState { get; set; }
 
         [Input("visibility")]
-        private InputMap<string>? _visibility;
+        private InputMap<object>? _visibility;
 
         /// <summary>
         /// The visibility list of the private link service.
         /// </summary>
-        public InputMap<string> Visibility
+        public InputMap<object> Visibility
         {
-            get => _visibility ?? (_visibility = new InputMap<string>());
+            get => _visibility ?? (_visibility = new InputMap<object>());
             set => _visibility = value;
         }
 

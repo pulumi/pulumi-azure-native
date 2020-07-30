@@ -16,26 +16,26 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Inputs
     public sealed class ExampleRequestArgs : Pulumi.ResourceArgs
     {
         [Input("globalParameters")]
-        private InputMap<string>? _globalParameters;
+        private InputMap<ImmutableDictionary<string, object>>? _globalParameters;
 
         /// <summary>
         /// Sample input data for the web service's global parameters
         /// </summary>
-        public InputMap<string> GlobalParameters
+        public InputMap<ImmutableDictionary<string, object>> GlobalParameters
         {
-            get => _globalParameters ?? (_globalParameters = new InputMap<string>());
+            get => _globalParameters ?? (_globalParameters = new InputMap<ImmutableDictionary<string, object>>());
             set => _globalParameters = value;
         }
 
         [Input("inputs")]
-        private InputMap<string>? _inputs;
+        private InputMap<ImmutableArray<ImmutableArray<ImmutableDictionary<string, object>>>>? _inputs;
 
         /// <summary>
         /// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         /// </summary>
-        public InputMap<string> Inputs
+        public InputMap<ImmutableArray<ImmutableArray<ImmutableDictionary<string, object>>>> Inputs
         {
-            get => _inputs ?? (_inputs = new InputMap<string>());
+            get => _inputs ?? (_inputs = new InputMap<ImmutableArray<ImmutableArray<ImmutableDictionary<string, object>>>>());
             set => _inputs = value;
         }
 

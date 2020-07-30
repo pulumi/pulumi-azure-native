@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418.Inputs
         public Input<string>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<string>? _userAssignedIdentities;
+        private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         /// </summary>
-        public InputMap<string> UserAssignedIdentities
+        public InputMap<Inputs.UserAssignedIdentityArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserAssignedIdentityArgs>());
             set => _userAssignedIdentities = value;
         }
 

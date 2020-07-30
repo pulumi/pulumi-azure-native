@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.CostManagement.V20190101.Inputs
     public sealed class QueryDatasetArgs : Pulumi.ResourceArgs
     {
         [Input("aggregation")]
-        private InputMap<string>? _aggregation;
+        private InputMap<Inputs.QueryAggregationArgs>? _aggregation;
 
         /// <summary>
         /// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
         /// </summary>
-        public InputMap<string> Aggregation
+        public InputMap<Inputs.QueryAggregationArgs> Aggregation
         {
-            get => _aggregation ?? (_aggregation = new InputMap<string>());
+            get => _aggregation ?? (_aggregation = new InputMap<Inputs.QueryAggregationArgs>());
             set => _aggregation = value;
         }
 

@@ -4554,6 +4554,151 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 	}).(StatusCodesBasedTriggerResponseArrayOutput)
 }
 
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponse struct {
+	// Access key for the storage account.
+	AccessKey *string `pulumi:"accessKey"`
+	// Name of the storage account.
+	AccountName *string `pulumi:"accountName"`
+	// Path to mount the storage within the site's runtime environment.
+	MountPath *string `pulumi:"mountPath"`
+	// Name of the file share (container name, for Blob storage).
+	ShareName *string `pulumi:"shareName"`
+	// State of the storage account.
+	State string `pulumi:"state"`
+	// Type of storage.
+	Type *string `pulumi:"type"`
+}
+
+// AzureStorageInfoValueResponseInput is an input type that accepts AzureStorageInfoValueResponseArgs and AzureStorageInfoValueResponseOutput values.
+// You can construct a concrete instance of `AzureStorageInfoValueResponseInput` via:
+//
+//          AzureStorageInfoValueResponseArgs{...}
+type AzureStorageInfoValueResponseInput interface {
+	pulumi.Input
+
+	ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput
+	ToAzureStorageInfoValueResponseOutputWithContext(context.Context) AzureStorageInfoValueResponseOutput
+}
+
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponseArgs struct {
+	// Access key for the storage account.
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Name of the storage account.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Path to mount the storage within the site's runtime environment.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// Name of the file share (container name, for Blob storage).
+	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
+	// State of the storage account.
+	State pulumi.StringInput `pulumi:"state"`
+	// Type of storage.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AzureStorageInfoValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (i AzureStorageInfoValueResponseArgs) ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput {
+	return i.ToAzureStorageInfoValueResponseOutputWithContext(context.Background())
+}
+
+func (i AzureStorageInfoValueResponseArgs) ToAzureStorageInfoValueResponseOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueResponseOutput)
+}
+
+// AzureStorageInfoValueResponseMapInput is an input type that accepts AzureStorageInfoValueResponseMap and AzureStorageInfoValueResponseMapOutput values.
+// You can construct a concrete instance of `AzureStorageInfoValueResponseMapInput` via:
+//
+//          AzureStorageInfoValueResponseMap{ "key": AzureStorageInfoValueResponseArgs{...} }
+type AzureStorageInfoValueResponseMapInput interface {
+	pulumi.Input
+
+	ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput
+	ToAzureStorageInfoValueResponseMapOutputWithContext(context.Context) AzureStorageInfoValueResponseMapOutput
+}
+
+type AzureStorageInfoValueResponseMap map[string]AzureStorageInfoValueResponseInput
+
+func (AzureStorageInfoValueResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (i AzureStorageInfoValueResponseMap) ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput {
+	return i.ToAzureStorageInfoValueResponseMapOutputWithContext(context.Background())
+}
+
+func (i AzureStorageInfoValueResponseMap) ToAzureStorageInfoValueResponseMapOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueResponseMapOutput)
+}
+
+// Azure Files or Blob Storage access information value for dictionary storage.
+type AzureStorageInfoValueResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageInfoValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (o AzureStorageInfoValueResponseOutput) ToAzureStorageInfoValueResponseOutput() AzureStorageInfoValueResponseOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseOutput) ToAzureStorageInfoValueResponseOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseOutput {
+	return o
+}
+
+// Access key for the storage account.
+func (o AzureStorageInfoValueResponseOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Name of the storage account.
+func (o AzureStorageInfoValueResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Path to mount the storage within the site's runtime environment.
+func (o AzureStorageInfoValueResponseOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the file share (container name, for Blob storage).
+func (o AzureStorageInfoValueResponseOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.ShareName }).(pulumi.StringPtrOutput)
+}
+
+// State of the storage account.
+func (o AzureStorageInfoValueResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Type of storage.
+func (o AzureStorageInfoValueResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AzureStorageInfoValueResponseMapOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageInfoValueResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AzureStorageInfoValueResponse)(nil)).Elem()
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) ToAzureStorageInfoValueResponseMapOutput() AzureStorageInfoValueResponseMapOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) ToAzureStorageInfoValueResponseMapOutputWithContext(ctx context.Context) AzureStorageInfoValueResponseMapOutput {
+	return o
+}
+
+func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) AzureStorageInfoValueResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AzureStorageInfoValueResponse {
+		return vs[0].(map[string]AzureStorageInfoValueResponse)[vs[1].(string)]
+	}).(AzureStorageInfoValueResponseOutput)
+}
+
 // Backup description.
 type BackupItemResponse struct {
 	// Resource Id.
@@ -7697,6 +7842,115 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 	}).(ConnStringInfoResponseOutput)
 }
 
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponse struct {
+	// Type of database.
+	Type string `pulumi:"type"`
+	// Value of pair.
+	Value string `pulumi:"value"`
+}
+
+// ConnStringValueTypePairResponseInput is an input type that accepts ConnStringValueTypePairResponseArgs and ConnStringValueTypePairResponseOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseInput` via:
+//
+//          ConnStringValueTypePairResponseArgs{...}
+type ConnStringValueTypePairResponseInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput
+	ToConnStringValueTypePairResponseOutputWithContext(context.Context) ConnStringValueTypePairResponseOutput
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseArgs struct {
+	// Type of database.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of pair.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnStringValueTypePairResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return i.ToConnStringValueTypePairResponseOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseArgs) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseOutput)
+}
+
+// ConnStringValueTypePairResponseMapInput is an input type that accepts ConnStringValueTypePairResponseMap and ConnStringValueTypePairResponseMapOutput values.
+// You can construct a concrete instance of `ConnStringValueTypePairResponseMapInput` via:
+//
+//          ConnStringValueTypePairResponseMap{ "key": ConnStringValueTypePairResponseArgs{...} }
+type ConnStringValueTypePairResponseMapInput interface {
+	pulumi.Input
+
+	ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput
+	ToConnStringValueTypePairResponseMapOutputWithContext(context.Context) ConnStringValueTypePairResponseMapOutput
+}
+
+type ConnStringValueTypePairResponseMap map[string]ConnStringValueTypePairResponseInput
+
+func (ConnStringValueTypePairResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return i.ToConnStringValueTypePairResponseMapOutputWithContext(context.Background())
+}
+
+func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Database connection string value to type pair.
+type ConnStringValueTypePairResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutput() ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponseOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseOutput {
+	return o
+}
+
+// Type of database.
+func (o ConnStringValueTypePairResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of pair.
+func (o ConnStringValueTypePairResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnStringValueTypePairResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ConnStringValueTypePairResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnStringValueTypePairResponse)(nil)).Elem()
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutput() ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) ToConnStringValueTypePairResponseMapOutputWithContext(ctx context.Context) ConnStringValueTypePairResponseMapOutput {
+	return o
+}
+
+func (o ConnStringValueTypePairResponseMapOutput) MapIndex(k pulumi.StringInput) ConnStringValueTypePairResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnStringValueTypePairResponse {
+		return vs[0].(map[string]ConnStringValueTypePairResponse)[vs[1].(string)]
+	}).(ConnStringValueTypePairResponseOutput)
+}
+
 // Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettings struct {
 	// Gets or sets the list of origins that should be allowed to make cross-origin
@@ -9124,7 +9378,7 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 // FunctionEnvelope resource specific properties
 type FunctionEnvelopeProperties struct {
 	// Config information.
-	Config map[string]string `pulumi:"config"`
+	Config map[string]interface{} `pulumi:"config"`
 	// Config URI.
 	Config_href *string `pulumi:"config_href"`
 	// File list.
@@ -9165,7 +9419,7 @@ type FunctionEnvelopePropertiesInput interface {
 // FunctionEnvelope resource specific properties
 type FunctionEnvelopePropertiesArgs struct {
 	// Config information.
-	Config pulumi.StringMapInput `pulumi:"config"`
+	Config pulumi.MapInput `pulumi:"config"`
 	// Config URI.
 	Config_href pulumi.StringPtrInput `pulumi:"config_href"`
 	// File list.
@@ -9271,8 +9525,8 @@ func (o FunctionEnvelopePropertiesOutput) ToFunctionEnvelopePropertiesPtrOutputW
 }
 
 // Config information.
-func (o FunctionEnvelopePropertiesOutput) Config() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+func (o FunctionEnvelopePropertiesOutput) Config() pulumi.MapOutput {
+	return o.ApplyT(func(v FunctionEnvelopeProperties) map[string]interface{} { return v.Config }).(pulumi.MapOutput)
 }
 
 // Config URI.
@@ -9354,13 +9608,13 @@ func (o FunctionEnvelopePropertiesPtrOutput) Elem() FunctionEnvelopePropertiesOu
 }
 
 // Config information.
-func (o FunctionEnvelopePropertiesPtrOutput) Config() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) map[string]string {
+func (o FunctionEnvelopePropertiesPtrOutput) Config() pulumi.MapOutput {
+	return o.ApplyT(func(v *FunctionEnvelopeProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Config
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Config URI.
@@ -9486,7 +9740,7 @@ func (o FunctionEnvelopePropertiesPtrOutput) Test_data_href() pulumi.StringPtrOu
 // FunctionEnvelope resource specific properties
 type FunctionEnvelopeResponseProperties struct {
 	// Config information.
-	Config map[string]string `pulumi:"config"`
+	Config map[string]interface{} `pulumi:"config"`
 	// Config URI.
 	Config_href *string `pulumi:"config_href"`
 	// File list.
@@ -9527,7 +9781,7 @@ type FunctionEnvelopeResponsePropertiesInput interface {
 // FunctionEnvelope resource specific properties
 type FunctionEnvelopeResponsePropertiesArgs struct {
 	// Config information.
-	Config pulumi.StringMapInput `pulumi:"config"`
+	Config pulumi.MapInput `pulumi:"config"`
 	// Config URI.
 	Config_href pulumi.StringPtrInput `pulumi:"config_href"`
 	// File list.
@@ -9633,8 +9887,8 @@ func (o FunctionEnvelopeResponsePropertiesOutput) ToFunctionEnvelopeResponseProp
 }
 
 // Config information.
-func (o FunctionEnvelopeResponsePropertiesOutput) Config() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FunctionEnvelopeResponseProperties) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+func (o FunctionEnvelopeResponsePropertiesOutput) Config() pulumi.MapOutput {
+	return o.ApplyT(func(v FunctionEnvelopeResponseProperties) map[string]interface{} { return v.Config }).(pulumi.MapOutput)
 }
 
 // Config URI.
@@ -9716,13 +9970,13 @@ func (o FunctionEnvelopeResponsePropertiesPtrOutput) Elem() FunctionEnvelopeResp
 }
 
 // Config information.
-func (o FunctionEnvelopeResponsePropertiesPtrOutput) Config() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeResponseProperties) map[string]string {
+func (o FunctionEnvelopeResponsePropertiesPtrOutput) Config() pulumi.MapOutput {
+	return o.ApplyT(func(v *FunctionEnvelopeResponseProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Config
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Config URI.
@@ -12695,7 +12949,7 @@ type ManagedServiceIdentity struct {
 	// Type of managed service identity.
 	Type *string `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ManagedServiceIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
@@ -12714,7 +12968,7 @@ type ManagedServiceIdentityArgs struct {
 	// Type of managed service identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ManagedServiceIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -12801,8 +13055,10 @@ func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ManagedServiceIdentityOutput) UserAssignedIdentities() ManagedServiceIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) map[string]ManagedServiceIdentityProperties {
+		return v.UserAssignedIdentities
+	}).(ManagedServiceIdentityPropertiesMapOutput)
 }
 
 type ManagedServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -12834,13 +13090,101 @@ func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]string {
+func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() ManagedServiceIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]ManagedServiceIdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(ManagedServiceIdentityPropertiesMapOutput)
+}
+
+type ManagedServiceIdentityProperties struct {
+}
+
+// ManagedServiceIdentityPropertiesInput is an input type that accepts ManagedServiceIdentityPropertiesArgs and ManagedServiceIdentityPropertiesOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityPropertiesInput` via:
+//
+//          ManagedServiceIdentityPropertiesArgs{...}
+type ManagedServiceIdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPropertiesOutput() ManagedServiceIdentityPropertiesOutput
+	ToManagedServiceIdentityPropertiesOutputWithContext(context.Context) ManagedServiceIdentityPropertiesOutput
+}
+
+type ManagedServiceIdentityPropertiesArgs struct {
+}
+
+func (ManagedServiceIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityProperties)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityPropertiesArgs) ToManagedServiceIdentityPropertiesOutput() ManagedServiceIdentityPropertiesOutput {
+	return i.ToManagedServiceIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityPropertiesArgs) ToManagedServiceIdentityPropertiesOutputWithContext(ctx context.Context) ManagedServiceIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPropertiesOutput)
+}
+
+// ManagedServiceIdentityPropertiesMapInput is an input type that accepts ManagedServiceIdentityPropertiesMap and ManagedServiceIdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityPropertiesMapInput` via:
+//
+//          ManagedServiceIdentityPropertiesMap{ "key": ManagedServiceIdentityPropertiesArgs{...} }
+type ManagedServiceIdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityPropertiesMapOutput() ManagedServiceIdentityPropertiesMapOutput
+	ToManagedServiceIdentityPropertiesMapOutputWithContext(context.Context) ManagedServiceIdentityPropertiesMapOutput
+}
+
+type ManagedServiceIdentityPropertiesMap map[string]ManagedServiceIdentityPropertiesInput
+
+func (ManagedServiceIdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedServiceIdentityProperties)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityPropertiesMap) ToManagedServiceIdentityPropertiesMapOutput() ManagedServiceIdentityPropertiesMapOutput {
+	return i.ToManagedServiceIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityPropertiesMap) ToManagedServiceIdentityPropertiesMapOutputWithContext(ctx context.Context) ManagedServiceIdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPropertiesMapOutput)
+}
+
+type ManagedServiceIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityProperties)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPropertiesOutput) ToManagedServiceIdentityPropertiesOutput() ManagedServiceIdentityPropertiesOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPropertiesOutput) ToManagedServiceIdentityPropertiesOutputWithContext(ctx context.Context) ManagedServiceIdentityPropertiesOutput {
+	return o
+}
+
+type ManagedServiceIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedServiceIdentityProperties)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityPropertiesMapOutput) ToManagedServiceIdentityPropertiesMapOutput() ManagedServiceIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPropertiesMapOutput) ToManagedServiceIdentityPropertiesMapOutputWithContext(ctx context.Context) ManagedServiceIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) ManagedServiceIdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedServiceIdentityProperties {
+		return vs[0].(map[string]ManagedServiceIdentityProperties)[vs[1].(string)]
+	}).(ManagedServiceIdentityPropertiesOutput)
 }
 
 // Managed service identity.
@@ -12852,7 +13196,7 @@ type ManagedServiceIdentityResponse struct {
 	// Type of managed service identity.
 	Type *string `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ManagedServiceIdentityResponseProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedServiceIdentityResponseInput is an input type that accepts ManagedServiceIdentityResponseArgs and ManagedServiceIdentityResponseOutput values.
@@ -12875,7 +13219,7 @@ type ManagedServiceIdentityResponseArgs struct {
 	// Type of managed service identity.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ManagedServiceIdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityResponseArgs) ElementType() reflect.Type {
@@ -12972,8 +13316,10 @@ func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() ManagedServiceIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseProperties {
+		return v.UserAssignedIdentities
+	}).(ManagedServiceIdentityResponsePropertiesMapOutput)
 }
 
 type ManagedServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -13025,13 +13371,119 @@ func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]string {
+func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() ManagedServiceIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(ManagedServiceIdentityResponsePropertiesMapOutput)
+}
+
+type ManagedServiceIdentityResponseProperties struct {
+	// Client Id of user assigned identity
+	ClientId string `pulumi:"clientId"`
+	// Principal Id of user assigned identity
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// ManagedServiceIdentityResponsePropertiesInput is an input type that accepts ManagedServiceIdentityResponsePropertiesArgs and ManagedServiceIdentityResponsePropertiesOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityResponsePropertiesInput` via:
+//
+//          ManagedServiceIdentityResponsePropertiesArgs{...}
+type ManagedServiceIdentityResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponsePropertiesOutput() ManagedServiceIdentityResponsePropertiesOutput
+	ToManagedServiceIdentityResponsePropertiesOutputWithContext(context.Context) ManagedServiceIdentityResponsePropertiesOutput
+}
+
+type ManagedServiceIdentityResponsePropertiesArgs struct {
+	// Client Id of user assigned identity
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Principal Id of user assigned identity
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (ManagedServiceIdentityResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityResponsePropertiesArgs) ToManagedServiceIdentityResponsePropertiesOutput() ManagedServiceIdentityResponsePropertiesOutput {
+	return i.ToManagedServiceIdentityResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponsePropertiesArgs) ToManagedServiceIdentityResponsePropertiesOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePropertiesOutput)
+}
+
+// ManagedServiceIdentityResponsePropertiesMapInput is an input type that accepts ManagedServiceIdentityResponsePropertiesMap and ManagedServiceIdentityResponsePropertiesMapOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityResponsePropertiesMapInput` via:
+//
+//          ManagedServiceIdentityResponsePropertiesMap{ "key": ManagedServiceIdentityResponsePropertiesArgs{...} }
+type ManagedServiceIdentityResponsePropertiesMapInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityResponsePropertiesMapOutput() ManagedServiceIdentityResponsePropertiesMapOutput
+	ToManagedServiceIdentityResponsePropertiesMapOutputWithContext(context.Context) ManagedServiceIdentityResponsePropertiesMapOutput
+}
+
+type ManagedServiceIdentityResponsePropertiesMap map[string]ManagedServiceIdentityResponsePropertiesInput
+
+func (ManagedServiceIdentityResponsePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedServiceIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityResponsePropertiesMap) ToManagedServiceIdentityResponsePropertiesMapOutput() ManagedServiceIdentityResponsePropertiesMapOutput {
+	return i.ToManagedServiceIdentityResponsePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityResponsePropertiesMap) ToManagedServiceIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePropertiesMapOutput)
+}
+
+type ManagedServiceIdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePropertiesOutput) ToManagedServiceIdentityResponsePropertiesOutput() ManagedServiceIdentityResponsePropertiesOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePropertiesOutput) ToManagedServiceIdentityResponsePropertiesOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePropertiesOutput {
+	return o
+}
+
+// Client Id of user assigned identity
+func (o ManagedServiceIdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Principal Id of user assigned identity
+func (o ManagedServiceIdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ManagedServiceIdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedServiceIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityResponsePropertiesMapOutput) ToManagedServiceIdentityResponsePropertiesMapOutput() ManagedServiceIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePropertiesMapOutput) ToManagedServiceIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) ManagedServiceIdentityResponsePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedServiceIdentityResponseProperties {
+		return vs[0].(map[string]ManagedServiceIdentityResponseProperties)[vs[1].(string)]
+	}).(ManagedServiceIdentityResponsePropertiesOutput)
 }
 
 // Name value pair.
@@ -30673,6 +31125,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoHealTriggersPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponseOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureStorageInfoValueResponseOutput{})
+	pulumi.RegisterOutputType(AzureStorageInfoValueResponseMapOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(BackupItemResponsePropertiesOutput{})
@@ -30700,6 +31154,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnStringInfoArrayOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseOutput{})
+	pulumi.RegisterOutputType(ConnStringValueTypePairResponseMapOutput{})
 	pulumi.RegisterOutputType(CorsSettingsOutput{})
 	pulumi.RegisterOutputType(CorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponseOutput{})
@@ -30754,8 +31210,12 @@ func init() {
 	pulumi.RegisterOutputType(IpSecurityRestrictionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePropertiesMapOutput{})
 	pulumi.RegisterOutputType(NameValuePairOutput{})
 	pulumi.RegisterOutputType(NameValuePairArrayOutput{})
 	pulumi.RegisterOutputType(NameValuePairResponseOutput{})

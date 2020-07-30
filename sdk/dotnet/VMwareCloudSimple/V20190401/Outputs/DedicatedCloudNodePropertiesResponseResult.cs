@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
         /// <summary>
         /// date time the resource was created
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Created;
+        public readonly ImmutableDictionary<string, object> Created;
         /// <summary>
         /// count of nodes to create
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
 
             string cloudRackName,
 
-            ImmutableDictionary<string, string> created,
+            ImmutableDictionary<string, object> created,
 
             int nodesCount,
 

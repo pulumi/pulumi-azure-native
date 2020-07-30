@@ -65,7 +65,7 @@ export interface GetResourceResult {
     /**
      * Gets or sets the resource properties.
      */
-    readonly properties: {[key: string]: string};
+    readonly properties: {[key: string]: any};
     /**
      * Resource tags
      */

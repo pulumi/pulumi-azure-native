@@ -4892,15 +4892,15 @@ type AssemblyProperties struct {
 	// The assembly version.
 	AssemblyVersion *string `pulumi:"assemblyVersion"`
 	// The artifact changed time.
-	ChangedTime *string           `pulumi:"changedTime"`
-	Content     map[string]string `pulumi:"content"`
+	ChangedTime *string                `pulumi:"changedTime"`
+	Content     map[string]interface{} `pulumi:"content"`
 	// The content link.
 	ContentLink *ContentLink `pulumi:"contentLink"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The artifact creation time.
-	CreatedTime *string           `pulumi:"createdTime"`
-	Metadata    map[string]string `pulumi:"metadata"`
+	CreatedTime *string                `pulumi:"createdTime"`
+	Metadata    map[string]interface{} `pulumi:"metadata"`
 }
 
 // AssemblyPropertiesInput is an input type that accepts AssemblyPropertiesArgs and AssemblyPropertiesOutput values.
@@ -4926,14 +4926,14 @@ type AssemblyPropertiesArgs struct {
 	AssemblyVersion pulumi.StringPtrInput `pulumi:"assemblyVersion"`
 	// The artifact changed time.
 	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	Content     pulumi.StringMapInput `pulumi:"content"`
+	Content     pulumi.MapInput       `pulumi:"content"`
 	// The content link.
 	ContentLink ContentLinkPtrInput `pulumi:"contentLink"`
 	// The content type.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// The artifact creation time.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata    pulumi.MapInput       `pulumi:"metadata"`
 }
 
 func (AssemblyPropertiesArgs) ElementType() reflect.Type {
@@ -5039,8 +5039,8 @@ func (o AssemblyPropertiesOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesOutput) Content() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AssemblyProperties) map[string]string { return v.Content }).(pulumi.StringMapOutput)
+func (o AssemblyPropertiesOutput) Content() pulumi.MapOutput {
+	return o.ApplyT(func(v AssemblyProperties) map[string]interface{} { return v.Content }).(pulumi.MapOutput)
 }
 
 // The content link.
@@ -5058,8 +5058,8 @@ func (o AssemblyPropertiesOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AssemblyProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o AssemblyPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v AssemblyProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 type AssemblyPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -5130,13 +5130,13 @@ func (o AssemblyPropertiesPtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesPtrOutput) Content() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AssemblyProperties) map[string]string {
+func (o AssemblyPropertiesPtrOutput) Content() pulumi.MapOutput {
+	return o.ApplyT(func(v *AssemblyProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Content
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The content link.
@@ -5169,13 +5169,13 @@ func (o AssemblyPropertiesPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AssemblyProperties) map[string]string {
+func (o AssemblyPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *AssemblyProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The assembly properties definition.
@@ -5189,15 +5189,15 @@ type AssemblyPropertiesResponse struct {
 	// The assembly version.
 	AssemblyVersion *string `pulumi:"assemblyVersion"`
 	// The artifact changed time.
-	ChangedTime *string           `pulumi:"changedTime"`
-	Content     map[string]string `pulumi:"content"`
+	ChangedTime *string                `pulumi:"changedTime"`
+	Content     map[string]interface{} `pulumi:"content"`
 	// The content link.
 	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The artifact creation time.
-	CreatedTime *string           `pulumi:"createdTime"`
-	Metadata    map[string]string `pulumi:"metadata"`
+	CreatedTime *string                `pulumi:"createdTime"`
+	Metadata    map[string]interface{} `pulumi:"metadata"`
 }
 
 // AssemblyPropertiesResponseInput is an input type that accepts AssemblyPropertiesResponseArgs and AssemblyPropertiesResponseOutput values.
@@ -5223,14 +5223,14 @@ type AssemblyPropertiesResponseArgs struct {
 	AssemblyVersion pulumi.StringPtrInput `pulumi:"assemblyVersion"`
 	// The artifact changed time.
 	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	Content     pulumi.StringMapInput `pulumi:"content"`
+	Content     pulumi.MapInput       `pulumi:"content"`
 	// The content link.
 	ContentLink ContentLinkResponsePtrInput `pulumi:"contentLink"`
 	// The content type.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// The artifact creation time.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata    pulumi.MapInput       `pulumi:"metadata"`
 }
 
 func (AssemblyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5336,8 +5336,8 @@ func (o AssemblyPropertiesResponseOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesResponseOutput) Content() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AssemblyPropertiesResponse) map[string]string { return v.Content }).(pulumi.StringMapOutput)
+func (o AssemblyPropertiesResponseOutput) Content() pulumi.MapOutput {
+	return o.ApplyT(func(v AssemblyPropertiesResponse) map[string]interface{} { return v.Content }).(pulumi.MapOutput)
 }
 
 // The content link.
@@ -5355,8 +5355,8 @@ func (o AssemblyPropertiesResponseOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AssemblyPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o AssemblyPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v AssemblyPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 type AssemblyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5427,13 +5427,13 @@ func (o AssemblyPropertiesResponsePtrOutput) ChangedTime() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesResponsePtrOutput) Content() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AssemblyPropertiesResponse) map[string]string {
+func (o AssemblyPropertiesResponsePtrOutput) Content() pulumi.MapOutput {
+	return o.ApplyT(func(v *AssemblyPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Content
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The content link.
@@ -5466,13 +5466,13 @@ func (o AssemblyPropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AssemblyPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AssemblyPropertiesResponse) map[string]string {
+func (o AssemblyPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *AssemblyPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The azure resource error info.
@@ -5967,8 +5967,8 @@ type BatchConfigurationProperties struct {
 	// The artifact changed time.
 	ChangedTime *string `pulumi:"changedTime"`
 	// The artifact creation time.
-	CreatedTime *string           `pulumi:"createdTime"`
-	Metadata    map[string]string `pulumi:"metadata"`
+	CreatedTime *string                `pulumi:"createdTime"`
+	Metadata    map[string]interface{} `pulumi:"metadata"`
 	// The batch release criteria.
 	ReleaseCriteria BatchReleaseCriteria `pulumi:"releaseCriteria"`
 }
@@ -5992,7 +5992,7 @@ type BatchConfigurationPropertiesArgs struct {
 	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
 	// The artifact creation time.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata    pulumi.MapInput       `pulumi:"metadata"`
 	// The batch release criteria.
 	ReleaseCriteria BatchReleaseCriteriaInput `pulumi:"releaseCriteria"`
 }
@@ -6090,8 +6090,8 @@ func (o BatchConfigurationPropertiesOutput) CreatedTime() pulumi.StringPtrOutput
 	return o.ApplyT(func(v BatchConfigurationProperties) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o BatchConfigurationPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BatchConfigurationProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o BatchConfigurationPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v BatchConfigurationProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The batch release criteria.
@@ -6147,13 +6147,13 @@ func (o BatchConfigurationPropertiesPtrOutput) CreatedTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BatchConfigurationPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BatchConfigurationProperties) map[string]string {
+func (o BatchConfigurationPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *BatchConfigurationProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The batch release criteria.
@@ -6173,8 +6173,8 @@ type BatchConfigurationPropertiesResponse struct {
 	// The artifact changed time.
 	ChangedTime *string `pulumi:"changedTime"`
 	// The artifact creation time.
-	CreatedTime *string           `pulumi:"createdTime"`
-	Metadata    map[string]string `pulumi:"metadata"`
+	CreatedTime *string                `pulumi:"createdTime"`
+	Metadata    map[string]interface{} `pulumi:"metadata"`
 	// The batch release criteria.
 	ReleaseCriteria BatchReleaseCriteriaResponse `pulumi:"releaseCriteria"`
 }
@@ -6198,7 +6198,7 @@ type BatchConfigurationPropertiesResponseArgs struct {
 	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
 	// The artifact creation time.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata    pulumi.MapInput       `pulumi:"metadata"`
 	// The batch release criteria.
 	ReleaseCriteria BatchReleaseCriteriaResponseInput `pulumi:"releaseCriteria"`
 }
@@ -6296,8 +6296,8 @@ func (o BatchConfigurationPropertiesResponseOutput) CreatedTime() pulumi.StringP
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o BatchConfigurationPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o BatchConfigurationPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The batch release criteria.
@@ -6353,13 +6353,13 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) CreatedTime() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BatchConfigurationPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) map[string]string {
+func (o BatchConfigurationPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The batch release criteria.
@@ -15286,7 +15286,7 @@ type ExpressionResponse struct {
 	Error          *AzureResourceErrorInfoResponse `pulumi:"error"`
 	Subexpressions []ExpressionResponse            `pulumi:"subexpressions"`
 	Text           *string                         `pulumi:"text"`
-	Value          map[string]string               `pulumi:"value"`
+	Value          map[string]interface{}          `pulumi:"value"`
 }
 
 // ExpressionResponseInput is an input type that accepts ExpressionResponseArgs and ExpressionResponseOutput values.
@@ -15305,7 +15305,7 @@ type ExpressionResponseArgs struct {
 	Error          AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
 	Subexpressions ExpressionResponseArrayInput           `pulumi:"subexpressions"`
 	Text           pulumi.StringPtrInput                  `pulumi:"text"`
-	Value          pulumi.StringMapInput                  `pulumi:"value"`
+	Value          pulumi.MapInput                        `pulumi:"value"`
 }
 
 func (ExpressionResponseArgs) ElementType() reflect.Type {
@@ -15372,8 +15372,8 @@ func (o ExpressionResponseOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressionResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
-func (o ExpressionResponseOutput) Value() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExpressionResponse) map[string]string { return v.Value }).(pulumi.StringMapOutput)
+func (o ExpressionResponseOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v ExpressionResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
 type ExpressionResponseArrayOutput struct{ *pulumi.OutputState }
@@ -15400,10 +15400,10 @@ type ExpressionRootResponse struct {
 	// The azure resource error info.
 	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
 	// The path.
-	Path           *string              `pulumi:"path"`
-	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
-	Text           *string              `pulumi:"text"`
-	Value          map[string]string    `pulumi:"value"`
+	Path           *string                `pulumi:"path"`
+	Subexpressions []ExpressionResponse   `pulumi:"subexpressions"`
+	Text           *string                `pulumi:"text"`
+	Value          map[string]interface{} `pulumi:"value"`
 }
 
 // ExpressionRootResponseInput is an input type that accepts ExpressionRootResponseArgs and ExpressionRootResponseOutput values.
@@ -15424,7 +15424,7 @@ type ExpressionRootResponseArgs struct {
 	Path           pulumi.StringPtrInput        `pulumi:"path"`
 	Subexpressions ExpressionResponseArrayInput `pulumi:"subexpressions"`
 	Text           pulumi.StringPtrInput        `pulumi:"text"`
-	Value          pulumi.StringMapInput        `pulumi:"value"`
+	Value          pulumi.MapInput              `pulumi:"value"`
 }
 
 func (ExpressionRootResponseArgs) ElementType() reflect.Type {
@@ -15496,8 +15496,8 @@ func (o ExpressionRootResponseOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
-func (o ExpressionRootResponseOutput) Value() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExpressionRootResponse) map[string]string { return v.Value }).(pulumi.StringMapOutput)
+func (o ExpressionRootResponseOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
 type ExpressionRootResponseArrayOutput struct{ *pulumi.OutputState }
@@ -15635,7 +15635,7 @@ type IntegrationAccountAgreementProperties struct {
 	// The integration account partner that is set as host partner for this agreement.
 	HostPartner string `pulumi:"hostPartner"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 }
 
 // IntegrationAccountAgreementPropertiesInput is an input type that accepts IntegrationAccountAgreementPropertiesArgs and IntegrationAccountAgreementPropertiesOutput values.
@@ -15664,7 +15664,7 @@ type IntegrationAccountAgreementPropertiesArgs struct {
 	// The integration account partner that is set as host partner for this agreement.
 	HostPartner pulumi.StringInput `pulumi:"hostPartner"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 }
 
 func (IntegrationAccountAgreementPropertiesArgs) ElementType() reflect.Type {
@@ -15776,8 +15776,8 @@ func (o IntegrationAccountAgreementPropertiesOutput) HostPartner() pulumi.String
 }
 
 // The metadata.
-func (o IntegrationAccountAgreementPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountAgreementPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 type IntegrationAccountAgreementPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -15859,13 +15859,13 @@ func (o IntegrationAccountAgreementPropertiesPtrOutput) HostPartner() pulumi.Str
 }
 
 // The metadata.
-func (o IntegrationAccountAgreementPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementProperties) map[string]string {
+func (o IntegrationAccountAgreementPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The integration account agreement properties.
@@ -15887,7 +15887,7 @@ type IntegrationAccountAgreementPropertiesResponse struct {
 	// The integration account partner that is set as host partner for this agreement.
 	HostPartner string `pulumi:"hostPartner"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 }
 
 // IntegrationAccountAgreementPropertiesResponseInput is an input type that accepts IntegrationAccountAgreementPropertiesResponseArgs and IntegrationAccountAgreementPropertiesResponseOutput values.
@@ -15920,7 +15920,7 @@ type IntegrationAccountAgreementPropertiesResponseArgs struct {
 	// The integration account partner that is set as host partner for this agreement.
 	HostPartner pulumi.StringInput `pulumi:"hostPartner"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 }
 
 func (IntegrationAccountAgreementPropertiesResponseArgs) ElementType() reflect.Type {
@@ -16042,8 +16042,8 @@ func (o IntegrationAccountAgreementPropertiesResponseOutput) HostPartner() pulum
 }
 
 // The metadata.
-func (o IntegrationAccountAgreementPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountAgreementPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountAgreementPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 type IntegrationAccountAgreementPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -16147,13 +16147,13 @@ func (o IntegrationAccountAgreementPropertiesResponsePtrOutput) HostPartner() pu
 }
 
 // The metadata.
-func (o IntegrationAccountAgreementPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountAgreementPropertiesResponse) map[string]string {
+func (o IntegrationAccountAgreementPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreementPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The assembly definition.
@@ -16345,7 +16345,7 @@ type IntegrationAccountCertificateProperties struct {
 	// The key details in the key vault.
 	Key *KeyVaultKeyReference `pulumi:"key"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The public certificate.
 	PublicCertificate *string `pulumi:"publicCertificate"`
 }
@@ -16366,7 +16366,7 @@ type IntegrationAccountCertificatePropertiesArgs struct {
 	// The key details in the key vault.
 	Key KeyVaultKeyReferencePtrInput `pulumi:"key"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The public certificate.
 	PublicCertificate pulumi.StringPtrInput `pulumi:"publicCertificate"`
 }
@@ -16455,8 +16455,8 @@ func (o IntegrationAccountCertificatePropertiesOutput) Key() KeyVaultKeyReferenc
 }
 
 // The metadata.
-func (o IntegrationAccountCertificatePropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificateProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountCertificatePropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountCertificateProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The public certificate.
@@ -16493,13 +16493,13 @@ func (o IntegrationAccountCertificatePropertiesPtrOutput) Key() KeyVaultKeyRefer
 }
 
 // The metadata.
-func (o IntegrationAccountCertificatePropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountCertificateProperties) map[string]string {
+func (o IntegrationAccountCertificatePropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountCertificateProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The public certificate.
@@ -16521,7 +16521,7 @@ type IntegrationAccountCertificatePropertiesResponse struct {
 	// The key details in the key vault.
 	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The public certificate.
 	PublicCertificate *string `pulumi:"publicCertificate"`
 }
@@ -16546,7 +16546,7 @@ type IntegrationAccountCertificatePropertiesResponseArgs struct {
 	// The key details in the key vault.
 	Key KeyVaultKeyReferenceResponsePtrInput `pulumi:"key"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The public certificate.
 	PublicCertificate pulumi.StringPtrInput `pulumi:"publicCertificate"`
 }
@@ -16645,8 +16645,8 @@ func (o IntegrationAccountCertificatePropertiesResponseOutput) Key() KeyVaultKey
 }
 
 // The metadata.
-func (o IntegrationAccountCertificatePropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificatePropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountCertificatePropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountCertificatePropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The public certificate.
@@ -16705,13 +16705,13 @@ func (o IntegrationAccountCertificatePropertiesResponsePtrOutput) Key() KeyVault
 }
 
 // The metadata.
-func (o IntegrationAccountCertificatePropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountCertificatePropertiesResponse) map[string]string {
+func (o IntegrationAccountCertificatePropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountCertificatePropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The public certificate.
@@ -16733,7 +16733,7 @@ type IntegrationAccountMapProperties struct {
 	// The map type.
 	MapType string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The parameters schema of integration account map.
 	ParametersSchema *IntegrationAccountMapPropertiesProperties `pulumi:"parametersSchema"`
 }
@@ -16758,7 +16758,7 @@ type IntegrationAccountMapPropertiesArgs struct {
 	// The map type.
 	MapType pulumi.StringInput `pulumi:"mapType"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The parameters schema of integration account map.
 	ParametersSchema IntegrationAccountMapPropertiesPropertiesPtrInput `pulumi:"parametersSchema"`
 }
@@ -16857,8 +16857,8 @@ func (o IntegrationAccountMapPropertiesOutput) MapType() pulumi.StringOutput {
 }
 
 // The metadata.
-func (o IntegrationAccountMapPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountMapProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountMapPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountMapProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The parameters schema of integration account map.
@@ -16917,13 +16917,13 @@ func (o IntegrationAccountMapPropertiesPtrOutput) MapType() pulumi.StringPtrOutp
 }
 
 // The metadata.
-func (o IntegrationAccountMapPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountMapProperties) map[string]string {
+func (o IntegrationAccountMapPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The parameters schema of integration account map.
@@ -17087,7 +17087,7 @@ type IntegrationAccountMapPropertiesResponse struct {
 	// The map type.
 	MapType string `pulumi:"mapType"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The parameters schema of integration account map.
 	ParametersSchema *IntegrationAccountMapPropertiesResponseProperties `pulumi:"parametersSchema"`
 }
@@ -17118,7 +17118,7 @@ type IntegrationAccountMapPropertiesResponseArgs struct {
 	// The map type.
 	MapType pulumi.StringInput `pulumi:"mapType"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The parameters schema of integration account map.
 	ParametersSchema IntegrationAccountMapPropertiesResponsePropertiesPtrInput `pulumi:"parametersSchema"`
 }
@@ -17232,8 +17232,8 @@ func (o IntegrationAccountMapPropertiesResponseOutput) MapType() pulumi.StringOu
 }
 
 // The metadata.
-func (o IntegrationAccountMapPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountMapPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The parameters schema of integration account map.
@@ -17322,13 +17322,13 @@ func (o IntegrationAccountMapPropertiesResponsePtrOutput) MapType() pulumi.Strin
 }
 
 // The metadata.
-func (o IntegrationAccountMapPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponse) map[string]string {
+func (o IntegrationAccountMapPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The parameters schema of integration account map.
@@ -17482,7 +17482,7 @@ type IntegrationAccountPartnerProperties struct {
 	// The partner content.
 	Content PartnerContent `pulumi:"content"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The partner type.
 	PartnerType string `pulumi:"partnerType"`
 }
@@ -17503,7 +17503,7 @@ type IntegrationAccountPartnerPropertiesArgs struct {
 	// The partner content.
 	Content PartnerContentInput `pulumi:"content"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The partner type.
 	PartnerType pulumi.StringInput `pulumi:"partnerType"`
 }
@@ -17592,8 +17592,8 @@ func (o IntegrationAccountPartnerPropertiesOutput) Content() PartnerContentOutpu
 }
 
 // The metadata.
-func (o IntegrationAccountPartnerPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountPartnerProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountPartnerPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountPartnerProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The partner type.
@@ -17630,13 +17630,13 @@ func (o IntegrationAccountPartnerPropertiesPtrOutput) Content() PartnerContentPt
 }
 
 // The metadata.
-func (o IntegrationAccountPartnerPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountPartnerProperties) map[string]string {
+func (o IntegrationAccountPartnerPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartnerProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The partner type.
@@ -17658,7 +17658,7 @@ type IntegrationAccountPartnerPropertiesResponse struct {
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The partner type.
 	PartnerType string `pulumi:"partnerType"`
 }
@@ -17683,7 +17683,7 @@ type IntegrationAccountPartnerPropertiesResponseArgs struct {
 	// The created time.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The partner type.
 	PartnerType pulumi.StringInput `pulumi:"partnerType"`
 }
@@ -17782,8 +17782,8 @@ func (o IntegrationAccountPartnerPropertiesResponseOutput) CreatedTime() pulumi.
 }
 
 // The metadata.
-func (o IntegrationAccountPartnerPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountPartnerPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountPartnerPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountPartnerPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The partner type.
@@ -17842,13 +17842,13 @@ func (o IntegrationAccountPartnerPropertiesResponsePtrOutput) CreatedTime() pulu
 }
 
 // The metadata.
-func (o IntegrationAccountPartnerPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountPartnerPropertiesResponse) map[string]string {
+func (o IntegrationAccountPartnerPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartnerPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The partner type.
@@ -18700,7 +18700,7 @@ type IntegrationAccountSchemaProperties struct {
 	// The file name.
 	FileName *string `pulumi:"fileName"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The schema type.
 	SchemaType string `pulumi:"schemaType"`
 	// The target namespace of the schema.
@@ -18729,7 +18729,7 @@ type IntegrationAccountSchemaPropertiesArgs struct {
 	// The file name.
 	FileName pulumi.StringPtrInput `pulumi:"fileName"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The schema type.
 	SchemaType pulumi.StringInput `pulumi:"schemaType"`
 	// The target namespace of the schema.
@@ -18835,8 +18835,8 @@ func (o IntegrationAccountSchemaPropertiesOutput) FileName() pulumi.StringPtrOut
 }
 
 // The metadata.
-func (o IntegrationAccountSchemaPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountSchemaProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountSchemaPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountSchemaProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The schema type.
@@ -18908,13 +18908,13 @@ func (o IntegrationAccountSchemaPropertiesPtrOutput) FileName() pulumi.StringPtr
 }
 
 // The metadata.
-func (o IntegrationAccountSchemaPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountSchemaProperties) map[string]string {
+func (o IntegrationAccountSchemaPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchemaProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The schema type.
@@ -18954,7 +18954,7 @@ type IntegrationAccountSchemaPropertiesResponse struct {
 	// The file name.
 	FileName *string `pulumi:"fileName"`
 	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The schema type.
 	SchemaType string `pulumi:"schemaType"`
 	// The target namespace of the schema.
@@ -18989,7 +18989,7 @@ type IntegrationAccountSchemaPropertiesResponseArgs struct {
 	// The file name.
 	FileName pulumi.StringPtrInput `pulumi:"fileName"`
 	// The metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The schema type.
 	SchemaType pulumi.StringInput `pulumi:"schemaType"`
 	// The target namespace of the schema.
@@ -19110,8 +19110,8 @@ func (o IntegrationAccountSchemaPropertiesResponseOutput) FileName() pulumi.Stri
 }
 
 // The metadata.
-func (o IntegrationAccountSchemaPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountSchemaPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o IntegrationAccountSchemaPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountSchemaPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The schema type.
@@ -19215,13 +19215,13 @@ func (o IntegrationAccountSchemaPropertiesResponsePtrOutput) FileName() pulumi.S
 }
 
 // The metadata.
-func (o IntegrationAccountSchemaPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IntegrationAccountSchemaPropertiesResponse) map[string]string {
+func (o IntegrationAccountSchemaPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchemaPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The schema type.
@@ -25113,6 +25113,260 @@ func (o WorkflowTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The workflow parameters.
+type WorkflowParameter struct {
+	// The description.
+	Description *string `pulumi:"description"`
+	// The metadata.
+	Metadata *Object `pulumi:"metadata"`
+	// The type.
+	Type *string `pulumi:"type"`
+	// The value.
+	Value *Object `pulumi:"value"`
+}
+
+// WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
+// You can construct a concrete instance of `WorkflowParameterInput` via:
+//
+//          WorkflowParameterArgs{...}
+type WorkflowParameterInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterOutput() WorkflowParameterOutput
+	ToWorkflowParameterOutputWithContext(context.Context) WorkflowParameterOutput
+}
+
+// The workflow parameters.
+type WorkflowParameterArgs struct {
+	// The description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The metadata.
+	Metadata ObjectPtrInput `pulumi:"metadata"`
+	// The type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value.
+	Value ObjectPtrInput `pulumi:"value"`
+}
+
+func (WorkflowParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameter)(nil)).Elem()
+}
+
+func (i WorkflowParameterArgs) ToWorkflowParameterOutput() WorkflowParameterOutput {
+	return i.ToWorkflowParameterOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterArgs) ToWorkflowParameterOutputWithContext(ctx context.Context) WorkflowParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterOutput)
+}
+
+// WorkflowParameterMapInput is an input type that accepts WorkflowParameterMap and WorkflowParameterMapOutput values.
+// You can construct a concrete instance of `WorkflowParameterMapInput` via:
+//
+//          WorkflowParameterMap{ "key": WorkflowParameterArgs{...} }
+type WorkflowParameterMapInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterMapOutput() WorkflowParameterMapOutput
+	ToWorkflowParameterMapOutputWithContext(context.Context) WorkflowParameterMapOutput
+}
+
+type WorkflowParameterMap map[string]WorkflowParameterInput
+
+func (WorkflowParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameter)(nil)).Elem()
+}
+
+func (i WorkflowParameterMap) ToWorkflowParameterMapOutput() WorkflowParameterMapOutput {
+	return i.ToWorkflowParameterMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterMap) ToWorkflowParameterMapOutputWithContext(ctx context.Context) WorkflowParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterMapOutput)
+}
+
+// The workflow parameters.
+type WorkflowParameterOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameter)(nil)).Elem()
+}
+
+func (o WorkflowParameterOutput) ToWorkflowParameterOutput() WorkflowParameterOutput {
+	return o
+}
+
+func (o WorkflowParameterOutput) ToWorkflowParameterOutputWithContext(ctx context.Context) WorkflowParameterOutput {
+	return o
+}
+
+// The description.
+func (o WorkflowParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o WorkflowParameterOutput) Metadata() ObjectPtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *Object { return v.Metadata }).(ObjectPtrOutput)
+}
+
+// The type.
+func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value.
+func (o WorkflowParameterOutput) Value() ObjectPtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *Object { return v.Value }).(ObjectPtrOutput)
+}
+
+type WorkflowParameterMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameter)(nil)).Elem()
+}
+
+func (o WorkflowParameterMapOutput) ToWorkflowParameterMapOutput() WorkflowParameterMapOutput {
+	return o
+}
+
+func (o WorkflowParameterMapOutput) ToWorkflowParameterMapOutputWithContext(ctx context.Context) WorkflowParameterMapOutput {
+	return o
+}
+
+func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkflowParameter {
+		return vs[0].(map[string]WorkflowParameter)[vs[1].(string)]
+	}).(WorkflowParameterOutput)
+}
+
+// The workflow parameters.
+type WorkflowParameterResponse struct {
+	// The description.
+	Description *string `pulumi:"description"`
+	// The metadata.
+	Metadata *ObjectResponse `pulumi:"metadata"`
+	// The type.
+	Type *string `pulumi:"type"`
+	// The value.
+	Value *ObjectResponse `pulumi:"value"`
+}
+
+// WorkflowParameterResponseInput is an input type that accepts WorkflowParameterResponseArgs and WorkflowParameterResponseOutput values.
+// You can construct a concrete instance of `WorkflowParameterResponseInput` via:
+//
+//          WorkflowParameterResponseArgs{...}
+type WorkflowParameterResponseInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterResponseOutput() WorkflowParameterResponseOutput
+	ToWorkflowParameterResponseOutputWithContext(context.Context) WorkflowParameterResponseOutput
+}
+
+// The workflow parameters.
+type WorkflowParameterResponseArgs struct {
+	// The description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The metadata.
+	Metadata ObjectResponsePtrInput `pulumi:"metadata"`
+	// The type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value.
+	Value ObjectResponsePtrInput `pulumi:"value"`
+}
+
+func (WorkflowParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameterResponse)(nil)).Elem()
+}
+
+func (i WorkflowParameterResponseArgs) ToWorkflowParameterResponseOutput() WorkflowParameterResponseOutput {
+	return i.ToWorkflowParameterResponseOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterResponseArgs) ToWorkflowParameterResponseOutputWithContext(ctx context.Context) WorkflowParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterResponseOutput)
+}
+
+// WorkflowParameterResponseMapInput is an input type that accepts WorkflowParameterResponseMap and WorkflowParameterResponseMapOutput values.
+// You can construct a concrete instance of `WorkflowParameterResponseMapInput` via:
+//
+//          WorkflowParameterResponseMap{ "key": WorkflowParameterResponseArgs{...} }
+type WorkflowParameterResponseMapInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterResponseMapOutput() WorkflowParameterResponseMapOutput
+	ToWorkflowParameterResponseMapOutputWithContext(context.Context) WorkflowParameterResponseMapOutput
+}
+
+type WorkflowParameterResponseMap map[string]WorkflowParameterResponseInput
+
+func (WorkflowParameterResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameterResponse)(nil)).Elem()
+}
+
+func (i WorkflowParameterResponseMap) ToWorkflowParameterResponseMapOutput() WorkflowParameterResponseMapOutput {
+	return i.ToWorkflowParameterResponseMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterResponseMap) ToWorkflowParameterResponseMapOutputWithContext(ctx context.Context) WorkflowParameterResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterResponseMapOutput)
+}
+
+// The workflow parameters.
+type WorkflowParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameterResponse)(nil)).Elem()
+}
+
+func (o WorkflowParameterResponseOutput) ToWorkflowParameterResponseOutput() WorkflowParameterResponseOutput {
+	return o
+}
+
+func (o WorkflowParameterResponseOutput) ToWorkflowParameterResponseOutputWithContext(ctx context.Context) WorkflowParameterResponseOutput {
+	return o
+}
+
+// The description.
+func (o WorkflowParameterResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o WorkflowParameterResponseOutput) Metadata() ObjectResponsePtrOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) *ObjectResponse { return v.Metadata }).(ObjectResponsePtrOutput)
+}
+
+// The type.
+func (o WorkflowParameterResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value.
+func (o WorkflowParameterResponseOutput) Value() ObjectResponsePtrOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) *ObjectResponse { return v.Value }).(ObjectResponsePtrOutput)
+}
+
+type WorkflowParameterResponseMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameterResponse)(nil)).Elem()
+}
+
+func (o WorkflowParameterResponseMapOutput) ToWorkflowParameterResponseMapOutput() WorkflowParameterResponseMapOutput {
+	return o
+}
+
+func (o WorkflowParameterResponseMapOutput) ToWorkflowParameterResponseMapOutputWithContext(ctx context.Context) WorkflowParameterResponseMapOutput {
+	return o
+}
+
+func (o WorkflowParameterResponseMapOutput) MapIndex(k pulumi.StringInput) WorkflowParameterResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkflowParameterResponse {
+		return vs[0].(map[string]WorkflowParameterResponse)[vs[1].(string)]
+	}).(WorkflowParameterResponseOutput)
+}
+
 // The workflow properties.
 type WorkflowProperties struct {
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
@@ -25120,7 +25374,7 @@ type WorkflowProperties struct {
 	// The integration account.
 	IntegrationAccount *ResourceReference `pulumi:"integrationAccount"`
 	// The parameters.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]WorkflowParameter `pulumi:"parameters"`
 	// The sku.
 	Sku *Sku `pulumi:"sku"`
 	// The state.
@@ -25145,7 +25399,7 @@ type WorkflowPropertiesArgs struct {
 	// The integration account.
 	IntegrationAccount ResourceReferencePtrInput `pulumi:"integrationAccount"`
 	// The parameters.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters WorkflowParameterMapInput `pulumi:"parameters"`
 	// The sku.
 	Sku SkuPtrInput `pulumi:"sku"`
 	// The state.
@@ -25241,8 +25495,8 @@ func (o WorkflowPropertiesOutput) IntegrationAccount() ResourceReferencePtrOutpu
 }
 
 // The parameters.
-func (o WorkflowPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkflowProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o WorkflowPropertiesOutput) Parameters() WorkflowParameterMapOutput {
+	return o.ApplyT(func(v WorkflowProperties) map[string]WorkflowParameter { return v.Parameters }).(WorkflowParameterMapOutput)
 }
 
 // The sku.
@@ -25294,13 +25548,13 @@ func (o WorkflowPropertiesPtrOutput) IntegrationAccount() ResourceReferencePtrOu
 }
 
 // The parameters.
-func (o WorkflowPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *WorkflowProperties) map[string]string {
+func (o WorkflowPropertiesPtrOutput) Parameters() WorkflowParameterMapOutput {
+	return o.ApplyT(func(v *WorkflowProperties) map[string]WorkflowParameter {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(WorkflowParameterMapOutput)
 }
 
 // The sku.
@@ -25336,7 +25590,7 @@ type WorkflowPropertiesResponse struct {
 	// The integration account.
 	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
 	// The parameters.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
 	// Gets the provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku.
@@ -25371,7 +25625,7 @@ type WorkflowPropertiesResponseArgs struct {
 	// The integration account.
 	IntegrationAccount ResourceReferenceResponsePtrInput `pulumi:"integrationAccount"`
 	// The parameters.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters WorkflowParameterResponseMapInput `pulumi:"parameters"`
 	// Gets the provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The sku.
@@ -25486,8 +25740,8 @@ func (o WorkflowPropertiesResponseOutput) IntegrationAccount() ResourceReference
 }
 
 // The parameters.
-func (o WorkflowPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkflowPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o WorkflowPropertiesResponseOutput) Parameters() WorkflowParameterResponseMapOutput {
+	return o.ApplyT(func(v WorkflowPropertiesResponse) map[string]WorkflowParameterResponse { return v.Parameters }).(WorkflowParameterResponseMapOutput)
 }
 
 // Gets the provisioning state.
@@ -25579,13 +25833,13 @@ func (o WorkflowPropertiesResponsePtrOutput) IntegrationAccount() ResourceRefere
 }
 
 // The parameters.
-func (o WorkflowPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *WorkflowPropertiesResponse) map[string]string {
+func (o WorkflowPropertiesResponsePtrOutput) Parameters() WorkflowParameterResponseMapOutput {
+	return o.ApplyT(func(v *WorkflowPropertiesResponse) map[string]WorkflowParameterResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(WorkflowParameterResponseMapOutput)
 }
 
 // Gets the provisioning state.
@@ -33376,6 +33630,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowTypeOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(WorkflowPropertiesOutput{})
 	pulumi.RegisterOutputType(WorkflowPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowPropertiesResponseOutput{})

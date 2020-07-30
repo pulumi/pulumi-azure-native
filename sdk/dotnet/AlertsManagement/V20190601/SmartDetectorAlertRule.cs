@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
         /// The resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -114,14 +114,14 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// The resource tags.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 

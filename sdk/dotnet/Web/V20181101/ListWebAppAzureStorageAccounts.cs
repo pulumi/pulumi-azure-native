@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Azure storage accounts.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Properties;
+        public readonly ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult> Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             string name,
 
-            ImmutableDictionary<string, string> properties,
+            ImmutableDictionary<string, Outputs.AzureStorageInfoValueResponseResult> properties,
 
             string type)
         {

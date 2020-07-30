@@ -34,7 +34,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401.Inputs
         public Input<string>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<string>? _userAssignedIdentities;
+        private InputMap<Inputs.UserIdentityPropertiesArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with the resource. The user identity 
@@ -42,9 +42,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401.Inputs
         /// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
         ///     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public InputMap<string> UserAssignedIdentities
+        public InputMap<Inputs.UserIdentityPropertiesArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserIdentityPropertiesArgs>());
             set => _userAssignedIdentities = value;
         }
 

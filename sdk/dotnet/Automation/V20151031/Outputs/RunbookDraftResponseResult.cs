@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
         /// <summary>
         /// Gets or sets the runbook draft parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? Parameters;
 
         [OutputConstructor]
         private RunbookDraftResponseResult(
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
 
             ImmutableArray<string> outputTypes,
 
-            ImmutableDictionary<string, string>? parameters)
+            ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? parameters)
         {
             CreationTime = creationTime;
             DraftContentLink = draftContentLink;

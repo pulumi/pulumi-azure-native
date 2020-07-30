@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The partner type.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             string createdTime,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string partnerType)
         {

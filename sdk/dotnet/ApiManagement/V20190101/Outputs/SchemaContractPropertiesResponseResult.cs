@@ -20,13 +20,13 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101.Outputs
         /// <summary>
         /// Properties of the Schema Document.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Document;
+        public readonly ImmutableDictionary<string, object>? Document;
 
         [OutputConstructor]
         private SchemaContractPropertiesResponseResult(
             string contentType,
 
-            ImmutableDictionary<string, string>? document)
+            ImmutableDictionary<string, object>? document)
         {
             ContentType = contentType;
             Document = document;

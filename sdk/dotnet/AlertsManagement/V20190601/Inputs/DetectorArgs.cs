@@ -46,14 +46,14 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<ImmutableDictionary<string, object>>? _parameters;
 
         /// <summary>
         /// The detector's parameters.'
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<ImmutableDictionary<string, object>> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<ImmutableDictionary<string, object>>());
             set => _parameters = value;
         }
 

@@ -32,11 +32,11 @@ namespace Pulumi.AzureRM.Resources.V20160201.Outputs
         /// <summary>
         /// Key/value pairs that represent deployment output.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Outputs;
+        public readonly ImmutableDictionary<string, object>? Outputs;
         /// <summary>
         /// Deployment parameters. Use only one of Parameters or ParametersLink.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The URI referencing the parameters. Use only one of Parameters or ParametersLink.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Resources.V20160201.Outputs
         /// <summary>
         /// The template content. Use only one of Template or TemplateLink.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Template;
+        public readonly ImmutableDictionary<string, object>? Template;
         /// <summary>
         /// The URI referencing the template. Use only one of Template or TemplateLink.
         /// </summary>
@@ -72,9 +72,9 @@ namespace Pulumi.AzureRM.Resources.V20160201.Outputs
 
             string? mode,
 
-            ImmutableDictionary<string, string>? outputs,
+            ImmutableDictionary<string, object>? outputs,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
             Outputs.ParametersLinkResponseResult? parametersLink,
 
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Resources.V20160201.Outputs
 
             string? provisioningState,
 
-            ImmutableDictionary<string, string>? template,
+            ImmutableDictionary<string, object>? template,
 
             Outputs.TemplateLinkResponseResult? templateLink,
 

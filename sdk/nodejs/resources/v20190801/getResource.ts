@@ -77,7 +77,7 @@ export interface GetResourceResult {
     /**
      * The resource properties.
      */
-    readonly properties: {[key: string]: string};
+    readonly properties: {[key: string]: any};
     /**
      * The SKU of the resource.
      */

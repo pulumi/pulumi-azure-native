@@ -90,6 +90,31 @@ func (i *appServiceCertificatePtrType) ToAppServiceCertificatePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificatePtrOutput)
 }
 
+// AppServiceCertificateMapInput is an input type that accepts AppServiceCertificateMap and AppServiceCertificateMapOutput values.
+// You can construct a concrete instance of `AppServiceCertificateMapInput` via:
+//
+//          AppServiceCertificateMap{ "key": AppServiceCertificateArgs{...} }
+type AppServiceCertificateMapInput interface {
+	pulumi.Input
+
+	ToAppServiceCertificateMapOutput() AppServiceCertificateMapOutput
+	ToAppServiceCertificateMapOutputWithContext(context.Context) AppServiceCertificateMapOutput
+}
+
+type AppServiceCertificateMap map[string]AppServiceCertificateInput
+
+func (AppServiceCertificateMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AppServiceCertificate)(nil)).Elem()
+}
+
+func (i AppServiceCertificateMap) ToAppServiceCertificateMapOutput() AppServiceCertificateMapOutput {
+	return i.ToAppServiceCertificateMapOutputWithContext(context.Background())
+}
+
+func (i AppServiceCertificateMap) ToAppServiceCertificateMapOutputWithContext(ctx context.Context) AppServiceCertificateMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateMapOutput)
+}
+
 // Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateOutput struct{ *pulumi.OutputState }
 
@@ -161,6 +186,26 @@ func (o AppServiceCertificatePtrOutput) KeyVaultSecretName() pulumi.StringPtrOut
 		}
 		return v.KeyVaultSecretName
 	}).(pulumi.StringPtrOutput)
+}
+
+type AppServiceCertificateMapOutput struct{ *pulumi.OutputState }
+
+func (AppServiceCertificateMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AppServiceCertificate)(nil)).Elem()
+}
+
+func (o AppServiceCertificateMapOutput) ToAppServiceCertificateMapOutput() AppServiceCertificateMapOutput {
+	return o
+}
+
+func (o AppServiceCertificateMapOutput) ToAppServiceCertificateMapOutputWithContext(ctx context.Context) AppServiceCertificateMapOutput {
+	return o
+}
+
+func (o AppServiceCertificateMapOutput) MapIndex(k pulumi.StringInput) AppServiceCertificateOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppServiceCertificate {
+		return vs[0].(map[string]AppServiceCertificate)[vs[1].(string)]
+	}).(AppServiceCertificateOutput)
 }
 
 // SSL certificate purchase order.
@@ -370,7 +415,7 @@ type AppServiceCertificateOrderProperties struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
-	Certificates map[string]string `pulumi:"certificates"`
+	Certificates map[string]AppServiceCertificate `pulumi:"certificates"`
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -399,7 +444,7 @@ type AppServiceCertificateOrderPropertiesArgs struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
-	Certificates pulumi.StringMapInput `pulumi:"certificates"`
+	Certificates AppServiceCertificateMapInput `pulumi:"certificates"`
 	// Last CSR that was created for this order.
 	Csr pulumi.StringPtrInput `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -496,8 +541,8 @@ func (o AppServiceCertificateOrderPropertiesOutput) AutoRenew() pulumi.BoolPtrOu
 }
 
 // State of the Key Vault secret.
-func (o AppServiceCertificateOrderPropertiesOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) map[string]string { return v.Certificates }).(pulumi.StringMapOutput)
+func (o AppServiceCertificateOrderPropertiesOutput) Certificates() AppServiceCertificateMapOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderProperties) map[string]AppServiceCertificate { return v.Certificates }).(AppServiceCertificateMapOutput)
 }
 
 // Last CSR that was created for this order.
@@ -554,13 +599,13 @@ func (o AppServiceCertificateOrderPropertiesPtrOutput) AutoRenew() pulumi.BoolPt
 }
 
 // State of the Key Vault secret.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) map[string]string {
+func (o AppServiceCertificateOrderPropertiesPtrOutput) Certificates() AppServiceCertificateMapOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) map[string]AppServiceCertificate {
 		if v == nil {
 			return nil
 		}
 		return v.Certificates
-	}).(pulumi.StringMapOutput)
+	}).(AppServiceCertificateMapOutput)
 }
 
 // Last CSR that was created for this order.
@@ -620,7 +665,7 @@ type AppServiceCertificateOrderResponseProperties struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
-	Certificates map[string]string `pulumi:"certificates"`
+	Certificates map[string]AppServiceCertificateResponse `pulumi:"certificates"`
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -673,7 +718,7 @@ type AppServiceCertificateOrderResponsePropertiesArgs struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
-	Certificates pulumi.StringMapInput `pulumi:"certificates"`
+	Certificates AppServiceCertificateResponseMapInput `pulumi:"certificates"`
 	// Last CSR that was created for this order.
 	Csr pulumi.StringPtrInput `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -799,8 +844,10 @@ func (o AppServiceCertificateOrderResponsePropertiesOutput) AutoRenew() pulumi.B
 }
 
 // State of the Key Vault secret.
-func (o AppServiceCertificateOrderResponsePropertiesOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderResponseProperties) map[string]string { return v.Certificates }).(pulumi.StringMapOutput)
+func (o AppServiceCertificateOrderResponsePropertiesOutput) Certificates() AppServiceCertificateResponseMapOutput {
+	return o.ApplyT(func(v AppServiceCertificateOrderResponseProperties) map[string]AppServiceCertificateResponse {
+		return v.Certificates
+	}).(AppServiceCertificateResponseMapOutput)
 }
 
 // Last CSR that was created for this order.
@@ -926,13 +973,13 @@ func (o AppServiceCertificateOrderResponsePropertiesPtrOutput) AutoRenew() pulum
 }
 
 // State of the Key Vault secret.
-func (o AppServiceCertificateOrderResponsePropertiesPtrOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderResponseProperties) map[string]string {
+func (o AppServiceCertificateOrderResponsePropertiesPtrOutput) Certificates() AppServiceCertificateResponseMapOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderResponseProperties) map[string]AppServiceCertificateResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Certificates
-	}).(pulumi.StringMapOutput)
+	}).(AppServiceCertificateResponseMapOutput)
 }
 
 // Last CSR that was created for this order.
@@ -1179,6 +1226,31 @@ func (i *appServiceCertificateResponsePtrType) ToAppServiceCertificateResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponsePtrOutput)
 }
 
+// AppServiceCertificateResponseMapInput is an input type that accepts AppServiceCertificateResponseMap and AppServiceCertificateResponseMapOutput values.
+// You can construct a concrete instance of `AppServiceCertificateResponseMapInput` via:
+//
+//          AppServiceCertificateResponseMap{ "key": AppServiceCertificateResponseArgs{...} }
+type AppServiceCertificateResponseMapInput interface {
+	pulumi.Input
+
+	ToAppServiceCertificateResponseMapOutput() AppServiceCertificateResponseMapOutput
+	ToAppServiceCertificateResponseMapOutputWithContext(context.Context) AppServiceCertificateResponseMapOutput
+}
+
+type AppServiceCertificateResponseMap map[string]AppServiceCertificateResponseInput
+
+func (AppServiceCertificateResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AppServiceCertificateResponse)(nil)).Elem()
+}
+
+func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutput() AppServiceCertificateResponseMapOutput {
+	return i.ToAppServiceCertificateResponseMapOutputWithContext(context.Background())
+}
+
+func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutputWithContext(ctx context.Context) AppServiceCertificateResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponseMapOutput)
+}
+
 // Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponseOutput struct{ *pulumi.OutputState }
 
@@ -1265,6 +1337,26 @@ func (o AppServiceCertificateResponsePtrOutput) ProvisioningState() pulumi.Strin
 		}
 		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
+}
+
+type AppServiceCertificateResponseMapOutput struct{ *pulumi.OutputState }
+
+func (AppServiceCertificateResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AppServiceCertificateResponse)(nil)).Elem()
+}
+
+func (o AppServiceCertificateResponseMapOutput) ToAppServiceCertificateResponseMapOutput() AppServiceCertificateResponseMapOutput {
+	return o
+}
+
+func (o AppServiceCertificateResponseMapOutput) ToAppServiceCertificateResponseMapOutputWithContext(ctx context.Context) AppServiceCertificateResponseMapOutput {
+	return o
+}
+
+func (o AppServiceCertificateResponseMapOutput) MapIndex(k pulumi.StringInput) AppServiceCertificateResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppServiceCertificateResponse {
+		return vs[0].(map[string]AppServiceCertificateResponse)[vs[1].(string)]
+	}).(AppServiceCertificateResponseOutput)
 }
 
 // Certificate Details
@@ -2420,13 +2512,15 @@ func (o CertificateOrderTypeOutput) Type() pulumi.StringPtrOutput {
 
 // Class representing the Key Vault container for certificate purchased through Azure
 type CertificateOrderCertificateType struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                                       `pulumi:"name"`
-	Properties CertificateOrderCertificateResponseProperties `pulumi:"properties"`
+	Name       *string                                `pulumi:"name"`
+	Properties *CertificateOrderCertificateProperties `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -2446,13 +2540,15 @@ type CertificateOrderCertificateTypeInput interface {
 
 // Class representing the Key Vault container for certificate purchased through Azure
 type CertificateOrderCertificateTypeArgs struct {
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Kind of resource
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrInput                              `pulumi:"name"`
-	Properties CertificateOrderCertificateResponsePropertiesInput `pulumi:"properties"`
+	Name       pulumi.StringPtrInput                         `pulumi:"name"`
+	Properties CertificateOrderCertificatePropertiesPtrInput `pulumi:"properties"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
@@ -2471,6 +2567,31 @@ func (i CertificateOrderCertificateTypeArgs) ToCertificateOrderCertificateTypeOu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificateTypeOutput)
 }
 
+// CertificateOrderCertificateTypeMapInput is an input type that accepts CertificateOrderCertificateTypeMap and CertificateOrderCertificateTypeMapOutput values.
+// You can construct a concrete instance of `CertificateOrderCertificateTypeMapInput` via:
+//
+//          CertificateOrderCertificateTypeMap{ "key": CertificateOrderCertificateTypeArgs{...} }
+type CertificateOrderCertificateTypeMapInput interface {
+	pulumi.Input
+
+	ToCertificateOrderCertificateTypeMapOutput() CertificateOrderCertificateTypeMapOutput
+	ToCertificateOrderCertificateTypeMapOutputWithContext(context.Context) CertificateOrderCertificateTypeMapOutput
+}
+
+type CertificateOrderCertificateTypeMap map[string]CertificateOrderCertificateTypeInput
+
+func (CertificateOrderCertificateTypeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CertificateOrderCertificateType)(nil)).Elem()
+}
+
+func (i CertificateOrderCertificateTypeMap) ToCertificateOrderCertificateTypeMapOutput() CertificateOrderCertificateTypeMapOutput {
+	return i.ToCertificateOrderCertificateTypeMapOutputWithContext(context.Background())
+}
+
+func (i CertificateOrderCertificateTypeMap) ToCertificateOrderCertificateTypeMapOutputWithContext(ctx context.Context) CertificateOrderCertificateTypeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificateTypeMapOutput)
+}
+
 // Class representing the Key Vault container for certificate purchased through Azure
 type CertificateOrderCertificateTypeOutput struct{ *pulumi.OutputState }
 
@@ -2484,6 +2605,11 @@ func (o CertificateOrderCertificateTypeOutput) ToCertificateOrderCertificateType
 
 func (o CertificateOrderCertificateTypeOutput) ToCertificateOrderCertificateTypeOutputWithContext(ctx context.Context) CertificateOrderCertificateTypeOutput {
 	return o
+}
+
+// Resource Id
+func (o CertificateOrderCertificateTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Kind of resource
@@ -2501,10 +2627,8 @@ func (o CertificateOrderCertificateTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o CertificateOrderCertificateTypeOutput) Properties() CertificateOrderCertificateResponsePropertiesOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) CertificateOrderCertificateResponseProperties {
-		return v.Properties
-	}).(CertificateOrderCertificateResponsePropertiesOutput)
+func (o CertificateOrderCertificateTypeOutput) Properties() CertificateOrderCertificatePropertiesPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateType) *CertificateOrderCertificateProperties { return v.Properties }).(CertificateOrderCertificatePropertiesPtrOutput)
 }
 
 // Resource tags
@@ -2515,6 +2639,26 @@ func (o CertificateOrderCertificateTypeOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o CertificateOrderCertificateTypeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CertificateOrderCertificateTypeMapOutput struct{ *pulumi.OutputState }
+
+func (CertificateOrderCertificateTypeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CertificateOrderCertificateType)(nil)).Elem()
+}
+
+func (o CertificateOrderCertificateTypeMapOutput) ToCertificateOrderCertificateTypeMapOutput() CertificateOrderCertificateTypeMapOutput {
+	return o
+}
+
+func (o CertificateOrderCertificateTypeMapOutput) ToCertificateOrderCertificateTypeMapOutputWithContext(ctx context.Context) CertificateOrderCertificateTypeMapOutput {
+	return o
+}
+
+func (o CertificateOrderCertificateTypeMapOutput) MapIndex(k pulumi.StringInput) CertificateOrderCertificateTypeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CertificateOrderCertificateType {
+		return vs[0].(map[string]CertificateOrderCertificateType)[vs[1].(string)]
+	}).(CertificateOrderCertificateTypeOutput)
 }
 
 type CertificateOrderCertificateProperties struct {
@@ -2684,6 +2828,159 @@ func (o CertificateOrderCertificatePropertiesPtrOutput) ProvisioningState() pulu
 		}
 		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
+}
+
+// Class representing the Key Vault container for certificate purchased through Azure
+type CertificateOrderCertificateResponse struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
+	// Kind of resource
+	Kind *string `pulumi:"kind"`
+	// Resource Location
+	Location string `pulumi:"location"`
+	// Resource Name
+	Name       *string                                        `pulumi:"name"`
+	Properties *CertificateOrderCertificateResponseProperties `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+}
+
+// CertificateOrderCertificateResponseInput is an input type that accepts CertificateOrderCertificateResponseArgs and CertificateOrderCertificateResponseOutput values.
+// You can construct a concrete instance of `CertificateOrderCertificateResponseInput` via:
+//
+//          CertificateOrderCertificateResponseArgs{...}
+type CertificateOrderCertificateResponseInput interface {
+	pulumi.Input
+
+	ToCertificateOrderCertificateResponseOutput() CertificateOrderCertificateResponseOutput
+	ToCertificateOrderCertificateResponseOutputWithContext(context.Context) CertificateOrderCertificateResponseOutput
+}
+
+// Class representing the Key Vault container for certificate purchased through Azure
+type CertificateOrderCertificateResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Kind of resource
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Resource Location
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource Name
+	Name       pulumi.StringPtrInput                                 `pulumi:"name"`
+	Properties CertificateOrderCertificateResponsePropertiesPtrInput `pulumi:"properties"`
+	// Resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Resource type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CertificateOrderCertificateResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrderCertificateResponse)(nil)).Elem()
+}
+
+func (i CertificateOrderCertificateResponseArgs) ToCertificateOrderCertificateResponseOutput() CertificateOrderCertificateResponseOutput {
+	return i.ToCertificateOrderCertificateResponseOutputWithContext(context.Background())
+}
+
+func (i CertificateOrderCertificateResponseArgs) ToCertificateOrderCertificateResponseOutputWithContext(ctx context.Context) CertificateOrderCertificateResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificateResponseOutput)
+}
+
+// CertificateOrderCertificateResponseMapInput is an input type that accepts CertificateOrderCertificateResponseMap and CertificateOrderCertificateResponseMapOutput values.
+// You can construct a concrete instance of `CertificateOrderCertificateResponseMapInput` via:
+//
+//          CertificateOrderCertificateResponseMap{ "key": CertificateOrderCertificateResponseArgs{...} }
+type CertificateOrderCertificateResponseMapInput interface {
+	pulumi.Input
+
+	ToCertificateOrderCertificateResponseMapOutput() CertificateOrderCertificateResponseMapOutput
+	ToCertificateOrderCertificateResponseMapOutputWithContext(context.Context) CertificateOrderCertificateResponseMapOutput
+}
+
+type CertificateOrderCertificateResponseMap map[string]CertificateOrderCertificateResponseInput
+
+func (CertificateOrderCertificateResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CertificateOrderCertificateResponse)(nil)).Elem()
+}
+
+func (i CertificateOrderCertificateResponseMap) ToCertificateOrderCertificateResponseMapOutput() CertificateOrderCertificateResponseMapOutput {
+	return i.ToCertificateOrderCertificateResponseMapOutputWithContext(context.Background())
+}
+
+func (i CertificateOrderCertificateResponseMap) ToCertificateOrderCertificateResponseMapOutputWithContext(ctx context.Context) CertificateOrderCertificateResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificateResponseMapOutput)
+}
+
+// Class representing the Key Vault container for certificate purchased through Azure
+type CertificateOrderCertificateResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificateOrderCertificateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOrderCertificateResponse)(nil)).Elem()
+}
+
+func (o CertificateOrderCertificateResponseOutput) ToCertificateOrderCertificateResponseOutput() CertificateOrderCertificateResponseOutput {
+	return o
+}
+
+func (o CertificateOrderCertificateResponseOutput) ToCertificateOrderCertificateResponseOutputWithContext(ctx context.Context) CertificateOrderCertificateResponseOutput {
+	return o
+}
+
+// Resource Id
+func (o CertificateOrderCertificateResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o CertificateOrderCertificateResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o CertificateOrderCertificateResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o CertificateOrderCertificateResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOrderCertificateResponseOutput) Properties() CertificateOrderCertificateResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateResponse) *CertificateOrderCertificateResponseProperties {
+		return v.Properties
+	}).(CertificateOrderCertificateResponsePropertiesPtrOutput)
+}
+
+// Resource tags
+func (o CertificateOrderCertificateResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o CertificateOrderCertificateResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CertificateOrderCertificateResponseMapOutput struct{ *pulumi.OutputState }
+
+func (CertificateOrderCertificateResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CertificateOrderCertificateResponse)(nil)).Elem()
+}
+
+func (o CertificateOrderCertificateResponseMapOutput) ToCertificateOrderCertificateResponseMapOutput() CertificateOrderCertificateResponseMapOutput {
+	return o
+}
+
+func (o CertificateOrderCertificateResponseMapOutput) ToCertificateOrderCertificateResponseMapOutputWithContext(ctx context.Context) CertificateOrderCertificateResponseMapOutput {
+	return o
+}
+
+func (o CertificateOrderCertificateResponseMapOutput) MapIndex(k pulumi.StringInput) CertificateOrderCertificateResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CertificateOrderCertificateResponse {
+		return vs[0].(map[string]CertificateOrderCertificateResponse)[vs[1].(string)]
+	}).(CertificateOrderCertificateResponseOutput)
 }
 
 type CertificateOrderCertificateResponseProperties struct {
@@ -2861,7 +3158,7 @@ type CertificateOrderProperties struct {
 	// Auto renew
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret
-	Certificates map[string]string `pulumi:"certificates"`
+	Certificates map[string]CertificateOrderCertificateType `pulumi:"certificates"`
 	// Last CSR that was created for this order
 	Csr *string `pulumi:"csr"`
 	// Certificate distinguished name
@@ -2907,7 +3204,7 @@ type CertificateOrderPropertiesArgs struct {
 	// Auto renew
 	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
 	// State of the Key Vault secret
-	Certificates pulumi.StringMapInput `pulumi:"certificates"`
+	Certificates CertificateOrderCertificateTypeMapInput `pulumi:"certificates"`
 	// Last CSR that was created for this order
 	Csr pulumi.StringPtrInput `pulumi:"csr"`
 	// Certificate distinguished name
@@ -3021,8 +3318,8 @@ func (o CertificateOrderPropertiesOutput) AutoRenew() pulumi.BoolPtrOutput {
 }
 
 // State of the Key Vault secret
-func (o CertificateOrderPropertiesOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) map[string]string { return v.Certificates }).(pulumi.StringMapOutput)
+func (o CertificateOrderPropertiesOutput) Certificates() CertificateOrderCertificateTypeMapOutput {
+	return o.ApplyT(func(v CertificateOrderProperties) map[string]CertificateOrderCertificateType { return v.Certificates }).(CertificateOrderCertificateTypeMapOutput)
 }
 
 // Last CSR that was created for this order
@@ -3124,13 +3421,13 @@ func (o CertificateOrderPropertiesPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
 }
 
 // State of the Key Vault secret
-func (o CertificateOrderPropertiesPtrOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) map[string]string {
+func (o CertificateOrderPropertiesPtrOutput) Certificates() CertificateOrderCertificateTypeMapOutput {
+	return o.ApplyT(func(v *CertificateOrderProperties) map[string]CertificateOrderCertificateType {
 		if v == nil {
 			return nil
 		}
 		return v.Certificates
-	}).(pulumi.StringMapOutput)
+	}).(CertificateOrderCertificateTypeMapOutput)
 }
 
 // Last CSR that was created for this order
@@ -3277,7 +3574,7 @@ type CertificateOrderResponseProperties struct {
 	// Auto renew
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret
-	Certificates map[string]string `pulumi:"certificates"`
+	Certificates map[string]CertificateOrderCertificateResponse `pulumi:"certificates"`
 	// Last CSR that was created for this order
 	Csr *string `pulumi:"csr"`
 	// Certificate distinguished name
@@ -3323,7 +3620,7 @@ type CertificateOrderResponsePropertiesArgs struct {
 	// Auto renew
 	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
 	// State of the Key Vault secret
-	Certificates pulumi.StringMapInput `pulumi:"certificates"`
+	Certificates CertificateOrderCertificateResponseMapInput `pulumi:"certificates"`
 	// Last CSR that was created for this order
 	Csr pulumi.StringPtrInput `pulumi:"csr"`
 	// Certificate distinguished name
@@ -3437,8 +3734,10 @@ func (o CertificateOrderResponsePropertiesOutput) AutoRenew() pulumi.BoolPtrOutp
 }
 
 // State of the Key Vault secret
-func (o CertificateOrderResponsePropertiesOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CertificateOrderResponseProperties) map[string]string { return v.Certificates }).(pulumi.StringMapOutput)
+func (o CertificateOrderResponsePropertiesOutput) Certificates() CertificateOrderCertificateResponseMapOutput {
+	return o.ApplyT(func(v CertificateOrderResponseProperties) map[string]CertificateOrderCertificateResponse {
+		return v.Certificates
+	}).(CertificateOrderCertificateResponseMapOutput)
 }
 
 // Last CSR that was created for this order
@@ -3540,13 +3839,13 @@ func (o CertificateOrderResponsePropertiesPtrOutput) AutoRenew() pulumi.BoolPtrO
 }
 
 // State of the Key Vault secret
-func (o CertificateOrderResponsePropertiesPtrOutput) Certificates() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CertificateOrderResponseProperties) map[string]string {
+func (o CertificateOrderResponsePropertiesPtrOutput) Certificates() CertificateOrderCertificateResponseMapOutput {
+	return o.ApplyT(func(v *CertificateOrderResponseProperties) map[string]CertificateOrderCertificateResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Certificates
-	}).(pulumi.StringMapOutput)
+	}).(CertificateOrderCertificateResponseMapOutput)
 }
 
 // Last CSR that was created for this order
@@ -3692,6 +3991,7 @@ func (o CertificateOrderResponsePropertiesPtrOutput) ValidityInYears() pulumi.In
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificatePtrOutput{})
+	pulumi.RegisterOutputType(AppServiceCertificateMapOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderTypeOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderCertificateTypeOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderPropertiesOutput{})
@@ -3700,6 +4000,7 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOrderResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponsePtrOutput{})
+	pulumi.RegisterOutputType(AppServiceCertificateResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsPropertiesOutput{})
@@ -3710,8 +4011,11 @@ func init() {
 	pulumi.RegisterOutputType(CertificateDetailsResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateOrderTypeOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateTypeOutput{})
+	pulumi.RegisterOutputType(CertificateOrderCertificateTypeMapOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificatePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CertificateOrderCertificateResponseOutput{})
+	pulumi.RegisterOutputType(CertificateOrderCertificateResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateOrderPropertiesOutput{})

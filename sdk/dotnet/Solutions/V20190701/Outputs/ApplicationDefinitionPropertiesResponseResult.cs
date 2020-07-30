@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701.Outputs
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? CreateUiDefinition;
+        public readonly ImmutableDictionary<string, object>? CreateUiDefinition;
         /// <summary>
         /// The managed application deployment policy.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701.Outputs
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? MainTemplate;
+        public readonly ImmutableDictionary<string, object>? MainTemplate;
         /// <summary>
         /// The managed application management policy that determines publisher's access to the managed resource group.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701.Outputs
 
             ImmutableArray<Outputs.ApplicationAuthorizationResponseResult> authorizations,
 
-            ImmutableDictionary<string, string>? createUiDefinition,
+            ImmutableDictionary<string, object>? createUiDefinition,
 
             Outputs.ApplicationDeploymentPolicyResponseResult? deploymentPolicy,
 
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701.Outputs
 
             Outputs.ApplicationPackageLockingPolicyDefinitionResponseResult? lockingPolicy,
 
-            ImmutableDictionary<string, string>? mainTemplate,
+            ImmutableDictionary<string, object>? mainTemplate,
 
             Outputs.ApplicationManagementPolicyResponseResult? managementPolicy,
 

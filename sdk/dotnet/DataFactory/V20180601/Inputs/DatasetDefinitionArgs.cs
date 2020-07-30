@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Inputs
     public sealed class DatasetDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, string>>? _annotations;
+        private InputList<ImmutableDictionary<string, object>>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public InputList<ImmutableDictionary<string, string>> Annotations
+        public InputList<ImmutableDictionary<string, object>> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, string>>());
+            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
             set => _annotations = value;
         }
 
@@ -52,26 +52,26 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Inputs
         public Input<Inputs.ParameterDefinitionSpecificationArgs>? Parameters { get; set; }
 
         [Input("schema")]
-        private InputMap<string>? _schema;
+        private InputMap<object>? _schema;
 
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public InputMap<string> Schema
+        public InputMap<object> Schema
         {
-            get => _schema ?? (_schema = new InputMap<string>());
+            get => _schema ?? (_schema = new InputMap<object>());
             set => _schema = value;
         }
 
         [Input("structure")]
-        private InputMap<string>? _structure;
+        private InputMap<object>? _structure;
 
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public InputMap<string> Structure
+        public InputMap<object> Structure
         {
-            get => _structure ?? (_structure = new InputMap<string>());
+            get => _structure ?? (_structure = new InputMap<object>());
             set => _structure = value;
         }
 

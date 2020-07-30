@@ -3048,6 +3048,233 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateClus
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfile struct {
+	// Key-value pairs for configuring an add-on.
+	Config map[string]string `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ManagedClusterAddonProfileInput is an input type that accepts ManagedClusterAddonProfileArgs and ManagedClusterAddonProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileInput` via:
+//
+//          ManagedClusterAddonProfileArgs{...}
+type ManagedClusterAddonProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput
+	ToManagedClusterAddonProfileOutputWithContext(context.Context) ManagedClusterAddonProfileOutput
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileArgs struct {
+	// Key-value pairs for configuring an add-on.
+	Config pulumi.StringMapInput `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ManagedClusterAddonProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileArgs) ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput {
+	return i.ToManagedClusterAddonProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileArgs) ToManagedClusterAddonProfileOutputWithContext(ctx context.Context) ManagedClusterAddonProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileOutput)
+}
+
+// ManagedClusterAddonProfileMapInput is an input type that accepts ManagedClusterAddonProfileMap and ManagedClusterAddonProfileMapOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileMapInput` via:
+//
+//          ManagedClusterAddonProfileMap{ "key": ManagedClusterAddonProfileArgs{...} }
+type ManagedClusterAddonProfileMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput
+	ToManagedClusterAddonProfileMapOutputWithContext(context.Context) ManagedClusterAddonProfileMapOutput
+}
+
+type ManagedClusterAddonProfileMap map[string]ManagedClusterAddonProfileInput
+
+func (ManagedClusterAddonProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput {
+	return i.ToManagedClusterAddonProfileMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileMapOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutputWithContext(ctx context.Context) ManagedClusterAddonProfileOutput {
+	return o
+}
+
+// Key-value pairs for configuring an add-on.
+func (o ManagedClusterAddonProfileOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfile) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+}
+
+// Whether the add-on is enabled or not.
+func (o ManagedClusterAddonProfileOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfile) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ManagedClusterAddonProfileMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileMapOutput) ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileMapOutput) ToManagedClusterAddonProfileMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterAddonProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfile {
+		return vs[0].(map[string]ManagedClusterAddonProfile)[vs[1].(string)]
+	}).(ManagedClusterAddonProfileOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponse struct {
+	// Key-value pairs for configuring an add-on.
+	Config map[string]string `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// Information of user assigned identity used by this add-on.
+	Identity map[string]interface{} `pulumi:"identity"`
+}
+
+// ManagedClusterAddonProfileResponseInput is an input type that accepts ManagedClusterAddonProfileResponseArgs and ManagedClusterAddonProfileResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileResponseInput` via:
+//
+//          ManagedClusterAddonProfileResponseArgs{...}
+type ManagedClusterAddonProfileResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput
+	ToManagedClusterAddonProfileResponseOutputWithContext(context.Context) ManagedClusterAddonProfileResponseOutput
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponseArgs struct {
+	// Key-value pairs for configuring an add-on.
+	Config pulumi.StringMapInput `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Information of user assigned identity used by this add-on.
+	Identity pulumi.MapInput `pulumi:"identity"`
+}
+
+func (ManagedClusterAddonProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput {
+	return i.ToManagedClusterAddonProfileResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseOutput)
+}
+
+// ManagedClusterAddonProfileResponseMapInput is an input type that accepts ManagedClusterAddonProfileResponseMap and ManagedClusterAddonProfileResponseMapOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileResponseMapInput` via:
+//
+//          ManagedClusterAddonProfileResponseMap{ "key": ManagedClusterAddonProfileResponseArgs{...} }
+type ManagedClusterAddonProfileResponseMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput
+	ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Context) ManagedClusterAddonProfileResponseMapOutput
+}
+
+type ManagedClusterAddonProfileResponseMap map[string]ManagedClusterAddonProfileResponseInput
+
+func (ManagedClusterAddonProfileResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput {
+	return i.ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseMapOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseOutput {
+	return o
+}
+
+// Key-value pairs for configuring an add-on.
+func (o ManagedClusterAddonProfileResponseOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+}
+
+// Whether the add-on is enabled or not.
+func (o ManagedClusterAddonProfileResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Information of user assigned identity used by this add-on.
+func (o ManagedClusterAddonProfileResponseOutput) Identity() pulumi.MapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) map[string]interface{} { return v.Identity }).(pulumi.MapOutput)
+}
+
+type ManagedClusterAddonProfileResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) ToManagedClusterAddonProfileResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterAddonProfileResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfileResponse {
+		return vs[0].(map[string]ManagedClusterAddonProfileResponse)[vs[1].(string)]
+	}).(ManagedClusterAddonProfileResponseOutput)
+}
+
 // Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfile struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
@@ -4807,7 +5034,7 @@ type ManagedClusterIdentity struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 	Type *string `pulumi:"type"`
 	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ManagedClusterIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedClusterIdentityInput is an input type that accepts ManagedClusterIdentityArgs and ManagedClusterIdentityOutput values.
@@ -4826,7 +5053,7 @@ type ManagedClusterIdentityArgs struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ManagedClusterIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedClusterIdentityArgs) ElementType() reflect.Type {
@@ -4913,8 +5140,10 @@ func (o ManagedClusterIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedClusterIdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ManagedClusterIdentityOutput) UserAssignedIdentities() ManagedClusterIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v ManagedClusterIdentity) map[string]ManagedClusterIdentityProperties {
+		return v.UserAssignedIdentities
+	}).(ManagedClusterIdentityPropertiesMapOutput)
 }
 
 type ManagedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -4946,13 +5175,101 @@ func (o ManagedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedClusterIdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) map[string]string {
+func (o ManagedClusterIdentityPtrOutput) UserAssignedIdentities() ManagedClusterIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *ManagedClusterIdentity) map[string]ManagedClusterIdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterIdentityPropertiesMapOutput)
+}
+
+type ManagedClusterIdentityProperties struct {
+}
+
+// ManagedClusterIdentityPropertiesInput is an input type that accepts ManagedClusterIdentityPropertiesArgs and ManagedClusterIdentityPropertiesOutput values.
+// You can construct a concrete instance of `ManagedClusterIdentityPropertiesInput` via:
+//
+//          ManagedClusterIdentityPropertiesArgs{...}
+type ManagedClusterIdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToManagedClusterIdentityPropertiesOutput() ManagedClusterIdentityPropertiesOutput
+	ToManagedClusterIdentityPropertiesOutputWithContext(context.Context) ManagedClusterIdentityPropertiesOutput
+}
+
+type ManagedClusterIdentityPropertiesArgs struct {
+}
+
+func (ManagedClusterIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterIdentityProperties)(nil)).Elem()
+}
+
+func (i ManagedClusterIdentityPropertiesArgs) ToManagedClusterIdentityPropertiesOutput() ManagedClusterIdentityPropertiesOutput {
+	return i.ToManagedClusterIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterIdentityPropertiesArgs) ToManagedClusterIdentityPropertiesOutputWithContext(ctx context.Context) ManagedClusterIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityPropertiesOutput)
+}
+
+// ManagedClusterIdentityPropertiesMapInput is an input type that accepts ManagedClusterIdentityPropertiesMap and ManagedClusterIdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `ManagedClusterIdentityPropertiesMapInput` via:
+//
+//          ManagedClusterIdentityPropertiesMap{ "key": ManagedClusterIdentityPropertiesArgs{...} }
+type ManagedClusterIdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterIdentityPropertiesMapOutput() ManagedClusterIdentityPropertiesMapOutput
+	ToManagedClusterIdentityPropertiesMapOutputWithContext(context.Context) ManagedClusterIdentityPropertiesMapOutput
+}
+
+type ManagedClusterIdentityPropertiesMap map[string]ManagedClusterIdentityPropertiesInput
+
+func (ManagedClusterIdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterIdentityProperties)(nil)).Elem()
+}
+
+func (i ManagedClusterIdentityPropertiesMap) ToManagedClusterIdentityPropertiesMapOutput() ManagedClusterIdentityPropertiesMapOutput {
+	return i.ToManagedClusterIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterIdentityPropertiesMap) ToManagedClusterIdentityPropertiesMapOutputWithContext(ctx context.Context) ManagedClusterIdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityPropertiesMapOutput)
+}
+
+type ManagedClusterIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterIdentityProperties)(nil)).Elem()
+}
+
+func (o ManagedClusterIdentityPropertiesOutput) ToManagedClusterIdentityPropertiesOutput() ManagedClusterIdentityPropertiesOutput {
+	return o
+}
+
+func (o ManagedClusterIdentityPropertiesOutput) ToManagedClusterIdentityPropertiesOutputWithContext(ctx context.Context) ManagedClusterIdentityPropertiesOutput {
+	return o
+}
+
+type ManagedClusterIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterIdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterIdentityProperties)(nil)).Elem()
+}
+
+func (o ManagedClusterIdentityPropertiesMapOutput) ToManagedClusterIdentityPropertiesMapOutput() ManagedClusterIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o ManagedClusterIdentityPropertiesMapOutput) ToManagedClusterIdentityPropertiesMapOutputWithContext(ctx context.Context) ManagedClusterIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o ManagedClusterIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterIdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterIdentityProperties {
+		return vs[0].(map[string]ManagedClusterIdentityProperties)[vs[1].(string)]
+	}).(ManagedClusterIdentityPropertiesOutput)
 }
 
 // Identity for the managed cluster.
@@ -4964,7 +5281,7 @@ type ManagedClusterIdentityResponse struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 	Type *string `pulumi:"type"`
 	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ManagedClusterIdentityResponseProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedClusterIdentityResponseInput is an input type that accepts ManagedClusterIdentityResponseArgs and ManagedClusterIdentityResponseOutput values.
@@ -4987,7 +5304,7 @@ type ManagedClusterIdentityResponseArgs struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ManagedClusterIdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedClusterIdentityResponseArgs) ElementType() reflect.Type {
@@ -5084,8 +5401,10 @@ func (o ManagedClusterIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedClusterIdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterIdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ManagedClusterIdentityResponseOutput) UserAssignedIdentities() ManagedClusterIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v ManagedClusterIdentityResponse) map[string]ManagedClusterIdentityResponseProperties {
+		return v.UserAssignedIdentities
+	}).(ManagedClusterIdentityResponsePropertiesMapOutput)
 }
 
 type ManagedClusterIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5137,13 +5456,119 @@ func (o ManagedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedClusterIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentityResponse) map[string]string {
+func (o ManagedClusterIdentityResponsePtrOutput) UserAssignedIdentities() ManagedClusterIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v *ManagedClusterIdentityResponse) map[string]ManagedClusterIdentityResponseProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterIdentityResponsePropertiesMapOutput)
+}
+
+type ManagedClusterIdentityResponseProperties struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// ManagedClusterIdentityResponsePropertiesInput is an input type that accepts ManagedClusterIdentityResponsePropertiesArgs and ManagedClusterIdentityResponsePropertiesOutput values.
+// You can construct a concrete instance of `ManagedClusterIdentityResponsePropertiesInput` via:
+//
+//          ManagedClusterIdentityResponsePropertiesArgs{...}
+type ManagedClusterIdentityResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToManagedClusterIdentityResponsePropertiesOutput() ManagedClusterIdentityResponsePropertiesOutput
+	ToManagedClusterIdentityResponsePropertiesOutputWithContext(context.Context) ManagedClusterIdentityResponsePropertiesOutput
+}
+
+type ManagedClusterIdentityResponsePropertiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (ManagedClusterIdentityResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i ManagedClusterIdentityResponsePropertiesArgs) ToManagedClusterIdentityResponsePropertiesOutput() ManagedClusterIdentityResponsePropertiesOutput {
+	return i.ToManagedClusterIdentityResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterIdentityResponsePropertiesArgs) ToManagedClusterIdentityResponsePropertiesOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponsePropertiesOutput)
+}
+
+// ManagedClusterIdentityResponsePropertiesMapInput is an input type that accepts ManagedClusterIdentityResponsePropertiesMap and ManagedClusterIdentityResponsePropertiesMapOutput values.
+// You can construct a concrete instance of `ManagedClusterIdentityResponsePropertiesMapInput` via:
+//
+//          ManagedClusterIdentityResponsePropertiesMap{ "key": ManagedClusterIdentityResponsePropertiesArgs{...} }
+type ManagedClusterIdentityResponsePropertiesMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterIdentityResponsePropertiesMapOutput() ManagedClusterIdentityResponsePropertiesMapOutput
+	ToManagedClusterIdentityResponsePropertiesMapOutputWithContext(context.Context) ManagedClusterIdentityResponsePropertiesMapOutput
+}
+
+type ManagedClusterIdentityResponsePropertiesMap map[string]ManagedClusterIdentityResponsePropertiesInput
+
+func (ManagedClusterIdentityResponsePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i ManagedClusterIdentityResponsePropertiesMap) ToManagedClusterIdentityResponsePropertiesMapOutput() ManagedClusterIdentityResponsePropertiesMapOutput {
+	return i.ToManagedClusterIdentityResponsePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterIdentityResponsePropertiesMap) ToManagedClusterIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponsePropertiesMapOutput)
+}
+
+type ManagedClusterIdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterIdentityResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o ManagedClusterIdentityResponsePropertiesOutput) ToManagedClusterIdentityResponsePropertiesOutput() ManagedClusterIdentityResponsePropertiesOutput {
+	return o
+}
+
+func (o ManagedClusterIdentityResponsePropertiesOutput) ToManagedClusterIdentityResponsePropertiesOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePropertiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o ManagedClusterIdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterIdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o ManagedClusterIdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterIdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ManagedClusterIdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterIdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o ManagedClusterIdentityResponsePropertiesMapOutput) ToManagedClusterIdentityResponsePropertiesMapOutput() ManagedClusterIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o ManagedClusterIdentityResponsePropertiesMapOutput) ToManagedClusterIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o ManagedClusterIdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterIdentityResponsePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterIdentityResponseProperties {
+		return vs[0].(map[string]ManagedClusterIdentityResponseProperties)[vs[1].(string)]
+	}).(ManagedClusterIdentityResponsePropertiesOutput)
 }
 
 // Profile of the managed cluster load balancer.
@@ -5897,7 +6322,7 @@ type ManagedClusterProperties struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfile `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles map[string]string `pulumi:"addonProfiles"`
+	AddonProfiles map[string]ManagedClusterAddonProfile `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -5913,7 +6338,7 @@ type ManagedClusterProperties struct {
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]string `pulumi:"identityProfile"`
+	IdentityProfile map[string]map[string]interface{} `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -5944,7 +6369,7 @@ type ManagedClusterPropertiesArgs struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfilePtrInput `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles pulumi.StringMapInput `pulumi:"addonProfiles"`
+	AddonProfiles ManagedClusterAddonProfileMapInput `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileArrayInput `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -5960,7 +6385,7 @@ type ManagedClusterPropertiesArgs struct {
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC pulumi.BoolPtrInput `pulumi:"enableRBAC"`
 	// Identities associated with the cluster.
-	IdentityProfile pulumi.StringMapInput `pulumi:"identityProfile"`
+	IdentityProfile pulumi.MapMapInput `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion pulumi.StringPtrInput `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -6059,8 +6484,8 @@ func (o ManagedClusterPropertiesOutput) AadProfile() ManagedClusterAADProfilePtr
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterProperties) map[string]string { return v.AddonProfiles }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesOutput) AddonProfiles() ManagedClusterAddonProfileMapOutput {
+	return o.ApplyT(func(v ManagedClusterProperties) map[string]ManagedClusterAddonProfile { return v.AddonProfiles }).(ManagedClusterAddonProfileMapOutput)
 }
 
 // Properties of the agent pool.
@@ -6101,8 +6526,8 @@ func (o ManagedClusterPropertiesOutput) EnableRBAC() pulumi.BoolPtrOutput {
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterProperties) map[string]string { return v.IdentityProfile }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ManagedClusterProperties) map[string]map[string]interface{} { return v.IdentityProfile }).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -6166,13 +6591,13 @@ func (o ManagedClusterPropertiesPtrOutput) AadProfile() ManagedClusterAADProfile
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesPtrOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterProperties) map[string]string {
+func (o ManagedClusterPropertiesPtrOutput) AddonProfiles() ManagedClusterAddonProfileMapOutput {
+	return o.ApplyT(func(v *ManagedClusterProperties) map[string]ManagedClusterAddonProfile {
 		if v == nil {
 			return nil
 		}
 		return v.AddonProfiles
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterAddonProfileMapOutput)
 }
 
 // Properties of the agent pool.
@@ -6246,13 +6671,13 @@ func (o ManagedClusterPropertiesPtrOutput) EnableRBAC() pulumi.BoolPtrOutput {
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesPtrOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterProperties) map[string]string {
+func (o ManagedClusterPropertiesPtrOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ManagedClusterProperties) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.IdentityProfile
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -6435,7 +6860,7 @@ type ManagedClusterPropertiesResponse struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles map[string]string `pulumi:"addonProfiles"`
+	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -6453,7 +6878,7 @@ type ManagedClusterPropertiesResponse struct {
 	// FQDN for the master pool.
 	Fqdn string `pulumi:"fqdn"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]string `pulumi:"identityProfile"`
+	IdentityProfile map[string]map[string]interface{} `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -6490,7 +6915,7 @@ type ManagedClusterPropertiesResponseArgs struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfileResponsePtrInput `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles pulumi.StringMapInput `pulumi:"addonProfiles"`
+	AddonProfiles ManagedClusterAddonProfileResponseMapInput `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayInput `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -6508,7 +6933,7 @@ type ManagedClusterPropertiesResponseArgs struct {
 	// FQDN for the master pool.
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// Identities associated with the cluster.
-	IdentityProfile pulumi.StringMapInput `pulumi:"identityProfile"`
+	IdentityProfile pulumi.MapMapInput `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion pulumi.StringPtrInput `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -6613,8 +7038,10 @@ func (o ManagedClusterPropertiesResponseOutput) AadProfile() ManagedClusterAADPr
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesResponseOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]string { return v.AddonProfiles }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesResponseOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]ManagedClusterAddonProfileResponse {
+		return v.AddonProfiles
+	}).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
 // Properties of the agent pool.
@@ -6664,8 +7091,8 @@ func (o ManagedClusterPropertiesResponseOutput) Fqdn() pulumi.StringOutput {
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesResponseOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]string { return v.IdentityProfile }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesResponseOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]map[string]interface{} { return v.IdentityProfile }).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -6748,13 +7175,13 @@ func (o ManagedClusterPropertiesResponsePtrOutput) AadProfile() ManagedClusterAA
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesResponsePtrOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]string {
+func (o ManagedClusterPropertiesResponsePtrOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]ManagedClusterAddonProfileResponse {
 		if v == nil {
 			return nil
 		}
 		return v.AddonProfiles
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
 // Properties of the agent pool.
@@ -6838,13 +7265,13 @@ func (o ManagedClusterPropertiesResponsePtrOutput) Fqdn() pulumi.StringPtrOutput
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesResponsePtrOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]string {
+func (o ManagedClusterPropertiesResponsePtrOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.IdentityProfile
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -9416,6 +9843,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileMapOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfilePropertiesOutput{})
@@ -9426,8 +9857,12 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(ManagedClusterIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterIdentityResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(ManagedClusterIdentityResponsePropertiesMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfilePropertiesOutput{})

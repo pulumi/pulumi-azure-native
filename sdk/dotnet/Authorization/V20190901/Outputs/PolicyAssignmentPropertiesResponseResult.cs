@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
         /// <summary>
         /// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The policy's excluded scopes.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
 
             string? enforcementMode,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             ImmutableArray<string> notScopes,
 

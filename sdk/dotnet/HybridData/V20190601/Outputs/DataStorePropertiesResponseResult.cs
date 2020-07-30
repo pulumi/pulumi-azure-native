@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601.Outputs
         /// <summary>
         /// A generic json used differently by each data source type.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? ExtendedProperties;
+        public readonly ImmutableDictionary<string, object>? ExtendedProperties;
         /// <summary>
         /// Arm Id for the manager resource to which the data source is associated. This is optional.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601.Outputs
 
             string dataStoreTypeId,
 
-            ImmutableDictionary<string, string>? extendedProperties,
+            ImmutableDictionary<string, object>? extendedProperties,
 
             string? repositoryId,
 

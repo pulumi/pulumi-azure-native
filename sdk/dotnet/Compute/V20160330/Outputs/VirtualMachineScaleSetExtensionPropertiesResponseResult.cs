@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Compute.V20160330.Outputs
         /// <summary>
         /// Json formatted protected settings for the extension.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? ProtectedSettings;
+        public readonly ImmutableDictionary<string, object>? ProtectedSettings;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Compute.V20160330.Outputs
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Settings;
+        public readonly ImmutableDictionary<string, object>? Settings;
         /// <summary>
         /// The type of the extension handler.
         /// </summary>
@@ -46,13 +46,13 @@ namespace Pulumi.AzureRM.Compute.V20160330.Outputs
         private VirtualMachineScaleSetExtensionPropertiesResponseResult(
             bool? autoUpgradeMinorVersion,
 
-            ImmutableDictionary<string, string>? protectedSettings,
+            ImmutableDictionary<string, object>? protectedSettings,
 
             string provisioningState,
 
             string? publisher,
 
-            ImmutableDictionary<string, string>? settings,
+            ImmutableDictionary<string, object>? settings,
 
             string? type,
 

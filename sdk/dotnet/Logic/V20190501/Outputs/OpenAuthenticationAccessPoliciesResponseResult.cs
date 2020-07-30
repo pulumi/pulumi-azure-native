@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// Open authentication policies.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Policies;
+        public readonly ImmutableDictionary<string, Outputs.OpenAuthenticationAccessPolicyResponseResult>? Policies;
 
         [OutputConstructor]
-        private OpenAuthenticationAccessPoliciesResponseResult(ImmutableDictionary<string, string>? policies)
+        private OpenAuthenticationAccessPoliciesResponseResult(ImmutableDictionary<string, Outputs.OpenAuthenticationAccessPolicyResponseResult>? policies)
         {
             Policies = policies;
         }

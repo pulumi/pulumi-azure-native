@@ -34,7 +34,7 @@ type LookupSmartDetectorAlertRuleResult struct {
 	// The properties of the alert rule.
 	Properties AlertRulePropertiesResponse `pulumi:"properties"`
 	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

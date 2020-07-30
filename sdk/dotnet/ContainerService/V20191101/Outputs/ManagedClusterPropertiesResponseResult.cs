@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191101.Outputs
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? AddonProfiles;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? AddonProfiles;
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191101.Outputs
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? IdentityProfile;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? IdentityProfile;
         /// <summary>
         /// Version of Kubernetes specified when creating the managed cluster.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191101.Outputs
         private ManagedClusterPropertiesResponseResult(
             Outputs.ManagedClusterAADProfileResponseResult? aadProfile,
 
-            ImmutableDictionary<string, string>? addonProfiles,
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? addonProfiles,
 
             ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> agentPoolProfiles,
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191101.Outputs
 
             string fqdn,
 
-            ImmutableDictionary<string, string>? identityProfile,
+            ImmutableDictionary<string, ImmutableDictionary<string, object>>? identityProfile,
 
             string? kubernetesVersion,
 

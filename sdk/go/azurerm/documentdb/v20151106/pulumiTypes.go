@@ -5441,7 +5441,7 @@ type GremlinDatabasePropertiesResponse struct {
 	// A system generated property. A unique identifier.
 	_rid *string `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]string `pulumi:"_ts"`
+	_ts map[string]interface{} `pulumi:"_ts"`
 	// Name of the Cosmos DB Gremlin database
 	Id string `pulumi:"id"`
 }
@@ -5464,7 +5464,7 @@ type GremlinDatabasePropertiesResponseArgs struct {
 	// A system generated property. A unique identifier.
 	_rid pulumi.StringPtrInput `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.StringMapInput `pulumi:"_ts"`
+	_ts pulumi.MapInput `pulumi:"_ts"`
 	// Name of the Cosmos DB Gremlin database
 	Id pulumi.StringInput `pulumi:"id"`
 }
@@ -5558,8 +5558,8 @@ func (o GremlinDatabasePropertiesResponseOutput) _rid() pulumi.StringPtrOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabasePropertiesResponseOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GremlinDatabasePropertiesResponse) map[string]string { return v._ts }).(pulumi.StringMapOutput)
+func (o GremlinDatabasePropertiesResponseOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinDatabasePropertiesResponse) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
 }
 
 // Name of the Cosmos DB Gremlin database
@@ -5606,13 +5606,13 @@ func (o GremlinDatabasePropertiesResponsePtrOutput) _rid() pulumi.StringPtrOutpu
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabasePropertiesResponsePtrOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *GremlinDatabasePropertiesResponse) map[string]string {
+func (o GremlinDatabasePropertiesResponsePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinDatabasePropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v._ts
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Name of the Cosmos DB Gremlin database
@@ -5919,7 +5919,7 @@ type GremlinGraphPropertiesResponse struct {
 	// A system generated property. A unique identifier.
 	_rid *string `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]string `pulumi:"_ts"`
+	_ts map[string]interface{} `pulumi:"_ts"`
 	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -5952,7 +5952,7 @@ type GremlinGraphPropertiesResponseArgs struct {
 	// A system generated property. A unique identifier.
 	_rid pulumi.StringPtrInput `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.StringMapInput `pulumi:"_ts"`
+	_ts pulumi.MapInput `pulumi:"_ts"`
 	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -6056,8 +6056,8 @@ func (o GremlinGraphPropertiesResponseOutput) _rid() pulumi.StringPtrOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphPropertiesResponseOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GremlinGraphPropertiesResponse) map[string]string { return v._ts }).(pulumi.StringMapOutput)
+func (o GremlinGraphPropertiesResponseOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinGraphPropertiesResponse) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
 }
 
 // The conflict resolution policy for the graph.
@@ -6131,13 +6131,13 @@ func (o GremlinGraphPropertiesResponsePtrOutput) _rid() pulumi.StringPtrOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphPropertiesResponsePtrOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *GremlinGraphPropertiesResponse) map[string]string {
+func (o GremlinGraphPropertiesResponsePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinGraphPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v._ts
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The conflict resolution policy for the graph.
@@ -9637,7 +9637,7 @@ type SqlContainerPropertiesResponse struct {
 	// A system generated property. A unique identifier.
 	_rid *string `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]string `pulumi:"_ts"`
+	_ts map[string]interface{} `pulumi:"_ts"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -9670,7 +9670,7 @@ type SqlContainerPropertiesResponseArgs struct {
 	// A system generated property. A unique identifier.
 	_rid pulumi.StringPtrInput `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.StringMapInput `pulumi:"_ts"`
+	_ts pulumi.MapInput `pulumi:"_ts"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
@@ -9774,8 +9774,8 @@ func (o SqlContainerPropertiesResponseOutput) _rid() pulumi.StringPtrOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerPropertiesResponseOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlContainerPropertiesResponse) map[string]string { return v._ts }).(pulumi.StringMapOutput)
+func (o SqlContainerPropertiesResponseOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlContainerPropertiesResponse) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -9849,13 +9849,13 @@ func (o SqlContainerPropertiesResponsePtrOutput) _rid() pulumi.StringPtrOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerPropertiesResponsePtrOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SqlContainerPropertiesResponse) map[string]string {
+func (o SqlContainerPropertiesResponsePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlContainerPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v._ts
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -10309,7 +10309,7 @@ type SqlDatabasePropertiesResponse struct {
 	// A system generated property. A unique identifier.
 	_rid *string `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]string `pulumi:"_ts"`
+	_ts map[string]interface{} `pulumi:"_ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	_users *string `pulumi:"_users"`
 	// Name of the Cosmos DB SQL database
@@ -10336,7 +10336,7 @@ type SqlDatabasePropertiesResponseArgs struct {
 	// A system generated property. A unique identifier.
 	_rid pulumi.StringPtrInput `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.StringMapInput `pulumi:"_ts"`
+	_ts pulumi.MapInput `pulumi:"_ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	_users pulumi.StringPtrInput `pulumi:"_users"`
 	// Name of the Cosmos DB SQL database
@@ -10437,8 +10437,8 @@ func (o SqlDatabasePropertiesResponseOutput) _rid() pulumi.StringPtrOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabasePropertiesResponseOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlDatabasePropertiesResponse) map[string]string { return v._ts }).(pulumi.StringMapOutput)
+func (o SqlDatabasePropertiesResponseOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlDatabasePropertiesResponse) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
 }
 
 // A system generated property that specifies the addressable path of the users resource.
@@ -10500,13 +10500,13 @@ func (o SqlDatabasePropertiesResponsePtrOutput) _rid() pulumi.StringPtrOutput {
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabasePropertiesResponsePtrOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SqlDatabasePropertiesResponse) map[string]string {
+func (o SqlDatabasePropertiesResponsePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlDatabasePropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v._ts
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // A system generated property that specifies the addressable path of the users resource.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701.Outputs
         /// <summary>
         /// The scenario specific error details.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Info;
+        public readonly ImmutableDictionary<string, object> Info;
         /// <summary>
         /// The type of included error details.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701.Outputs
 
         [OutputConstructor]
         private TypedErrorInfoResponseResult(
-            ImmutableDictionary<string, string> info,
+            ImmutableDictionary<string, object> info,
 
             string type)
         {

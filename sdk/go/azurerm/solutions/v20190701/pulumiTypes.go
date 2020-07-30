@@ -1343,7 +1343,7 @@ type ApplicationDefinitionProperties struct {
 	// The managed application provider authorizations.
 	Authorizations []ApplicationAuthorization `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition map[string]string `pulumi:"createUiDefinition"`
+	CreateUiDefinition map[string]interface{} `pulumi:"createUiDefinition"`
 	// The managed application deployment policy.
 	DeploymentPolicy *ApplicationDeploymentPolicy `pulumi:"deploymentPolicy"`
 	// The managed application definition description.
@@ -1357,7 +1357,7 @@ type ApplicationDefinitionProperties struct {
 	// The managed application locking policy.
 	LockingPolicy *ApplicationPackageLockingPolicyDefinition `pulumi:"lockingPolicy"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate map[string]string `pulumi:"mainTemplate"`
+	MainTemplate map[string]interface{} `pulumi:"mainTemplate"`
 	// The managed application management policy that determines publisher's access to the managed resource group.
 	ManagementPolicy *ApplicationManagementPolicy `pulumi:"managementPolicy"`
 	// The managed application notification policy.
@@ -1386,7 +1386,7 @@ type ApplicationDefinitionPropertiesArgs struct {
 	// The managed application provider authorizations.
 	Authorizations ApplicationAuthorizationArrayInput `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.StringMapInput `pulumi:"createUiDefinition"`
+	CreateUiDefinition pulumi.MapInput `pulumi:"createUiDefinition"`
 	// The managed application deployment policy.
 	DeploymentPolicy ApplicationDeploymentPolicyPtrInput `pulumi:"deploymentPolicy"`
 	// The managed application definition description.
@@ -1400,7 +1400,7 @@ type ApplicationDefinitionPropertiesArgs struct {
 	// The managed application locking policy.
 	LockingPolicy ApplicationPackageLockingPolicyDefinitionPtrInput `pulumi:"lockingPolicy"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.StringMapInput `pulumi:"mainTemplate"`
+	MainTemplate pulumi.MapInput `pulumi:"mainTemplate"`
 	// The managed application management policy that determines publisher's access to the managed resource group.
 	ManagementPolicy ApplicationManagementPolicyPtrInput `pulumi:"managementPolicy"`
 	// The managed application notification policy.
@@ -1500,8 +1500,8 @@ func (o ApplicationDefinitionPropertiesOutput) Authorizations() ApplicationAutho
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]string { return v.CreateUiDefinition }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]interface{} { return v.CreateUiDefinition }).(pulumi.MapOutput)
 }
 
 // The managed application deployment policy.
@@ -1537,8 +1537,8 @@ func (o ApplicationDefinitionPropertiesOutput) LockingPolicy() ApplicationPackag
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]string { return v.MainTemplate }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]interface{} { return v.MainTemplate }).(pulumi.MapOutput)
 }
 
 // The managed application management policy that determines publisher's access to the managed resource group.
@@ -1600,13 +1600,13 @@ func (o ApplicationDefinitionPropertiesPtrOutput) Authorizations() ApplicationAu
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesPtrOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]string {
+func (o ApplicationDefinitionPropertiesPtrOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CreateUiDefinition
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application deployment policy.
@@ -1670,13 +1670,13 @@ func (o ApplicationDefinitionPropertiesPtrOutput) LockingPolicy() ApplicationPac
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesPtrOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]string {
+func (o ApplicationDefinitionPropertiesPtrOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.MainTemplate
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application management policy that determines publisher's access to the managed resource group.
@@ -1726,7 +1726,7 @@ type ApplicationDefinitionPropertiesResponse struct {
 	// The managed application provider authorizations.
 	Authorizations []ApplicationAuthorizationResponse `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition map[string]string `pulumi:"createUiDefinition"`
+	CreateUiDefinition map[string]interface{} `pulumi:"createUiDefinition"`
 	// The managed application deployment policy.
 	DeploymentPolicy *ApplicationDeploymentPolicyResponse `pulumi:"deploymentPolicy"`
 	// The managed application definition description.
@@ -1740,7 +1740,7 @@ type ApplicationDefinitionPropertiesResponse struct {
 	// The managed application locking policy.
 	LockingPolicy *ApplicationPackageLockingPolicyDefinitionResponse `pulumi:"lockingPolicy"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate map[string]string `pulumi:"mainTemplate"`
+	MainTemplate map[string]interface{} `pulumi:"mainTemplate"`
 	// The managed application management policy that determines publisher's access to the managed resource group.
 	ManagementPolicy *ApplicationManagementPolicyResponse `pulumi:"managementPolicy"`
 	// The managed application notification policy.
@@ -1769,7 +1769,7 @@ type ApplicationDefinitionPropertiesResponseArgs struct {
 	// The managed application provider authorizations.
 	Authorizations ApplicationAuthorizationResponseArrayInput `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.StringMapInput `pulumi:"createUiDefinition"`
+	CreateUiDefinition pulumi.MapInput `pulumi:"createUiDefinition"`
 	// The managed application deployment policy.
 	DeploymentPolicy ApplicationDeploymentPolicyResponsePtrInput `pulumi:"deploymentPolicy"`
 	// The managed application definition description.
@@ -1783,7 +1783,7 @@ type ApplicationDefinitionPropertiesResponseArgs struct {
 	// The managed application locking policy.
 	LockingPolicy ApplicationPackageLockingPolicyDefinitionResponsePtrInput `pulumi:"lockingPolicy"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.StringMapInput `pulumi:"mainTemplate"`
+	MainTemplate pulumi.MapInput `pulumi:"mainTemplate"`
 	// The managed application management policy that determines publisher's access to the managed resource group.
 	ManagementPolicy ApplicationManagementPolicyResponsePtrInput `pulumi:"managementPolicy"`
 	// The managed application notification policy.
@@ -1887,8 +1887,8 @@ func (o ApplicationDefinitionPropertiesResponseOutput) Authorizations() Applicat
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponseOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]string { return v.CreateUiDefinition }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesResponseOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]interface{} { return v.CreateUiDefinition }).(pulumi.MapOutput)
 }
 
 // The managed application deployment policy.
@@ -1926,8 +1926,8 @@ func (o ApplicationDefinitionPropertiesResponseOutput) LockingPolicy() Applicati
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponseOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]string { return v.MainTemplate }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesResponseOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]interface{} { return v.MainTemplate }).(pulumi.MapOutput)
 }
 
 // The managed application management policy that determines publisher's access to the managed resource group.
@@ -1993,13 +1993,13 @@ func (o ApplicationDefinitionPropertiesResponsePtrOutput) Authorizations() Appli
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponsePtrOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]string {
+func (o ApplicationDefinitionPropertiesResponsePtrOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CreateUiDefinition
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application deployment policy.
@@ -2063,13 +2063,13 @@ func (o ApplicationDefinitionPropertiesResponsePtrOutput) LockingPolicy() Applic
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponsePtrOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]string {
+func (o ApplicationDefinitionPropertiesResponsePtrOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.MainTemplate
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application management policy that determines publisher's access to the managed resource group.
@@ -4481,7 +4481,7 @@ type ApplicationProperties struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId *string `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 }
 
 // ApplicationPropertiesInput is an input type that accepts ApplicationPropertiesArgs and ApplicationPropertiesOutput values.
@@ -4504,7 +4504,7 @@ type ApplicationPropertiesArgs struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId pulumi.StringPtrInput `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 }
 
 func (ApplicationPropertiesArgs) ElementType() reflect.Type {
@@ -4601,8 +4601,8 @@ func (o ApplicationPropertiesOutput) ManagedResourceGroupId() pulumi.StringPtrOu
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o ApplicationPropertiesOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 type ApplicationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -4654,13 +4654,13 @@ func (o ApplicationPropertiesPtrOutput) ManagedResourceGroupId() pulumi.StringPt
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationProperties) map[string]string {
+func (o ApplicationPropertiesPtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application properties.
@@ -4684,9 +4684,9 @@ type ApplicationPropertiesResponse struct {
 	// The managed application management mode.
 	ManagementMode string `pulumi:"managementMode"`
 	// Name and value pairs that define the managed application outputs.
-	Outputs map[string]string `pulumi:"outputs"`
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The managed application provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The publisher tenant Id.
@@ -4729,9 +4729,9 @@ type ApplicationPropertiesResponseArgs struct {
 	// The managed application management mode.
 	ManagementMode pulumi.StringInput `pulumi:"managementMode"`
 	// Name and value pairs that define the managed application outputs.
-	Outputs pulumi.StringMapInput `pulumi:"outputs"`
+	Outputs pulumi.MapInput `pulumi:"outputs"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The managed application provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The publisher tenant Id.
@@ -4868,13 +4868,13 @@ func (o ApplicationPropertiesResponseOutput) ManagementMode() pulumi.StringOutpu
 }
 
 // Name and value pairs that define the managed application outputs.
-func (o ApplicationPropertiesResponseOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]string { return v.Outputs }).(pulumi.StringMapOutput)
+func (o ApplicationPropertiesResponseOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]interface{} { return v.Outputs }).(pulumi.MapOutput)
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o ApplicationPropertiesResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The managed application provisioning state.
@@ -5006,23 +5006,23 @@ func (o ApplicationPropertiesResponsePtrOutput) ManagementMode() pulumi.StringPt
 }
 
 // Name and value pairs that define the managed application outputs.
-func (o ApplicationPropertiesResponsePtrOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]string {
+func (o ApplicationPropertiesResponsePtrOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Outputs
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]string {
+func (o ApplicationPropertiesResponsePtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application provisioning state.
@@ -5070,7 +5070,7 @@ type Identity struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserAssignedResourceIdentity `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -5089,7 +5089,7 @@ type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserAssignedResourceIdentityMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -5176,8 +5176,8 @@ func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Identity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o IdentityOutput) UserAssignedIdentities() UserAssignedResourceIdentityMapOutput {
+	return o.ApplyT(func(v Identity) map[string]UserAssignedResourceIdentity { return v.UserAssignedIdentities }).(UserAssignedResourceIdentityMapOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -5209,13 +5209,13 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Identity) map[string]string {
+func (o IdentityPtrOutput) UserAssignedIdentities() UserAssignedResourceIdentityMapOutput {
+	return o.ApplyT(func(v *Identity) map[string]UserAssignedResourceIdentity {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(UserAssignedResourceIdentityMapOutput)
 }
 
 // Identity for the resource.
@@ -5227,7 +5227,7 @@ type IdentityResponse struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserAssignedResourceIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -5250,7 +5250,7 @@ type IdentityResponseArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserAssignedResourceIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -5347,8 +5347,10 @@ func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedResourceIdentityResponseMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedResourceIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedResourceIdentityResponseMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5400,13 +5402,13 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IdentityResponse) map[string]string {
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedResourceIdentityResponseMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedResourceIdentityResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(UserAssignedResourceIdentityResponseMapOutput)
 }
 
 // JIT approver definition.
@@ -7607,6 +7609,206 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentity struct {
+}
+
+// UserAssignedResourceIdentityInput is an input type that accepts UserAssignedResourceIdentityArgs and UserAssignedResourceIdentityOutput values.
+// You can construct a concrete instance of `UserAssignedResourceIdentityInput` via:
+//
+//          UserAssignedResourceIdentityArgs{...}
+type UserAssignedResourceIdentityInput interface {
+	pulumi.Input
+
+	ToUserAssignedResourceIdentityOutput() UserAssignedResourceIdentityOutput
+	ToUserAssignedResourceIdentityOutputWithContext(context.Context) UserAssignedResourceIdentityOutput
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityArgs struct {
+}
+
+func (UserAssignedResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedResourceIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedResourceIdentityArgs) ToUserAssignedResourceIdentityOutput() UserAssignedResourceIdentityOutput {
+	return i.ToUserAssignedResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i UserAssignedResourceIdentityArgs) ToUserAssignedResourceIdentityOutputWithContext(ctx context.Context) UserAssignedResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityOutput)
+}
+
+// UserAssignedResourceIdentityMapInput is an input type that accepts UserAssignedResourceIdentityMap and UserAssignedResourceIdentityMapOutput values.
+// You can construct a concrete instance of `UserAssignedResourceIdentityMapInput` via:
+//
+//          UserAssignedResourceIdentityMap{ "key": UserAssignedResourceIdentityArgs{...} }
+type UserAssignedResourceIdentityMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedResourceIdentityMapOutput() UserAssignedResourceIdentityMapOutput
+	ToUserAssignedResourceIdentityMapOutputWithContext(context.Context) UserAssignedResourceIdentityMapOutput
+}
+
+type UserAssignedResourceIdentityMap map[string]UserAssignedResourceIdentityInput
+
+func (UserAssignedResourceIdentityMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedResourceIdentity)(nil)).Elem()
+}
+
+func (i UserAssignedResourceIdentityMap) ToUserAssignedResourceIdentityMapOutput() UserAssignedResourceIdentityMapOutput {
+	return i.ToUserAssignedResourceIdentityMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedResourceIdentityMap) ToUserAssignedResourceIdentityMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityMapOutput)
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedResourceIdentity)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityOutput) ToUserAssignedResourceIdentityOutput() UserAssignedResourceIdentityOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityOutput) ToUserAssignedResourceIdentityOutputWithContext(ctx context.Context) UserAssignedResourceIdentityOutput {
+	return o
+}
+
+type UserAssignedResourceIdentityMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedResourceIdentity)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityMapOutput) ToUserAssignedResourceIdentityMapOutput() UserAssignedResourceIdentityMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityMapOutput) ToUserAssignedResourceIdentityMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedResourceIdentityOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedResourceIdentity {
+		return vs[0].(map[string]UserAssignedResourceIdentity)[vs[1].(string)]
+	}).(UserAssignedResourceIdentityOutput)
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityResponse struct {
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// UserAssignedResourceIdentityResponseInput is an input type that accepts UserAssignedResourceIdentityResponseArgs and UserAssignedResourceIdentityResponseOutput values.
+// You can construct a concrete instance of `UserAssignedResourceIdentityResponseInput` via:
+//
+//          UserAssignedResourceIdentityResponseArgs{...}
+type UserAssignedResourceIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedResourceIdentityResponseOutput() UserAssignedResourceIdentityResponseOutput
+	ToUserAssignedResourceIdentityResponseOutputWithContext(context.Context) UserAssignedResourceIdentityResponseOutput
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityResponseArgs struct {
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (UserAssignedResourceIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedResourceIdentityResponseArgs) ToUserAssignedResourceIdentityResponseOutput() UserAssignedResourceIdentityResponseOutput {
+	return i.ToUserAssignedResourceIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedResourceIdentityResponseArgs) ToUserAssignedResourceIdentityResponseOutputWithContext(ctx context.Context) UserAssignedResourceIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityResponseOutput)
+}
+
+// UserAssignedResourceIdentityResponseMapInput is an input type that accepts UserAssignedResourceIdentityResponseMap and UserAssignedResourceIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedResourceIdentityResponseMapInput` via:
+//
+//          UserAssignedResourceIdentityResponseMap{ "key": UserAssignedResourceIdentityResponseArgs{...} }
+type UserAssignedResourceIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedResourceIdentityResponseMapOutput() UserAssignedResourceIdentityResponseMapOutput
+	ToUserAssignedResourceIdentityResponseMapOutputWithContext(context.Context) UserAssignedResourceIdentityResponseMapOutput
+}
+
+type UserAssignedResourceIdentityResponseMap map[string]UserAssignedResourceIdentityResponseInput
+
+func (UserAssignedResourceIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedResourceIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedResourceIdentityResponseMap) ToUserAssignedResourceIdentityResponseMapOutput() UserAssignedResourceIdentityResponseMapOutput {
+	return i.ToUserAssignedResourceIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedResourceIdentityResponseMap) ToUserAssignedResourceIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityResponseMapOutput)
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityResponseOutput) ToUserAssignedResourceIdentityResponseOutput() UserAssignedResourceIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityResponseOutput) ToUserAssignedResourceIdentityResponseOutputWithContext(ctx context.Context) UserAssignedResourceIdentityResponseOutput {
+	return o
+}
+
+// The principal id of user assigned identity.
+func (o UserAssignedResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of user assigned identity.
+func (o UserAssignedResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type UserAssignedResourceIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityResponseMapOutput) ToUserAssignedResourceIdentityResponseMapOutput() UserAssignedResourceIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityResponseMapOutput) ToUserAssignedResourceIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedResourceIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedResourceIdentityResponse {
+		return vs[0].(map[string]UserAssignedResourceIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedResourceIdentityResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactOutput{})
@@ -7698,4 +7900,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityMapOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseMapOutput{})
 }

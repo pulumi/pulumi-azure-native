@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.ContainerService.V20180331.Inputs
         public Input<Inputs.ManagedClusterAADProfileArgs>? AadProfile { get; set; }
 
         [Input("addonProfiles")]
-        private InputMap<string>? _addonProfiles;
+        private InputMap<Inputs.ManagedClusterAddonProfileArgs>? _addonProfiles;
 
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public InputMap<string> AddonProfiles
+        public InputMap<Inputs.ManagedClusterAddonProfileArgs> AddonProfiles
         {
-            get => _addonProfiles ?? (_addonProfiles = new InputMap<string>());
+            get => _addonProfiles ?? (_addonProfiles = new InputMap<Inputs.ManagedClusterAddonProfileArgs>());
             set => _addonProfiles = value;
         }
 

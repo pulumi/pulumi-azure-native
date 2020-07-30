@@ -29,7 +29,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// The text.
         /// </summary>
         public readonly string? Text;
-        public readonly ImmutableDictionary<string, string>? Value;
+        public readonly ImmutableDictionary<string, object>? Value;
 
         [OutputConstructor]
         private ExpressionRootResponseResult(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             string? text,
 
-            ImmutableDictionary<string, string>? value)
+            ImmutableDictionary<string, object>? value)
         {
             Error = error;
             Path = path;

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Resources.V20151101
         /// Gets or sets the resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -120,14 +120,14 @@ namespace Pulumi.AzureRM.Resources.V20151101
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
         [Input("properties")]
-        private InputMap<string>? _properties;
+        private InputMap<object>? _properties;
 
         /// <summary>
         /// Gets or sets the resource properties.
         /// </summary>
-        public InputMap<string> Properties
+        public InputMap<object> Properties
         {
-            get => _properties ?? (_properties = new InputMap<string>());
+            get => _properties ?? (_properties = new InputMap<object>());
             set => _properties = value;
         }
 

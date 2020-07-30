@@ -6386,9 +6386,9 @@ type BackendCredentialsContract struct {
 	// List of Client Certificate Thumbprint.
 	Certificate []string `pulumi:"certificate"`
 	// Header Parameter description.
-	Header map[string]string `pulumi:"header"`
+	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
-	Query map[string]string `pulumi:"query"`
+	Query map[string][]string `pulumi:"query"`
 }
 
 // BackendCredentialsContractInput is an input type that accepts BackendCredentialsContractArgs and BackendCredentialsContractOutput values.
@@ -6409,9 +6409,9 @@ type BackendCredentialsContractArgs struct {
 	// List of Client Certificate Thumbprint.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
 	// Header Parameter description.
-	Header pulumi.StringMapInput `pulumi:"header"`
+	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
-	Query pulumi.StringMapInput `pulumi:"query"`
+	Query pulumi.StringArrayMapInput `pulumi:"query"`
 }
 
 func (BackendCredentialsContractArgs) ElementType() reflect.Type {
@@ -6503,13 +6503,13 @@ func (o BackendCredentialsContractOutput) Certificate() pulumi.StringArrayOutput
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContract) map[string]string { return v.Header }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContract) map[string][]string { return v.Header }).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContract) map[string]string { return v.Query }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContract) map[string][]string { return v.Query }).(pulumi.StringArrayMapOutput)
 }
 
 type BackendCredentialsContractPtrOutput struct{ *pulumi.OutputState }
@@ -6551,23 +6551,23 @@ func (o BackendCredentialsContractPtrOutput) Certificate() pulumi.StringArrayOut
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractPtrOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContract) map[string]string {
+func (o BackendCredentialsContractPtrOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContract) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Header
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContract) map[string]string {
+func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContract) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Query
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Details of the Credentials used to connect to Backend.
@@ -6577,9 +6577,9 @@ type BackendCredentialsContractResponse struct {
 	// List of Client Certificate Thumbprint.
 	Certificate []string `pulumi:"certificate"`
 	// Header Parameter description.
-	Header map[string]string `pulumi:"header"`
+	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
-	Query map[string]string `pulumi:"query"`
+	Query map[string][]string `pulumi:"query"`
 }
 
 // BackendCredentialsContractResponseInput is an input type that accepts BackendCredentialsContractResponseArgs and BackendCredentialsContractResponseOutput values.
@@ -6600,9 +6600,9 @@ type BackendCredentialsContractResponseArgs struct {
 	// List of Client Certificate Thumbprint.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
 	// Header Parameter description.
-	Header pulumi.StringMapInput `pulumi:"header"`
+	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
-	Query pulumi.StringMapInput `pulumi:"query"`
+	Query pulumi.StringArrayMapInput `pulumi:"query"`
 }
 
 func (BackendCredentialsContractResponseArgs) ElementType() reflect.Type {
@@ -6696,13 +6696,13 @@ func (o BackendCredentialsContractResponseOutput) Certificate() pulumi.StringArr
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractResponseOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string]string { return v.Header }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractResponseOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string][]string { return v.Header }).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractResponseOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string]string { return v.Query }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractResponseOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string][]string { return v.Query }).(pulumi.StringArrayMapOutput)
 }
 
 type BackendCredentialsContractResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6744,23 +6744,23 @@ func (o BackendCredentialsContractResponsePtrOutput) Certificate() pulumi.String
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractResponsePtrOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string]string {
+func (o BackendCredentialsContractResponsePtrOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Header
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractResponsePtrOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string]string {
+func (o BackendCredentialsContractResponsePtrOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Query
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Properties specific to the Backend Type.

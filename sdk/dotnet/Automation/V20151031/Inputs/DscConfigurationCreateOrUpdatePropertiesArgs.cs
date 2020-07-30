@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.Automation.V20151031.Inputs
         public Input<bool>? LogVerbose { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<Inputs.DscConfigurationParameterArgs>? _parameters;
 
         /// <summary>
         /// Gets or sets the configuration parameters.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<Inputs.DscConfigurationParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<Inputs.DscConfigurationParameterArgs>());
             set => _parameters = value;
         }
 

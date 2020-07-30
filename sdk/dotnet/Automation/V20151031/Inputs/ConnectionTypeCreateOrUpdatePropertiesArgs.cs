@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.Automation.V20151031.Inputs
     public sealed class ConnectionTypeCreateOrUpdatePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("fieldDefinitions", required: true)]
-        private InputMap<string>? _fieldDefinitions;
+        private InputMap<Inputs.FieldDefinitionArgs>? _fieldDefinitions;
 
         /// <summary>
         /// Gets or sets the field definitions of the connection type.
         /// </summary>
-        public InputMap<string> FieldDefinitions
+        public InputMap<Inputs.FieldDefinitionArgs> FieldDefinitions
         {
-            get => _fieldDefinitions ?? (_fieldDefinitions = new InputMap<string>());
+            get => _fieldDefinitions ?? (_fieldDefinitions = new InputMap<Inputs.FieldDefinitionArgs>());
             set => _fieldDefinitions = value;
         }
 

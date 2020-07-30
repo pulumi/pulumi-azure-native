@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Consumption.V20180331.Outputs
         /// <summary>
         /// The dictionary of filters on tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? Tags;
 
         [OutputConstructor]
         private FiltersResponseResult(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.Consumption.V20180331.Outputs
 
             ImmutableArray<string> resources,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, ImmutableArray<string>>? tags)
         {
             Meters = meters;
             ResourceGroups = resourceGroups;

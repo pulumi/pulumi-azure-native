@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the trigger.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, string>> Annotations;
+        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
         /// <summary>
         /// Trigger description.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private TriggerResponseResult(
-            ImmutableArray<ImmutableDictionary<string, string>> annotations,
+            ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
             string? description,
 

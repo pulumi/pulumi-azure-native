@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.PowerBI.V20160129
         /// <summary>
         /// Properties
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Properties;
+        public readonly ImmutableDictionary<string, object> Properties;
         public readonly Outputs.AzureSkuResponseResult? Sku;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.PowerBI.V20160129
 
             string? name,
 
-            ImmutableDictionary<string, string> properties,
+            ImmutableDictionary<string, object> properties,
 
             Outputs.AzureSkuResponseResult? sku,
 

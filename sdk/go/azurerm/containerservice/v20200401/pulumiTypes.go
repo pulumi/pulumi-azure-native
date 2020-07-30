@@ -3010,6 +3010,233 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) EnablePrivateClus
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfile struct {
+	// Key-value pairs for configuring an add-on.
+	Config map[string]string `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ManagedClusterAddonProfileInput is an input type that accepts ManagedClusterAddonProfileArgs and ManagedClusterAddonProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileInput` via:
+//
+//          ManagedClusterAddonProfileArgs{...}
+type ManagedClusterAddonProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput
+	ToManagedClusterAddonProfileOutputWithContext(context.Context) ManagedClusterAddonProfileOutput
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileArgs struct {
+	// Key-value pairs for configuring an add-on.
+	Config pulumi.StringMapInput `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ManagedClusterAddonProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileArgs) ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput {
+	return i.ToManagedClusterAddonProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileArgs) ToManagedClusterAddonProfileOutputWithContext(ctx context.Context) ManagedClusterAddonProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileOutput)
+}
+
+// ManagedClusterAddonProfileMapInput is an input type that accepts ManagedClusterAddonProfileMap and ManagedClusterAddonProfileMapOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileMapInput` via:
+//
+//          ManagedClusterAddonProfileMap{ "key": ManagedClusterAddonProfileArgs{...} }
+type ManagedClusterAddonProfileMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput
+	ToManagedClusterAddonProfileMapOutputWithContext(context.Context) ManagedClusterAddonProfileMapOutput
+}
+
+type ManagedClusterAddonProfileMap map[string]ManagedClusterAddonProfileInput
+
+func (ManagedClusterAddonProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput {
+	return i.ToManagedClusterAddonProfileMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileMapOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutput() ManagedClusterAddonProfileOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutputWithContext(ctx context.Context) ManagedClusterAddonProfileOutput {
+	return o
+}
+
+// Key-value pairs for configuring an add-on.
+func (o ManagedClusterAddonProfileOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfile) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+}
+
+// Whether the add-on is enabled or not.
+func (o ManagedClusterAddonProfileOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfile) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ManagedClusterAddonProfileMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileMapOutput) ToManagedClusterAddonProfileMapOutput() ManagedClusterAddonProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileMapOutput) ToManagedClusterAddonProfileMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterAddonProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfile {
+		return vs[0].(map[string]ManagedClusterAddonProfile)[vs[1].(string)]
+	}).(ManagedClusterAddonProfileOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponse struct {
+	// Key-value pairs for configuring an add-on.
+	Config map[string]string `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// Information of user assigned identity used by this add-on.
+	Identity map[string]interface{} `pulumi:"identity"`
+}
+
+// ManagedClusterAddonProfileResponseInput is an input type that accepts ManagedClusterAddonProfileResponseArgs and ManagedClusterAddonProfileResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileResponseInput` via:
+//
+//          ManagedClusterAddonProfileResponseArgs{...}
+type ManagedClusterAddonProfileResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput
+	ToManagedClusterAddonProfileResponseOutputWithContext(context.Context) ManagedClusterAddonProfileResponseOutput
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponseArgs struct {
+	// Key-value pairs for configuring an add-on.
+	Config pulumi.StringMapInput `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Information of user assigned identity used by this add-on.
+	Identity pulumi.MapInput `pulumi:"identity"`
+}
+
+func (ManagedClusterAddonProfileResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput {
+	return i.ToManagedClusterAddonProfileResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseOutput)
+}
+
+// ManagedClusterAddonProfileResponseMapInput is an input type that accepts ManagedClusterAddonProfileResponseMap and ManagedClusterAddonProfileResponseMapOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileResponseMapInput` via:
+//
+//          ManagedClusterAddonProfileResponseMap{ "key": ManagedClusterAddonProfileResponseArgs{...} }
+type ManagedClusterAddonProfileResponseMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput
+	ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Context) ManagedClusterAddonProfileResponseMapOutput
+}
+
+type ManagedClusterAddonProfileResponseMap map[string]ManagedClusterAddonProfileResponseInput
+
+func (ManagedClusterAddonProfileResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput {
+	return i.ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseMapOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseOutput {
+	return o
+}
+
+// Key-value pairs for configuring an add-on.
+func (o ManagedClusterAddonProfileResponseOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+}
+
+// Whether the add-on is enabled or not.
+func (o ManagedClusterAddonProfileResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Information of user assigned identity used by this add-on.
+func (o ManagedClusterAddonProfileResponseOutput) Identity() pulumi.MapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) map[string]interface{} { return v.Identity }).(pulumi.MapOutput)
+}
+
+type ManagedClusterAddonProfileResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) ToManagedClusterAddonProfileResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileResponseMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterAddonProfileResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfileResponse {
+		return vs[0].(map[string]ManagedClusterAddonProfileResponse)[vs[1].(string)]
+	}).(ManagedClusterAddonProfileResponseOutput)
+}
+
 // Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfile struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
@@ -5765,7 +5992,7 @@ type ManagedClusterProperties struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfile `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles map[string]string `pulumi:"addonProfiles"`
+	AddonProfiles map[string]ManagedClusterAddonProfile `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -5781,7 +6008,7 @@ type ManagedClusterProperties struct {
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]string `pulumi:"identityProfile"`
+	IdentityProfile map[string]map[string]interface{} `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -5812,7 +6039,7 @@ type ManagedClusterPropertiesArgs struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfilePtrInput `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles pulumi.StringMapInput `pulumi:"addonProfiles"`
+	AddonProfiles ManagedClusterAddonProfileMapInput `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileArrayInput `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -5828,7 +6055,7 @@ type ManagedClusterPropertiesArgs struct {
 	// Whether to enable Kubernetes Role-Based Access Control.
 	EnableRBAC pulumi.BoolPtrInput `pulumi:"enableRBAC"`
 	// Identities associated with the cluster.
-	IdentityProfile pulumi.StringMapInput `pulumi:"identityProfile"`
+	IdentityProfile pulumi.MapMapInput `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion pulumi.StringPtrInput `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -5927,8 +6154,8 @@ func (o ManagedClusterPropertiesOutput) AadProfile() ManagedClusterAADProfilePtr
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterProperties) map[string]string { return v.AddonProfiles }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesOutput) AddonProfiles() ManagedClusterAddonProfileMapOutput {
+	return o.ApplyT(func(v ManagedClusterProperties) map[string]ManagedClusterAddonProfile { return v.AddonProfiles }).(ManagedClusterAddonProfileMapOutput)
 }
 
 // Properties of the agent pool.
@@ -5969,8 +6196,8 @@ func (o ManagedClusterPropertiesOutput) EnableRBAC() pulumi.BoolPtrOutput {
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterProperties) map[string]string { return v.IdentityProfile }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ManagedClusterProperties) map[string]map[string]interface{} { return v.IdentityProfile }).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -6034,13 +6261,13 @@ func (o ManagedClusterPropertiesPtrOutput) AadProfile() ManagedClusterAADProfile
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesPtrOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterProperties) map[string]string {
+func (o ManagedClusterPropertiesPtrOutput) AddonProfiles() ManagedClusterAddonProfileMapOutput {
+	return o.ApplyT(func(v *ManagedClusterProperties) map[string]ManagedClusterAddonProfile {
 		if v == nil {
 			return nil
 		}
 		return v.AddonProfiles
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterAddonProfileMapOutput)
 }
 
 // Properties of the agent pool.
@@ -6114,13 +6341,13 @@ func (o ManagedClusterPropertiesPtrOutput) EnableRBAC() pulumi.BoolPtrOutput {
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesPtrOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterProperties) map[string]string {
+func (o ManagedClusterPropertiesPtrOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ManagedClusterProperties) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.IdentityProfile
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -6303,7 +6530,7 @@ type ManagedClusterPropertiesResponse struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles map[string]string `pulumi:"addonProfiles"`
+	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -6321,7 +6548,7 @@ type ManagedClusterPropertiesResponse struct {
 	// FQDN for the master pool.
 	Fqdn string `pulumi:"fqdn"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]string `pulumi:"identityProfile"`
+	IdentityProfile map[string]map[string]interface{} `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -6358,7 +6585,7 @@ type ManagedClusterPropertiesResponseArgs struct {
 	// Profile of Azure Active Directory configuration.
 	AadProfile ManagedClusterAADProfileResponsePtrInput `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles pulumi.StringMapInput `pulumi:"addonProfiles"`
+	AddonProfiles ManagedClusterAddonProfileResponseMapInput `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
 	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayInput `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
@@ -6376,7 +6603,7 @@ type ManagedClusterPropertiesResponseArgs struct {
 	// FQDN for the master pool.
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// Identities associated with the cluster.
-	IdentityProfile pulumi.StringMapInput `pulumi:"identityProfile"`
+	IdentityProfile pulumi.MapMapInput `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion pulumi.StringPtrInput `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -6481,8 +6708,10 @@ func (o ManagedClusterPropertiesResponseOutput) AadProfile() ManagedClusterAADPr
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesResponseOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]string { return v.AddonProfiles }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesResponseOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]ManagedClusterAddonProfileResponse {
+		return v.AddonProfiles
+	}).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
 // Properties of the agent pool.
@@ -6532,8 +6761,8 @@ func (o ManagedClusterPropertiesResponseOutput) Fqdn() pulumi.StringOutput {
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesResponseOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]string { return v.IdentityProfile }).(pulumi.StringMapOutput)
+func (o ManagedClusterPropertiesResponseOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponse) map[string]map[string]interface{} { return v.IdentityProfile }).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -6616,13 +6845,13 @@ func (o ManagedClusterPropertiesResponsePtrOutput) AadProfile() ManagedClusterAA
 }
 
 // Profile of managed cluster add-on.
-func (o ManagedClusterPropertiesResponsePtrOutput) AddonProfiles() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]string {
+func (o ManagedClusterPropertiesResponsePtrOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]ManagedClusterAddonProfileResponse {
 		if v == nil {
 			return nil
 		}
 		return v.AddonProfiles
-	}).(pulumi.StringMapOutput)
+	}).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
 // Properties of the agent pool.
@@ -6706,13 +6935,13 @@ func (o ManagedClusterPropertiesResponsePtrOutput) Fqdn() pulumi.StringPtrOutput
 }
 
 // Identities associated with the cluster.
-func (o ManagedClusterPropertiesResponsePtrOutput) IdentityProfile() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]string {
+func (o ManagedClusterPropertiesResponsePtrOutput) IdentityProfile() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.IdentityProfile
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Version of Kubernetes specified when creating the managed cluster.
@@ -8304,6 +8533,10 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileMapOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfilePropertiesOutput{})

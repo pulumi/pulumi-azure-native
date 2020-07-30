@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Inputs
         }
 
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, string>>? _annotations;
+        private InputList<ImmutableDictionary<string, object>>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
-        public InputList<ImmutableDictionary<string, string>> Annotations
+        public InputList<ImmutableDictionary<string, object>> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, string>>());
+            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
             set => _annotations = value;
         }
 
@@ -64,14 +64,14 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Inputs
         public Input<Inputs.ParameterDefinitionSpecificationArgs>? Parameters { get; set; }
 
         [Input("runDimensions")]
-        private InputMap<string>? _runDimensions;
+        private InputMap<ImmutableDictionary<string, object>>? _runDimensions;
 
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
-        public InputMap<string> RunDimensions
+        public InputMap<ImmutableDictionary<string, object>> RunDimensions
         {
-            get => _runDimensions ?? (_runDimensions = new InputMap<string>());
+            get => _runDimensions ?? (_runDimensions = new InputMap<ImmutableDictionary<string, object>>());
             set => _runDimensions = value;
         }
 

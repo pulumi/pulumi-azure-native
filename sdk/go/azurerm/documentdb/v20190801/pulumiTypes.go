@@ -365,7 +365,7 @@ func (o CassandraKeyspaceCreateUpdatePropertiesPtrOutput) Resource() CassandraKe
 
 // The properties of an Azure Cosmos DB Cassandra keyspace
 type CassandraKeyspaceGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // CassandraKeyspaceGetPropertiesResponseInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseArgs and CassandraKeyspaceGetPropertiesResponseOutput values.
@@ -381,7 +381,7 @@ type CassandraKeyspaceGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB Cassandra keyspace
 type CassandraKeyspaceGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (CassandraKeyspaceGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -461,8 +461,8 @@ func (o CassandraKeyspaceGetPropertiesResponseOutput) ToCassandraKeyspaceGetProp
 		return &v
 	}).(CassandraKeyspaceGetPropertiesResponsePtrOutput)
 }
-func (o CassandraKeyspaceGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o CassandraKeyspaceGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type CassandraKeyspaceGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -483,13 +483,13 @@ func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Elem() CassandraKeyspac
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) CassandraKeyspaceGetPropertiesResponse { return *v }).(CassandraKeyspaceGetPropertiesResponseOutput)
 }
 
-func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) map[string]string {
+func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Cassandra keyspace resource object
@@ -1237,7 +1237,7 @@ func (o CassandraTableCreateUpdatePropertiesPtrOutput) Resource() CassandraTable
 
 // The properties of an Azure Cosmos DB Cassandra table
 type CassandraTableGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // CassandraTableGetPropertiesResponseInput is an input type that accepts CassandraTableGetPropertiesResponseArgs and CassandraTableGetPropertiesResponseOutput values.
@@ -1253,7 +1253,7 @@ type CassandraTableGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB Cassandra table
 type CassandraTableGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (CassandraTableGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1333,8 +1333,8 @@ func (o CassandraTableGetPropertiesResponseOutput) ToCassandraTableGetProperties
 		return &v
 	}).(CassandraTableGetPropertiesResponsePtrOutput)
 }
-func (o CassandraTableGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o CassandraTableGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type CassandraTableGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1355,13 +1355,13 @@ func (o CassandraTableGetPropertiesResponsePtrOutput) Elem() CassandraTableGetPr
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) CassandraTableGetPropertiesResponse { return *v }).(CassandraTableGetPropertiesResponseOutput)
 }
 
-func (o CassandraTableGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) map[string]string {
+func (o CassandraTableGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Cassandra table resource object
@@ -4010,7 +4010,7 @@ func (o GremlinDatabaseCreateUpdatePropertiesPtrOutput) Resource() GremlinDataba
 
 // The properties of an Azure Cosmos DB SQL database
 type GremlinDatabaseGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // GremlinDatabaseGetPropertiesResponseInput is an input type that accepts GremlinDatabaseGetPropertiesResponseArgs and GremlinDatabaseGetPropertiesResponseOutput values.
@@ -4026,7 +4026,7 @@ type GremlinDatabaseGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB SQL database
 type GremlinDatabaseGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (GremlinDatabaseGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4106,8 +4106,8 @@ func (o GremlinDatabaseGetPropertiesResponseOutput) ToGremlinDatabaseGetProperti
 		return &v
 	}).(GremlinDatabaseGetPropertiesResponsePtrOutput)
 }
-func (o GremlinDatabaseGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o GremlinDatabaseGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type GremlinDatabaseGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4128,13 +4128,13 @@ func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Elem() GremlinDatabaseGet
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) GremlinDatabaseGetPropertiesResponse { return *v }).(GremlinDatabaseGetPropertiesResponseOutput)
 }
 
-func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) map[string]string {
+func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Gremlin database resource object
@@ -4426,7 +4426,7 @@ func (o GremlinGraphCreateUpdatePropertiesPtrOutput) Resource() GremlinGraphReso
 
 // The properties of an Azure Cosmos DB Gremlin graph
 type GremlinGraphGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // GremlinGraphGetPropertiesResponseInput is an input type that accepts GremlinGraphGetPropertiesResponseArgs and GremlinGraphGetPropertiesResponseOutput values.
@@ -4442,7 +4442,7 @@ type GremlinGraphGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB Gremlin graph
 type GremlinGraphGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (GremlinGraphGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4522,8 +4522,8 @@ func (o GremlinGraphGetPropertiesResponseOutput) ToGremlinGraphGetPropertiesResp
 		return &v
 	}).(GremlinGraphGetPropertiesResponsePtrOutput)
 }
-func (o GremlinGraphGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o GremlinGraphGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type GremlinGraphGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4544,13 +4544,13 @@ func (o GremlinGraphGetPropertiesResponsePtrOutput) Elem() GremlinGraphGetProper
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) GremlinGraphGetPropertiesResponse { return *v }).(GremlinGraphGetPropertiesResponseOutput)
 }
 
-func (o GremlinGraphGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) map[string]string {
+func (o GremlinGraphGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Gremlin graph resource object
@@ -5847,7 +5847,7 @@ func (o MongoDBCollectionCreateUpdatePropertiesPtrOutput) Resource() MongoDBColl
 
 // The properties of an Azure Cosmos DB MongoDB collection
 type MongoDBCollectionGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // MongoDBCollectionGetPropertiesResponseInput is an input type that accepts MongoDBCollectionGetPropertiesResponseArgs and MongoDBCollectionGetPropertiesResponseOutput values.
@@ -5863,7 +5863,7 @@ type MongoDBCollectionGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB MongoDB collection
 type MongoDBCollectionGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (MongoDBCollectionGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5943,8 +5943,8 @@ func (o MongoDBCollectionGetPropertiesResponseOutput) ToMongoDBCollectionGetProp
 		return &v
 	}).(MongoDBCollectionGetPropertiesResponsePtrOutput)
 }
-func (o MongoDBCollectionGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o MongoDBCollectionGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type MongoDBCollectionGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5965,13 +5965,13 @@ func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Elem() MongoDBCollectio
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) MongoDBCollectionGetPropertiesResponse { return *v }).(MongoDBCollectionGetPropertiesResponseOutput)
 }
 
-func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) map[string]string {
+func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB MongoDB collection resource object
@@ -6301,7 +6301,7 @@ func (o MongoDBDatabaseCreateUpdatePropertiesPtrOutput) Resource() MongoDBDataba
 
 // The properties of an Azure Cosmos DB MongoDB database
 type MongoDBDatabaseGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // MongoDBDatabaseGetPropertiesResponseInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseArgs and MongoDBDatabaseGetPropertiesResponseOutput values.
@@ -6317,7 +6317,7 @@ type MongoDBDatabaseGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB MongoDB database
 type MongoDBDatabaseGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (MongoDBDatabaseGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -6397,8 +6397,8 @@ func (o MongoDBDatabaseGetPropertiesResponseOutput) ToMongoDBDatabaseGetProperti
 		return &v
 	}).(MongoDBDatabaseGetPropertiesResponsePtrOutput)
 }
-func (o MongoDBDatabaseGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o MongoDBDatabaseGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type MongoDBDatabaseGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -6419,13 +6419,13 @@ func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Elem() MongoDBDatabaseGet
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) MongoDBDatabaseGetPropertiesResponse { return *v }).(MongoDBDatabaseGetPropertiesResponseOutput)
 }
 
-func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) map[string]string {
+func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB MongoDB database resource object
@@ -7744,7 +7744,7 @@ func (o SqlContainerCreateUpdatePropertiesPtrOutput) Resource() SqlContainerReso
 
 // The properties of an Azure Cosmos DB container
 type SqlContainerGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // SqlContainerGetPropertiesResponseInput is an input type that accepts SqlContainerGetPropertiesResponseArgs and SqlContainerGetPropertiesResponseOutput values.
@@ -7760,7 +7760,7 @@ type SqlContainerGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB container
 type SqlContainerGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (SqlContainerGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7840,8 +7840,8 @@ func (o SqlContainerGetPropertiesResponseOutput) ToSqlContainerGetPropertiesResp
 		return &v
 	}).(SqlContainerGetPropertiesResponsePtrOutput)
 }
-func (o SqlContainerGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o SqlContainerGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type SqlContainerGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -7862,13 +7862,13 @@ func (o SqlContainerGetPropertiesResponsePtrOutput) Elem() SqlContainerGetProper
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) SqlContainerGetPropertiesResponse { return *v }).(SqlContainerGetPropertiesResponseOutput)
 }
 
-func (o SqlContainerGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) map[string]string {
+func (o SqlContainerGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL container resource object
@@ -8392,7 +8392,7 @@ type SqlDatabaseGetPropertiesResponseProperties struct {
 	// A system generated property. A unique identifier.
 	_rid string `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]string `pulumi:"_ts"`
+	_ts map[string]interface{} `pulumi:"_ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	_users *string `pulumi:"_users"`
 	// Name of the Cosmos DB SQL database
@@ -8418,7 +8418,7 @@ type SqlDatabaseGetPropertiesResponsePropertiesArgs struct {
 	// A system generated property. A unique identifier.
 	_rid pulumi.StringInput `pulumi:"_rid"`
 	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.StringMapInput `pulumi:"_ts"`
+	_ts pulumi.MapInput `pulumi:"_ts"`
 	// A system generated property that specifies the addressable path of the users resource.
 	_users pulumi.StringPtrInput `pulumi:"_users"`
 	// Name of the Cosmos DB SQL database
@@ -8518,8 +8518,8 @@ func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _rid() pulumi.StringOu
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) map[string]string { return v._ts }).(pulumi.StringMapOutput)
+func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
 }
 
 // A system generated property that specifies the addressable path of the users resource.
@@ -8583,13 +8583,13 @@ func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _rid() pulumi.Strin
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _ts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) map[string]string {
+func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v._ts
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // A system generated property that specifies the addressable path of the users resource.
@@ -9358,7 +9358,7 @@ func (o SqlStoredProcedureCreateUpdatePropertiesPtrOutput) Resource() SqlStoredP
 
 // The properties of an Azure Cosmos DB StoredProcedure
 type SqlStoredProcedureGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // SqlStoredProcedureGetPropertiesResponseInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseArgs and SqlStoredProcedureGetPropertiesResponseOutput values.
@@ -9374,7 +9374,7 @@ type SqlStoredProcedureGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB StoredProcedure
 type SqlStoredProcedureGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (SqlStoredProcedureGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -9454,8 +9454,8 @@ func (o SqlStoredProcedureGetPropertiesResponseOutput) ToSqlStoredProcedureGetPr
 		return &v
 	}).(SqlStoredProcedureGetPropertiesResponsePtrOutput)
 }
-func (o SqlStoredProcedureGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o SqlStoredProcedureGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type SqlStoredProcedureGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -9476,13 +9476,13 @@ func (o SqlStoredProcedureGetPropertiesResponsePtrOutput) Elem() SqlStoredProced
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponse) SqlStoredProcedureGetPropertiesResponse { return *v }).(SqlStoredProcedureGetPropertiesResponseOutput)
 }
 
-func (o SqlStoredProcedureGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponse) map[string]string {
+func (o SqlStoredProcedureGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL storedProcedure resource object
@@ -9793,7 +9793,7 @@ func (o SqlTriggerCreateUpdatePropertiesPtrOutput) Resource() SqlTriggerResource
 
 // The properties of an Azure Cosmos DB trigger
 type SqlTriggerGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // SqlTriggerGetPropertiesResponseInput is an input type that accepts SqlTriggerGetPropertiesResponseArgs and SqlTriggerGetPropertiesResponseOutput values.
@@ -9809,7 +9809,7 @@ type SqlTriggerGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB trigger
 type SqlTriggerGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (SqlTriggerGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -9889,8 +9889,8 @@ func (o SqlTriggerGetPropertiesResponseOutput) ToSqlTriggerGetPropertiesResponse
 		return &v
 	}).(SqlTriggerGetPropertiesResponsePtrOutput)
 }
-func (o SqlTriggerGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o SqlTriggerGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type SqlTriggerGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -9911,13 +9911,13 @@ func (o SqlTriggerGetPropertiesResponsePtrOutput) Elem() SqlTriggerGetProperties
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponse) SqlTriggerGetPropertiesResponse { return *v }).(SqlTriggerGetPropertiesResponseOutput)
 }
 
-func (o SqlTriggerGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponse) map[string]string {
+func (o SqlTriggerGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL trigger resource object
@@ -10268,7 +10268,7 @@ func (o SqlUserDefinedFunctionCreateUpdatePropertiesPtrOutput) Resource() SqlUse
 
 // The properties of an Azure Cosmos DB userDefinedFunction
 type SqlUserDefinedFunctionGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // SqlUserDefinedFunctionGetPropertiesResponseInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseArgs and SqlUserDefinedFunctionGetPropertiesResponseOutput values.
@@ -10284,7 +10284,7 @@ type SqlUserDefinedFunctionGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB userDefinedFunction
 type SqlUserDefinedFunctionGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (SqlUserDefinedFunctionGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -10364,8 +10364,8 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseOutput) ToSqlUserDefinedFunct
 		return &v
 	}).(SqlUserDefinedFunctionGetPropertiesResponsePtrOutput)
 }
-func (o SqlUserDefinedFunctionGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o SqlUserDefinedFunctionGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -10388,13 +10388,13 @@ func (o SqlUserDefinedFunctionGetPropertiesResponsePtrOutput) Elem() SqlUserDefi
 	}).(SqlUserDefinedFunctionGetPropertiesResponseOutput)
 }
 
-func (o SqlUserDefinedFunctionGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponse) map[string]string {
+func (o SqlUserDefinedFunctionGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL userDefinedFunction resource object
@@ -10705,7 +10705,7 @@ func (o TableCreateUpdatePropertiesPtrOutput) Resource() TableResourcePtrOutput 
 
 // The properties of an Azure Cosmos Table
 type TableGetPropertiesResponse struct {
-	Resource map[string]string `pulumi:"resource"`
+	Resource map[string]interface{} `pulumi:"resource"`
 }
 
 // TableGetPropertiesResponseInput is an input type that accepts TableGetPropertiesResponseArgs and TableGetPropertiesResponseOutput values.
@@ -10721,7 +10721,7 @@ type TableGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos Table
 type TableGetPropertiesResponseArgs struct {
-	Resource pulumi.StringMapInput `pulumi:"resource"`
+	Resource pulumi.MapInput `pulumi:"resource"`
 }
 
 func (TableGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -10801,8 +10801,8 @@ func (o TableGetPropertiesResponseOutput) ToTableGetPropertiesResponsePtrOutputW
 		return &v
 	}).(TableGetPropertiesResponsePtrOutput)
 }
-func (o TableGetPropertiesResponseOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponse) map[string]string { return v.Resource }).(pulumi.StringMapOutput)
+func (o TableGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
 }
 
 type TableGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -10823,13 +10823,13 @@ func (o TableGetPropertiesResponsePtrOutput) Elem() TableGetPropertiesResponseOu
 	return o.ApplyT(func(v *TableGetPropertiesResponse) TableGetPropertiesResponse { return *v }).(TableGetPropertiesResponseOutput)
 }
 
-func (o TableGetPropertiesResponsePtrOutput) Resource() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponse) map[string]string {
+func (o TableGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB table resource object

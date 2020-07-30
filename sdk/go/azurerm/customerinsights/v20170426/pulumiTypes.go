@@ -324,7 +324,7 @@ type ConnectorDefinition struct {
 	// Name of the connector.
 	ConnectorName *string `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties map[string]string `pulumi:"connectorProperties"`
+	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType string `pulumi:"connectorType"`
 	// Description of the connector.
@@ -351,7 +351,7 @@ type ConnectorDefinitionArgs struct {
 	// Name of the connector.
 	ConnectorName pulumi.StringPtrInput `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties pulumi.StringMapInput `pulumi:"connectorProperties"`
+	ConnectorProperties pulumi.MapMapInput `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
 	// Description of the connector.
@@ -446,8 +446,8 @@ func (o ConnectorDefinitionOutput) ConnectorName() pulumi.StringPtrOutput {
 }
 
 // The connector properties.
-func (o ConnectorDefinitionOutput) ConnectorProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ConnectorDefinition) map[string]string { return v.ConnectorProperties }).(pulumi.StringMapOutput)
+func (o ConnectorDefinitionOutput) ConnectorProperties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ConnectorDefinition) map[string]map[string]interface{} { return v.ConnectorProperties }).(pulumi.MapMapOutput)
 }
 
 // Type of connector.
@@ -499,13 +499,13 @@ func (o ConnectorDefinitionPtrOutput) ConnectorName() pulumi.StringPtrOutput {
 }
 
 // The connector properties.
-func (o ConnectorDefinitionPtrOutput) ConnectorProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ConnectorDefinition) map[string]string {
+func (o ConnectorDefinitionPtrOutput) ConnectorProperties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectorProperties
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Type of connector.
@@ -3427,7 +3427,7 @@ type ConnectorResponse struct {
 	// Name of the connector.
 	ConnectorName *string `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties map[string]string `pulumi:"connectorProperties"`
+	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType string `pulumi:"connectorType"`
 	// The created time.
@@ -3464,7 +3464,7 @@ type ConnectorResponseArgs struct {
 	// Name of the connector.
 	ConnectorName pulumi.StringPtrInput `pulumi:"connectorName"`
 	// The connector properties.
-	ConnectorProperties pulumi.StringMapInput `pulumi:"connectorProperties"`
+	ConnectorProperties pulumi.MapMapInput `pulumi:"connectorProperties"`
 	// Type of connector.
 	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
 	// The created time.
@@ -3572,8 +3572,8 @@ func (o ConnectorResponseOutput) ConnectorName() pulumi.StringPtrOutput {
 }
 
 // The connector properties.
-func (o ConnectorResponseOutput) ConnectorProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ConnectorResponse) map[string]string { return v.ConnectorProperties }).(pulumi.StringMapOutput)
+func (o ConnectorResponseOutput) ConnectorProperties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ConnectorResponse) map[string]map[string]interface{} { return v.ConnectorProperties }).(pulumi.MapMapOutput)
 }
 
 // Type of connector.
@@ -3655,13 +3655,13 @@ func (o ConnectorResponsePtrOutput) ConnectorName() pulumi.StringPtrOutput {
 }
 
 // The connector properties.
-func (o ConnectorResponsePtrOutput) ConnectorProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ConnectorResponse) map[string]string {
+func (o ConnectorResponsePtrOutput) ConnectorProperties() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ConnectorResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectorProperties
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Type of connector.
@@ -9898,7 +9898,7 @@ type ProfileTypeDefinition struct {
 	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
 	ApiEntitySetName *string `pulumi:"apiEntitySetName"`
 	// The attributes for the Type.
-	Attributes map[string]string `pulumi:"attributes"`
+	Attributes map[string][]string `pulumi:"attributes"`
 	// Localized descriptions for the property.
 	Description map[string]string `pulumi:"description"`
 	// Localized display names for the property.
@@ -9912,7 +9912,7 @@ type ProfileTypeDefinition struct {
 	// Large Image associated with the Property or EntityType.
 	LargeImage *string `pulumi:"largeImage"`
 	// Any custom localized attributes for the Type.
-	LocalizedAttributes map[string]string `pulumi:"localizedAttributes"`
+	LocalizedAttributes map[string]map[string]string `pulumi:"localizedAttributes"`
 	// Medium Image associated with the Property or EntityType.
 	MediumImage *string `pulumi:"mediumImage"`
 	// The schema org link. This helps ACI identify and suggest semantic models.
@@ -9943,7 +9943,7 @@ type ProfileTypeDefinitionArgs struct {
 	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
 	ApiEntitySetName pulumi.StringPtrInput `pulumi:"apiEntitySetName"`
 	// The attributes for the Type.
-	Attributes pulumi.StringMapInput `pulumi:"attributes"`
+	Attributes pulumi.StringArrayMapInput `pulumi:"attributes"`
 	// Localized descriptions for the property.
 	Description pulumi.StringMapInput `pulumi:"description"`
 	// Localized display names for the property.
@@ -9957,7 +9957,7 @@ type ProfileTypeDefinitionArgs struct {
 	// Large Image associated with the Property or EntityType.
 	LargeImage pulumi.StringPtrInput `pulumi:"largeImage"`
 	// Any custom localized attributes for the Type.
-	LocalizedAttributes pulumi.StringMapInput `pulumi:"localizedAttributes"`
+	LocalizedAttributes pulumi.StringMapMapInput `pulumi:"localizedAttributes"`
 	// Medium Image associated with the Property or EntityType.
 	MediumImage pulumi.StringPtrInput `pulumi:"mediumImage"`
 	// The schema org link. This helps ACI identify and suggest semantic models.
@@ -10056,8 +10056,8 @@ func (o ProfileTypeDefinitionOutput) ApiEntitySetName() pulumi.StringPtrOutput {
 }
 
 // The attributes for the Type.
-func (o ProfileTypeDefinitionOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileTypeDefinition) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+func (o ProfileTypeDefinitionOutput) Attributes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v ProfileTypeDefinition) map[string][]string { return v.Attributes }).(pulumi.StringArrayMapOutput)
 }
 
 // Localized descriptions for the property.
@@ -10091,8 +10091,8 @@ func (o ProfileTypeDefinitionOutput) LargeImage() pulumi.StringPtrOutput {
 }
 
 // Any custom localized attributes for the Type.
-func (o ProfileTypeDefinitionOutput) LocalizedAttributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileTypeDefinition) map[string]string { return v.LocalizedAttributes }).(pulumi.StringMapOutput)
+func (o ProfileTypeDefinitionOutput) LocalizedAttributes() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v ProfileTypeDefinition) map[string]map[string]string { return v.LocalizedAttributes }).(pulumi.StringMapMapOutput)
 }
 
 // Medium Image associated with the Property or EntityType.
@@ -10154,13 +10154,13 @@ func (o ProfileTypeDefinitionPtrOutput) ApiEntitySetName() pulumi.StringPtrOutpu
 }
 
 // The attributes for the Type.
-func (o ProfileTypeDefinitionPtrOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ProfileTypeDefinition) map[string]string {
+func (o ProfileTypeDefinitionPtrOutput) Attributes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *ProfileTypeDefinition) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Localized descriptions for the property.
@@ -10224,13 +10224,13 @@ func (o ProfileTypeDefinitionPtrOutput) LargeImage() pulumi.StringPtrOutput {
 }
 
 // Any custom localized attributes for the Type.
-func (o ProfileTypeDefinitionPtrOutput) LocalizedAttributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ProfileTypeDefinition) map[string]string {
+func (o ProfileTypeDefinitionPtrOutput) LocalizedAttributes() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v *ProfileTypeDefinition) map[string]map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.LocalizedAttributes
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringMapMapOutput)
 }
 
 // Medium Image associated with the Property or EntityType.
@@ -10298,7 +10298,7 @@ type ProfileTypeDefinitionResponse struct {
 	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
 	ApiEntitySetName *string `pulumi:"apiEntitySetName"`
 	// The attributes for the Type.
-	Attributes map[string]string `pulumi:"attributes"`
+	Attributes map[string][]string `pulumi:"attributes"`
 	// Localized descriptions for the property.
 	Description map[string]string `pulumi:"description"`
 	// Localized display names for the property.
@@ -10314,7 +10314,7 @@ type ProfileTypeDefinitionResponse struct {
 	// The last changed time for the type definition.
 	LastChangedUtc string `pulumi:"lastChangedUtc"`
 	// Any custom localized attributes for the Type.
-	LocalizedAttributes map[string]string `pulumi:"localizedAttributes"`
+	LocalizedAttributes map[string]map[string]string `pulumi:"localizedAttributes"`
 	// Medium Image associated with the Property or EntityType.
 	MediumImage *string `pulumi:"mediumImage"`
 	// Provisioning state.
@@ -10349,7 +10349,7 @@ type ProfileTypeDefinitionResponseArgs struct {
 	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
 	ApiEntitySetName pulumi.StringPtrInput `pulumi:"apiEntitySetName"`
 	// The attributes for the Type.
-	Attributes pulumi.StringMapInput `pulumi:"attributes"`
+	Attributes pulumi.StringArrayMapInput `pulumi:"attributes"`
 	// Localized descriptions for the property.
 	Description pulumi.StringMapInput `pulumi:"description"`
 	// Localized display names for the property.
@@ -10365,7 +10365,7 @@ type ProfileTypeDefinitionResponseArgs struct {
 	// The last changed time for the type definition.
 	LastChangedUtc pulumi.StringInput `pulumi:"lastChangedUtc"`
 	// Any custom localized attributes for the Type.
-	LocalizedAttributes pulumi.StringMapInput `pulumi:"localizedAttributes"`
+	LocalizedAttributes pulumi.StringMapMapInput `pulumi:"localizedAttributes"`
 	// Medium Image associated with the Property or EntityType.
 	MediumImage pulumi.StringPtrInput `pulumi:"mediumImage"`
 	// Provisioning state.
@@ -10468,8 +10468,8 @@ func (o ProfileTypeDefinitionResponseOutput) ApiEntitySetName() pulumi.StringPtr
 }
 
 // The attributes for the Type.
-func (o ProfileTypeDefinitionResponseOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileTypeDefinitionResponse) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+func (o ProfileTypeDefinitionResponseOutput) Attributes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v ProfileTypeDefinitionResponse) map[string][]string { return v.Attributes }).(pulumi.StringArrayMapOutput)
 }
 
 // Localized descriptions for the property.
@@ -10508,8 +10508,8 @@ func (o ProfileTypeDefinitionResponseOutput) LastChangedUtc() pulumi.StringOutpu
 }
 
 // Any custom localized attributes for the Type.
-func (o ProfileTypeDefinitionResponseOutput) LocalizedAttributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileTypeDefinitionResponse) map[string]string { return v.LocalizedAttributes }).(pulumi.StringMapOutput)
+func (o ProfileTypeDefinitionResponseOutput) LocalizedAttributes() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v ProfileTypeDefinitionResponse) map[string]map[string]string { return v.LocalizedAttributes }).(pulumi.StringMapMapOutput)
 }
 
 // Medium Image associated with the Property or EntityType.
@@ -10581,13 +10581,13 @@ func (o ProfileTypeDefinitionResponsePtrOutput) ApiEntitySetName() pulumi.String
 }
 
 // The attributes for the Type.
-func (o ProfileTypeDefinitionResponsePtrOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ProfileTypeDefinitionResponse) map[string]string {
+func (o ProfileTypeDefinitionResponsePtrOutput) Attributes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *ProfileTypeDefinitionResponse) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Localized descriptions for the property.
@@ -10661,13 +10661,13 @@ func (o ProfileTypeDefinitionResponsePtrOutput) LastChangedUtc() pulumi.StringPt
 }
 
 // Any custom localized attributes for the Type.
-func (o ProfileTypeDefinitionResponsePtrOutput) LocalizedAttributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ProfileTypeDefinitionResponse) map[string]string {
+func (o ProfileTypeDefinitionResponsePtrOutput) LocalizedAttributes() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v *ProfileTypeDefinitionResponse) map[string]map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.LocalizedAttributes
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringMapMapOutput)
 }
 
 // Medium Image associated with the Property or EntityType.

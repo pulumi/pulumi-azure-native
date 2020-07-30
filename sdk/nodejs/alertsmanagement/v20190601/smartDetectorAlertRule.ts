@@ -51,7 +51,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The resource type.
      */
@@ -117,5 +117,5 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

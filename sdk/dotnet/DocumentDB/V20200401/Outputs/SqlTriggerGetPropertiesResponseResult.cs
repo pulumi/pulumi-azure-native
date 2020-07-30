@@ -13,10 +13,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
     [OutputType]
     public sealed class SqlTriggerGetPropertiesResponseResult
     {
-        public readonly ImmutableDictionary<string, string>? Resource;
+        public readonly ImmutableDictionary<string, object>? Resource;
 
         [OutputConstructor]
-        private SqlTriggerGetPropertiesResponseResult(ImmutableDictionary<string, string>? resource)
+        private SqlTriggerGetPropertiesResponseResult(ImmutableDictionary<string, object>? resource)
         {
             Resource = resource;
         }

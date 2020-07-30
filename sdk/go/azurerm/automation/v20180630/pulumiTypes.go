@@ -1731,7 +1731,7 @@ type RunbookDraft struct {
 	// Gets or sets the runbook output types.
 	OutputTypes []string `pulumi:"outputTypes"`
 	// Gets or sets the runbook draft parameters.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]RunbookParameter `pulumi:"parameters"`
 }
 
 // RunbookDraftInput is an input type that accepts RunbookDraftArgs and RunbookDraftOutput values.
@@ -1757,7 +1757,7 @@ type RunbookDraftArgs struct {
 	// Gets or sets the runbook output types.
 	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
 	// Gets or sets the runbook draft parameters.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters RunbookParameterMapInput `pulumi:"parameters"`
 }
 
 func (RunbookDraftArgs) ElementType() reflect.Type {
@@ -1863,8 +1863,8 @@ func (o RunbookDraftOutput) OutputTypes() pulumi.StringArrayOutput {
 }
 
 // Gets or sets the runbook draft parameters.
-func (o RunbookDraftOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RunbookDraft) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o RunbookDraftOutput) Parameters() RunbookParameterMapOutput {
+	return o.ApplyT(func(v RunbookDraft) map[string]RunbookParameter { return v.Parameters }).(RunbookParameterMapOutput)
 }
 
 type RunbookDraftPtrOutput struct{ *pulumi.OutputState }
@@ -1936,13 +1936,13 @@ func (o RunbookDraftPtrOutput) OutputTypes() pulumi.StringArrayOutput {
 }
 
 // Gets or sets the runbook draft parameters.
-func (o RunbookDraftPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RunbookDraft) map[string]string {
+func (o RunbookDraftPtrOutput) Parameters() RunbookParameterMapOutput {
+	return o.ApplyT(func(v *RunbookDraft) map[string]RunbookParameter {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(RunbookParameterMapOutput)
 }
 
 type RunbookDraftResponse struct {
@@ -1957,7 +1957,7 @@ type RunbookDraftResponse struct {
 	// Gets or sets the runbook output types.
 	OutputTypes []string `pulumi:"outputTypes"`
 	// Gets or sets the runbook draft parameters.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]RunbookParameterResponse `pulumi:"parameters"`
 }
 
 // RunbookDraftResponseInput is an input type that accepts RunbookDraftResponseArgs and RunbookDraftResponseOutput values.
@@ -1983,7 +1983,7 @@ type RunbookDraftResponseArgs struct {
 	// Gets or sets the runbook output types.
 	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
 	// Gets or sets the runbook draft parameters.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters RunbookParameterResponseMapInput `pulumi:"parameters"`
 }
 
 func (RunbookDraftResponseArgs) ElementType() reflect.Type {
@@ -2089,8 +2089,8 @@ func (o RunbookDraftResponseOutput) OutputTypes() pulumi.StringArrayOutput {
 }
 
 // Gets or sets the runbook draft parameters.
-func (o RunbookDraftResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RunbookDraftResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o RunbookDraftResponseOutput) Parameters() RunbookParameterResponseMapOutput {
+	return o.ApplyT(func(v RunbookDraftResponse) map[string]RunbookParameterResponse { return v.Parameters }).(RunbookParameterResponseMapOutput)
 }
 
 type RunbookDraftResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2162,13 +2162,267 @@ func (o RunbookDraftResponsePtrOutput) OutputTypes() pulumi.StringArrayOutput {
 }
 
 // Gets or sets the runbook draft parameters.
-func (o RunbookDraftResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RunbookDraftResponse) map[string]string {
+func (o RunbookDraftResponsePtrOutput) Parameters() RunbookParameterResponseMapOutput {
+	return o.ApplyT(func(v *RunbookDraftResponse) map[string]RunbookParameterResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(RunbookParameterResponseMapOutput)
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameter struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory *bool `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position *int `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type *string `pulumi:"type"`
+}
+
+// RunbookParameterInput is an input type that accepts RunbookParameterArgs and RunbookParameterOutput values.
+// You can construct a concrete instance of `RunbookParameterInput` via:
+//
+//          RunbookParameterArgs{...}
+type RunbookParameterInput interface {
+	pulumi.Input
+
+	ToRunbookParameterOutput() RunbookParameterOutput
+	ToRunbookParameterOutputWithContext(context.Context) RunbookParameterOutput
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterArgs struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position pulumi.IntPtrInput `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RunbookParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameter)(nil)).Elem()
+}
+
+func (i RunbookParameterArgs) ToRunbookParameterOutput() RunbookParameterOutput {
+	return i.ToRunbookParameterOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterArgs) ToRunbookParameterOutputWithContext(ctx context.Context) RunbookParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterOutput)
+}
+
+// RunbookParameterMapInput is an input type that accepts RunbookParameterMap and RunbookParameterMapOutput values.
+// You can construct a concrete instance of `RunbookParameterMapInput` via:
+//
+//          RunbookParameterMap{ "key": RunbookParameterArgs{...} }
+type RunbookParameterMapInput interface {
+	pulumi.Input
+
+	ToRunbookParameterMapOutput() RunbookParameterMapOutput
+	ToRunbookParameterMapOutputWithContext(context.Context) RunbookParameterMapOutput
+}
+
+type RunbookParameterMap map[string]RunbookParameterInput
+
+func (RunbookParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameter)(nil)).Elem()
+}
+
+func (i RunbookParameterMap) ToRunbookParameterMapOutput() RunbookParameterMapOutput {
+	return i.ToRunbookParameterMapOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterMap) ToRunbookParameterMapOutputWithContext(ctx context.Context) RunbookParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterMapOutput)
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameter)(nil)).Elem()
+}
+
+func (o RunbookParameterOutput) ToRunbookParameterOutput() RunbookParameterOutput {
+	return o
+}
+
+func (o RunbookParameterOutput) ToRunbookParameterOutputWithContext(ctx context.Context) RunbookParameterOutput {
+	return o
+}
+
+// Gets or sets the default value of parameter.
+func (o RunbookParameterOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+func (o RunbookParameterOutput) IsMandatory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunbookParameter) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
+}
+
+// Get or sets the position of the parameter.
+func (o RunbookParameterOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RunbookParameter) *int { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the type of the parameter.
+func (o RunbookParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RunbookParameterMapOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameter)(nil)).Elem()
+}
+
+func (o RunbookParameterMapOutput) ToRunbookParameterMapOutput() RunbookParameterMapOutput {
+	return o
+}
+
+func (o RunbookParameterMapOutput) ToRunbookParameterMapOutputWithContext(ctx context.Context) RunbookParameterMapOutput {
+	return o
+}
+
+func (o RunbookParameterMapOutput) MapIndex(k pulumi.StringInput) RunbookParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RunbookParameter {
+		return vs[0].(map[string]RunbookParameter)[vs[1].(string)]
+	}).(RunbookParameterOutput)
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterResponse struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory *bool `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position *int `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type *string `pulumi:"type"`
+}
+
+// RunbookParameterResponseInput is an input type that accepts RunbookParameterResponseArgs and RunbookParameterResponseOutput values.
+// You can construct a concrete instance of `RunbookParameterResponseInput` via:
+//
+//          RunbookParameterResponseArgs{...}
+type RunbookParameterResponseInput interface {
+	pulumi.Input
+
+	ToRunbookParameterResponseOutput() RunbookParameterResponseOutput
+	ToRunbookParameterResponseOutputWithContext(context.Context) RunbookParameterResponseOutput
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterResponseArgs struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position pulumi.IntPtrInput `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RunbookParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameterResponse)(nil)).Elem()
+}
+
+func (i RunbookParameterResponseArgs) ToRunbookParameterResponseOutput() RunbookParameterResponseOutput {
+	return i.ToRunbookParameterResponseOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterResponseArgs) ToRunbookParameterResponseOutputWithContext(ctx context.Context) RunbookParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterResponseOutput)
+}
+
+// RunbookParameterResponseMapInput is an input type that accepts RunbookParameterResponseMap and RunbookParameterResponseMapOutput values.
+// You can construct a concrete instance of `RunbookParameterResponseMapInput` via:
+//
+//          RunbookParameterResponseMap{ "key": RunbookParameterResponseArgs{...} }
+type RunbookParameterResponseMapInput interface {
+	pulumi.Input
+
+	ToRunbookParameterResponseMapOutput() RunbookParameterResponseMapOutput
+	ToRunbookParameterResponseMapOutputWithContext(context.Context) RunbookParameterResponseMapOutput
+}
+
+type RunbookParameterResponseMap map[string]RunbookParameterResponseInput
+
+func (RunbookParameterResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameterResponse)(nil)).Elem()
+}
+
+func (i RunbookParameterResponseMap) ToRunbookParameterResponseMapOutput() RunbookParameterResponseMapOutput {
+	return i.ToRunbookParameterResponseMapOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterResponseMap) ToRunbookParameterResponseMapOutputWithContext(ctx context.Context) RunbookParameterResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterResponseMapOutput)
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameterResponse)(nil)).Elem()
+}
+
+func (o RunbookParameterResponseOutput) ToRunbookParameterResponseOutput() RunbookParameterResponseOutput {
+	return o
+}
+
+func (o RunbookParameterResponseOutput) ToRunbookParameterResponseOutputWithContext(ctx context.Context) RunbookParameterResponseOutput {
+	return o
+}
+
+// Gets or sets the default value of parameter.
+func (o RunbookParameterResponseOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameterResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+func (o RunbookParameterResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunbookParameterResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
+}
+
+// Get or sets the position of the parameter.
+func (o RunbookParameterResponseOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RunbookParameterResponse) *int { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the type of the parameter.
+func (o RunbookParameterResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RunbookParameterResponseMapOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameterResponse)(nil)).Elem()
+}
+
+func (o RunbookParameterResponseMapOutput) ToRunbookParameterResponseMapOutput() RunbookParameterResponseMapOutput {
+	return o
+}
+
+func (o RunbookParameterResponseMapOutput) ToRunbookParameterResponseMapOutputWithContext(ctx context.Context) RunbookParameterResponseMapOutput {
+	return o
+}
+
+func (o RunbookParameterResponseMapOutput) MapIndex(k pulumi.StringInput) RunbookParameterResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RunbookParameterResponse {
+		return vs[0].(map[string]RunbookParameterResponse)[vs[1].(string)]
+	}).(RunbookParameterResponseOutput)
 }
 
 // Definition of the runbook property type.
@@ -2194,7 +2448,7 @@ type RunbookPropertiesResponse struct {
 	// Gets or sets the runbook output types.
 	OutputTypes []string `pulumi:"outputTypes"`
 	// Gets or sets the runbook parameters.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]RunbookParameterResponse `pulumi:"parameters"`
 	// Gets or sets the provisioning state of the runbook.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the published runbook content link.
@@ -2239,7 +2493,7 @@ type RunbookPropertiesResponseArgs struct {
 	// Gets or sets the runbook output types.
 	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
 	// Gets or sets the runbook parameters.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters RunbookParameterResponseMapInput `pulumi:"parameters"`
 	// Gets or sets the provisioning state of the runbook.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Gets or sets the published runbook content link.
@@ -2379,8 +2633,8 @@ func (o RunbookPropertiesResponseOutput) OutputTypes() pulumi.StringArrayOutput 
 }
 
 // Gets or sets the runbook parameters.
-func (o RunbookPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RunbookPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o RunbookPropertiesResponseOutput) Parameters() RunbookParameterResponseMapOutput {
+	return o.ApplyT(func(v RunbookPropertiesResponse) map[string]RunbookParameterResponse { return v.Parameters }).(RunbookParameterResponseMapOutput)
 }
 
 // Gets or sets the provisioning state of the runbook.
@@ -2522,13 +2776,13 @@ func (o RunbookPropertiesResponsePtrOutput) OutputTypes() pulumi.StringArrayOutp
 }
 
 // Gets or sets the runbook parameters.
-func (o RunbookPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RunbookPropertiesResponse) map[string]string {
+func (o RunbookPropertiesResponsePtrOutput) Parameters() RunbookParameterResponseMapOutput {
+	return o.ApplyT(func(v *RunbookPropertiesResponse) map[string]RunbookParameterResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(RunbookParameterResponseMapOutput)
 }
 
 // Gets or sets the provisioning state of the runbook.
@@ -2594,6 +2848,10 @@ func init() {
 	pulumi.RegisterOutputType(RunbookDraftPtrOutput{})
 	pulumi.RegisterOutputType(RunbookDraftResponseOutput{})
 	pulumi.RegisterOutputType(RunbookDraftResponsePtrOutput{})
+	pulumi.RegisterOutputType(RunbookParameterOutput{})
+	pulumi.RegisterOutputType(RunbookParameterMapOutput{})
+	pulumi.RegisterOutputType(RunbookParameterResponseOutput{})
+	pulumi.RegisterOutputType(RunbookParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(RunbookPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RunbookPropertiesResponsePtrOutput{})
 }

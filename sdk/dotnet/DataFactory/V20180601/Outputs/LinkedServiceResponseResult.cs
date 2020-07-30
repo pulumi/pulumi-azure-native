@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, string>> Annotations;
+        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
         /// <summary>
         /// The integration runtime reference.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private LinkedServiceResponseResult(
-            ImmutableArray<ImmutableDictionary<string, string>> annotations,
+            ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
             Outputs.IntegrationRuntimeReferenceResponseResult? connectVia,
 

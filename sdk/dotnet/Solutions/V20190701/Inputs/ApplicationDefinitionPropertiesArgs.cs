@@ -40,14 +40,14 @@ namespace Pulumi.AzureRM.Solutions.V20190701.Inputs
         }
 
         [Input("createUiDefinition")]
-        private InputMap<string>? _createUiDefinition;
+        private InputMap<object>? _createUiDefinition;
 
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public InputMap<string> CreateUiDefinition
+        public InputMap<object> CreateUiDefinition
         {
-            get => _createUiDefinition ?? (_createUiDefinition = new InputMap<string>());
+            get => _createUiDefinition ?? (_createUiDefinition = new InputMap<object>());
             set => _createUiDefinition = value;
         }
 
@@ -88,14 +88,14 @@ namespace Pulumi.AzureRM.Solutions.V20190701.Inputs
         public Input<Inputs.ApplicationPackageLockingPolicyDefinitionArgs>? LockingPolicy { get; set; }
 
         [Input("mainTemplate")]
-        private InputMap<string>? _mainTemplate;
+        private InputMap<object>? _mainTemplate;
 
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public InputMap<string> MainTemplate
+        public InputMap<object> MainTemplate
         {
-            get => _mainTemplate ?? (_mainTemplate = new InputMap<string>());
+            get => _mainTemplate ?? (_mainTemplate = new InputMap<object>());
             set => _mainTemplate = value;
         }
 

@@ -32048,11 +32048,11 @@ type VirtualMachineExtensionProperties struct {
 	// The virtual machine extension instance view.
 	InstanceView *VirtualMachineExtensionInstanceView `pulumi:"instanceView"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]string `pulumi:"protectedSettings"`
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]string `pulumi:"settings"`
+	Settings map[string]interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -32079,11 +32079,11 @@ type VirtualMachineExtensionPropertiesArgs struct {
 	// The virtual machine extension instance view.
 	InstanceView VirtualMachineExtensionInstanceViewPtrInput `pulumi:"instanceView"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.StringMapInput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.StringMapInput `pulumi:"settings"`
+	Settings pulumi.MapInput `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -32184,8 +32184,8 @@ func (o VirtualMachineExtensionPropertiesOutput) InstanceView() VirtualMachineEx
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineExtensionPropertiesOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionProperties) map[string]string { return v.ProtectedSettings }).(pulumi.StringMapOutput)
+func (o VirtualMachineExtensionPropertiesOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionProperties) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
 }
 
 // The name of the extension handler publisher.
@@ -32194,8 +32194,8 @@ func (o VirtualMachineExtensionPropertiesOutput) Publisher() pulumi.StringPtrOut
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineExtensionPropertiesOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionProperties) map[string]string { return v.Settings }).(pulumi.StringMapOutput)
+func (o VirtualMachineExtensionPropertiesOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionProperties) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -32257,13 +32257,13 @@ func (o VirtualMachineExtensionPropertiesPtrOutput) InstanceView() VirtualMachin
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineExtensionPropertiesPtrOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionProperties) map[string]string {
+func (o VirtualMachineExtensionPropertiesPtrOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineExtensionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ProtectedSettings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The name of the extension handler publisher.
@@ -32277,13 +32277,13 @@ func (o VirtualMachineExtensionPropertiesPtrOutput) Publisher() pulumi.StringPtr
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineExtensionPropertiesPtrOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionProperties) map[string]string {
+func (o VirtualMachineExtensionPropertiesPtrOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineExtensionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Settings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -32315,13 +32315,13 @@ type VirtualMachineExtensionPropertiesResponse struct {
 	// The virtual machine extension instance view.
 	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]string `pulumi:"protectedSettings"`
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]string `pulumi:"settings"`
+	Settings map[string]interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -32348,13 +32348,13 @@ type VirtualMachineExtensionPropertiesResponseArgs struct {
 	// The virtual machine extension instance view.
 	InstanceView VirtualMachineExtensionInstanceViewResponsePtrInput `pulumi:"instanceView"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.StringMapInput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.StringMapInput `pulumi:"settings"`
+	Settings pulumi.MapInput `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -32457,8 +32457,8 @@ func (o VirtualMachineExtensionPropertiesResponseOutput) InstanceView() VirtualM
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineExtensionPropertiesResponseOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) map[string]string { return v.ProtectedSettings }).(pulumi.StringMapOutput)
+func (o VirtualMachineExtensionPropertiesResponseOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
 }
 
 // The provisioning state, which only appears in the response.
@@ -32472,8 +32472,8 @@ func (o VirtualMachineExtensionPropertiesResponseOutput) Publisher() pulumi.Stri
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineExtensionPropertiesResponseOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) map[string]string { return v.Settings }).(pulumi.StringMapOutput)
+func (o VirtualMachineExtensionPropertiesResponseOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -32537,13 +32537,13 @@ func (o VirtualMachineExtensionPropertiesResponsePtrOutput) InstanceView() Virtu
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) map[string]string {
+func (o VirtualMachineExtensionPropertiesResponsePtrOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ProtectedSettings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The provisioning state, which only appears in the response.
@@ -32567,13 +32567,13 @@ func (o VirtualMachineExtensionPropertiesResponsePtrOutput) Publisher() pulumi.S
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) map[string]string {
+func (o VirtualMachineExtensionPropertiesResponsePtrOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Settings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -32928,7 +32928,7 @@ type VirtualMachineIdentity struct {
 	// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]VirtualMachineIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // VirtualMachineIdentityInput is an input type that accepts VirtualMachineIdentityArgs and VirtualMachineIdentityOutput values.
@@ -32947,7 +32947,7 @@ type VirtualMachineIdentityArgs struct {
 	// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities VirtualMachineIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (VirtualMachineIdentityArgs) ElementType() reflect.Type {
@@ -33034,8 +33034,10 @@ func (o VirtualMachineIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineIdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineIdentity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o VirtualMachineIdentityOutput) UserAssignedIdentities() VirtualMachineIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v VirtualMachineIdentity) map[string]VirtualMachineIdentityProperties {
+		return v.UserAssignedIdentities
+	}).(VirtualMachineIdentityPropertiesMapOutput)
 }
 
 type VirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -33067,13 +33069,101 @@ func (o VirtualMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineIdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineIdentity) map[string]string {
+func (o VirtualMachineIdentityPtrOutput) UserAssignedIdentities() VirtualMachineIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *VirtualMachineIdentity) map[string]VirtualMachineIdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(VirtualMachineIdentityPropertiesMapOutput)
+}
+
+type VirtualMachineIdentityProperties struct {
+}
+
+// VirtualMachineIdentityPropertiesInput is an input type that accepts VirtualMachineIdentityPropertiesArgs and VirtualMachineIdentityPropertiesOutput values.
+// You can construct a concrete instance of `VirtualMachineIdentityPropertiesInput` via:
+//
+//          VirtualMachineIdentityPropertiesArgs{...}
+type VirtualMachineIdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToVirtualMachineIdentityPropertiesOutput() VirtualMachineIdentityPropertiesOutput
+	ToVirtualMachineIdentityPropertiesOutputWithContext(context.Context) VirtualMachineIdentityPropertiesOutput
+}
+
+type VirtualMachineIdentityPropertiesArgs struct {
+}
+
+func (VirtualMachineIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineIdentityProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineIdentityPropertiesArgs) ToVirtualMachineIdentityPropertiesOutput() VirtualMachineIdentityPropertiesOutput {
+	return i.ToVirtualMachineIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineIdentityPropertiesArgs) ToVirtualMachineIdentityPropertiesOutputWithContext(ctx context.Context) VirtualMachineIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityPropertiesOutput)
+}
+
+// VirtualMachineIdentityPropertiesMapInput is an input type that accepts VirtualMachineIdentityPropertiesMap and VirtualMachineIdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `VirtualMachineIdentityPropertiesMapInput` via:
+//
+//          VirtualMachineIdentityPropertiesMap{ "key": VirtualMachineIdentityPropertiesArgs{...} }
+type VirtualMachineIdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToVirtualMachineIdentityPropertiesMapOutput() VirtualMachineIdentityPropertiesMapOutput
+	ToVirtualMachineIdentityPropertiesMapOutputWithContext(context.Context) VirtualMachineIdentityPropertiesMapOutput
+}
+
+type VirtualMachineIdentityPropertiesMap map[string]VirtualMachineIdentityPropertiesInput
+
+func (VirtualMachineIdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineIdentityProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineIdentityPropertiesMap) ToVirtualMachineIdentityPropertiesMapOutput() VirtualMachineIdentityPropertiesMapOutput {
+	return i.ToVirtualMachineIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineIdentityPropertiesMap) ToVirtualMachineIdentityPropertiesMapOutputWithContext(ctx context.Context) VirtualMachineIdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityPropertiesMapOutput)
+}
+
+type VirtualMachineIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineIdentityProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineIdentityPropertiesOutput) ToVirtualMachineIdentityPropertiesOutput() VirtualMachineIdentityPropertiesOutput {
+	return o
+}
+
+func (o VirtualMachineIdentityPropertiesOutput) ToVirtualMachineIdentityPropertiesOutputWithContext(ctx context.Context) VirtualMachineIdentityPropertiesOutput {
+	return o
+}
+
+type VirtualMachineIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineIdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineIdentityProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineIdentityPropertiesMapOutput) ToVirtualMachineIdentityPropertiesMapOutput() VirtualMachineIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineIdentityPropertiesMapOutput) ToVirtualMachineIdentityPropertiesMapOutputWithContext(ctx context.Context) VirtualMachineIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineIdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualMachineIdentityProperties {
+		return vs[0].(map[string]VirtualMachineIdentityProperties)[vs[1].(string)]
+	}).(VirtualMachineIdentityPropertiesOutput)
 }
 
 // Identity for the virtual machine.
@@ -33085,7 +33175,7 @@ type VirtualMachineIdentityResponse struct {
 	// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]VirtualMachineIdentityResponseProperties `pulumi:"userAssignedIdentities"`
 }
 
 // VirtualMachineIdentityResponseInput is an input type that accepts VirtualMachineIdentityResponseArgs and VirtualMachineIdentityResponseOutput values.
@@ -33108,7 +33198,7 @@ type VirtualMachineIdentityResponseArgs struct {
 	// The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities VirtualMachineIdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (VirtualMachineIdentityResponseArgs) ElementType() reflect.Type {
@@ -33205,8 +33295,10 @@ func (o VirtualMachineIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineIdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineIdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o VirtualMachineIdentityResponseOutput) UserAssignedIdentities() VirtualMachineIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v VirtualMachineIdentityResponse) map[string]VirtualMachineIdentityResponseProperties {
+		return v.UserAssignedIdentities
+	}).(VirtualMachineIdentityResponsePropertiesMapOutput)
 }
 
 type VirtualMachineIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -33258,13 +33350,119 @@ func (o VirtualMachineIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineIdentityResponse) map[string]string {
+func (o VirtualMachineIdentityResponsePtrOutput) UserAssignedIdentities() VirtualMachineIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v *VirtualMachineIdentityResponse) map[string]VirtualMachineIdentityResponseProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(VirtualMachineIdentityResponsePropertiesMapOutput)
+}
+
+type VirtualMachineIdentityResponseProperties struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// VirtualMachineIdentityResponsePropertiesInput is an input type that accepts VirtualMachineIdentityResponsePropertiesArgs and VirtualMachineIdentityResponsePropertiesOutput values.
+// You can construct a concrete instance of `VirtualMachineIdentityResponsePropertiesInput` via:
+//
+//          VirtualMachineIdentityResponsePropertiesArgs{...}
+type VirtualMachineIdentityResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToVirtualMachineIdentityResponsePropertiesOutput() VirtualMachineIdentityResponsePropertiesOutput
+	ToVirtualMachineIdentityResponsePropertiesOutputWithContext(context.Context) VirtualMachineIdentityResponsePropertiesOutput
+}
+
+type VirtualMachineIdentityResponsePropertiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (VirtualMachineIdentityResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineIdentityResponsePropertiesArgs) ToVirtualMachineIdentityResponsePropertiesOutput() VirtualMachineIdentityResponsePropertiesOutput {
+	return i.ToVirtualMachineIdentityResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineIdentityResponsePropertiesArgs) ToVirtualMachineIdentityResponsePropertiesOutputWithContext(ctx context.Context) VirtualMachineIdentityResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityResponsePropertiesOutput)
+}
+
+// VirtualMachineIdentityResponsePropertiesMapInput is an input type that accepts VirtualMachineIdentityResponsePropertiesMap and VirtualMachineIdentityResponsePropertiesMapOutput values.
+// You can construct a concrete instance of `VirtualMachineIdentityResponsePropertiesMapInput` via:
+//
+//          VirtualMachineIdentityResponsePropertiesMap{ "key": VirtualMachineIdentityResponsePropertiesArgs{...} }
+type VirtualMachineIdentityResponsePropertiesMapInput interface {
+	pulumi.Input
+
+	ToVirtualMachineIdentityResponsePropertiesMapOutput() VirtualMachineIdentityResponsePropertiesMapOutput
+	ToVirtualMachineIdentityResponsePropertiesMapOutputWithContext(context.Context) VirtualMachineIdentityResponsePropertiesMapOutput
+}
+
+type VirtualMachineIdentityResponsePropertiesMap map[string]VirtualMachineIdentityResponsePropertiesInput
+
+func (VirtualMachineIdentityResponsePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineIdentityResponsePropertiesMap) ToVirtualMachineIdentityResponsePropertiesMapOutput() VirtualMachineIdentityResponsePropertiesMapOutput {
+	return i.ToVirtualMachineIdentityResponsePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineIdentityResponsePropertiesMap) ToVirtualMachineIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) VirtualMachineIdentityResponsePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineIdentityResponsePropertiesMapOutput)
+}
+
+type VirtualMachineIdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineIdentityResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineIdentityResponsePropertiesOutput) ToVirtualMachineIdentityResponsePropertiesOutput() VirtualMachineIdentityResponsePropertiesOutput {
+	return o
+}
+
+func (o VirtualMachineIdentityResponsePropertiesOutput) ToVirtualMachineIdentityResponsePropertiesOutputWithContext(ctx context.Context) VirtualMachineIdentityResponsePropertiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o VirtualMachineIdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineIdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o VirtualMachineIdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineIdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type VirtualMachineIdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineIdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineIdentityResponsePropertiesMapOutput) ToVirtualMachineIdentityResponsePropertiesMapOutput() VirtualMachineIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineIdentityResponsePropertiesMapOutput) ToVirtualMachineIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) VirtualMachineIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineIdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineIdentityResponsePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualMachineIdentityResponseProperties {
+		return vs[0].(map[string]VirtualMachineIdentityResponseProperties)[vs[1].(string)]
+	}).(VirtualMachineIdentityResponsePropertiesOutput)
 }
 
 // The instance view of a virtual machine.
@@ -35495,13 +35693,13 @@ type VirtualMachineScaleSetExtensionProperties struct {
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]string `pulumi:"protectedSettings"`
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]string `pulumi:"settings"`
+	Settings map[string]interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -35526,13 +35724,13 @@ type VirtualMachineScaleSetExtensionPropertiesArgs struct {
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.StringMapInput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.StringMapInput `pulumi:"settings"`
+	Settings pulumi.MapInput `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -35628,8 +35826,8 @@ func (o VirtualMachineScaleSetExtensionPropertiesOutput) ForceUpdateTag() pulumi
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineScaleSetExtensionPropertiesOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProperties) map[string]string { return v.ProtectedSettings }).(pulumi.StringMapOutput)
+func (o VirtualMachineScaleSetExtensionPropertiesOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProperties) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
 }
 
 // Collection of extension names after which this extension needs to be provisioned.
@@ -35643,8 +35841,8 @@ func (o VirtualMachineScaleSetExtensionPropertiesOutput) Publisher() pulumi.Stri
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineScaleSetExtensionPropertiesOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProperties) map[string]string { return v.Settings }).(pulumi.StringMapOutput)
+func (o VirtualMachineScaleSetExtensionPropertiesOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionProperties) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -35698,13 +35896,13 @@ func (o VirtualMachineScaleSetExtensionPropertiesPtrOutput) ForceUpdateTag() pul
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineScaleSetExtensionPropertiesPtrOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProperties) map[string]string {
+func (o VirtualMachineScaleSetExtensionPropertiesPtrOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ProtectedSettings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Collection of extension names after which this extension needs to be provisioned.
@@ -35728,13 +35926,13 @@ func (o VirtualMachineScaleSetExtensionPropertiesPtrOutput) Publisher() pulumi.S
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineScaleSetExtensionPropertiesPtrOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProperties) map[string]string {
+func (o VirtualMachineScaleSetExtensionPropertiesPtrOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Settings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -35764,7 +35962,7 @@ type VirtualMachineScaleSetExtensionPropertiesResponse struct {
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings map[string]string `pulumi:"protectedSettings"`
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// The provisioning state, which only appears in the response.
@@ -35772,7 +35970,7 @@ type VirtualMachineScaleSetExtensionPropertiesResponse struct {
 	// The name of the extension handler publisher.
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings map[string]string `pulumi:"settings"`
+	Settings map[string]interface{} `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -35797,7 +35995,7 @@ type VirtualMachineScaleSetExtensionPropertiesResponseArgs struct {
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.StringMapInput `pulumi:"protectedSettings"`
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
 	// The provisioning state, which only appears in the response.
@@ -35805,7 +36003,7 @@ type VirtualMachineScaleSetExtensionPropertiesResponseArgs struct {
 	// The name of the extension handler publisher.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
-	Settings pulumi.StringMapInput `pulumi:"settings"`
+	Settings pulumi.MapInput `pulumi:"settings"`
 	// Specifies the type of the extension; an example is "CustomScriptExtension".
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Specifies the version of the script handler.
@@ -35901,10 +36099,10 @@ func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ForceUpdateTag(
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) map[string]string {
+func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} {
 		return v.ProtectedSettings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Collection of extension names after which this extension needs to be provisioned.
@@ -35923,8 +36121,8 @@ func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) Publisher() pul
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) map[string]string { return v.Settings }).(pulumi.StringMapOutput)
+func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -35978,13 +36176,13 @@ func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ForceUpdateT
 }
 
 // The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ProtectedSettings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) map[string]string {
+func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ProtectedSettings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Collection of extension names after which this extension needs to be provisioned.
@@ -36018,13 +36216,13 @@ func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) Publisher() 
 }
 
 // Json formatted public settings for the extension.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) Settings() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) map[string]string {
+func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Settings
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -36983,7 +37181,7 @@ type VirtualMachineScaleSetIdentity struct {
 	// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]VirtualMachineScaleSetIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // VirtualMachineScaleSetIdentityInput is an input type that accepts VirtualMachineScaleSetIdentityArgs and VirtualMachineScaleSetIdentityOutput values.
@@ -37002,7 +37200,7 @@ type VirtualMachineScaleSetIdentityArgs struct {
 	// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities VirtualMachineScaleSetIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (VirtualMachineScaleSetIdentityArgs) ElementType() reflect.Type {
@@ -37089,8 +37287,10 @@ func (o VirtualMachineScaleSetIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineScaleSetIdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIdentity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o VirtualMachineScaleSetIdentityOutput) UserAssignedIdentities() VirtualMachineScaleSetIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIdentity) map[string]VirtualMachineScaleSetIdentityProperties {
+		return v.UserAssignedIdentities
+	}).(VirtualMachineScaleSetIdentityPropertiesMapOutput)
 }
 
 type VirtualMachineScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -37122,13 +37322,101 @@ func (o VirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineScaleSetIdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIdentity) map[string]string {
+func (o VirtualMachineScaleSetIdentityPtrOutput) UserAssignedIdentities() VirtualMachineScaleSetIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetIdentity) map[string]VirtualMachineScaleSetIdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(VirtualMachineScaleSetIdentityPropertiesMapOutput)
+}
+
+type VirtualMachineScaleSetIdentityProperties struct {
+}
+
+// VirtualMachineScaleSetIdentityPropertiesInput is an input type that accepts VirtualMachineScaleSetIdentityPropertiesArgs and VirtualMachineScaleSetIdentityPropertiesOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetIdentityPropertiesInput` via:
+//
+//          VirtualMachineScaleSetIdentityPropertiesArgs{...}
+type VirtualMachineScaleSetIdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetIdentityPropertiesOutput() VirtualMachineScaleSetIdentityPropertiesOutput
+	ToVirtualMachineScaleSetIdentityPropertiesOutputWithContext(context.Context) VirtualMachineScaleSetIdentityPropertiesOutput
+}
+
+type VirtualMachineScaleSetIdentityPropertiesArgs struct {
+}
+
+func (VirtualMachineScaleSetIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetIdentityProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetIdentityPropertiesArgs) ToVirtualMachineScaleSetIdentityPropertiesOutput() VirtualMachineScaleSetIdentityPropertiesOutput {
+	return i.ToVirtualMachineScaleSetIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetIdentityPropertiesArgs) ToVirtualMachineScaleSetIdentityPropertiesOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIdentityPropertiesOutput)
+}
+
+// VirtualMachineScaleSetIdentityPropertiesMapInput is an input type that accepts VirtualMachineScaleSetIdentityPropertiesMap and VirtualMachineScaleSetIdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetIdentityPropertiesMapInput` via:
+//
+//          VirtualMachineScaleSetIdentityPropertiesMap{ "key": VirtualMachineScaleSetIdentityPropertiesArgs{...} }
+type VirtualMachineScaleSetIdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetIdentityPropertiesMapOutput() VirtualMachineScaleSetIdentityPropertiesMapOutput
+	ToVirtualMachineScaleSetIdentityPropertiesMapOutputWithContext(context.Context) VirtualMachineScaleSetIdentityPropertiesMapOutput
+}
+
+type VirtualMachineScaleSetIdentityPropertiesMap map[string]VirtualMachineScaleSetIdentityPropertiesInput
+
+func (VirtualMachineScaleSetIdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineScaleSetIdentityProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetIdentityPropertiesMap) ToVirtualMachineScaleSetIdentityPropertiesMapOutput() VirtualMachineScaleSetIdentityPropertiesMapOutput {
+	return i.ToVirtualMachineScaleSetIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetIdentityPropertiesMap) ToVirtualMachineScaleSetIdentityPropertiesMapOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIdentityPropertiesMapOutput)
+}
+
+type VirtualMachineScaleSetIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetIdentityProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetIdentityPropertiesOutput) ToVirtualMachineScaleSetIdentityPropertiesOutput() VirtualMachineScaleSetIdentityPropertiesOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetIdentityPropertiesOutput) ToVirtualMachineScaleSetIdentityPropertiesOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityPropertiesOutput {
+	return o
+}
+
+type VirtualMachineScaleSetIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetIdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineScaleSetIdentityProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetIdentityPropertiesMapOutput) ToVirtualMachineScaleSetIdentityPropertiesMapOutput() VirtualMachineScaleSetIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetIdentityPropertiesMapOutput) ToVirtualMachineScaleSetIdentityPropertiesMapOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineScaleSetIdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualMachineScaleSetIdentityProperties {
+		return vs[0].(map[string]VirtualMachineScaleSetIdentityProperties)[vs[1].(string)]
+	}).(VirtualMachineScaleSetIdentityPropertiesOutput)
 }
 
 // Identity for the virtual machine scale set.
@@ -37140,7 +37428,7 @@ type VirtualMachineScaleSetIdentityResponse struct {
 	// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]VirtualMachineScaleSetIdentityResponseProperties `pulumi:"userAssignedIdentities"`
 }
 
 // VirtualMachineScaleSetIdentityResponseInput is an input type that accepts VirtualMachineScaleSetIdentityResponseArgs and VirtualMachineScaleSetIdentityResponseOutput values.
@@ -37163,7 +37451,7 @@ type VirtualMachineScaleSetIdentityResponseArgs struct {
 	// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities VirtualMachineScaleSetIdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (VirtualMachineScaleSetIdentityResponseArgs) ElementType() reflect.Type {
@@ -37260,8 +37548,10 @@ func (o VirtualMachineScaleSetIdentityResponseOutput) Type() pulumi.StringPtrOut
 }
 
 // The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineScaleSetIdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o VirtualMachineScaleSetIdentityResponseOutput) UserAssignedIdentities() VirtualMachineScaleSetIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIdentityResponse) map[string]VirtualMachineScaleSetIdentityResponseProperties {
+		return v.UserAssignedIdentities
+	}).(VirtualMachineScaleSetIdentityResponsePropertiesMapOutput)
 }
 
 type VirtualMachineScaleSetIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -37313,13 +37603,119 @@ func (o VirtualMachineScaleSetIdentityResponsePtrOutput) Type() pulumi.StringPtr
 }
 
 // The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o VirtualMachineScaleSetIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIdentityResponse) map[string]string {
+func (o VirtualMachineScaleSetIdentityResponsePtrOutput) UserAssignedIdentities() VirtualMachineScaleSetIdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetIdentityResponse) map[string]VirtualMachineScaleSetIdentityResponseProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(VirtualMachineScaleSetIdentityResponsePropertiesMapOutput)
+}
+
+type VirtualMachineScaleSetIdentityResponseProperties struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// VirtualMachineScaleSetIdentityResponsePropertiesInput is an input type that accepts VirtualMachineScaleSetIdentityResponsePropertiesArgs and VirtualMachineScaleSetIdentityResponsePropertiesOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetIdentityResponsePropertiesInput` via:
+//
+//          VirtualMachineScaleSetIdentityResponsePropertiesArgs{...}
+type VirtualMachineScaleSetIdentityResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetIdentityResponsePropertiesOutput() VirtualMachineScaleSetIdentityResponsePropertiesOutput
+	ToVirtualMachineScaleSetIdentityResponsePropertiesOutputWithContext(context.Context) VirtualMachineScaleSetIdentityResponsePropertiesOutput
+}
+
+type VirtualMachineScaleSetIdentityResponsePropertiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (VirtualMachineScaleSetIdentityResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetIdentityResponsePropertiesArgs) ToVirtualMachineScaleSetIdentityResponsePropertiesOutput() VirtualMachineScaleSetIdentityResponsePropertiesOutput {
+	return i.ToVirtualMachineScaleSetIdentityResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetIdentityResponsePropertiesArgs) ToVirtualMachineScaleSetIdentityResponsePropertiesOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIdentityResponsePropertiesOutput)
+}
+
+// VirtualMachineScaleSetIdentityResponsePropertiesMapInput is an input type that accepts VirtualMachineScaleSetIdentityResponsePropertiesMap and VirtualMachineScaleSetIdentityResponsePropertiesMapOutput values.
+// You can construct a concrete instance of `VirtualMachineScaleSetIdentityResponsePropertiesMapInput` via:
+//
+//          VirtualMachineScaleSetIdentityResponsePropertiesMap{ "key": VirtualMachineScaleSetIdentityResponsePropertiesArgs{...} }
+type VirtualMachineScaleSetIdentityResponsePropertiesMapInput interface {
+	pulumi.Input
+
+	ToVirtualMachineScaleSetIdentityResponsePropertiesMapOutput() VirtualMachineScaleSetIdentityResponsePropertiesMapOutput
+	ToVirtualMachineScaleSetIdentityResponsePropertiesMapOutputWithContext(context.Context) VirtualMachineScaleSetIdentityResponsePropertiesMapOutput
+}
+
+type VirtualMachineScaleSetIdentityResponsePropertiesMap map[string]VirtualMachineScaleSetIdentityResponsePropertiesInput
+
+func (VirtualMachineScaleSetIdentityResponsePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineScaleSetIdentityResponseProperties)(nil)).Elem()
+}
+
+func (i VirtualMachineScaleSetIdentityResponsePropertiesMap) ToVirtualMachineScaleSetIdentityResponsePropertiesMapOutput() VirtualMachineScaleSetIdentityResponsePropertiesMapOutput {
+	return i.ToVirtualMachineScaleSetIdentityResponsePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineScaleSetIdentityResponsePropertiesMap) ToVirtualMachineScaleSetIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityResponsePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIdentityResponsePropertiesMapOutput)
+}
+
+type VirtualMachineScaleSetIdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetIdentityResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineScaleSetIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetIdentityResponsePropertiesOutput) ToVirtualMachineScaleSetIdentityResponsePropertiesOutput() VirtualMachineScaleSetIdentityResponsePropertiesOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetIdentityResponsePropertiesOutput) ToVirtualMachineScaleSetIdentityResponsePropertiesOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityResponsePropertiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o VirtualMachineScaleSetIdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o VirtualMachineScaleSetIdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type VirtualMachineScaleSetIdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineScaleSetIdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualMachineScaleSetIdentityResponseProperties)(nil)).Elem()
+}
+
+func (o VirtualMachineScaleSetIdentityResponsePropertiesMapOutput) ToVirtualMachineScaleSetIdentityResponsePropertiesMapOutput() VirtualMachineScaleSetIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetIdentityResponsePropertiesMapOutput) ToVirtualMachineScaleSetIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) VirtualMachineScaleSetIdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o VirtualMachineScaleSetIdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineScaleSetIdentityResponsePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualMachineScaleSetIdentityResponseProperties {
+		return vs[0].(map[string]VirtualMachineScaleSetIdentityResponseProperties)[vs[1].(string)]
+	}).(VirtualMachineScaleSetIdentityResponsePropertiesOutput)
 }
 
 // Contains the IP tag associated with the public IP address.
@@ -46293,8 +46689,12 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineHealthStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(VirtualMachineIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineIdentityResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(VirtualMachineIdentityResponsePropertiesMapOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponsePtrOutput{})
@@ -46329,8 +46729,12 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIPConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityResponsePropertiesMapOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIpTagOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIpTagArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIpTagResponseOutput{})

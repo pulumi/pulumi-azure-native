@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.Resources.V20151101.Inputs
         public Input<string>? Mode { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<object>? _parameters;
 
         /// <summary>
         /// Deployment parameters. Use only one of Parameters or ParametersLink.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<object> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
 
@@ -40,14 +40,14 @@ namespace Pulumi.AzureRM.Resources.V20151101.Inputs
         public Input<Inputs.ParametersLinkArgs>? ParametersLink { get; set; }
 
         [Input("template")]
-        private InputMap<string>? _template;
+        private InputMap<object>? _template;
 
         /// <summary>
         /// Gets or sets the template content. Use only one of Template or TemplateLink.
         /// </summary>
-        public InputMap<string> Template
+        public InputMap<object> Template
         {
-            get => _template ?? (_template = new InputMap<string>());
+            get => _template ?? (_template = new InputMap<object>());
             set => _template = value;
         }
 

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? _ts;
+        public readonly ImmutableDictionary<string, object>? _ts;
         /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331.Outputs
 
             string? _rid,
 
-            ImmutableDictionary<string, string>? _ts,
+            ImmutableDictionary<string, object>? _ts,
 
             Outputs.ConflictResolutionPolicyResponseResult? conflictResolutionPolicy,
 

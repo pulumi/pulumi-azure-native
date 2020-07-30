@@ -49,14 +49,14 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("swagger")]
-        private InputMap<string>? _swagger;
+        private InputMap<object>? _swagger;
 
         /// <summary>
         /// The JSON representation of the swagger
         /// </summary>
-        public InputMap<string> Swagger
+        public InputMap<object> Swagger
         {
-            get => _swagger ?? (_swagger = new InputMap<string>());
+            get => _swagger ?? (_swagger = new InputMap<object>());
             set => _swagger = value;
         }
 

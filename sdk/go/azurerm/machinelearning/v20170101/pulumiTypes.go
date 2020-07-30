@@ -10,6 +10,332 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Information about an asset associated with the web service.
+type AssetItem struct {
+	// Asset's Id.
+	Id *string `pulumi:"id"`
+	// Information about the asset's input ports.
+	InputPorts map[string]InputPort `pulumi:"inputPorts"`
+	// Access information for the asset.
+	LocationInfo BlobLocation `pulumi:"locationInfo"`
+	// If the asset is a custom module, this holds the module's metadata.
+	Metadata map[string]string `pulumi:"metadata"`
+	// Asset's friendly name.
+	Name string `pulumi:"name"`
+	// Information about the asset's output ports.
+	OutputPorts map[string]OutputPort `pulumi:"outputPorts"`
+	// If the asset is a custom module, this holds the module's parameters.
+	Parameters []ModuleAssetParameter `pulumi:"parameters"`
+	// Asset's type.
+	Type string `pulumi:"type"`
+}
+
+// AssetItemInput is an input type that accepts AssetItemArgs and AssetItemOutput values.
+// You can construct a concrete instance of `AssetItemInput` via:
+//
+//          AssetItemArgs{...}
+type AssetItemInput interface {
+	pulumi.Input
+
+	ToAssetItemOutput() AssetItemOutput
+	ToAssetItemOutputWithContext(context.Context) AssetItemOutput
+}
+
+// Information about an asset associated with the web service.
+type AssetItemArgs struct {
+	// Asset's Id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Information about the asset's input ports.
+	InputPorts InputPortMapInput `pulumi:"inputPorts"`
+	// Access information for the asset.
+	LocationInfo BlobLocationInput `pulumi:"locationInfo"`
+	// If the asset is a custom module, this holds the module's metadata.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// Asset's friendly name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Information about the asset's output ports.
+	OutputPorts OutputPortMapInput `pulumi:"outputPorts"`
+	// If the asset is a custom module, this holds the module's parameters.
+	Parameters ModuleAssetParameterArrayInput `pulumi:"parameters"`
+	// Asset's type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssetItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetItem)(nil)).Elem()
+}
+
+func (i AssetItemArgs) ToAssetItemOutput() AssetItemOutput {
+	return i.ToAssetItemOutputWithContext(context.Background())
+}
+
+func (i AssetItemArgs) ToAssetItemOutputWithContext(ctx context.Context) AssetItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetItemOutput)
+}
+
+// AssetItemMapInput is an input type that accepts AssetItemMap and AssetItemMapOutput values.
+// You can construct a concrete instance of `AssetItemMapInput` via:
+//
+//          AssetItemMap{ "key": AssetItemArgs{...} }
+type AssetItemMapInput interface {
+	pulumi.Input
+
+	ToAssetItemMapOutput() AssetItemMapOutput
+	ToAssetItemMapOutputWithContext(context.Context) AssetItemMapOutput
+}
+
+type AssetItemMap map[string]AssetItemInput
+
+func (AssetItemMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssetItem)(nil)).Elem()
+}
+
+func (i AssetItemMap) ToAssetItemMapOutput() AssetItemMapOutput {
+	return i.ToAssetItemMapOutputWithContext(context.Background())
+}
+
+func (i AssetItemMap) ToAssetItemMapOutputWithContext(ctx context.Context) AssetItemMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetItemMapOutput)
+}
+
+// Information about an asset associated with the web service.
+type AssetItemOutput struct{ *pulumi.OutputState }
+
+func (AssetItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetItem)(nil)).Elem()
+}
+
+func (o AssetItemOutput) ToAssetItemOutput() AssetItemOutput {
+	return o
+}
+
+func (o AssetItemOutput) ToAssetItemOutputWithContext(ctx context.Context) AssetItemOutput {
+	return o
+}
+
+// Asset's Id.
+func (o AssetItemOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetItem) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Information about the asset's input ports.
+func (o AssetItemOutput) InputPorts() InputPortMapOutput {
+	return o.ApplyT(func(v AssetItem) map[string]InputPort { return v.InputPorts }).(InputPortMapOutput)
+}
+
+// Access information for the asset.
+func (o AssetItemOutput) LocationInfo() BlobLocationOutput {
+	return o.ApplyT(func(v AssetItem) BlobLocation { return v.LocationInfo }).(BlobLocationOutput)
+}
+
+// If the asset is a custom module, this holds the module's metadata.
+func (o AssetItemOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AssetItem) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// Asset's friendly name.
+func (o AssetItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetItem) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Information about the asset's output ports.
+func (o AssetItemOutput) OutputPorts() OutputPortMapOutput {
+	return o.ApplyT(func(v AssetItem) map[string]OutputPort { return v.OutputPorts }).(OutputPortMapOutput)
+}
+
+// If the asset is a custom module, this holds the module's parameters.
+func (o AssetItemOutput) Parameters() ModuleAssetParameterArrayOutput {
+	return o.ApplyT(func(v AssetItem) []ModuleAssetParameter { return v.Parameters }).(ModuleAssetParameterArrayOutput)
+}
+
+// Asset's type.
+func (o AssetItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetItem) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AssetItemMapOutput struct{ *pulumi.OutputState }
+
+func (AssetItemMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssetItem)(nil)).Elem()
+}
+
+func (o AssetItemMapOutput) ToAssetItemMapOutput() AssetItemMapOutput {
+	return o
+}
+
+func (o AssetItemMapOutput) ToAssetItemMapOutputWithContext(ctx context.Context) AssetItemMapOutput {
+	return o
+}
+
+func (o AssetItemMapOutput) MapIndex(k pulumi.StringInput) AssetItemOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssetItem {
+		return vs[0].(map[string]AssetItem)[vs[1].(string)]
+	}).(AssetItemOutput)
+}
+
+// Information about an asset associated with the web service.
+type AssetItemResponse struct {
+	// Asset's Id.
+	Id *string `pulumi:"id"`
+	// Information about the asset's input ports.
+	InputPorts map[string]InputPortResponse `pulumi:"inputPorts"`
+	// Access information for the asset.
+	LocationInfo BlobLocationResponse `pulumi:"locationInfo"`
+	// If the asset is a custom module, this holds the module's metadata.
+	Metadata map[string]string `pulumi:"metadata"`
+	// Asset's friendly name.
+	Name string `pulumi:"name"`
+	// Information about the asset's output ports.
+	OutputPorts map[string]OutputPortResponse `pulumi:"outputPorts"`
+	// If the asset is a custom module, this holds the module's parameters.
+	Parameters []ModuleAssetParameterResponse `pulumi:"parameters"`
+	// Asset's type.
+	Type string `pulumi:"type"`
+}
+
+// AssetItemResponseInput is an input type that accepts AssetItemResponseArgs and AssetItemResponseOutput values.
+// You can construct a concrete instance of `AssetItemResponseInput` via:
+//
+//          AssetItemResponseArgs{...}
+type AssetItemResponseInput interface {
+	pulumi.Input
+
+	ToAssetItemResponseOutput() AssetItemResponseOutput
+	ToAssetItemResponseOutputWithContext(context.Context) AssetItemResponseOutput
+}
+
+// Information about an asset associated with the web service.
+type AssetItemResponseArgs struct {
+	// Asset's Id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Information about the asset's input ports.
+	InputPorts InputPortResponseMapInput `pulumi:"inputPorts"`
+	// Access information for the asset.
+	LocationInfo BlobLocationResponseInput `pulumi:"locationInfo"`
+	// If the asset is a custom module, this holds the module's metadata.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// Asset's friendly name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Information about the asset's output ports.
+	OutputPorts OutputPortResponseMapInput `pulumi:"outputPorts"`
+	// If the asset is a custom module, this holds the module's parameters.
+	Parameters ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
+	// Asset's type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssetItemResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetItemResponse)(nil)).Elem()
+}
+
+func (i AssetItemResponseArgs) ToAssetItemResponseOutput() AssetItemResponseOutput {
+	return i.ToAssetItemResponseOutputWithContext(context.Background())
+}
+
+func (i AssetItemResponseArgs) ToAssetItemResponseOutputWithContext(ctx context.Context) AssetItemResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetItemResponseOutput)
+}
+
+// AssetItemResponseMapInput is an input type that accepts AssetItemResponseMap and AssetItemResponseMapOutput values.
+// You can construct a concrete instance of `AssetItemResponseMapInput` via:
+//
+//          AssetItemResponseMap{ "key": AssetItemResponseArgs{...} }
+type AssetItemResponseMapInput interface {
+	pulumi.Input
+
+	ToAssetItemResponseMapOutput() AssetItemResponseMapOutput
+	ToAssetItemResponseMapOutputWithContext(context.Context) AssetItemResponseMapOutput
+}
+
+type AssetItemResponseMap map[string]AssetItemResponseInput
+
+func (AssetItemResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssetItemResponse)(nil)).Elem()
+}
+
+func (i AssetItemResponseMap) ToAssetItemResponseMapOutput() AssetItemResponseMapOutput {
+	return i.ToAssetItemResponseMapOutputWithContext(context.Background())
+}
+
+func (i AssetItemResponseMap) ToAssetItemResponseMapOutputWithContext(ctx context.Context) AssetItemResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetItemResponseMapOutput)
+}
+
+// Information about an asset associated with the web service.
+type AssetItemResponseOutput struct{ *pulumi.OutputState }
+
+func (AssetItemResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetItemResponse)(nil)).Elem()
+}
+
+func (o AssetItemResponseOutput) ToAssetItemResponseOutput() AssetItemResponseOutput {
+	return o
+}
+
+func (o AssetItemResponseOutput) ToAssetItemResponseOutputWithContext(ctx context.Context) AssetItemResponseOutput {
+	return o
+}
+
+// Asset's Id.
+func (o AssetItemResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetItemResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Information about the asset's input ports.
+func (o AssetItemResponseOutput) InputPorts() InputPortResponseMapOutput {
+	return o.ApplyT(func(v AssetItemResponse) map[string]InputPortResponse { return v.InputPorts }).(InputPortResponseMapOutput)
+}
+
+// Access information for the asset.
+func (o AssetItemResponseOutput) LocationInfo() BlobLocationResponseOutput {
+	return o.ApplyT(func(v AssetItemResponse) BlobLocationResponse { return v.LocationInfo }).(BlobLocationResponseOutput)
+}
+
+// If the asset is a custom module, this holds the module's metadata.
+func (o AssetItemResponseOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AssetItemResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// Asset's friendly name.
+func (o AssetItemResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetItemResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Information about the asset's output ports.
+func (o AssetItemResponseOutput) OutputPorts() OutputPortResponseMapOutput {
+	return o.ApplyT(func(v AssetItemResponse) map[string]OutputPortResponse { return v.OutputPorts }).(OutputPortResponseMapOutput)
+}
+
+// If the asset is a custom module, this holds the module's parameters.
+func (o AssetItemResponseOutput) Parameters() ModuleAssetParameterResponseArrayOutput {
+	return o.ApplyT(func(v AssetItemResponse) []ModuleAssetParameterResponse { return v.Parameters }).(ModuleAssetParameterResponseArrayOutput)
+}
+
+// Asset's type.
+func (o AssetItemResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetItemResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AssetItemResponseMapOutput struct{ *pulumi.OutputState }
+
+func (AssetItemResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssetItemResponse)(nil)).Elem()
+}
+
+func (o AssetItemResponseMapOutput) ToAssetItemResponseMapOutput() AssetItemResponseMapOutput {
+	return o
+}
+
+func (o AssetItemResponseMapOutput) ToAssetItemResponseMapOutputWithContext(ctx context.Context) AssetItemResponseMapOutput {
+	return o
+}
+
+func (o AssetItemResponseMapOutput) MapIndex(k pulumi.StringInput) AssetItemResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssetItemResponse {
+		return vs[0].(map[string]AssetItemResponse)[vs[1].(string)]
+	}).(AssetItemResponseOutput)
+}
+
 // Describes the access location for a blob.
 type BlobLocation struct {
 	// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
@@ -314,6 +640,242 @@ func (o BlobLocationResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 		}
 		return &v.Uri
 	}).(pulumi.StringPtrOutput)
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecification struct {
+	// If the data type is categorical, this provides the list of accepted categories.
+	Enum []map[string]interface{} `pulumi:"enum"`
+	// Additional format information for the data type.
+	Format *string `pulumi:"format"`
+	// Data type of the column.
+	Type string `pulumi:"type"`
+}
+
+// ColumnSpecificationInput is an input type that accepts ColumnSpecificationArgs and ColumnSpecificationOutput values.
+// You can construct a concrete instance of `ColumnSpecificationInput` via:
+//
+//          ColumnSpecificationArgs{...}
+type ColumnSpecificationInput interface {
+	pulumi.Input
+
+	ToColumnSpecificationOutput() ColumnSpecificationOutput
+	ToColumnSpecificationOutputWithContext(context.Context) ColumnSpecificationOutput
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationArgs struct {
+	// If the data type is categorical, this provides the list of accepted categories.
+	Enum pulumi.MapArrayInput `pulumi:"enum"`
+	// Additional format information for the data type.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// Data type of the column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ColumnSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnSpecification)(nil)).Elem()
+}
+
+func (i ColumnSpecificationArgs) ToColumnSpecificationOutput() ColumnSpecificationOutput {
+	return i.ToColumnSpecificationOutputWithContext(context.Background())
+}
+
+func (i ColumnSpecificationArgs) ToColumnSpecificationOutputWithContext(ctx context.Context) ColumnSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationOutput)
+}
+
+// ColumnSpecificationMapInput is an input type that accepts ColumnSpecificationMap and ColumnSpecificationMapOutput values.
+// You can construct a concrete instance of `ColumnSpecificationMapInput` via:
+//
+//          ColumnSpecificationMap{ "key": ColumnSpecificationArgs{...} }
+type ColumnSpecificationMapInput interface {
+	pulumi.Input
+
+	ToColumnSpecificationMapOutput() ColumnSpecificationMapOutput
+	ToColumnSpecificationMapOutputWithContext(context.Context) ColumnSpecificationMapOutput
+}
+
+type ColumnSpecificationMap map[string]ColumnSpecificationInput
+
+func (ColumnSpecificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ColumnSpecification)(nil)).Elem()
+}
+
+func (i ColumnSpecificationMap) ToColumnSpecificationMapOutput() ColumnSpecificationMapOutput {
+	return i.ToColumnSpecificationMapOutputWithContext(context.Background())
+}
+
+func (i ColumnSpecificationMap) ToColumnSpecificationMapOutputWithContext(ctx context.Context) ColumnSpecificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationMapOutput)
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ColumnSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnSpecification)(nil)).Elem()
+}
+
+func (o ColumnSpecificationOutput) ToColumnSpecificationOutput() ColumnSpecificationOutput {
+	return o
+}
+
+func (o ColumnSpecificationOutput) ToColumnSpecificationOutputWithContext(ctx context.Context) ColumnSpecificationOutput {
+	return o
+}
+
+// If the data type is categorical, this provides the list of accepted categories.
+func (o ColumnSpecificationOutput) Enum() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v ColumnSpecification) []map[string]interface{} { return v.Enum }).(pulumi.MapArrayOutput)
+}
+
+// Additional format information for the data type.
+func (o ColumnSpecificationOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnSpecification) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Data type of the column.
+func (o ColumnSpecificationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ColumnSpecification) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ColumnSpecificationMapOutput struct{ *pulumi.OutputState }
+
+func (ColumnSpecificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ColumnSpecification)(nil)).Elem()
+}
+
+func (o ColumnSpecificationMapOutput) ToColumnSpecificationMapOutput() ColumnSpecificationMapOutput {
+	return o
+}
+
+func (o ColumnSpecificationMapOutput) ToColumnSpecificationMapOutputWithContext(ctx context.Context) ColumnSpecificationMapOutput {
+	return o
+}
+
+func (o ColumnSpecificationMapOutput) MapIndex(k pulumi.StringInput) ColumnSpecificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ColumnSpecification {
+		return vs[0].(map[string]ColumnSpecification)[vs[1].(string)]
+	}).(ColumnSpecificationOutput)
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationResponse struct {
+	// If the data type is categorical, this provides the list of accepted categories.
+	Enum []map[string]interface{} `pulumi:"enum"`
+	// Additional format information for the data type.
+	Format *string `pulumi:"format"`
+	// Data type of the column.
+	Type string `pulumi:"type"`
+}
+
+// ColumnSpecificationResponseInput is an input type that accepts ColumnSpecificationResponseArgs and ColumnSpecificationResponseOutput values.
+// You can construct a concrete instance of `ColumnSpecificationResponseInput` via:
+//
+//          ColumnSpecificationResponseArgs{...}
+type ColumnSpecificationResponseInput interface {
+	pulumi.Input
+
+	ToColumnSpecificationResponseOutput() ColumnSpecificationResponseOutput
+	ToColumnSpecificationResponseOutputWithContext(context.Context) ColumnSpecificationResponseOutput
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationResponseArgs struct {
+	// If the data type is categorical, this provides the list of accepted categories.
+	Enum pulumi.MapArrayInput `pulumi:"enum"`
+	// Additional format information for the data type.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// Data type of the column.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ColumnSpecificationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnSpecificationResponse)(nil)).Elem()
+}
+
+func (i ColumnSpecificationResponseArgs) ToColumnSpecificationResponseOutput() ColumnSpecificationResponseOutput {
+	return i.ToColumnSpecificationResponseOutputWithContext(context.Background())
+}
+
+func (i ColumnSpecificationResponseArgs) ToColumnSpecificationResponseOutputWithContext(ctx context.Context) ColumnSpecificationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationResponseOutput)
+}
+
+// ColumnSpecificationResponseMapInput is an input type that accepts ColumnSpecificationResponseMap and ColumnSpecificationResponseMapOutput values.
+// You can construct a concrete instance of `ColumnSpecificationResponseMapInput` via:
+//
+//          ColumnSpecificationResponseMap{ "key": ColumnSpecificationResponseArgs{...} }
+type ColumnSpecificationResponseMapInput interface {
+	pulumi.Input
+
+	ToColumnSpecificationResponseMapOutput() ColumnSpecificationResponseMapOutput
+	ToColumnSpecificationResponseMapOutputWithContext(context.Context) ColumnSpecificationResponseMapOutput
+}
+
+type ColumnSpecificationResponseMap map[string]ColumnSpecificationResponseInput
+
+func (ColumnSpecificationResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ColumnSpecificationResponse)(nil)).Elem()
+}
+
+func (i ColumnSpecificationResponseMap) ToColumnSpecificationResponseMapOutput() ColumnSpecificationResponseMapOutput {
+	return i.ToColumnSpecificationResponseMapOutputWithContext(context.Background())
+}
+
+func (i ColumnSpecificationResponseMap) ToColumnSpecificationResponseMapOutputWithContext(ctx context.Context) ColumnSpecificationResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationResponseMapOutput)
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationResponseOutput struct{ *pulumi.OutputState }
+
+func (ColumnSpecificationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnSpecificationResponse)(nil)).Elem()
+}
+
+func (o ColumnSpecificationResponseOutput) ToColumnSpecificationResponseOutput() ColumnSpecificationResponseOutput {
+	return o
+}
+
+func (o ColumnSpecificationResponseOutput) ToColumnSpecificationResponseOutputWithContext(ctx context.Context) ColumnSpecificationResponseOutput {
+	return o
+}
+
+// If the data type is categorical, this provides the list of accepted categories.
+func (o ColumnSpecificationResponseOutput) Enum() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v ColumnSpecificationResponse) []map[string]interface{} { return v.Enum }).(pulumi.MapArrayOutput)
+}
+
+// Additional format information for the data type.
+func (o ColumnSpecificationResponseOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnSpecificationResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Data type of the column.
+func (o ColumnSpecificationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ColumnSpecificationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ColumnSpecificationResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ColumnSpecificationResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ColumnSpecificationResponse)(nil)).Elem()
+}
+
+func (o ColumnSpecificationResponseMapOutput) ToColumnSpecificationResponseMapOutput() ColumnSpecificationResponseMapOutput {
+	return o
+}
+
+func (o ColumnSpecificationResponseMapOutput) ToColumnSpecificationResponseMapOutputWithContext(ctx context.Context) ColumnSpecificationResponseMapOutput {
+	return o
+}
+
+func (o ColumnSpecificationResponseMapOutput) MapIndex(k pulumi.StringInput) ColumnSpecificationResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ColumnSpecificationResponse {
+		return vs[0].(map[string]ColumnSpecificationResponse)[vs[1].(string)]
+	}).(ColumnSpecificationResponseOutput)
 }
 
 // Information about the machine learning commitment plan associated with the web service.
@@ -893,9 +1455,9 @@ func (o DiagnosticsConfigurationResponsePtrOutput) Level() pulumi.StringPtrOutpu
 // Sample input data for the service's input(s).
 type ExampleRequest struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters map[string]string `pulumi:"globalParameters"`
+	GlobalParameters map[string]map[string]interface{} `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs map[string]string `pulumi:"inputs"`
+	Inputs map[string][][]map[string]interface{} `pulumi:"inputs"`
 }
 
 // ExampleRequestInput is an input type that accepts ExampleRequestArgs and ExampleRequestOutput values.
@@ -912,9 +1474,9 @@ type ExampleRequestInput interface {
 // Sample input data for the service's input(s).
 type ExampleRequestArgs struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters pulumi.StringMapInput `pulumi:"globalParameters"`
+	GlobalParameters pulumi.MapMapInput `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs pulumi.StringMapInput `pulumi:"inputs"`
+	Inputs pulumi.MapArrayArrayMapInput `pulumi:"inputs"`
 }
 
 func (ExampleRequestArgs) ElementType() reflect.Type {
@@ -996,13 +1558,13 @@ func (o ExampleRequestOutput) ToExampleRequestPtrOutputWithContext(ctx context.C
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestOutput) GlobalParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExampleRequest) map[string]string { return v.GlobalParameters }).(pulumi.StringMapOutput)
+func (o ExampleRequestOutput) GlobalParameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ExampleRequest) map[string]map[string]interface{} { return v.GlobalParameters }).(pulumi.MapMapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestOutput) Inputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExampleRequest) map[string]string { return v.Inputs }).(pulumi.StringMapOutput)
+func (o ExampleRequestOutput) Inputs() pulumi.MapArrayArrayMapOutput {
+	return o.ApplyT(func(v ExampleRequest) map[string][][]map[string]interface{} { return v.Inputs }).(pulumi.MapArrayArrayMapOutput)
 }
 
 type ExampleRequestPtrOutput struct{ *pulumi.OutputState }
@@ -1024,31 +1586,31 @@ func (o ExampleRequestPtrOutput) Elem() ExampleRequestOutput {
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestPtrOutput) GlobalParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ExampleRequest) map[string]string {
+func (o ExampleRequestPtrOutput) GlobalParameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ExampleRequest) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.GlobalParameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestPtrOutput) Inputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ExampleRequest) map[string]string {
+func (o ExampleRequestPtrOutput) Inputs() pulumi.MapArrayArrayMapOutput {
+	return o.ApplyT(func(v *ExampleRequest) map[string][][]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapArrayArrayMapOutput)
 }
 
 // Sample input data for the service's input(s).
 type ExampleRequestResponse struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters map[string]string `pulumi:"globalParameters"`
+	GlobalParameters map[string]map[string]interface{} `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs map[string]string `pulumi:"inputs"`
+	Inputs map[string][][]map[string]interface{} `pulumi:"inputs"`
 }
 
 // ExampleRequestResponseInput is an input type that accepts ExampleRequestResponseArgs and ExampleRequestResponseOutput values.
@@ -1065,9 +1627,9 @@ type ExampleRequestResponseInput interface {
 // Sample input data for the service's input(s).
 type ExampleRequestResponseArgs struct {
 	// Sample input data for the web service's global parameters
-	GlobalParameters pulumi.StringMapInput `pulumi:"globalParameters"`
+	GlobalParameters pulumi.MapMapInput `pulumi:"globalParameters"`
 	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs pulumi.StringMapInput `pulumi:"inputs"`
+	Inputs pulumi.MapArrayArrayMapInput `pulumi:"inputs"`
 }
 
 func (ExampleRequestResponseArgs) ElementType() reflect.Type {
@@ -1149,13 +1711,13 @@ func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutputWithConte
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestResponseOutput) GlobalParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExampleRequestResponse) map[string]string { return v.GlobalParameters }).(pulumi.StringMapOutput)
+func (o ExampleRequestResponseOutput) GlobalParameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ExampleRequestResponse) map[string]map[string]interface{} { return v.GlobalParameters }).(pulumi.MapMapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestResponseOutput) Inputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExampleRequestResponse) map[string]string { return v.Inputs }).(pulumi.StringMapOutput)
+func (o ExampleRequestResponseOutput) Inputs() pulumi.MapArrayArrayMapOutput {
+	return o.ApplyT(func(v ExampleRequestResponse) map[string][][]map[string]interface{} { return v.Inputs }).(pulumi.MapArrayArrayMapOutput)
 }
 
 type ExampleRequestResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1177,23 +1739,223 @@ func (o ExampleRequestResponsePtrOutput) Elem() ExampleRequestResponseOutput {
 }
 
 // Sample input data for the web service's global parameters
-func (o ExampleRequestResponsePtrOutput) GlobalParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ExampleRequestResponse) map[string]string {
+func (o ExampleRequestResponsePtrOutput) GlobalParameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ExampleRequestResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.GlobalParameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-func (o ExampleRequestResponsePtrOutput) Inputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ExampleRequestResponse) map[string]string {
+func (o ExampleRequestResponsePtrOutput) Inputs() pulumi.MapArrayArrayMapOutput {
+	return o.ApplyT(func(v *ExampleRequestResponse) map[string][][]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Inputs
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapArrayArrayMapOutput)
+}
+
+// Asset input port
+type InputPort struct {
+	// Port data type.
+	Type *string `pulumi:"type"`
+}
+
+// InputPortInput is an input type that accepts InputPortArgs and InputPortOutput values.
+// You can construct a concrete instance of `InputPortInput` via:
+//
+//          InputPortArgs{...}
+type InputPortInput interface {
+	pulumi.Input
+
+	ToInputPortOutput() InputPortOutput
+	ToInputPortOutputWithContext(context.Context) InputPortOutput
+}
+
+// Asset input port
+type InputPortArgs struct {
+	// Port data type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (InputPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputPort)(nil)).Elem()
+}
+
+func (i InputPortArgs) ToInputPortOutput() InputPortOutput {
+	return i.ToInputPortOutputWithContext(context.Background())
+}
+
+func (i InputPortArgs) ToInputPortOutputWithContext(ctx context.Context) InputPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputPortOutput)
+}
+
+// InputPortMapInput is an input type that accepts InputPortMap and InputPortMapOutput values.
+// You can construct a concrete instance of `InputPortMapInput` via:
+//
+//          InputPortMap{ "key": InputPortArgs{...} }
+type InputPortMapInput interface {
+	pulumi.Input
+
+	ToInputPortMapOutput() InputPortMapOutput
+	ToInputPortMapOutputWithContext(context.Context) InputPortMapOutput
+}
+
+type InputPortMap map[string]InputPortInput
+
+func (InputPortMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InputPort)(nil)).Elem()
+}
+
+func (i InputPortMap) ToInputPortMapOutput() InputPortMapOutput {
+	return i.ToInputPortMapOutputWithContext(context.Background())
+}
+
+func (i InputPortMap) ToInputPortMapOutputWithContext(ctx context.Context) InputPortMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputPortMapOutput)
+}
+
+// Asset input port
+type InputPortOutput struct{ *pulumi.OutputState }
+
+func (InputPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputPort)(nil)).Elem()
+}
+
+func (o InputPortOutput) ToInputPortOutput() InputPortOutput {
+	return o
+}
+
+func (o InputPortOutput) ToInputPortOutputWithContext(ctx context.Context) InputPortOutput {
+	return o
+}
+
+// Port data type.
+func (o InputPortOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputPort) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type InputPortMapOutput struct{ *pulumi.OutputState }
+
+func (InputPortMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InputPort)(nil)).Elem()
+}
+
+func (o InputPortMapOutput) ToInputPortMapOutput() InputPortMapOutput {
+	return o
+}
+
+func (o InputPortMapOutput) ToInputPortMapOutputWithContext(ctx context.Context) InputPortMapOutput {
+	return o
+}
+
+func (o InputPortMapOutput) MapIndex(k pulumi.StringInput) InputPortOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InputPort {
+		return vs[0].(map[string]InputPort)[vs[1].(string)]
+	}).(InputPortOutput)
+}
+
+// Asset input port
+type InputPortResponse struct {
+	// Port data type.
+	Type *string `pulumi:"type"`
+}
+
+// InputPortResponseInput is an input type that accepts InputPortResponseArgs and InputPortResponseOutput values.
+// You can construct a concrete instance of `InputPortResponseInput` via:
+//
+//          InputPortResponseArgs{...}
+type InputPortResponseInput interface {
+	pulumi.Input
+
+	ToInputPortResponseOutput() InputPortResponseOutput
+	ToInputPortResponseOutputWithContext(context.Context) InputPortResponseOutput
+}
+
+// Asset input port
+type InputPortResponseArgs struct {
+	// Port data type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (InputPortResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputPortResponse)(nil)).Elem()
+}
+
+func (i InputPortResponseArgs) ToInputPortResponseOutput() InputPortResponseOutput {
+	return i.ToInputPortResponseOutputWithContext(context.Background())
+}
+
+func (i InputPortResponseArgs) ToInputPortResponseOutputWithContext(ctx context.Context) InputPortResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputPortResponseOutput)
+}
+
+// InputPortResponseMapInput is an input type that accepts InputPortResponseMap and InputPortResponseMapOutput values.
+// You can construct a concrete instance of `InputPortResponseMapInput` via:
+//
+//          InputPortResponseMap{ "key": InputPortResponseArgs{...} }
+type InputPortResponseMapInput interface {
+	pulumi.Input
+
+	ToInputPortResponseMapOutput() InputPortResponseMapOutput
+	ToInputPortResponseMapOutputWithContext(context.Context) InputPortResponseMapOutput
+}
+
+type InputPortResponseMap map[string]InputPortResponseInput
+
+func (InputPortResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InputPortResponse)(nil)).Elem()
+}
+
+func (i InputPortResponseMap) ToInputPortResponseMapOutput() InputPortResponseMapOutput {
+	return i.ToInputPortResponseMapOutputWithContext(context.Background())
+}
+
+func (i InputPortResponseMap) ToInputPortResponseMapOutputWithContext(ctx context.Context) InputPortResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputPortResponseMapOutput)
+}
+
+// Asset input port
+type InputPortResponseOutput struct{ *pulumi.OutputState }
+
+func (InputPortResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputPortResponse)(nil)).Elem()
+}
+
+func (o InputPortResponseOutput) ToInputPortResponseOutput() InputPortResponseOutput {
+	return o
+}
+
+func (o InputPortResponseOutput) ToInputPortResponseOutputWithContext(ctx context.Context) InputPortResponseOutput {
+	return o
+}
+
+// Port data type.
+func (o InputPortResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputPortResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type InputPortResponseMapOutput struct{ *pulumi.OutputState }
+
+func (InputPortResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InputPortResponse)(nil)).Elem()
+}
+
+func (o InputPortResponseMapOutput) ToInputPortResponseMapOutput() InputPortResponseMapOutput {
+	return o
+}
+
+func (o InputPortResponseMapOutput) ToInputPortResponseMapOutputWithContext(ctx context.Context) InputPortResponseMapOutput {
+	return o
+}
+
+func (o InputPortResponseMapOutput) MapIndex(k pulumi.StringInput) InputPortResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InputPortResponse {
+		return vs[0].(map[string]InputPortResponse)[vs[1].(string)]
+	}).(InputPortResponseOutput)
 }
 
 // Information about the machine learning workspace containing the experiment that is source for the web service.
@@ -1462,6 +2224,660 @@ func (o MachineLearningWorkspaceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// Nested parameter definition.
+type ModeValueInfo struct {
+	// The interface string name for the nested parameter.
+	InterfaceString *string `pulumi:"interfaceString"`
+	// The definition of the parameter.
+	Parameters []ModuleAssetParameter `pulumi:"parameters"`
+}
+
+// ModeValueInfoInput is an input type that accepts ModeValueInfoArgs and ModeValueInfoOutput values.
+// You can construct a concrete instance of `ModeValueInfoInput` via:
+//
+//          ModeValueInfoArgs{...}
+type ModeValueInfoInput interface {
+	pulumi.Input
+
+	ToModeValueInfoOutput() ModeValueInfoOutput
+	ToModeValueInfoOutputWithContext(context.Context) ModeValueInfoOutput
+}
+
+// Nested parameter definition.
+type ModeValueInfoArgs struct {
+	// The interface string name for the nested parameter.
+	InterfaceString pulumi.StringPtrInput `pulumi:"interfaceString"`
+	// The definition of the parameter.
+	Parameters ModuleAssetParameterArrayInput `pulumi:"parameters"`
+}
+
+func (ModeValueInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModeValueInfo)(nil)).Elem()
+}
+
+func (i ModeValueInfoArgs) ToModeValueInfoOutput() ModeValueInfoOutput {
+	return i.ToModeValueInfoOutputWithContext(context.Background())
+}
+
+func (i ModeValueInfoArgs) ToModeValueInfoOutputWithContext(ctx context.Context) ModeValueInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoOutput)
+}
+
+// ModeValueInfoMapInput is an input type that accepts ModeValueInfoMap and ModeValueInfoMapOutput values.
+// You can construct a concrete instance of `ModeValueInfoMapInput` via:
+//
+//          ModeValueInfoMap{ "key": ModeValueInfoArgs{...} }
+type ModeValueInfoMapInput interface {
+	pulumi.Input
+
+	ToModeValueInfoMapOutput() ModeValueInfoMapOutput
+	ToModeValueInfoMapOutputWithContext(context.Context) ModeValueInfoMapOutput
+}
+
+type ModeValueInfoMap map[string]ModeValueInfoInput
+
+func (ModeValueInfoMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ModeValueInfo)(nil)).Elem()
+}
+
+func (i ModeValueInfoMap) ToModeValueInfoMapOutput() ModeValueInfoMapOutput {
+	return i.ToModeValueInfoMapOutputWithContext(context.Background())
+}
+
+func (i ModeValueInfoMap) ToModeValueInfoMapOutputWithContext(ctx context.Context) ModeValueInfoMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoMapOutput)
+}
+
+// Nested parameter definition.
+type ModeValueInfoOutput struct{ *pulumi.OutputState }
+
+func (ModeValueInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModeValueInfo)(nil)).Elem()
+}
+
+func (o ModeValueInfoOutput) ToModeValueInfoOutput() ModeValueInfoOutput {
+	return o
+}
+
+func (o ModeValueInfoOutput) ToModeValueInfoOutputWithContext(ctx context.Context) ModeValueInfoOutput {
+	return o
+}
+
+// The interface string name for the nested parameter.
+func (o ModeValueInfoOutput) InterfaceString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModeValueInfo) *string { return v.InterfaceString }).(pulumi.StringPtrOutput)
+}
+
+// The definition of the parameter.
+func (o ModeValueInfoOutput) Parameters() ModuleAssetParameterArrayOutput {
+	return o.ApplyT(func(v ModeValueInfo) []ModuleAssetParameter { return v.Parameters }).(ModuleAssetParameterArrayOutput)
+}
+
+type ModeValueInfoMapOutput struct{ *pulumi.OutputState }
+
+func (ModeValueInfoMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ModeValueInfo)(nil)).Elem()
+}
+
+func (o ModeValueInfoMapOutput) ToModeValueInfoMapOutput() ModeValueInfoMapOutput {
+	return o
+}
+
+func (o ModeValueInfoMapOutput) ToModeValueInfoMapOutputWithContext(ctx context.Context) ModeValueInfoMapOutput {
+	return o
+}
+
+func (o ModeValueInfoMapOutput) MapIndex(k pulumi.StringInput) ModeValueInfoOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ModeValueInfo {
+		return vs[0].(map[string]ModeValueInfo)[vs[1].(string)]
+	}).(ModeValueInfoOutput)
+}
+
+// Nested parameter definition.
+type ModeValueInfoResponse struct {
+	// The interface string name for the nested parameter.
+	InterfaceString *string `pulumi:"interfaceString"`
+	// The definition of the parameter.
+	Parameters []ModuleAssetParameterResponse `pulumi:"parameters"`
+}
+
+// ModeValueInfoResponseInput is an input type that accepts ModeValueInfoResponseArgs and ModeValueInfoResponseOutput values.
+// You can construct a concrete instance of `ModeValueInfoResponseInput` via:
+//
+//          ModeValueInfoResponseArgs{...}
+type ModeValueInfoResponseInput interface {
+	pulumi.Input
+
+	ToModeValueInfoResponseOutput() ModeValueInfoResponseOutput
+	ToModeValueInfoResponseOutputWithContext(context.Context) ModeValueInfoResponseOutput
+}
+
+// Nested parameter definition.
+type ModeValueInfoResponseArgs struct {
+	// The interface string name for the nested parameter.
+	InterfaceString pulumi.StringPtrInput `pulumi:"interfaceString"`
+	// The definition of the parameter.
+	Parameters ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
+}
+
+func (ModeValueInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModeValueInfoResponse)(nil)).Elem()
+}
+
+func (i ModeValueInfoResponseArgs) ToModeValueInfoResponseOutput() ModeValueInfoResponseOutput {
+	return i.ToModeValueInfoResponseOutputWithContext(context.Background())
+}
+
+func (i ModeValueInfoResponseArgs) ToModeValueInfoResponseOutputWithContext(ctx context.Context) ModeValueInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoResponseOutput)
+}
+
+// ModeValueInfoResponseMapInput is an input type that accepts ModeValueInfoResponseMap and ModeValueInfoResponseMapOutput values.
+// You can construct a concrete instance of `ModeValueInfoResponseMapInput` via:
+//
+//          ModeValueInfoResponseMap{ "key": ModeValueInfoResponseArgs{...} }
+type ModeValueInfoResponseMapInput interface {
+	pulumi.Input
+
+	ToModeValueInfoResponseMapOutput() ModeValueInfoResponseMapOutput
+	ToModeValueInfoResponseMapOutputWithContext(context.Context) ModeValueInfoResponseMapOutput
+}
+
+type ModeValueInfoResponseMap map[string]ModeValueInfoResponseInput
+
+func (ModeValueInfoResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ModeValueInfoResponse)(nil)).Elem()
+}
+
+func (i ModeValueInfoResponseMap) ToModeValueInfoResponseMapOutput() ModeValueInfoResponseMapOutput {
+	return i.ToModeValueInfoResponseMapOutputWithContext(context.Background())
+}
+
+func (i ModeValueInfoResponseMap) ToModeValueInfoResponseMapOutputWithContext(ctx context.Context) ModeValueInfoResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoResponseMapOutput)
+}
+
+// Nested parameter definition.
+type ModeValueInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ModeValueInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModeValueInfoResponse)(nil)).Elem()
+}
+
+func (o ModeValueInfoResponseOutput) ToModeValueInfoResponseOutput() ModeValueInfoResponseOutput {
+	return o
+}
+
+func (o ModeValueInfoResponseOutput) ToModeValueInfoResponseOutputWithContext(ctx context.Context) ModeValueInfoResponseOutput {
+	return o
+}
+
+// The interface string name for the nested parameter.
+func (o ModeValueInfoResponseOutput) InterfaceString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModeValueInfoResponse) *string { return v.InterfaceString }).(pulumi.StringPtrOutput)
+}
+
+// The definition of the parameter.
+func (o ModeValueInfoResponseOutput) Parameters() ModuleAssetParameterResponseArrayOutput {
+	return o.ApplyT(func(v ModeValueInfoResponse) []ModuleAssetParameterResponse { return v.Parameters }).(ModuleAssetParameterResponseArrayOutput)
+}
+
+type ModeValueInfoResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ModeValueInfoResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ModeValueInfoResponse)(nil)).Elem()
+}
+
+func (o ModeValueInfoResponseMapOutput) ToModeValueInfoResponseMapOutput() ModeValueInfoResponseMapOutput {
+	return o
+}
+
+func (o ModeValueInfoResponseMapOutput) ToModeValueInfoResponseMapOutputWithContext(ctx context.Context) ModeValueInfoResponseMapOutput {
+	return o
+}
+
+func (o ModeValueInfoResponseMapOutput) MapIndex(k pulumi.StringInput) ModeValueInfoResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ModeValueInfoResponse {
+		return vs[0].(map[string]ModeValueInfoResponse)[vs[1].(string)]
+	}).(ModeValueInfoResponseOutput)
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameter struct {
+	// Definitions for nested interface parameters if this is a complex module parameter.
+	ModeValuesInfo map[string]ModeValueInfo `pulumi:"modeValuesInfo"`
+	// Parameter name.
+	Name *string `pulumi:"name"`
+	// Parameter type.
+	ParameterType *string `pulumi:"parameterType"`
+}
+
+// ModuleAssetParameterInput is an input type that accepts ModuleAssetParameterArgs and ModuleAssetParameterOutput values.
+// You can construct a concrete instance of `ModuleAssetParameterInput` via:
+//
+//          ModuleAssetParameterArgs{...}
+type ModuleAssetParameterInput interface {
+	pulumi.Input
+
+	ToModuleAssetParameterOutput() ModuleAssetParameterOutput
+	ToModuleAssetParameterOutputWithContext(context.Context) ModuleAssetParameterOutput
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameterArgs struct {
+	// Definitions for nested interface parameters if this is a complex module parameter.
+	ModeValuesInfo ModeValueInfoMapInput `pulumi:"modeValuesInfo"`
+	// Parameter name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Parameter type.
+	ParameterType pulumi.StringPtrInput `pulumi:"parameterType"`
+}
+
+func (ModuleAssetParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleAssetParameter)(nil)).Elem()
+}
+
+func (i ModuleAssetParameterArgs) ToModuleAssetParameterOutput() ModuleAssetParameterOutput {
+	return i.ToModuleAssetParameterOutputWithContext(context.Background())
+}
+
+func (i ModuleAssetParameterArgs) ToModuleAssetParameterOutputWithContext(ctx context.Context) ModuleAssetParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterOutput)
+}
+
+// ModuleAssetParameterArrayInput is an input type that accepts ModuleAssetParameterArray and ModuleAssetParameterArrayOutput values.
+// You can construct a concrete instance of `ModuleAssetParameterArrayInput` via:
+//
+//          ModuleAssetParameterArray{ ModuleAssetParameterArgs{...} }
+type ModuleAssetParameterArrayInput interface {
+	pulumi.Input
+
+	ToModuleAssetParameterArrayOutput() ModuleAssetParameterArrayOutput
+	ToModuleAssetParameterArrayOutputWithContext(context.Context) ModuleAssetParameterArrayOutput
+}
+
+type ModuleAssetParameterArray []ModuleAssetParameterInput
+
+func (ModuleAssetParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleAssetParameter)(nil)).Elem()
+}
+
+func (i ModuleAssetParameterArray) ToModuleAssetParameterArrayOutput() ModuleAssetParameterArrayOutput {
+	return i.ToModuleAssetParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ModuleAssetParameterArray) ToModuleAssetParameterArrayOutputWithContext(ctx context.Context) ModuleAssetParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterArrayOutput)
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameterOutput struct{ *pulumi.OutputState }
+
+func (ModuleAssetParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleAssetParameter)(nil)).Elem()
+}
+
+func (o ModuleAssetParameterOutput) ToModuleAssetParameterOutput() ModuleAssetParameterOutput {
+	return o
+}
+
+func (o ModuleAssetParameterOutput) ToModuleAssetParameterOutputWithContext(ctx context.Context) ModuleAssetParameterOutput {
+	return o
+}
+
+// Definitions for nested interface parameters if this is a complex module parameter.
+func (o ModuleAssetParameterOutput) ModeValuesInfo() ModeValueInfoMapOutput {
+	return o.ApplyT(func(v ModuleAssetParameter) map[string]ModeValueInfo { return v.ModeValuesInfo }).(ModeValueInfoMapOutput)
+}
+
+// Parameter name.
+func (o ModuleAssetParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleAssetParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Parameter type.
+func (o ModuleAssetParameterOutput) ParameterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleAssetParameter) *string { return v.ParameterType }).(pulumi.StringPtrOutput)
+}
+
+type ModuleAssetParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ModuleAssetParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleAssetParameter)(nil)).Elem()
+}
+
+func (o ModuleAssetParameterArrayOutput) ToModuleAssetParameterArrayOutput() ModuleAssetParameterArrayOutput {
+	return o
+}
+
+func (o ModuleAssetParameterArrayOutput) ToModuleAssetParameterArrayOutputWithContext(ctx context.Context) ModuleAssetParameterArrayOutput {
+	return o
+}
+
+func (o ModuleAssetParameterArrayOutput) Index(i pulumi.IntInput) ModuleAssetParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModuleAssetParameter {
+		return vs[0].([]ModuleAssetParameter)[vs[1].(int)]
+	}).(ModuleAssetParameterOutput)
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameterResponse struct {
+	// Definitions for nested interface parameters if this is a complex module parameter.
+	ModeValuesInfo map[string]ModeValueInfoResponse `pulumi:"modeValuesInfo"`
+	// Parameter name.
+	Name *string `pulumi:"name"`
+	// Parameter type.
+	ParameterType *string `pulumi:"parameterType"`
+}
+
+// ModuleAssetParameterResponseInput is an input type that accepts ModuleAssetParameterResponseArgs and ModuleAssetParameterResponseOutput values.
+// You can construct a concrete instance of `ModuleAssetParameterResponseInput` via:
+//
+//          ModuleAssetParameterResponseArgs{...}
+type ModuleAssetParameterResponseInput interface {
+	pulumi.Input
+
+	ToModuleAssetParameterResponseOutput() ModuleAssetParameterResponseOutput
+	ToModuleAssetParameterResponseOutputWithContext(context.Context) ModuleAssetParameterResponseOutput
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameterResponseArgs struct {
+	// Definitions for nested interface parameters if this is a complex module parameter.
+	ModeValuesInfo ModeValueInfoResponseMapInput `pulumi:"modeValuesInfo"`
+	// Parameter name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Parameter type.
+	ParameterType pulumi.StringPtrInput `pulumi:"parameterType"`
+}
+
+func (ModuleAssetParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleAssetParameterResponse)(nil)).Elem()
+}
+
+func (i ModuleAssetParameterResponseArgs) ToModuleAssetParameterResponseOutput() ModuleAssetParameterResponseOutput {
+	return i.ToModuleAssetParameterResponseOutputWithContext(context.Background())
+}
+
+func (i ModuleAssetParameterResponseArgs) ToModuleAssetParameterResponseOutputWithContext(ctx context.Context) ModuleAssetParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterResponseOutput)
+}
+
+// ModuleAssetParameterResponseArrayInput is an input type that accepts ModuleAssetParameterResponseArray and ModuleAssetParameterResponseArrayOutput values.
+// You can construct a concrete instance of `ModuleAssetParameterResponseArrayInput` via:
+//
+//          ModuleAssetParameterResponseArray{ ModuleAssetParameterResponseArgs{...} }
+type ModuleAssetParameterResponseArrayInput interface {
+	pulumi.Input
+
+	ToModuleAssetParameterResponseArrayOutput() ModuleAssetParameterResponseArrayOutput
+	ToModuleAssetParameterResponseArrayOutputWithContext(context.Context) ModuleAssetParameterResponseArrayOutput
+}
+
+type ModuleAssetParameterResponseArray []ModuleAssetParameterResponseInput
+
+func (ModuleAssetParameterResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleAssetParameterResponse)(nil)).Elem()
+}
+
+func (i ModuleAssetParameterResponseArray) ToModuleAssetParameterResponseArrayOutput() ModuleAssetParameterResponseArrayOutput {
+	return i.ToModuleAssetParameterResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ModuleAssetParameterResponseArray) ToModuleAssetParameterResponseArrayOutputWithContext(ctx context.Context) ModuleAssetParameterResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterResponseArrayOutput)
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (ModuleAssetParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleAssetParameterResponse)(nil)).Elem()
+}
+
+func (o ModuleAssetParameterResponseOutput) ToModuleAssetParameterResponseOutput() ModuleAssetParameterResponseOutput {
+	return o
+}
+
+func (o ModuleAssetParameterResponseOutput) ToModuleAssetParameterResponseOutputWithContext(ctx context.Context) ModuleAssetParameterResponseOutput {
+	return o
+}
+
+// Definitions for nested interface parameters if this is a complex module parameter.
+func (o ModuleAssetParameterResponseOutput) ModeValuesInfo() ModeValueInfoResponseMapOutput {
+	return o.ApplyT(func(v ModuleAssetParameterResponse) map[string]ModeValueInfoResponse { return v.ModeValuesInfo }).(ModeValueInfoResponseMapOutput)
+}
+
+// Parameter name.
+func (o ModuleAssetParameterResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleAssetParameterResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Parameter type.
+func (o ModuleAssetParameterResponseOutput) ParameterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleAssetParameterResponse) *string { return v.ParameterType }).(pulumi.StringPtrOutput)
+}
+
+type ModuleAssetParameterResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ModuleAssetParameterResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleAssetParameterResponse)(nil)).Elem()
+}
+
+func (o ModuleAssetParameterResponseArrayOutput) ToModuleAssetParameterResponseArrayOutput() ModuleAssetParameterResponseArrayOutput {
+	return o
+}
+
+func (o ModuleAssetParameterResponseArrayOutput) ToModuleAssetParameterResponseArrayOutputWithContext(ctx context.Context) ModuleAssetParameterResponseArrayOutput {
+	return o
+}
+
+func (o ModuleAssetParameterResponseArrayOutput) Index(i pulumi.IntInput) ModuleAssetParameterResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModuleAssetParameterResponse {
+		return vs[0].([]ModuleAssetParameterResponse)[vs[1].(int)]
+	}).(ModuleAssetParameterResponseOutput)
+}
+
+// Asset output port
+type OutputPort struct {
+	// Port data type.
+	Type *string `pulumi:"type"`
+}
+
+// OutputPortInput is an input type that accepts OutputPortArgs and OutputPortOutput values.
+// You can construct a concrete instance of `OutputPortInput` via:
+//
+//          OutputPortArgs{...}
+type OutputPortInput interface {
+	pulumi.Input
+
+	ToOutputPortOutput() OutputPortOutput
+	ToOutputPortOutputWithContext(context.Context) OutputPortOutput
+}
+
+// Asset output port
+type OutputPortArgs struct {
+	// Port data type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (OutputPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputPort)(nil)).Elem()
+}
+
+func (i OutputPortArgs) ToOutputPortOutput() OutputPortOutput {
+	return i.ToOutputPortOutputWithContext(context.Background())
+}
+
+func (i OutputPortArgs) ToOutputPortOutputWithContext(ctx context.Context) OutputPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputPortOutput)
+}
+
+// OutputPortMapInput is an input type that accepts OutputPortMap and OutputPortMapOutput values.
+// You can construct a concrete instance of `OutputPortMapInput` via:
+//
+//          OutputPortMap{ "key": OutputPortArgs{...} }
+type OutputPortMapInput interface {
+	pulumi.Input
+
+	ToOutputPortMapOutput() OutputPortMapOutput
+	ToOutputPortMapOutputWithContext(context.Context) OutputPortMapOutput
+}
+
+type OutputPortMap map[string]OutputPortInput
+
+func (OutputPortMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputPort)(nil)).Elem()
+}
+
+func (i OutputPortMap) ToOutputPortMapOutput() OutputPortMapOutput {
+	return i.ToOutputPortMapOutputWithContext(context.Background())
+}
+
+func (i OutputPortMap) ToOutputPortMapOutputWithContext(ctx context.Context) OutputPortMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputPortMapOutput)
+}
+
+// Asset output port
+type OutputPortOutput struct{ *pulumi.OutputState }
+
+func (OutputPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputPort)(nil)).Elem()
+}
+
+func (o OutputPortOutput) ToOutputPortOutput() OutputPortOutput {
+	return o
+}
+
+func (o OutputPortOutput) ToOutputPortOutputWithContext(ctx context.Context) OutputPortOutput {
+	return o
+}
+
+// Port data type.
+func (o OutputPortOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputPort) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type OutputPortMapOutput struct{ *pulumi.OutputState }
+
+func (OutputPortMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputPort)(nil)).Elem()
+}
+
+func (o OutputPortMapOutput) ToOutputPortMapOutput() OutputPortMapOutput {
+	return o
+}
+
+func (o OutputPortMapOutput) ToOutputPortMapOutputWithContext(ctx context.Context) OutputPortMapOutput {
+	return o
+}
+
+func (o OutputPortMapOutput) MapIndex(k pulumi.StringInput) OutputPortOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputPort {
+		return vs[0].(map[string]OutputPort)[vs[1].(string)]
+	}).(OutputPortOutput)
+}
+
+// Asset output port
+type OutputPortResponse struct {
+	// Port data type.
+	Type *string `pulumi:"type"`
+}
+
+// OutputPortResponseInput is an input type that accepts OutputPortResponseArgs and OutputPortResponseOutput values.
+// You can construct a concrete instance of `OutputPortResponseInput` via:
+//
+//          OutputPortResponseArgs{...}
+type OutputPortResponseInput interface {
+	pulumi.Input
+
+	ToOutputPortResponseOutput() OutputPortResponseOutput
+	ToOutputPortResponseOutputWithContext(context.Context) OutputPortResponseOutput
+}
+
+// Asset output port
+type OutputPortResponseArgs struct {
+	// Port data type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (OutputPortResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputPortResponse)(nil)).Elem()
+}
+
+func (i OutputPortResponseArgs) ToOutputPortResponseOutput() OutputPortResponseOutput {
+	return i.ToOutputPortResponseOutputWithContext(context.Background())
+}
+
+func (i OutputPortResponseArgs) ToOutputPortResponseOutputWithContext(ctx context.Context) OutputPortResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputPortResponseOutput)
+}
+
+// OutputPortResponseMapInput is an input type that accepts OutputPortResponseMap and OutputPortResponseMapOutput values.
+// You can construct a concrete instance of `OutputPortResponseMapInput` via:
+//
+//          OutputPortResponseMap{ "key": OutputPortResponseArgs{...} }
+type OutputPortResponseMapInput interface {
+	pulumi.Input
+
+	ToOutputPortResponseMapOutput() OutputPortResponseMapOutput
+	ToOutputPortResponseMapOutputWithContext(context.Context) OutputPortResponseMapOutput
+}
+
+type OutputPortResponseMap map[string]OutputPortResponseInput
+
+func (OutputPortResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputPortResponse)(nil)).Elem()
+}
+
+func (i OutputPortResponseMap) ToOutputPortResponseMapOutput() OutputPortResponseMapOutput {
+	return i.ToOutputPortResponseMapOutputWithContext(context.Background())
+}
+
+func (i OutputPortResponseMap) ToOutputPortResponseMapOutputWithContext(ctx context.Context) OutputPortResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputPortResponseMapOutput)
+}
+
+// Asset output port
+type OutputPortResponseOutput struct{ *pulumi.OutputState }
+
+func (OutputPortResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputPortResponse)(nil)).Elem()
+}
+
+func (o OutputPortResponseOutput) ToOutputPortResponseOutput() OutputPortResponseOutput {
+	return o
+}
+
+func (o OutputPortResponseOutput) ToOutputPortResponseOutputWithContext(ctx context.Context) OutputPortResponseOutput {
+	return o
+}
+
+// Port data type.
+func (o OutputPortResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputPortResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type OutputPortResponseMapOutput struct{ *pulumi.OutputState }
+
+func (OutputPortResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputPortResponse)(nil)).Elem()
+}
+
+func (o OutputPortResponseMapOutput) ToOutputPortResponseMapOutput() OutputPortResponseMapOutput {
+	return o
+}
+
+func (o OutputPortResponseMapOutput) ToOutputPortResponseMapOutputWithContext(ctx context.Context) OutputPortResponseMapOutput {
+	return o
+}
+
+func (o OutputPortResponseMapOutput) MapIndex(k pulumi.StringInput) OutputPortResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputPortResponse {
+		return vs[0].(map[string]OutputPortResponse)[vs[1].(string)]
+	}).(OutputPortResponseOutput)
 }
 
 // Holds the available configuration options for an Azure ML web service endpoint.
@@ -1737,7 +3153,7 @@ type ServiceInputOutputSpecification struct {
 	// The description of the Swagger schema.
 	Description *string `pulumi:"description"`
 	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]TableSpecification `pulumi:"properties"`
 	// The title of your Swagger schema.
 	Title *string `pulumi:"title"`
 	// The type of the entity described in swagger. Always 'object'.
@@ -1760,7 +3176,7 @@ type ServiceInputOutputSpecificationArgs struct {
 	// The description of the Swagger schema.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties TableSpecificationMapInput `pulumi:"properties"`
 	// The title of your Swagger schema.
 	Title pulumi.StringPtrInput `pulumi:"title"`
 	// The type of the entity described in swagger. Always 'object'.
@@ -1851,8 +3267,8 @@ func (o ServiceInputOutputSpecificationOutput) Description() pulumi.StringPtrOut
 }
 
 // Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-func (o ServiceInputOutputSpecificationOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServiceInputOutputSpecification) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o ServiceInputOutputSpecificationOutput) Properties() TableSpecificationMapOutput {
+	return o.ApplyT(func(v ServiceInputOutputSpecification) map[string]TableSpecification { return v.Properties }).(TableSpecificationMapOutput)
 }
 
 // The title of your Swagger schema.
@@ -1894,13 +3310,13 @@ func (o ServiceInputOutputSpecificationPtrOutput) Description() pulumi.StringPtr
 }
 
 // Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-func (o ServiceInputOutputSpecificationPtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ServiceInputOutputSpecification) map[string]string {
+func (o ServiceInputOutputSpecificationPtrOutput) Properties() TableSpecificationMapOutput {
+	return o.ApplyT(func(v *ServiceInputOutputSpecification) map[string]TableSpecification {
 		if v == nil {
 			return nil
 		}
 		return v.Properties
-	}).(pulumi.StringMapOutput)
+	}).(TableSpecificationMapOutput)
 }
 
 // The title of your Swagger schema.
@@ -1928,7 +3344,7 @@ type ServiceInputOutputSpecificationResponse struct {
 	// The description of the Swagger schema.
 	Description *string `pulumi:"description"`
 	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]TableSpecificationResponse `pulumi:"properties"`
 	// The title of your Swagger schema.
 	Title *string `pulumi:"title"`
 	// The type of the entity described in swagger. Always 'object'.
@@ -1951,7 +3367,7 @@ type ServiceInputOutputSpecificationResponseArgs struct {
 	// The description of the Swagger schema.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties TableSpecificationResponseMapInput `pulumi:"properties"`
 	// The title of your Swagger schema.
 	Title pulumi.StringPtrInput `pulumi:"title"`
 	// The type of the entity described in swagger. Always 'object'.
@@ -2042,8 +3458,10 @@ func (o ServiceInputOutputSpecificationResponseOutput) Description() pulumi.Stri
 }
 
 // Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-func (o ServiceInputOutputSpecificationResponseOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o ServiceInputOutputSpecificationResponseOutput) Properties() TableSpecificationResponseMapOutput {
+	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) map[string]TableSpecificationResponse {
+		return v.Properties
+	}).(TableSpecificationResponseMapOutput)
 }
 
 // The title of your Swagger schema.
@@ -2085,13 +3503,13 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) Description() pulumi.S
 }
 
 // Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-func (o ServiceInputOutputSpecificationResponsePtrOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) map[string]string {
+func (o ServiceInputOutputSpecificationResponsePtrOutput) Properties() TableSpecificationResponseMapOutput {
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) map[string]TableSpecificationResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Properties
-	}).(pulumi.StringMapOutput)
+	}).(TableSpecificationResponseMapOutput)
 }
 
 // The title of your Swagger schema.
@@ -2418,6 +3836,278 @@ func (o StorageAccountResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecification struct {
+	// Swagger schema description.
+	Description *string `pulumi:"description"`
+	// The format, if 'type' is not 'object'
+	Format *string `pulumi:"format"`
+	// The set of columns within the data table.
+	Properties map[string]ColumnSpecification `pulumi:"properties"`
+	// Swagger schema title.
+	Title *string `pulumi:"title"`
+	// The type of the entity described in swagger.
+	Type string `pulumi:"type"`
+}
+
+// TableSpecificationInput is an input type that accepts TableSpecificationArgs and TableSpecificationOutput values.
+// You can construct a concrete instance of `TableSpecificationInput` via:
+//
+//          TableSpecificationArgs{...}
+type TableSpecificationInput interface {
+	pulumi.Input
+
+	ToTableSpecificationOutput() TableSpecificationOutput
+	ToTableSpecificationOutputWithContext(context.Context) TableSpecificationOutput
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationArgs struct {
+	// Swagger schema description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The format, if 'type' is not 'object'
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The set of columns within the data table.
+	Properties ColumnSpecificationMapInput `pulumi:"properties"`
+	// Swagger schema title.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The type of the entity described in swagger.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSpecification)(nil)).Elem()
+}
+
+func (i TableSpecificationArgs) ToTableSpecificationOutput() TableSpecificationOutput {
+	return i.ToTableSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableSpecificationArgs) ToTableSpecificationOutputWithContext(ctx context.Context) TableSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationOutput)
+}
+
+// TableSpecificationMapInput is an input type that accepts TableSpecificationMap and TableSpecificationMapOutput values.
+// You can construct a concrete instance of `TableSpecificationMapInput` via:
+//
+//          TableSpecificationMap{ "key": TableSpecificationArgs{...} }
+type TableSpecificationMapInput interface {
+	pulumi.Input
+
+	ToTableSpecificationMapOutput() TableSpecificationMapOutput
+	ToTableSpecificationMapOutputWithContext(context.Context) TableSpecificationMapOutput
+}
+
+type TableSpecificationMap map[string]TableSpecificationInput
+
+func (TableSpecificationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableSpecification)(nil)).Elem()
+}
+
+func (i TableSpecificationMap) ToTableSpecificationMapOutput() TableSpecificationMapOutput {
+	return i.ToTableSpecificationMapOutputWithContext(context.Background())
+}
+
+func (i TableSpecificationMap) ToTableSpecificationMapOutputWithContext(ctx context.Context) TableSpecificationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationMapOutput)
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSpecification)(nil)).Elem()
+}
+
+func (o TableSpecificationOutput) ToTableSpecificationOutput() TableSpecificationOutput {
+	return o
+}
+
+func (o TableSpecificationOutput) ToTableSpecificationOutputWithContext(ctx context.Context) TableSpecificationOutput {
+	return o
+}
+
+// Swagger schema description.
+func (o TableSpecificationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The format, if 'type' is not 'object'
+func (o TableSpecificationOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecification) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The set of columns within the data table.
+func (o TableSpecificationOutput) Properties() ColumnSpecificationMapOutput {
+	return o.ApplyT(func(v TableSpecification) map[string]ColumnSpecification { return v.Properties }).(ColumnSpecificationMapOutput)
+}
+
+// Swagger schema title.
+func (o TableSpecificationOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecification) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the entity described in swagger.
+func (o TableSpecificationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSpecification) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TableSpecificationMapOutput struct{ *pulumi.OutputState }
+
+func (TableSpecificationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableSpecification)(nil)).Elem()
+}
+
+func (o TableSpecificationMapOutput) ToTableSpecificationMapOutput() TableSpecificationMapOutput {
+	return o
+}
+
+func (o TableSpecificationMapOutput) ToTableSpecificationMapOutputWithContext(ctx context.Context) TableSpecificationMapOutput {
+	return o
+}
+
+func (o TableSpecificationMapOutput) MapIndex(k pulumi.StringInput) TableSpecificationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TableSpecification {
+		return vs[0].(map[string]TableSpecification)[vs[1].(string)]
+	}).(TableSpecificationOutput)
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationResponse struct {
+	// Swagger schema description.
+	Description *string `pulumi:"description"`
+	// The format, if 'type' is not 'object'
+	Format *string `pulumi:"format"`
+	// The set of columns within the data table.
+	Properties map[string]ColumnSpecificationResponse `pulumi:"properties"`
+	// Swagger schema title.
+	Title *string `pulumi:"title"`
+	// The type of the entity described in swagger.
+	Type string `pulumi:"type"`
+}
+
+// TableSpecificationResponseInput is an input type that accepts TableSpecificationResponseArgs and TableSpecificationResponseOutput values.
+// You can construct a concrete instance of `TableSpecificationResponseInput` via:
+//
+//          TableSpecificationResponseArgs{...}
+type TableSpecificationResponseInput interface {
+	pulumi.Input
+
+	ToTableSpecificationResponseOutput() TableSpecificationResponseOutput
+	ToTableSpecificationResponseOutputWithContext(context.Context) TableSpecificationResponseOutput
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationResponseArgs struct {
+	// Swagger schema description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The format, if 'type' is not 'object'
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The set of columns within the data table.
+	Properties ColumnSpecificationResponseMapInput `pulumi:"properties"`
+	// Swagger schema title.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The type of the entity described in swagger.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableSpecificationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSpecificationResponse)(nil)).Elem()
+}
+
+func (i TableSpecificationResponseArgs) ToTableSpecificationResponseOutput() TableSpecificationResponseOutput {
+	return i.ToTableSpecificationResponseOutputWithContext(context.Background())
+}
+
+func (i TableSpecificationResponseArgs) ToTableSpecificationResponseOutputWithContext(ctx context.Context) TableSpecificationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationResponseOutput)
+}
+
+// TableSpecificationResponseMapInput is an input type that accepts TableSpecificationResponseMap and TableSpecificationResponseMapOutput values.
+// You can construct a concrete instance of `TableSpecificationResponseMapInput` via:
+//
+//          TableSpecificationResponseMap{ "key": TableSpecificationResponseArgs{...} }
+type TableSpecificationResponseMapInput interface {
+	pulumi.Input
+
+	ToTableSpecificationResponseMapOutput() TableSpecificationResponseMapOutput
+	ToTableSpecificationResponseMapOutputWithContext(context.Context) TableSpecificationResponseMapOutput
+}
+
+type TableSpecificationResponseMap map[string]TableSpecificationResponseInput
+
+func (TableSpecificationResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableSpecificationResponse)(nil)).Elem()
+}
+
+func (i TableSpecificationResponseMap) ToTableSpecificationResponseMapOutput() TableSpecificationResponseMapOutput {
+	return i.ToTableSpecificationResponseMapOutputWithContext(context.Background())
+}
+
+func (i TableSpecificationResponseMap) ToTableSpecificationResponseMapOutputWithContext(ctx context.Context) TableSpecificationResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationResponseMapOutput)
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationResponseOutput struct{ *pulumi.OutputState }
+
+func (TableSpecificationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSpecificationResponse)(nil)).Elem()
+}
+
+func (o TableSpecificationResponseOutput) ToTableSpecificationResponseOutput() TableSpecificationResponseOutput {
+	return o
+}
+
+func (o TableSpecificationResponseOutput) ToTableSpecificationResponseOutputWithContext(ctx context.Context) TableSpecificationResponseOutput {
+	return o
+}
+
+// Swagger schema description.
+func (o TableSpecificationResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecificationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The format, if 'type' is not 'object'
+func (o TableSpecificationResponseOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecificationResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The set of columns within the data table.
+func (o TableSpecificationResponseOutput) Properties() ColumnSpecificationResponseMapOutput {
+	return o.ApplyT(func(v TableSpecificationResponse) map[string]ColumnSpecificationResponse { return v.Properties }).(ColumnSpecificationResponseMapOutput)
+}
+
+// Swagger schema title.
+func (o TableSpecificationResponseOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecificationResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the entity described in swagger.
+func (o TableSpecificationResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSpecificationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TableSpecificationResponseMapOutput struct{ *pulumi.OutputState }
+
+func (TableSpecificationResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableSpecificationResponse)(nil)).Elem()
+}
+
+func (o TableSpecificationResponseMapOutput) ToTableSpecificationResponseMapOutput() TableSpecificationResponseMapOutput {
+	return o
+}
+
+func (o TableSpecificationResponseMapOutput) ToTableSpecificationResponseMapOutputWithContext(ctx context.Context) TableSpecificationResponseMapOutput {
+	return o
+}
+
+func (o TableSpecificationResponseMapOutput) MapIndex(k pulumi.StringInput) TableSpecificationResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TableSpecificationResponse {
+		return vs[0].(map[string]TableSpecificationResponse)[vs[1].(string)]
+	}).(TableSpecificationResponseOutput)
 }
 
 // Instance of an Azure ML web service resource.
@@ -2817,10 +4507,228 @@ func (o WebServiceKeysResponsePtrOutput) Secondary() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Web Service Parameter object for node and global parameter
+type WebServiceParameter struct {
+	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
+	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
+	// The parameter value
+	Value map[string]interface{} `pulumi:"value"`
+}
+
+// WebServiceParameterInput is an input type that accepts WebServiceParameterArgs and WebServiceParameterOutput values.
+// You can construct a concrete instance of `WebServiceParameterInput` via:
+//
+//          WebServiceParameterArgs{...}
+type WebServiceParameterInput interface {
+	pulumi.Input
+
+	ToWebServiceParameterOutput() WebServiceParameterOutput
+	ToWebServiceParameterOutputWithContext(context.Context) WebServiceParameterOutput
+}
+
+// Web Service Parameter object for node and global parameter
+type WebServiceParameterArgs struct {
+	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
+	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
+	// The parameter value
+	Value pulumi.MapInput `pulumi:"value"`
+}
+
+func (WebServiceParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServiceParameter)(nil)).Elem()
+}
+
+func (i WebServiceParameterArgs) ToWebServiceParameterOutput() WebServiceParameterOutput {
+	return i.ToWebServiceParameterOutputWithContext(context.Background())
+}
+
+func (i WebServiceParameterArgs) ToWebServiceParameterOutputWithContext(ctx context.Context) WebServiceParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterOutput)
+}
+
+// WebServiceParameterMapInput is an input type that accepts WebServiceParameterMap and WebServiceParameterMapOutput values.
+// You can construct a concrete instance of `WebServiceParameterMapInput` via:
+//
+//          WebServiceParameterMap{ "key": WebServiceParameterArgs{...} }
+type WebServiceParameterMapInput interface {
+	pulumi.Input
+
+	ToWebServiceParameterMapOutput() WebServiceParameterMapOutput
+	ToWebServiceParameterMapOutputWithContext(context.Context) WebServiceParameterMapOutput
+}
+
+type WebServiceParameterMap map[string]WebServiceParameterInput
+
+func (WebServiceParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebServiceParameter)(nil)).Elem()
+}
+
+func (i WebServiceParameterMap) ToWebServiceParameterMapOutput() WebServiceParameterMapOutput {
+	return i.ToWebServiceParameterMapOutputWithContext(context.Background())
+}
+
+func (i WebServiceParameterMap) ToWebServiceParameterMapOutputWithContext(ctx context.Context) WebServiceParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterMapOutput)
+}
+
+// Web Service Parameter object for node and global parameter
+type WebServiceParameterOutput struct{ *pulumi.OutputState }
+
+func (WebServiceParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServiceParameter)(nil)).Elem()
+}
+
+func (o WebServiceParameterOutput) ToWebServiceParameterOutput() WebServiceParameterOutput {
+	return o
+}
+
+func (o WebServiceParameterOutput) ToWebServiceParameterOutputWithContext(ctx context.Context) WebServiceParameterOutput {
+	return o
+}
+
+// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
+func (o WebServiceParameterOutput) CertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServiceParameter) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The parameter value
+func (o WebServiceParameterOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v WebServiceParameter) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+}
+
+type WebServiceParameterMapOutput struct{ *pulumi.OutputState }
+
+func (WebServiceParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebServiceParameter)(nil)).Elem()
+}
+
+func (o WebServiceParameterMapOutput) ToWebServiceParameterMapOutput() WebServiceParameterMapOutput {
+	return o
+}
+
+func (o WebServiceParameterMapOutput) ToWebServiceParameterMapOutputWithContext(ctx context.Context) WebServiceParameterMapOutput {
+	return o
+}
+
+func (o WebServiceParameterMapOutput) MapIndex(k pulumi.StringInput) WebServiceParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebServiceParameter {
+		return vs[0].(map[string]WebServiceParameter)[vs[1].(string)]
+	}).(WebServiceParameterOutput)
+}
+
+// Web Service Parameter object for node and global parameter
+type WebServiceParameterResponse struct {
+	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
+	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
+	// The parameter value
+	Value map[string]interface{} `pulumi:"value"`
+}
+
+// WebServiceParameterResponseInput is an input type that accepts WebServiceParameterResponseArgs and WebServiceParameterResponseOutput values.
+// You can construct a concrete instance of `WebServiceParameterResponseInput` via:
+//
+//          WebServiceParameterResponseArgs{...}
+type WebServiceParameterResponseInput interface {
+	pulumi.Input
+
+	ToWebServiceParameterResponseOutput() WebServiceParameterResponseOutput
+	ToWebServiceParameterResponseOutputWithContext(context.Context) WebServiceParameterResponseOutput
+}
+
+// Web Service Parameter object for node and global parameter
+type WebServiceParameterResponseArgs struct {
+	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
+	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
+	// The parameter value
+	Value pulumi.MapInput `pulumi:"value"`
+}
+
+func (WebServiceParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServiceParameterResponse)(nil)).Elem()
+}
+
+func (i WebServiceParameterResponseArgs) ToWebServiceParameterResponseOutput() WebServiceParameterResponseOutput {
+	return i.ToWebServiceParameterResponseOutputWithContext(context.Background())
+}
+
+func (i WebServiceParameterResponseArgs) ToWebServiceParameterResponseOutputWithContext(ctx context.Context) WebServiceParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterResponseOutput)
+}
+
+// WebServiceParameterResponseMapInput is an input type that accepts WebServiceParameterResponseMap and WebServiceParameterResponseMapOutput values.
+// You can construct a concrete instance of `WebServiceParameterResponseMapInput` via:
+//
+//          WebServiceParameterResponseMap{ "key": WebServiceParameterResponseArgs{...} }
+type WebServiceParameterResponseMapInput interface {
+	pulumi.Input
+
+	ToWebServiceParameterResponseMapOutput() WebServiceParameterResponseMapOutput
+	ToWebServiceParameterResponseMapOutputWithContext(context.Context) WebServiceParameterResponseMapOutput
+}
+
+type WebServiceParameterResponseMap map[string]WebServiceParameterResponseInput
+
+func (WebServiceParameterResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebServiceParameterResponse)(nil)).Elem()
+}
+
+func (i WebServiceParameterResponseMap) ToWebServiceParameterResponseMapOutput() WebServiceParameterResponseMapOutput {
+	return i.ToWebServiceParameterResponseMapOutputWithContext(context.Background())
+}
+
+func (i WebServiceParameterResponseMap) ToWebServiceParameterResponseMapOutputWithContext(ctx context.Context) WebServiceParameterResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterResponseMapOutput)
+}
+
+// Web Service Parameter object for node and global parameter
+type WebServiceParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (WebServiceParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServiceParameterResponse)(nil)).Elem()
+}
+
+func (o WebServiceParameterResponseOutput) ToWebServiceParameterResponseOutput() WebServiceParameterResponseOutput {
+	return o
+}
+
+func (o WebServiceParameterResponseOutput) ToWebServiceParameterResponseOutputWithContext(ctx context.Context) WebServiceParameterResponseOutput {
+	return o
+}
+
+// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
+func (o WebServiceParameterResponseOutput) CertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServiceParameterResponse) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The parameter value
+func (o WebServiceParameterResponseOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v WebServiceParameterResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
+}
+
+type WebServiceParameterResponseMapOutput struct{ *pulumi.OutputState }
+
+func (WebServiceParameterResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebServiceParameterResponse)(nil)).Elem()
+}
+
+func (o WebServiceParameterResponseMapOutput) ToWebServiceParameterResponseMapOutput() WebServiceParameterResponseMapOutput {
+	return o
+}
+
+func (o WebServiceParameterResponseMapOutput) ToWebServiceParameterResponseMapOutputWithContext(ctx context.Context) WebServiceParameterResponseMapOutput {
+	return o
+}
+
+func (o WebServiceParameterResponseMapOutput) MapIndex(k pulumi.StringInput) WebServiceParameterResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebServiceParameterResponse {
+		return vs[0].(map[string]WebServiceParameterResponse)[vs[1].(string)]
+	}).(WebServiceParameterResponseOutput)
+}
+
 // The set of properties specific to the Azure ML web service resource.
 type WebServiceProperties struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets map[string]string `pulumi:"assets"`
+	Assets map[string]AssetItem `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 	CommitmentPlan *CommitmentPlan `pulumi:"commitmentPlan"`
 	// The description of the web service.
@@ -2842,7 +4750,7 @@ type WebServiceProperties struct {
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType string `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]WebServiceParameter `pulumi:"parameters"`
 	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 	PayloadsInBlobStorage *bool `pulumi:"payloadsInBlobStorage"`
 	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
@@ -2871,7 +4779,7 @@ type WebServicePropertiesInput interface {
 // The set of properties specific to the Azure ML web service resource.
 type WebServicePropertiesArgs struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets pulumi.StringMapInput `pulumi:"assets"`
+	Assets AssetItemMapInput `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 	CommitmentPlan CommitmentPlanPtrInput `pulumi:"commitmentPlan"`
 	// The description of the web service.
@@ -2893,7 +4801,7 @@ type WebServicePropertiesArgs struct {
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType pulumi.StringInput `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters WebServiceParameterMapInput `pulumi:"parameters"`
 	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 	PayloadsInBlobStorage pulumi.BoolPtrInput `pulumi:"payloadsInBlobStorage"`
 	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
@@ -2987,8 +4895,8 @@ func (o WebServicePropertiesOutput) ToWebServicePropertiesPtrOutputWithContext(c
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesOutput) Assets() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebServiceProperties) map[string]string { return v.Assets }).(pulumi.StringMapOutput)
+func (o WebServicePropertiesOutput) Assets() AssetItemMapOutput {
+	return o.ApplyT(func(v WebServiceProperties) map[string]AssetItem { return v.Assets }).(AssetItemMapOutput)
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -3042,8 +4950,8 @@ func (o WebServicePropertiesOutput) PackageType() pulumi.StringOutput {
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebServiceProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o WebServicePropertiesOutput) Parameters() WebServiceParameterMapOutput {
+	return o.ApplyT(func(v WebServiceProperties) map[string]WebServiceParameter { return v.Parameters }).(WebServiceParameterMapOutput)
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
@@ -3095,13 +5003,13 @@ func (o WebServicePropertiesPtrOutput) Elem() WebServicePropertiesOutput {
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesPtrOutput) Assets() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *WebServiceProperties) map[string]string {
+func (o WebServicePropertiesPtrOutput) Assets() AssetItemMapOutput {
+	return o.ApplyT(func(v *WebServiceProperties) map[string]AssetItem {
 		if v == nil {
 			return nil
 		}
 		return v.Assets
-	}).(pulumi.StringMapOutput)
+	}).(AssetItemMapOutput)
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -3205,13 +5113,13 @@ func (o WebServicePropertiesPtrOutput) PackageType() pulumi.StringPtrOutput {
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *WebServiceProperties) map[string]string {
+func (o WebServicePropertiesPtrOutput) Parameters() WebServiceParameterMapOutput {
+	return o.ApplyT(func(v *WebServiceProperties) map[string]WebServiceParameter {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(WebServiceParameterMapOutput)
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
@@ -3277,7 +5185,7 @@ func (o WebServicePropertiesPtrOutput) Title() pulumi.StringPtrOutput {
 // The set of properties specific to the Azure ML web service resource.
 type WebServicePropertiesResponse struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets map[string]string `pulumi:"assets"`
+	Assets map[string]AssetItemResponse `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 	CommitmentPlan *CommitmentPlanResponse `pulumi:"commitmentPlan"`
 	// Read Only: The date and time when the web service was created.
@@ -3303,7 +5211,7 @@ type WebServicePropertiesResponse struct {
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType string `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]WebServiceParameterResponse `pulumi:"parameters"`
 	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 	PayloadsInBlobStorage *bool `pulumi:"payloadsInBlobStorage"`
 	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
@@ -3336,7 +5244,7 @@ type WebServicePropertiesResponseInput interface {
 // The set of properties specific to the Azure ML web service resource.
 type WebServicePropertiesResponseArgs struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets pulumi.StringMapInput `pulumi:"assets"`
+	Assets AssetItemResponseMapInput `pulumi:"assets"`
 	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 	CommitmentPlan CommitmentPlanResponsePtrInput `pulumi:"commitmentPlan"`
 	// Read Only: The date and time when the web service was created.
@@ -3362,7 +5270,7 @@ type WebServicePropertiesResponseArgs struct {
 	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
 	PackageType pulumi.StringInput `pulumi:"packageType"`
 	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters WebServiceParameterResponseMapInput `pulumi:"parameters"`
 	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 	PayloadsInBlobStorage pulumi.BoolPtrInput `pulumi:"payloadsInBlobStorage"`
 	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
@@ -3460,8 +5368,8 @@ func (o WebServicePropertiesResponseOutput) ToWebServicePropertiesResponsePtrOut
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesResponseOutput) Assets() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) map[string]string { return v.Assets }).(pulumi.StringMapOutput)
+func (o WebServicePropertiesResponseOutput) Assets() AssetItemResponseMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesResponse) map[string]AssetItemResponse { return v.Assets }).(AssetItemResponseMapOutput)
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -3527,8 +5435,8 @@ func (o WebServicePropertiesResponseOutput) PackageType() pulumi.StringOutput {
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebServicePropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o WebServicePropertiesResponseOutput) Parameters() WebServiceParameterResponseMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesResponse) map[string]WebServiceParameterResponse { return v.Parameters }).(WebServiceParameterResponseMapOutput)
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
@@ -3590,13 +5498,13 @@ func (o WebServicePropertiesResponsePtrOutput) Elem() WebServicePropertiesRespon
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-func (o WebServicePropertiesResponsePtrOutput) Assets() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) map[string]string {
+func (o WebServicePropertiesResponsePtrOutput) Assets() AssetItemResponseMapOutput {
+	return o.ApplyT(func(v *WebServicePropertiesResponse) map[string]AssetItemResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Assets
-	}).(pulumi.StringMapOutput)
+	}).(AssetItemResponseMapOutput)
 }
 
 // Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
@@ -3720,13 +5628,13 @@ func (o WebServicePropertiesResponsePtrOutput) PackageType() pulumi.StringPtrOut
 }
 
 // The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-func (o WebServicePropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesResponse) map[string]string {
+func (o WebServicePropertiesResponsePtrOutput) Parameters() WebServiceParameterResponseMapOutput {
+	return o.ApplyT(func(v *WebServicePropertiesResponse) map[string]WebServiceParameterResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(WebServiceParameterResponseMapOutput)
 }
 
 // When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
@@ -3810,10 +5718,18 @@ func (o WebServicePropertiesResponsePtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AssetItemOutput{})
+	pulumi.RegisterOutputType(AssetItemMapOutput{})
+	pulumi.RegisterOutputType(AssetItemResponseOutput{})
+	pulumi.RegisterOutputType(AssetItemResponseMapOutput{})
 	pulumi.RegisterOutputType(BlobLocationOutput{})
 	pulumi.RegisterOutputType(BlobLocationPtrOutput{})
 	pulumi.RegisterOutputType(BlobLocationResponseOutput{})
 	pulumi.RegisterOutputType(BlobLocationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ColumnSpecificationOutput{})
+	pulumi.RegisterOutputType(ColumnSpecificationMapOutput{})
+	pulumi.RegisterOutputType(ColumnSpecificationResponseOutput{})
+	pulumi.RegisterOutputType(ColumnSpecificationResponseMapOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanPtrOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanResponseOutput{})
@@ -3826,10 +5742,26 @@ func init() {
 	pulumi.RegisterOutputType(ExampleRequestPtrOutput{})
 	pulumi.RegisterOutputType(ExampleRequestResponseOutput{})
 	pulumi.RegisterOutputType(ExampleRequestResponsePtrOutput{})
+	pulumi.RegisterOutputType(InputPortOutput{})
+	pulumi.RegisterOutputType(InputPortMapOutput{})
+	pulumi.RegisterOutputType(InputPortResponseOutput{})
+	pulumi.RegisterOutputType(InputPortResponseMapOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspaceOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspaceResponseOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspaceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ModeValueInfoOutput{})
+	pulumi.RegisterOutputType(ModeValueInfoMapOutput{})
+	pulumi.RegisterOutputType(ModeValueInfoResponseOutput{})
+	pulumi.RegisterOutputType(ModeValueInfoResponseMapOutput{})
+	pulumi.RegisterOutputType(ModuleAssetParameterOutput{})
+	pulumi.RegisterOutputType(ModuleAssetParameterArrayOutput{})
+	pulumi.RegisterOutputType(ModuleAssetParameterResponseOutput{})
+	pulumi.RegisterOutputType(ModuleAssetParameterResponseArrayOutput{})
+	pulumi.RegisterOutputType(OutputPortOutput{})
+	pulumi.RegisterOutputType(OutputPortMapOutput{})
+	pulumi.RegisterOutputType(OutputPortResponseOutput{})
+	pulumi.RegisterOutputType(OutputPortResponseMapOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationResponseOutput{})
@@ -3842,11 +5774,19 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponsePtrOutput{})
+	pulumi.RegisterOutputType(TableSpecificationOutput{})
+	pulumi.RegisterOutputType(TableSpecificationMapOutput{})
+	pulumi.RegisterOutputType(TableSpecificationResponseOutput{})
+	pulumi.RegisterOutputType(TableSpecificationResponseMapOutput{})
 	pulumi.RegisterOutputType(WebServiceTypeOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysPtrOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysResponseOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysResponsePtrOutput{})
+	pulumi.RegisterOutputType(WebServiceParameterOutput{})
+	pulumi.RegisterOutputType(WebServiceParameterMapOutput{})
+	pulumi.RegisterOutputType(WebServiceParameterResponseOutput{})
+	pulumi.RegisterOutputType(WebServiceParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesResponseOutput{})

@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Inputs
     public sealed class TriggerDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("annotations")]
-        private InputList<ImmutableDictionary<string, string>>? _annotations;
+        private InputList<ImmutableDictionary<string, object>>? _annotations;
 
         /// <summary>
         /// List of tags that can be used for describing the trigger.
         /// </summary>
-        public InputList<ImmutableDictionary<string, string>> Annotations
+        public InputList<ImmutableDictionary<string, object>> Annotations
         {
-            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, string>>());
+            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
             set => _annotations = value;
         }
 

@@ -64,14 +64,14 @@ namespace Pulumi.AzureRM.Web.V20180201.Inputs
         public Input<string>? AutoSwapSlotName { get; set; }
 
         [Input("azureStorageAccounts")]
-        private InputMap<string>? _azureStorageAccounts;
+        private InputMap<Inputs.AzureStorageInfoValueArgs>? _azureStorageAccounts;
 
         /// <summary>
         /// User-provided Azure storage accounts.
         /// </summary>
-        public InputMap<string> AzureStorageAccounts
+        public InputMap<Inputs.AzureStorageInfoValueArgs> AzureStorageAccounts
         {
-            get => _azureStorageAccounts ?? (_azureStorageAccounts = new InputMap<string>());
+            get => _azureStorageAccounts ?? (_azureStorageAccounts = new InputMap<Inputs.AzureStorageInfoValueArgs>());
             set => _azureStorageAccounts = value;
         }
 

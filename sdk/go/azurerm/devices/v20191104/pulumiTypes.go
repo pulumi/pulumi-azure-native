@@ -920,6 +920,251 @@ func (o EnrichmentPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Enrich
 	}).(EnrichmentPropertiesResponseOutput)
 }
 
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubProperties struct {
+	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	RetentionTimeInDays *int `pulumi:"retentionTimeInDays"`
+}
+
+// EventHubPropertiesInput is an input type that accepts EventHubPropertiesArgs and EventHubPropertiesOutput values.
+// You can construct a concrete instance of `EventHubPropertiesInput` via:
+//
+//          EventHubPropertiesArgs{...}
+type EventHubPropertiesInput interface {
+	pulumi.Input
+
+	ToEventHubPropertiesOutput() EventHubPropertiesOutput
+	ToEventHubPropertiesOutputWithContext(context.Context) EventHubPropertiesOutput
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesArgs struct {
+	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+	PartitionCount pulumi.IntPtrInput `pulumi:"partitionCount"`
+	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	RetentionTimeInDays pulumi.IntPtrInput `pulumi:"retentionTimeInDays"`
+}
+
+func (EventHubPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubProperties)(nil)).Elem()
+}
+
+func (i EventHubPropertiesArgs) ToEventHubPropertiesOutput() EventHubPropertiesOutput {
+	return i.ToEventHubPropertiesOutputWithContext(context.Background())
+}
+
+func (i EventHubPropertiesArgs) ToEventHubPropertiesOutputWithContext(ctx context.Context) EventHubPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesOutput)
+}
+
+// EventHubPropertiesMapInput is an input type that accepts EventHubPropertiesMap and EventHubPropertiesMapOutput values.
+// You can construct a concrete instance of `EventHubPropertiesMapInput` via:
+//
+//          EventHubPropertiesMap{ "key": EventHubPropertiesArgs{...} }
+type EventHubPropertiesMapInput interface {
+	pulumi.Input
+
+	ToEventHubPropertiesMapOutput() EventHubPropertiesMapOutput
+	ToEventHubPropertiesMapOutputWithContext(context.Context) EventHubPropertiesMapOutput
+}
+
+type EventHubPropertiesMap map[string]EventHubPropertiesInput
+
+func (EventHubPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubProperties)(nil)).Elem()
+}
+
+func (i EventHubPropertiesMap) ToEventHubPropertiesMapOutput() EventHubPropertiesMapOutput {
+	return i.ToEventHubPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i EventHubPropertiesMap) ToEventHubPropertiesMapOutputWithContext(ctx context.Context) EventHubPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesMapOutput)
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EventHubPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubProperties)(nil)).Elem()
+}
+
+func (o EventHubPropertiesOutput) ToEventHubPropertiesOutput() EventHubPropertiesOutput {
+	return o
+}
+
+func (o EventHubPropertiesOutput) ToEventHubPropertiesOutputWithContext(ctx context.Context) EventHubPropertiesOutput {
+	return o
+}
+
+// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+func (o EventHubPropertiesOutput) PartitionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventHubProperties) *int { return v.PartitionCount }).(pulumi.IntPtrOutput)
+}
+
+// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+func (o EventHubPropertiesOutput) RetentionTimeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventHubProperties) *int { return v.RetentionTimeInDays }).(pulumi.IntPtrOutput)
+}
+
+type EventHubPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (EventHubPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubProperties)(nil)).Elem()
+}
+
+func (o EventHubPropertiesMapOutput) ToEventHubPropertiesMapOutput() EventHubPropertiesMapOutput {
+	return o
+}
+
+func (o EventHubPropertiesMapOutput) ToEventHubPropertiesMapOutputWithContext(ctx context.Context) EventHubPropertiesMapOutput {
+	return o
+}
+
+func (o EventHubPropertiesMapOutput) MapIndex(k pulumi.StringInput) EventHubPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHubProperties {
+		return vs[0].(map[string]EventHubProperties)[vs[1].(string)]
+	}).(EventHubPropertiesOutput)
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesResponse struct {
+	// The Event Hub-compatible endpoint.
+	Endpoint string `pulumi:"endpoint"`
+	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// The partition ids in the Event Hub-compatible endpoint.
+	PartitionIds []string `pulumi:"partitionIds"`
+	// The Event Hub-compatible name.
+	Path string `pulumi:"path"`
+	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	RetentionTimeInDays *int `pulumi:"retentionTimeInDays"`
+}
+
+// EventHubPropertiesResponseInput is an input type that accepts EventHubPropertiesResponseArgs and EventHubPropertiesResponseOutput values.
+// You can construct a concrete instance of `EventHubPropertiesResponseInput` via:
+//
+//          EventHubPropertiesResponseArgs{...}
+type EventHubPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToEventHubPropertiesResponseOutput() EventHubPropertiesResponseOutput
+	ToEventHubPropertiesResponseOutputWithContext(context.Context) EventHubPropertiesResponseOutput
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesResponseArgs struct {
+	// The Event Hub-compatible endpoint.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+	PartitionCount pulumi.IntPtrInput `pulumi:"partitionCount"`
+	// The partition ids in the Event Hub-compatible endpoint.
+	PartitionIds pulumi.StringArrayInput `pulumi:"partitionIds"`
+	// The Event Hub-compatible name.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	RetentionTimeInDays pulumi.IntPtrInput `pulumi:"retentionTimeInDays"`
+}
+
+func (EventHubPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubPropertiesResponse)(nil)).Elem()
+}
+
+func (i EventHubPropertiesResponseArgs) ToEventHubPropertiesResponseOutput() EventHubPropertiesResponseOutput {
+	return i.ToEventHubPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubPropertiesResponseArgs) ToEventHubPropertiesResponseOutputWithContext(ctx context.Context) EventHubPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesResponseOutput)
+}
+
+// EventHubPropertiesResponseMapInput is an input type that accepts EventHubPropertiesResponseMap and EventHubPropertiesResponseMapOutput values.
+// You can construct a concrete instance of `EventHubPropertiesResponseMapInput` via:
+//
+//          EventHubPropertiesResponseMap{ "key": EventHubPropertiesResponseArgs{...} }
+type EventHubPropertiesResponseMapInput interface {
+	pulumi.Input
+
+	ToEventHubPropertiesResponseMapOutput() EventHubPropertiesResponseMapOutput
+	ToEventHubPropertiesResponseMapOutputWithContext(context.Context) EventHubPropertiesResponseMapOutput
+}
+
+type EventHubPropertiesResponseMap map[string]EventHubPropertiesResponseInput
+
+func (EventHubPropertiesResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubPropertiesResponse)(nil)).Elem()
+}
+
+func (i EventHubPropertiesResponseMap) ToEventHubPropertiesResponseMapOutput() EventHubPropertiesResponseMapOutput {
+	return i.ToEventHubPropertiesResponseMapOutputWithContext(context.Background())
+}
+
+func (i EventHubPropertiesResponseMap) ToEventHubPropertiesResponseMapOutputWithContext(ctx context.Context) EventHubPropertiesResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesResponseMapOutput)
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubPropertiesResponse)(nil)).Elem()
+}
+
+func (o EventHubPropertiesResponseOutput) ToEventHubPropertiesResponseOutput() EventHubPropertiesResponseOutput {
+	return o
+}
+
+func (o EventHubPropertiesResponseOutput) ToEventHubPropertiesResponseOutputWithContext(ctx context.Context) EventHubPropertiesResponseOutput {
+	return o
+}
+
+// The Event Hub-compatible endpoint.
+func (o EventHubPropertiesResponseOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubPropertiesResponse) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+func (o EventHubPropertiesResponseOutput) PartitionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventHubPropertiesResponse) *int { return v.PartitionCount }).(pulumi.IntPtrOutput)
+}
+
+// The partition ids in the Event Hub-compatible endpoint.
+func (o EventHubPropertiesResponseOutput) PartitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventHubPropertiesResponse) []string { return v.PartitionIds }).(pulumi.StringArrayOutput)
+}
+
+// The Event Hub-compatible name.
+func (o EventHubPropertiesResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubPropertiesResponse) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+func (o EventHubPropertiesResponseOutput) RetentionTimeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventHubPropertiesResponse) *int { return v.RetentionTimeInDays }).(pulumi.IntPtrOutput)
+}
+
+type EventHubPropertiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (EventHubPropertiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubPropertiesResponse)(nil)).Elem()
+}
+
+func (o EventHubPropertiesResponseMapOutput) ToEventHubPropertiesResponseMapOutput() EventHubPropertiesResponseMapOutput {
+	return o
+}
+
+func (o EventHubPropertiesResponseMapOutput) ToEventHubPropertiesResponseMapOutputWithContext(ctx context.Context) EventHubPropertiesResponseMapOutput {
+	return o
+}
+
+func (o EventHubPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) EventHubPropertiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHubPropertiesResponse {
+		return vs[0].(map[string]EventHubPropertiesResponse)[vs[1].(string)]
+	}).(EventHubPropertiesResponseOutput)
+}
+
 // The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
 type FallbackRouteProperties struct {
 	// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
@@ -1868,17 +2113,17 @@ type IotHubProperties struct {
 	// If True, file upload notifications are enabled.
 	EnableFileUploadNotifications *bool `pulumi:"enableFileUploadNotifications"`
 	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints map[string]string `pulumi:"eventHubEndpoints"`
+	EventHubEndpoints map[string]EventHubProperties `pulumi:"eventHubEndpoints"`
 	// The capabilities and features enabled for the IoT hub.
 	Features *string `pulumi:"features"`
 	// The IP filter rules.
 	IpFilterRules []IpFilterRule `pulumi:"ipFilterRules"`
 	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints map[string]string `pulumi:"messagingEndpoints"`
+	MessagingEndpoints map[string]MessagingEndpointProperties `pulumi:"messagingEndpoints"`
 	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 	Routing *RoutingProperties `pulumi:"routing"`
 	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints map[string]string `pulumi:"storageEndpoints"`
+	StorageEndpoints map[string]StorageEndpointProperties `pulumi:"storageEndpoints"`
 }
 
 // IotHubPropertiesInput is an input type that accepts IotHubPropertiesArgs and IotHubPropertiesOutput values.
@@ -1903,17 +2148,17 @@ type IotHubPropertiesArgs struct {
 	// If True, file upload notifications are enabled.
 	EnableFileUploadNotifications pulumi.BoolPtrInput `pulumi:"enableFileUploadNotifications"`
 	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints pulumi.StringMapInput `pulumi:"eventHubEndpoints"`
+	EventHubEndpoints EventHubPropertiesMapInput `pulumi:"eventHubEndpoints"`
 	// The capabilities and features enabled for the IoT hub.
 	Features pulumi.StringPtrInput `pulumi:"features"`
 	// The IP filter rules.
 	IpFilterRules IpFilterRuleArrayInput `pulumi:"ipFilterRules"`
 	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints pulumi.StringMapInput `pulumi:"messagingEndpoints"`
+	MessagingEndpoints MessagingEndpointPropertiesMapInput `pulumi:"messagingEndpoints"`
 	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 	Routing RoutingPropertiesPtrInput `pulumi:"routing"`
 	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints pulumi.StringMapInput `pulumi:"storageEndpoints"`
+	StorageEndpoints StorageEndpointPropertiesMapInput `pulumi:"storageEndpoints"`
 }
 
 func (IotHubPropertiesArgs) ElementType() reflect.Type {
@@ -2015,8 +2260,8 @@ func (o IotHubPropertiesOutput) EnableFileUploadNotifications() pulumi.BoolPtrOu
 }
 
 // The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-func (o IotHubPropertiesOutput) EventHubEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubProperties) map[string]string { return v.EventHubEndpoints }).(pulumi.StringMapOutput)
+func (o IotHubPropertiesOutput) EventHubEndpoints() EventHubPropertiesMapOutput {
+	return o.ApplyT(func(v IotHubProperties) map[string]EventHubProperties { return v.EventHubEndpoints }).(EventHubPropertiesMapOutput)
 }
 
 // The capabilities and features enabled for the IoT hub.
@@ -2030,8 +2275,8 @@ func (o IotHubPropertiesOutput) IpFilterRules() IpFilterRuleArrayOutput {
 }
 
 // The messaging endpoint properties for the file upload notification queue.
-func (o IotHubPropertiesOutput) MessagingEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubProperties) map[string]string { return v.MessagingEndpoints }).(pulumi.StringMapOutput)
+func (o IotHubPropertiesOutput) MessagingEndpoints() MessagingEndpointPropertiesMapOutput {
+	return o.ApplyT(func(v IotHubProperties) map[string]MessagingEndpointProperties { return v.MessagingEndpoints }).(MessagingEndpointPropertiesMapOutput)
 }
 
 // The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -2040,8 +2285,8 @@ func (o IotHubPropertiesOutput) Routing() RoutingPropertiesPtrOutput {
 }
 
 // The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-func (o IotHubPropertiesOutput) StorageEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubProperties) map[string]string { return v.StorageEndpoints }).(pulumi.StringMapOutput)
+func (o IotHubPropertiesOutput) StorageEndpoints() StorageEndpointPropertiesMapOutput {
+	return o.ApplyT(func(v IotHubProperties) map[string]StorageEndpointProperties { return v.StorageEndpoints }).(StorageEndpointPropertiesMapOutput)
 }
 
 type IotHubPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2103,13 +2348,13 @@ func (o IotHubPropertiesPtrOutput) EnableFileUploadNotifications() pulumi.BoolPt
 }
 
 // The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-func (o IotHubPropertiesPtrOutput) EventHubEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IotHubProperties) map[string]string {
+func (o IotHubPropertiesPtrOutput) EventHubEndpoints() EventHubPropertiesMapOutput {
+	return o.ApplyT(func(v *IotHubProperties) map[string]EventHubProperties {
 		if v == nil {
 			return nil
 		}
 		return v.EventHubEndpoints
-	}).(pulumi.StringMapOutput)
+	}).(EventHubPropertiesMapOutput)
 }
 
 // The capabilities and features enabled for the IoT hub.
@@ -2133,13 +2378,13 @@ func (o IotHubPropertiesPtrOutput) IpFilterRules() IpFilterRuleArrayOutput {
 }
 
 // The messaging endpoint properties for the file upload notification queue.
-func (o IotHubPropertiesPtrOutput) MessagingEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IotHubProperties) map[string]string {
+func (o IotHubPropertiesPtrOutput) MessagingEndpoints() MessagingEndpointPropertiesMapOutput {
+	return o.ApplyT(func(v *IotHubProperties) map[string]MessagingEndpointProperties {
 		if v == nil {
 			return nil
 		}
 		return v.MessagingEndpoints
-	}).(pulumi.StringMapOutput)
+	}).(MessagingEndpointPropertiesMapOutput)
 }
 
 // The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -2153,13 +2398,13 @@ func (o IotHubPropertiesPtrOutput) Routing() RoutingPropertiesPtrOutput {
 }
 
 // The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-func (o IotHubPropertiesPtrOutput) StorageEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IotHubProperties) map[string]string {
+func (o IotHubPropertiesPtrOutput) StorageEndpoints() StorageEndpointPropertiesMapOutput {
+	return o.ApplyT(func(v *IotHubProperties) map[string]StorageEndpointProperties {
 		if v == nil {
 			return nil
 		}
 		return v.StorageEndpoints
-	}).(pulumi.StringMapOutput)
+	}).(StorageEndpointPropertiesMapOutput)
 }
 
 // The properties of an IoT hub.
@@ -2173,7 +2418,7 @@ type IotHubPropertiesResponse struct {
 	// If True, file upload notifications are enabled.
 	EnableFileUploadNotifications *bool `pulumi:"enableFileUploadNotifications"`
 	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints map[string]string `pulumi:"eventHubEndpoints"`
+	EventHubEndpoints map[string]EventHubPropertiesResponse `pulumi:"eventHubEndpoints"`
 	// The capabilities and features enabled for the IoT hub.
 	Features *string `pulumi:"features"`
 	// The name of the host.
@@ -2183,7 +2428,7 @@ type IotHubPropertiesResponse struct {
 	// Primary and secondary location for iot hub
 	Locations []IotHubLocationDescriptionResponse `pulumi:"locations"`
 	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints map[string]string `pulumi:"messagingEndpoints"`
+	MessagingEndpoints map[string]MessagingEndpointPropertiesResponse `pulumi:"messagingEndpoints"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -2191,7 +2436,7 @@ type IotHubPropertiesResponse struct {
 	// The hub state.
 	State string `pulumi:"state"`
 	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints map[string]string `pulumi:"storageEndpoints"`
+	StorageEndpoints map[string]StorageEndpointPropertiesResponse `pulumi:"storageEndpoints"`
 }
 
 // IotHubPropertiesResponseInput is an input type that accepts IotHubPropertiesResponseArgs and IotHubPropertiesResponseOutput values.
@@ -2216,7 +2461,7 @@ type IotHubPropertiesResponseArgs struct {
 	// If True, file upload notifications are enabled.
 	EnableFileUploadNotifications pulumi.BoolPtrInput `pulumi:"enableFileUploadNotifications"`
 	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints pulumi.StringMapInput `pulumi:"eventHubEndpoints"`
+	EventHubEndpoints EventHubPropertiesResponseMapInput `pulumi:"eventHubEndpoints"`
 	// The capabilities and features enabled for the IoT hub.
 	Features pulumi.StringPtrInput `pulumi:"features"`
 	// The name of the host.
@@ -2226,7 +2471,7 @@ type IotHubPropertiesResponseArgs struct {
 	// Primary and secondary location for iot hub
 	Locations IotHubLocationDescriptionResponseArrayInput `pulumi:"locations"`
 	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints pulumi.StringMapInput `pulumi:"messagingEndpoints"`
+	MessagingEndpoints MessagingEndpointPropertiesResponseMapInput `pulumi:"messagingEndpoints"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -2234,7 +2479,7 @@ type IotHubPropertiesResponseArgs struct {
 	// The hub state.
 	State pulumi.StringInput `pulumi:"state"`
 	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints pulumi.StringMapInput `pulumi:"storageEndpoints"`
+	StorageEndpoints StorageEndpointPropertiesResponseMapInput `pulumi:"storageEndpoints"`
 }
 
 func (IotHubPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2338,8 +2583,8 @@ func (o IotHubPropertiesResponseOutput) EnableFileUploadNotifications() pulumi.B
 }
 
 // The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-func (o IotHubPropertiesResponseOutput) EventHubEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]string { return v.EventHubEndpoints }).(pulumi.StringMapOutput)
+func (o IotHubPropertiesResponseOutput) EventHubEndpoints() EventHubPropertiesResponseMapOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]EventHubPropertiesResponse { return v.EventHubEndpoints }).(EventHubPropertiesResponseMapOutput)
 }
 
 // The capabilities and features enabled for the IoT hub.
@@ -2363,8 +2608,10 @@ func (o IotHubPropertiesResponseOutput) Locations() IotHubLocationDescriptionRes
 }
 
 // The messaging endpoint properties for the file upload notification queue.
-func (o IotHubPropertiesResponseOutput) MessagingEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]string { return v.MessagingEndpoints }).(pulumi.StringMapOutput)
+func (o IotHubPropertiesResponseOutput) MessagingEndpoints() MessagingEndpointPropertiesResponseMapOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]MessagingEndpointPropertiesResponse {
+		return v.MessagingEndpoints
+	}).(MessagingEndpointPropertiesResponseMapOutput)
 }
 
 // The provisioning state.
@@ -2383,8 +2630,10 @@ func (o IotHubPropertiesResponseOutput) State() pulumi.StringOutput {
 }
 
 // The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-func (o IotHubPropertiesResponseOutput) StorageEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]string { return v.StorageEndpoints }).(pulumi.StringMapOutput)
+func (o IotHubPropertiesResponseOutput) StorageEndpoints() StorageEndpointPropertiesResponseMapOutput {
+	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]StorageEndpointPropertiesResponse {
+		return v.StorageEndpoints
+	}).(StorageEndpointPropertiesResponseMapOutput)
 }
 
 type IotHubPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2446,13 +2695,13 @@ func (o IotHubPropertiesResponsePtrOutput) EnableFileUploadNotifications() pulum
 }
 
 // The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-func (o IotHubPropertiesResponsePtrOutput) EventHubEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]string {
+func (o IotHubPropertiesResponsePtrOutput) EventHubEndpoints() EventHubPropertiesResponseMapOutput {
+	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]EventHubPropertiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.EventHubEndpoints
-	}).(pulumi.StringMapOutput)
+	}).(EventHubPropertiesResponseMapOutput)
 }
 
 // The capabilities and features enabled for the IoT hub.
@@ -2496,13 +2745,13 @@ func (o IotHubPropertiesResponsePtrOutput) Locations() IotHubLocationDescription
 }
 
 // The messaging endpoint properties for the file upload notification queue.
-func (o IotHubPropertiesResponsePtrOutput) MessagingEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]string {
+func (o IotHubPropertiesResponsePtrOutput) MessagingEndpoints() MessagingEndpointPropertiesResponseMapOutput {
+	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]MessagingEndpointPropertiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.MessagingEndpoints
-	}).(pulumi.StringMapOutput)
+	}).(MessagingEndpointPropertiesResponseMapOutput)
 }
 
 // The provisioning state.
@@ -2536,13 +2785,13 @@ func (o IotHubPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 }
 
 // The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-func (o IotHubPropertiesResponsePtrOutput) StorageEndpoints() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]string {
+func (o IotHubPropertiesResponsePtrOutput) StorageEndpoints() StorageEndpointPropertiesResponseMapOutput {
+	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]StorageEndpointPropertiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.StorageEndpoints
-	}).(pulumi.StringMapOutput)
+	}).(StorageEndpointPropertiesResponseMapOutput)
 }
 
 // The description of the IoT hub.
@@ -3295,6 +3544,242 @@ func (o IpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRuleResponse {
 		return vs[0].([]IpFilterRuleResponse)[vs[1].(int)]
 	}).(IpFilterRuleResponseOutput)
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointProperties struct {
+	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+}
+
+// MessagingEndpointPropertiesInput is an input type that accepts MessagingEndpointPropertiesArgs and MessagingEndpointPropertiesOutput values.
+// You can construct a concrete instance of `MessagingEndpointPropertiesInput` via:
+//
+//          MessagingEndpointPropertiesArgs{...}
+type MessagingEndpointPropertiesInput interface {
+	pulumi.Input
+
+	ToMessagingEndpointPropertiesOutput() MessagingEndpointPropertiesOutput
+	ToMessagingEndpointPropertiesOutputWithContext(context.Context) MessagingEndpointPropertiesOutput
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesArgs struct {
+	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+}
+
+func (MessagingEndpointPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessagingEndpointProperties)(nil)).Elem()
+}
+
+func (i MessagingEndpointPropertiesArgs) ToMessagingEndpointPropertiesOutput() MessagingEndpointPropertiesOutput {
+	return i.ToMessagingEndpointPropertiesOutputWithContext(context.Background())
+}
+
+func (i MessagingEndpointPropertiesArgs) ToMessagingEndpointPropertiesOutputWithContext(ctx context.Context) MessagingEndpointPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesOutput)
+}
+
+// MessagingEndpointPropertiesMapInput is an input type that accepts MessagingEndpointPropertiesMap and MessagingEndpointPropertiesMapOutput values.
+// You can construct a concrete instance of `MessagingEndpointPropertiesMapInput` via:
+//
+//          MessagingEndpointPropertiesMap{ "key": MessagingEndpointPropertiesArgs{...} }
+type MessagingEndpointPropertiesMapInput interface {
+	pulumi.Input
+
+	ToMessagingEndpointPropertiesMapOutput() MessagingEndpointPropertiesMapOutput
+	ToMessagingEndpointPropertiesMapOutputWithContext(context.Context) MessagingEndpointPropertiesMapOutput
+}
+
+type MessagingEndpointPropertiesMap map[string]MessagingEndpointPropertiesInput
+
+func (MessagingEndpointPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MessagingEndpointProperties)(nil)).Elem()
+}
+
+func (i MessagingEndpointPropertiesMap) ToMessagingEndpointPropertiesMapOutput() MessagingEndpointPropertiesMapOutput {
+	return i.ToMessagingEndpointPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i MessagingEndpointPropertiesMap) ToMessagingEndpointPropertiesMapOutputWithContext(ctx context.Context) MessagingEndpointPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesMapOutput)
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MessagingEndpointPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessagingEndpointProperties)(nil)).Elem()
+}
+
+func (o MessagingEndpointPropertiesOutput) ToMessagingEndpointPropertiesOutput() MessagingEndpointPropertiesOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesOutput) ToMessagingEndpointPropertiesOutputWithContext(ctx context.Context) MessagingEndpointPropertiesOutput {
+	return o
+}
+
+// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointProperties) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointProperties) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesOutput) TtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointProperties) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+type MessagingEndpointPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (MessagingEndpointPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MessagingEndpointProperties)(nil)).Elem()
+}
+
+func (o MessagingEndpointPropertiesMapOutput) ToMessagingEndpointPropertiesMapOutput() MessagingEndpointPropertiesMapOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesMapOutput) ToMessagingEndpointPropertiesMapOutputWithContext(ctx context.Context) MessagingEndpointPropertiesMapOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesMapOutput) MapIndex(k pulumi.StringInput) MessagingEndpointPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MessagingEndpointProperties {
+		return vs[0].(map[string]MessagingEndpointProperties)[vs[1].(string)]
+	}).(MessagingEndpointPropertiesOutput)
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesResponse struct {
+	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+}
+
+// MessagingEndpointPropertiesResponseInput is an input type that accepts MessagingEndpointPropertiesResponseArgs and MessagingEndpointPropertiesResponseOutput values.
+// You can construct a concrete instance of `MessagingEndpointPropertiesResponseInput` via:
+//
+//          MessagingEndpointPropertiesResponseArgs{...}
+type MessagingEndpointPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToMessagingEndpointPropertiesResponseOutput() MessagingEndpointPropertiesResponseOutput
+	ToMessagingEndpointPropertiesResponseOutputWithContext(context.Context) MessagingEndpointPropertiesResponseOutput
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesResponseArgs struct {
+	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+}
+
+func (MessagingEndpointPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessagingEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (i MessagingEndpointPropertiesResponseArgs) ToMessagingEndpointPropertiesResponseOutput() MessagingEndpointPropertiesResponseOutput {
+	return i.ToMessagingEndpointPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i MessagingEndpointPropertiesResponseArgs) ToMessagingEndpointPropertiesResponseOutputWithContext(ctx context.Context) MessagingEndpointPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesResponseOutput)
+}
+
+// MessagingEndpointPropertiesResponseMapInput is an input type that accepts MessagingEndpointPropertiesResponseMap and MessagingEndpointPropertiesResponseMapOutput values.
+// You can construct a concrete instance of `MessagingEndpointPropertiesResponseMapInput` via:
+//
+//          MessagingEndpointPropertiesResponseMap{ "key": MessagingEndpointPropertiesResponseArgs{...} }
+type MessagingEndpointPropertiesResponseMapInput interface {
+	pulumi.Input
+
+	ToMessagingEndpointPropertiesResponseMapOutput() MessagingEndpointPropertiesResponseMapOutput
+	ToMessagingEndpointPropertiesResponseMapOutputWithContext(context.Context) MessagingEndpointPropertiesResponseMapOutput
+}
+
+type MessagingEndpointPropertiesResponseMap map[string]MessagingEndpointPropertiesResponseInput
+
+func (MessagingEndpointPropertiesResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MessagingEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (i MessagingEndpointPropertiesResponseMap) ToMessagingEndpointPropertiesResponseMapOutput() MessagingEndpointPropertiesResponseMapOutput {
+	return i.ToMessagingEndpointPropertiesResponseMapOutputWithContext(context.Background())
+}
+
+func (i MessagingEndpointPropertiesResponseMap) ToMessagingEndpointPropertiesResponseMapOutputWithContext(ctx context.Context) MessagingEndpointPropertiesResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesResponseMapOutput)
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (MessagingEndpointPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessagingEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (o MessagingEndpointPropertiesResponseOutput) ToMessagingEndpointPropertiesResponseOutput() MessagingEndpointPropertiesResponseOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesResponseOutput) ToMessagingEndpointPropertiesResponseOutputWithContext(ctx context.Context) MessagingEndpointPropertiesResponseOutput {
+	return o
+}
+
+// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesResponseOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointPropertiesResponse) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesResponseOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointPropertiesResponse) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesResponseOutput) TtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointPropertiesResponse) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+type MessagingEndpointPropertiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (MessagingEndpointPropertiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MessagingEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (o MessagingEndpointPropertiesResponseMapOutput) ToMessagingEndpointPropertiesResponseMapOutput() MessagingEndpointPropertiesResponseMapOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesResponseMapOutput) ToMessagingEndpointPropertiesResponseMapOutputWithContext(ctx context.Context) MessagingEndpointPropertiesResponseMapOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) MessagingEndpointPropertiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MessagingEndpointPropertiesResponse {
+		return vs[0].(map[string]MessagingEndpointPropertiesResponse)[vs[1].(string)]
+	}).(MessagingEndpointPropertiesResponseOutput)
 }
 
 // The properties of a routing rule that your IoT hub uses to route messages to endpoints.
@@ -5699,6 +6184,242 @@ func (o SharedAccessSignatureAuthorizationRuleResponseArrayOutput) Index(i pulum
 	}).(SharedAccessSignatureAuthorizationRuleResponseOutput)
 }
 
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointProperties struct {
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString string `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName string `pulumi:"containerName"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
+}
+
+// StorageEndpointPropertiesInput is an input type that accepts StorageEndpointPropertiesArgs and StorageEndpointPropertiesOutput values.
+// You can construct a concrete instance of `StorageEndpointPropertiesInput` via:
+//
+//          StorageEndpointPropertiesArgs{...}
+type StorageEndpointPropertiesInput interface {
+	pulumi.Input
+
+	ToStorageEndpointPropertiesOutput() StorageEndpointPropertiesOutput
+	ToStorageEndpointPropertiesOutputWithContext(context.Context) StorageEndpointPropertiesOutput
+}
+
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesArgs struct {
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
+}
+
+func (StorageEndpointPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageEndpointProperties)(nil)).Elem()
+}
+
+func (i StorageEndpointPropertiesArgs) ToStorageEndpointPropertiesOutput() StorageEndpointPropertiesOutput {
+	return i.ToStorageEndpointPropertiesOutputWithContext(context.Background())
+}
+
+func (i StorageEndpointPropertiesArgs) ToStorageEndpointPropertiesOutputWithContext(ctx context.Context) StorageEndpointPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesOutput)
+}
+
+// StorageEndpointPropertiesMapInput is an input type that accepts StorageEndpointPropertiesMap and StorageEndpointPropertiesMapOutput values.
+// You can construct a concrete instance of `StorageEndpointPropertiesMapInput` via:
+//
+//          StorageEndpointPropertiesMap{ "key": StorageEndpointPropertiesArgs{...} }
+type StorageEndpointPropertiesMapInput interface {
+	pulumi.Input
+
+	ToStorageEndpointPropertiesMapOutput() StorageEndpointPropertiesMapOutput
+	ToStorageEndpointPropertiesMapOutputWithContext(context.Context) StorageEndpointPropertiesMapOutput
+}
+
+type StorageEndpointPropertiesMap map[string]StorageEndpointPropertiesInput
+
+func (StorageEndpointPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StorageEndpointProperties)(nil)).Elem()
+}
+
+func (i StorageEndpointPropertiesMap) ToStorageEndpointPropertiesMapOutput() StorageEndpointPropertiesMapOutput {
+	return i.ToStorageEndpointPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i StorageEndpointPropertiesMap) ToStorageEndpointPropertiesMapOutputWithContext(ctx context.Context) StorageEndpointPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesMapOutput)
+}
+
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StorageEndpointPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageEndpointProperties)(nil)).Elem()
+}
+
+func (o StorageEndpointPropertiesOutput) ToStorageEndpointPropertiesOutput() StorageEndpointPropertiesOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesOutput) ToStorageEndpointPropertiesOutputWithContext(ctx context.Context) StorageEndpointPropertiesOutput {
+	return o
+}
+
+// The connection string for the Azure Storage account to which files are uploaded.
+func (o StorageEndpointPropertiesOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageEndpointProperties) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+func (o StorageEndpointPropertiesOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageEndpointProperties) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+func (o StorageEndpointPropertiesOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageEndpointProperties) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+type StorageEndpointPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (StorageEndpointPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StorageEndpointProperties)(nil)).Elem()
+}
+
+func (o StorageEndpointPropertiesMapOutput) ToStorageEndpointPropertiesMapOutput() StorageEndpointPropertiesMapOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesMapOutput) ToStorageEndpointPropertiesMapOutputWithContext(ctx context.Context) StorageEndpointPropertiesMapOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesMapOutput) MapIndex(k pulumi.StringInput) StorageEndpointPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StorageEndpointProperties {
+		return vs[0].(map[string]StorageEndpointProperties)[vs[1].(string)]
+	}).(StorageEndpointPropertiesOutput)
+}
+
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesResponse struct {
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString string `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName string `pulumi:"containerName"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
+}
+
+// StorageEndpointPropertiesResponseInput is an input type that accepts StorageEndpointPropertiesResponseArgs and StorageEndpointPropertiesResponseOutput values.
+// You can construct a concrete instance of `StorageEndpointPropertiesResponseInput` via:
+//
+//          StorageEndpointPropertiesResponseArgs{...}
+type StorageEndpointPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToStorageEndpointPropertiesResponseOutput() StorageEndpointPropertiesResponseOutput
+	ToStorageEndpointPropertiesResponseOutputWithContext(context.Context) StorageEndpointPropertiesResponseOutput
+}
+
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesResponseArgs struct {
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
+}
+
+func (StorageEndpointPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (i StorageEndpointPropertiesResponseArgs) ToStorageEndpointPropertiesResponseOutput() StorageEndpointPropertiesResponseOutput {
+	return i.ToStorageEndpointPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i StorageEndpointPropertiesResponseArgs) ToStorageEndpointPropertiesResponseOutputWithContext(ctx context.Context) StorageEndpointPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesResponseOutput)
+}
+
+// StorageEndpointPropertiesResponseMapInput is an input type that accepts StorageEndpointPropertiesResponseMap and StorageEndpointPropertiesResponseMapOutput values.
+// You can construct a concrete instance of `StorageEndpointPropertiesResponseMapInput` via:
+//
+//          StorageEndpointPropertiesResponseMap{ "key": StorageEndpointPropertiesResponseArgs{...} }
+type StorageEndpointPropertiesResponseMapInput interface {
+	pulumi.Input
+
+	ToStorageEndpointPropertiesResponseMapOutput() StorageEndpointPropertiesResponseMapOutput
+	ToStorageEndpointPropertiesResponseMapOutputWithContext(context.Context) StorageEndpointPropertiesResponseMapOutput
+}
+
+type StorageEndpointPropertiesResponseMap map[string]StorageEndpointPropertiesResponseInput
+
+func (StorageEndpointPropertiesResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StorageEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (i StorageEndpointPropertiesResponseMap) ToStorageEndpointPropertiesResponseMapOutput() StorageEndpointPropertiesResponseMapOutput {
+	return i.ToStorageEndpointPropertiesResponseMapOutputWithContext(context.Background())
+}
+
+func (i StorageEndpointPropertiesResponseMap) ToStorageEndpointPropertiesResponseMapOutputWithContext(ctx context.Context) StorageEndpointPropertiesResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesResponseMapOutput)
+}
+
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageEndpointPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (o StorageEndpointPropertiesResponseOutput) ToStorageEndpointPropertiesResponseOutput() StorageEndpointPropertiesResponseOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesResponseOutput) ToStorageEndpointPropertiesResponseOutputWithContext(ctx context.Context) StorageEndpointPropertiesResponseOutput {
+	return o
+}
+
+// The connection string for the Azure Storage account to which files are uploaded.
+func (o StorageEndpointPropertiesResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageEndpointPropertiesResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+func (o StorageEndpointPropertiesResponseOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageEndpointPropertiesResponse) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+func (o StorageEndpointPropertiesResponseOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageEndpointPropertiesResponse) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+type StorageEndpointPropertiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (StorageEndpointPropertiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StorageEndpointPropertiesResponse)(nil)).Elem()
+}
+
+func (o StorageEndpointPropertiesResponseMapOutput) ToStorageEndpointPropertiesResponseMapOutput() StorageEndpointPropertiesResponseMapOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesResponseMapOutput) ToStorageEndpointPropertiesResponseMapOutputWithContext(ctx context.Context) StorageEndpointPropertiesResponseMapOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) StorageEndpointPropertiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StorageEndpointPropertiesResponse {
+		return vs[0].(map[string]StorageEndpointPropertiesResponse)[vs[1].(string)]
+	}).(StorageEndpointPropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
@@ -5711,6 +6432,10 @@ func init() {
 	pulumi.RegisterOutputType(EnrichmentPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(EnrichmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EnrichmentPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(EventHubPropertiesOutput{})
+	pulumi.RegisterOutputType(EventHubPropertiesMapOutput{})
+	pulumi.RegisterOutputType(EventHubPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(EventHubPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(FallbackRoutePropertiesOutput{})
 	pulumi.RegisterOutputType(FallbackRoutePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FallbackRoutePropertiesResponseOutput{})
@@ -5736,6 +6461,10 @@ func init() {
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(MessagingEndpointPropertiesOutput{})
+	pulumi.RegisterOutputType(MessagingEndpointPropertiesMapOutput{})
+	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(RoutePropertiesOutput{})
 	pulumi.RegisterOutputType(RoutePropertiesArrayOutput{})
 	pulumi.RegisterOutputType(RoutePropertiesResponseOutput{})
@@ -5768,4 +6497,8 @@ func init() {
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(StorageEndpointPropertiesOutput{})
+	pulumi.RegisterOutputType(StorageEndpointPropertiesMapOutput{})
+	pulumi.RegisterOutputType(StorageEndpointPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(StorageEndpointPropertiesResponseMapOutput{})
 }

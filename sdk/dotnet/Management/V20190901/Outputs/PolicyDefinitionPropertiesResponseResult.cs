@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Management.V20190901.Outputs
         /// <summary>
         /// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Management.V20190901.Outputs
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? PolicyRule;
+        public readonly ImmutableDictionary<string, object>? PolicyRule;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Management.V20190901.Outputs
 
             string? displayName,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string? mode,
 
             Outputs.ParameterDefinitionsResponseResult? parameters,
 
-            ImmutableDictionary<string, string>? policyRule,
+            ImmutableDictionary<string, object>? policyRule,
 
             string? policyType)
         {

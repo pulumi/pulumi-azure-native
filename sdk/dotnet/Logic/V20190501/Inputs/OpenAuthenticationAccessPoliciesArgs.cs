@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.Logic.V20190501.Inputs
     public sealed class OpenAuthenticationAccessPoliciesArgs : Pulumi.ResourceArgs
     {
         [Input("policies")]
-        private InputMap<string>? _policies;
+        private InputMap<Inputs.OpenAuthenticationAccessPolicyArgs>? _policies;
 
         /// <summary>
         /// Open authentication policies.
         /// </summary>
-        public InputMap<string> Policies
+        public InputMap<Inputs.OpenAuthenticationAccessPolicyArgs> Policies
         {
-            get => _policies ?? (_policies = new InputMap<string>());
+            get => _policies ?? (_policies = new InputMap<Inputs.OpenAuthenticationAccessPolicyArgs>());
             set => _policies = value;
         }
 

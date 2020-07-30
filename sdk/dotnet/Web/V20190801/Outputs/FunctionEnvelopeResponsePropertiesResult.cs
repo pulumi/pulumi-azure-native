@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Web.V20190801.Outputs
         /// <summary>
         /// Config information.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Config;
+        public readonly ImmutableDictionary<string, object>? Config;
         /// <summary>
         /// Config URI.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Web.V20190801.Outputs
 
         [OutputConstructor]
         private FunctionEnvelopeResponsePropertiesResult(
-            ImmutableDictionary<string, string>? config,
+            ImmutableDictionary<string, object>? config,
 
             string? config_href,
 
