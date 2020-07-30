@@ -507,7 +507,7 @@ type ApplicationDefinitionProperties struct {
 	// The managed application provider authorizations.
 	Authorizations []ApplicationProviderAuthorization `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition map[string]string `pulumi:"createUiDefinition"`
+	CreateUiDefinition map[string]interface{} `pulumi:"createUiDefinition"`
 	// The managed application definition description.
 	Description *string `pulumi:"description"`
 	// The managed application definition display name.
@@ -517,7 +517,7 @@ type ApplicationDefinitionProperties struct {
 	// The managed application lock level.
 	LockLevel string `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate map[string]string `pulumi:"mainTemplate"`
+	MainTemplate map[string]interface{} `pulumi:"mainTemplate"`
 	// The managed application definition package file Uri. Use this element
 	PackageFileUri *string `pulumi:"packageFileUri"`
 }
@@ -540,7 +540,7 @@ type ApplicationDefinitionPropertiesArgs struct {
 	// The managed application provider authorizations.
 	Authorizations ApplicationProviderAuthorizationArrayInput `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.StringMapInput `pulumi:"createUiDefinition"`
+	CreateUiDefinition pulumi.MapInput `pulumi:"createUiDefinition"`
 	// The managed application definition description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The managed application definition display name.
@@ -550,7 +550,7 @@ type ApplicationDefinitionPropertiesArgs struct {
 	// The managed application lock level.
 	LockLevel pulumi.StringInput `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.StringMapInput `pulumi:"mainTemplate"`
+	MainTemplate pulumi.MapInput `pulumi:"mainTemplate"`
 	// The managed application definition package file Uri. Use this element
 	PackageFileUri pulumi.StringPtrInput `pulumi:"packageFileUri"`
 }
@@ -644,8 +644,8 @@ func (o ApplicationDefinitionPropertiesOutput) Authorizations() ApplicationProvi
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]string { return v.CreateUiDefinition }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]interface{} { return v.CreateUiDefinition }).(pulumi.MapOutput)
 }
 
 // The managed application definition description.
@@ -669,8 +669,8 @@ func (o ApplicationDefinitionPropertiesOutput) LockLevel() pulumi.StringOutput {
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]string { return v.MainTemplate }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionProperties) map[string]interface{} { return v.MainTemplate }).(pulumi.MapOutput)
 }
 
 // The managed application definition package file Uri. Use this element
@@ -717,13 +717,13 @@ func (o ApplicationDefinitionPropertiesPtrOutput) Authorizations() ApplicationPr
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesPtrOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]string {
+func (o ApplicationDefinitionPropertiesPtrOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CreateUiDefinition
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application definition description.
@@ -767,13 +767,13 @@ func (o ApplicationDefinitionPropertiesPtrOutput) LockLevel() pulumi.StringPtrOu
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesPtrOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]string {
+func (o ApplicationDefinitionPropertiesPtrOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.MainTemplate
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application definition package file Uri. Use this element
@@ -793,7 +793,7 @@ type ApplicationDefinitionPropertiesResponse struct {
 	// The managed application provider authorizations.
 	Authorizations []ApplicationProviderAuthorizationResponse `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition map[string]string `pulumi:"createUiDefinition"`
+	CreateUiDefinition map[string]interface{} `pulumi:"createUiDefinition"`
 	// The managed application definition description.
 	Description *string `pulumi:"description"`
 	// The managed application definition display name.
@@ -803,7 +803,7 @@ type ApplicationDefinitionPropertiesResponse struct {
 	// The managed application lock level.
 	LockLevel string `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate map[string]string `pulumi:"mainTemplate"`
+	MainTemplate map[string]interface{} `pulumi:"mainTemplate"`
 	// The managed application definition package file Uri. Use this element
 	PackageFileUri *string `pulumi:"packageFileUri"`
 }
@@ -826,7 +826,7 @@ type ApplicationDefinitionPropertiesResponseArgs struct {
 	// The managed application provider authorizations.
 	Authorizations ApplicationProviderAuthorizationResponseArrayInput `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.StringMapInput `pulumi:"createUiDefinition"`
+	CreateUiDefinition pulumi.MapInput `pulumi:"createUiDefinition"`
 	// The managed application definition description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The managed application definition display name.
@@ -836,7 +836,7 @@ type ApplicationDefinitionPropertiesResponseArgs struct {
 	// The managed application lock level.
 	LockLevel pulumi.StringInput `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.StringMapInput `pulumi:"mainTemplate"`
+	MainTemplate pulumi.MapInput `pulumi:"mainTemplate"`
 	// The managed application definition package file Uri. Use this element
 	PackageFileUri pulumi.StringPtrInput `pulumi:"packageFileUri"`
 }
@@ -932,8 +932,8 @@ func (o ApplicationDefinitionPropertiesResponseOutput) Authorizations() Applicat
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponseOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]string { return v.CreateUiDefinition }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesResponseOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]interface{} { return v.CreateUiDefinition }).(pulumi.MapOutput)
 }
 
 // The managed application definition description.
@@ -957,8 +957,8 @@ func (o ApplicationDefinitionPropertiesResponseOutput) LockLevel() pulumi.String
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponseOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]string { return v.MainTemplate }).(pulumi.StringMapOutput)
+func (o ApplicationDefinitionPropertiesResponseOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationDefinitionPropertiesResponse) map[string]interface{} { return v.MainTemplate }).(pulumi.MapOutput)
 }
 
 // The managed application definition package file Uri. Use this element
@@ -1005,13 +1005,13 @@ func (o ApplicationDefinitionPropertiesResponsePtrOutput) Authorizations() Appli
 }
 
 // The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponsePtrOutput) CreateUiDefinition() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]string {
+func (o ApplicationDefinitionPropertiesResponsePtrOutput) CreateUiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CreateUiDefinition
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application definition description.
@@ -1055,13 +1055,13 @@ func (o ApplicationDefinitionPropertiesResponsePtrOutput) LockLevel() pulumi.Str
 }
 
 // The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-func (o ApplicationDefinitionPropertiesResponsePtrOutput) MainTemplate() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]string {
+func (o ApplicationDefinitionPropertiesResponsePtrOutput) MainTemplate() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.MainTemplate
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application definition package file Uri. Use this element
@@ -1081,7 +1081,7 @@ type ApplicationProperties struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The blob URI where the UI definition file is located.
 	UiDefinitionUri *string `pulumi:"uiDefinitionUri"`
 }
@@ -1104,7 +1104,7 @@ type ApplicationPropertiesArgs struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId pulumi.StringInput `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The blob URI where the UI definition file is located.
 	UiDefinitionUri pulumi.StringPtrInput `pulumi:"uiDefinitionUri"`
 }
@@ -1198,8 +1198,8 @@ func (o ApplicationPropertiesOutput) ManagedResourceGroupId() pulumi.StringOutpu
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o ApplicationPropertiesOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The blob URI where the UI definition file is located.
@@ -1246,13 +1246,13 @@ func (o ApplicationPropertiesPtrOutput) ManagedResourceGroupId() pulumi.StringPt
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationProperties) map[string]string {
+func (o ApplicationPropertiesPtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The blob URI where the UI definition file is located.
@@ -1272,9 +1272,9 @@ type ApplicationPropertiesResponse struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application outputs.
-	Outputs map[string]string `pulumi:"outputs"`
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The managed application provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The blob URI where the UI definition file is located.
@@ -1299,9 +1299,9 @@ type ApplicationPropertiesResponseArgs struct {
 	// The managed resource group Id.
 	ManagedResourceGroupId pulumi.StringInput `pulumi:"managedResourceGroupId"`
 	// Name and value pairs that define the managed application outputs.
-	Outputs pulumi.StringMapInput `pulumi:"outputs"`
+	Outputs pulumi.MapInput `pulumi:"outputs"`
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The managed application provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// The blob URI where the UI definition file is located.
@@ -1397,13 +1397,13 @@ func (o ApplicationPropertiesResponseOutput) ManagedResourceGroupId() pulumi.Str
 }
 
 // Name and value pairs that define the managed application outputs.
-func (o ApplicationPropertiesResponseOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]string { return v.Outputs }).(pulumi.StringMapOutput)
+func (o ApplicationPropertiesResponseOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]interface{} { return v.Outputs }).(pulumi.MapOutput)
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o ApplicationPropertiesResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ApplicationPropertiesResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The managed application provisioning state.
@@ -1455,23 +1455,23 @@ func (o ApplicationPropertiesResponsePtrOutput) ManagedResourceGroupId() pulumi.
 }
 
 // Name and value pairs that define the managed application outputs.
-func (o ApplicationPropertiesResponsePtrOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]string {
+func (o ApplicationPropertiesResponsePtrOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Outputs
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-func (o ApplicationPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]string {
+func (o ApplicationPropertiesResponsePtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApplicationPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The managed application provisioning state.

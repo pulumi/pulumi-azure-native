@@ -771,7 +771,7 @@ type AssignmentReportResourceResponse struct {
 	// A value indicating compliance status of the machine for the assigned guest configuration.
 	ComplianceStatus string `pulumi:"complianceStatus"`
 	// Properties of a guest configuration assignment resource.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Compliance reason and reason code for a resource.
 	Reasons []AssignmentReportResourceComplianceReasonResponse `pulumi:"reasons"`
 }
@@ -792,7 +792,7 @@ type AssignmentReportResourceResponseArgs struct {
 	// A value indicating compliance status of the machine for the assigned guest configuration.
 	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
 	// Properties of a guest configuration assignment resource.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties pulumi.MapInput `pulumi:"properties"`
 	// Compliance reason and reason code for a resource.
 	Reasons AssignmentReportResourceComplianceReasonResponseArrayInput `pulumi:"reasons"`
 }
@@ -855,8 +855,8 @@ func (o AssignmentReportResourceResponseOutput) ComplianceStatus() pulumi.String
 }
 
 // Properties of a guest configuration assignment resource.
-func (o AssignmentReportResourceResponseOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AssignmentReportResourceResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o AssignmentReportResourceResponseOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v AssignmentReportResourceResponse) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
 }
 
 // Compliance reason and reason code for a resource.

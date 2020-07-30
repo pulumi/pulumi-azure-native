@@ -2739,7 +2739,7 @@ type ProjectType struct {
 	// Properties of the project.
 	Properties ProjectPropertiesResponse `pulumi:"properties"`
 	// Tags provided by Azure Tagging service.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/assessmentProjects].
 	Type string `pulumi:"type"`
 }
@@ -2766,7 +2766,7 @@ type ProjectTypeArgs struct {
 	// Properties of the project.
 	Properties ProjectPropertiesResponseInput `pulumi:"properties"`
 	// Tags provided by Azure Tagging service.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/assessmentProjects].
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2819,8 +2819,8 @@ func (o ProjectTypeOutput) Properties() ProjectPropertiesResponseOutput {
 }
 
 // Tags provided by Azure Tagging service.
-func (o ProjectTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProjectType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o ProjectTypeOutput) Tags() pulumi.MapOutput {
+	return o.ApplyT(func(v ProjectType) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
 
 // Type of the object = [Microsoft.Migrate/assessmentProjects].

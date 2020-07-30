@@ -13,10 +13,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301.Outputs
     [OutputType]
     public sealed class SqlUserDefinedFunctionGetPropertiesResponseResult
     {
-        public readonly ImmutableDictionary<string, string>? Resource;
+        public readonly ImmutableDictionary<string, object>? Resource;
 
         [OutputConstructor]
-        private SqlUserDefinedFunctionGetPropertiesResponseResult(ImmutableDictionary<string, string>? resource)
+        private SqlUserDefinedFunctionGetPropertiesResponseResult(ImmutableDictionary<string, object>? resource)
         {
             Resource = resource;
         }

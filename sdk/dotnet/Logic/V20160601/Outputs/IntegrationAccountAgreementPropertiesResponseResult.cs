@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
 
         [OutputConstructor]
         private IntegrationAccountAgreementPropertiesResponseResult(
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             string hostPartner,
 
-            ImmutableDictionary<string, string>? metadata)
+            ImmutableDictionary<string, object>? metadata)
         {
             AgreementType = agreementType;
             ChangedTime = changedTime;

@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// The artifact creation time.
         /// </summary>
         public readonly string? CreatedTime;
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The batch release criteria.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             string? createdTime,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             Outputs.BatchReleaseCriteriaResponseResult releaseCriteria)
         {

@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.Authorization.V20160401.Inputs
         public Input<string>? DisplayName { get; set; }
 
         [Input("policyRule")]
-        private InputMap<string>? _policyRule;
+        private InputMap<object>? _policyRule;
 
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public InputMap<string> PolicyRule
+        public InputMap<object> PolicyRule
         {
-            get => _policyRule ?? (_policyRule = new InputMap<string>());
+            get => _policyRule ?? (_policyRule = new InputMap<object>());
             set => _policyRule = value;
         }
 

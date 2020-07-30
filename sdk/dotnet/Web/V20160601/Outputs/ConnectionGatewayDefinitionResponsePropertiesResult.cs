@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
         /// <summary>
         /// The gateway status
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Status;
+        public readonly ImmutableDictionary<string, object>? Status;
 
         [OutputConstructor]
         private ConnectionGatewayDefinitionResponsePropertiesResult(
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
 
             string? machineName,
 
-            ImmutableDictionary<string, string>? status)
+            ImmutableDictionary<string, object>? status)
         {
             BackendUri = backendUri;
             ConnectionGatewayInstallation = connectionGatewayInstallation;

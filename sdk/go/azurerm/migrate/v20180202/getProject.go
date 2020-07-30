@@ -34,7 +34,7 @@ type LookupProjectResult struct {
 	// Properties of the project.
 	Properties ProjectPropertiesResponse `pulumi:"properties"`
 	// Tags provided by Azure Tagging service.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/projects].
 	Type string `pulumi:"type"`
 }

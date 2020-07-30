@@ -45,7 +45,7 @@ export class MachineExtension extends pulumi.CustomResource {
     /**
      * Describes Machine Extension Properties.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string}>;
+    public readonly properties!: pulumi.Output<{[key: string]: any}>;
     /**
      * Resource tags.
      */
@@ -110,7 +110,7 @@ export interface MachineExtensionArgs {
     /**
      * Describes Machine Extension Properties.
      */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly properties?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group.
      */

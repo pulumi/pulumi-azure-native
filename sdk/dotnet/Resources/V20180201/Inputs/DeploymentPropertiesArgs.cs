@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.Resources.V20180201.Inputs
         public Input<Inputs.OnErrorDeploymentArgs>? OnErrorDeployment { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<object>? _parameters;
 
         /// <summary>
         /// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<object> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
 
@@ -52,14 +52,14 @@ namespace Pulumi.AzureRM.Resources.V20180201.Inputs
         public Input<Inputs.ParametersLinkArgs>? ParametersLink { get; set; }
 
         [Input("template")]
-        private InputMap<string>? _template;
+        private InputMap<object>? _template;
 
         /// <summary>
         /// The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         /// </summary>
-        public InputMap<string> Template
+        public InputMap<object> Template
         {
-            get => _template ?? (_template = new InputMap<string>());
+            get => _template ?? (_template = new InputMap<object>());
             set => _template = value;
         }
 

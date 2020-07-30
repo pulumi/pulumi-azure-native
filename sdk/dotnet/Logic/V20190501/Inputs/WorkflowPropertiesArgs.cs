@@ -46,14 +46,14 @@ namespace Pulumi.AzureRM.Logic.V20190501.Inputs
         public Input<Inputs.ResourceReferenceArgs>? IntegrationServiceEnvironment { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<Inputs.WorkflowParameterArgs>? _parameters;
 
         /// <summary>
         /// The parameters.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<Inputs.WorkflowParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<Inputs.WorkflowParameterArgs>());
             set => _parameters = value;
         }
 

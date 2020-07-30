@@ -899,7 +899,7 @@ type Detector struct {
 	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
 	Name *string `pulumi:"name"`
 	// The detector's parameters.'
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]map[string]interface{} `pulumi:"parameters"`
 	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 	SupportedResourceTypes []string `pulumi:"supportedResourceTypes"`
 }
@@ -926,7 +926,7 @@ type DetectorArgs struct {
 	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The detector's parameters.'
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapMapInput `pulumi:"parameters"`
 	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 	SupportedResourceTypes pulumi.StringArrayInput `pulumi:"supportedResourceTypes"`
 }
@@ -1030,8 +1030,8 @@ func (o DetectorOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The detector's parameters.'
-func (o DetectorOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Detector) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o DetectorOutput) Parameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v Detector) map[string]map[string]interface{} { return v.Parameters }).(pulumi.MapMapOutput)
 }
 
 // The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
@@ -1098,13 +1098,13 @@ func (o DetectorPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The detector's parameters.'
-func (o DetectorPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Detector) map[string]string {
+func (o DetectorPtrOutput) Parameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *Detector) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
@@ -1128,7 +1128,7 @@ type DetectorResponse struct {
 	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
 	Name *string `pulumi:"name"`
 	// The detector's parameters.'
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]map[string]interface{} `pulumi:"parameters"`
 	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 	SupportedResourceTypes []string `pulumi:"supportedResourceTypes"`
 }
@@ -1155,7 +1155,7 @@ type DetectorResponseArgs struct {
 	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The detector's parameters.'
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapMapInput `pulumi:"parameters"`
 	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
 	SupportedResourceTypes pulumi.StringArrayInput `pulumi:"supportedResourceTypes"`
 }
@@ -1259,8 +1259,8 @@ func (o DetectorResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The detector's parameters.'
-func (o DetectorResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DetectorResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o DetectorResponseOutput) Parameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v DetectorResponse) map[string]map[string]interface{} { return v.Parameters }).(pulumi.MapMapOutput)
 }
 
 // The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
@@ -1327,13 +1327,13 @@ func (o DetectorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The detector's parameters.'
-func (o DetectorResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DetectorResponse) map[string]string {
+func (o DetectorResponsePtrOutput) Parameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *DetectorResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector

@@ -623,9 +623,25 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 		}
 	}
 
+	// Define the type of maps (untyped objects).
+	var additionalProperties *pschema.TypeSpec
+	if primitiveTypeName == "object" {
+		if schema.AdditionalProperties != nil && schema.AdditionalProperties.Schema != nil {
+			additionalProperties, err = m.genTypeSpec(schema.AdditionalProperties.Schema, context, isOutput)
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			additionalProperties = &pschema.TypeSpec{
+				Ref: "pulumi.json#/Any",
+			}
+		}
+	}
+
 	result := pschema.TypeSpec{
-		Type: primitiveTypeName,
-		Ref:  referencedTypeName,
+		Type:                 primitiveTypeName,
+		AdditionalProperties: additionalProperties,
+		Ref:                  referencedTypeName,
 	}
 
 	// Resolve the element type for array types.

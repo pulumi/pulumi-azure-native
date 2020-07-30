@@ -410,7 +410,7 @@ type ResourceIdentity struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type *string `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserIdentity `pulumi:"userAssignedIdentities"`
 }
 
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
@@ -428,7 +428,7 @@ type ResourceIdentityArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserIdentityMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityArgs) ElementType() reflect.Type {
@@ -514,8 +514,8 @@ func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ResourceIdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ResourceIdentity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ResourceIdentityOutput) UserAssignedIdentities() UserIdentityMapOutput {
+	return o.ApplyT(func(v ResourceIdentity) map[string]UserIdentity { return v.UserAssignedIdentities }).(UserIdentityMapOutput)
 }
 
 type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -547,13 +547,13 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ResourceIdentity) map[string]string {
+func (o ResourceIdentityPtrOutput) UserAssignedIdentities() UserIdentityMapOutput {
+	return o.ApplyT(func(v *ResourceIdentity) map[string]UserIdentity {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(UserIdentityMapOutput)
 }
 
 type ResourceIdentityResponse struct {
@@ -564,7 +564,7 @@ type ResourceIdentityResponse struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type *string `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
@@ -586,7 +586,7 @@ type ResourceIdentityResponseArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
@@ -682,8 +682,8 @@ func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ResourceIdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ResourceIdentityResponseOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) map[string]UserIdentityResponse { return v.UserAssignedIdentities }).(UserIdentityResponseMapOutput)
 }
 
 type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -735,13 +735,13 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) map[string]string {
+func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) map[string]UserIdentityResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(UserIdentityResponseMapOutput)
 }
 
 // Describes a configuration store SKU.
@@ -1012,6 +1012,200 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserIdentity struct {
+}
+
+// UserIdentityInput is an input type that accepts UserIdentityArgs and UserIdentityOutput values.
+// You can construct a concrete instance of `UserIdentityInput` via:
+//
+//          UserIdentityArgs{...}
+type UserIdentityInput interface {
+	pulumi.Input
+
+	ToUserIdentityOutput() UserIdentityOutput
+	ToUserIdentityOutputWithContext(context.Context) UserIdentityOutput
+}
+
+type UserIdentityArgs struct {
+}
+
+func (UserIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentity)(nil)).Elem()
+}
+
+func (i UserIdentityArgs) ToUserIdentityOutput() UserIdentityOutput {
+	return i.ToUserIdentityOutputWithContext(context.Background())
+}
+
+func (i UserIdentityArgs) ToUserIdentityOutputWithContext(ctx context.Context) UserIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityOutput)
+}
+
+// UserIdentityMapInput is an input type that accepts UserIdentityMap and UserIdentityMapOutput values.
+// You can construct a concrete instance of `UserIdentityMapInput` via:
+//
+//          UserIdentityMap{ "key": UserIdentityArgs{...} }
+type UserIdentityMapInput interface {
+	pulumi.Input
+
+	ToUserIdentityMapOutput() UserIdentityMapOutput
+	ToUserIdentityMapOutputWithContext(context.Context) UserIdentityMapOutput
+}
+
+type UserIdentityMap map[string]UserIdentityInput
+
+func (UserIdentityMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentity)(nil)).Elem()
+}
+
+func (i UserIdentityMap) ToUserIdentityMapOutput() UserIdentityMapOutput {
+	return i.ToUserIdentityMapOutputWithContext(context.Background())
+}
+
+func (i UserIdentityMap) ToUserIdentityMapOutputWithContext(ctx context.Context) UserIdentityMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityMapOutput)
+}
+
+type UserIdentityOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentity)(nil)).Elem()
+}
+
+func (o UserIdentityOutput) ToUserIdentityOutput() UserIdentityOutput {
+	return o
+}
+
+func (o UserIdentityOutput) ToUserIdentityOutputWithContext(ctx context.Context) UserIdentityOutput {
+	return o
+}
+
+type UserIdentityMapOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentity)(nil)).Elem()
+}
+
+func (o UserIdentityMapOutput) ToUserIdentityMapOutput() UserIdentityMapOutput {
+	return o
+}
+
+func (o UserIdentityMapOutput) ToUserIdentityMapOutputWithContext(ctx context.Context) UserIdentityMapOutput {
+	return o
+}
+
+func (o UserIdentityMapOutput) MapIndex(k pulumi.StringInput) UserIdentityOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentity {
+		return vs[0].(map[string]UserIdentity)[vs[1].(string)]
+	}).(UserIdentityOutput)
+}
+
+type UserIdentityResponse struct {
+	// The client ID of the user-assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the user-assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserIdentityResponseInput is an input type that accepts UserIdentityResponseArgs and UserIdentityResponseOutput values.
+// You can construct a concrete instance of `UserIdentityResponseInput` via:
+//
+//          UserIdentityResponseArgs{...}
+type UserIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserIdentityResponseOutput() UserIdentityResponseOutput
+	ToUserIdentityResponseOutputWithContext(context.Context) UserIdentityResponseOutput
+}
+
+type UserIdentityResponseArgs struct {
+	// The client ID of the user-assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal ID of the user-assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityResponse)(nil)).Elem()
+}
+
+func (i UserIdentityResponseArgs) ToUserIdentityResponseOutput() UserIdentityResponseOutput {
+	return i.ToUserIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserIdentityResponseArgs) ToUserIdentityResponseOutputWithContext(ctx context.Context) UserIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponseOutput)
+}
+
+// UserIdentityResponseMapInput is an input type that accepts UserIdentityResponseMap and UserIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserIdentityResponseMapInput` via:
+//
+//          UserIdentityResponseMap{ "key": UserIdentityResponseArgs{...} }
+type UserIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserIdentityResponseMapOutput() UserIdentityResponseMapOutput
+	ToUserIdentityResponseMapOutputWithContext(context.Context) UserIdentityResponseMapOutput
+}
+
+type UserIdentityResponseMap map[string]UserIdentityResponseInput
+
+func (UserIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityResponse)(nil)).Elem()
+}
+
+func (i UserIdentityResponseMap) ToUserIdentityResponseMapOutput() UserIdentityResponseMapOutput {
+	return i.ToUserIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserIdentityResponseMap) ToUserIdentityResponseMapOutputWithContext(ctx context.Context) UserIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityResponseMapOutput)
+}
+
+type UserIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityResponse)(nil)).Elem()
+}
+
+func (o UserIdentityResponseOutput) ToUserIdentityResponseOutput() UserIdentityResponseOutput {
+	return o
+}
+
+func (o UserIdentityResponseOutput) ToUserIdentityResponseOutputWithContext(ctx context.Context) UserIdentityResponseOutput {
+	return o
+}
+
+// The client ID of the user-assigned identity.
+func (o UserIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the user-assigned identity.
+func (o UserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityResponse)(nil)).Elem()
+}
+
+func (o UserIdentityResponseMapOutput) ToUserIdentityResponseMapOutput() UserIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityResponseMapOutput) ToUserIdentityResponseMapOutputWithContext(ctx context.Context) UserIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentityResponse {
+		return vs[0].(map[string]UserIdentityResponse)[vs[1].(string)]
+	}).(UserIdentityResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationStoreTypeOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesOutput{})
@@ -1026,4 +1220,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserIdentityOutput{})
+	pulumi.RegisterOutputType(UserIdentityMapOutput{})
+	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserIdentityResponseMapOutput{})
 }

@@ -5190,6 +5190,224 @@ func (o PivotPropertiesResponseArrayOutput) Index(i pulumi.IntInput) PivotProper
 	}).(PivotPropertiesResponseOutput)
 }
 
+// The aggregation expression to be used in the report.
+type ReportConfigAggregation struct {
+	// The name of the aggregation function to use.
+	Function string `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name string `pulumi:"name"`
+}
+
+// ReportConfigAggregationInput is an input type that accepts ReportConfigAggregationArgs and ReportConfigAggregationOutput values.
+// You can construct a concrete instance of `ReportConfigAggregationInput` via:
+//
+//          ReportConfigAggregationArgs{...}
+type ReportConfigAggregationInput interface {
+	pulumi.Input
+
+	ToReportConfigAggregationOutput() ReportConfigAggregationOutput
+	ToReportConfigAggregationOutputWithContext(context.Context) ReportConfigAggregationOutput
+}
+
+// The aggregation expression to be used in the report.
+type ReportConfigAggregationArgs struct {
+	// The name of the aggregation function to use.
+	Function pulumi.StringInput `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ReportConfigAggregationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfigAggregation)(nil)).Elem()
+}
+
+func (i ReportConfigAggregationArgs) ToReportConfigAggregationOutput() ReportConfigAggregationOutput {
+	return i.ToReportConfigAggregationOutputWithContext(context.Background())
+}
+
+func (i ReportConfigAggregationArgs) ToReportConfigAggregationOutputWithContext(ctx context.Context) ReportConfigAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigAggregationOutput)
+}
+
+// ReportConfigAggregationMapInput is an input type that accepts ReportConfigAggregationMap and ReportConfigAggregationMapOutput values.
+// You can construct a concrete instance of `ReportConfigAggregationMapInput` via:
+//
+//          ReportConfigAggregationMap{ "key": ReportConfigAggregationArgs{...} }
+type ReportConfigAggregationMapInput interface {
+	pulumi.Input
+
+	ToReportConfigAggregationMapOutput() ReportConfigAggregationMapOutput
+	ToReportConfigAggregationMapOutputWithContext(context.Context) ReportConfigAggregationMapOutput
+}
+
+type ReportConfigAggregationMap map[string]ReportConfigAggregationInput
+
+func (ReportConfigAggregationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportConfigAggregation)(nil)).Elem()
+}
+
+func (i ReportConfigAggregationMap) ToReportConfigAggregationMapOutput() ReportConfigAggregationMapOutput {
+	return i.ToReportConfigAggregationMapOutputWithContext(context.Background())
+}
+
+func (i ReportConfigAggregationMap) ToReportConfigAggregationMapOutputWithContext(ctx context.Context) ReportConfigAggregationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigAggregationMapOutput)
+}
+
+// The aggregation expression to be used in the report.
+type ReportConfigAggregationOutput struct{ *pulumi.OutputState }
+
+func (ReportConfigAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfigAggregation)(nil)).Elem()
+}
+
+func (o ReportConfigAggregationOutput) ToReportConfigAggregationOutput() ReportConfigAggregationOutput {
+	return o
+}
+
+func (o ReportConfigAggregationOutput) ToReportConfigAggregationOutputWithContext(ctx context.Context) ReportConfigAggregationOutput {
+	return o
+}
+
+// The name of the aggregation function to use.
+func (o ReportConfigAggregationOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportConfigAggregation) string { return v.Function }).(pulumi.StringOutput)
+}
+
+// The name of the column to aggregate.
+func (o ReportConfigAggregationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportConfigAggregation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ReportConfigAggregationMapOutput struct{ *pulumi.OutputState }
+
+func (ReportConfigAggregationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportConfigAggregation)(nil)).Elem()
+}
+
+func (o ReportConfigAggregationMapOutput) ToReportConfigAggregationMapOutput() ReportConfigAggregationMapOutput {
+	return o
+}
+
+func (o ReportConfigAggregationMapOutput) ToReportConfigAggregationMapOutputWithContext(ctx context.Context) ReportConfigAggregationMapOutput {
+	return o
+}
+
+func (o ReportConfigAggregationMapOutput) MapIndex(k pulumi.StringInput) ReportConfigAggregationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportConfigAggregation {
+		return vs[0].(map[string]ReportConfigAggregation)[vs[1].(string)]
+	}).(ReportConfigAggregationOutput)
+}
+
+// The aggregation expression to be used in the report.
+type ReportConfigAggregationResponse struct {
+	// The name of the aggregation function to use.
+	Function string `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name string `pulumi:"name"`
+}
+
+// ReportConfigAggregationResponseInput is an input type that accepts ReportConfigAggregationResponseArgs and ReportConfigAggregationResponseOutput values.
+// You can construct a concrete instance of `ReportConfigAggregationResponseInput` via:
+//
+//          ReportConfigAggregationResponseArgs{...}
+type ReportConfigAggregationResponseInput interface {
+	pulumi.Input
+
+	ToReportConfigAggregationResponseOutput() ReportConfigAggregationResponseOutput
+	ToReportConfigAggregationResponseOutputWithContext(context.Context) ReportConfigAggregationResponseOutput
+}
+
+// The aggregation expression to be used in the report.
+type ReportConfigAggregationResponseArgs struct {
+	// The name of the aggregation function to use.
+	Function pulumi.StringInput `pulumi:"function"`
+	// The name of the column to aggregate.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ReportConfigAggregationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfigAggregationResponse)(nil)).Elem()
+}
+
+func (i ReportConfigAggregationResponseArgs) ToReportConfigAggregationResponseOutput() ReportConfigAggregationResponseOutput {
+	return i.ToReportConfigAggregationResponseOutputWithContext(context.Background())
+}
+
+func (i ReportConfigAggregationResponseArgs) ToReportConfigAggregationResponseOutputWithContext(ctx context.Context) ReportConfigAggregationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigAggregationResponseOutput)
+}
+
+// ReportConfigAggregationResponseMapInput is an input type that accepts ReportConfigAggregationResponseMap and ReportConfigAggregationResponseMapOutput values.
+// You can construct a concrete instance of `ReportConfigAggregationResponseMapInput` via:
+//
+//          ReportConfigAggregationResponseMap{ "key": ReportConfigAggregationResponseArgs{...} }
+type ReportConfigAggregationResponseMapInput interface {
+	pulumi.Input
+
+	ToReportConfigAggregationResponseMapOutput() ReportConfigAggregationResponseMapOutput
+	ToReportConfigAggregationResponseMapOutputWithContext(context.Context) ReportConfigAggregationResponseMapOutput
+}
+
+type ReportConfigAggregationResponseMap map[string]ReportConfigAggregationResponseInput
+
+func (ReportConfigAggregationResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportConfigAggregationResponse)(nil)).Elem()
+}
+
+func (i ReportConfigAggregationResponseMap) ToReportConfigAggregationResponseMapOutput() ReportConfigAggregationResponseMapOutput {
+	return i.ToReportConfigAggregationResponseMapOutputWithContext(context.Background())
+}
+
+func (i ReportConfigAggregationResponseMap) ToReportConfigAggregationResponseMapOutputWithContext(ctx context.Context) ReportConfigAggregationResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigAggregationResponseMapOutput)
+}
+
+// The aggregation expression to be used in the report.
+type ReportConfigAggregationResponseOutput struct{ *pulumi.OutputState }
+
+func (ReportConfigAggregationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportConfigAggregationResponse)(nil)).Elem()
+}
+
+func (o ReportConfigAggregationResponseOutput) ToReportConfigAggregationResponseOutput() ReportConfigAggregationResponseOutput {
+	return o
+}
+
+func (o ReportConfigAggregationResponseOutput) ToReportConfigAggregationResponseOutputWithContext(ctx context.Context) ReportConfigAggregationResponseOutput {
+	return o
+}
+
+// The name of the aggregation function to use.
+func (o ReportConfigAggregationResponseOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportConfigAggregationResponse) string { return v.Function }).(pulumi.StringOutput)
+}
+
+// The name of the column to aggregate.
+func (o ReportConfigAggregationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportConfigAggregationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ReportConfigAggregationResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ReportConfigAggregationResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ReportConfigAggregationResponse)(nil)).Elem()
+}
+
+func (o ReportConfigAggregationResponseMapOutput) ToReportConfigAggregationResponseMapOutput() ReportConfigAggregationResponseMapOutput {
+	return o
+}
+
+func (o ReportConfigAggregationResponseMapOutput) ToReportConfigAggregationResponseMapOutputWithContext(ctx context.Context) ReportConfigAggregationResponseMapOutput {
+	return o
+}
+
+func (o ReportConfigAggregationResponseMapOutput) MapIndex(k pulumi.StringInput) ReportConfigAggregationResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportConfigAggregationResponse {
+		return vs[0].(map[string]ReportConfigAggregationResponse)[vs[1].(string)]
+	}).(ReportConfigAggregationResponseOutput)
+}
+
 // The comparison expression to be used in the report.
 type ReportConfigComparisonExpression struct {
 	// The name of the column to use in comparison.
@@ -5537,7 +5755,7 @@ func (o ReportConfigComparisonExpressionResponsePtrOutput) Values() pulumi.Strin
 // The definition of data present in the report.
 type ReportConfigDataset struct {
 	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation map[string]string `pulumi:"aggregation"`
+	Aggregation map[string]ReportConfigAggregation `pulumi:"aggregation"`
 	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration *ReportConfigDatasetConfiguration `pulumi:"configuration"`
 	// Has filter expression to use in the report.
@@ -5564,7 +5782,7 @@ type ReportConfigDatasetInput interface {
 // The definition of data present in the report.
 type ReportConfigDatasetArgs struct {
 	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation pulumi.StringMapInput `pulumi:"aggregation"`
+	Aggregation ReportConfigAggregationMapInput `pulumi:"aggregation"`
 	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration ReportConfigDatasetConfigurationPtrInput `pulumi:"configuration"`
 	// Has filter expression to use in the report.
@@ -5656,8 +5874,8 @@ func (o ReportConfigDatasetOutput) ToReportConfigDatasetPtrOutputWithContext(ctx
 }
 
 // Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-func (o ReportConfigDatasetOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ReportConfigDataset) map[string]string { return v.Aggregation }).(pulumi.StringMapOutput)
+func (o ReportConfigDatasetOutput) Aggregation() ReportConfigAggregationMapOutput {
+	return o.ApplyT(func(v ReportConfigDataset) map[string]ReportConfigAggregation { return v.Aggregation }).(ReportConfigAggregationMapOutput)
 }
 
 // Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
@@ -5704,13 +5922,13 @@ func (o ReportConfigDatasetPtrOutput) Elem() ReportConfigDatasetOutput {
 }
 
 // Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-func (o ReportConfigDatasetPtrOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ReportConfigDataset) map[string]string {
+func (o ReportConfigDatasetPtrOutput) Aggregation() ReportConfigAggregationMapOutput {
+	return o.ApplyT(func(v *ReportConfigDataset) map[string]ReportConfigAggregation {
 		if v == nil {
 			return nil
 		}
 		return v.Aggregation
-	}).(pulumi.StringMapOutput)
+	}).(ReportConfigAggregationMapOutput)
 }
 
 // Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
@@ -6034,7 +6252,7 @@ func (o ReportConfigDatasetConfigurationResponsePtrOutput) Columns() pulumi.Stri
 // The definition of data present in the report.
 type ReportConfigDatasetResponse struct {
 	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation map[string]string `pulumi:"aggregation"`
+	Aggregation map[string]ReportConfigAggregationResponse `pulumi:"aggregation"`
 	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration *ReportConfigDatasetConfigurationResponse `pulumi:"configuration"`
 	// Has filter expression to use in the report.
@@ -6061,7 +6279,7 @@ type ReportConfigDatasetResponseInput interface {
 // The definition of data present in the report.
 type ReportConfigDatasetResponseArgs struct {
 	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation pulumi.StringMapInput `pulumi:"aggregation"`
+	Aggregation ReportConfigAggregationResponseMapInput `pulumi:"aggregation"`
 	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration ReportConfigDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
 	// Has filter expression to use in the report.
@@ -6153,8 +6371,8 @@ func (o ReportConfigDatasetResponseOutput) ToReportConfigDatasetResponsePtrOutpu
 }
 
 // Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-func (o ReportConfigDatasetResponseOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ReportConfigDatasetResponse) map[string]string { return v.Aggregation }).(pulumi.StringMapOutput)
+func (o ReportConfigDatasetResponseOutput) Aggregation() ReportConfigAggregationResponseMapOutput {
+	return o.ApplyT(func(v ReportConfigDatasetResponse) map[string]ReportConfigAggregationResponse { return v.Aggregation }).(ReportConfigAggregationResponseMapOutput)
 }
 
 // Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
@@ -6201,13 +6419,13 @@ func (o ReportConfigDatasetResponsePtrOutput) Elem() ReportConfigDatasetResponse
 }
 
 // Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-func (o ReportConfigDatasetResponsePtrOutput) Aggregation() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ReportConfigDatasetResponse) map[string]string {
+func (o ReportConfigDatasetResponsePtrOutput) Aggregation() ReportConfigAggregationResponseMapOutput {
+	return o.ApplyT(func(v *ReportConfigDatasetResponse) map[string]ReportConfigAggregationResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Aggregation
-	}).(pulumi.StringMapOutput)
+	}).(ReportConfigAggregationResponseMapOutput)
 }
 
 // Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
@@ -8695,6 +8913,10 @@ func init() {
 	pulumi.RegisterOutputType(PivotPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(PivotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PivotPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(ReportConfigAggregationOutput{})
+	pulumi.RegisterOutputType(ReportConfigAggregationMapOutput{})
+	pulumi.RegisterOutputType(ReportConfigAggregationResponseOutput{})
+	pulumi.RegisterOutputType(ReportConfigAggregationResponseMapOutput{})
 	pulumi.RegisterOutputType(ReportConfigComparisonExpressionOutput{})
 	pulumi.RegisterOutputType(ReportConfigComparisonExpressionPtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigComparisonExpressionResponseOutput{})

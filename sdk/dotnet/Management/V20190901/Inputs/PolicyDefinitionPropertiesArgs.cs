@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.Management.V20190901.Inputs
         public Input<string>? DisplayName { get; set; }
 
         [Input("metadata")]
-        private InputMap<string>? _metadata;
+        private InputMap<object>? _metadata;
 
         /// <summary>
         /// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public InputMap<string> Metadata
+        public InputMap<object> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<string>());
+            get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
 
@@ -52,14 +52,14 @@ namespace Pulumi.AzureRM.Management.V20190901.Inputs
         public Input<Inputs.ParameterDefinitionsArgs>? Parameters { get; set; }
 
         [Input("policyRule")]
-        private InputMap<string>? _policyRule;
+        private InputMap<object>? _policyRule;
 
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public InputMap<string> PolicyRule
+        public InputMap<object> PolicyRule
         {
-            get => _policyRule ?? (_policyRule = new InputMap<string>());
+            get => _policyRule ?? (_policyRule = new InputMap<object>());
             set => _policyRule = value;
         }
 

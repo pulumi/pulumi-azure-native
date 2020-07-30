@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ImportExport.V20161101
         /// Specifies the tags that are assigned to the job.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of the job resource.
@@ -114,14 +114,14 @@ namespace Pulumi.AzureRM.ImportExport.V20161101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Specifies the tags that will be assigned to the job.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 

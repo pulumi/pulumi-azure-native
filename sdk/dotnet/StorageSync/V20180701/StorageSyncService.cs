@@ -102,10 +102,10 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
         public Input<string> Name { get; set; } = null!;
 
         [Input("properties")]
-        private InputMap<string>? _properties;
-        public InputMap<string> Properties
+        private InputMap<object>? _properties;
+        public InputMap<object> Properties
         {
-            get => _properties ?? (_properties = new InputMap<string>());
+            get => _properties ?? (_properties = new InputMap<object>());
             set => _properties = value;
         }
 

@@ -55,7 +55,7 @@ export interface GetSmartDetectorAlertRuleResult {
     /**
      * The resource tags.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags?: {[key: string]: any};
     /**
      * The resource type.
      */

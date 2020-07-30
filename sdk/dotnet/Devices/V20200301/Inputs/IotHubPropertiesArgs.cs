@@ -46,14 +46,14 @@ namespace Pulumi.AzureRM.Devices.V20200301.Inputs
         public Input<bool>? EnableFileUploadNotifications { get; set; }
 
         [Input("eventHubEndpoints")]
-        private InputMap<string>? _eventHubEndpoints;
+        private InputMap<Inputs.EventHubPropertiesArgs>? _eventHubEndpoints;
 
         /// <summary>
         /// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         /// </summary>
-        public InputMap<string> EventHubEndpoints
+        public InputMap<Inputs.EventHubPropertiesArgs> EventHubEndpoints
         {
-            get => _eventHubEndpoints ?? (_eventHubEndpoints = new InputMap<string>());
+            get => _eventHubEndpoints ?? (_eventHubEndpoints = new InputMap<Inputs.EventHubPropertiesArgs>());
             set => _eventHubEndpoints = value;
         }
 
@@ -76,14 +76,14 @@ namespace Pulumi.AzureRM.Devices.V20200301.Inputs
         }
 
         [Input("messagingEndpoints")]
-        private InputMap<string>? _messagingEndpoints;
+        private InputMap<Inputs.MessagingEndpointPropertiesArgs>? _messagingEndpoints;
 
         /// <summary>
         /// The messaging endpoint properties for the file upload notification queue.
         /// </summary>
-        public InputMap<string> MessagingEndpoints
+        public InputMap<Inputs.MessagingEndpointPropertiesArgs> MessagingEndpoints
         {
-            get => _messagingEndpoints ?? (_messagingEndpoints = new InputMap<string>());
+            get => _messagingEndpoints ?? (_messagingEndpoints = new InputMap<Inputs.MessagingEndpointPropertiesArgs>());
             set => _messagingEndpoints = value;
         }
 
@@ -118,14 +118,14 @@ namespace Pulumi.AzureRM.Devices.V20200301.Inputs
         public Input<Inputs.RoutingPropertiesArgs>? Routing { get; set; }
 
         [Input("storageEndpoints")]
-        private InputMap<string>? _storageEndpoints;
+        private InputMap<Inputs.StorageEndpointPropertiesArgs>? _storageEndpoints;
 
         /// <summary>
         /// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         /// </summary>
-        public InputMap<string> StorageEndpoints
+        public InputMap<Inputs.StorageEndpointPropertiesArgs> StorageEndpoints
         {
-            get => _storageEndpoints ?? (_storageEndpoints = new InputMap<string>());
+            get => _storageEndpoints ?? (_storageEndpoints = new InputMap<Inputs.StorageEndpointPropertiesArgs>());
             set => _storageEndpoints = value;
         }
 

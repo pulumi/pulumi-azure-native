@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// <summary>
         /// The parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? Parameters;
         /// <summary>
         /// Gets the provisioning state.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             Outputs.ResourceReferenceResponseResult? integrationAccount,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? parameters,
 
             string provisioningState,
 

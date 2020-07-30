@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.HybridData.V20160601.Inputs
         public Input<string> DataStoreTypeId { get; set; } = null!;
 
         [Input("extendedProperties")]
-        private InputMap<string>? _extendedProperties;
+        private InputMap<object>? _extendedProperties;
 
         /// <summary>
         /// A generic json used differently by each data source type.
         /// </summary>
-        public InputMap<string> ExtendedProperties
+        public InputMap<object> ExtendedProperties
         {
-            get => _extendedProperties ?? (_extendedProperties = new InputMap<string>());
+            get => _extendedProperties ?? (_extendedProperties = new InputMap<object>());
             set => _extendedProperties = value;
         }
 

@@ -788,6 +788,740 @@ func (o ApiConnectionTestLinkResponseArrayOutput) Index(i pulumi.IntInput) ApiCo
 	}).(ApiConnectionTestLinkResponseOutput)
 }
 
+// OAuth settings for the connection provider
+type ApiOAuthSettings struct {
+	// Resource provider client id
+	ClientId *string `pulumi:"clientId"`
+	// Client Secret needed for OAuth
+	ClientSecret *string `pulumi:"clientSecret"`
+	// OAuth parameters key is the name of parameter
+	CustomParameters map[string]ApiOAuthSettingsParameter `pulumi:"customParameters"`
+	// Identity provider
+	IdentityProvider *string `pulumi:"identityProvider"`
+	// Read only properties for this oauth setting.
+	Properties map[string]interface{} `pulumi:"properties"`
+	// Url
+	RedirectUrl *string `pulumi:"redirectUrl"`
+	// OAuth scopes
+	Scopes []string `pulumi:"scopes"`
+}
+
+// ApiOAuthSettingsInput is an input type that accepts ApiOAuthSettingsArgs and ApiOAuthSettingsOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsInput` via:
+//
+//          ApiOAuthSettingsArgs{...}
+type ApiOAuthSettingsInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsOutput() ApiOAuthSettingsOutput
+	ToApiOAuthSettingsOutputWithContext(context.Context) ApiOAuthSettingsOutput
+}
+
+// OAuth settings for the connection provider
+type ApiOAuthSettingsArgs struct {
+	// Resource provider client id
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Client Secret needed for OAuth
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// OAuth parameters key is the name of parameter
+	CustomParameters ApiOAuthSettingsParameterMapInput `pulumi:"customParameters"`
+	// Identity provider
+	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
+	// Read only properties for this oauth setting.
+	Properties pulumi.MapInput `pulumi:"properties"`
+	// Url
+	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
+	// OAuth scopes
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (ApiOAuthSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettings)(nil)).Elem()
+}
+
+func (i ApiOAuthSettingsArgs) ToApiOAuthSettingsOutput() ApiOAuthSettingsOutput {
+	return i.ToApiOAuthSettingsOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsArgs) ToApiOAuthSettingsOutputWithContext(ctx context.Context) ApiOAuthSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsOutput)
+}
+
+func (i ApiOAuthSettingsArgs) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPtrOutput {
+	return i.ToApiOAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsArgs) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsOutput).ToApiOAuthSettingsPtrOutputWithContext(ctx)
+}
+
+// ApiOAuthSettingsPtrInput is an input type that accepts ApiOAuthSettingsArgs, ApiOAuthSettingsPtr and ApiOAuthSettingsPtrOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsPtrInput` via:
+//
+//          ApiOAuthSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiOAuthSettingsPtrInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPtrOutput
+	ToApiOAuthSettingsPtrOutputWithContext(context.Context) ApiOAuthSettingsPtrOutput
+}
+
+type apiOAuthSettingsPtrType ApiOAuthSettingsArgs
+
+func ApiOAuthSettingsPtr(v *ApiOAuthSettingsArgs) ApiOAuthSettingsPtrInput {
+	return (*apiOAuthSettingsPtrType)(v)
+}
+
+func (*apiOAuthSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOAuthSettings)(nil)).Elem()
+}
+
+func (i *apiOAuthSettingsPtrType) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPtrOutput {
+	return i.ToApiOAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *apiOAuthSettingsPtrType) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsPtrOutput)
+}
+
+// OAuth settings for the connection provider
+type ApiOAuthSettingsOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettings)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsOutput() ApiOAuthSettingsOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsOutputWithContext(ctx context.Context) ApiOAuthSettingsOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPtrOutput {
+	return o.ToApiOAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) *ApiOAuthSettings {
+		return &v
+	}).(ApiOAuthSettingsPtrOutput)
+}
+
+// Resource provider client id
+func (o ApiOAuthSettingsOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Client Secret needed for OAuth
+func (o ApiOAuthSettingsOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// OAuth parameters key is the name of parameter
+func (o ApiOAuthSettingsOutput) CustomParameters() ApiOAuthSettingsParameterMapOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) map[string]ApiOAuthSettingsParameter { return v.CustomParameters }).(ApiOAuthSettingsParameterMapOutput)
+}
+
+// Identity provider
+func (o ApiOAuthSettingsOutput) IdentityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.IdentityProvider }).(pulumi.StringPtrOutput)
+}
+
+// Read only properties for this oauth setting.
+func (o ApiOAuthSettingsOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+}
+
+// Url
+func (o ApiOAuthSettingsOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// OAuth scopes
+func (o ApiOAuthSettingsOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiOAuthSettings) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ApiOAuthSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOAuthSettings)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsPtrOutput) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPtrOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsPtrOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsPtrOutput) Elem() ApiOAuthSettingsOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings { return *v }).(ApiOAuthSettingsOutput)
+}
+
+// Resource provider client id
+func (o ApiOAuthSettingsPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client Secret needed for OAuth
+func (o ApiOAuthSettingsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth parameters key is the name of parameter
+func (o ApiOAuthSettingsPtrOutput) CustomParameters() ApiOAuthSettingsParameterMapOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) map[string]ApiOAuthSettingsParameter {
+		if v == nil {
+			return nil
+		}
+		return v.CustomParameters
+	}).(ApiOAuthSettingsParameterMapOutput)
+}
+
+// Identity provider
+func (o ApiOAuthSettingsPtrOutput) IdentityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read only properties for this oauth setting.
+func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.MapOutput)
+}
+
+// Url
+func (o ApiOAuthSettingsPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth scopes
+func (o ApiOAuthSettingsPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiOAuthSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth settings for the API
+type ApiOAuthSettingsParameter struct {
+	// Options available to this parameter
+	Options map[string]interface{} `pulumi:"options"`
+	// UI definitions per culture as caller can specify the culture
+	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	// Value of the setting
+	Value *string `pulumi:"value"`
+}
+
+// ApiOAuthSettingsParameterInput is an input type that accepts ApiOAuthSettingsParameterArgs and ApiOAuthSettingsParameterOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsParameterInput` via:
+//
+//          ApiOAuthSettingsParameterArgs{...}
+type ApiOAuthSettingsParameterInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsParameterOutput() ApiOAuthSettingsParameterOutput
+	ToApiOAuthSettingsParameterOutputWithContext(context.Context) ApiOAuthSettingsParameterOutput
+}
+
+// OAuth settings for the API
+type ApiOAuthSettingsParameterArgs struct {
+	// Options available to this parameter
+	Options pulumi.MapInput `pulumi:"options"`
+	// UI definitions per culture as caller can specify the culture
+	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	// Value of the setting
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApiOAuthSettingsParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettingsParameter)(nil)).Elem()
+}
+
+func (i ApiOAuthSettingsParameterArgs) ToApiOAuthSettingsParameterOutput() ApiOAuthSettingsParameterOutput {
+	return i.ToApiOAuthSettingsParameterOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsParameterArgs) ToApiOAuthSettingsParameterOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterOutput)
+}
+
+// ApiOAuthSettingsParameterMapInput is an input type that accepts ApiOAuthSettingsParameterMap and ApiOAuthSettingsParameterMapOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsParameterMapInput` via:
+//
+//          ApiOAuthSettingsParameterMap{ "key": ApiOAuthSettingsParameterArgs{...} }
+type ApiOAuthSettingsParameterMapInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsParameterMapOutput() ApiOAuthSettingsParameterMapOutput
+	ToApiOAuthSettingsParameterMapOutputWithContext(context.Context) ApiOAuthSettingsParameterMapOutput
+}
+
+type ApiOAuthSettingsParameterMap map[string]ApiOAuthSettingsParameterInput
+
+func (ApiOAuthSettingsParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiOAuthSettingsParameter)(nil)).Elem()
+}
+
+func (i ApiOAuthSettingsParameterMap) ToApiOAuthSettingsParameterMapOutput() ApiOAuthSettingsParameterMapOutput {
+	return i.ToApiOAuthSettingsParameterMapOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsParameterMap) ToApiOAuthSettingsParameterMapOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterMapOutput)
+}
+
+// OAuth settings for the API
+type ApiOAuthSettingsParameterOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettingsParameter)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsParameterOutput) ToApiOAuthSettingsParameterOutput() ApiOAuthSettingsParameterOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsParameterOutput) ToApiOAuthSettingsParameterOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterOutput {
+	return o
+}
+
+// Options available to this parameter
+func (o ApiOAuthSettingsParameterOutput) Options() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameter) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+}
+
+// UI definitions per culture as caller can specify the culture
+func (o ApiOAuthSettingsParameterOutput) UiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameter) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+}
+
+// Value of the setting
+func (o ApiOAuthSettingsParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ApiOAuthSettingsParameterMapOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiOAuthSettingsParameter)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsParameterMapOutput) ToApiOAuthSettingsParameterMapOutput() ApiOAuthSettingsParameterMapOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsParameterMapOutput) ToApiOAuthSettingsParameterMapOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterMapOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsParameterMapOutput) MapIndex(k pulumi.StringInput) ApiOAuthSettingsParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiOAuthSettingsParameter {
+		return vs[0].(map[string]ApiOAuthSettingsParameter)[vs[1].(string)]
+	}).(ApiOAuthSettingsParameterOutput)
+}
+
+// OAuth settings for the API
+type ApiOAuthSettingsParameterResponse struct {
+	// Options available to this parameter
+	Options map[string]interface{} `pulumi:"options"`
+	// UI definitions per culture as caller can specify the culture
+	UiDefinition map[string]interface{} `pulumi:"uiDefinition"`
+	// Value of the setting
+	Value *string `pulumi:"value"`
+}
+
+// ApiOAuthSettingsParameterResponseInput is an input type that accepts ApiOAuthSettingsParameterResponseArgs and ApiOAuthSettingsParameterResponseOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsParameterResponseInput` via:
+//
+//          ApiOAuthSettingsParameterResponseArgs{...}
+type ApiOAuthSettingsParameterResponseInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsParameterResponseOutput() ApiOAuthSettingsParameterResponseOutput
+	ToApiOAuthSettingsParameterResponseOutputWithContext(context.Context) ApiOAuthSettingsParameterResponseOutput
+}
+
+// OAuth settings for the API
+type ApiOAuthSettingsParameterResponseArgs struct {
+	// Options available to this parameter
+	Options pulumi.MapInput `pulumi:"options"`
+	// UI definitions per culture as caller can specify the culture
+	UiDefinition pulumi.MapInput `pulumi:"uiDefinition"`
+	// Value of the setting
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApiOAuthSettingsParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettingsParameterResponse)(nil)).Elem()
+}
+
+func (i ApiOAuthSettingsParameterResponseArgs) ToApiOAuthSettingsParameterResponseOutput() ApiOAuthSettingsParameterResponseOutput {
+	return i.ToApiOAuthSettingsParameterResponseOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsParameterResponseArgs) ToApiOAuthSettingsParameterResponseOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterResponseOutput)
+}
+
+// ApiOAuthSettingsParameterResponseMapInput is an input type that accepts ApiOAuthSettingsParameterResponseMap and ApiOAuthSettingsParameterResponseMapOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsParameterResponseMapInput` via:
+//
+//          ApiOAuthSettingsParameterResponseMap{ "key": ApiOAuthSettingsParameterResponseArgs{...} }
+type ApiOAuthSettingsParameterResponseMapInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsParameterResponseMapOutput() ApiOAuthSettingsParameterResponseMapOutput
+	ToApiOAuthSettingsParameterResponseMapOutputWithContext(context.Context) ApiOAuthSettingsParameterResponseMapOutput
+}
+
+type ApiOAuthSettingsParameterResponseMap map[string]ApiOAuthSettingsParameterResponseInput
+
+func (ApiOAuthSettingsParameterResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiOAuthSettingsParameterResponse)(nil)).Elem()
+}
+
+func (i ApiOAuthSettingsParameterResponseMap) ToApiOAuthSettingsParameterResponseMapOutput() ApiOAuthSettingsParameterResponseMapOutput {
+	return i.ToApiOAuthSettingsParameterResponseMapOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsParameterResponseMap) ToApiOAuthSettingsParameterResponseMapOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterResponseMapOutput)
+}
+
+// OAuth settings for the API
+type ApiOAuthSettingsParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettingsParameterResponse)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsParameterResponseOutput) ToApiOAuthSettingsParameterResponseOutput() ApiOAuthSettingsParameterResponseOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsParameterResponseOutput) ToApiOAuthSettingsParameterResponseOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterResponseOutput {
+	return o
+}
+
+// Options available to this parameter
+func (o ApiOAuthSettingsParameterResponseOutput) Options() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+}
+
+// UI definitions per culture as caller can specify the culture
+func (o ApiOAuthSettingsParameterResponseOutput) UiDefinition() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) map[string]interface{} { return v.UiDefinition }).(pulumi.MapOutput)
+}
+
+// Value of the setting
+func (o ApiOAuthSettingsParameterResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ApiOAuthSettingsParameterResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsParameterResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiOAuthSettingsParameterResponse)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsParameterResponseMapOutput) ToApiOAuthSettingsParameterResponseMapOutput() ApiOAuthSettingsParameterResponseMapOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsParameterResponseMapOutput) ToApiOAuthSettingsParameterResponseMapOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterResponseMapOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsParameterResponseMapOutput) MapIndex(k pulumi.StringInput) ApiOAuthSettingsParameterResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiOAuthSettingsParameterResponse {
+		return vs[0].(map[string]ApiOAuthSettingsParameterResponse)[vs[1].(string)]
+	}).(ApiOAuthSettingsParameterResponseOutput)
+}
+
+// OAuth settings for the connection provider
+type ApiOAuthSettingsResponse struct {
+	// Resource provider client id
+	ClientId *string `pulumi:"clientId"`
+	// Client Secret needed for OAuth
+	ClientSecret *string `pulumi:"clientSecret"`
+	// OAuth parameters key is the name of parameter
+	CustomParameters map[string]ApiOAuthSettingsParameterResponse `pulumi:"customParameters"`
+	// Identity provider
+	IdentityProvider *string `pulumi:"identityProvider"`
+	// Read only properties for this oauth setting.
+	Properties map[string]interface{} `pulumi:"properties"`
+	// Url
+	RedirectUrl *string `pulumi:"redirectUrl"`
+	// OAuth scopes
+	Scopes []string `pulumi:"scopes"`
+}
+
+// ApiOAuthSettingsResponseInput is an input type that accepts ApiOAuthSettingsResponseArgs and ApiOAuthSettingsResponseOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsResponseInput` via:
+//
+//          ApiOAuthSettingsResponseArgs{...}
+type ApiOAuthSettingsResponseInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsResponseOutput() ApiOAuthSettingsResponseOutput
+	ToApiOAuthSettingsResponseOutputWithContext(context.Context) ApiOAuthSettingsResponseOutput
+}
+
+// OAuth settings for the connection provider
+type ApiOAuthSettingsResponseArgs struct {
+	// Resource provider client id
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Client Secret needed for OAuth
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// OAuth parameters key is the name of parameter
+	CustomParameters ApiOAuthSettingsParameterResponseMapInput `pulumi:"customParameters"`
+	// Identity provider
+	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
+	// Read only properties for this oauth setting.
+	Properties pulumi.MapInput `pulumi:"properties"`
+	// Url
+	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
+	// OAuth scopes
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (ApiOAuthSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettingsResponse)(nil)).Elem()
+}
+
+func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponseOutput() ApiOAuthSettingsResponseOutput {
+	return i.ToApiOAuthSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponseOutputWithContext(ctx context.Context) ApiOAuthSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponseOutput)
+}
+
+func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput {
+	return i.ToApiOAuthSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponseOutput).ToApiOAuthSettingsResponsePtrOutputWithContext(ctx)
+}
+
+// ApiOAuthSettingsResponsePtrInput is an input type that accepts ApiOAuthSettingsResponseArgs, ApiOAuthSettingsResponsePtr and ApiOAuthSettingsResponsePtrOutput values.
+// You can construct a concrete instance of `ApiOAuthSettingsResponsePtrInput` via:
+//
+//          ApiOAuthSettingsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiOAuthSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput
+	ToApiOAuthSettingsResponsePtrOutputWithContext(context.Context) ApiOAuthSettingsResponsePtrOutput
+}
+
+type apiOAuthSettingsResponsePtrType ApiOAuthSettingsResponseArgs
+
+func ApiOAuthSettingsResponsePtr(v *ApiOAuthSettingsResponseArgs) ApiOAuthSettingsResponsePtrInput {
+	return (*apiOAuthSettingsResponsePtrType)(v)
+}
+
+func (*apiOAuthSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOAuthSettingsResponse)(nil)).Elem()
+}
+
+func (i *apiOAuthSettingsResponsePtrType) ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput {
+	return i.ToApiOAuthSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiOAuthSettingsResponsePtrType) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponsePtrOutput)
+}
+
+// OAuth settings for the connection provider
+type ApiOAuthSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOAuthSettingsResponse)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponseOutput() ApiOAuthSettingsResponseOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponseOutputWithContext(ctx context.Context) ApiOAuthSettingsResponseOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput {
+	return o.ToApiOAuthSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
+		return &v
+	}).(ApiOAuthSettingsResponsePtrOutput)
+}
+
+// Resource provider client id
+func (o ApiOAuthSettingsResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Client Secret needed for OAuth
+func (o ApiOAuthSettingsResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// OAuth parameters key is the name of parameter
+func (o ApiOAuthSettingsResponseOutput) CustomParameters() ApiOAuthSettingsParameterResponseMapOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) map[string]ApiOAuthSettingsParameterResponse {
+		return v.CustomParameters
+	}).(ApiOAuthSettingsParameterResponseMapOutput)
+}
+
+// Identity provider
+func (o ApiOAuthSettingsResponseOutput) IdentityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.IdentityProvider }).(pulumi.StringPtrOutput)
+}
+
+// Read only properties for this oauth setting.
+func (o ApiOAuthSettingsResponseOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+}
+
+// Url
+func (o ApiOAuthSettingsResponseOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// OAuth scopes
+func (o ApiOAuthSettingsResponseOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiOAuthSettingsResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ApiOAuthSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiOAuthSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOAuthSettingsResponse)(nil)).Elem()
+}
+
+func (o ApiOAuthSettingsResponsePtrOutput) ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsResponsePtrOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ApiOAuthSettingsResponsePtrOutput) Elem() ApiOAuthSettingsResponseOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse { return *v }).(ApiOAuthSettingsResponseOutput)
+}
+
+// Resource provider client id
+func (o ApiOAuthSettingsResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client Secret needed for OAuth
+func (o ApiOAuthSettingsResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth parameters key is the name of parameter
+func (o ApiOAuthSettingsResponsePtrOutput) CustomParameters() ApiOAuthSettingsParameterResponseMapOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) map[string]ApiOAuthSettingsParameterResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CustomParameters
+	}).(ApiOAuthSettingsParameterResponseMapOutput)
+}
+
+// Identity provider
+func (o ApiOAuthSettingsResponsePtrOutput) IdentityProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read only properties for this oauth setting.
+func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.MapOutput)
+}
+
+// Url
+func (o ApiOAuthSettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth scopes
+func (o ApiOAuthSettingsResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
 type ApiReference struct {
 	// Brand color
 	BrandColor *string `pulumi:"brandColor"`
@@ -802,7 +1536,7 @@ type ApiReference struct {
 	// The name of the API
 	Name *string `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger map[string]string `pulumi:"swagger"`
+	Swagger map[string]interface{} `pulumi:"swagger"`
 	// Resource reference type
 	Type *string `pulumi:"type"`
 }
@@ -832,7 +1566,7 @@ type ApiReferenceArgs struct {
 	// The name of the API
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger pulumi.StringMapInput `pulumi:"swagger"`
+	Swagger pulumi.MapInput `pulumi:"swagger"`
 	// Resource reference type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -945,8 +1679,8 @@ func (o ApiReferenceOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferenceOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApiReference) map[string]string { return v.Swagger }).(pulumi.StringMapOutput)
+func (o ApiReferenceOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiReference) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
 }
 
 // Resource reference type
@@ -1033,13 +1767,13 @@ func (o ApiReferencePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferencePtrOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApiReference) map[string]string {
+func (o ApiReferencePtrOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApiReference) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Resource reference type
@@ -1066,7 +1800,7 @@ type ApiReferenceResponse struct {
 	// The name of the API
 	Name *string `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger map[string]string `pulumi:"swagger"`
+	Swagger map[string]interface{} `pulumi:"swagger"`
 	// Resource reference type
 	Type *string `pulumi:"type"`
 }
@@ -1096,7 +1830,7 @@ type ApiReferenceResponseArgs struct {
 	// The name of the API
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The JSON representation of the swagger
-	Swagger pulumi.StringMapInput `pulumi:"swagger"`
+	Swagger pulumi.MapInput `pulumi:"swagger"`
 	// Resource reference type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -1209,8 +1943,8 @@ func (o ApiReferenceResponseOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferenceResponseOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApiReferenceResponse) map[string]string { return v.Swagger }).(pulumi.StringMapOutput)
+func (o ApiReferenceResponseOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiReferenceResponse) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
 }
 
 // Resource reference type
@@ -1297,13 +2031,13 @@ func (o ApiReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The JSON representation of the swagger
-func (o ApiReferenceResponsePtrOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApiReferenceResponse) map[string]string {
+func (o ApiReferenceResponsePtrOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v *ApiReferenceResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Resource reference type
@@ -2829,7 +3563,7 @@ type ConnectionGatewayDefinitionProperties struct {
 	// The machine name of the gateway
 	MachineName *string `pulumi:"machineName"`
 	// The gateway status
-	Status map[string]string `pulumi:"status"`
+	Status map[string]interface{} `pulumi:"status"`
 }
 
 // ConnectionGatewayDefinitionPropertiesInput is an input type that accepts ConnectionGatewayDefinitionPropertiesArgs and ConnectionGatewayDefinitionPropertiesOutput values.
@@ -2857,7 +3591,7 @@ type ConnectionGatewayDefinitionPropertiesArgs struct {
 	// The machine name of the gateway
 	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
 	// The gateway status
-	Status pulumi.StringMapInput `pulumi:"status"`
+	Status pulumi.MapInput `pulumi:"status"`
 }
 
 func (ConnectionGatewayDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -2970,8 +3704,8 @@ func (o ConnectionGatewayDefinitionPropertiesOutput) MachineName() pulumi.String
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionPropertiesOutput) Status() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) map[string]string { return v.Status }).(pulumi.StringMapOutput)
+func (o ConnectionGatewayDefinitionPropertiesOutput) Status() pulumi.MapOutput {
+	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) map[string]interface{} { return v.Status }).(pulumi.MapOutput)
 }
 
 type ConnectionGatewayDefinitionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3053,13 +3787,13 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) MachineName() pulumi.Str
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Status() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) map[string]string {
+func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Status() pulumi.MapOutput {
+	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 type ConnectionGatewayDefinitionResponseProperties struct {
@@ -3076,7 +3810,7 @@ type ConnectionGatewayDefinitionResponseProperties struct {
 	// The machine name of the gateway
 	MachineName *string `pulumi:"machineName"`
 	// The gateway status
-	Status map[string]string `pulumi:"status"`
+	Status map[string]interface{} `pulumi:"status"`
 }
 
 // ConnectionGatewayDefinitionResponsePropertiesInput is an input type that accepts ConnectionGatewayDefinitionResponsePropertiesArgs and ConnectionGatewayDefinitionResponsePropertiesOutput values.
@@ -3104,7 +3838,7 @@ type ConnectionGatewayDefinitionResponsePropertiesArgs struct {
 	// The machine name of the gateway
 	MachineName pulumi.StringPtrInput `pulumi:"machineName"`
 	// The gateway status
-	Status pulumi.StringMapInput `pulumi:"status"`
+	Status pulumi.MapInput `pulumi:"status"`
 }
 
 func (ConnectionGatewayDefinitionResponsePropertiesArgs) ElementType() reflect.Type {
@@ -3217,8 +3951,8 @@ func (o ConnectionGatewayDefinitionResponsePropertiesOutput) MachineName() pulum
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionResponsePropertiesOutput) Status() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) map[string]string { return v.Status }).(pulumi.StringMapOutput)
+func (o ConnectionGatewayDefinitionResponsePropertiesOutput) Status() pulumi.MapOutput {
+	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) map[string]interface{} { return v.Status }).(pulumi.MapOutput)
 }
 
 type ConnectionGatewayDefinitionResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3302,13 +4036,13 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) MachineName() pu
 }
 
 // The gateway status
-func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Status() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) map[string]string {
+func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Status() pulumi.MapOutput {
+	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The gateway installation reference
@@ -3691,6 +4425,224 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) Type() pulumi.StringPtrOutp
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Connection provider parameters
+type ConnectionParameter struct {
+	// OAuth settings for the connection provider
+	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
+	// Type of the parameter
+	Type *string `pulumi:"type"`
+}
+
+// ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
+// You can construct a concrete instance of `ConnectionParameterInput` via:
+//
+//          ConnectionParameterArgs{...}
+type ConnectionParameterInput interface {
+	pulumi.Input
+
+	ToConnectionParameterOutput() ConnectionParameterOutput
+	ToConnectionParameterOutputWithContext(context.Context) ConnectionParameterOutput
+}
+
+// Connection provider parameters
+type ConnectionParameterArgs struct {
+	// OAuth settings for the connection provider
+	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
+	// Type of the parameter
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ConnectionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionParameter)(nil)).Elem()
+}
+
+func (i ConnectionParameterArgs) ToConnectionParameterOutput() ConnectionParameterOutput {
+	return i.ToConnectionParameterOutputWithContext(context.Background())
+}
+
+func (i ConnectionParameterArgs) ToConnectionParameterOutputWithContext(ctx context.Context) ConnectionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterOutput)
+}
+
+// ConnectionParameterMapInput is an input type that accepts ConnectionParameterMap and ConnectionParameterMapOutput values.
+// You can construct a concrete instance of `ConnectionParameterMapInput` via:
+//
+//          ConnectionParameterMap{ "key": ConnectionParameterArgs{...} }
+type ConnectionParameterMapInput interface {
+	pulumi.Input
+
+	ToConnectionParameterMapOutput() ConnectionParameterMapOutput
+	ToConnectionParameterMapOutputWithContext(context.Context) ConnectionParameterMapOutput
+}
+
+type ConnectionParameterMap map[string]ConnectionParameterInput
+
+func (ConnectionParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnectionParameter)(nil)).Elem()
+}
+
+func (i ConnectionParameterMap) ToConnectionParameterMapOutput() ConnectionParameterMapOutput {
+	return i.ToConnectionParameterMapOutputWithContext(context.Background())
+}
+
+func (i ConnectionParameterMap) ToConnectionParameterMapOutputWithContext(ctx context.Context) ConnectionParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterMapOutput)
+}
+
+// Connection provider parameters
+type ConnectionParameterOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionParameter)(nil)).Elem()
+}
+
+func (o ConnectionParameterOutput) ToConnectionParameterOutput() ConnectionParameterOutput {
+	return o
+}
+
+func (o ConnectionParameterOutput) ToConnectionParameterOutputWithContext(ctx context.Context) ConnectionParameterOutput {
+	return o
+}
+
+// OAuth settings for the connection provider
+func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *ApiOAuthSettings { return v.OAuthSettings }).(ApiOAuthSettingsPtrOutput)
+}
+
+// Type of the parameter
+func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionParameterMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnectionParameter)(nil)).Elem()
+}
+
+func (o ConnectionParameterMapOutput) ToConnectionParameterMapOutput() ConnectionParameterMapOutput {
+	return o
+}
+
+func (o ConnectionParameterMapOutput) ToConnectionParameterMapOutputWithContext(ctx context.Context) ConnectionParameterMapOutput {
+	return o
+}
+
+func (o ConnectionParameterMapOutput) MapIndex(k pulumi.StringInput) ConnectionParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnectionParameter {
+		return vs[0].(map[string]ConnectionParameter)[vs[1].(string)]
+	}).(ConnectionParameterOutput)
+}
+
+// Connection provider parameters
+type ConnectionParameterResponse struct {
+	// OAuth settings for the connection provider
+	OAuthSettings *ApiOAuthSettingsResponse `pulumi:"oAuthSettings"`
+	// Type of the parameter
+	Type *string `pulumi:"type"`
+}
+
+// ConnectionParameterResponseInput is an input type that accepts ConnectionParameterResponseArgs and ConnectionParameterResponseOutput values.
+// You can construct a concrete instance of `ConnectionParameterResponseInput` via:
+//
+//          ConnectionParameterResponseArgs{...}
+type ConnectionParameterResponseInput interface {
+	pulumi.Input
+
+	ToConnectionParameterResponseOutput() ConnectionParameterResponseOutput
+	ToConnectionParameterResponseOutputWithContext(context.Context) ConnectionParameterResponseOutput
+}
+
+// Connection provider parameters
+type ConnectionParameterResponseArgs struct {
+	// OAuth settings for the connection provider
+	OAuthSettings ApiOAuthSettingsResponsePtrInput `pulumi:"oAuthSettings"`
+	// Type of the parameter
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ConnectionParameterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionParameterResponse)(nil)).Elem()
+}
+
+func (i ConnectionParameterResponseArgs) ToConnectionParameterResponseOutput() ConnectionParameterResponseOutput {
+	return i.ToConnectionParameterResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectionParameterResponseArgs) ToConnectionParameterResponseOutputWithContext(ctx context.Context) ConnectionParameterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterResponseOutput)
+}
+
+// ConnectionParameterResponseMapInput is an input type that accepts ConnectionParameterResponseMap and ConnectionParameterResponseMapOutput values.
+// You can construct a concrete instance of `ConnectionParameterResponseMapInput` via:
+//
+//          ConnectionParameterResponseMap{ "key": ConnectionParameterResponseArgs{...} }
+type ConnectionParameterResponseMapInput interface {
+	pulumi.Input
+
+	ToConnectionParameterResponseMapOutput() ConnectionParameterResponseMapOutput
+	ToConnectionParameterResponseMapOutputWithContext(context.Context) ConnectionParameterResponseMapOutput
+}
+
+type ConnectionParameterResponseMap map[string]ConnectionParameterResponseInput
+
+func (ConnectionParameterResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnectionParameterResponse)(nil)).Elem()
+}
+
+func (i ConnectionParameterResponseMap) ToConnectionParameterResponseMapOutput() ConnectionParameterResponseMapOutput {
+	return i.ToConnectionParameterResponseMapOutputWithContext(context.Background())
+}
+
+func (i ConnectionParameterResponseMap) ToConnectionParameterResponseMapOutputWithContext(ctx context.Context) ConnectionParameterResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterResponseMapOutput)
+}
+
+// Connection provider parameters
+type ConnectionParameterResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionParameterResponse)(nil)).Elem()
+}
+
+func (o ConnectionParameterResponseOutput) ToConnectionParameterResponseOutput() ConnectionParameterResponseOutput {
+	return o
+}
+
+func (o ConnectionParameterResponseOutput) ToConnectionParameterResponseOutputWithContext(ctx context.Context) ConnectionParameterResponseOutput {
+	return o
+}
+
+// OAuth settings for the connection provider
+func (o ConnectionParameterResponseOutput) OAuthSettings() ApiOAuthSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ConnectionParameterResponse) *ApiOAuthSettingsResponse { return v.OAuthSettings }).(ApiOAuthSettingsResponsePtrOutput)
+}
+
+// Type of the parameter
+func (o ConnectionParameterResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionParameterResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ConnectionParameterResponse)(nil)).Elem()
+}
+
+func (o ConnectionParameterResponseMapOutput) ToConnectionParameterResponseMapOutput() ConnectionParameterResponseMapOutput {
+	return o
+}
+
+func (o ConnectionParameterResponseMapOutput) ToConnectionParameterResponseMapOutputWithContext(ctx context.Context) ConnectionParameterResponseMapOutput {
+	return o
+}
+
+func (o ConnectionParameterResponseMapOutput) MapIndex(k pulumi.StringInput) ConnectionParameterResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConnectionParameterResponse {
+		return vs[0].(map[string]ConnectionParameterResponse)[vs[1].(string)]
+	}).(ConnectionParameterResponseOutput)
 }
 
 // Connection status
@@ -4296,7 +5248,7 @@ type CustomApiPropertiesDefinition struct {
 	// The custom API capabilities
 	Capabilities []string `pulumi:"capabilities"`
 	// Connection parameters
-	ConnectionParameters map[string]string `pulumi:"connectionParameters"`
+	ConnectionParameters map[string]ConnectionParameter `pulumi:"connectionParameters"`
 	// The custom API description
 	Description *string `pulumi:"description"`
 	// The display name
@@ -4306,7 +5258,7 @@ type CustomApiPropertiesDefinition struct {
 	// Runtime URLs
 	RuntimeUrls []string `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger map[string]string `pulumi:"swagger"`
+	Swagger map[string]interface{} `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition *WsdlDefinition `pulumi:"wsdlDefinition"`
 }
@@ -4335,7 +5287,7 @@ type CustomApiPropertiesDefinitionArgs struct {
 	// The custom API capabilities
 	Capabilities pulumi.StringArrayInput `pulumi:"capabilities"`
 	// Connection parameters
-	ConnectionParameters pulumi.StringMapInput `pulumi:"connectionParameters"`
+	ConnectionParameters ConnectionParameterMapInput `pulumi:"connectionParameters"`
 	// The custom API description
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name
@@ -4345,7 +5297,7 @@ type CustomApiPropertiesDefinitionArgs struct {
 	// Runtime URLs
 	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger pulumi.StringMapInput `pulumi:"swagger"`
+	Swagger pulumi.MapInput `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition WsdlDefinitionPtrInput `pulumi:"wsdlDefinition"`
 }
@@ -4454,8 +5406,8 @@ func (o CustomApiPropertiesDefinitionOutput) Capabilities() pulumi.StringArrayOu
 }
 
 // Connection parameters
-func (o CustomApiPropertiesDefinitionOutput) ConnectionParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinition) map[string]string { return v.ConnectionParameters }).(pulumi.StringMapOutput)
+func (o CustomApiPropertiesDefinitionOutput) ConnectionParameters() ConnectionParameterMapOutput {
+	return o.ApplyT(func(v CustomApiPropertiesDefinition) map[string]ConnectionParameter { return v.ConnectionParameters }).(ConnectionParameterMapOutput)
 }
 
 // The custom API description
@@ -4479,8 +5431,8 @@ func (o CustomApiPropertiesDefinitionOutput) RuntimeUrls() pulumi.StringArrayOut
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinition) map[string]string { return v.Swagger }).(pulumi.StringMapOutput)
+func (o CustomApiPropertiesDefinitionOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v CustomApiPropertiesDefinition) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
 }
 
 // The WSDL definition
@@ -4557,13 +5509,13 @@ func (o CustomApiPropertiesDefinitionPtrOutput) Capabilities() pulumi.StringArra
 }
 
 // Connection parameters
-func (o CustomApiPropertiesDefinitionPtrOutput) ConnectionParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinition) map[string]string {
+func (o CustomApiPropertiesDefinitionPtrOutput) ConnectionParameters() ConnectionParameterMapOutput {
+	return o.ApplyT(func(v *CustomApiPropertiesDefinition) map[string]ConnectionParameter {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectionParameters
-	}).(pulumi.StringMapOutput)
+	}).(ConnectionParameterMapOutput)
 }
 
 // The custom API description
@@ -4607,13 +5559,13 @@ func (o CustomApiPropertiesDefinitionPtrOutput) RuntimeUrls() pulumi.StringArray
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionPtrOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinition) map[string]string {
+func (o CustomApiPropertiesDefinitionPtrOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v *CustomApiPropertiesDefinition) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The WSDL definition
@@ -4639,7 +5591,7 @@ type CustomApiPropertiesDefinitionResponse struct {
 	// The custom API capabilities
 	Capabilities []string `pulumi:"capabilities"`
 	// Connection parameters
-	ConnectionParameters map[string]string `pulumi:"connectionParameters"`
+	ConnectionParameters map[string]ConnectionParameterResponse `pulumi:"connectionParameters"`
 	// The custom API description
 	Description *string `pulumi:"description"`
 	// The display name
@@ -4649,7 +5601,7 @@ type CustomApiPropertiesDefinitionResponse struct {
 	// Runtime URLs
 	RuntimeUrls []string `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger map[string]string `pulumi:"swagger"`
+	Swagger map[string]interface{} `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition *WsdlDefinitionResponse `pulumi:"wsdlDefinition"`
 }
@@ -4678,7 +5630,7 @@ type CustomApiPropertiesDefinitionResponseArgs struct {
 	// The custom API capabilities
 	Capabilities pulumi.StringArrayInput `pulumi:"capabilities"`
 	// Connection parameters
-	ConnectionParameters pulumi.StringMapInput `pulumi:"connectionParameters"`
+	ConnectionParameters ConnectionParameterResponseMapInput `pulumi:"connectionParameters"`
 	// The custom API description
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name
@@ -4688,7 +5640,7 @@ type CustomApiPropertiesDefinitionResponseArgs struct {
 	// Runtime URLs
 	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
 	// The JSON representation of the swagger
-	Swagger pulumi.StringMapInput `pulumi:"swagger"`
+	Swagger pulumi.MapInput `pulumi:"swagger"`
 	// The WSDL definition
 	WsdlDefinition WsdlDefinitionResponsePtrInput `pulumi:"wsdlDefinition"`
 }
@@ -4799,8 +5751,10 @@ func (o CustomApiPropertiesDefinitionResponseOutput) Capabilities() pulumi.Strin
 }
 
 // Connection parameters
-func (o CustomApiPropertiesDefinitionResponseOutput) ConnectionParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) map[string]string { return v.ConnectionParameters }).(pulumi.StringMapOutput)
+func (o CustomApiPropertiesDefinitionResponseOutput) ConnectionParameters() ConnectionParameterResponseMapOutput {
+	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) map[string]ConnectionParameterResponse {
+		return v.ConnectionParameters
+	}).(ConnectionParameterResponseMapOutput)
 }
 
 // The custom API description
@@ -4824,8 +5778,8 @@ func (o CustomApiPropertiesDefinitionResponseOutput) RuntimeUrls() pulumi.String
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionResponseOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) map[string]string { return v.Swagger }).(pulumi.StringMapOutput)
+func (o CustomApiPropertiesDefinitionResponseOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) map[string]interface{} { return v.Swagger }).(pulumi.MapOutput)
 }
 
 // The WSDL definition
@@ -4902,13 +5856,13 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) Capabilities() pulumi.St
 }
 
 // Connection parameters
-func (o CustomApiPropertiesDefinitionResponsePtrOutput) ConnectionParameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) map[string]string {
+func (o CustomApiPropertiesDefinitionResponsePtrOutput) ConnectionParameters() ConnectionParameterResponseMapOutput {
+	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) map[string]ConnectionParameterResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectionParameters
-	}).(pulumi.StringMapOutput)
+	}).(ConnectionParameterResponseMapOutput)
 }
 
 // The custom API description
@@ -4952,13 +5906,13 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) RuntimeUrls() pulumi.Str
 }
 
 // The JSON representation of the swagger
-func (o CustomApiPropertiesDefinitionResponsePtrOutput) Swagger() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) map[string]string {
+func (o CustomApiPropertiesDefinitionResponsePtrOutput) Swagger() pulumi.MapOutput {
+	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Swagger
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The WSDL definition
@@ -5943,6 +6897,14 @@ func init() {
 	pulumi.RegisterOutputType(ApiConnectionTestLinkArrayOutput{})
 	pulumi.RegisterOutputType(ApiConnectionTestLinkResponseOutput{})
 	pulumi.RegisterOutputType(ApiConnectionTestLinkResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsParameterOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsParameterMapOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsParameterResponseOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsParameterResponseMapOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ApiOAuthSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiReferenceOutput{})
 	pulumi.RegisterOutputType(ApiReferencePtrOutput{})
 	pulumi.RegisterOutputType(ApiReferenceResponseOutput{})
@@ -5973,6 +6935,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionGatewayReferencePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayReferenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterMapOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterResponseOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusDefinitionOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusDefinitionResponseOutput{})

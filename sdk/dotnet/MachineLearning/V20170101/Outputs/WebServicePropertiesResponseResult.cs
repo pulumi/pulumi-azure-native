@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
         /// <summary>
         /// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Assets;
+        public readonly ImmutableDictionary<string, Outputs.AssetItemResponseResult>? Assets;
         /// <summary>
         /// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
         /// <summary>
         /// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.WebServiceParameterResponseResult>? Parameters;
         /// <summary>
         /// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
 
         [OutputConstructor]
         private WebServicePropertiesResponseResult(
-            ImmutableDictionary<string, string>? assets,
+            ImmutableDictionary<string, Outputs.AssetItemResponseResult>? assets,
 
             Outputs.CommitmentPlanResponseResult? commitmentPlan,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
 
             string packageType,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, Outputs.WebServiceParameterResponseResult>? parameters,
 
             bool? payloadsInBlobStorage,
 

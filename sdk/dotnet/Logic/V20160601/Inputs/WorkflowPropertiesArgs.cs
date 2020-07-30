@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.Logic.V20160601.Inputs
         public Input<Inputs.ResourceReferenceArgs>? IntegrationAccount { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<Inputs.WorkflowParameterArgs>? _parameters;
 
         /// <summary>
         /// The parameters.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<Inputs.WorkflowParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<Inputs.WorkflowParameterArgs>());
             set => _parameters = value;
         }
 

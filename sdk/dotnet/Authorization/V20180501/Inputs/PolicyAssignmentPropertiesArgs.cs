@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.Authorization.V20180501.Inputs
         public Input<string>? DisplayName { get; set; }
 
         [Input("metadata")]
-        private InputMap<string>? _metadata;
+        private InputMap<object>? _metadata;
 
         /// <summary>
         /// The policy assignment metadata.
         /// </summary>
-        public InputMap<string> Metadata
+        public InputMap<object> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<string>());
+            get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
 
@@ -52,14 +52,14 @@ namespace Pulumi.AzureRM.Authorization.V20180501.Inputs
         }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<object>? _parameters;
 
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<object> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
 

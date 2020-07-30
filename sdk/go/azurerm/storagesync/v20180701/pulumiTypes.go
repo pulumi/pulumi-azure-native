@@ -1694,7 +1694,7 @@ type ServerEndpointPropertiesResponse struct {
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Sync Health Status
-	SyncStatus map[string]string `pulumi:"syncStatus"`
+	SyncStatus map[string]interface{} `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
@@ -1729,7 +1729,7 @@ type ServerEndpointPropertiesResponseArgs struct {
 	// Server Resource Id.
 	ServerResourceId pulumi.StringPtrInput `pulumi:"serverResourceId"`
 	// Sync Health Status
-	SyncStatus pulumi.StringMapInput `pulumi:"syncStatus"`
+	SyncStatus pulumi.MapInput `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrInput `pulumi:"tierFilesOlderThanDays"`
 	// Level of free space to be maintained by Cloud Tiering if it is enabled.
@@ -1850,8 +1850,8 @@ func (o ServerEndpointPropertiesResponseOutput) ServerResourceId() pulumi.String
 }
 
 // Sync Health Status
-func (o ServerEndpointPropertiesResponseOutput) SyncStatus() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServerEndpointPropertiesResponse) map[string]string { return v.SyncStatus }).(pulumi.StringMapOutput)
+func (o ServerEndpointPropertiesResponseOutput) SyncStatus() pulumi.MapOutput {
+	return o.ApplyT(func(v ServerEndpointPropertiesResponse) map[string]interface{} { return v.SyncStatus }).(pulumi.MapOutput)
 }
 
 // Tier files older than days.
@@ -1953,13 +1953,13 @@ func (o ServerEndpointPropertiesResponsePtrOutput) ServerResourceId() pulumi.Str
 }
 
 // Sync Health Status
-func (o ServerEndpointPropertiesResponsePtrOutput) SyncStatus() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ServerEndpointPropertiesResponse) map[string]string {
+func (o ServerEndpointPropertiesResponsePtrOutput) SyncStatus() pulumi.MapOutput {
+	return o.ApplyT(func(v *ServerEndpointPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.SyncStatus
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Tier files older than days.

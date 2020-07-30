@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Connection strings.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Properties;
+        public readonly ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponseResult> Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Web.V20180201
 
             string name,
 
-            ImmutableDictionary<string, string> properties,
+            ImmutableDictionary<string, Outputs.ConnStringValueTypePairResponseResult> properties,
 
             string type)
         {

@@ -52,14 +52,14 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
         }
 
         [Input("connectionParameters")]
-        private InputMap<string>? _connectionParameters;
+        private InputMap<Inputs.ConnectionParameterArgs>? _connectionParameters;
 
         /// <summary>
         /// Connection parameters
         /// </summary>
-        public InputMap<string> ConnectionParameters
+        public InputMap<Inputs.ConnectionParameterArgs> ConnectionParameters
         {
-            get => _connectionParameters ?? (_connectionParameters = new InputMap<string>());
+            get => _connectionParameters ?? (_connectionParameters = new InputMap<Inputs.ConnectionParameterArgs>());
             set => _connectionParameters = value;
         }
 
@@ -94,14 +94,14 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
         }
 
         [Input("swagger")]
-        private InputMap<string>? _swagger;
+        private InputMap<object>? _swagger;
 
         /// <summary>
         /// The JSON representation of the swagger
         /// </summary>
-        public InputMap<string> Swagger
+        public InputMap<object> Swagger
         {
-            get => _swagger ?? (_swagger = new InputMap<string>());
+            get => _swagger ?? (_swagger = new InputMap<object>());
             set => _swagger = value;
         }
 

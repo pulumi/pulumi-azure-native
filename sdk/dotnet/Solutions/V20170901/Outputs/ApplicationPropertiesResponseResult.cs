@@ -24,11 +24,11 @@ namespace Pulumi.AzureRM.Solutions.V20170901.Outputs
         /// <summary>
         /// Name and value pairs that define the managed application outputs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Outputs;
+        public readonly ImmutableDictionary<string, object> Outputs;
         /// <summary>
         /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The managed application provisioning state.
         /// </summary>
@@ -44,9 +44,9 @@ namespace Pulumi.AzureRM.Solutions.V20170901.Outputs
 
             string managedResourceGroupId,
 
-            ImmutableDictionary<string, string> outputs,
+            ImmutableDictionary<string, object> outputs,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
             string provisioningState,
 

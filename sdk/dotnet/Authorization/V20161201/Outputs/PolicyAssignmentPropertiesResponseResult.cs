@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Authorization.V20161201.Outputs
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The ID of the policy definition.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Authorization.V20161201.Outputs
 
             string? displayName,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, object>? parameters,
 
             string? policyDefinitionId,
 

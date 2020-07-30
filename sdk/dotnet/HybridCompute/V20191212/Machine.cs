@@ -15,7 +15,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
     public partial class Machine : Pulumi.CustomResource
     {
         [Output("identity")]
-        public Output<ImmutableDictionary<string, string>?> Identity { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         /// Hybrid Compute Machine properties
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -93,10 +93,10 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
     public sealed class MachineArgs : Pulumi.ResourceArgs
     {
         [Input("identity")]
-        private InputMap<string>? _identity;
-        public InputMap<string> Identity
+        private InputMap<object>? _identity;
+        public InputMap<object> Identity
         {
-            get => _identity ?? (_identity = new InputMap<string>());
+            get => _identity ?? (_identity = new InputMap<object>());
             set => _identity = value;
         }
 
@@ -113,14 +113,14 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         public Input<string> Name { get; set; } = null!;
 
         [Input("properties")]
-        private InputMap<string>? _properties;
+        private InputMap<object>? _properties;
 
         /// <summary>
         /// Hybrid Compute Machine properties
         /// </summary>
-        public InputMap<string> Properties
+        public InputMap<object> Properties
         {
-            get => _properties ?? (_properties = new InputMap<string>());
+            get => _properties ?? (_properties = new InputMap<object>());
             set => _properties = value;
         }
 

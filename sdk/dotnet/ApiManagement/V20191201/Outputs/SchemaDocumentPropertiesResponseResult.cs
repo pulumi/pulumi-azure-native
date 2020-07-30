@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
         /// <summary>
         /// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Definitions;
+        public readonly ImmutableDictionary<string, object>? Definitions;
         /// <summary>
         /// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
 
         [OutputConstructor]
         private SchemaDocumentPropertiesResponseResult(
-            ImmutableDictionary<string, string>? definitions,
+            ImmutableDictionary<string, object>? definitions,
 
             string? value)
         {

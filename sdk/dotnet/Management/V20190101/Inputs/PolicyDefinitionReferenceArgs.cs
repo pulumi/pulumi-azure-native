@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.Management.V20190101.Inputs
     public sealed class PolicyDefinitionReferenceArgs : Pulumi.ResourceArgs
     {
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<object>? _parameters;
 
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<object> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
 

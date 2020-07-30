@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901.Outputs
         /// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
         /// the value of the item will be the registry credentials for accessing the registry.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? CustomRegistries;
+        public readonly ImmutableDictionary<string, Outputs.CustomRegistryCredentialsResponseResult>? CustomRegistries;
         /// <summary>
         /// Describes the credential parameters for accessing the source registry.
         /// </summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180901.Outputs
 
         [OutputConstructor]
         private CredentialsResponseResult(
-            ImmutableDictionary<string, string>? customRegistries,
+            ImmutableDictionary<string, Outputs.CustomRegistryCredentialsResponseResult>? customRegistries,
 
             Outputs.SourceRegistryCredentialsResponseResult? sourceRegistry)
         {

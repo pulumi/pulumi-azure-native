@@ -498,7 +498,7 @@ type PolicyDefinitionProperties struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy rule.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -521,7 +521,7 @@ type PolicyDefinitionPropertiesArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy rule.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
@@ -615,8 +615,8 @@ func (o PolicyDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -663,13 +663,13 @@ func (o PolicyDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]string {
+func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -689,7 +689,7 @@ type PolicyDefinitionPropertiesResponse struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy rule.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -712,7 +712,7 @@ type PolicyDefinitionPropertiesResponseArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy rule.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
@@ -806,8 +806,8 @@ func (o PolicyDefinitionPropertiesResponseOutput) DisplayName() pulumi.StringPtr
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -854,13 +854,13 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) DisplayName() pulumi.String
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]string {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.

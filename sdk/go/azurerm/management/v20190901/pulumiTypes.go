@@ -822,13 +822,13 @@ type PolicyDefinitionProperties struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters *ParameterDefinitions `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -851,13 +851,13 @@ type PolicyDefinitionPropertiesArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters ParameterDefinitionsPtrInput `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
@@ -951,8 +951,8 @@ func (o PolicyDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicyDefinitionPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -966,8 +966,8 @@ func (o PolicyDefinitionPropertiesOutput) Parameters() ParameterDefinitionsPtrOu
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -1014,13 +1014,13 @@ func (o PolicyDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicyDefinitionPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]string {
+func (o PolicyDefinitionPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -1044,13 +1044,13 @@ func (o PolicyDefinitionPropertiesPtrOutput) Parameters() ParameterDefinitionsPt
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]string {
+func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -1070,13 +1070,13 @@ type PolicyDefinitionPropertiesResponse struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters *ParameterDefinitionsResponse `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -1099,13 +1099,13 @@ type PolicyDefinitionPropertiesResponseArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
 	Parameters ParameterDefinitionsResponsePtrInput `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
@@ -1199,8 +1199,8 @@ func (o PolicyDefinitionPropertiesResponseOutput) DisplayName() pulumi.StringPtr
 }
 
 // The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicyDefinitionPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -1214,8 +1214,8 @@ func (o PolicyDefinitionPropertiesResponseOutput) Parameters() ParameterDefiniti
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -1262,13 +1262,13 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) DisplayName() pulumi.String
 }
 
 // The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]string {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -1292,13 +1292,13 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) Parameters() ParameterDefin
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]string {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -1647,7 +1647,7 @@ type PolicySetDefinitionProperties struct {
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters *ParameterDefinitions `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
@@ -1676,7 +1676,7 @@ type PolicySetDefinitionPropertiesArgs struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters ParameterDefinitionsPtrInput `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
@@ -1776,8 +1776,8 @@ func (o PolicySetDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicySetDefinitionPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicySetDefinitionPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.
@@ -1839,13 +1839,13 @@ func (o PolicySetDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOu
 }
 
 // The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicySetDefinitionPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicySetDefinitionProperties) map[string]string {
+func (o PolicySetDefinitionPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicySetDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.
@@ -1895,7 +1895,7 @@ type PolicySetDefinitionPropertiesResponse struct {
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters *ParameterDefinitionsResponse `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
@@ -1924,7 +1924,7 @@ type PolicySetDefinitionPropertiesResponseArgs struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters ParameterDefinitionsResponsePtrInput `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
@@ -2024,8 +2024,8 @@ func (o PolicySetDefinitionPropertiesResponseOutput) DisplayName() pulumi.String
 }
 
 // The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicySetDefinitionPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicySetDefinitionPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.
@@ -2091,13 +2091,13 @@ func (o PolicySetDefinitionPropertiesResponsePtrOutput) DisplayName() pulumi.Str
 }
 
 // The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-func (o PolicySetDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) map[string]string {
+func (o PolicySetDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.

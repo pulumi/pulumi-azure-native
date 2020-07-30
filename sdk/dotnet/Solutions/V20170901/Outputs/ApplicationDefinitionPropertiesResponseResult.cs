@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901.Outputs
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? CreateUiDefinition;
+        public readonly ImmutableDictionary<string, object>? CreateUiDefinition;
         /// <summary>
         /// The managed application definition description.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901.Outputs
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? MainTemplate;
+        public readonly ImmutableDictionary<string, object>? MainTemplate;
         /// <summary>
         /// The managed application definition package file Uri. Use this element
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901.Outputs
 
             ImmutableArray<Outputs.ApplicationProviderAuthorizationResponseResult> authorizations,
 
-            ImmutableDictionary<string, string>? createUiDefinition,
+            ImmutableDictionary<string, object>? createUiDefinition,
 
             string? description,
 
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901.Outputs
 
             string lockLevel,
 
-            ImmutableDictionary<string, string>? mainTemplate,
+            ImmutableDictionary<string, object>? mainTemplate,
 
             string? packageFileUri)
         {

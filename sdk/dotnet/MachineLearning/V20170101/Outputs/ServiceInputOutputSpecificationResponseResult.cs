@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
         /// <summary>
         /// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Properties;
+        public readonly ImmutableDictionary<string, Outputs.TableSpecificationResponseResult> Properties;
         /// <summary>
         /// The title of your Swagger schema.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
         private ServiceInputOutputSpecificationResponseResult(
             string? description,
 
-            ImmutableDictionary<string, string> properties,
+            ImmutableDictionary<string, Outputs.TableSpecificationResponseResult> properties,
 
             string? title,
 

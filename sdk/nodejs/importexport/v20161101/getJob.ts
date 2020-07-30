@@ -50,7 +50,7 @@ export interface GetJobResult {
     /**
      * Specifies the tags that are assigned to the job.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags?: {[key: string]: any};
     /**
      * Specifies the type of the job resource.
      */

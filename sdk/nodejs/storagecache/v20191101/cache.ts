@@ -55,7 +55,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * ARM tags as name/value pairs.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Type of the Cache; Microsoft.StorageCache/Cache
      */
@@ -126,5 +126,5 @@ export interface CacheArgs {
     /**
      * ARM tags as name/value pairs.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
         /// <summary>
         /// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
 
             string? displayName,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             Outputs.ParameterDefinitionsResponseResult? parameters,
 

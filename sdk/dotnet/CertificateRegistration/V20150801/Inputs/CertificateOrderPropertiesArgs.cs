@@ -19,14 +19,14 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Inputs
         public Input<bool>? AutoRenew { get; set; }
 
         [Input("certificates")]
-        private InputMap<string>? _certificates;
+        private InputMap<Inputs.CertificateOrderCertificateArgs>? _certificates;
 
         /// <summary>
         /// State of the Key Vault secret
         /// </summary>
-        public InputMap<string> Certificates
+        public InputMap<Inputs.CertificateOrderCertificateArgs> Certificates
         {
-            get => _certificates ?? (_certificates = new InputMap<string>());
+            get => _certificates ?? (_certificates = new InputMap<Inputs.CertificateOrderCertificateArgs>());
             set => _certificates = value;
         }
 

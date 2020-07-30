@@ -1322,11 +1322,11 @@ type DeploymentProperties struct {
 	// The deployment on error behavior.
 	OnErrorDeployment *OnErrorDeployment `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
 	ParametersLink *ParametersLink `pulumi:"parametersLink"`
 	// The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-	Template map[string]string `pulumi:"template"`
+	Template map[string]interface{} `pulumi:"template"`
 	// The URI of the template. Use either the templateLink property or the template property, but not both.
 	TemplateLink *TemplateLink `pulumi:"templateLink"`
 }
@@ -1351,11 +1351,11 @@ type DeploymentPropertiesArgs struct {
 	// The deployment on error behavior.
 	OnErrorDeployment OnErrorDeploymentPtrInput `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
 	ParametersLink ParametersLinkPtrInput `pulumi:"parametersLink"`
 	// The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-	Template pulumi.StringMapInput `pulumi:"template"`
+	Template pulumi.MapInput `pulumi:"template"`
 	// The URI of the template. Use either the templateLink property or the template property, but not both.
 	TemplateLink TemplateLinkPtrInput `pulumi:"templateLink"`
 }
@@ -1454,8 +1454,8 @@ func (o DeploymentPropertiesOutput) OnErrorDeployment() OnErrorDeploymentPtrOutp
 }
 
 // Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-func (o DeploymentPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -1464,8 +1464,8 @@ func (o DeploymentPropertiesOutput) ParametersLink() ParametersLinkPtrOutput {
 }
 
 // The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-func (o DeploymentPropertiesOutput) Template() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentProperties) map[string]string { return v.Template }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentProperties) map[string]interface{} { return v.Template }).(pulumi.MapOutput)
 }
 
 // The URI of the template. Use either the templateLink property or the template property, but not both.
@@ -1522,13 +1522,13 @@ func (o DeploymentPropertiesPtrOutput) OnErrorDeployment() OnErrorDeploymentPtrO
 }
 
 // Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
-func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentProperties) map[string]string {
+func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -1542,13 +1542,13 @@ func (o DeploymentPropertiesPtrOutput) ParametersLink() ParametersLinkPtrOutput 
 }
 
 // The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
-func (o DeploymentPropertiesPtrOutput) Template() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentProperties) map[string]string {
+func (o DeploymentPropertiesPtrOutput) Template() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Template
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The URI of the template. Use either the templateLink property or the template property, but not both.
@@ -1580,9 +1580,9 @@ type DeploymentPropertiesExtendedResponse struct {
 	// Array of provisioned resources.
 	OutputResources []ResourceReferenceResponse `pulumi:"outputResources"`
 	// Key/value pairs that represent deployment output.
-	Outputs map[string]string `pulumi:"outputs"`
+	Outputs map[string]interface{} `pulumi:"outputs"`
 	// Deployment parameters.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The URI referencing the parameters.
 	ParametersLink ParametersLinkResponse `pulumi:"parametersLink"`
 	// The list of resource providers needed for the deployment.
@@ -1629,9 +1629,9 @@ type DeploymentPropertiesExtendedResponseArgs struct {
 	// Array of provisioned resources.
 	OutputResources ResourceReferenceResponseArrayInput `pulumi:"outputResources"`
 	// Key/value pairs that represent deployment output.
-	Outputs pulumi.StringMapInput `pulumi:"outputs"`
+	Outputs pulumi.MapInput `pulumi:"outputs"`
 	// Deployment parameters.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The URI referencing the parameters.
 	ParametersLink ParametersLinkResponseInput `pulumi:"parametersLink"`
 	// The list of resource providers needed for the deployment.
@@ -1769,13 +1769,13 @@ func (o DeploymentPropertiesExtendedResponseOutput) OutputResources() ResourceRe
 }
 
 // Key/value pairs that represent deployment output.
-func (o DeploymentPropertiesExtendedResponseOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]string { return v.Outputs }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesExtendedResponseOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]interface{} { return v.Outputs }).(pulumi.MapOutput)
 }
 
 // Deployment parameters.
-func (o DeploymentPropertiesExtendedResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o DeploymentPropertiesExtendedResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The URI referencing the parameters.
@@ -1912,23 +1912,23 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) OutputResources() Resourc
 }
 
 // Key/value pairs that represent deployment output.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]string {
+func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Outputs
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Deployment parameters.
-func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]string {
+func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The URI referencing the parameters.
@@ -2004,7 +2004,7 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ValidatedResources() Reso
 // The resource management error additional info.
 type ErrorAdditionalInfoResponse struct {
 	// The additional info.
-	Info map[string]string `pulumi:"info"`
+	Info map[string]interface{} `pulumi:"info"`
 	// The additional info type.
 	Type string `pulumi:"type"`
 }
@@ -2023,7 +2023,7 @@ type ErrorAdditionalInfoResponseInput interface {
 // The resource management error additional info.
 type ErrorAdditionalInfoResponseArgs struct {
 	// The additional info.
-	Info pulumi.StringMapInput `pulumi:"info"`
+	Info pulumi.MapInput `pulumi:"info"`
 	// The additional info type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2081,8 +2081,8 @@ func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutputWi
 }
 
 // The additional info.
-func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ErrorAdditionalInfoResponse) map[string]string { return v.Info }).(pulumi.StringMapOutput)
+func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.MapOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) map[string]interface{} { return v.Info }).(pulumi.MapOutput)
 }
 
 // The additional info type.
@@ -2370,7 +2370,7 @@ type Identity struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]IdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -2389,7 +2389,7 @@ type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities IdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -2476,8 +2476,8 @@ func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v Identity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o IdentityOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
+	return o.ApplyT(func(v Identity) map[string]IdentityProperties { return v.UserAssignedIdentities }).(IdentityPropertiesMapOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2509,13 +2509,101 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Identity) map[string]string {
+func (o IdentityPtrOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *Identity) map[string]IdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(IdentityPropertiesMapOutput)
+}
+
+type IdentityProperties struct {
+}
+
+// IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
+// You can construct a concrete instance of `IdentityPropertiesInput` via:
+//
+//          IdentityPropertiesArgs{...}
+type IdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesOutput() IdentityPropertiesOutput
+	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
+}
+
+type IdentityPropertiesArgs struct {
+}
+
+func (IdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
+	return i.ToIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesArgs) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesOutput)
+}
+
+// IdentityPropertiesMapInput is an input type that accepts IdentityPropertiesMap and IdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `IdentityPropertiesMapInput` via:
+//
+//          IdentityPropertiesMap{ "key": IdentityPropertiesArgs{...} }
+type IdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput
+	ToIdentityPropertiesMapOutputWithContext(context.Context) IdentityPropertiesMapOutput
+}
+
+type IdentityPropertiesMap map[string]IdentityPropertiesInput
+
+func (IdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
+}
+
+func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
+	return i.ToIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesMapOutput)
+}
+
+type IdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
+	return o
+}
+
+func (o IdentityPropertiesOutput) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
+	return o
+}
+
+type IdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
+}
+
+func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
+	return o
+}
+
+func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
+	return o
+}
+
+func (o IdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProperties {
+		return vs[0].(map[string]IdentityProperties)[vs[1].(string)]
+	}).(IdentityPropertiesOutput)
 }
 
 // Identity for the resource.
@@ -2527,7 +2615,7 @@ type IdentityResponse struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]IdentityResponseProperties `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -2550,7 +2638,7 @@ type IdentityResponseArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities IdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -2647,8 +2735,8 @@ func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseProperties { return v.UserAssignedIdentities }).(IdentityResponsePropertiesMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2700,13 +2788,119 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IdentityResponse) map[string]string {
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(IdentityResponsePropertiesMapOutput)
+}
+
+type IdentityResponseProperties struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// IdentityResponsePropertiesInput is an input type that accepts IdentityResponsePropertiesArgs and IdentityResponsePropertiesOutput values.
+// You can construct a concrete instance of `IdentityResponsePropertiesInput` via:
+//
+//          IdentityResponsePropertiesArgs{...}
+type IdentityResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput
+	ToIdentityResponsePropertiesOutputWithContext(context.Context) IdentityResponsePropertiesOutput
+}
+
+type IdentityResponsePropertiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (IdentityResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+}
+
+func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
+	return i.ToIdentityResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesOutput)
+}
+
+// IdentityResponsePropertiesMapInput is an input type that accepts IdentityResponsePropertiesMap and IdentityResponsePropertiesMapOutput values.
+// You can construct a concrete instance of `IdentityResponsePropertiesMapInput` via:
+//
+//          IdentityResponsePropertiesMap{ "key": IdentityResponsePropertiesArgs{...} }
+type IdentityResponsePropertiesMapInput interface {
+	pulumi.Input
+
+	ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput
+	ToIdentityResponsePropertiesMapOutputWithContext(context.Context) IdentityResponsePropertiesMapOutput
+}
+
+type IdentityResponsePropertiesMap map[string]IdentityResponsePropertiesInput
+
+func (IdentityResponsePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+}
+
+func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
+	return i.ToIdentityResponsePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesMapOutput)
+}
+
+type IdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+}
+
+func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
+	return o
+}
+
+func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o IdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal id of user assigned identity.
+func (o IdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type IdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+}
+
+func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
+	return o
+}
+
+func (o IdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponsePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseProperties {
+		return vs[0].(map[string]IdentityResponseProperties)[vs[1].(string)]
+	}).(IdentityResponsePropertiesOutput)
 }
 
 // Deployment on error behavior.
@@ -4056,7 +4250,7 @@ type ResourceType struct {
 	// The plan of the resource.
 	Plan *PlanResponse `pulumi:"plan"`
 	// The resource properties.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
@@ -4091,7 +4285,7 @@ type ResourceTypeArgs struct {
 	// The plan of the resource.
 	Plan PlanResponsePtrInput `pulumi:"plan"`
 	// The resource properties.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties pulumi.MapInput `pulumi:"properties"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrInput `pulumi:"sku"`
 	// Resource tags
@@ -4158,8 +4352,8 @@ func (o ResourceTypeOutput) Plan() PlanResponsePtrOutput {
 }
 
 // The resource properties.
-func (o ResourceTypeOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ResourceType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o ResourceTypeOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v ResourceType) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
 }
 
 // The SKU of the resource.
@@ -5827,8 +6021,12 @@ func init() {
 	pulumi.RegisterOutputType(ErrorResponseResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePropertiesMapOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentExtendedResponseOutput{})

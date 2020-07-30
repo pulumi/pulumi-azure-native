@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Dataset.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, string>> Annotations;
+        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
         /// <summary>
         /// Dataset description.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Schema;
+        public readonly ImmutableDictionary<string, object>? Schema;
         /// <summary>
         /// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Structure;
+        public readonly ImmutableDictionary<string, object>? Structure;
         /// <summary>
         /// Type of dataset.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private DatasetResponseResult(
-            ImmutableArray<ImmutableDictionary<string, string>> annotations,
+            ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
             string? description,
 
@@ -58,9 +58,9 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
             Outputs.ParameterDefinitionSpecificationResponseResult? parameters,
 
-            ImmutableDictionary<string, string>? schema,
+            ImmutableDictionary<string, object>? schema,
 
-            ImmutableDictionary<string, string>? structure,
+            ImmutableDictionary<string, object>? structure,
 
             string type)
         {

@@ -20,13 +20,13 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// User property value. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Value;
+        public readonly ImmutableDictionary<string, object> Value;
 
         [OutputConstructor]
         private UserPropertyResponseResult(
             string name,
 
-            ImmutableDictionary<string, string> value)
+            ImmutableDictionary<string, object> value)
         {
             Name = name;
             Value = value;

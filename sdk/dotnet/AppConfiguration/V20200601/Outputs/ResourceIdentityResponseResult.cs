@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601.Outputs
         /// <summary>
         /// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserIdentityResponseResult>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ResourceIdentityResponseResult(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, string>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserIdentityResponseResult>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

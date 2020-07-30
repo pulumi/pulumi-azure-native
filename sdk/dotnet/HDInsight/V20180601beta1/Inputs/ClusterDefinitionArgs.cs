@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.HDInsight.V20180601beta1.Inputs
         }
 
         [Input("configurations")]
-        private InputMap<string>? _configurations;
+        private InputMap<object>? _configurations;
 
         /// <summary>
         /// The cluster configurations.
         /// </summary>
-        public InputMap<string> Configurations
+        public InputMap<object> Configurations
         {
-            get => _configurations ?? (_configurations = new InputMap<string>());
+            get => _configurations ?? (_configurations = new InputMap<object>());
             set => _configurations = value;
         }
 

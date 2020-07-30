@@ -46,7 +46,7 @@ export interface GetMachineExtensionResult {
     /**
      * Describes Machine Extension Properties.
      */
-    readonly properties: {[key: string]: string};
+    readonly properties: {[key: string]: any};
     /**
      * Resource tags.
      */

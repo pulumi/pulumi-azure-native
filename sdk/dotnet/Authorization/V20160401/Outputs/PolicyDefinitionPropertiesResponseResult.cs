@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Authorization.V20160401.Outputs
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? PolicyRule;
+        public readonly ImmutableDictionary<string, object>? PolicyRule;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Authorization.V20160401.Outputs
 
             string? displayName,
 
-            ImmutableDictionary<string, string>? policyRule,
+            ImmutableDictionary<string, object>? policyRule,
 
             string? policyType)
         {

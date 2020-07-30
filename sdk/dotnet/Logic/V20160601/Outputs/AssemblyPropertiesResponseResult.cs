@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// The artifact changed time.
         /// </summary>
         public readonly string? ChangedTime;
-        public readonly ImmutableDictionary<string, string>? Content;
+        public readonly ImmutableDictionary<string, object>? Content;
         /// <summary>
         /// The content link.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// The artifact creation time.
         /// </summary>
         public readonly string? CreatedTime;
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
 
         [OutputConstructor]
         private AssemblyPropertiesResponseResult(
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             string? changedTime,
 
-            ImmutableDictionary<string, string>? content,
+            ImmutableDictionary<string, object>? content,
 
             Outputs.ContentLinkResponseResult? contentLink,
 
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             string? createdTime,
 
-            ImmutableDictionary<string, string>? metadata)
+            ImmutableDictionary<string, object>? metadata)
         {
             AssemblyCulture = assemblyCulture;
             AssemblyName = assemblyName;

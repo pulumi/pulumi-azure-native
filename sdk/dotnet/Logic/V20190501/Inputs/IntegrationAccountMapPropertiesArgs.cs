@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.Logic.V20190501.Inputs
         public Input<string> MapType { get; set; } = null!;
 
         [Input("metadata")]
-        private InputMap<string>? _metadata;
+        private InputMap<object>? _metadata;
 
         /// <summary>
         /// The metadata.
         /// </summary>
-        public InputMap<string> Metadata
+        public InputMap<object> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<string>());
+            get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
 

@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190601.Outputs
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? AddonProfiles;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? AddonProfiles;
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190601.Outputs
         private ManagedClusterPropertiesResponseResult(
             Outputs.ManagedClusterAADProfileResponseResult? aadProfile,
 
-            ImmutableDictionary<string, string>? addonProfiles,
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? addonProfiles,
 
             ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> agentPoolProfiles,
 

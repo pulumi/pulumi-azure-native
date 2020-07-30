@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
         /// </summary>
-        public readonly ImmutableArray<ImmutableDictionary<string, string>> Annotations;
+        public readonly ImmutableArray<ImmutableDictionary<string, object>> Annotations;
         /// <summary>
         /// The max number of concurrent runs for the pipeline.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? RunDimensions;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? RunDimensions;
         /// <summary>
         /// List of variables for pipeline.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         private PipelineResponseResult(
             ImmutableArray<Outputs.ActivityResponseResult> activities,
 
-            ImmutableArray<ImmutableDictionary<string, string>> annotations,
+            ImmutableArray<ImmutableDictionary<string, object>> annotations,
 
             int? concurrency,
 
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
             Outputs.ParameterDefinitionSpecificationResponseResult? parameters,
 
-            ImmutableDictionary<string, string>? runDimensions,
+            ImmutableDictionary<string, ImmutableDictionary<string, object>>? runDimensions,
 
             Outputs.VariableDefinitionSpecificationResponseResult? variables)
         {

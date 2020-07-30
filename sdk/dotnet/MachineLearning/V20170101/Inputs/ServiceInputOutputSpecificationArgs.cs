@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Inputs
         public Input<string>? Description { get; set; }
 
         [Input("properties", required: true)]
-        private InputMap<string>? _properties;
+        private InputMap<Inputs.TableSpecificationArgs>? _properties;
 
         /// <summary>
         /// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
         /// </summary>
-        public InputMap<string> Properties
+        public InputMap<Inputs.TableSpecificationArgs> Properties
         {
-            get => _properties ?? (_properties = new InputMap<string>());
+            get => _properties ?? (_properties = new InputMap<Inputs.TableSpecificationArgs>());
             set => _properties = value;
         }
 

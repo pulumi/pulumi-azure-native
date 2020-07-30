@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
         /// <summary>
         /// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? EventHubEndpoints;
+        public readonly ImmutableDictionary<string, Outputs.EventHubPropertiesResponseResult>? EventHubEndpoints;
         /// <summary>
         /// The capabilities and features enabled for the IoT hub.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
         /// <summary>
         /// The messaging endpoint properties for the file upload notification queue.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? MessagingEndpoints;
+        public readonly ImmutableDictionary<string, Outputs.MessagingEndpointPropertiesResponseResult>? MessagingEndpoints;
         /// <summary>
         /// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
         /// <summary>
         /// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? StorageEndpoints;
+        public readonly ImmutableDictionary<string, Outputs.StorageEndpointPropertiesResponseResult>? StorageEndpoints;
 
         [OutputConstructor]
         private IotHubPropertiesResponseResult(
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
 
             bool? enableFileUploadNotifications,
 
-            ImmutableDictionary<string, string>? eventHubEndpoints,
+            ImmutableDictionary<string, Outputs.EventHubPropertiesResponseResult>? eventHubEndpoints,
 
             string? features,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
 
             ImmutableArray<Outputs.IotHubLocationDescriptionResponseResult> locations,
 
-            ImmutableDictionary<string, string>? messagingEndpoints,
+            ImmutableDictionary<string, Outputs.MessagingEndpointPropertiesResponseResult>? messagingEndpoints,
 
             string? minTlsVersion,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureRM.Devices.V20200301.Outputs
 
             string state,
 
-            ImmutableDictionary<string, string>? storageEndpoints)
+            ImmutableDictionary<string, Outputs.StorageEndpointPropertiesResponseResult>? storageEndpoints)
         {
             AuthorizationPolicies = authorizationPolicies;
             CloudToDevice = cloudToDevice;

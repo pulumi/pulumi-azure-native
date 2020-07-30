@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
         /// <summary>
         /// State of the Key Vault secret.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Certificates;
+        public readonly ImmutableDictionary<string, Outputs.AppServiceCertificateResponseResult>? Certificates;
         /// <summary>
         /// Last CSR that was created for this order.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
 
             bool? autoRenew,
 
-            ImmutableDictionary<string, string>? certificates,
+            ImmutableDictionary<string, Outputs.AppServiceCertificateResponseResult>? certificates,
 
             string? csr,
 

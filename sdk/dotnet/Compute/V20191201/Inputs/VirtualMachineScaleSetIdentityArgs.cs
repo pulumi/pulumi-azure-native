@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.Compute.V20191201.Inputs
         public Input<string>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<string>? _userAssignedIdentities;
+        private InputMap<Inputs.VirtualMachineScaleSetIdentityPropertiesArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public InputMap<string> UserAssignedIdentities
+        public InputMap<Inputs.VirtualMachineScaleSetIdentityPropertiesArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.VirtualMachineScaleSetIdentityPropertiesArgs>());
             set => _userAssignedIdentities = value;
         }
 

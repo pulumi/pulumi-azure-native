@@ -12,13 +12,13 @@ import (
 
 // Describes a hybrid machine.
 type MachineType struct {
-	Identity map[string]string `pulumi:"identity"`
+	Identity map[string]interface{} `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Hybrid Compute Machine properties
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -38,13 +38,13 @@ type MachineTypeInput interface {
 
 // Describes a hybrid machine.
 type MachineTypeArgs struct {
-	Identity pulumi.StringMapInput `pulumi:"identity"`
+	Identity pulumi.MapInput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringInput `pulumi:"name"`
 	// Hybrid Compute Machine properties
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties pulumi.MapInput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -78,8 +78,8 @@ func (o MachineTypeOutput) ToMachineTypeOutputWithContext(ctx context.Context) M
 	return o
 }
 
-func (o MachineTypeOutput) Identity() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MachineType) map[string]string { return v.Identity }).(pulumi.StringMapOutput)
+func (o MachineTypeOutput) Identity() pulumi.MapOutput {
+	return o.ApplyT(func(v MachineType) map[string]interface{} { return v.Identity }).(pulumi.MapOutput)
 }
 
 // The geo-location where the resource lives
@@ -93,8 +93,8 @@ func (o MachineTypeOutput) Name() pulumi.StringOutput {
 }
 
 // Hybrid Compute Machine properties
-func (o MachineTypeOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MachineType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o MachineTypeOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v MachineType) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
 }
 
 // Resource tags.
@@ -114,7 +114,7 @@ type MachineExtensionType struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Describes Machine Extension Properties.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -139,7 +139,7 @@ type MachineExtensionTypeArgs struct {
 	// The name of the resource
 	Name pulumi.StringInput `pulumi:"name"`
 	// Describes Machine Extension Properties.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
+	Properties pulumi.MapInput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -184,8 +184,8 @@ func (o MachineExtensionTypeOutput) Name() pulumi.StringOutput {
 }
 
 // Describes Machine Extension Properties.
-func (o MachineExtensionTypeOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MachineExtensionType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+func (o MachineExtensionTypeOutput) Properties() pulumi.MapOutput {
+	return o.ApplyT(func(v MachineExtensionType) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
 }
 
 // Resource tags.

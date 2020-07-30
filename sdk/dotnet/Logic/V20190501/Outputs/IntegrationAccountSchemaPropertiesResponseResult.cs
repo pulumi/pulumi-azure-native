@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The schema type.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             string? fileName,
 
-            ImmutableDictionary<string, string>? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string schemaType,
 

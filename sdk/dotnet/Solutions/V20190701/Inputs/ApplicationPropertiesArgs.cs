@@ -34,14 +34,14 @@ namespace Pulumi.AzureRM.Solutions.V20190701.Inputs
         public Input<string>? ManagedResourceGroupId { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<object>? _parameters;
 
         /// <summary>
         /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<object> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
 

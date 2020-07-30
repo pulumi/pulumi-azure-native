@@ -109,7 +109,7 @@ export interface StorageSyncServiceArgs {
      * Name of Storage Sync Service resource.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly properties?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

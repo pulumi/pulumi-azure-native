@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.Compute.V20181001.Inputs
         public string? ForceUpdateTag { get; set; }
 
         [Input("protectedSettings")]
-        private Dictionary<string, string>? _protectedSettings;
+        private Dictionary<string, object>? _protectedSettings;
 
         /// <summary>
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        public Dictionary<string, string> ProtectedSettings
+        public Dictionary<string, object> ProtectedSettings
         {
-            get => _protectedSettings ?? (_protectedSettings = new Dictionary<string, string>());
+            get => _protectedSettings ?? (_protectedSettings = new Dictionary<string, object>());
             set => _protectedSettings = value;
         }
 
@@ -64,14 +64,14 @@ namespace Pulumi.AzureRM.Compute.V20181001.Inputs
         public string? Publisher { get; set; }
 
         [Input("settings")]
-        private Dictionary<string, string>? _settings;
+        private Dictionary<string, object>? _settings;
 
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public Dictionary<string, string> Settings
+        public Dictionary<string, object> Settings
         {
-            get => _settings ?? (_settings = new Dictionary<string, string>());
+            get => _settings ?? (_settings = new Dictionary<string, object>());
             set => _settings = value;
         }
 

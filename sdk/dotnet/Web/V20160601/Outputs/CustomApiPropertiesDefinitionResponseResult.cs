@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
         /// <summary>
         /// Connection parameters
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? ConnectionParameters;
+        public readonly ImmutableDictionary<string, Outputs.ConnectionParameterResponseResult>? ConnectionParameters;
         /// <summary>
         /// The custom API description
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
         /// <summary>
         /// The JSON representation of the swagger
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Swagger;
+        public readonly ImmutableDictionary<string, object>? Swagger;
         /// <summary>
         /// The WSDL definition
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
 
             ImmutableArray<string> capabilities,
 
-            ImmutableDictionary<string, string>? connectionParameters,
+            ImmutableDictionary<string, Outputs.ConnectionParameterResponseResult>? connectionParameters,
 
             string? description,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Web.V20160601.Outputs
 
             ImmutableArray<string> runtimeUrls,
 
-            ImmutableDictionary<string, string>? swagger,
+            ImmutableDictionary<string, object>? swagger,
 
             Outputs.WsdlDefinitionResponseResult? wsdlDefinition)
         {

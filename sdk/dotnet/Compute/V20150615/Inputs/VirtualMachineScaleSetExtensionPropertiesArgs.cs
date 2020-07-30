@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.Compute.V20150615.Inputs
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         [Input("protectedSettings")]
-        private InputMap<string>? _protectedSettings;
+        private InputMap<object>? _protectedSettings;
 
         /// <summary>
         /// Json formatted protected settings for the extension.
         /// </summary>
-        public InputMap<string> ProtectedSettings
+        public InputMap<object> ProtectedSettings
         {
-            get => _protectedSettings ?? (_protectedSettings = new InputMap<string>());
+            get => _protectedSettings ?? (_protectedSettings = new InputMap<object>());
             set => _protectedSettings = value;
         }
 
@@ -40,14 +40,14 @@ namespace Pulumi.AzureRM.Compute.V20150615.Inputs
         public Input<string>? Publisher { get; set; }
 
         [Input("settings")]
-        private InputMap<string>? _settings;
+        private InputMap<object>? _settings;
 
         /// <summary>
         /// Json formatted public settings for the extension.
         /// </summary>
-        public InputMap<string> Settings
+        public InputMap<object> Settings
         {
-            get => _settings ?? (_settings = new InputMap<string>());
+            get => _settings ?? (_settings = new InputMap<object>());
             set => _settings = value;
         }
 

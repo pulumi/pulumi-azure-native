@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// Tags provided by Azure Tagging service.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/assessmentProjects].
@@ -126,14 +126,14 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        private InputMap<object>? _tags;
 
         /// <summary>
         /// Tags provided by Azure Tagging service.
         /// </summary>
-        public InputMap<string> Tags
+        public InputMap<object> Tags
         {
-            get => _tags ?? (_tags = new InputMap<string>());
+            get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 

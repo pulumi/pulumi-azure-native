@@ -24,11 +24,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
         /// <summary>
         /// Header Parameter description.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Header;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? Header;
         /// <summary>
         /// Query Parameter description.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Query;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? Query;
 
         [OutputConstructor]
         private BackendCredentialsContractResponseResult(
@@ -36,9 +36,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Outputs
 
             ImmutableArray<string> certificate,
 
-            ImmutableDictionary<string, string>? header,
+            ImmutableDictionary<string, ImmutableArray<string>>? header,
 
-            ImmutableDictionary<string, string>? query)
+            ImmutableDictionary<string, ImmutableArray<string>>? query)
         {
             Authorization = authorization;
             Certificate = certificate;

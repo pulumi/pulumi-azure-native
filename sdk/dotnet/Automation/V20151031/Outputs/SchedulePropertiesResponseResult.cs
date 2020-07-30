@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
         /// <summary>
         /// Gets or sets the interval of the schedule.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Interval;
+        public readonly ImmutableDictionary<string, object>? Interval;
         /// <summary>
         /// Gets or sets a value indicating whether this schedule is enabled.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
 
             string? frequency,
 
-            ImmutableDictionary<string, string>? interval,
+            ImmutableDictionary<string, object>? interval,
 
             bool? isEnabled,
 

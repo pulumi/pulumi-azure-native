@@ -35,7 +35,7 @@ export interface GetMachineArgs {
  * Describes a hybrid machine.
  */
 export interface GetMachineResult {
-    readonly identity?: {[key: string]: string};
+    readonly identity?: {[key: string]: any};
     /**
      * The geo-location where the resource lives
      */
@@ -47,7 +47,7 @@ export interface GetMachineResult {
     /**
      * Hybrid Compute Machine properties
      */
-    readonly properties: {[key: string]: string};
+    readonly properties: {[key: string]: any};
     /**
      * Resource tags.
      */

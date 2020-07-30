@@ -423,11 +423,11 @@ type PolicyAssignmentProperties struct {
 	// The display name of the policy assignment.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -452,11 +452,11 @@ type PolicyAssignmentPropertiesArgs struct {
 	// The display name of the policy assignment.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -552,8 +552,8 @@ func (o PolicyAssignmentPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // The policy assignment metadata.
-func (o PolicyAssignmentPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyAssignmentProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicyAssignmentPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy's excluded scopes.
@@ -562,8 +562,8 @@ func (o PolicyAssignmentPropertiesOutput) NotScopes() pulumi.StringArrayOutput {
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyAssignmentPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyAssignmentProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicyAssignmentPropertiesOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyAssignmentProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The ID of the policy definition or policy set definition being assigned.
@@ -615,13 +615,13 @@ func (o PolicyAssignmentPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy assignment metadata.
-func (o PolicyAssignmentPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyAssignmentProperties) map[string]string {
+func (o PolicyAssignmentPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy's excluded scopes.
@@ -635,13 +635,13 @@ func (o PolicyAssignmentPropertiesPtrOutput) NotScopes() pulumi.StringArrayOutpu
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyAssignmentPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyAssignmentProperties) map[string]string {
+func (o PolicyAssignmentPropertiesPtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyAssignmentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The ID of the policy definition or policy set definition being assigned.
@@ -671,11 +671,11 @@ type PolicyAssignmentPropertiesResponse struct {
 	// The display name of the policy assignment.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -700,11 +700,11 @@ type PolicyAssignmentPropertiesResponseArgs struct {
 	// The display name of the policy assignment.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy assignment metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput `pulumi:"notScopes"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -800,8 +800,8 @@ func (o PolicyAssignmentPropertiesResponseOutput) DisplayName() pulumi.StringPtr
 }
 
 // The policy assignment metadata.
-func (o PolicyAssignmentPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicyAssignmentPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy's excluded scopes.
@@ -810,8 +810,8 @@ func (o PolicyAssignmentPropertiesResponseOutput) NotScopes() pulumi.StringArray
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyAssignmentPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicyAssignmentPropertiesResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The ID of the policy definition or policy set definition being assigned.
@@ -863,13 +863,13 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) DisplayName() pulumi.String
 }
 
 // The policy assignment metadata.
-func (o PolicyAssignmentPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) map[string]string {
+func (o PolicyAssignmentPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy's excluded scopes.
@@ -883,13 +883,13 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) NotScopes() pulumi.StringAr
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyAssignmentPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) map[string]string {
+func (o PolicyAssignmentPropertiesResponsePtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The ID of the policy definition or policy set definition being assigned.
@@ -992,13 +992,13 @@ type PolicyDefinitionProperties struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -1021,13 +1021,13 @@ type PolicyDefinitionPropertiesArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy definition metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
@@ -1121,8 +1121,8 @@ func (o PolicyDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 }
 
 // The policy definition metadata.
-func (o PolicyDefinitionPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -1131,13 +1131,13 @@ func (o PolicyDefinitionPropertiesOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionProperties) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -1184,13 +1184,13 @@ func (o PolicyDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy definition metadata.
-func (o PolicyDefinitionPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]string {
+func (o PolicyDefinitionPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -1204,23 +1204,23 @@ func (o PolicyDefinitionPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]string {
+func (o PolicyDefinitionPropertiesPtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]string {
+func (o PolicyDefinitionPropertiesPtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -1240,13 +1240,13 @@ type PolicyDefinitionPropertiesResponse struct {
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy definition metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule map[string]string `pulumi:"policyRule"`
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 }
@@ -1269,13 +1269,13 @@ type PolicyDefinitionPropertiesResponseArgs struct {
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy definition metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The policy rule.
-	PolicyRule pulumi.StringMapInput `pulumi:"policyRule"`
+	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
 }
@@ -1369,8 +1369,8 @@ func (o PolicyDefinitionPropertiesResponseOutput) DisplayName() pulumi.StringPtr
 }
 
 // The policy definition metadata.
-func (o PolicyDefinitionPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -1379,13 +1379,13 @@ func (o PolicyDefinitionPropertiesResponseOutput) Mode() pulumi.StringPtrOutput 
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]string { return v.PolicyRule }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]interface{} { return v.PolicyRule }).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -1432,13 +1432,13 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) DisplayName() pulumi.String
 }
 
 // The policy definition metadata.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]string {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
@@ -1452,23 +1452,23 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) Mode() pulumi.StringPtrOutp
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]string {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy rule.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]string {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyRule() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.PolicyRule
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -1484,7 +1484,7 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyType() pulumi.StringP
 // The policy definition reference.
 type PolicyDefinitionReference struct {
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 }
@@ -1503,7 +1503,7 @@ type PolicyDefinitionReferenceInput interface {
 // The policy definition reference.
 type PolicyDefinitionReferenceArgs struct {
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
@@ -1561,8 +1561,8 @@ func (o PolicyDefinitionReferenceOutput) ToPolicyDefinitionReferenceOutputWithCo
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionReferenceOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionReference) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The ID of the policy definition or policy set definition.
@@ -1593,7 +1593,7 @@ func (o PolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicyDef
 // The policy definition reference.
 type PolicyDefinitionReferenceResponse struct {
 	// Required if a parameter is used in policy rule.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 }
@@ -1612,7 +1612,7 @@ type PolicyDefinitionReferenceResponseInput interface {
 // The policy definition reference.
 type PolicyDefinitionReferenceResponseArgs struct {
 	// Required if a parameter is used in policy rule.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
 }
@@ -1670,8 +1670,8 @@ func (o PolicyDefinitionReferenceResponseOutput) ToPolicyDefinitionReferenceResp
 }
 
 // Required if a parameter is used in policy rule.
-func (o PolicyDefinitionReferenceResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicyDefinitionReferenceResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // The ID of the policy definition or policy set definition.
@@ -1779,9 +1779,9 @@ type PolicySetDefinitionProperties struct {
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy set definition metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// An array of policy definition references.
 	PolicyDefinitions []PolicyDefinitionReference `pulumi:"policyDefinitions"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -1806,9 +1806,9 @@ type PolicySetDefinitionPropertiesArgs struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy set definition metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// An array of policy definition references.
 	PolicyDefinitions PolicyDefinitionReferenceArrayInput `pulumi:"policyDefinitions"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -1904,13 +1904,13 @@ func (o PolicySetDefinitionPropertiesOutput) DisplayName() pulumi.StringPtrOutpu
 }
 
 // The policy set definition metadata.
-func (o PolicySetDefinitionPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicySetDefinitionPropertiesOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionProperties) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.
-func (o PolicySetDefinitionPropertiesOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicySetDefinitionPropertiesOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionProperties) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // An array of policy definition references.
@@ -1962,23 +1962,23 @@ func (o PolicySetDefinitionPropertiesPtrOutput) DisplayName() pulumi.StringPtrOu
 }
 
 // The policy set definition metadata.
-func (o PolicySetDefinitionPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicySetDefinitionProperties) map[string]string {
+func (o PolicySetDefinitionPropertiesPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicySetDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.
-func (o PolicySetDefinitionPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicySetDefinitionProperties) map[string]string {
+func (o PolicySetDefinitionPropertiesPtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicySetDefinitionProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // An array of policy definition references.
@@ -2008,9 +2008,9 @@ type PolicySetDefinitionPropertiesResponse struct {
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
 	// The policy set definition metadata.
-	Metadata map[string]string `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 	// An array of policy definition references.
 	PolicyDefinitions []PolicyDefinitionReferenceResponse `pulumi:"policyDefinitions"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -2035,9 +2035,9 @@ type PolicySetDefinitionPropertiesResponseArgs struct {
 	// The display name of the policy set definition.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// The policy set definition metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// An array of policy definition references.
 	PolicyDefinitions PolicyDefinitionReferenceResponseArrayInput `pulumi:"policyDefinitions"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
@@ -2133,13 +2133,13 @@ func (o PolicySetDefinitionPropertiesResponseOutput) DisplayName() pulumi.String
 }
 
 // The policy set definition metadata.
-func (o PolicySetDefinitionPropertiesResponseOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+func (o PolicySetDefinitionPropertiesResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.
-func (o PolicySetDefinitionPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o PolicySetDefinitionPropertiesResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 // An array of policy definition references.
@@ -2193,23 +2193,23 @@ func (o PolicySetDefinitionPropertiesResponsePtrOutput) DisplayName() pulumi.Str
 }
 
 // The policy set definition metadata.
-func (o PolicySetDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) map[string]string {
+func (o PolicySetDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The policy set definition parameters that can be used in policy definition references.
-func (o PolicySetDefinitionPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) map[string]string {
+func (o PolicySetDefinitionPropertiesResponsePtrOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // An array of policy definition references.

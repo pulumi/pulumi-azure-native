@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401.Outputs
         /// <summary>
         /// A system generated property that denotes the last updated timestamp of the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? _ts;
+        public readonly ImmutableDictionary<string, object>? _ts;
         /// <summary>
         /// Name of the Cosmos DB Gremlin database
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401.Outputs
 
             string? _rid,
 
-            ImmutableDictionary<string, string>? _ts,
+            ImmutableDictionary<string, object>? _ts,
 
             string id)
         {

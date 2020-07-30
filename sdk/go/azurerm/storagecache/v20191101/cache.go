@@ -23,7 +23,7 @@ type Cache struct {
 	// SKU for the Cache.
 	Sku CacheResponsePropertiesPtrOutput `pulumi:"sku"`
 	// ARM tags as name/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,7 +71,7 @@ type cacheState struct {
 	// SKU for the Cache.
 	Sku *CacheResponseProperties `pulumi:"sku"`
 	// ARM tags as name/value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type *string `pulumi:"type"`
 }
@@ -86,7 +86,7 @@ type CacheState struct {
 	// SKU for the Cache.
 	Sku CacheResponsePropertiesPtrInput
 	// ARM tags as name/value pairs.
-	Tags pulumi.StringMapInput
+	Tags pulumi.MapInput
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type pulumi.StringPtrInput
 }
@@ -107,7 +107,7 @@ type cacheArgs struct {
 	// SKU for the Cache.
 	Sku *CacheProperties `pulumi:"sku"`
 	// ARM tags as name/value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -123,7 +123,7 @@ type CacheArgs struct {
 	// SKU for the Cache.
 	Sku CachePropertiesPtrInput
 	// ARM tags as name/value pairs.
-	Tags pulumi.StringMapInput
+	Tags pulumi.MapInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {

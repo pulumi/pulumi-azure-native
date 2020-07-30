@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// The attributes for the Type.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Attributes;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>>? Attributes;
         /// <summary>
         /// Localized descriptions for the property.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// Any custom localized attributes for the Type.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? LocalizedAttributes;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, string>>? LocalizedAttributes;
         /// <summary>
         /// Medium Image associated with the Property or EntityType.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
         private ProfileTypeDefinitionResponseResult(
             string? apiEntitySetName,
 
-            ImmutableDictionary<string, string>? attributes,
+            ImmutableDictionary<string, ImmutableArray<string>>? attributes,
 
             ImmutableDictionary<string, string>? description,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
 
             string lastChangedUtc,
 
-            ImmutableDictionary<string, string>? localizedAttributes,
+            ImmutableDictionary<string, ImmutableDictionary<string, string>>? localizedAttributes,
 
             string? mediumImage,
 

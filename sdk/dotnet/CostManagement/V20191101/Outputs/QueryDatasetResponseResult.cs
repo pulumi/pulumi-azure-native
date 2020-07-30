@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.CostManagement.V20191101.Outputs
         /// <summary>
         /// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Aggregation;
+        public readonly ImmutableDictionary<string, Outputs.QueryAggregationResponseResult>? Aggregation;
         /// <summary>
         /// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.CostManagement.V20191101.Outputs
 
         [OutputConstructor]
         private QueryDatasetResponseResult(
-            ImmutableDictionary<string, string>? aggregation,
+            ImmutableDictionary<string, Outputs.QueryAggregationResponseResult>? aggregation,
 
             Outputs.QueryDatasetConfigurationResponseResult? configuration,
 

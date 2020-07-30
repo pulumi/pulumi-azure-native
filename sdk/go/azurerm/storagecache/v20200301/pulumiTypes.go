@@ -23,7 +23,7 @@ type CacheType struct {
 	// SKU for the Cache.
 	Sku *CacheResponseProperties `pulumi:"sku"`
 	// ARM tags as name/value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type string `pulumi:"type"`
 }
@@ -52,7 +52,7 @@ type CacheTypeArgs struct {
 	// SKU for the Cache.
 	Sku CacheResponsePropertiesPtrInput `pulumi:"sku"`
 	// ARM tags as name/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -110,8 +110,8 @@ func (o CacheTypeOutput) Sku() CacheResponsePropertiesPtrOutput {
 }
 
 // ARM tags as name/value pairs.
-func (o CacheTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CacheType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o CacheTypeOutput) Tags() pulumi.MapOutput {
+	return o.ApplyT(func(v CacheType) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
 }
 
 // Type of the Cache; Microsoft.StorageCache/Cache

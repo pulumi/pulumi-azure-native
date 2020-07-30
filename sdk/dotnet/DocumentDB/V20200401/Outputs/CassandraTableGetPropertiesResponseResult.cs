@@ -13,14 +13,14 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
     [OutputType]
     public sealed class CassandraTableGetPropertiesResponseResult
     {
-        public readonly ImmutableDictionary<string, string>? Options;
-        public readonly ImmutableDictionary<string, string>? Resource;
+        public readonly ImmutableDictionary<string, object>? Options;
+        public readonly ImmutableDictionary<string, object>? Resource;
 
         [OutputConstructor]
         private CassandraTableGetPropertiesResponseResult(
-            ImmutableDictionary<string, string>? options,
+            ImmutableDictionary<string, object>? options,
 
-            ImmutableDictionary<string, string>? resource)
+            ImmutableDictionary<string, object>? resource)
         {
             Options = options;
             Resource = resource;

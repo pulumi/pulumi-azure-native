@@ -46,10 +46,10 @@ namespace Pulumi.AzureRM.Logic.V20160601.Inputs
         public Input<string>? ChangedTime { get; set; }
 
         [Input("content")]
-        private InputMap<string>? _content;
-        public InputMap<string> Content
+        private InputMap<object>? _content;
+        public InputMap<object> Content
         {
-            get => _content ?? (_content = new InputMap<string>());
+            get => _content ?? (_content = new InputMap<object>());
             set => _content = value;
         }
 
@@ -72,10 +72,10 @@ namespace Pulumi.AzureRM.Logic.V20160601.Inputs
         public Input<string>? CreatedTime { get; set; }
 
         [Input("metadata")]
-        private InputMap<string>? _metadata;
-        public InputMap<string> Metadata
+        private InputMap<object>? _metadata;
+        public InputMap<object> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<string>());
+            get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
 

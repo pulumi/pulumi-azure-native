@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.ContainerInstance.V20181001.Inputs
         public Input<string>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<string>? _userAssignedIdentities;
+        private InputMap<Inputs.ContainerGroupIdentityPropertiesArgs>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public InputMap<string> UserAssignedIdentities
+        public InputMap<Inputs.ContainerGroupIdentityPropertiesArgs> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<string>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.ContainerGroupIdentityPropertiesArgs>());
             set => _userAssignedIdentities = value;
         }
 

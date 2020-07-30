@@ -1922,7 +1922,7 @@ type ApiManagementServiceIdentity struct {
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ApiManagementServiceIdentityInput is an input type that accepts ApiManagementServiceIdentityArgs and ApiManagementServiceIdentityOutput values.
@@ -1944,7 +1944,7 @@ type ApiManagementServiceIdentityArgs struct {
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ApiManagementServiceIdentityArgs) ElementType() reflect.Type {
@@ -2034,8 +2034,10 @@ func (o ApiManagementServiceIdentityOutput) Type() pulumi.StringOutput {
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 //     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ApiManagementServiceIdentityOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApiManagementServiceIdentity) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ApiManagementServiceIdentityOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v ApiManagementServiceIdentity) map[string]UserIdentityProperties {
+		return v.UserAssignedIdentities
+	}).(UserIdentityPropertiesMapOutput)
 }
 
 type ApiManagementServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2070,13 +2072,13 @@ func (o ApiManagementServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 //     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ApiManagementServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApiManagementServiceIdentity) map[string]string {
+func (o ApiManagementServiceIdentityPtrOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
+	return o.ApplyT(func(v *ApiManagementServiceIdentity) map[string]UserIdentityProperties {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(UserIdentityPropertiesMapOutput)
 }
 
 // Identity properties of the Api Management service resource.
@@ -2091,7 +2093,7 @@ type ApiManagementServiceIdentityResponse struct {
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]string `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserIdentityPropertiesResponse `pulumi:"userAssignedIdentities"`
 }
 
 // ApiManagementServiceIdentityResponseInput is an input type that accepts ApiManagementServiceIdentityResponseArgs and ApiManagementServiceIdentityResponseOutput values.
@@ -2117,7 +2119,7 @@ type ApiManagementServiceIdentityResponseArgs struct {
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.StringMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserIdentityPropertiesResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ApiManagementServiceIdentityResponseArgs) ElementType() reflect.Type {
@@ -2217,8 +2219,10 @@ func (o ApiManagementServiceIdentityResponseOutput) Type() pulumi.StringOutput {
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 //     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ApiManagementServiceIdentityResponseOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) map[string]string { return v.UserAssignedIdentities }).(pulumi.StringMapOutput)
+func (o ApiManagementServiceIdentityResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
+	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) map[string]UserIdentityPropertiesResponse {
+		return v.UserAssignedIdentities
+	}).(UserIdentityPropertiesResponseMapOutput)
 }
 
 type ApiManagementServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2273,13 +2277,13 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOu
 // dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
 //     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ApiManagementServiceIdentityResponsePtrOutput) UserAssignedIdentities() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) map[string]string {
+func (o ApiManagementServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
+	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) map[string]UserIdentityPropertiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(pulumi.StringMapOutput)
+	}).(UserIdentityPropertiesResponseMapOutput)
 }
 
 // Properties of an API Management service resource description.
@@ -7685,9 +7689,9 @@ type BackendCredentialsContract struct {
 	// List of Client Certificate Thumbprint.
 	Certificate []string `pulumi:"certificate"`
 	// Header Parameter description.
-	Header map[string]string `pulumi:"header"`
+	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
-	Query map[string]string `pulumi:"query"`
+	Query map[string][]string `pulumi:"query"`
 }
 
 // BackendCredentialsContractInput is an input type that accepts BackendCredentialsContractArgs and BackendCredentialsContractOutput values.
@@ -7708,9 +7712,9 @@ type BackendCredentialsContractArgs struct {
 	// List of Client Certificate Thumbprint.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
 	// Header Parameter description.
-	Header pulumi.StringMapInput `pulumi:"header"`
+	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
-	Query pulumi.StringMapInput `pulumi:"query"`
+	Query pulumi.StringArrayMapInput `pulumi:"query"`
 }
 
 func (BackendCredentialsContractArgs) ElementType() reflect.Type {
@@ -7802,13 +7806,13 @@ func (o BackendCredentialsContractOutput) Certificate() pulumi.StringArrayOutput
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContract) map[string]string { return v.Header }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContract) map[string][]string { return v.Header }).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContract) map[string]string { return v.Query }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContract) map[string][]string { return v.Query }).(pulumi.StringArrayMapOutput)
 }
 
 type BackendCredentialsContractPtrOutput struct{ *pulumi.OutputState }
@@ -7850,23 +7854,23 @@ func (o BackendCredentialsContractPtrOutput) Certificate() pulumi.StringArrayOut
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractPtrOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContract) map[string]string {
+func (o BackendCredentialsContractPtrOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContract) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Header
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContract) map[string]string {
+func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContract) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Query
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Details of the Credentials used to connect to Backend.
@@ -7876,9 +7880,9 @@ type BackendCredentialsContractResponse struct {
 	// List of Client Certificate Thumbprint.
 	Certificate []string `pulumi:"certificate"`
 	// Header Parameter description.
-	Header map[string]string `pulumi:"header"`
+	Header map[string][]string `pulumi:"header"`
 	// Query Parameter description.
-	Query map[string]string `pulumi:"query"`
+	Query map[string][]string `pulumi:"query"`
 }
 
 // BackendCredentialsContractResponseInput is an input type that accepts BackendCredentialsContractResponseArgs and BackendCredentialsContractResponseOutput values.
@@ -7899,9 +7903,9 @@ type BackendCredentialsContractResponseArgs struct {
 	// List of Client Certificate Thumbprint.
 	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
 	// Header Parameter description.
-	Header pulumi.StringMapInput `pulumi:"header"`
+	Header pulumi.StringArrayMapInput `pulumi:"header"`
 	// Query Parameter description.
-	Query pulumi.StringMapInput `pulumi:"query"`
+	Query pulumi.StringArrayMapInput `pulumi:"query"`
 }
 
 func (BackendCredentialsContractResponseArgs) ElementType() reflect.Type {
@@ -7995,13 +7999,13 @@ func (o BackendCredentialsContractResponseOutput) Certificate() pulumi.StringArr
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractResponseOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string]string { return v.Header }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractResponseOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string][]string { return v.Header }).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractResponseOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string]string { return v.Query }).(pulumi.StringMapOutput)
+func (o BackendCredentialsContractResponseOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string][]string { return v.Query }).(pulumi.StringArrayMapOutput)
 }
 
 type BackendCredentialsContractResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8043,23 +8047,23 @@ func (o BackendCredentialsContractResponsePtrOutput) Certificate() pulumi.String
 }
 
 // Header Parameter description.
-func (o BackendCredentialsContractResponsePtrOutput) Header() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string]string {
+func (o BackendCredentialsContractResponsePtrOutput) Header() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Header
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Query Parameter description.
-func (o BackendCredentialsContractResponsePtrOutput) Query() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string]string {
+func (o BackendCredentialsContractResponsePtrOutput) Query() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.Query
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // Properties specific to the Backend Type.
@@ -11353,7 +11357,7 @@ type ContentTypeContractPropertiesResponse struct {
 	// Content type name. Must be 1 to 250 characters long.
 	Name *string `pulumi:"name"`
 	// Content type schema.
-	Schema map[string]string `pulumi:"schema"`
+	Schema map[string]interface{} `pulumi:"schema"`
 	// Content type version.
 	Version *string `pulumi:"version"`
 }
@@ -11377,7 +11381,7 @@ type ContentTypeContractPropertiesResponseArgs struct {
 	// Content type name. Must be 1 to 250 characters long.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Content type schema.
-	Schema pulumi.StringMapInput `pulumi:"schema"`
+	Schema pulumi.MapInput `pulumi:"schema"`
 	// Content type version.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -11475,8 +11479,8 @@ func (o ContentTypeContractPropertiesResponseOutput) Name() pulumi.StringPtrOutp
 }
 
 // Content type schema.
-func (o ContentTypeContractPropertiesResponseOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) map[string]string { return v.Schema }).(pulumi.StringMapOutput)
+func (o ContentTypeContractPropertiesResponseOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v ContentTypeContractPropertiesResponse) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
 }
 
 // Content type version.
@@ -11533,13 +11537,13 @@ func (o ContentTypeContractPropertiesResponsePtrOutput) Name() pulumi.StringPtrO
 }
 
 // Content type schema.
-func (o ContentTypeContractPropertiesResponsePtrOutput) Schema() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) map[string]string {
+func (o ContentTypeContractPropertiesResponsePtrOutput) Schema() pulumi.MapOutput {
+	return o.ApplyT(func(v *ContentTypeContractPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Schema
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Content type version.
@@ -22822,7 +22826,7 @@ func (o SchemaContractPropertiesResponsePtrOutput) Document() SchemaDocumentProp
 // Schema Document Properties.
 type SchemaDocumentProperties struct {
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions map[string]string `pulumi:"definitions"`
+	Definitions map[string]interface{} `pulumi:"definitions"`
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
 	Value *string `pulumi:"value"`
 }
@@ -22841,7 +22845,7 @@ type SchemaDocumentPropertiesInput interface {
 // Schema Document Properties.
 type SchemaDocumentPropertiesArgs struct {
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.StringMapInput `pulumi:"definitions"`
+	Definitions pulumi.MapInput `pulumi:"definitions"`
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -22925,8 +22929,8 @@ func (o SchemaDocumentPropertiesOutput) ToSchemaDocumentPropertiesPtrOutputWithC
 }
 
 // Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-func (o SchemaDocumentPropertiesOutput) Definitions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SchemaDocumentProperties) map[string]string { return v.Definitions }).(pulumi.StringMapOutput)
+func (o SchemaDocumentPropertiesOutput) Definitions() pulumi.MapOutput {
+	return o.ApplyT(func(v SchemaDocumentProperties) map[string]interface{} { return v.Definitions }).(pulumi.MapOutput)
 }
 
 // Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
@@ -22953,13 +22957,13 @@ func (o SchemaDocumentPropertiesPtrOutput) Elem() SchemaDocumentPropertiesOutput
 }
 
 // Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-func (o SchemaDocumentPropertiesPtrOutput) Definitions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SchemaDocumentProperties) map[string]string {
+func (o SchemaDocumentPropertiesPtrOutput) Definitions() pulumi.MapOutput {
+	return o.ApplyT(func(v *SchemaDocumentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Definitions
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
@@ -22975,7 +22979,7 @@ func (o SchemaDocumentPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
 // Schema Document Properties.
 type SchemaDocumentPropertiesResponse struct {
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions map[string]string `pulumi:"definitions"`
+	Definitions map[string]interface{} `pulumi:"definitions"`
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
 	Value *string `pulumi:"value"`
 }
@@ -22994,7 +22998,7 @@ type SchemaDocumentPropertiesResponseInput interface {
 // Schema Document Properties.
 type SchemaDocumentPropertiesResponseArgs struct {
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.StringMapInput `pulumi:"definitions"`
+	Definitions pulumi.MapInput `pulumi:"definitions"`
 	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -23078,8 +23082,8 @@ func (o SchemaDocumentPropertiesResponseOutput) ToSchemaDocumentPropertiesRespon
 }
 
 // Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-func (o SchemaDocumentPropertiesResponseOutput) Definitions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SchemaDocumentPropertiesResponse) map[string]string { return v.Definitions }).(pulumi.StringMapOutput)
+func (o SchemaDocumentPropertiesResponseOutput) Definitions() pulumi.MapOutput {
+	return o.ApplyT(func(v SchemaDocumentPropertiesResponse) map[string]interface{} { return v.Definitions }).(pulumi.MapOutput)
 }
 
 // Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
@@ -23106,13 +23110,13 @@ func (o SchemaDocumentPropertiesResponsePtrOutput) Elem() SchemaDocumentProperti
 }
 
 // Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-func (o SchemaDocumentPropertiesResponsePtrOutput) Definitions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SchemaDocumentPropertiesResponse) map[string]string {
+func (o SchemaDocumentPropertiesResponsePtrOutput) Definitions() pulumi.MapOutput {
+	return o.ApplyT(func(v *SchemaDocumentPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Definitions
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.MapOutput)
 }
 
 // Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
@@ -26120,6 +26124,218 @@ func (o UserIdentityContractResponseArrayOutput) Index(i pulumi.IntInput) UserId
 	}).(UserIdentityContractResponseOutput)
 }
 
+type UserIdentityProperties struct {
+	// The client id of user assigned identity.
+	ClientId *string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId *string `pulumi:"principalId"`
+}
+
+// UserIdentityPropertiesInput is an input type that accepts UserIdentityPropertiesArgs and UserIdentityPropertiesOutput values.
+// You can construct a concrete instance of `UserIdentityPropertiesInput` via:
+//
+//          UserIdentityPropertiesArgs{...}
+type UserIdentityPropertiesInput interface {
+	pulumi.Input
+
+	ToUserIdentityPropertiesOutput() UserIdentityPropertiesOutput
+	ToUserIdentityPropertiesOutputWithContext(context.Context) UserIdentityPropertiesOutput
+}
+
+type UserIdentityPropertiesArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+}
+
+func (UserIdentityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityProperties)(nil)).Elem()
+}
+
+func (i UserIdentityPropertiesArgs) ToUserIdentityPropertiesOutput() UserIdentityPropertiesOutput {
+	return i.ToUserIdentityPropertiesOutputWithContext(context.Background())
+}
+
+func (i UserIdentityPropertiesArgs) ToUserIdentityPropertiesOutputWithContext(ctx context.Context) UserIdentityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesOutput)
+}
+
+// UserIdentityPropertiesMapInput is an input type that accepts UserIdentityPropertiesMap and UserIdentityPropertiesMapOutput values.
+// You can construct a concrete instance of `UserIdentityPropertiesMapInput` via:
+//
+//          UserIdentityPropertiesMap{ "key": UserIdentityPropertiesArgs{...} }
+type UserIdentityPropertiesMapInput interface {
+	pulumi.Input
+
+	ToUserIdentityPropertiesMapOutput() UserIdentityPropertiesMapOutput
+	ToUserIdentityPropertiesMapOutputWithContext(context.Context) UserIdentityPropertiesMapOutput
+}
+
+type UserIdentityPropertiesMap map[string]UserIdentityPropertiesInput
+
+func (UserIdentityPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityProperties)(nil)).Elem()
+}
+
+func (i UserIdentityPropertiesMap) ToUserIdentityPropertiesMapOutput() UserIdentityPropertiesMapOutput {
+	return i.ToUserIdentityPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i UserIdentityPropertiesMap) ToUserIdentityPropertiesMapOutputWithContext(ctx context.Context) UserIdentityPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesMapOutput)
+}
+
+type UserIdentityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityProperties)(nil)).Elem()
+}
+
+func (o UserIdentityPropertiesOutput) ToUserIdentityPropertiesOutput() UserIdentityPropertiesOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesOutput) ToUserIdentityPropertiesOutputWithContext(ctx context.Context) UserIdentityPropertiesOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o UserIdentityPropertiesOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityProperties) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The principal id of user assigned identity.
+func (o UserIdentityPropertiesOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityProperties) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+type UserIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityProperties)(nil)).Elem()
+}
+
+func (o UserIdentityPropertiesMapOutput) ToUserIdentityPropertiesMapOutput() UserIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesMapOutput) ToUserIdentityPropertiesMapOutputWithContext(ctx context.Context) UserIdentityPropertiesMapOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) UserIdentityPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentityProperties {
+		return vs[0].(map[string]UserIdentityProperties)[vs[1].(string)]
+	}).(UserIdentityPropertiesOutput)
+}
+
+type UserIdentityPropertiesResponse struct {
+	// The client id of user assigned identity.
+	ClientId *string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId *string `pulumi:"principalId"`
+}
+
+// UserIdentityPropertiesResponseInput is an input type that accepts UserIdentityPropertiesResponseArgs and UserIdentityPropertiesResponseOutput values.
+// You can construct a concrete instance of `UserIdentityPropertiesResponseInput` via:
+//
+//          UserIdentityPropertiesResponseArgs{...}
+type UserIdentityPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToUserIdentityPropertiesResponseOutput() UserIdentityPropertiesResponseOutput
+	ToUserIdentityPropertiesResponseOutputWithContext(context.Context) UserIdentityPropertiesResponseOutput
+}
+
+type UserIdentityPropertiesResponseArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+}
+
+func (UserIdentityPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (i UserIdentityPropertiesResponseArgs) ToUserIdentityPropertiesResponseOutput() UserIdentityPropertiesResponseOutput {
+	return i.ToUserIdentityPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i UserIdentityPropertiesResponseArgs) ToUserIdentityPropertiesResponseOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesResponseOutput)
+}
+
+// UserIdentityPropertiesResponseMapInput is an input type that accepts UserIdentityPropertiesResponseMap and UserIdentityPropertiesResponseMapOutput values.
+// You can construct a concrete instance of `UserIdentityPropertiesResponseMapInput` via:
+//
+//          UserIdentityPropertiesResponseMap{ "key": UserIdentityPropertiesResponseArgs{...} }
+type UserIdentityPropertiesResponseMapInput interface {
+	pulumi.Input
+
+	ToUserIdentityPropertiesResponseMapOutput() UserIdentityPropertiesResponseMapOutput
+	ToUserIdentityPropertiesResponseMapOutputWithContext(context.Context) UserIdentityPropertiesResponseMapOutput
+}
+
+type UserIdentityPropertiesResponseMap map[string]UserIdentityPropertiesResponseInput
+
+func (UserIdentityPropertiesResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (i UserIdentityPropertiesResponseMap) ToUserIdentityPropertiesResponseMapOutput() UserIdentityPropertiesResponseMapOutput {
+	return i.ToUserIdentityPropertiesResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserIdentityPropertiesResponseMap) ToUserIdentityPropertiesResponseMapOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityPropertiesResponseMapOutput)
+}
+
+type UserIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o UserIdentityPropertiesResponseOutput) ToUserIdentityPropertiesResponseOutput() UserIdentityPropertiesResponseOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesResponseOutput) ToUserIdentityPropertiesResponseOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseOutput {
+	return o
+}
+
+// The client id of user assigned identity.
+func (o UserIdentityPropertiesResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityPropertiesResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The principal id of user assigned identity.
+func (o UserIdentityPropertiesResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityPropertiesResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+type UserIdentityPropertiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityPropertiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityPropertiesResponse)(nil)).Elem()
+}
+
+func (o UserIdentityPropertiesResponseMapOutput) ToUserIdentityPropertiesResponseMapOutput() UserIdentityPropertiesResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesResponseMapOutput) ToUserIdentityPropertiesResponseMapOutputWithContext(ctx context.Context) UserIdentityPropertiesResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdentityPropertiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentityPropertiesResponse {
+		return vs[0].(map[string]UserIdentityPropertiesResponse)[vs[1].(string)]
+	}).(UserIdentityPropertiesResponseOutput)
+}
+
 // Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfiguration struct {
 	// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
@@ -26925,6 +27141,10 @@ func init() {
 	pulumi.RegisterOutputType(UserIdentityContractArrayOutput{})
 	pulumi.RegisterOutputType(UserIdentityContractResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityContractResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserIdentityPropertiesOutput{})
+	pulumi.RegisterOutputType(UserIdentityPropertiesMapOutput{})
+	pulumi.RegisterOutputType(UserIdentityPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(UserIdentityPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationResponseOutput{})

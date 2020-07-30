@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The connection parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? ConnectionParameters;
+        public readonly ImmutableDictionary<string, Outputs.ObjectResponseResult>? ConnectionParameters;
         /// <summary>
         /// The api general information.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             string? category,
 
-            ImmutableDictionary<string, string>? connectionParameters,
+            ImmutableDictionary<string, Outputs.ObjectResponseResult>? connectionParameters,
 
             Outputs.ApiResourceGeneralInformationResponseResult? generalInformation,
 

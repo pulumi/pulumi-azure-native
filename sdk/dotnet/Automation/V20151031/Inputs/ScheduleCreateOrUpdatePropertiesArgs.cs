@@ -40,14 +40,14 @@ namespace Pulumi.AzureRM.Automation.V20151031.Inputs
         public Input<string> Frequency { get; set; } = null!;
 
         [Input("interval")]
-        private InputMap<string>? _interval;
+        private InputMap<object>? _interval;
 
         /// <summary>
         /// Gets or sets the interval of the schedule.
         /// </summary>
-        public InputMap<string> Interval
+        public InputMap<object> Interval
         {
-            get => _interval ?? (_interval = new InputMap<string>());
+            get => _interval ?? (_interval = new InputMap<object>());
             set => _interval = value;
         }
 

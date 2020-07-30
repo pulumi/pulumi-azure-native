@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.HybridData.V20160601.Inputs
         }
 
         [Input("dataServiceInput")]
-        private InputMap<string>? _dataServiceInput;
+        private InputMap<object>? _dataServiceInput;
 
         /// <summary>
         /// A generic json used differently by each data service type.
         /// </summary>
-        public InputMap<string> DataServiceInput
+        public InputMap<object> DataServiceInput
         {
-            get => _dataServiceInput ?? (_dataServiceInput = new InputMap<string>());
+            get => _dataServiceInput ?? (_dataServiceInput = new InputMap<object>());
             set => _dataServiceInput = value;
         }
 

@@ -25,13 +25,13 @@ type LookupMachineArgs struct {
 
 // Describes a hybrid machine.
 type LookupMachineResult struct {
-	Identity map[string]string `pulumi:"identity"`
+	Identity map[string]interface{} `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Hybrid Compute Machine properties
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

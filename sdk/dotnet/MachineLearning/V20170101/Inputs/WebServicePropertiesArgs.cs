@@ -16,14 +16,14 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Inputs
     public sealed class WebServicePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("assets")]
-        private InputMap<string>? _assets;
+        private InputMap<Inputs.AssetItemArgs>? _assets;
 
         /// <summary>
         /// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
         /// </summary>
-        public InputMap<string> Assets
+        public InputMap<Inputs.AssetItemArgs> Assets
         {
-            get => _assets ?? (_assets = new InputMap<string>());
+            get => _assets ?? (_assets = new InputMap<Inputs.AssetItemArgs>());
             set => _assets = value;
         }
 
@@ -88,14 +88,14 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Inputs
         public Input<string> PackageType { get; set; } = null!;
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<Inputs.WebServiceParameterArgs>? _parameters;
 
         /// <summary>
         /// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<Inputs.WebServiceParameterArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<Inputs.WebServiceParameterArgs>());
             set => _parameters = value;
         }
 

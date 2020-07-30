@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("value", required: true)]
-        private InputMap<string>? _value;
+        private InputMap<object>? _value;
 
         /// <summary>
         /// User property value. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<string> Value
+        public InputMap<object> Value
         {
-            get => _value ?? (_value = new InputMap<string>());
+            get => _value ?? (_value = new InputMap<object>());
             set => _value = value;
         }
 

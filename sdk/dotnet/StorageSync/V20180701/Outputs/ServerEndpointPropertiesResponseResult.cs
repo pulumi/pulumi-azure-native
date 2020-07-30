@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.StorageSync.V20180701.Outputs
         /// <summary>
         /// Sync Health Status
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? SyncStatus;
+        public readonly ImmutableDictionary<string, object>? SyncStatus;
         /// <summary>
         /// Tier files older than days.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.StorageSync.V20180701.Outputs
 
             string? serverResourceId,
 
-            ImmutableDictionary<string, string>? syncStatus,
+            ImmutableDictionary<string, object>? syncStatus,
 
             int? tierFilesOlderThanDays,
 

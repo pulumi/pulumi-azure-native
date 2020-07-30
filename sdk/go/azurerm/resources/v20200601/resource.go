@@ -27,7 +27,7 @@ type Resource struct {
 	// The plan of the resource.
 	Plan PlanResponsePtrOutput `pulumi:"plan"`
 	// The resource properties.
-	Properties pulumi.StringMapOutput `pulumi:"properties"`
+	Properties pulumi.MapOutput `pulumi:"properties"`
 	// The SKU of the resource.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
@@ -92,7 +92,7 @@ type resourceState struct {
 	// The plan of the resource.
 	Plan *PlanResponse `pulumi:"plan"`
 	// The resource properties.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// The SKU of the resource.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
@@ -115,7 +115,7 @@ type ResourceState struct {
 	// The plan of the resource.
 	Plan PlanResponsePtrInput
 	// The resource properties.
-	Properties pulumi.StringMapInput
+	Properties pulumi.MapInput
 	// The SKU of the resource.
 	Sku SkuResponsePtrInput
 	// Resource tags
@@ -144,7 +144,7 @@ type resourceArgs struct {
 	// The plan of the resource.
 	Plan *Plan `pulumi:"plan"`
 	// The resource properties.
-	Properties map[string]string `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// The name of the resource group for the resource. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The namespace of the resource provider.
@@ -174,7 +174,7 @@ type ResourceArgs struct {
 	// The plan of the resource.
 	Plan PlanPtrInput
 	// The resource properties.
-	Properties pulumi.StringMapInput
+	Properties pulumi.MapInput
 	// The name of the resource group for the resource. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The namespace of the resource provider.

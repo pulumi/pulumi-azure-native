@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
         /// <summary>
         /// Gets or sets the runbook parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? Parameters;
         /// <summary>
         /// Gets or sets the provisioning state of the runbook.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
 
             ImmutableArray<string> outputTypes,
 
-            ImmutableDictionary<string, string>? parameters,
+            ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>? parameters,
 
             string? provisioningState,
 

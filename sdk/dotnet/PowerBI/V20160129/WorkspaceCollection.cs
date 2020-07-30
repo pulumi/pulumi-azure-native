@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.PowerBI.V20160129
         /// Properties
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
 
         [Output("sku")]
         public Output<Outputs.AzureSkuResponseResult?> Sku { get; private set; } = null!;

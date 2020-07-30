@@ -28,14 +28,14 @@ namespace Pulumi.AzureRM.Management.V20190601.Inputs
         public Input<string>? DisplayName { get; set; }
 
         [Input("metadata")]
-        private InputMap<string>? _metadata;
+        private InputMap<object>? _metadata;
 
         /// <summary>
         /// The policy definition metadata.
         /// </summary>
-        public InputMap<string> Metadata
+        public InputMap<object> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<string>());
+            get => _metadata ?? (_metadata = new InputMap<object>());
             set => _metadata = value;
         }
 
@@ -46,26 +46,26 @@ namespace Pulumi.AzureRM.Management.V20190601.Inputs
         public Input<string>? Mode { get; set; }
 
         [Input("parameters")]
-        private InputMap<string>? _parameters;
+        private InputMap<object>? _parameters;
 
         /// <summary>
         /// Required if a parameter is used in policy rule.
         /// </summary>
-        public InputMap<string> Parameters
+        public InputMap<object> Parameters
         {
-            get => _parameters ?? (_parameters = new InputMap<string>());
+            get => _parameters ?? (_parameters = new InputMap<object>());
             set => _parameters = value;
         }
 
         [Input("policyRule")]
-        private InputMap<string>? _policyRule;
+        private InputMap<object>? _policyRule;
 
         /// <summary>
         /// The policy rule.
         /// </summary>
-        public InputMap<string> PolicyRule
+        public InputMap<object> PolicyRule
         {
-            get => _policyRule ?? (_policyRule = new InputMap<string>());
+            get => _policyRule ?? (_policyRule = new InputMap<object>());
             set => _policyRule = value;
         }
 

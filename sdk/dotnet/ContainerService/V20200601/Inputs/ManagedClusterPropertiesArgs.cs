@@ -22,14 +22,14 @@ namespace Pulumi.AzureRM.ContainerService.V20200601.Inputs
         public Input<Inputs.ManagedClusterAADProfileArgs>? AadProfile { get; set; }
 
         [Input("addonProfiles")]
-        private InputMap<string>? _addonProfiles;
+        private InputMap<Inputs.ManagedClusterAddonProfileArgs>? _addonProfiles;
 
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public InputMap<string> AddonProfiles
+        public InputMap<Inputs.ManagedClusterAddonProfileArgs> AddonProfiles
         {
-            get => _addonProfiles ?? (_addonProfiles = new InputMap<string>());
+            get => _addonProfiles ?? (_addonProfiles = new InputMap<Inputs.ManagedClusterAddonProfileArgs>());
             set => _addonProfiles = value;
         }
 
@@ -82,14 +82,14 @@ namespace Pulumi.AzureRM.ContainerService.V20200601.Inputs
         public Input<bool>? EnableRBAC { get; set; }
 
         [Input("identityProfile")]
-        private InputMap<string>? _identityProfile;
+        private InputMap<ImmutableDictionary<string, object>>? _identityProfile;
 
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public InputMap<string> IdentityProfile
+        public InputMap<ImmutableDictionary<string, object>> IdentityProfile
         {
-            get => _identityProfile ?? (_identityProfile = new InputMap<string>());
+            get => _identityProfile ?? (_identityProfile = new InputMap<ImmutableDictionary<string, object>>());
             set => _identityProfile = value;
         }
 
