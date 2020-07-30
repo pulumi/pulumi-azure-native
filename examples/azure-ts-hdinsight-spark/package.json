@@ -1,0 +1,15 @@
+{
+    "name": "azure-ts-hdinsight-spark",
+    "version": "1.0.0",
+    "devDependencies": {
+        "@types/node": "^8.0.0"
+    },
+    "scripts": {
+        "compile-typescript": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/azure": "^3.0.0",
+        "@pulumi/pulumi": "^2.0.0",
+        "@pulumi/random": "^2.2.0"
+    }
+}
