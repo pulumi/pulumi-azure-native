@@ -12,7 +12,21 @@ VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azurerm/provider/v2/pkg
 GO              ?= go
 CURL            ?= curl
 
-ensure::
+init_submodules::
+	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
+		if [ ! -f "$$submodule/.git" ]; then \
+			echo "Initializing submodule $$submodule" ; \
+			(cd $$submodule && git submodule update --init); \
+		fi; \
+	done
+
+update_submodules:: init_submodules
+	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
+		echo "Updating submodule $$submodule" ; \
+		(cd $$submodule && git pull origin master); \
+	done
+
+ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
@@ -46,3 +60,5 @@ build_provider::
 	cd provider; $(GO) install $(VERSION_FLAGS) $(PROJECT)/cmd/$(PROVIDER)
 
 build:: generate build_provider
+
+.PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build
