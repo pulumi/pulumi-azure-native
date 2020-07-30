@@ -30,7 +30,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         A private endpoint connection
 
@@ -39,7 +39,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the private endpoint connection.
         :param pulumi.Input[dict] properties: The properties of a private endpoint connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] resource_name: The name of the managed cluster resource.
+        :param pulumi.Input[str] resource_name_: The name of the managed cluster resource.
 
         The **properties** object supports the following:
 
@@ -74,9 +74,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:containerservice/v20200601:PrivateEndpointConnection',

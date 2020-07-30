@@ -7,4 +7,3 @@ from .application import *
 from .cluster import *
 from .get_application import *
 from .get_cluster import *
-from .list_virtual_machine_hosts import *

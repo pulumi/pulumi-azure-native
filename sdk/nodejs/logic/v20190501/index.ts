@@ -35,7 +35,6 @@ export * from "./listIntegrationAccountSchemaContentCallbackUrl";
 export * from "./listWorkflowCallbackUrl";
 export * from "./listWorkflowRunActionExpressionTraces";
 export * from "./listWorkflowRunActionRepetitionExpressionTraces";
-export * from "./listWorkflowSwagger";
 export * from "./listWorkflowTriggerCallbackUrl";
 export * from "./listWorkflowVersionTriggerCallbackUrl";
 export * from "./workflow";

@@ -47,7 +47,7 @@ class AnalyticsItem(pulumi.CustomResource):
     """
     This instance's version of the data model. This can change as new features are added.
     """
-    def __init__(__self__, resource_name, opts=None, content=None, id=None, name=None, properties=None, scope=None, type=None, override_item=None, resource_group_name=None, resource_name=None, scope_path=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content=None, id=None, name=None, properties=None, scope=None, type=None, override_item=None, resource_group_name=None, resource_name_=None, scope_path=None, __props__=None, __name__=None, __opts__=None):
         """
         Properties that define an Analytics item that is associated to an Application Insights component.
 
@@ -61,7 +61,7 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[str] type: Enum indicating the type of the Analytics item.
         :param pulumi.Input[bool] override_item: Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[str] scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 
         The **properties** object supports the following:
@@ -95,9 +95,9 @@ class AnalyticsItem(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if scope_path is None:
                 raise TypeError("Missing required property 'scope_path'")
             __props__['scope_path'] = scope_path

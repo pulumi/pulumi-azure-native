@@ -27,7 +27,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
     """
     Resource Type
     """
-    def __init__(__self__, resource_name, opts=None, fabric_name=None, name=None, properties=None, resource_group_name=None, resource_name=None, storage_classification_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, fabric_name=None, name=None, properties=None, resource_group_name=None, resource_name_=None, storage_classification_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Storage mapping object.
 
@@ -37,7 +37,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
         :param pulumi.Input[str] name: Storage classification mapping name.
         :param pulumi.Input[dict] properties: Storage mapping input properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
-        :param pulumi.Input[str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
         :param pulumi.Input[str] storage_classification_name: Storage classification name.
 
         The **properties** object supports the following:
@@ -71,9 +71,9 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if storage_classification_name is None:
                 raise TypeError("Missing required property 'storage_classification_name'")
             __props__['storage_classification_name'] = storage_classification_name

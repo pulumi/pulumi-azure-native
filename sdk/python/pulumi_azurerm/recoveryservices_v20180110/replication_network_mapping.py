@@ -37,7 +37,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
     """
     Resource Type
     """
-    def __init__(__self__, resource_name, opts=None, fabric_name=None, name=None, network_name=None, properties=None, resource_group_name=None, resource_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, fabric_name=None, name=None, network_name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
 
@@ -48,7 +48,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
         :param pulumi.Input[str] network_name: Primary network name.
         :param pulumi.Input[dict] properties: Input properties for creating network mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
-        :param pulumi.Input[str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
 
         The **properties** object supports the following:
 
@@ -88,9 +88,9 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['location'] = None
             __props__['type'] = None
         super(ReplicationNetworkMapping, __self__).__init__(

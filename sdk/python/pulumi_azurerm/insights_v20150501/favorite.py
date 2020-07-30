@@ -54,7 +54,7 @@ class Favorite(pulumi.CustomResource):
     """
     This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
     """
-    def __init__(__self__, resource_name, opts=None, category=None, config=None, favorite_type=None, is_generated_from_template=None, name=None, source_type=None, tags=None, version=None, favorite_id=None, resource_group_name=None, resource_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, category=None, config=None, favorite_type=None, is_generated_from_template=None, name=None, source_type=None, tags=None, version=None, favorite_id=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         Properties that define a favorite that is associated to an Application Insights component.
 
@@ -70,7 +70,7 @@ class Favorite(pulumi.CustomResource):
         :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         :param pulumi.Input[str] favorite_id: The Id of a specific favorite defined in the Application Insights component
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,9 +103,9 @@ class Favorite(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['favorite_id'] = None
             __props__['time_modified'] = None
             __props__['user_id'] = None

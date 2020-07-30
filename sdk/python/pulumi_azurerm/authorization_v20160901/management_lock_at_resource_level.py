@@ -26,7 +26,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
     """
     The resource type of the lock - Microsoft.Authorization/locks.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, parent_resource_path=None, properties=None, resource_group_name=None, resource_name=None, resource_provider_namespace=None, resource_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, parent_resource_path=None, properties=None, resource_group_name=None, resource_name_=None, resource_provider_namespace=None, resource_type=None, __props__=None, __name__=None, __opts__=None):
         """
         The lock information.
 
@@ -36,7 +36,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
         :param pulumi.Input[str] parent_resource_path: The parent resource identity.
         :param pulumi.Input[dict] properties: The properties of the lock.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the resource to lock. 
-        :param pulumi.Input[str] resource_name: The name of the resource to lock.
+        :param pulumi.Input[str] resource_name_: The name of the resource to lock.
         :param pulumi.Input[str] resource_provider_namespace: The resource provider namespace of the resource to lock.
         :param pulumi.Input[str] resource_type: The resource type of the resource to lock.
 
@@ -76,9 +76,9 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             if resource_provider_namespace is None:
                 raise TypeError("Missing required property 'resource_provider_namespace'")
             __props__['resource_provider_namespace'] = resource_provider_namespace

@@ -54,7 +54,7 @@ class BotConnection(pulumi.CustomResource):
     """
     Specifies the type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, resource_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, resource_name_=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Bot channel resource definition
 
@@ -66,7 +66,7 @@ class BotConnection(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Bot Service Connection Setting resource.
         :param pulumi.Input[dict] properties: The set of properties specific to bot channel resource
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
-        :param pulumi.Input[str] resource_name: The name of the Bot resource.
+        :param pulumi.Input[str] resource_name_: The name of the Bot resource.
         :param pulumi.Input[dict] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
 
@@ -113,9 +113,9 @@ class BotConnection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['type'] = None

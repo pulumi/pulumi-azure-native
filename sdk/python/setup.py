@@ -32,12 +32,11 @@ def readme():
 
 
 setup(name='pulumi_azurerm',
-      version='',
+      version='0.1.0',
       description="A Pulumi package for creating and managing Azure resources.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       cmdclass={
-          'install': InstallPluginCommand,
       },
       keywords='pulumi azure',
       url='https://pulumi.com',

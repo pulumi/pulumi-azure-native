@@ -31,7 +31,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
     """
     The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         A private endpoint connection to SignalR resource
 
@@ -40,7 +40,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the private endpoint connection associated with the SignalR resource.
         :param pulumi.Input[dict] properties: Properties of the private endpoint connection
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] resource_name: The name of the SignalR resource.
+        :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
 
         The **properties** object supports the following:
 
@@ -76,9 +76,9 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['type'] = None
         super(SignalRPrivateEndpointConnection, __self__).__init__(
             'azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection',
