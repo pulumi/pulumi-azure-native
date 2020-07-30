@@ -14,9 +14,12 @@ CURL            ?= curl
 
 update_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
-		if [ ! -d "$$submodule/.git" ]; then \
+		if [ ! -f "$$submodule/.git" ]; then \
 			echo "Initializing submodule $$submodule" ; \
 			(cd $$submodule && git submodule update --init); \
+		else \
+			echo "Updating submodule $$submodule" ; \
+			(cd $$submodule && git pull origin master); \
 		fi; \
 	done
 
@@ -55,4 +58,4 @@ build_provider::
 
 build:: generate build_provider
 
-.PHONY: update_submodules
+.PHONY: update_submodules ensure generate_schema generate build_provider build
