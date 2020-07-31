@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Inputs
         /// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
         /// </summary>
         [Input("forceRestart")]
-        public Input<Inputs.ForceRestartArgs>? ForceRestart { get; set; }
+        public Input<bool>? ForceRestart { get; set; }
 
         /// <summary>
         /// The policy used for monitoring the application upgrade

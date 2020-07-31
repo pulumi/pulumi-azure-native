@@ -2865,7 +2865,7 @@ type ApplicationUpgradePolicy struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy *ArmApplicationHealthPolicy `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-	ForceRestart *ForceRestart `pulumi:"forceRestart"`
+	ForceRestart *bool `pulumi:"forceRestart"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy *ArmRollingUpgradeMonitoringPolicy `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -2890,7 +2890,7 @@ type ApplicationUpgradePolicyArgs struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy ArmApplicationHealthPolicyPtrInput `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-	ForceRestart ForceRestartPtrInput `pulumi:"forceRestart"`
+	ForceRestart pulumi.BoolPtrInput `pulumi:"forceRestart"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy ArmRollingUpgradeMonitoringPolicyPtrInput `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -2983,8 +2983,8 @@ func (o ApplicationUpgradePolicyOutput) ApplicationHealthPolicy() ArmApplication
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ApplicationUpgradePolicyOutput) ForceRestart() ForceRestartPtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicy) *ForceRestart { return v.ForceRestart }).(ForceRestartPtrOutput)
+func (o ApplicationUpgradePolicyOutput) ForceRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicy) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
 }
 
 // The policy used for monitoring the application upgrade
@@ -3033,13 +3033,13 @@ func (o ApplicationUpgradePolicyPtrOutput) ApplicationHealthPolicy() ArmApplicat
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ApplicationUpgradePolicyPtrOutput) ForceRestart() ForceRestartPtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicy) *ForceRestart {
+func (o ApplicationUpgradePolicyPtrOutput) ForceRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicy) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.ForceRestart
-	}).(ForceRestartPtrOutput)
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The policy used for monitoring the application upgrade
@@ -3077,7 +3077,7 @@ type ApplicationUpgradePolicyResponse struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy *ArmApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-	ForceRestart *ForceRestartResponse `pulumi:"forceRestart"`
+	ForceRestart *bool `pulumi:"forceRestart"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy *ArmRollingUpgradeMonitoringPolicyResponse `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -3102,7 +3102,7 @@ type ApplicationUpgradePolicyResponseArgs struct {
 	// Defines a health policy used to evaluate the health of an application or one of its children entities.
 	ApplicationHealthPolicy ArmApplicationHealthPolicyResponsePtrInput `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-	ForceRestart ForceRestartResponsePtrInput `pulumi:"forceRestart"`
+	ForceRestart pulumi.BoolPtrInput `pulumi:"forceRestart"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy ArmRollingUpgradeMonitoringPolicyResponsePtrInput `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -3197,8 +3197,8 @@ func (o ApplicationUpgradePolicyResponseOutput) ApplicationHealthPolicy() ArmApp
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ApplicationUpgradePolicyResponseOutput) ForceRestart() ForceRestartResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *ForceRestartResponse { return v.ForceRestart }).(ForceRestartResponsePtrOutput)
+func (o ApplicationUpgradePolicyResponseOutput) ForceRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
 }
 
 // The policy used for monitoring the application upgrade
@@ -3247,13 +3247,13 @@ func (o ApplicationUpgradePolicyResponsePtrOutput) ApplicationHealthPolicy() Arm
 }
 
 // If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-func (o ApplicationUpgradePolicyResponsePtrOutput) ForceRestart() ForceRestartResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *ForceRestartResponse {
+func (o ApplicationUpgradePolicyResponsePtrOutput) ForceRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.ForceRestart
-	}).(ForceRestartResponsePtrOutput)
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The policy used for monitoring the application upgrade
@@ -10036,236 +10036,6 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-type ForceRestart struct {
-}
-
-// ForceRestartInput is an input type that accepts ForceRestartArgs and ForceRestartOutput values.
-// You can construct a concrete instance of `ForceRestartInput` via:
-//
-//          ForceRestartArgs{...}
-type ForceRestartInput interface {
-	pulumi.Input
-
-	ToForceRestartOutput() ForceRestartOutput
-	ToForceRestartOutputWithContext(context.Context) ForceRestartOutput
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-type ForceRestartArgs struct {
-}
-
-func (ForceRestartArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ForceRestart)(nil)).Elem()
-}
-
-func (i ForceRestartArgs) ToForceRestartOutput() ForceRestartOutput {
-	return i.ToForceRestartOutputWithContext(context.Background())
-}
-
-func (i ForceRestartArgs) ToForceRestartOutputWithContext(ctx context.Context) ForceRestartOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ForceRestartOutput)
-}
-
-func (i ForceRestartArgs) ToForceRestartPtrOutput() ForceRestartPtrOutput {
-	return i.ToForceRestartPtrOutputWithContext(context.Background())
-}
-
-func (i ForceRestartArgs) ToForceRestartPtrOutputWithContext(ctx context.Context) ForceRestartPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ForceRestartOutput).ToForceRestartPtrOutputWithContext(ctx)
-}
-
-// ForceRestartPtrInput is an input type that accepts ForceRestartArgs, ForceRestartPtr and ForceRestartPtrOutput values.
-// You can construct a concrete instance of `ForceRestartPtrInput` via:
-//
-//          ForceRestartArgs{...}
-//
-//  or:
-//
-//          nil
-type ForceRestartPtrInput interface {
-	pulumi.Input
-
-	ToForceRestartPtrOutput() ForceRestartPtrOutput
-	ToForceRestartPtrOutputWithContext(context.Context) ForceRestartPtrOutput
-}
-
-type forceRestartPtrType ForceRestartArgs
-
-func ForceRestartPtr(v *ForceRestartArgs) ForceRestartPtrInput {
-	return (*forceRestartPtrType)(v)
-}
-
-func (*forceRestartPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ForceRestart)(nil)).Elem()
-}
-
-func (i *forceRestartPtrType) ToForceRestartPtrOutput() ForceRestartPtrOutput {
-	return i.ToForceRestartPtrOutputWithContext(context.Background())
-}
-
-func (i *forceRestartPtrType) ToForceRestartPtrOutputWithContext(ctx context.Context) ForceRestartPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ForceRestartPtrOutput)
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-type ForceRestartOutput struct{ *pulumi.OutputState }
-
-func (ForceRestartOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ForceRestart)(nil)).Elem()
-}
-
-func (o ForceRestartOutput) ToForceRestartOutput() ForceRestartOutput {
-	return o
-}
-
-func (o ForceRestartOutput) ToForceRestartOutputWithContext(ctx context.Context) ForceRestartOutput {
-	return o
-}
-
-func (o ForceRestartOutput) ToForceRestartPtrOutput() ForceRestartPtrOutput {
-	return o.ToForceRestartPtrOutputWithContext(context.Background())
-}
-
-func (o ForceRestartOutput) ToForceRestartPtrOutputWithContext(ctx context.Context) ForceRestartPtrOutput {
-	return o.ApplyT(func(v ForceRestart) *ForceRestart {
-		return &v
-	}).(ForceRestartPtrOutput)
-}
-
-type ForceRestartPtrOutput struct{ *pulumi.OutputState }
-
-func (ForceRestartPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ForceRestart)(nil)).Elem()
-}
-
-func (o ForceRestartPtrOutput) ToForceRestartPtrOutput() ForceRestartPtrOutput {
-	return o
-}
-
-func (o ForceRestartPtrOutput) ToForceRestartPtrOutputWithContext(ctx context.Context) ForceRestartPtrOutput {
-	return o
-}
-
-func (o ForceRestartPtrOutput) Elem() ForceRestartOutput {
-	return o.ApplyT(func(v *ForceRestart) ForceRestart { return *v }).(ForceRestartOutput)
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-type ForceRestartResponse struct {
-}
-
-// ForceRestartResponseInput is an input type that accepts ForceRestartResponseArgs and ForceRestartResponseOutput values.
-// You can construct a concrete instance of `ForceRestartResponseInput` via:
-//
-//          ForceRestartResponseArgs{...}
-type ForceRestartResponseInput interface {
-	pulumi.Input
-
-	ToForceRestartResponseOutput() ForceRestartResponseOutput
-	ToForceRestartResponseOutputWithContext(context.Context) ForceRestartResponseOutput
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-type ForceRestartResponseArgs struct {
-}
-
-func (ForceRestartResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ForceRestartResponse)(nil)).Elem()
-}
-
-func (i ForceRestartResponseArgs) ToForceRestartResponseOutput() ForceRestartResponseOutput {
-	return i.ToForceRestartResponseOutputWithContext(context.Background())
-}
-
-func (i ForceRestartResponseArgs) ToForceRestartResponseOutputWithContext(ctx context.Context) ForceRestartResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ForceRestartResponseOutput)
-}
-
-func (i ForceRestartResponseArgs) ToForceRestartResponsePtrOutput() ForceRestartResponsePtrOutput {
-	return i.ToForceRestartResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ForceRestartResponseArgs) ToForceRestartResponsePtrOutputWithContext(ctx context.Context) ForceRestartResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ForceRestartResponseOutput).ToForceRestartResponsePtrOutputWithContext(ctx)
-}
-
-// ForceRestartResponsePtrInput is an input type that accepts ForceRestartResponseArgs, ForceRestartResponsePtr and ForceRestartResponsePtrOutput values.
-// You can construct a concrete instance of `ForceRestartResponsePtrInput` via:
-//
-//          ForceRestartResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ForceRestartResponsePtrInput interface {
-	pulumi.Input
-
-	ToForceRestartResponsePtrOutput() ForceRestartResponsePtrOutput
-	ToForceRestartResponsePtrOutputWithContext(context.Context) ForceRestartResponsePtrOutput
-}
-
-type forceRestartResponsePtrType ForceRestartResponseArgs
-
-func ForceRestartResponsePtr(v *ForceRestartResponseArgs) ForceRestartResponsePtrInput {
-	return (*forceRestartResponsePtrType)(v)
-}
-
-func (*forceRestartResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ForceRestartResponse)(nil)).Elem()
-}
-
-func (i *forceRestartResponsePtrType) ToForceRestartResponsePtrOutput() ForceRestartResponsePtrOutput {
-	return i.ToForceRestartResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *forceRestartResponsePtrType) ToForceRestartResponsePtrOutputWithContext(ctx context.Context) ForceRestartResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ForceRestartResponsePtrOutput)
-}
-
-// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
-type ForceRestartResponseOutput struct{ *pulumi.OutputState }
-
-func (ForceRestartResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ForceRestartResponse)(nil)).Elem()
-}
-
-func (o ForceRestartResponseOutput) ToForceRestartResponseOutput() ForceRestartResponseOutput {
-	return o
-}
-
-func (o ForceRestartResponseOutput) ToForceRestartResponseOutputWithContext(ctx context.Context) ForceRestartResponseOutput {
-	return o
-}
-
-func (o ForceRestartResponseOutput) ToForceRestartResponsePtrOutput() ForceRestartResponsePtrOutput {
-	return o.ToForceRestartResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ForceRestartResponseOutput) ToForceRestartResponsePtrOutputWithContext(ctx context.Context) ForceRestartResponsePtrOutput {
-	return o.ApplyT(func(v ForceRestartResponse) *ForceRestartResponse {
-		return &v
-	}).(ForceRestartResponsePtrOutput)
-}
-
-type ForceRestartResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ForceRestartResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ForceRestartResponse)(nil)).Elem()
-}
-
-func (o ForceRestartResponsePtrOutput) ToForceRestartResponsePtrOutput() ForceRestartResponsePtrOutput {
-	return o
-}
-
-func (o ForceRestartResponsePtrOutput) ToForceRestartResponsePtrOutputWithContext(ctx context.Context) ForceRestartResponsePtrOutput {
-	return o
-}
-
-func (o ForceRestartResponsePtrOutput) Elem() ForceRestartResponseOutput {
-	return o.ApplyT(func(v *ForceRestartResponse) ForceRestartResponse { return *v }).(ForceRestartResponseOutput)
-}
-
 // Describes the managed identities for an Azure resource.
 type ManagedIdentity struct {
 	// The type of managed identity for the resource.
@@ -13792,10 +13562,6 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRangeDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(ForceRestartOutput{})
-	pulumi.RegisterOutputType(ForceRestartPtrOutput{})
-	pulumi.RegisterOutputType(ForceRestartResponseOutput{})
-	pulumi.RegisterOutputType(ForceRestartResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})

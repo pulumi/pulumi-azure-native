@@ -46,7 +46,7 @@ class ManagedCluster(pulumi.CustomResource):
         * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
         * `node_taints` (`list`) - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         * `orchestrator_version` (`str`) - Version of orchestrator specified when creating the managed cluster.
-        * `os_disk_size_gb` (`dict`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
         * `scale_set_eviction_policy` (`str`) - ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
@@ -146,7 +146,7 @@ class ManagedCluster(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
             * `node_taints` (`pulumi.Input[list]`) - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
             * `orchestrator_version` (`pulumi.Input[str]`) - Version of orchestrator specified when creating the managed cluster.
-            * `os_disk_size_gb` (`pulumi.Input[dict]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+            * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
             * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
             * `scale_set_eviction_policy` (`pulumi.Input[str]`) - ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
             * `scale_set_priority` (`pulumi.Input[str]`) - ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.

@@ -73,7 +73,7 @@ namespace Pulumi.AzureRM.ContainerService.V20190401.Inputs
         /// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         /// </summary>
         [Input("osDiskSizeGB")]
-        public Input<Inputs.ContainerServiceOSDiskArgs>? OsDiskSizeGB { get; set; }
+        public Input<int>? OsDiskSizeGB { get; set; }
 
         /// <summary>
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.

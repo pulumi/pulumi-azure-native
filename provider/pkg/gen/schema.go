@@ -489,14 +489,20 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 					Ref:  propertySpec.Items.Ref,
 				}
 			}
+			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
+			if err != nil {
+				return nil, err
+			}
 			result.properties[name] = provider.AzureApiProperty{
 				Type:      propertySpec.Type,
 				Items:     items,
 				Enum:      m.getEnumValues(&property),
 				Ref:       propertySpec.Ref,
-				MinLength: property.MinLength,
-				MaxLength: property.MaxLength,
-				Pattern:   property.Pattern,
+				Minimum:   resolvedProperty.Minimum,
+				Maximum:   resolvedProperty.Maximum,
+				MinLength: resolvedProperty.MinLength,
+				MaxLength: resolvedProperty.MaxLength,
+				Pattern:   resolvedProperty.Pattern,
 			}
 		}
 	}
@@ -581,9 +587,8 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 	var tok, primitiveTypeName, referencedTypeName string
 	ptr := schema.Ref.GetPointer()
 	if ptr != nil && !ptr.IsEmpty() {
-		// Erase type information about enums. TODO: implement proper enums.
-		if len(resolvedSchema.Type) > 0 && resolvedSchema.Type[0] == "string" {
-			primitiveTypeName = "string"
+		if len(resolvedSchema.Type) > 0 && isPrimitiveType(resolvedSchema.Type[0]) {
+			primitiveTypeName = resolvedSchema.Type[0]
 		} else {
 			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
 			// Avoid collision of resource name vs. property type name (example: azurerm:web:StaticSite).
@@ -668,6 +673,19 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 		suffix = "Response"
 	}
 	return fmt.Sprintf("azurerm:%s:%s%s", m.module, makeLegalIdentifier(ctx.ReferenceName), suffix)
+}
+
+// isPrimitiveType returns false for object and array, and true for all other types defined in
+// https://swagger.io/docs/specification/data-models/data-types/
+func isPrimitiveType(typeName string) bool {
+	switch typeName {
+	case "string", "number", "integer", "boolean":
+		return true
+	case "object", "array":
+		return false
+	default:
+		panic(fmt.Sprintf("Unknown OpenAPI type %s", typeName))
+	}
 }
 
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.

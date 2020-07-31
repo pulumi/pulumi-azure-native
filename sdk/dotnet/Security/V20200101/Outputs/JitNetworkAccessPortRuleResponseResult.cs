@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
         /// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
         /// </summary>
         public readonly string MaxRequestAccessDuration;
-        public readonly Outputs.PortNumberResponseResult Number;
+        public readonly int Number;
         public readonly string Protocol;
 
         [OutputConstructor]
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
 
             string maxRequestAccessDuration,
 
-            Outputs.PortNumberResponseResult number,
+            int number,
 
             string protocol)
         {

@@ -2060,9 +2060,9 @@ type JitNetworkAccessPortRule struct {
 	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
 	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
 	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-	MaxRequestAccessDuration string     `pulumi:"maxRequestAccessDuration"`
-	Number                   PortNumber `pulumi:"number"`
-	Protocol                 string     `pulumi:"protocol"`
+	MaxRequestAccessDuration string `pulumi:"maxRequestAccessDuration"`
+	Number                   int    `pulumi:"number"`
+	Protocol                 string `pulumi:"protocol"`
 }
 
 // JitNetworkAccessPortRuleInput is an input type that accepts JitNetworkAccessPortRuleArgs and JitNetworkAccessPortRuleOutput values.
@@ -2083,7 +2083,7 @@ type JitNetworkAccessPortRuleArgs struct {
 	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
 	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
 	MaxRequestAccessDuration pulumi.StringInput `pulumi:"maxRequestAccessDuration"`
-	Number                   PortNumberInput    `pulumi:"number"`
+	Number                   pulumi.IntInput    `pulumi:"number"`
 	Protocol                 pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -2153,8 +2153,8 @@ func (o JitNetworkAccessPortRuleOutput) MaxRequestAccessDuration() pulumi.String
 	return o.ApplyT(func(v JitNetworkAccessPortRule) string { return v.MaxRequestAccessDuration }).(pulumi.StringOutput)
 }
 
-func (o JitNetworkAccessPortRuleOutput) Number() PortNumberOutput {
-	return o.ApplyT(func(v JitNetworkAccessPortRule) PortNumber { return v.Number }).(PortNumberOutput)
+func (o JitNetworkAccessPortRuleOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v JitNetworkAccessPortRule) int { return v.Number }).(pulumi.IntOutput)
 }
 
 func (o JitNetworkAccessPortRuleOutput) Protocol() pulumi.StringOutput {
@@ -2187,9 +2187,9 @@ type JitNetworkAccessPortRuleResponse struct {
 	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
 	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
 	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-	MaxRequestAccessDuration string             `pulumi:"maxRequestAccessDuration"`
-	Number                   PortNumberResponse `pulumi:"number"`
-	Protocol                 string             `pulumi:"protocol"`
+	MaxRequestAccessDuration string `pulumi:"maxRequestAccessDuration"`
+	Number                   int    `pulumi:"number"`
+	Protocol                 string `pulumi:"protocol"`
 }
 
 // JitNetworkAccessPortRuleResponseInput is an input type that accepts JitNetworkAccessPortRuleResponseArgs and JitNetworkAccessPortRuleResponseOutput values.
@@ -2209,9 +2209,9 @@ type JitNetworkAccessPortRuleResponseArgs struct {
 	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
 	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
 	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-	MaxRequestAccessDuration pulumi.StringInput      `pulumi:"maxRequestAccessDuration"`
-	Number                   PortNumberResponseInput `pulumi:"number"`
-	Protocol                 pulumi.StringInput      `pulumi:"protocol"`
+	MaxRequestAccessDuration pulumi.StringInput `pulumi:"maxRequestAccessDuration"`
+	Number                   pulumi.IntInput    `pulumi:"number"`
+	Protocol                 pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (JitNetworkAccessPortRuleResponseArgs) ElementType() reflect.Type {
@@ -2280,8 +2280,8 @@ func (o JitNetworkAccessPortRuleResponseOutput) MaxRequestAccessDuration() pulum
 	return o.ApplyT(func(v JitNetworkAccessPortRuleResponse) string { return v.MaxRequestAccessDuration }).(pulumi.StringOutput)
 }
 
-func (o JitNetworkAccessPortRuleResponseOutput) Number() PortNumberResponseOutput {
-	return o.ApplyT(func(v JitNetworkAccessPortRuleResponse) PortNumberResponse { return v.Number }).(PortNumberResponseOutput)
+func (o JitNetworkAccessPortRuleResponseOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v JitNetworkAccessPortRuleResponse) int { return v.Number }).(pulumi.IntOutput)
 }
 
 func (o JitNetworkAccessPortRuleResponseOutput) Protocol() pulumi.StringOutput {
@@ -2437,8 +2437,8 @@ type JitNetworkAccessRequestPort struct {
 	// The date & time at which the request ends in UTC
 	EndTimeUtc string `pulumi:"endTimeUtc"`
 	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-	MappedPort *int       `pulumi:"mappedPort"`
-	Number     PortNumber `pulumi:"number"`
+	MappedPort *int `pulumi:"mappedPort"`
+	Number     int  `pulumi:"number"`
 	// The status of the port
 	Status string `pulumi:"status"`
 	// A description of why the `status` has its value
@@ -2465,7 +2465,7 @@ type JitNetworkAccessRequestPortArgs struct {
 	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
 	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
 	MappedPort pulumi.IntPtrInput `pulumi:"mappedPort"`
-	Number     PortNumberInput    `pulumi:"number"`
+	Number     pulumi.IntInput    `pulumi:"number"`
 	// The status of the port
 	Status pulumi.StringInput `pulumi:"status"`
 	// A description of why the `status` has its value
@@ -2543,8 +2543,8 @@ func (o JitNetworkAccessRequestPortOutput) MappedPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) *int { return v.MappedPort }).(pulumi.IntPtrOutput)
 }
 
-func (o JitNetworkAccessRequestPortOutput) Number() PortNumberOutput {
-	return o.ApplyT(func(v JitNetworkAccessRequestPort) PortNumber { return v.Number }).(PortNumberOutput)
+func (o JitNetworkAccessRequestPortOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPort) int { return v.Number }).(pulumi.IntOutput)
 }
 
 // The status of the port
@@ -2585,8 +2585,8 @@ type JitNetworkAccessRequestPortResponse struct {
 	// The date & time at which the request ends in UTC
 	EndTimeUtc string `pulumi:"endTimeUtc"`
 	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-	MappedPort *int               `pulumi:"mappedPort"`
-	Number     PortNumberResponse `pulumi:"number"`
+	MappedPort *int `pulumi:"mappedPort"`
+	Number     int  `pulumi:"number"`
 	// The status of the port
 	Status string `pulumi:"status"`
 	// A description of why the `status` has its value
@@ -2612,8 +2612,8 @@ type JitNetworkAccessRequestPortResponseArgs struct {
 	// The date & time at which the request ends in UTC
 	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
 	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-	MappedPort pulumi.IntPtrInput      `pulumi:"mappedPort"`
-	Number     PortNumberResponseInput `pulumi:"number"`
+	MappedPort pulumi.IntPtrInput `pulumi:"mappedPort"`
+	Number     pulumi.IntInput    `pulumi:"number"`
 	// The status of the port
 	Status pulumi.StringInput `pulumi:"status"`
 	// A description of why the `status` has its value
@@ -2691,8 +2691,8 @@ func (o JitNetworkAccessRequestPortResponseOutput) MappedPort() pulumi.IntPtrOut
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) *int { return v.MappedPort }).(pulumi.IntPtrOutput)
 }
 
-func (o JitNetworkAccessRequestPortResponseOutput) Number() PortNumberResponseOutput {
-	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) PortNumberResponse { return v.Number }).(PortNumberResponseOutput)
+func (o JitNetworkAccessRequestPortResponseOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) int { return v.Number }).(pulumi.IntOutput)
 }
 
 // The status of the port
@@ -3284,92 +3284,6 @@ func (o PathRecommendationsResponsePtrOutput) ToPathRecommendationsResponsePtrOu
 
 func (o PathRecommendationsResponsePtrOutput) Elem() PathRecommendationsResponseOutput {
 	return o.ApplyT(func(v *PathRecommendationsResponse) PathRecommendationsResponse { return *v }).(PathRecommendationsResponseOutput)
-}
-
-type PortNumber struct {
-}
-
-// PortNumberInput is an input type that accepts PortNumberArgs and PortNumberOutput values.
-// You can construct a concrete instance of `PortNumberInput` via:
-//
-//          PortNumberArgs{...}
-type PortNumberInput interface {
-	pulumi.Input
-
-	ToPortNumberOutput() PortNumberOutput
-	ToPortNumberOutputWithContext(context.Context) PortNumberOutput
-}
-
-type PortNumberArgs struct {
-}
-
-func (PortNumberArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortNumber)(nil)).Elem()
-}
-
-func (i PortNumberArgs) ToPortNumberOutput() PortNumberOutput {
-	return i.ToPortNumberOutputWithContext(context.Background())
-}
-
-func (i PortNumberArgs) ToPortNumberOutputWithContext(ctx context.Context) PortNumberOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortNumberOutput)
-}
-
-type PortNumberOutput struct{ *pulumi.OutputState }
-
-func (PortNumberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortNumber)(nil)).Elem()
-}
-
-func (o PortNumberOutput) ToPortNumberOutput() PortNumberOutput {
-	return o
-}
-
-func (o PortNumberOutput) ToPortNumberOutputWithContext(ctx context.Context) PortNumberOutput {
-	return o
-}
-
-type PortNumberResponse struct {
-}
-
-// PortNumberResponseInput is an input type that accepts PortNumberResponseArgs and PortNumberResponseOutput values.
-// You can construct a concrete instance of `PortNumberResponseInput` via:
-//
-//          PortNumberResponseArgs{...}
-type PortNumberResponseInput interface {
-	pulumi.Input
-
-	ToPortNumberResponseOutput() PortNumberResponseOutput
-	ToPortNumberResponseOutputWithContext(context.Context) PortNumberResponseOutput
-}
-
-type PortNumberResponseArgs struct {
-}
-
-func (PortNumberResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortNumberResponse)(nil)).Elem()
-}
-
-func (i PortNumberResponseArgs) ToPortNumberResponseOutput() PortNumberResponseOutput {
-	return i.ToPortNumberResponseOutputWithContext(context.Background())
-}
-
-func (i PortNumberResponseArgs) ToPortNumberResponseOutputWithContext(ctx context.Context) PortNumberResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PortNumberResponseOutput)
-}
-
-type PortNumberResponseOutput struct{ *pulumi.OutputState }
-
-func (PortNumberResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PortNumberResponse)(nil)).Elem()
-}
-
-func (o PortNumberResponseOutput) ToPortNumberResponseOutput() PortNumberResponseOutput {
-	return o
-}
-
-func (o PortNumberResponseOutput) ToPortNumberResponseOutputWithContext(ctx context.Context) PortNumberResponseOutput {
-	return o
 }
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -6295,8 +6209,6 @@ func init() {
 	pulumi.RegisterOutputType(PathRecommendationsPtrOutput{})
 	pulumi.RegisterOutputType(PathRecommendationsResponseOutput{})
 	pulumi.RegisterOutputType(PathRecommendationsResponsePtrOutput{})
-	pulumi.RegisterOutputType(PortNumberOutput{})
-	pulumi.RegisterOutputType(PortNumberResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionModeOutput{})
 	pulumi.RegisterOutputType(ProtectionModePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionModeResponseOutput{})

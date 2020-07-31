@@ -24,7 +24,7 @@ class AgentPool(pulumi.CustomResource):
       * `max_pods` (`float`) - Maximum number of pods that can run on a node.
       * `min_count` (`float`) - Minimum number of nodes for auto-scaling
       * `orchestrator_version` (`str`) - Version of orchestrator specified when creating the managed cluster.
-      * `os_disk_size_gb` (`dict`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+      * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
       * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
       * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
       * `type` (`str`) - AgentPoolType represents types of an agent pool
@@ -55,7 +55,7 @@ class AgentPool(pulumi.CustomResource):
           * `max_pods` (`pulumi.Input[float]`) - Maximum number of pods that can run on a node.
           * `min_count` (`pulumi.Input[float]`) - Minimum number of nodes for auto-scaling
           * `orchestrator_version` (`pulumi.Input[str]`) - Version of orchestrator specified when creating the managed cluster.
-          * `os_disk_size_gb` (`pulumi.Input[dict]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+          * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
           * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
           * `type` (`pulumi.Input[str]`) - AgentPoolType represents types of an agent pool
           * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
