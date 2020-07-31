@@ -51,7 +51,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -59,7 +59,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Redis resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class Redis extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RedisArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RedisArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

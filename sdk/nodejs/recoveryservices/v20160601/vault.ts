@@ -39,11 +39,11 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Optional ETag.
      */
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.recoveryservices.v20160601.IdentityDataResponse>;
+    public readonly identity!: pulumi.Output<outputs.recoveryservices.v20160601.IdentityDataResponse | undefined>;
     /**
      * Resource location.
      */
@@ -59,11 +59,11 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Identifies the unique system identifier for each Azure resource.
      */
-    public readonly sku!: pulumi.Output<outputs.recoveryservices.v20160601.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.recoveryservices.v20160601.SkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
@@ -76,7 +76,7 @@ export class Vault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

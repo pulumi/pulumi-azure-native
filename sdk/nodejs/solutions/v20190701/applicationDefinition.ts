@@ -39,11 +39,11 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * ID of the resource that manages this resource.
      */
-    public readonly managedBy!: pulumi.Output<string>;
+    public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
@@ -55,11 +55,11 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     /**
      * The SKU of the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.solutions.v20190701.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.solutions.v20190701.SkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -72,7 +72,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

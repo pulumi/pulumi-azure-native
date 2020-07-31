@@ -39,7 +39,7 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
     /**
      * The location of the resource group to which the resource belongs.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the ARM resource.
      */
@@ -51,7 +51,7 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    public readonly tags!: pulumi.Output<outputs.documentdb.v20190801.TagsResponse>;
+    public readonly tags!: pulumi.Output<outputs.documentdb.v20190801.TagsResponse | undefined>;
     /**
      * The type of Azure resource.
      */
@@ -64,7 +64,7 @@ export class SqlResourceSqlDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SqlResourceSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: SqlResourceSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SqlResourceSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -39,11 +39,11 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * Gets or sets the etag of the resource.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -55,7 +55,7 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
@@ -68,7 +68,7 @@ export class Watcher extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WatcherArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: WatcherArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WatcherArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

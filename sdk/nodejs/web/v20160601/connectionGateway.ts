@@ -39,11 +39,11 @@ export class ConnectionGateway extends pulumi.CustomResource {
     /**
      * Resource ETag
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
@@ -52,7 +52,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.web.v20160601.TagsDictionaryResponse>;
+    public readonly tags!: pulumi.Output<outputs.web.v20160601.TagsDictionaryResponse | undefined>;
     /**
      * Resource type
      */
@@ -65,7 +65,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ConnectionGatewayArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ConnectionGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

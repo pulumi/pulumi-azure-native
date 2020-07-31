@@ -43,11 +43,11 @@ export class Factory extends pulumi.CustomResource {
     /**
      * Managed service identity of the factory.
      */
-    public readonly identity!: pulumi.Output<outputs.datafactory.v20180601.FactoryIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.datafactory.v20180601.FactoryIdentityResponse | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
@@ -59,7 +59,7 @@ export class Factory extends pulumi.CustomResource {
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
@@ -72,7 +72,7 @@ export class Factory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FactoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FactoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

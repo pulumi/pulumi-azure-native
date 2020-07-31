@@ -43,7 +43,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Properties of load balancer backend address pool.
      */
@@ -60,7 +60,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: LoadBalancerBackendAddressPoolArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: LoadBalancerBackendAddressPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerBackendAddressPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

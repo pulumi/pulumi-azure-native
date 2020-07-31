@@ -39,7 +39,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The identity of the virtual machine, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.v20190701.VirtualMachineIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.compute.v20190701.VirtualMachineIdentityResponse | undefined>;
     /**
      * Resource location
      */
@@ -51,7 +51,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.v20190701.PlanResponse>;
+    public readonly plan!: pulumi.Output<outputs.compute.v20190701.PlanResponse | undefined>;
     /**
      * Describes the properties of a Virtual Machine.
      */
@@ -63,7 +63,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -71,7 +71,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The virtual machine zones.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

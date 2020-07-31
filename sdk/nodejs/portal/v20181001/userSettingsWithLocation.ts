@@ -48,7 +48,7 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: UserSettingsWithLocationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: UserSettingsWithLocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserSettingsWithLocationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

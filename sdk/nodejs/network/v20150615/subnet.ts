@@ -39,11 +39,11 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.network.v20150615.SubnetPropertiesFormatResponse>;
 
     /**
@@ -53,7 +53,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SubnetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

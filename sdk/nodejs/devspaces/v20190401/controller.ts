@@ -49,7 +49,7 @@ export class Controller extends pulumi.CustomResource {
     /**
      * Tags for the Azure resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
@@ -62,7 +62,7 @@ export class Controller extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ControllerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ControllerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ControllerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

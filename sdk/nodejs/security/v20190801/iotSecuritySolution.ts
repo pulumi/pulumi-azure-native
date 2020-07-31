@@ -39,7 +39,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
@@ -51,7 +51,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -64,7 +64,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

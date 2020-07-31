@@ -11,8 +11,8 @@ require (
 	github.com/golang/protobuf v1.3.5
 	github.com/hashicorp/go-azure-helpers v0.10.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v2 v2.7.2-0.20200730142936-526e5264b851
-	github.com/pulumi/pulumi/sdk/v2 v2.7.2-0.20200730142936-526e5264b851
+	github.com/pulumi/pulumi/pkg/v2 v2.7.2-0.20200801012900-06fa515bf796
+	github.com/pulumi/pulumi/sdk/v2 v2.7.2-0.20200801012900-06fa515bf796
 )
 
 replace (

@@ -51,11 +51,11 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
-    public readonly sku!: pulumi.Output<outputs.timeseriesinsights.v20171115.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.timeseriesinsights.v20171115.SkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -68,7 +68,7 @@ export class Environment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

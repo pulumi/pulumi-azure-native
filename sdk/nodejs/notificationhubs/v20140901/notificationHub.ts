@@ -39,11 +39,11 @@ export class NotificationHub extends pulumi.CustomResource {
     /**
      * Gets or sets datacenter location of the NotificationHub.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets name of the NotificationHub.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets properties of the NotificationHub.
      */
@@ -51,11 +51,11 @@ export class NotificationHub extends pulumi.CustomResource {
     /**
      * Gets or sets tags of the NotificationHub.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets resource type of the NotificationHub.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NotificationHub resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class NotificationHub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NotificationHubArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NotificationHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotificationHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

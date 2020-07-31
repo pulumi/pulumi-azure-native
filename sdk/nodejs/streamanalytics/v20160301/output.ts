@@ -39,7 +39,7 @@ export class Output extends pulumi.CustomResource {
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
      */
@@ -56,7 +56,7 @@ export class Output extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: OutputArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: OutputArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OutputArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

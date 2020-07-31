@@ -39,15 +39,15 @@ export class Bot extends pulumi.CustomResource {
     /**
      * Entity Tag
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the resource.
      */
@@ -59,11 +59,11 @@ export class Bot extends pulumi.CustomResource {
     /**
      * Gets or sets the SKU of the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.botservice.v20200602.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.botservice.v20200602.SkuResponse | undefined>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the type of the resource.
      */
@@ -76,7 +76,7 @@ export class Bot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: BotArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: BotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

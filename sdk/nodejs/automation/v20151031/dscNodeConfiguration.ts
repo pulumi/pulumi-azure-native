@@ -39,15 +39,15 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets the configuration of the node.
      */
-    public readonly configuration!: pulumi.Output<outputs.automation.v20151031.DscConfigurationAssociationPropertyResponse>;
+    public readonly configuration!: pulumi.Output<outputs.automation.v20151031.DscConfigurationAssociationPropertyResponse | undefined>;
     /**
      * Gets or sets creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -64,7 +64,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DscNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DscNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DscNodeConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

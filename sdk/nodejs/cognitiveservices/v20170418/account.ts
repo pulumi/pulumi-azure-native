@@ -43,15 +43,15 @@ export class Account extends pulumi.CustomResource {
     /**
      * The identity of Cognitive Services account.
      */
-    public readonly identity!: pulumi.Output<outputs.cognitiveservices.v20170418.IdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.cognitiveservices.v20170418.IdentityResponse | undefined>;
     /**
      * The Kind of the resource.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The location of the resource
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the created account
      */
@@ -63,11 +63,11 @@ export class Account extends pulumi.CustomResource {
     /**
      * The SKU of Cognitive Services account.
      */
-    public readonly sku!: pulumi.Output<outputs.cognitiveservices.v20170418.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.cognitiveservices.v20170418.SkuResponse | undefined>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -80,7 +80,7 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

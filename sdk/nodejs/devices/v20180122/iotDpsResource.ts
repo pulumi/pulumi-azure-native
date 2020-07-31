@@ -39,7 +39,7 @@ export class IotDpsResource extends pulumi.CustomResource {
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The resource location.
      */
@@ -59,7 +59,7 @@ export class IotDpsResource extends pulumi.CustomResource {
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
@@ -72,7 +72,7 @@ export class IotDpsResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

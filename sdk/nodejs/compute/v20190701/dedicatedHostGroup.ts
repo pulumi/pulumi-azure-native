@@ -51,7 +51,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -59,7 +59,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DedicatedHostGroup resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DedicatedHostGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DedicatedHostGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DedicatedHostGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

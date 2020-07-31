@@ -51,7 +51,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * The tags that will be assigned to the key vault. 
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type of the key vault.
      */
@@ -64,7 +64,7 @@ export class Vault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

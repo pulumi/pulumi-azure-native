@@ -39,7 +39,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The managed identity information, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.appconfiguration.v20200601.ResourceIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.appconfiguration.v20200601.ResourceIdentityResponse | undefined>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
@@ -59,7 +59,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
@@ -72,7 +72,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

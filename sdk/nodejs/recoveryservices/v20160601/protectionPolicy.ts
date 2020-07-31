@@ -39,15 +39,15 @@ export class ProtectionPolicy extends pulumi.CustomResource {
     /**
      * Optional ETag.
      */
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name associated with the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
@@ -55,11 +55,11 @@ export class ProtectionPolicy extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProtectionPolicy resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProtectionPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ProtectionPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

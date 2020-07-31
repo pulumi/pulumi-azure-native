@@ -39,7 +39,7 @@ export class ManagementLock extends pulumi.CustomResource {
     /**
      * The name of the lock.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The properties of the lock.
      */
@@ -56,7 +56,7 @@ export class ManagementLock extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ManagementLockArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ManagementLockArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagementLockArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

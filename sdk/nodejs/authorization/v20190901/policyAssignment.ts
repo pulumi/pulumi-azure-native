@@ -39,11 +39,11 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The managed identity associated with the policy assignment.
      */
-    public readonly identity!: pulumi.Output<outputs.authorization.v20190901.IdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.authorization.v20190901.IdentityResponse | undefined>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the policy assignment.
      */
@@ -55,7 +55,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
-    public readonly sku!: pulumi.Output<outputs.authorization.v20190901.PolicySkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.authorization.v20190901.PolicySkuResponse | undefined>;
     /**
      * The type of the policy assignment.
      */
@@ -68,7 +68,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

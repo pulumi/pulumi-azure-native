@@ -39,7 +39,7 @@ export class MediaService extends pulumi.CustomResource {
     /**
      * The Managed Identity for the Media Services account.
      */
-    public readonly identity!: pulumi.Output<outputs.media.v20200501.MediaServiceIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.media.v20200501.MediaServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -55,7 +55,7 @@ export class MediaService extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -68,7 +68,7 @@ export class MediaService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: MediaServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: MediaServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MediaServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

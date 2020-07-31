@@ -39,11 +39,11 @@ export class SignalR extends pulumi.CustomResource {
     /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
@@ -55,11 +55,11 @@ export class SignalR extends pulumi.CustomResource {
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
-    public readonly sku!: pulumi.Output<outputs.signalrservice.v20200501.ResourceSkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.signalrservice.v20200501.ResourceSkuResponse | undefined>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
@@ -72,7 +72,7 @@ export class SignalR extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SignalRArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

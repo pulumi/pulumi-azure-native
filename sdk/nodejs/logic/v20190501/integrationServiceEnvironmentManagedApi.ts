@@ -39,7 +39,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
     /**
      * The resource location.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
     /**
      * Gets the resource name.
      */
@@ -51,7 +51,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
     /**
      * The resource tags.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the resource type.
      */
@@ -64,7 +64,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

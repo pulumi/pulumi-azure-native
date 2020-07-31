@@ -39,11 +39,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcareapis.v20190916.ResourceResponseProperties>;
+    public readonly identity!: pulumi.Output<outputs.healthcareapis.v20190916.ResourceResponseProperties | undefined>;
     /**
      * The kind of the service.
      */
@@ -63,7 +63,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
@@ -76,7 +76,7 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

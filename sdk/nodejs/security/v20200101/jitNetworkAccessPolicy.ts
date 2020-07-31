@@ -36,7 +36,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     /**
      * Kind of the resource
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Location where the resource is stored
      */
@@ -58,7 +58,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: JitNetworkAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: JitNetworkAccessPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JitNetworkAccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

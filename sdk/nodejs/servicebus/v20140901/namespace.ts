@@ -51,11 +51,11 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * SKU of the namespace.
      */
-    public readonly sku!: pulumi.Output<outputs.servicebus.v20140901.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.servicebus.v20140901.SkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -68,7 +68,7 @@ export class Namespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NamespaceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

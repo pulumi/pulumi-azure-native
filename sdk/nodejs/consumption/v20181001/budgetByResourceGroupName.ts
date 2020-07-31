@@ -39,7 +39,7 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -60,7 +60,7 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: BudgetByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: BudgetByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BudgetByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -43,7 +43,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
     /**
      * Name of the virtual router peering that is unique within a virtual router.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The properties of the Virtual Router Peering.
      */
@@ -60,7 +60,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

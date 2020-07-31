@@ -39,11 +39,11 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
     /**
      * Region where the VM is located.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Name of the guest configuration assignment.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Properties of the Guest configuration assignment.
      */
@@ -60,7 +60,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

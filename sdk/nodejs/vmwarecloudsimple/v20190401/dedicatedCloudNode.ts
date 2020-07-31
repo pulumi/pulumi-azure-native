@@ -51,11 +51,11 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
     /**
      * Dedicated Cloud Nodes SKU
      */
-    public readonly sku!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.SkuResponse | undefined>;
     /**
      * Dedicated Cloud Nodes tags
      */
-    public readonly tags!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.TagsResponse>;
+    public readonly tags!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.TagsResponse | undefined>;
     /**
      * {resourceProviderNamespace}/{resourceType}
      */
@@ -68,7 +68,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DedicatedCloudNodeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

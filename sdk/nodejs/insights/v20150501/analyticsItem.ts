@@ -39,23 +39,23 @@ export class AnalyticsItem extends pulumi.CustomResource {
     /**
      * The content of this item
      */
-    public readonly Content!: pulumi.Output<string>;
+    public readonly Content!: pulumi.Output<string | undefined>;
     /**
      * Internally assigned unique id of the item definition.
      */
-    public readonly Id!: pulumi.Output<string>;
+    public readonly Id!: pulumi.Output<string | undefined>;
     /**
      * The user-defined name of the item.
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly Name!: pulumi.Output<string | undefined>;
     /**
      * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
      */
-    public readonly Properties!: pulumi.Output<outputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesResponse>;
+    public readonly Properties!: pulumi.Output<outputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesResponse | undefined>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly Scope!: pulumi.Output<string>;
+    public readonly Scope!: pulumi.Output<string | undefined>;
     /**
      * Date and time in UTC when this item was created.
      */
@@ -67,7 +67,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
     /**
      * Enum indicating the type of the Analytics item.
      */
-    public readonly Type!: pulumi.Output<string>;
+    public readonly Type!: pulumi.Output<string | undefined>;
     /**
      * This instance's version of the data model. This can change as new features are added.
      */
@@ -80,7 +80,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

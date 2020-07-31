@@ -39,7 +39,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Gets or sets the name of the Traffic Manager endpoint.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Class representing a Traffic Manager endpoint properties.
      */
@@ -47,7 +47,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Gets or sets the endpoint type of the Traffic Manager endpoint.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EndpointArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

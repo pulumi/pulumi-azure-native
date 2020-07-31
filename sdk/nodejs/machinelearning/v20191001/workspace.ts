@@ -51,11 +51,11 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The sku of the workspace.
      */
-    public readonly sku!: pulumi.Output<outputs.machinelearning.v20191001.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.machinelearning.v20191001.SkuResponse | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
@@ -68,7 +68,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

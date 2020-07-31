@@ -39,7 +39,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
     /**
      * Resource Location
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource Name
      */
@@ -60,7 +60,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -55,7 +55,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
@@ -68,7 +68,7 @@ export class App extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AppArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

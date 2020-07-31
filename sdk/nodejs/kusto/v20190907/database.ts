@@ -37,11 +37,11 @@ export class Database extends pulumi.CustomResource {
     /**
      * Kind of the database
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -58,7 +58,7 @@ export class Database extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

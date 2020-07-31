@@ -36,21 +36,21 @@ export class WorkspaceCollection extends pulumi.CustomResource {
     /**
      * Azure location
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Workspace collection name
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Properties
      */
     public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
-    public readonly sku!: pulumi.Output<outputs.powerbi.v20160129.AzureSkuResponse>;
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly sku!: pulumi.Output<outputs.powerbi.v20160129.AzureSkuResponse | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WorkspaceCollection resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class WorkspaceCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WorkspaceCollectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: WorkspaceCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceCollectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

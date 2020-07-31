@@ -43,7 +43,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly properties!: pulumi.Output<outputs.network.v20180401.ExpressRouteCircuitPeeringPropertiesFormatResponse>;
 
     /**
@@ -53,7 +53,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

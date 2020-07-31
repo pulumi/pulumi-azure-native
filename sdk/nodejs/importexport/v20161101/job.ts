@@ -39,7 +39,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Specifies the Azure location where the job is created.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the job.
      */
@@ -51,7 +51,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Specifies the tags that are assigned to the job.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Specifies the type of the job resource.
      */
@@ -64,7 +64,7 @@ export class Job extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: JobArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

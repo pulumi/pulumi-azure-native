@@ -39,7 +39,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
@@ -60,7 +60,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

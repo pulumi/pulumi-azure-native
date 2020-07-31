@@ -51,11 +51,11 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.v20200601.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.compute.v20200601.SkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -68,7 +68,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

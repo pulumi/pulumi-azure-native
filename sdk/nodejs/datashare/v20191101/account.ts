@@ -43,7 +43,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Location of the azure resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Name of the azure resource
      */
@@ -55,7 +55,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Tags on the azure resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the azure resource
      */
@@ -68,7 +68,7 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

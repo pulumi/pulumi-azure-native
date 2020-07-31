@@ -39,7 +39,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The etag for the devices.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -55,11 +55,11 @@ export class Device extends pulumi.CustomResource {
     /**
      * The SKU type.
      */
-    public readonly sku!: pulumi.Output<outputs.databoxedge.v20190801.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.databoxedge.v20190801.SkuResponse | undefined>;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The hierarchical type of the object.
      */
@@ -72,7 +72,7 @@ export class Device extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DeviceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

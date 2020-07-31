@@ -39,11 +39,11 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearningservices.v20181119.IdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.machinelearningservices.v20181119.IdentityResponse | undefined>;
     /**
      * Specifies the location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the resource.
      */
@@ -55,7 +55,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the type of the resource.
      */
@@ -68,7 +68,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

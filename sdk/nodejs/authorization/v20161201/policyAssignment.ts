@@ -39,7 +39,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The name of the policy assignment.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Properties for the policy assignment.
      */
@@ -47,7 +47,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The type of the policy assignment.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PolicyAssignment resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

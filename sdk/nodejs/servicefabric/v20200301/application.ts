@@ -43,11 +43,11 @@ export class Application extends pulumi.CustomResource {
     /**
      * Describes the managed identities for an Azure resource.
      */
-    public readonly identity!: pulumi.Output<outputs.servicefabric.v20200301.ManagedIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.servicefabric.v20200301.ManagedIdentityResponse | undefined>;
     /**
      * It will be deprecated in New API, resource location depends on the parent resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Azure resource name.
      */
@@ -59,7 +59,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * Azure resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure resource type.
      */
@@ -72,7 +72,7 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
