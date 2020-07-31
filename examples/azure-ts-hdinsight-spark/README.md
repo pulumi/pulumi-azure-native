@@ -42,8 +42,8 @@ An example Pulumi component that deploys a Spark cluster on Azure HDInsight.
 
     ```
     $ pulumi stack output endpoint
-    https://myspark1234abcd.azurehdinsight.net/
+    https://spark-cluster12345.azurehdinsight.net/
     
-    # For instance, Jupyter notebooks are available at https://myspark1234abcd.azurehdinsight.net/jupyter/
+    # For instance, Jupyter notebooks are available at https://spark-cluster12345.azurehdinsight.net/jupyter/
     # Follow https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-load-data-run-query to test it out
     ```
