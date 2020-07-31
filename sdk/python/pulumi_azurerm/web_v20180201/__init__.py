@@ -9,7 +9,6 @@ from .app_service_plan_route_for_vnet import *
 from .certificate import *
 from .get_app_service_environment import *
 from .get_app_service_plan import *
-from .get_app_service_plan_route_for_vnet import *
 from .get_certificate import *
 from .get_web_app import *
 from .get_web_app_deployment import *

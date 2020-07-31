@@ -29,7 +29,6 @@ from .list_schema_content_callback_url import *
 from .list_workflow_callback_url import *
 from .list_workflow_run_action_expression_traces import *
 from .list_workflow_run_action_repetition_expression_traces import *
-from .list_workflow_swagger import *
 from .list_workflow_trigger_callback_url import *
 from .list_workflow_version_callback_url import *
 from .map import *

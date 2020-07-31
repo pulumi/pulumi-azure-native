@@ -18,7 +18,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
     """
     The tags.
     """
-    def __init__(__self__, resource_name, opts=None, event_hub_endpoint_name=None, name=None, resource_group_name=None, resource_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, event_hub_endpoint_name=None, name=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         The properties of the EventHubConsumerGroupInfo object.
 
@@ -27,7 +27,7 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
         :param pulumi.Input[str] name: The name of the consumer group to add.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub.
-        :param pulumi.Input[str] resource_name: The name of the IoT hub.
+        :param pulumi.Input[str] resource_name_: The name of the IoT hub.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,9 +55,9 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['tags'] = None
         super(IotHubResourceEventHubConsumerGroup, __self__).__init__(
             'azurerm:devices/v20170701:IotHubResourceEventHubConsumerGroup',

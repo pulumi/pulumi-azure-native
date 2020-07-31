@@ -10,7 +10,6 @@ from .get_certificate_csr import *
 from .get_hosting_environment import *
 from .get_managed_hosting_environment import *
 from .get_server_farm import *
-from .get_server_farm_route_for_vnet import *
 from .get_site import *
 from .get_site_deployment import *
 from .get_site_deployment_slot import *
@@ -18,8 +17,6 @@ from .get_site_host_name_binding import *
 from .get_site_host_name_binding_slot import *
 from .get_site_instance_deployment import *
 from .get_site_instance_deployment_slot import *
-from .get_site_premier_add_on import *
-from .get_site_premier_add_on_slot import *
 from .get_site_relay_service_connection import *
 from .get_site_relay_service_connection_slot import *
 from .get_site_slot import *
@@ -52,8 +49,6 @@ from .site_host_name_binding import *
 from .site_host_name_binding_slot import *
 from .site_instance_deployment import *
 from .site_instance_deployment_slot import *
-from .site_premier_add_on import *
-from .site_premier_add_on_slot import *
 from .site_relay_service_connection import *
 from .site_relay_service_connection_slot import *
 from .site_slot import *

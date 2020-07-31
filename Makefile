@@ -48,9 +48,10 @@ generate::
 	cd ${PACKDIR}/nodejs/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./package.json && \
 		yarn install
+	#TODO: remove -e "40d" below when plugin installation works again
 	cd ${PACKDIR}/python/ && \
 			cp ../../README.md . && \
-			sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./setup.py && \
+			sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" -e "40d" ./setup.py && \
 			rm ./setup.py.bak
 	cd ${PACKDIR}/dotnet/ && \
 		echo "${VERSION:v%=%}" >version.txt && \

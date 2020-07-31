@@ -29,7 +29,7 @@ class ReplicationPolicy(pulumi.CustomResource):
     """
     Resource Type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         Protection profile details.
 
@@ -38,7 +38,7 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Replication policy name
         :param pulumi.Input[dict] properties: Policy creation properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
-        :param pulumi.Input[str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
 
         The **properties** object supports the following:
 
@@ -69,9 +69,9 @@ class ReplicationPolicy(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['location'] = None
             __props__['type'] = None
         super(ReplicationPolicy, __self__).__init__(

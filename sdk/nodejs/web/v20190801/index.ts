@@ -8,7 +8,6 @@ export * from "./appServicePlanRouteForVnet";
 export * from "./certificate";
 export * from "./getAppServiceEnvironment";
 export * from "./getAppServicePlan";
-export * from "./getAppServicePlanRouteForVnet";
 export * from "./getCertificate";
 export * from "./getStaticSite";
 export * from "./getWebApp";

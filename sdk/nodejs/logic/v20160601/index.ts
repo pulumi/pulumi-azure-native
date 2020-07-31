@@ -28,7 +28,6 @@ export * from "./listSchemaContentCallbackUrl";
 export * from "./listWorkflowCallbackUrl";
 export * from "./listWorkflowRunActionExpressionTraces";
 export * from "./listWorkflowRunActionRepetitionExpressionTraces";
-export * from "./listWorkflowSwagger";
 export * from "./listWorkflowTriggerCallbackUrl";
 export * from "./listWorkflowVersionCallbackUrl";
 export * from "./map";

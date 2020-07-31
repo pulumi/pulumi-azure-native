@@ -8,5 +8,4 @@ from .app_service_plan import *
 from .app_service_plan_route_for_vnet import *
 from .get_app_service_environment import *
 from .get_app_service_plan import *
-from .get_app_service_plan_route_for_vnet import *
 from .list_app_service_plan_hybrid_connection_keys import *

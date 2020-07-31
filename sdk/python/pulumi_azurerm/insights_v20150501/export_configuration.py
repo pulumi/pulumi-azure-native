@@ -86,7 +86,7 @@ class ExportConfiguration(pulumi.CustomResource):
     """
     The subscription of the Application Insights component.
     """
-    def __init__(__self__, resource_name, opts=None, destination_account_id=None, destination_address=None, destination_storage_location_id=None, destination_storage_subscription_id=None, destination_type=None, is_enabled=None, notification_queue_enabled=None, notification_queue_uri=None, record_types=None, export_id=None, resource_group_name=None, resource_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, destination_account_id=None, destination_address=None, destination_storage_location_id=None, destination_storage_subscription_id=None, destination_type=None, is_enabled=None, notification_queue_enabled=None, notification_queue_uri=None, record_types=None, export_id=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         Properties that define a Continuous Export configuration.
 
@@ -103,7 +103,7 @@ class ExportConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] record_types: The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
         :param pulumi.Input[str] export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,9 +137,9 @@ class ExportConfiguration(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name is None:
-                raise TypeError("Missing required property 'resource_name'")
-            __props__['resource_name'] = resource_name
+            if resource_name_ is None:
+                raise TypeError("Missing required property 'resource_name_'")
+            __props__['resource_name'] = resource_name_
             __props__['application_name'] = None
             __props__['container_name'] = None
             __props__['export_id'] = None

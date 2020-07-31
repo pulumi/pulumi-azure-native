@@ -431,6 +431,11 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 			return nil, err
 		}
 
+		// Skip empty result objects.
+		if len(result.specs) == 0 {
+			continue
+		}
+
 		// Id is a property of the base Custom Resource, we don't want to introduce it on derived resources.
 		delete(result.specs, "id")
 		result.required.Delete("id")
@@ -445,7 +450,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 		return result, nil
 	}
 
-	return nil, errors.New("no 2xx response found")
+	return nil, errors.New("no matching 2xx response found")
 }
 
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput bool) (*propertyBag, error) {

@@ -329,47 +329,6 @@ func (i ArmPlanArgs) ToArmPlanOutputWithContext(ctx context.Context) ArmPlanOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanOutput)
 }
 
-func (i ArmPlanArgs) ToArmPlanPtrOutput() ArmPlanPtrOutput {
-	return i.ToArmPlanPtrOutputWithContext(context.Background())
-}
-
-func (i ArmPlanArgs) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanOutput).ToArmPlanPtrOutputWithContext(ctx)
-}
-
-// ArmPlanPtrInput is an input type that accepts ArmPlanArgs, ArmPlanPtr and ArmPlanPtrOutput values.
-// You can construct a concrete instance of `ArmPlanPtrInput` via:
-//
-//          ArmPlanArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmPlanPtrInput interface {
-	pulumi.Input
-
-	ToArmPlanPtrOutput() ArmPlanPtrOutput
-	ToArmPlanPtrOutputWithContext(context.Context) ArmPlanPtrOutput
-}
-
-type armPlanPtrType ArmPlanArgs
-
-func ArmPlanPtr(v *ArmPlanArgs) ArmPlanPtrInput {
-	return (*armPlanPtrType)(v)
-}
-
-func (*armPlanPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmPlan)(nil)).Elem()
-}
-
-func (i *armPlanPtrType) ToArmPlanPtrOutput() ArmPlanPtrOutput {
-	return i.ToArmPlanPtrOutputWithContext(context.Background())
-}
-
-func (i *armPlanPtrType) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmPlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanPtrOutput)
-}
-
 // The plan object in an ARM, represents a marketplace plan
 type ArmPlanOutput struct{ *pulumi.OutputState }
 
@@ -383,16 +342,6 @@ func (o ArmPlanOutput) ToArmPlanOutput() ArmPlanOutput {
 
 func (o ArmPlanOutput) ToArmPlanOutputWithContext(ctx context.Context) ArmPlanOutput {
 	return o
-}
-
-func (o ArmPlanOutput) ToArmPlanPtrOutput() ArmPlanPtrOutput {
-	return o.ToArmPlanPtrOutputWithContext(context.Background())
-}
-
-func (o ArmPlanOutput) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmPlanPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *ArmPlan {
-		return &v
-	}).(ArmPlanPtrOutput)
 }
 
 // The name
@@ -418,74 +367,6 @@ func (o ArmPlanOutput) Publisher() pulumi.StringPtrOutput {
 // Version of product
 func (o ArmPlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type ArmPlanPtrOutput struct{ *pulumi.OutputState }
-
-func (ArmPlanPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmPlan)(nil)).Elem()
-}
-
-func (o ArmPlanPtrOutput) ToArmPlanPtrOutput() ArmPlanPtrOutput {
-	return o
-}
-
-func (o ArmPlanPtrOutput) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmPlanPtrOutput {
-	return o
-}
-
-func (o ArmPlanPtrOutput) Elem() ArmPlanOutput {
-	return o.ApplyT(func(v *ArmPlan) ArmPlan { return *v }).(ArmPlanOutput)
-}
-
-// The name
-func (o ArmPlanPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The product
-func (o ArmPlanPtrOutput) Product() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Product
-	}).(pulumi.StringPtrOutput)
-}
-
-// The promotion code
-func (o ArmPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PromotionCode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The publisher
-func (o ArmPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of product
-func (o ArmPlanPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmPlan) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
 }
 
 // AutoHealActions - Describes the actions which can be
@@ -10393,47 +10274,6 @@ func (i ObjectArgs) ToObjectOutputWithContext(ctx context.Context) ObjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectOutput)
 }
 
-func (i ObjectArgs) ToObjectPtrOutput() ObjectPtrOutput {
-	return i.ToObjectPtrOutputWithContext(context.Background())
-}
-
-func (i ObjectArgs) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectOutput).ToObjectPtrOutputWithContext(ctx)
-}
-
-// ObjectPtrInput is an input type that accepts ObjectArgs, ObjectPtr and ObjectPtrOutput values.
-// You can construct a concrete instance of `ObjectPtrInput` via:
-//
-//          ObjectArgs{...}
-//
-//  or:
-//
-//          nil
-type ObjectPtrInput interface {
-	pulumi.Input
-
-	ToObjectPtrOutput() ObjectPtrOutput
-	ToObjectPtrOutputWithContext(context.Context) ObjectPtrOutput
-}
-
-type objectPtrType ObjectArgs
-
-func ObjectPtr(v *ObjectArgs) ObjectPtrInput {
-	return (*objectPtrType)(v)
-}
-
-func (*objectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Object)(nil)).Elem()
-}
-
-func (i *objectPtrType) ToObjectPtrOutput() ObjectPtrOutput {
-	return i.ToObjectPtrOutputWithContext(context.Background())
-}
-
-func (i *objectPtrType) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectPtrOutput)
-}
-
 type ObjectOutput struct{ *pulumi.OutputState }
 
 func (ObjectOutput) ElementType() reflect.Type {
@@ -10446,34 +10286,6 @@ func (o ObjectOutput) ToObjectOutput() ObjectOutput {
 
 func (o ObjectOutput) ToObjectOutputWithContext(ctx context.Context) ObjectOutput {
 	return o
-}
-
-func (o ObjectOutput) ToObjectPtrOutput() ObjectPtrOutput {
-	return o.ToObjectPtrOutputWithContext(context.Background())
-}
-
-func (o ObjectOutput) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return o.ApplyT(func(v Object) *Object {
-		return &v
-	}).(ObjectPtrOutput)
-}
-
-type ObjectPtrOutput struct{ *pulumi.OutputState }
-
-func (ObjectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Object)(nil)).Elem()
-}
-
-func (o ObjectPtrOutput) ToObjectPtrOutput() ObjectPtrOutput {
-	return o
-}
-
-func (o ObjectPtrOutput) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return o
-}
-
-func (o ObjectPtrOutput) Elem() ObjectOutput {
-	return o.ApplyT(func(v *Object) Object { return *v }).(ObjectOutput)
 }
 
 // Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance
@@ -15687,92 +15499,6 @@ func (o SiteLimitsResponsePtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput 
 		}
 		return v.MaxPercentageCpu
 	}).(pulumi.Float64PtrOutput)
-}
-
-type SitePremierAddOnType struct {
-}
-
-// SitePremierAddOnTypeInput is an input type that accepts SitePremierAddOnTypeArgs and SitePremierAddOnTypeOutput values.
-// You can construct a concrete instance of `SitePremierAddOnTypeInput` via:
-//
-//          SitePremierAddOnTypeArgs{...}
-type SitePremierAddOnTypeInput interface {
-	pulumi.Input
-
-	ToSitePremierAddOnTypeOutput() SitePremierAddOnTypeOutput
-	ToSitePremierAddOnTypeOutputWithContext(context.Context) SitePremierAddOnTypeOutput
-}
-
-type SitePremierAddOnTypeArgs struct {
-}
-
-func (SitePremierAddOnTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SitePremierAddOnType)(nil)).Elem()
-}
-
-func (i SitePremierAddOnTypeArgs) ToSitePremierAddOnTypeOutput() SitePremierAddOnTypeOutput {
-	return i.ToSitePremierAddOnTypeOutputWithContext(context.Background())
-}
-
-func (i SitePremierAddOnTypeArgs) ToSitePremierAddOnTypeOutputWithContext(ctx context.Context) SitePremierAddOnTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePremierAddOnTypeOutput)
-}
-
-type SitePremierAddOnTypeOutput struct{ *pulumi.OutputState }
-
-func (SitePremierAddOnTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SitePremierAddOnType)(nil)).Elem()
-}
-
-func (o SitePremierAddOnTypeOutput) ToSitePremierAddOnTypeOutput() SitePremierAddOnTypeOutput {
-	return o
-}
-
-func (o SitePremierAddOnTypeOutput) ToSitePremierAddOnTypeOutputWithContext(ctx context.Context) SitePremierAddOnTypeOutput {
-	return o
-}
-
-type SitePremierAddOnSlotType struct {
-}
-
-// SitePremierAddOnSlotTypeInput is an input type that accepts SitePremierAddOnSlotTypeArgs and SitePremierAddOnSlotTypeOutput values.
-// You can construct a concrete instance of `SitePremierAddOnSlotTypeInput` via:
-//
-//          SitePremierAddOnSlotTypeArgs{...}
-type SitePremierAddOnSlotTypeInput interface {
-	pulumi.Input
-
-	ToSitePremierAddOnSlotTypeOutput() SitePremierAddOnSlotTypeOutput
-	ToSitePremierAddOnSlotTypeOutputWithContext(context.Context) SitePremierAddOnSlotTypeOutput
-}
-
-type SitePremierAddOnSlotTypeArgs struct {
-}
-
-func (SitePremierAddOnSlotTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SitePremierAddOnSlotType)(nil)).Elem()
-}
-
-func (i SitePremierAddOnSlotTypeArgs) ToSitePremierAddOnSlotTypeOutput() SitePremierAddOnSlotTypeOutput {
-	return i.ToSitePremierAddOnSlotTypeOutputWithContext(context.Background())
-}
-
-func (i SitePremierAddOnSlotTypeArgs) ToSitePremierAddOnSlotTypeOutputWithContext(ctx context.Context) SitePremierAddOnSlotTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePremierAddOnSlotTypeOutput)
-}
-
-type SitePremierAddOnSlotTypeOutput struct{ *pulumi.OutputState }
-
-func (SitePremierAddOnSlotTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SitePremierAddOnSlotType)(nil)).Elem()
-}
-
-func (o SitePremierAddOnSlotTypeOutput) ToSitePremierAddOnSlotTypeOutput() SitePremierAddOnSlotTypeOutput {
-	return o
-}
-
-func (o SitePremierAddOnSlotTypeOutput) ToSitePremierAddOnSlotTypeOutputWithContext(ctx context.Context) SitePremierAddOnSlotTypeOutput {
-	return o
 }
 
 type SiteProperties struct {
@@ -22439,7 +22165,6 @@ func init() {
 	pulumi.RegisterOutputType(ApiDefinitionInfoResponseOutput{})
 	pulumi.RegisterOutputType(ApiDefinitionInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArmPlanOutput{})
-	pulumi.RegisterOutputType(ArmPlanPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsResponseOutput{})
@@ -22535,7 +22260,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkAccessControlEntryResponseOutput{})
 	pulumi.RegisterOutputType(NetworkAccessControlEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ObjectOutput{})
-	pulumi.RegisterOutputType(ObjectPtrOutput{})
 	pulumi.RegisterOutputType(RampUpRuleOutput{})
 	pulumi.RegisterOutputType(RampUpRuleArrayOutput{})
 	pulumi.RegisterOutputType(RampUpRuleResponseOutput{})
@@ -22573,8 +22297,6 @@ func init() {
 	pulumi.RegisterOutputType(SiteLimitsPtrOutput{})
 	pulumi.RegisterOutputType(SiteLimitsResponseOutput{})
 	pulumi.RegisterOutputType(SiteLimitsResponsePtrOutput{})
-	pulumi.RegisterOutputType(SitePremierAddOnTypeOutput{})
-	pulumi.RegisterOutputType(SitePremierAddOnSlotTypeOutput{})
 	pulumi.RegisterOutputType(SitePropertiesOutput{})
 	pulumi.RegisterOutputType(SitePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteRelayServiceConnectionTypeOutput{})
