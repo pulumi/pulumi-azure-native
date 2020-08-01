@@ -10,7 +10,7 @@ const password = config.require("password");
 
 // Create an Azure Resource Group
 const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("spark-rg", {
-    name: "azurerm", // ERR Required but not detected at compile time
+    name: "azurerm",
     location: location,
     tags: {
         Owner: "azurerm-test",
@@ -24,7 +24,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sparksa", {
         name: "Standard_LRS",
         tier: "Standard",
     },
-    name: "sparksa12345", // ERR format validation
+    name: "sparksa12345",
     location: location,
     kind: "StorageV2",
 });
