@@ -85,7 +85,7 @@ type queueArgs struct {
 	// A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
 	Name string `pulumi:"name"`
 	// Queue resource properties.
-	Properties *QueueProperties `pulumi:"properties"`
+	QueueProperties *QueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -97,7 +97,7 @@ type QueueArgs struct {
 	// A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
 	Name pulumi.StringInput
 	// Queue resource properties.
-	Properties QueuePropertiesPtrInput
+	QueueProperties QueuePropertiesPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

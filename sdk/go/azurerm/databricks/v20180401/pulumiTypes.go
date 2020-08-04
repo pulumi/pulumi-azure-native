@@ -572,9 +572,9 @@ type Encryption struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource *string `pulumi:"keySource"`
 	// The Uri of KeyVault.
-	Keyvaulturi *string `pulumi:"keyvaulturi"`
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion *string `pulumi:"keyversion"`
+	KeyVersion *string `pulumi:"keyVersion"`
 }
 
 // EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
@@ -595,9 +595,9 @@ type EncryptionArgs struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// The Uri of KeyVault.
-	Keyvaulturi pulumi.StringPtrInput `pulumi:"keyvaulturi"`
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion pulumi.StringPtrInput `pulumi:"keyversion"`
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (EncryptionArgs) ElementType() reflect.Type {
@@ -689,13 +689,13 @@ func (o EncryptionOutput) KeySource() pulumi.StringPtrOutput {
 }
 
 // The Uri of KeyVault.
-func (o EncryptionOutput) Keyvaulturi() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Encryption) *string { return v.Keyvaulturi }).(pulumi.StringPtrOutput)
+func (o EncryptionOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Encryption) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o EncryptionOutput) Keyversion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Encryption) *string { return v.Keyversion }).(pulumi.StringPtrOutput)
+func (o EncryptionOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Encryption) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
 type EncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -737,22 +737,22 @@ func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 }
 
 // The Uri of KeyVault.
-func (o EncryptionPtrOutput) Keyvaulturi() pulumi.StringPtrOutput {
+func (o EncryptionPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyvaulturi
+		return v.KeyVaultUri
 	}).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o EncryptionPtrOutput) Keyversion() pulumi.StringPtrOutput {
+func (o EncryptionPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyversion
+		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
 }
 

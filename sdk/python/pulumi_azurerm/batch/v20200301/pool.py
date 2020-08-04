@@ -262,7 +262,7 @@ class Pool(pulumi.CustomResource):
                 * `container_registries` (`pulumi.Input[list]`) - If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
                   * `password` (`pulumi.Input[str]`)
                   * `registry_server` (`pulumi.Input[str]`) - If omitted, the default is "docker.io".
-                  * `username` (`pulumi.Input[str]`)
+                  * `user_name` (`pulumi.Input[str]`)
 
                 * `type` (`pulumi.Input[str]`)
 

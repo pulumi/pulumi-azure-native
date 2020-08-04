@@ -18,8 +18,8 @@ namespace Pulumi.AzureRM.Web.V20190801.Inputs
         /// <summary>
         /// String representation of the identity.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public IdentifierPropertiesArgs()
         {

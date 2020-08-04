@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Batch.V20200301.Inputs
         [Input("registryServer")]
         public Input<string>? RegistryServer { get; set; }
 
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public ContainerRegistryArgs()
         {

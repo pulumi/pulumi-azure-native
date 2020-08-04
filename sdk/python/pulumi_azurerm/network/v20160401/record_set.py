@@ -82,15 +82,17 @@ class RecordSet(pulumi.CustomResource):
 
         The **properties** object supports the following:
 
-          * `aaaa_records` (`pulumi.Input[list]`) - The list of AAAA records in the record set.
-            * `ipv6_address` (`pulumi.Input[str]`) - The IPv6 address of this AAAA record.
-
           * `a_records` (`pulumi.Input[list]`) - The list of A records in the record set.
             * `ipv4_address` (`pulumi.Input[str]`) - The IPv4 address of this A record.
+
+          * `ttl` (`pulumi.Input[float]`) - The TTL (time-to-live) of the records in the record set.
+          * `aaaa_records` (`pulumi.Input[list]`) - The list of AAAA records in the record set.
+            * `ipv6_address` (`pulumi.Input[str]`) - The IPv6 address of this AAAA record.
 
           * `cname_record` (`pulumi.Input[dict]`) - The CNAME record in the  record set.
             * `cname` (`pulumi.Input[str]`) - The canonical name for this CNAME record.
 
+          * `metadata` (`pulumi.Input[dict]`) - The metadata attached to the record set.
           * `mx_records` (`pulumi.Input[list]`) - The list of MX records in the record set.
             * `exchange` (`pulumi.Input[str]`) - The domain name of the mail host for this MX record.
             * `preference` (`pulumi.Input[float]`) - The preference value for this MX record.
@@ -116,11 +118,8 @@ class RecordSet(pulumi.CustomResource):
             * `target` (`pulumi.Input[str]`) - The target domain name for this SRV record.
             * `weight` (`pulumi.Input[float]`) - The weight value for this SRV record.
 
-          * `ttl` (`pulumi.Input[float]`) - The TTL (time-to-live) of the records in the record set.
           * `txt_records` (`pulumi.Input[list]`) - The list of TXT records in the record set.
             * `value` (`pulumi.Input[list]`) - The text value of this TXT record.
-
-          * `metadata` (`pulumi.Input[dict]`) - The metadata attached to the record set.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

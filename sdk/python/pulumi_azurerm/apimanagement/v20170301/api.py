@@ -68,6 +68,7 @@ class Api(pulumi.CustomResource):
         The **properties** object supports the following:
 
           * `api_revision` (`pulumi.Input[str]`) - Describes the Revision of the Api. If no value is provided, default revision 1 is created
+          * `api_type` (`pulumi.Input[str]`) - Type of API.
           * `api_version` (`pulumi.Input[str]`) - Indicates the Version identifier of the API if the API is versioned
           * `api_version_set` (`pulumi.Input[dict]`) - Api Version Set Contract details.
             * `properties` (`pulumi.Input[dict]`) - Properties of an API Version Set.
@@ -94,7 +95,6 @@ class Api(pulumi.CustomResource):
             * `header` (`pulumi.Input[str]`) - Subscription key header name.
             * `query` (`pulumi.Input[str]`) - Subscription key query string parameter name.
 
-          * `type` (`pulumi.Input[str]`) - Type of API.
           * `wsdl_selector` (`pulumi.Input[dict]`) - Criteria to limit import of WSDL to a subset of the document.
             * `wsdl_endpoint_name` (`pulumi.Input[str]`) - Name of endpoint(port) to import from WSDL
             * `wsdl_service_name` (`pulumi.Input[str]`) - Name of service to import from WSDL

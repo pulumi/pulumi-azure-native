@@ -207,12 +207,13 @@ class StorageAccount(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
             * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 
+          * `enable_https_traffic_only` (`pulumi.Input[bool]`) - Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
           * `encryption` (`pulumi.Input[dict]`) - Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
             * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-            * `keyvaultproperties` (`pulumi.Input[dict]`) - Properties provided by key vault.
-              * `keyname` (`pulumi.Input[str]`) - The name of KeyVault key.
-              * `keyvaulturi` (`pulumi.Input[str]`) - The Uri of KeyVault.
-              * `keyversion` (`pulumi.Input[str]`) - The version of KeyVault key.
+            * `key_vault_properties` (`pulumi.Input[dict]`) - Properties provided by key vault.
+              * `key_name` (`pulumi.Input[str]`) - The name of KeyVault key.
+              * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of KeyVault.
+              * `key_version` (`pulumi.Input[str]`) - The version of KeyVault key.
 
             * `require_infrastructure_encryption` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
             * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
@@ -227,24 +228,22 @@ class StorageAccount(pulumi.CustomResource):
           * `is_hns_enabled` (`pulumi.Input[bool]`) - Account HierarchicalNamespace enabled if sets to true.
           * `large_file_shares_state` (`pulumi.Input[str]`) - Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
           * `minimum_tls_version` (`pulumi.Input[str]`) - Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-          * `network_acls` (`pulumi.Input[dict]`) - Network rule set
+          * `network_rule_set` (`pulumi.Input[dict]`) - Network rule set
             * `bypass` (`pulumi.Input[str]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
             * `default_action` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match.
             * `ip_rules` (`pulumi.Input[list]`) - Sets the IP ACL rules
               * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
-              * `value` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+              * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 
             * `virtual_network_rules` (`pulumi.Input[list]`) - Sets the virtual network rules
               * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
-              * `id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
               * `state` (`pulumi.Input[str]`) - Gets the state of virtual network rule.
+              * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 
           * `routing_preference` (`pulumi.Input[dict]`) - Maintains information about the network routing choice opted by the user for data transfer
             * `publish_internet_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether internet routing storage endpoints are to be published
             * `publish_microsoft_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether microsoft routing storage endpoints are to be published
             * `routing_choice` (`pulumi.Input[str]`) - Routing Choice defines the kind of network routing opted by the user.
-
-          * `supports_https_traffic_only` (`pulumi.Input[bool]`) - Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
 
         The **sku** object supports the following:
 

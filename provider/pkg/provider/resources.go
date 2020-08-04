@@ -48,6 +48,8 @@ type AzureApiProperty struct {
 	MinLength *int64            `json:"minLength,omitempty"`
 	MaxLength *int64            `json:"maxLength,omitempty"`
 	Pattern   string            `json:"pattern,omitempty"`
+	// The name in the SDK if different from the wire-serialized name, empty otherwise.
+	SdkName string `json:"sdkName,omitempty"`
 }
 
 // AzureApiType represents the shape of an object property.
@@ -133,11 +135,11 @@ var wellKnownNames map[string]string
 
 func init() {
 	verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "")
-	wellKnownNames = map[string]string {
-		"Redis": "Redis",
-		"Caches": "Cache",
+	wellKnownNames = map[string]string{
+		"Redis":               "Redis",
+		"Caches":              "Cache",
 		"AssessmentsMetadata": "AssessmentMetadata",
-		"Mediaservices": "MediaService",
+		"Mediaservices":       "MediaService",
 	}
 }
 

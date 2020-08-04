@@ -89,8 +89,8 @@ namespace Pulumi.AzureRM.Storage.V20190601
         /// <summary>
         /// Queue resource properties.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.QueuePropertiesArgs>? Properties { get; set; }
+        [Input("queueProperties")]
+        public Input<Inputs.QueuePropertiesArgs>? QueueProperties { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

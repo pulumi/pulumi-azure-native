@@ -777,9 +777,7 @@ type ApiCreateOrUpdateProperties struct {
 	ApiRevision *string `pulumi:"apiRevision"`
 	// Description of the Api Revision.
 	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
-	// Type of Api to create.
-	//  * `http` creates a SOAP to REST API
-	//  * `soap` creates a SOAP pass-through API .
+	// Type of API.
 	ApiType *string `pulumi:"apiType"`
 	// Indicates the Version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
@@ -805,10 +803,12 @@ type ApiCreateOrUpdateProperties struct {
 	Protocols []string `pulumi:"protocols"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
+	// Type of Api to create.
+	//  * `http` creates a SOAP to REST API
+	//  * `soap` creates a SOAP pass-through API .
+	SoapApiType *string `pulumi:"soapApiType"`
 	// Protocols over which API is made available.
 	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContract `pulumi:"subscriptionKeyParameterNames"`
-	// Type of API.
-	Type *string `pulumi:"type"`
 	// Criteria to limit import of WSDL to a subset of the document.
 	WsdlSelector *ApiCreateOrUpdatePropertiesProperties `pulumi:"wsdlSelector"`
 }
@@ -830,9 +830,7 @@ type ApiCreateOrUpdatePropertiesArgs struct {
 	ApiRevision pulumi.StringPtrInput `pulumi:"apiRevision"`
 	// Description of the Api Revision.
 	ApiRevisionDescription pulumi.StringPtrInput `pulumi:"apiRevisionDescription"`
-	// Type of Api to create.
-	//  * `http` creates a SOAP to REST API
-	//  * `soap` creates a SOAP pass-through API .
+	// Type of API.
 	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
 	// Indicates the Version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
@@ -858,10 +856,12 @@ type ApiCreateOrUpdatePropertiesArgs struct {
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
+	// Type of Api to create.
+	//  * `http` creates a SOAP to REST API
+	//  * `soap` creates a SOAP pass-through API .
+	SoapApiType pulumi.StringPtrInput `pulumi:"soapApiType"`
 	// Protocols over which API is made available.
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractPtrInput `pulumi:"subscriptionKeyParameterNames"`
-	// Type of API.
-	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Criteria to limit import of WSDL to a subset of the document.
 	WsdlSelector ApiCreateOrUpdatePropertiesPropertiesPtrInput `pulumi:"wsdlSelector"`
 }
@@ -954,9 +954,7 @@ func (o ApiCreateOrUpdatePropertiesOutput) ApiRevisionDescription() pulumi.Strin
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ApiRevisionDescription }).(pulumi.StringPtrOutput)
 }
 
-// Type of Api to create.
-//  * `http` creates a SOAP to REST API
-//  * `soap` creates a SOAP pass-through API .
+// Type of API.
 func (o ApiCreateOrUpdatePropertiesOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ApiType }).(pulumi.StringPtrOutput)
 }
@@ -1021,16 +1019,18 @@ func (o ApiCreateOrUpdatePropertiesOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
+// Type of Api to create.
+//  * `http` creates a SOAP to REST API
+//  * `soap` creates a SOAP pass-through API .
+func (o ApiCreateOrUpdatePropertiesOutput) SoapApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.SoapApiType }).(pulumi.StringPtrOutput)
+}
+
 // Protocols over which API is made available.
 func (o ApiCreateOrUpdatePropertiesOutput) SubscriptionKeyParameterNames() SubscriptionKeyParameterNamesContractPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *SubscriptionKeyParameterNamesContract {
 		return v.SubscriptionKeyParameterNames
 	}).(SubscriptionKeyParameterNamesContractPtrOutput)
-}
-
-// Type of API.
-func (o ApiCreateOrUpdatePropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Criteria to limit import of WSDL to a subset of the document.
@@ -1076,9 +1076,7 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) ApiRevisionDescription() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of Api to create.
-//  * `http` creates a SOAP to REST API
-//  * `soap` creates a SOAP pass-through API .
+// Type of API.
 func (o ApiCreateOrUpdatePropertiesPtrOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
 		if v == nil {
@@ -1208,6 +1206,18 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) ServiceUrl() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Type of Api to create.
+//  * `http` creates a SOAP to REST API
+//  * `soap` creates a SOAP pass-through API .
+func (o ApiCreateOrUpdatePropertiesPtrOutput) SoapApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SoapApiType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Protocols over which API is made available.
 func (o ApiCreateOrUpdatePropertiesPtrOutput) SubscriptionKeyParameterNames() SubscriptionKeyParameterNamesContractPtrOutput {
 	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *SubscriptionKeyParameterNamesContract {
@@ -1216,16 +1226,6 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) SubscriptionKeyParameterNames() Su
 		}
 		return v.SubscriptionKeyParameterNames
 	}).(SubscriptionKeyParameterNamesContractPtrOutput)
-}
-
-// Type of API.
-func (o ApiCreateOrUpdatePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Criteria to limit import of WSDL to a subset of the document.

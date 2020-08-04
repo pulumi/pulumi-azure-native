@@ -60,9 +60,9 @@ class Workbook(pulumi.CustomResource):
         The **properties** object supports the following:
 
           * `category` (`pulumi.Input[str]`) - Workbook category, as defined by the user at creation time.
-          * `kind` (`pulumi.Input[str]`) - Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
           * `name` (`pulumi.Input[str]`) - The user-defined name of the workbook.
           * `serialized_data` (`pulumi.Input[str]`) - Configuration of this particular workbook. Configuration data is a string containing valid JSON
+          * `shared_type_kind` (`pulumi.Input[str]`) - Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
           * `source_resource_id` (`pulumi.Input[str]`) - Optional resourceId for a source resource.
           * `tags` (`pulumi.Input[list]`) - A list of 0 or more tags that are associated with this workbook definition
           * `user_id` (`pulumi.Input[str]`) - Unique user id of the specific user that owns this workbook.

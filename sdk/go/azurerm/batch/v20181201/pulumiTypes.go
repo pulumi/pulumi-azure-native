@@ -4541,7 +4541,7 @@ type ContainerRegistry struct {
 	Password string `pulumi:"password"`
 	// If omitted, the default is "docker.io".
 	RegistryServer *string `pulumi:"registryServer"`
-	Username       string  `pulumi:"username"`
+	UserName       string  `pulumi:"userName"`
 }
 
 // ContainerRegistryInput is an input type that accepts ContainerRegistryArgs and ContainerRegistryOutput values.
@@ -4559,7 +4559,7 @@ type ContainerRegistryArgs struct {
 	Password pulumi.StringInput `pulumi:"password"`
 	// If omitted, the default is "docker.io".
 	RegistryServer pulumi.StringPtrInput `pulumi:"registryServer"`
-	Username       pulumi.StringInput    `pulumi:"username"`
+	UserName       pulumi.StringInput    `pulumi:"userName"`
 }
 
 func (ContainerRegistryArgs) ElementType() reflect.Type {
@@ -4672,8 +4672,8 @@ func (o ContainerRegistryOutput) RegistryServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRegistry) *string { return v.RegistryServer }).(pulumi.StringPtrOutput)
 }
 
-func (o ContainerRegistryOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistry) string { return v.Username }).(pulumi.StringOutput)
+func (o ContainerRegistryOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
 }
 
 type ContainerRegistryPtrOutput struct{ *pulumi.OutputState }
@@ -4713,12 +4713,12 @@ func (o ContainerRegistryPtrOutput) RegistryServer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ContainerRegistryPtrOutput) Username() pulumi.StringPtrOutput {
+func (o ContainerRegistryPtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRegistry) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Username
+		return &v.UserName
 	}).(pulumi.StringPtrOutput)
 }
 

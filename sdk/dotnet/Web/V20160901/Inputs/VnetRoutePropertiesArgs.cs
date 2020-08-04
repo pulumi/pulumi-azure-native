@@ -22,12 +22,6 @@ namespace Pulumi.AzureRM.Web.V20160901.Inputs
         public Input<string>? EndAddress { get; set; }
 
         /// <summary>
-        /// The name of this route. This is only returned by the server and does not need to be set by the client.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The type of route this is:
         /// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
         /// INHERITED - Routes inherited from the real Virtual Network routes
@@ -43,6 +37,12 @@ namespace Pulumi.AzureRM.Web.V20160901.Inputs
         /// </summary>
         [Input("startAddress")]
         public Input<string>? StartAddress { get; set; }
+
+        /// <summary>
+        /// The name of this route. This is only returned by the server and does not need to be set by the client.
+        /// </summary>
+        [Input("vnetRouteName")]
+        public Input<string>? VnetRouteName { get; set; }
 
         public VnetRoutePropertiesArgs()
         {

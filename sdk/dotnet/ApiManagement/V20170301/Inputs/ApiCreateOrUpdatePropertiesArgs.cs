@@ -22,6 +22,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301.Inputs
         public Input<string>? ApiRevision { get; set; }
 
         /// <summary>
+        /// Type of API.
+        /// </summary>
+        [Input("apiType")]
+        public Input<string>? ApiType { get; set; }
+
+        /// <summary>
         /// Indicates the Version identifier of the API if the API is versioned
         /// </summary>
         [Input("apiVersion")]
@@ -98,12 +104,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301.Inputs
         /// </summary>
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.SubscriptionKeyParameterNamesContractArgs>? SubscriptionKeyParameterNames { get; set; }
-
-        /// <summary>
-        /// Type of API.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Criteria to limit import of WSDL to a subset of the document.

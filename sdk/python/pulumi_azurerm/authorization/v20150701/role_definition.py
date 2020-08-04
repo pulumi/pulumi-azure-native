@@ -49,7 +49,7 @@ class RoleDefinition(pulumi.CustomResource):
             * `not_actions` (`pulumi.Input[list]`) - Denied actions.
 
           * `role_name` (`pulumi.Input[str]`) - The role name.
-          * `type` (`pulumi.Input[str]`) - The role type.
+          * `role_type` (`pulumi.Input[str]`) - The role type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -47,7 +47,7 @@ export class BlobContainer extends pulumi.CustomResource {
     /**
      * Properties of the blob container.
      */
-    public readonly properties!: pulumi.Output<outputs.storage.v20190401.ContainerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190401.ContainerPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -76,10 +76,11 @@ export class BlobContainer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["containerProperties"] = args ? args.containerProperties : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,13 +103,13 @@ export interface BlobContainerArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Properties of the blob container.
+     */
+    readonly containerProperties?: pulumi.Input<inputs.storage.v20190401.ContainerProperties>;
+    /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the blob container.
-     */
-    readonly properties?: pulumi.Input<inputs.storage.v20190401.ContainerProperties>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

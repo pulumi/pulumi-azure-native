@@ -24,8 +24,8 @@ namespace Pulumi.AzureRM.Storage.V20190601.Inputs
         /// <summary>
         /// Properties provided by key vault.
         /// </summary>
-        [Input("keyvaultproperties")]
-        public Input<Inputs.KeyVaultPropertiesArgs>? Keyvaultproperties { get; set; }
+        [Input("keyVaultProperties")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
         /// <summary>
         /// A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.

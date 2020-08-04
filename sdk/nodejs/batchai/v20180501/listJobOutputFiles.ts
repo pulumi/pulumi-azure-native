@@ -19,7 +19,7 @@ export function listJobOutputFiles(args: ListJobOutputFilesArgs, opts?: pulumi.I
         "experimentName": args.experimentName,
         "jobName": args.jobName,
         "linkexpiryinminutes": args.linkexpiryinminutes,
-        "maxresults": args.maxresults,
+        "maxResults": args.maxResults,
         "outputdirectoryid": args.outputdirectoryid,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -46,7 +46,7 @@ export interface ListJobOutputFilesArgs {
     /**
      * The maximum number of items to return in the response. A maximum of 1000 files can be returned.
      */
-    readonly maxresults?: number;
+    readonly maxResults?: number;
     /**
      * Id of the job output directory. This is the OutputDirectory-->id parameter that is given by the user during Create Job.
      */

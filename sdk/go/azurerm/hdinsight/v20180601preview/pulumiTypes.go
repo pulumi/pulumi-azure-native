@@ -7911,7 +7911,7 @@ func (o QuotaInfoResponsePtrOutput) CoresUsed() pulumi.IntPtrOutput {
 // Describes a role on the cluster.
 type Role struct {
 	// The autoscale configurations.
-	Autoscale *Autoscale `pulumi:"autoscale"`
+	AutoscaleConfiguration *Autoscale `pulumi:"autoscaleConfiguration"`
 	// The data disks groups for the role.
 	DataDisksGroups []DataDisksGroups `pulumi:"dataDisksGroups"`
 	// The hardware profile.
@@ -7944,7 +7944,7 @@ type RoleInput interface {
 // Describes a role on the cluster.
 type RoleArgs struct {
 	// The autoscale configurations.
-	Autoscale AutoscalePtrInput `pulumi:"autoscale"`
+	AutoscaleConfiguration AutoscalePtrInput `pulumi:"autoscaleConfiguration"`
 	// The data disks groups for the role.
 	DataDisksGroups DataDisksGroupsArrayInput `pulumi:"dataDisksGroups"`
 	// The hardware profile.
@@ -8016,8 +8016,8 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 }
 
 // The autoscale configurations.
-func (o RoleOutput) Autoscale() AutoscalePtrOutput {
-	return o.ApplyT(func(v Role) *Autoscale { return v.Autoscale }).(AutoscalePtrOutput)
+func (o RoleOutput) AutoscaleConfiguration() AutoscalePtrOutput {
+	return o.ApplyT(func(v Role) *Autoscale { return v.AutoscaleConfiguration }).(AutoscalePtrOutput)
 }
 
 // The data disks groups for the role.

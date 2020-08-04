@@ -28,9 +28,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101.Inputs
         public Input<string>? ApiRevisionDescription { get; set; }
 
         /// <summary>
-        /// Type of Api to create. 
-        ///  * `http` creates a SOAP to REST API 
-        ///  * `soap` creates a SOAP pass-through API .
+        /// Type of API.
         /// </summary>
         [Input("apiType")]
         public Input<string>? ApiType { get; set; }
@@ -114,16 +112,18 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101.Inputs
         public Input<string>? ServiceUrl { get; set; }
 
         /// <summary>
+        /// Type of Api to create. 
+        ///  * `http` creates a SOAP to REST API 
+        ///  * `soap` creates a SOAP pass-through API .
+        /// </summary>
+        [Input("soapApiType")]
+        public Input<string>? SoapApiType { get; set; }
+
+        /// <summary>
         /// Protocols over which API is made available.
         /// </summary>
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.SubscriptionKeyParameterNamesContractArgs>? SubscriptionKeyParameterNames { get; set; }
-
-        /// <summary>
-        /// Type of API.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Criteria to limit import of WSDL to a subset of the document.

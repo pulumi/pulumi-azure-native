@@ -36,8 +36,8 @@ namespace Pulumi.AzureRM.Network.V20171001.Inputs
         /// <summary>
         /// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         /// </summary>
-        [Input("minimumTTL")]
-        public Input<int>? MinimumTTL { get; set; }
+        [Input("minimumTtl")]
+        public Input<int>? MinimumTtl { get; set; }
 
         /// <summary>
         /// The refresh value for this SOA record.

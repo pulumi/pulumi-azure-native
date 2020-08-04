@@ -39,12 +39,6 @@ namespace Pulumi.AzureRM.Insights.V20150501.Inputs
         [Input("Frequency")]
         public Input<int>? Frequency { get; set; }
 
-        /// <summary>
-        /// The kind of web test this is, valid choices are ping and multistep.
-        /// </summary>
-        [Input("Kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
-
         [Input("Locations", required: true)]
         private InputList<Inputs.WebTestGeolocationArgs>? _Locations;
 
@@ -56,12 +50,6 @@ namespace Pulumi.AzureRM.Insights.V20150501.Inputs
             get => _Locations ?? (_Locations = new InputList<Inputs.WebTestGeolocationArgs>());
             set => _Locations = value;
         }
-
-        /// <summary>
-        /// User defined name if this WebTest.
-        /// </summary>
-        [Input("Name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Allow for retries should this WebTest fail.
@@ -80,6 +68,18 @@ namespace Pulumi.AzureRM.Insights.V20150501.Inputs
         /// </summary>
         [Input("Timeout")]
         public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// The kind of web test this is, valid choices are ping and multistep.
+        /// </summary>
+        [Input("webTestKind", required: true)]
+        public Input<string> WebTestKind { get; set; } = null!;
+
+        /// <summary>
+        /// User defined name if this WebTest.
+        /// </summary>
+        [Input("webTestName", required: true)]
+        public Input<string> WebTestName { get; set; } = null!;
 
         public WebTestPropertiesArgs()
         {

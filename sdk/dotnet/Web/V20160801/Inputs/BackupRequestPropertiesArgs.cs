@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Web.V20160801.Inputs
     public sealed class BackupRequestPropertiesArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of the backup.
+        /// </summary>
+        [Input("backupRequestName", required: true)]
+        public string BackupRequestName { get; set; } = null!;
+
+        /// <summary>
         /// Schedule for the backup if it is executed periodically.
         /// </summary>
         [Input("backupSchedule")]
@@ -38,12 +44,6 @@ namespace Pulumi.AzureRM.Web.V20160801.Inputs
         /// </summary>
         [Input("enabled")]
         public bool? Enabled { get; set; }
-
-        /// <summary>
-        /// Name of the backup.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// SAS URL to the container.

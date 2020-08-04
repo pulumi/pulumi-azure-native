@@ -24,8 +24,8 @@ namespace Pulumi.AzureRM.Storage.V20180701.Inputs
         /// <summary>
         /// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("iPAddressOrRange", required: true)]
+        public Input<string> IPAddressOrRange { get; set; } = null!;
 
         public IPRuleArgs()
         {

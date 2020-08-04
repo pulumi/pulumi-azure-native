@@ -28,9 +28,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Inputs
         public Input<string>? ApiRevisionDescription { get; set; }
 
         /// <summary>
-        /// Type of Api to create. 
-        ///  * `http` creates a SOAP to REST API 
-        ///  * `soap` creates a SOAP pass-through API .
+        /// Type of API.
         /// </summary>
         [Input("apiType")]
         public Input<string>? ApiType { get; set; }
@@ -114,6 +112,14 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Inputs
         public Input<string>? ServiceUrl { get; set; }
 
         /// <summary>
+        /// Type of Api to create. 
+        ///  * `http` creates a SOAP to REST API 
+        ///  * `soap` creates a SOAP pass-through API .
+        /// </summary>
+        [Input("soapApiType")]
+        public Input<string>? SoapApiType { get; set; }
+
+        /// <summary>
         /// API identifier of the source API.
         /// </summary>
         [Input("sourceApiId")]
@@ -130,12 +136,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201.Inputs
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
-
-        /// <summary>
-        /// Type of API.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// Content value when Importing an API.

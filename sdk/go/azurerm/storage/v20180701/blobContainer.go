@@ -89,10 +89,10 @@ func (BlobContainerState) ElementType() reflect.Type {
 type blobContainerArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
+	// Properties of the blob container.
+	ContainerProperties *ContainerProperties `pulumi:"containerProperties"`
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	Name string `pulumi:"name"`
-	// Properties of the blob container.
-	Properties *ContainerProperties `pulumi:"properties"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -101,10 +101,10 @@ type blobContainerArgs struct {
 type BlobContainerArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
+	// Properties of the blob container.
+	ContainerProperties ContainerPropertiesPtrInput
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	Name pulumi.StringInput
-	// Properties of the blob container.
-	Properties ContainerPropertiesPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

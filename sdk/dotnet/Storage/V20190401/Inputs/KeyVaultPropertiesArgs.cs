@@ -18,20 +18,20 @@ namespace Pulumi.AzureRM.Storage.V20190401.Inputs
         /// <summary>
         /// The name of KeyVault key.
         /// </summary>
-        [Input("keyname")]
-        public Input<string>? Keyname { get; set; }
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         /// <summary>
         /// The Uri of KeyVault.
         /// </summary>
-        [Input("keyvaulturi")]
-        public Input<string>? Keyvaulturi { get; set; }
+        [Input("keyVaultUri")]
+        public Input<string>? KeyVaultUri { get; set; }
 
         /// <summary>
         /// The version of KeyVault key.
         /// </summary>
-        [Input("keyversion")]
-        public Input<string>? Keyversion { get; set; }
+        [Input("keyVersion")]
+        public Input<string>? KeyVersion { get; set; }
 
         public KeyVaultPropertiesArgs()
         {

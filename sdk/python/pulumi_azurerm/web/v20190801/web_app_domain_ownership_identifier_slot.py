@@ -41,7 +41,7 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
 
         The **properties** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - String representation of the identity.
+          * `value` (`pulumi.Input[str]`) - String representation of the identity.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

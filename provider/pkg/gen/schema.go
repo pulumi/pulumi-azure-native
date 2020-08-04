@@ -146,14 +146,14 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		Description: resourceResponse.description,
 		Type:        "object",
 		Properties:  resourceResponse.specs,
-		Required:    resourceResponse.required.SortedValues(),
+		Required:    resourceResponse.requiredSpecs.SortedValues(),
 	}
 	g.pkg.Types[resourceTok] = objectSpec
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec:  objectSpec,
 		InputProperties: resourceRequest.specs,
-		RequiredInputs:  resourceRequest.required.SortedValues(),
+		RequiredInputs:  resourceRequest.requiredSpecs.SortedValues(),
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
@@ -178,13 +178,13 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 			Description: requestFunction.description,
 			Type:        "object",
 			Properties:  requestFunction.specs,
-			Required:    requestFunction.required.SortedValues(),
+			Required:    requestFunction.requiredSpecs.SortedValues(),
 		},
 		Outputs: &pschema.ObjectTypeSpec{
 			Description: responseFunction.description,
 			Type:        "object",
 			Properties:  responseFunction.specs,
-			Required:    responseFunction.required.SortedValues(),
+			Required:    responseFunction.requiredSpecs.SortedValues(),
 		},
 	}
 	g.pkg.Functions[functionTok] = functionSpec
@@ -254,13 +254,13 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 			Description: request.description,
 			Type:        "object",
 			Properties:  request.specs,
-			Required:    request.required.SortedValues(),
+			Required:    request.requiredSpecs.SortedValues(),
 		},
 		Outputs: &pschema.ObjectTypeSpec{
 			Description: response.description,
 			Type:        "object",
 			Properties:  response.specs,
-			Required:    response.required.SortedValues(),
+			Required:    response.requiredSpecs.SortedValues(),
 		},
 	}
 	g.pkg.Functions[functionTok] = functionSpec
@@ -304,22 +304,32 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *paramete
 		part := parts[i]
 		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
 			name := part[1 : len(part)-1]
-			if nameProp, ok := requestProperties.specs[name]; ok {
-				// We expect names to be always a required string.
-				if nameProp.Type != "string" {
-					return errors.Errorf("name property '%s' is not a string", name)
+			sdkName := name
+			for _, v := range requestProperties.parameters {
+				if v.Name == name {
+					prop := v.Value
+					if prop.SdkName != "" {
+						sdkName = prop.SdkName
+					}
+					// We expect names to be always a required string.
+					if prop.Type != "string" {
+						return errors.Errorf("name property '%s' is not a string", name)
+					}
+					prop.SdkName = "name"
+					break
 				}
-				if !requestProperties.required.Has(name) {
-					return errors.Errorf("name property '%s' is not required", name)
-				}
-
-				delete(requestProperties.specs, name)
+			}
+			if !requestProperties.requiredSpecs.Has(sdkName) {
+				return errors.Errorf("name property '%s' is not required", name)
+			}
+			if nameProp, ok := requestProperties.specs[sdkName]; ok {
+				delete(requestProperties.specs, sdkName)
 				requestProperties.specs["name"] = nameProp
-				requestProperties.required.Delete(name)
-				requestProperties.required.Add("name")
+				requestProperties.requiredSpecs.Delete(sdkName)
+				requestProperties.requiredSpecs.Add("name")
 				break
 			} else {
-				return errors.Errorf("name property '%s' not found", name)
+				return errors.Errorf("name property '%s' not found", sdkName)
 			}
 		}
 	}
@@ -350,6 +360,12 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			},
 		}
 
+		name := param.Name
+		if clientName, ok := param.Extensions.GetString("x-ms-client-name"); ok {
+			name = firstToLower(clientName)
+			apiParameter.Value.SdkName = name
+		}
+
 		switch {
 		case param.Name == "subscriptionId":
 		case !isLegalIdentifier(param.Name): // If-Match, Accept-Header, x-ms-foobar, ...
@@ -374,7 +390,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			result.merge(props)
 			apiParameter.Body = &provider.AzureApiType{
 				Properties:         props.properties,
-				RequiredProperties: props.required.SortedValues(),
+				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
 
 		default:
@@ -384,9 +400,9 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 					Type: param.Type,
 				},
 			}
-			result.specs[param.Name] = propertySpec
+			result.specs[name] = propertySpec
 			if param.Required {
-				result.required.Add(param.Name)
+				result.requiredSpecs.Add(name)
 			}
 		}
 
@@ -439,12 +455,12 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 
 		// Id is a property of the base Custom Resource, we don't want to introduce it on derived resources.
 		delete(result.specs, "id")
-		result.required.Delete("id")
+		result.requiredSpecs.Delete("id")
 
 		// Special case the 'properties' output property as required.
 		// This should be gone when we apply flattening.
 		if _, ok := result.specs["properties"]; ok {
-			result.required.Add("properties")
+			result.requiredSpecs.Add("properties")
 		}
 
 		result.description = responseSchema.Description
@@ -466,7 +482,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 
 	for _, name := range names {
 		property := resolvedSchema.Properties[name]
-		if !isLegalIdentifier(name) {
+		sdkName := name
+		if clientName, ok := property.Extensions.GetString("x-ms-client-name"); ok && !isOutput {
+			sdkName = firstToLower(clientName)
+		}
+		if !isLegalIdentifier(sdkName) {
 			// TODO: Support mapping to a legal name, or make the schema codegen do so?
 			continue
 		}
@@ -477,12 +497,13 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		if isOutput {
-			result.specs[name] = *propertySpec
+			result.specs[sdkName] = *propertySpec
 			if property.ReadOnly {
-				result.required.Add(name)
+				result.requiredSpecs.Add(sdkName)
 			}
+			result.properties[name] = provider.AzureApiProperty{}
 		} else if !property.ReadOnly {
-			result.specs[name] = *propertySpec
+			result.specs[sdkName] = *propertySpec
 			var items *provider.AzureApiProperty
 			if propertySpec.Items != nil {
 				items = &provider.AzureApiProperty{
@@ -494,7 +515,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			if err != nil {
 				return nil, err
 			}
-			result.properties[name] = provider.AzureApiProperty{
+			apiProperty := provider.AzureApiProperty{
 				Type:      propertySpec.Type,
 				Items:     items,
 				Enum:      m.getEnumValues(&property),
@@ -505,6 +526,10 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				MaxLength: resolvedProperty.MaxLength,
 				Pattern:   resolvedProperty.Pattern,
 			}
+			if sdkName != name {
+				apiProperty.SdkName = sdkName
+			}
+			result.properties[name] = apiProperty
 		}
 	}
 
@@ -523,8 +548,13 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	}
 
 	for _, name := range resolvedSchema.Required {
-		if _, ok := result.specs[name]; ok {
-			result.required.Add(name)
+		if prop, ok := result.properties[name]; ok {
+			if prop.SdkName != "" {
+				result.requiredSpecs.Add(prop.SdkName)
+			} else {
+				result.requiredSpecs.Add(name)
+			}
+			result.requiredProperties.Add(name)
 		}
 	}
 	return result, nil
@@ -622,13 +652,13 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 				Description: resolvedSchema.Description,
 				Type:        "object",
 				Properties:  props.specs,
-				Required:    props.required.SortedValues(),
+				Required:    props.requiredSpecs.SortedValues(),
 			}
 
 			if !isOutput {
 				m.metadata.Types[tok] = provider.AzureApiType{
 					Properties:         props.properties,
-					RequiredProperties: props.required.SortedValues(),
+					RequiredProperties: props.requiredProperties.SortedValues(),
 				}
 			}
 		}
@@ -691,16 +721,16 @@ func isPrimitiveType(typeName string) bool {
 
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.
 type parameterBag struct {
-	description string
-	specs       map[string]pschema.PropertySpec
-	parameters  []provider.AzureApiParameter
-	required    codegen.StringSet
+	description   string
+	specs         map[string]pschema.PropertySpec
+	parameters    []provider.AzureApiParameter
+	requiredSpecs codegen.StringSet
 }
 
 func newParameterBag() *parameterBag {
 	return &parameterBag{
-		specs:    map[string]pschema.PropertySpec{},
-		required: codegen.NewStringSet(),
+		specs:         map[string]pschema.PropertySpec{},
+		requiredSpecs: codegen.NewStringSet(),
 	}
 }
 
@@ -708,24 +738,26 @@ func (bag *parameterBag) merge(other *propertyBag) {
 	for key, value := range other.specs {
 		bag.specs[key] = value
 	}
-	for key, _ := range other.required {
-		bag.required.Add(key)
+	for key, _ := range other.requiredSpecs {
+		bag.requiredSpecs.Add(key)
 	}
 }
 
 // propertyBag keeps the schema and metadata properties for a single API type.
 type propertyBag struct {
-	description string
-	specs       map[string]pschema.PropertySpec
-	properties  map[string]provider.AzureApiProperty
-	required    codegen.StringSet
+	description        string
+	specs              map[string]pschema.PropertySpec
+	properties         map[string]provider.AzureApiProperty
+	requiredSpecs      codegen.StringSet
+	requiredProperties codegen.StringSet
 }
 
 func newPropertyBag() *propertyBag {
 	return &propertyBag{
-		specs:      map[string]pschema.PropertySpec{},
-		properties: map[string]provider.AzureApiProperty{},
-		required:   codegen.NewStringSet(),
+		specs:              map[string]pschema.PropertySpec{},
+		properties:         map[string]provider.AzureApiProperty{},
+		requiredSpecs:      codegen.NewStringSet(),
+		requiredProperties: codegen.NewStringSet(),
 	}
 }
 
@@ -736,8 +768,11 @@ func (bag *propertyBag) merge(other *propertyBag) {
 	for key, value := range other.properties {
 		bag.properties[key] = value
 	}
-	for key, _ := range other.required {
-		bag.required.Add(key)
+	for key, _ := range other.requiredSpecs {
+		bag.requiredSpecs.Add(key)
+	}
+	for key, _ := range other.requiredProperties {
+		bag.requiredProperties.Add(key)
 	}
 }
 

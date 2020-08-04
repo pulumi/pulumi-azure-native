@@ -54,8 +54,8 @@ namespace Pulumi.AzureRM.Authorization.V20150701.Inputs
         /// <summary>
         /// The role type.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("roleType")]
+        public Input<string>? RoleType { get; set; }
 
         public RoleDefinitionPropertiesArgs()
         {

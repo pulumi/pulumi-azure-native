@@ -156,7 +156,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
     },
     kind: "StorageV2",
     properties: {
-        supportsHttpsTrafficOnly: true,
+        enableHttpsTrafficOnly: true,
     }
 });
 

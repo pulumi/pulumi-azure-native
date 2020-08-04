@@ -22,12 +22,6 @@ namespace Pulumi.AzureRM.Insights.V20150501.Inputs
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        /// </summary>
-        [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
         /// The user-defined name of the workbook.
         /// </summary>
         [Input("name", required: true)]
@@ -38,6 +32,12 @@ namespace Pulumi.AzureRM.Insights.V20150501.Inputs
         /// </summary>
         [Input("serializedData", required: true)]
         public Input<string> SerializedData { get; set; } = null!;
+
+        /// <summary>
+        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// </summary>
+        [Input("sharedTypeKind", required: true)]
+        public Input<string> SharedTypeKind { get; set; } = null!;
 
         /// <summary>
         /// Optional resourceId for a source resource.
