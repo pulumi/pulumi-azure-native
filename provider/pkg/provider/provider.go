@@ -251,7 +251,7 @@ func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map
 				propCtx = fmt.Sprintf("%s.%s", ctx, name)
 			}
 			failures = append(failures, &rpc.CheckFailure{
-				Reason: fmt.Sprintf("missing required property '%s.%s'", propCtx, name),
+				Reason: fmt.Sprintf("missing required property '%s'", propCtx),
 			})
 		}
 	}
