@@ -50,6 +50,9 @@ type AzureApiProperty struct {
 	Pattern   string            `json:"pattern,omitempty"`
 	// The name in the SDK if different from the wire-serialized name, empty otherwise.
 	SdkName string `json:"sdkName,omitempty"`
+	// The name of a container property that was "flattened" during SDK generation, i.e. an extra layer that exists
+	// in the API payload but does not exist in the SDK.
+	Container string `json:"flatten,omitempty"`
 }
 
 // AzureApiType represents the shape of an object property.

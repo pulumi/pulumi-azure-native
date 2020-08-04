@@ -491,6 +491,30 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
+		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
+		if flatten, ok := property.Extensions.GetBool("x-ms-client-flatten"); ok && flatten && !isOutput {
+			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
+			if err != nil {
+				return nil, err
+			}
+
+			bag, err := m.genProperties(resolvedProperty, isOutput)
+			if err != nil {
+				return nil, err
+			}
+
+			// Adjust every property to mark them as flattened.
+			newProperties := map[string]provider.AzureApiProperty{}
+			for n, value := range bag.properties {
+				value.Container = name
+				newProperties[n] = value
+			}
+			bag.properties = newProperties
+
+			result.merge(bag)
+			continue
+		}
+
 		propertySpec, err := m.genProperty(&property, resolvedSchema.ReferenceContext, isOutput)
 		if err != nil {
 			return nil, err
