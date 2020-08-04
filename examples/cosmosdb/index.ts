@@ -27,22 +27,20 @@ export const cosmosdbAccount = new cosmosdb.DatabaseAccount("pulumicosmosdb", {
 //     name: "pulumicosmosdb",
 //     location: resourceGroup.location,
 //     kind: "GlobalDocumentDB",
-//     properties: {
-//         consistencyPolicy: {
-//             defaultConsistencyLevel: "Session",
-//         },        
-//         locations: [{
-//             locationName: "westeurope",
-//             failoverPriority: 0,
-//             isZoneRedundant: false
-//         }, {
-//             locationName: "northeurope",
-//             failoverPriority: 1,
-//             isZoneRedundant: false
-//         }],
-//         databaseAccountOfferType: "Standard",
-//         enableAutomaticFailover: true,
-//         capabilities: [],
-//         enableMultipleWriteLocations: true,
-//     }
+//     consistencyPolicy: {
+//         defaultConsistencyLevel: "Session",
+//     },        
+//     locations: [{
+//         locationName: "westeurope",
+//         failoverPriority: 0,
+//         isZoneRedundant: false
+//     }, {
+//         locationName: "northeurope",
+//         failoverPriority: 1,
+//         isZoneRedundant: false
+//     }],
+//     databaseAccountOfferType: "Standard",
+//     enableAutomaticFailover: true,
+//     capabilities: [],
+//     enableMultipleWriteLocations: true,
 // });

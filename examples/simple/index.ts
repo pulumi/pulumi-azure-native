@@ -13,15 +13,13 @@ const resourceGroup = new azurerm.resources.v20200601.ResourceGroup("rg", {
 const staticSite = new azurerm.web.v20190801.StaticSite("staticsite", {
     resourceGroupName: resourceGroup.name,
     location: "westus2",
-    properties: {
-        repositoryUrl: "",
-        branch: "master",
-        repositoryToken: "",
-        buildProperties: {
-            appLocation: "/",
-            apiLocation: "api",
-            appArtifactLocation: ""
-        }
+    repositoryUrl: "",
+    branch: "master",
+    repositoryToken: "",
+    buildProperties: {
+        appLocation: "/",
+        apiLocation: "api",
+        appArtifactLocation: ""
     },
     sku: {
         tier: "Free",
@@ -35,94 +33,76 @@ const containerinstance = new azurerm.containerinstance.v20191201.ContainerGroup
     // should be autonamed?
     name: "abc-1234",
     location: "westus2",
-    // should be inlined via 'x-ms-client-flatten'
-    properties: {
-        osType: "Linux",
-        containers: [{
-            name: "foo",
-            // should be inlined via 'x-ms-client-flatten'
-            properties: {
-                image: "nginx",
-                resources: {
-                    requests: {
-                        memoryInGB: 1,
-                        cpu: 1,
-                    },
-                },
+    osType: "Linux",
+    containers: [{
+        name: "foo",
+        image: "nginx",
+        resources: {
+            requests: {
+                memoryInGB: 1,
+                cpu: 1,
             },
-        }],
-    },
+        },
+    }],
 });
 
 const vnet = new azurerm.network.v20200501.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
     name: "vnet-1234",
     location: "westus2",
-    properties: {
-        addressSpace: {
-            addressPrefixes: ["10.1.0.0/16"],
-        },
-        subnets: [{
-            name: "default",
-            properties: {
-                addressPrefix: "10.1.0.0/24",
-            },
-        }],
+    addressSpace: {
+        addressPrefixes: ["10.1.0.0/16"],
     },
+    subnets: [{
+        name: "default",
+        addressPrefix: "10.1.0.0/24",
+    }],
 });
 
 const subnet = new azurerm.network.v20200501.Subnet("subnet2", {
     resourceGroupName: resourceGroup.name,
     name: "subnet2",
     virtualNetworkName: vnet.name,
-    properties: {
-        addressPrefix: "10.1.1.0/24"
-    },
+    addressPrefix: "10.1.1.0/24",
 });
 
 const networkInterface = new azurerm.network.v20200501.NetworkInterface("nic", {
     resourceGroupName: resourceGroup.name,
     name: "nic-1234",
     location: "westus2",
-    properties: {
-        ipConfigurations: [{
-            name: "ipconfig1",
-            properties: {
-                subnet: {
-                    id: pulumi.interpolate`${vnet.id}/subnets/default`,
-                },
-                privateIPAllocationMethod: "Dynamic",
-            },
-        }],
-    },
+    ipConfigurations: [{
+        name: "ipconfig1",
+        subnet: {
+            id: pulumi.interpolate`${vnet.id}/subnets/default`,
+        },
+        privateIPAllocationMethod: "Dynamic",
+    }],
 });
 
 const virtualmachine  = new azurerm.compute.v20200601.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
     name: "abc-1234",
     location: "westus2",
-    properties: {
-        hardwareProfile: {
-            vmSize: "Standard_A0",
-        },
-        networkProfile: {
-            networkInterfaces: [{
-                id: networkInterface.id,
-            }],
-        },
-        storageProfile: {
-            imageReference: {
-                publisher: "Canonical",
-                offer: "UbuntuServer",
-                sku: "18.04-LTS",
-                version: "latest"
-            }
-        },
-        osProfile: {
-            computerName: "foo",
-            adminUsername: "someusername",
-            adminPassword: "someFancyp@wd2!",
-        },
+    hardwareProfile: {
+        vmSize: "Standard_A0",
+    },
+    networkProfile: {
+        networkInterfaces: [{
+            id: networkInterface.id,
+        }],
+    },
+    storageProfile: {
+        imageReference: {
+            publisher: "Canonical",
+            offer: "UbuntuServer",
+            sku: "18.04-LTS",
+            version: "latest"
+        }
+    },
+    osProfile: {
+        computerName: "foo",
+        adminUsername: "someusername",
+        adminPassword: "someFancyp@wd2!",
     },
 });
 
@@ -141,9 +121,7 @@ const appService = new azurerm.web.v20190801.WebApp("app", {
     resourceGroupName: resourceGroup.name,
     name: "pulumiapp2418a",
     location: "westus2",
-    properties: {
-        serverFarmId: appServicePlan.id,
-    },
+    serverFarmId: appServicePlan.id,
 });
 
 const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
@@ -155,9 +133,7 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("sa", {
         tier: "Standard",
     },
     kind: "StorageV2",
-    properties: {
-        enableHttpsTrafficOnly: true,
-    }
+    enableHttpsTrafficOnly: true,
 });
 
 export const staticWebsiteUrl = pulumi.interpolate`https://${staticSite.properties.defaultHostname}`;
