@@ -30,14 +30,14 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Inputs
         /// <summary>
         /// The Uri of KeyVault.
         /// </summary>
-        [Input("keyvaulturi")]
-        public Input<string>? Keyvaulturi { get; set; }
+        [Input("keyVaultUri")]
+        public Input<string>? KeyVaultUri { get; set; }
 
         /// <summary>
         /// The version of KeyVault key.
         /// </summary>
-        [Input("keyversion")]
-        public Input<string>? Keyversion { get; set; }
+        [Input("keyVersion")]
+        public Input<string>? KeyVersion { get; set; }
 
         public EncryptionArgs()
         {

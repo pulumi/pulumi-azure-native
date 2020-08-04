@@ -70,14 +70,14 @@ class WebTest(pulumi.CustomResource):
           * `description` (`pulumi.Input[str]`) - Purpose/user defined descriptive test for this WebTest.
           * `enabled` (`pulumi.Input[bool]`) - Is the test actively being monitored.
           * `frequency` (`pulumi.Input[float]`) - Interval in seconds between test runs for this WebTest. Default value is 300.
-          * `kind` (`pulumi.Input[str]`) - The kind of web test this is, valid choices are ping and multistep.
           * `locations` (`pulumi.Input[list]`) - A list of where to physically run the tests from to give global coverage for accessibility of your application.
-            * `id` (`pulumi.Input[str]`) - Location ID for the webtest to run from.
+            * `location` (`pulumi.Input[str]`) - Location ID for the webtest to run from.
 
-          * `name` (`pulumi.Input[str]`) - User defined name if this WebTest.
           * `retry_enabled` (`pulumi.Input[bool]`) - Allow for retries should this WebTest fail.
           * `synthetic_monitor_id` (`pulumi.Input[str]`) - Unique ID of this WebTest. This is typically the same value as the Name field.
           * `timeout` (`pulumi.Input[float]`) - Seconds until this WebTest will timeout and fail. Default value is 30.
+          * `web_test_kind` (`pulumi.Input[str]`) - The kind of web test this is, valid choices are ping and multistep.
+          * `web_test_name` (`pulumi.Input[str]`) - User defined name if this WebTest.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

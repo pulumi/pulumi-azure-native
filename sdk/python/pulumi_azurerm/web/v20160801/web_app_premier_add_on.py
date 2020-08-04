@@ -60,7 +60,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
           * `location` (`pulumi.Input[str]`) - Premier add on Location.
           * `marketplace_offer` (`pulumi.Input[str]`) - Premier add on Marketplace offer.
           * `marketplace_publisher` (`pulumi.Input[str]`) - Premier add on Marketplace publisher.
-          * `name` (`pulumi.Input[str]`) - Premier add on Name.
+          * `premier_add_on_name` (`pulumi.Input[str]`) - Premier add on Name.
           * `product` (`pulumi.Input[str]`) - Premier add on Product.
           * `sku` (`pulumi.Input[str]`) - Premier add on SKU.
           * `tags` (`pulumi.Input[dict]`) - Premier add on Tags.

@@ -22,16 +22,22 @@ namespace Pulumi.AzureRM.Storage.V20181101.Inputs
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// Enables Azure Files AAD Integration for SMB if sets to true.
-        /// </summary>
-        [Input("azureFilesAadIntegration")]
-        public Input<bool>? AzureFilesAadIntegration { get; set; }
-
-        /// <summary>
         /// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         /// </summary>
         [Input("customDomain")]
         public Input<Inputs.CustomDomainArgs>? CustomDomain { get; set; }
+
+        /// <summary>
+        /// Enables Azure Files AAD Integration for SMB if sets to true.
+        /// </summary>
+        [Input("enableAzureFilesAadIntegration")]
+        public Input<bool>? EnableAzureFilesAadIntegration { get; set; }
+
+        /// <summary>
+        /// Allows https traffic only to storage service if sets to true.
+        /// </summary>
+        [Input("enableHttpsTrafficOnly")]
+        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
 
         /// <summary>
         /// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
@@ -48,14 +54,8 @@ namespace Pulumi.AzureRM.Storage.V20181101.Inputs
         /// <summary>
         /// Network rule set
         /// </summary>
-        [Input("networkAcls")]
-        public Input<Inputs.NetworkRuleSetArgs>? NetworkAcls { get; set; }
-
-        /// <summary>
-        /// Allows https traffic only to storage service if sets to true.
-        /// </summary>
-        [Input("supportsHttpsTrafficOnly")]
-        public Input<bool>? SupportsHttpsTrafficOnly { get; set; }
+        [Input("networkRuleSet")]
+        public Input<Inputs.NetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         public StorageAccountPropertiesCreateParametersArgs()
         {

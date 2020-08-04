@@ -50,7 +50,6 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         The **properties** object supports the following:
 
           * `end_address` (`pulumi.Input[str]`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-          * `name` (`pulumi.Input[str]`) - The name of this route. This is only returned by the server and does not need to be set by the client.
           * `route_type` (`pulumi.Input[str]`) - The type of route this is:
             DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
             INHERITED - Routes inherited from the real Virtual Network routes
@@ -58,6 +57,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
             
             These values will be used for syncing an app's routes with those from a Virtual Network.
           * `start_address` (`pulumi.Input[str]`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+          * `vnet_route_name` (`pulumi.Input[str]`) - The name of this route. This is only returned by the server and does not need to be set by the client.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

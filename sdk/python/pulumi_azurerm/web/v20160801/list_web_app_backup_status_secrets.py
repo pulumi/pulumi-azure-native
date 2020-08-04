@@ -63,6 +63,7 @@ def list_web_app_backup_status_secrets(kind=None, name=None, properties=None, re
 
     The **properties** object supports the following:
 
+      * `backup_request_name` (`str`) - Name of the backup.
       * `backup_schedule` (`dict`) - Schedule for the backup if it is executed periodically.
         * `frequency_interval` (`float`) - How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         * `frequency_unit` (`str`) - The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
@@ -78,7 +79,6 @@ def list_web_app_backup_status_secrets(kind=None, name=None, properties=None, re
         * `name` (`str`)
 
       * `enabled` (`bool`) - True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-      * `name` (`str`) - Name of the backup.
       * `storage_account_url` (`str`) - SAS URL to the container.
       * `type` (`str`) - Type of the backup.
     """

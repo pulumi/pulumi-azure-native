@@ -943,7 +943,7 @@ type Encryption struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource string `pulumi:"keySource"`
 	// Properties provided by key vault.
-	Keyvaultproperties *KeyVaultProperties `pulumi:"keyvaultproperties"`
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// List of services which support encryption.
 	Services *EncryptionServices `pulumi:"services"`
 }
@@ -964,7 +964,7 @@ type EncryptionArgs struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
 	KeySource pulumi.StringInput `pulumi:"keySource"`
 	// Properties provided by key vault.
-	Keyvaultproperties KeyVaultPropertiesPtrInput `pulumi:"keyvaultproperties"`
+	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 	// List of services which support encryption.
 	Services EncryptionServicesPtrInput `pulumi:"services"`
 }
@@ -1053,8 +1053,8 @@ func (o EncryptionOutput) KeySource() pulumi.StringOutput {
 }
 
 // Properties provided by key vault.
-func (o EncryptionOutput) Keyvaultproperties() KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v Encryption) *KeyVaultProperties { return v.Keyvaultproperties }).(KeyVaultPropertiesPtrOutput)
+func (o EncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v Encryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
 }
 
 // List of services which support encryption.
@@ -1091,12 +1091,12 @@ func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 }
 
 // Properties provided by key vault.
-func (o EncryptionPtrOutput) Keyvaultproperties() KeyVaultPropertiesPtrOutput {
+func (o EncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *Encryption) *KeyVaultProperties {
 		if v == nil {
 			return nil
 		}
-		return v.Keyvaultproperties
+		return v.KeyVaultProperties
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
@@ -2319,7 +2319,7 @@ type IPRule struct {
 	// The action of IP ACL rule.
 	Action *string `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	Value string `pulumi:"value"`
+	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
 }
 
 // IPRuleInput is an input type that accepts IPRuleArgs and IPRuleOutput values.
@@ -2338,7 +2338,7 @@ type IPRuleArgs struct {
 	// The action of IP ACL rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-	Value pulumi.StringInput `pulumi:"value"`
+	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
 func (IPRuleArgs) ElementType() reflect.Type {
@@ -2399,8 +2399,8 @@ func (o IPRuleOutput) Action() pulumi.StringPtrOutput {
 }
 
 // Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-func (o IPRuleOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v IPRule) string { return v.Value }).(pulumi.StringOutput)
+func (o IPRuleOutput) IPAddressOrRange() pulumi.StringOutput {
+	return o.ApplyT(func(v IPRule) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
 }
 
 type IPRuleArrayOutput struct{ *pulumi.OutputState }
@@ -3355,11 +3355,11 @@ func (o ImmutabilityPolicyPropertyResponsePtrOutput) State() pulumi.StringPtrOut
 // Properties of key vault.
 type KeyVaultProperties struct {
 	// The name of KeyVault key.
-	Keyname *string `pulumi:"keyname"`
+	KeyName *string `pulumi:"keyName"`
 	// The Uri of KeyVault.
-	Keyvaulturi *string `pulumi:"keyvaulturi"`
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion *string `pulumi:"keyversion"`
+	KeyVersion *string `pulumi:"keyVersion"`
 }
 
 // KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
@@ -3376,11 +3376,11 @@ type KeyVaultPropertiesInput interface {
 // Properties of key vault.
 type KeyVaultPropertiesArgs struct {
 	// The name of KeyVault key.
-	Keyname pulumi.StringPtrInput `pulumi:"keyname"`
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// The Uri of KeyVault.
-	Keyvaulturi pulumi.StringPtrInput `pulumi:"keyvaulturi"`
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 	// The version of KeyVault key.
-	Keyversion pulumi.StringPtrInput `pulumi:"keyversion"`
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
 func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
@@ -3462,18 +3462,18 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx c
 }
 
 // The name of KeyVault key.
-func (o KeyVaultPropertiesOutput) Keyname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.Keyname }).(pulumi.StringPtrOutput)
+func (o KeyVaultPropertiesOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // The Uri of KeyVault.
-func (o KeyVaultPropertiesOutput) Keyvaulturi() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.Keyvaulturi }).(pulumi.StringPtrOutput)
+func (o KeyVaultPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o KeyVaultPropertiesOutput) Keyversion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *string { return v.Keyversion }).(pulumi.StringPtrOutput)
+func (o KeyVaultPropertiesOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
 
 type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3495,32 +3495,32 @@ func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
 }
 
 // The name of KeyVault key.
-func (o KeyVaultPropertiesPtrOutput) Keyname() pulumi.StringPtrOutput {
+func (o KeyVaultPropertiesPtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyname
+		return v.KeyName
 	}).(pulumi.StringPtrOutput)
 }
 
 // The Uri of KeyVault.
-func (o KeyVaultPropertiesPtrOutput) Keyvaulturi() pulumi.StringPtrOutput {
+func (o KeyVaultPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyvaulturi
+		return v.KeyVaultUri
 	}).(pulumi.StringPtrOutput)
 }
 
 // The version of KeyVault key.
-func (o KeyVaultPropertiesPtrOutput) Keyversion() pulumi.StringPtrOutput {
+func (o KeyVaultPropertiesPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Keyversion
+		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5300,18 +5300,18 @@ func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAc
 type StorageAccountPropertiesCreateParameters struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
 	AccessTier *string `pulumi:"accessTier"`
-	// Enables Azure Files AAD Integration for SMB if sets to true.
-	AzureFilesAadIntegration *bool `pulumi:"azureFilesAadIntegration"`
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
 	CustomDomain *CustomDomain `pulumi:"customDomain"`
+	// Enables Azure Files AAD Integration for SMB if sets to true.
+	EnableAzureFilesAadIntegration *bool `pulumi:"enableAzureFilesAadIntegration"`
+	// Allows https traffic only to storage service if sets to true.
+	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
 	Encryption *Encryption `pulumi:"encryption"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Network rule set
-	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
-	// Allows https traffic only to storage service if sets to true.
-	SupportsHttpsTrafficOnly *bool `pulumi:"supportsHttpsTrafficOnly"`
+	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 }
 
 // StorageAccountPropertiesCreateParametersInput is an input type that accepts StorageAccountPropertiesCreateParametersArgs and StorageAccountPropertiesCreateParametersOutput values.
@@ -5329,18 +5329,18 @@ type StorageAccountPropertiesCreateParametersInput interface {
 type StorageAccountPropertiesCreateParametersArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
 	AccessTier pulumi.StringPtrInput `pulumi:"accessTier"`
-	// Enables Azure Files AAD Integration for SMB if sets to true.
-	AzureFilesAadIntegration pulumi.BoolPtrInput `pulumi:"azureFilesAadIntegration"`
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
 	CustomDomain CustomDomainPtrInput `pulumi:"customDomain"`
+	// Enables Azure Files AAD Integration for SMB if sets to true.
+	EnableAzureFilesAadIntegration pulumi.BoolPtrInput `pulumi:"enableAzureFilesAadIntegration"`
+	// Allows https traffic only to storage service if sets to true.
+	EnableHttpsTrafficOnly pulumi.BoolPtrInput `pulumi:"enableHttpsTrafficOnly"`
 	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
 	Encryption EncryptionPtrInput `pulumi:"encryption"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled pulumi.BoolPtrInput `pulumi:"isHnsEnabled"`
 	// Network rule set
-	NetworkAcls NetworkRuleSetPtrInput `pulumi:"networkAcls"`
-	// Allows https traffic only to storage service if sets to true.
-	SupportsHttpsTrafficOnly pulumi.BoolPtrInput `pulumi:"supportsHttpsTrafficOnly"`
+	NetworkRuleSet NetworkRuleSetPtrInput `pulumi:"networkRuleSet"`
 }
 
 func (StorageAccountPropertiesCreateParametersArgs) ElementType() reflect.Type {
@@ -5426,14 +5426,19 @@ func (o StorageAccountPropertiesCreateParametersOutput) AccessTier() pulumi.Stri
 	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *string { return v.AccessTier }).(pulumi.StringPtrOutput)
 }
 
-// Enables Azure Files AAD Integration for SMB if sets to true.
-func (o StorageAccountPropertiesCreateParametersOutput) AzureFilesAadIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.AzureFilesAadIntegration }).(pulumi.BoolPtrOutput)
-}
-
 // User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
 func (o StorageAccountPropertiesCreateParametersOutput) CustomDomain() CustomDomainPtrOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *CustomDomain { return v.CustomDomain }).(CustomDomainPtrOutput)
+}
+
+// Enables Azure Files AAD Integration for SMB if sets to true.
+func (o StorageAccountPropertiesCreateParametersOutput) EnableAzureFilesAadIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.EnableAzureFilesAadIntegration }).(pulumi.BoolPtrOutput)
+}
+
+// Allows https traffic only to storage service if sets to true.
+func (o StorageAccountPropertiesCreateParametersOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
 }
 
 // Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
@@ -5447,13 +5452,8 @@ func (o StorageAccountPropertiesCreateParametersOutput) IsHnsEnabled() pulumi.Bo
 }
 
 // Network rule set
-func (o StorageAccountPropertiesCreateParametersOutput) NetworkAcls() NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *NetworkRuleSet { return v.NetworkAcls }).(NetworkRuleSetPtrOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesCreateParametersOutput) SupportsHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.SupportsHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
+func (o StorageAccountPropertiesCreateParametersOutput) NetworkRuleSet() NetworkRuleSetPtrOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *NetworkRuleSet { return v.NetworkRuleSet }).(NetworkRuleSetPtrOutput)
 }
 
 type StorageAccountPropertiesCreateParametersPtrOutput struct{ *pulumi.OutputState }
@@ -5484,16 +5484,6 @@ func (o StorageAccountPropertiesCreateParametersPtrOutput) AccessTier() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables Azure Files AAD Integration for SMB if sets to true.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) AzureFilesAadIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AzureFilesAadIntegration
-	}).(pulumi.BoolPtrOutput)
-}
-
 // User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
 func (o StorageAccountPropertiesCreateParametersPtrOutput) CustomDomain() CustomDomainPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *CustomDomain {
@@ -5502,6 +5492,26 @@ func (o StorageAccountPropertiesCreateParametersPtrOutput) CustomDomain() Custom
 		}
 		return v.CustomDomain
 	}).(CustomDomainPtrOutput)
+}
+
+// Enables Azure Files AAD Integration for SMB if sets to true.
+func (o StorageAccountPropertiesCreateParametersPtrOutput) EnableAzureFilesAadIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAzureFilesAadIntegration
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Allows https traffic only to storage service if sets to true.
+func (o StorageAccountPropertiesCreateParametersPtrOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHttpsTrafficOnly
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
@@ -5525,23 +5535,13 @@ func (o StorageAccountPropertiesCreateParametersPtrOutput) IsHnsEnabled() pulumi
 }
 
 // Network rule set
-func (o StorageAccountPropertiesCreateParametersPtrOutput) NetworkAcls() NetworkRuleSetPtrOutput {
+func (o StorageAccountPropertiesCreateParametersPtrOutput) NetworkRuleSet() NetworkRuleSetPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *NetworkRuleSet {
 		if v == nil {
 			return nil
 		}
-		return v.NetworkAcls
+		return v.NetworkRuleSet
 	}).(NetworkRuleSetPtrOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) SupportsHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SupportsHttpsTrafficOnly
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Properties of the storage account.
@@ -6423,10 +6423,10 @@ func (o UpdateHistoryPropertyResponseArrayOutput) Index(i pulumi.IntInput) Updat
 type VirtualNetworkRule struct {
 	// The action of virtual network rule.
 	Action *string `pulumi:"action"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	Id string `pulumi:"id"`
 	// Gets the state of virtual network rule.
 	State *string `pulumi:"state"`
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
 }
 
 // VirtualNetworkRuleInput is an input type that accepts VirtualNetworkRuleArgs and VirtualNetworkRuleOutput values.
@@ -6444,10 +6444,10 @@ type VirtualNetworkRuleInput interface {
 type VirtualNetworkRuleArgs struct {
 	// The action of virtual network rule.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-	Id pulumi.StringInput `pulumi:"id"`
 	// Gets the state of virtual network rule.
 	State pulumi.StringPtrInput `pulumi:"state"`
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -6507,14 +6507,14 @@ func (o VirtualNetworkRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-func (o VirtualNetworkRuleOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
-}
-
 // Gets the state of virtual network rule.
 func (o VirtualNetworkRuleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+func (o VirtualNetworkRuleOutput) VirtualNetworkResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
 }
 
 type VirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }

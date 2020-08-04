@@ -56,3 +56,12 @@ func makeLegalIdentifier(s string) string {
 	replacer := strings.NewReplacer("-", "", "[", "", "]", "")
 	return replacer.Replace(s)
 }
+
+// firstToLower returns a string with the first character lowercased (`HelloWorld` => `helloWorld`).
+func firstToLower(s string) string {
+	if s == "" {
+		return ""
+	}
+	runes := []rune(s)
+	return string(append([]rune{unicode.ToLower(runes[0])}, runes[1:]...))
+}

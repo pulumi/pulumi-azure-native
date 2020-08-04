@@ -12163,7 +12163,7 @@ func (o HybridConnectionResponsePropertiesPtrOutput) ServiceBusSuffix() pulumi.S
 // Identifier resource specific properties
 type IdentifierProperties struct {
 	// String representation of the identity.
-	Id *string `pulumi:"id"`
+	Value *string `pulumi:"value"`
 }
 
 // IdentifierPropertiesInput is an input type that accepts IdentifierPropertiesArgs and IdentifierPropertiesOutput values.
@@ -12180,7 +12180,7 @@ type IdentifierPropertiesInput interface {
 // Identifier resource specific properties
 type IdentifierPropertiesArgs struct {
 	// String representation of the identity.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (IdentifierPropertiesArgs) ElementType() reflect.Type {
@@ -12262,8 +12262,8 @@ func (o IdentifierPropertiesOutput) ToIdentifierPropertiesPtrOutputWithContext(c
 }
 
 // String representation of the identity.
-func (o IdentifierPropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentifierProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o IdentifierPropertiesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentifierProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type IdentifierPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -12285,12 +12285,12 @@ func (o IdentifierPropertiesPtrOutput) Elem() IdentifierPropertiesOutput {
 }
 
 // String representation of the identity.
-func (o IdentifierPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
+func (o IdentifierPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentifierProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Id
+		return v.Value
 	}).(pulumi.StringPtrOutput)
 }
 

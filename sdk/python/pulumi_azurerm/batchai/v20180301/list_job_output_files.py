@@ -38,14 +38,14 @@ class AwaitableListJobOutputFilesResult(ListJobOutputFilesResult):
             value=self.value)
 
 
-def list_job_output_files(directory=None, job_name=None, linkexpiryinminutes=None, maxresults=None, outputdirectoryid=None, resource_group_name=None, opts=None):
+def list_job_output_files(directory=None, job_name=None, linkexpiryinminutes=None, max_results=None, outputdirectoryid=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str directory: The path to the directory.
     :param str job_name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
     :param float linkexpiryinminutes: The number of minutes after which the download link will expire.
-    :param float maxresults: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
+    :param float max_results: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
     :param str outputdirectoryid: Id of the job output directory. This is the OutputDirectory-->id parameter that is given by the user during Create Job.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
@@ -53,7 +53,7 @@ def list_job_output_files(directory=None, job_name=None, linkexpiryinminutes=Non
     __args__['directory'] = directory
     __args__['jobName'] = job_name
     __args__['linkexpiryinminutes'] = linkexpiryinminutes
-    __args__['maxresults'] = maxresults
+    __args__['maxResults'] = max_results
     __args__['outputdirectoryid'] = outputdirectoryid
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

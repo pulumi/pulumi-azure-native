@@ -1964,10 +1964,10 @@ type StorageAccountPropertiesCreateParameters struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
 	CustomDomain *CustomDomain `pulumi:"customDomain"`
+	// Allows https traffic only to storage service if sets to true.
+	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
 	Encryption *Encryption `pulumi:"encryption"`
-	// Allows https traffic only to storage service if sets to true.
-	SupportsHttpsTrafficOnly *bool `pulumi:"supportsHttpsTrafficOnly"`
 }
 
 // StorageAccountPropertiesCreateParametersInput is an input type that accepts StorageAccountPropertiesCreateParametersArgs and StorageAccountPropertiesCreateParametersOutput values.
@@ -1987,10 +1987,10 @@ type StorageAccountPropertiesCreateParametersArgs struct {
 	AccessTier pulumi.StringPtrInput `pulumi:"accessTier"`
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
 	CustomDomain CustomDomainPtrInput `pulumi:"customDomain"`
+	// Allows https traffic only to storage service if sets to true.
+	EnableHttpsTrafficOnly pulumi.BoolPtrInput `pulumi:"enableHttpsTrafficOnly"`
 	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
 	Encryption EncryptionPtrInput `pulumi:"encryption"`
-	// Allows https traffic only to storage service if sets to true.
-	SupportsHttpsTrafficOnly pulumi.BoolPtrInput `pulumi:"supportsHttpsTrafficOnly"`
 }
 
 func (StorageAccountPropertiesCreateParametersArgs) ElementType() reflect.Type {
@@ -2081,14 +2081,14 @@ func (o StorageAccountPropertiesCreateParametersOutput) CustomDomain() CustomDom
 	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *CustomDomain { return v.CustomDomain }).(CustomDomainPtrOutput)
 }
 
+// Allows https traffic only to storage service if sets to true.
+func (o StorageAccountPropertiesCreateParametersOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
+}
+
 // Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
 func (o StorageAccountPropertiesCreateParametersOutput) Encryption() EncryptionPtrOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *Encryption { return v.Encryption }).(EncryptionPtrOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesCreateParametersOutput) SupportsHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.SupportsHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
 }
 
 type StorageAccountPropertiesCreateParametersPtrOutput struct{ *pulumi.OutputState }
@@ -2129,6 +2129,16 @@ func (o StorageAccountPropertiesCreateParametersPtrOutput) CustomDomain() Custom
 	}).(CustomDomainPtrOutput)
 }
 
+// Allows https traffic only to storage service if sets to true.
+func (o StorageAccountPropertiesCreateParametersPtrOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHttpsTrafficOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
 func (o StorageAccountPropertiesCreateParametersPtrOutput) Encryption() EncryptionPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *Encryption {
@@ -2137,16 +2147,6 @@ func (o StorageAccountPropertiesCreateParametersPtrOutput) Encryption() Encrypti
 		}
 		return v.Encryption
 	}).(EncryptionPtrOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) SupportsHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SupportsHttpsTrafficOnly
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Properties of the storage account.

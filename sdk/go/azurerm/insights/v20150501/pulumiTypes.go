@@ -1896,7 +1896,7 @@ func (o WebTestTypeOutput) Type() pulumi.StringOutput {
 // Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocation struct {
 	// Location ID for the webtest to run from.
-	Id *string `pulumi:"Id"`
+	Location *string `pulumi:"location"`
 }
 
 // WebTestGeolocationInput is an input type that accepts WebTestGeolocationArgs and WebTestGeolocationOutput values.
@@ -1913,7 +1913,7 @@ type WebTestGeolocationInput interface {
 // Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationArgs struct {
 	// Location ID for the webtest to run from.
-	Id pulumi.StringPtrInput `pulumi:"Id"`
+	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
 func (WebTestGeolocationArgs) ElementType() reflect.Type {
@@ -1969,8 +1969,8 @@ func (o WebTestGeolocationOutput) ToWebTestGeolocationOutputWithContext(ctx cont
 }
 
 // Location ID for the webtest to run from.
-func (o WebTestGeolocationOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebTestGeolocation) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o WebTestGeolocationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestGeolocation) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 type WebTestGeolocationArrayOutput struct{ *pulumi.OutputState }
@@ -2103,18 +2103,18 @@ type WebTestProperties struct {
 	Enabled *bool `pulumi:"Enabled"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency *int `pulumi:"Frequency"`
-	// The kind of web test this is, valid choices are ping and multistep.
-	Kind string `pulumi:"Kind"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	Locations []WebTestGeolocation `pulumi:"Locations"`
-	// User defined name if this WebTest.
-	Name string `pulumi:"Name"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled *bool `pulumi:"RetryEnabled"`
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId string `pulumi:"SyntheticMonitorId"`
 	// Seconds until this WebTest will timeout and fail. Default value is 30.
 	Timeout *int `pulumi:"Timeout"`
+	// The kind of web test this is, valid choices are ping and multistep.
+	WebTestKind string `pulumi:"webTestKind"`
+	// User defined name if this WebTest.
+	WebTestName string `pulumi:"webTestName"`
 }
 
 // WebTestPropertiesInput is an input type that accepts WebTestPropertiesArgs and WebTestPropertiesOutput values.
@@ -2138,18 +2138,18 @@ type WebTestPropertiesArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"Enabled"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrInput `pulumi:"Frequency"`
-	// The kind of web test this is, valid choices are ping and multistep.
-	Kind pulumi.StringInput `pulumi:"Kind"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	Locations WebTestGeolocationArrayInput `pulumi:"Locations"`
-	// User defined name if this WebTest.
-	Name pulumi.StringInput `pulumi:"Name"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled pulumi.BoolPtrInput `pulumi:"RetryEnabled"`
 	// Unique ID of this WebTest. This is typically the same value as the Name field.
 	SyntheticMonitorId pulumi.StringInput `pulumi:"SyntheticMonitorId"`
 	// Seconds until this WebTest will timeout and fail. Default value is 30.
 	Timeout pulumi.IntPtrInput `pulumi:"Timeout"`
+	// The kind of web test this is, valid choices are ping and multistep.
+	WebTestKind pulumi.StringInput `pulumi:"webTestKind"`
+	// User defined name if this WebTest.
+	WebTestName pulumi.StringInput `pulumi:"webTestName"`
 }
 
 func (WebTestPropertiesArgs) ElementType() reflect.Type {
@@ -2250,19 +2250,9 @@ func (o WebTestPropertiesOutput) Frequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebTestProperties) *int { return v.Frequency }).(pulumi.IntPtrOutput)
 }
 
-// The kind of web test this is, valid choices are ping and multistep.
-func (o WebTestPropertiesOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v WebTestProperties) string { return v.Kind }).(pulumi.StringOutput)
-}
-
 // A list of where to physically run the tests from to give global coverage for accessibility of your application.
 func (o WebTestPropertiesOutput) Locations() WebTestGeolocationArrayOutput {
 	return o.ApplyT(func(v WebTestProperties) []WebTestGeolocation { return v.Locations }).(WebTestGeolocationArrayOutput)
-}
-
-// User defined name if this WebTest.
-func (o WebTestPropertiesOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebTestProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Allow for retries should this WebTest fail.
@@ -2278,6 +2268,16 @@ func (o WebTestPropertiesOutput) SyntheticMonitorId() pulumi.StringOutput {
 // Seconds until this WebTest will timeout and fail. Default value is 30.
 func (o WebTestPropertiesOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebTestProperties) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The kind of web test this is, valid choices are ping and multistep.
+func (o WebTestPropertiesOutput) WebTestKind() pulumi.StringOutput {
+	return o.ApplyT(func(v WebTestProperties) string { return v.WebTestKind }).(pulumi.StringOutput)
+}
+
+// User defined name if this WebTest.
+func (o WebTestPropertiesOutput) WebTestName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebTestProperties) string { return v.WebTestName }).(pulumi.StringOutput)
 }
 
 type WebTestPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2338,16 +2338,6 @@ func (o WebTestPropertiesPtrOutput) Frequency() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The kind of web test this is, valid choices are ping and multistep.
-func (o WebTestPropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebTestProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // A list of where to physically run the tests from to give global coverage for accessibility of your application.
 func (o WebTestPropertiesPtrOutput) Locations() WebTestGeolocationArrayOutput {
 	return o.ApplyT(func(v *WebTestProperties) []WebTestGeolocation {
@@ -2356,16 +2346,6 @@ func (o WebTestPropertiesPtrOutput) Locations() WebTestGeolocationArrayOutput {
 		}
 		return v.Locations
 	}).(WebTestGeolocationArrayOutput)
-}
-
-// User defined name if this WebTest.
-func (o WebTestPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebTestProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 // Allow for retries should this WebTest fail.
@@ -2396,6 +2376,26 @@ func (o WebTestPropertiesPtrOutput) Timeout() pulumi.IntPtrOutput {
 		}
 		return v.Timeout
 	}).(pulumi.IntPtrOutput)
+}
+
+// The kind of web test this is, valid choices are ping and multistep.
+func (o WebTestPropertiesPtrOutput) WebTestKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebTestProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebTestKind
+	}).(pulumi.StringPtrOutput)
+}
+
+// User defined name if this WebTest.
+func (o WebTestPropertiesPtrOutput) WebTestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebTestProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebTestName
+	}).(pulumi.StringPtrOutput)
 }
 
 // An XML configuration specification for a WebTest.
@@ -3094,12 +3094,12 @@ func (o WorkbookTypeOutput) Type() pulumi.StringOutput {
 type WorkbookProperties struct {
 	// Workbook category, as defined by the user at creation time.
 	Category string `pulumi:"category"`
-	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Kind string `pulumi:"kind"`
 	// The user-defined name of the workbook.
 	Name string `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData string `pulumi:"serializedData"`
+	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	SharedTypeKind string `pulumi:"sharedTypeKind"`
 	// Optional resourceId for a source resource.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// A list of 0 or more tags that are associated with this workbook definition
@@ -3127,12 +3127,12 @@ type WorkbookPropertiesInput interface {
 type WorkbookPropertiesArgs struct {
 	// Workbook category, as defined by the user at creation time.
 	Category pulumi.StringInput `pulumi:"category"`
-	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Kind pulumi.StringInput `pulumi:"kind"`
 	// The user-defined name of the workbook.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
 	SerializedData pulumi.StringInput `pulumi:"serializedData"`
+	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	SharedTypeKind pulumi.StringInput `pulumi:"sharedTypeKind"`
 	// Optional resourceId for a source resource.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 	// A list of 0 or more tags that are associated with this workbook definition
@@ -3228,11 +3228,6 @@ func (o WorkbookPropertiesOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookProperties) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-func (o WorkbookPropertiesOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkbookProperties) string { return v.Kind }).(pulumi.StringOutput)
-}
-
 // The user-defined name of the workbook.
 func (o WorkbookPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookProperties) string { return v.Name }).(pulumi.StringOutput)
@@ -3241,6 +3236,11 @@ func (o WorkbookPropertiesOutput) Name() pulumi.StringOutput {
 // Configuration of this particular workbook. Configuration data is a string containing valid JSON
 func (o WorkbookPropertiesOutput) SerializedData() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookProperties) string { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+func (o WorkbookPropertiesOutput) SharedTypeKind() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkbookProperties) string { return v.SharedTypeKind }).(pulumi.StringOutput)
 }
 
 // Optional resourceId for a source resource.
@@ -3296,16 +3296,6 @@ func (o WorkbookPropertiesPtrOutput) Category() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-func (o WorkbookPropertiesPtrOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkbookProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Kind
-	}).(pulumi.StringPtrOutput)
-}
-
 // The user-defined name of the workbook.
 func (o WorkbookPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookProperties) *string {
@@ -3323,6 +3313,16 @@ func (o WorkbookPropertiesPtrOutput) SerializedData() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.SerializedData
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+func (o WorkbookPropertiesPtrOutput) SharedTypeKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SharedTypeKind
 	}).(pulumi.StringPtrOutput)
 }
 

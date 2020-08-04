@@ -45,8 +45,8 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         /// <summary>
         /// The maximum number of items to return in the response. A maximum of 1000 files can be returned.
         /// </summary>
-        [Input("maxresults")]
-        public int? Maxresults { get; set; }
+        [Input("maxResults")]
+        public int? MaxResults { get; set; }
 
         /// <summary>
         /// Id of the job output directory. This is the OutputDirectory--&gt;id parameter that is given by the user during Create Job.

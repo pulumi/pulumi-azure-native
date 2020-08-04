@@ -18,8 +18,8 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Inputs
         /// <summary>
         /// The autoscale configurations.
         /// </summary>
-        [Input("autoscale")]
-        public Input<Inputs.AutoscaleArgs>? Autoscale { get; set; }
+        [Input("autoscaleConfiguration")]
+        public Input<Inputs.AutoscaleArgs>? AutoscaleConfiguration { get; set; }
 
         [Input("dataDisksGroups")]
         private InputList<Inputs.DataDisksGroupsArgs>? _dataDisksGroups;

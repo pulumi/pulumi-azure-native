@@ -202,7 +202,6 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 	}
 
 	inputMap := inputs.Mappable()
-	nameParam := nameParameter(res.Path)
 
 	// Validate inputs against PUT parameters.
 	for _, param := range res.PutParameters {
@@ -221,8 +220,8 @@ func (k *azurermProvider) Check(ctx context.Context, req *rpc.CheckRequest) (*rp
 		}
 
 		name := param.Name
-		if param.Name == nameParam {
-			name = "name"
+		if param.Value.SdkName != "" {
+			name = param.Value.SdkName
 		}
 
 		if value, has := inputMap[name]; has {
@@ -789,43 +788,35 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 		"path":  {},
 	}
 
-	nameParam := nameParameter(path)
-
 	for _, param := range parameters {
 		if param.Location == "body" {
-			for _, name := range param.Body.RequiredProperties {
-				if _, has := methodInputs[name]; !has {
-					return "", nil, nil, fmt.Errorf("missing required property '%s' in '%s'", name, param.Name)
+			for name, prop := range param.Body.Properties {
+				sdkName := name
+				if prop.SdkName != "" {
+					sdkName = prop.SdkName
 				}
-			}
-			for name, _ := range param.Body.Properties {
-				if value, has := methodInputs[name]; has {
+				if value, has := methodInputs[sdkName]; has {
 					params["body"][name] = value
 				}
 			}
 		} else {
 			var val interface{}
 			var has bool
+			sdkName := param.Name
+			if param.Value.SdkName != "" {
+				sdkName = param.Value.SdkName
+			}
 			if param.Source != "" {
-				val, has = locations[param.Source][param.Name]
+				val, has = locations[param.Source][sdkName]
 			} else {
 				// If not specified where to find it, look in both with `method` first
-				val, has = methodInputs[param.Name]
+				val, has = methodInputs[sdkName]
 				if !has {
-					val, has = clientInputs[param.Name]
+					val, has = clientInputs[sdkName]
 				}
-			}
-			if !has && param.Name == nameParam {
-				// Use the universal 'name' parameter in place of a resource-specific name like `accountName`.
-				// We should find a better way to do so when we start using the Pulumi schema in the provider.
-				val, has = methodInputs["name"]
 			}
 			if has {
 				params[param.Location][param.Name] = val
-			} else {
-				if param.IsRequired {
-					return "", nil, nil, fmt.Errorf("missing required property '%s'", param.Name)
-				}
 			}
 		}
 	}
@@ -889,16 +880,4 @@ func (k *azurermProvider) getAuthorizationToken(authConfig *authentication.Confi
 
 	sender := sender.BuildSender("AzureRM")
 	return authConfig.GetAuthorizationToken(sender, oauthConfig, AuthTokenAudience)
-}
-
-// nameParameter parses the given URL path to find the name of the last template parameter.
-func nameParameter(path string) string {
-	parts := strings.Split(path, "/")
-	for i := len(parts) - 1; i >= 0; i-- {
-		part := parts[i]
-		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
-			return part[1 : len(part)-1]
-		}
-	}
-	return ""
 }

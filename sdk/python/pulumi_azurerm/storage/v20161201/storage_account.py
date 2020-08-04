@@ -92,6 +92,7 @@ class StorageAccount(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
             * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 
+          * `enable_https_traffic_only` (`pulumi.Input[bool]`) - Allows https traffic only to storage service if sets to true.
           * `encryption` (`pulumi.Input[dict]`) - Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
             * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
             * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
@@ -99,8 +100,6 @@ class StorageAccount(pulumi.CustomResource):
                 * `enabled` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service encrypts the data as it is stored.
 
               * `file` (`pulumi.Input[dict]`) - The encryption function of the file storage service.
-
-          * `supports_https_traffic_only` (`pulumi.Input[bool]`) - Allows https traffic only to storage service if sets to true.
 
         The **sku** object supports the following:
 

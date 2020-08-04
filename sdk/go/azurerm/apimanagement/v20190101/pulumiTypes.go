@@ -815,9 +815,7 @@ type ApiCreateOrUpdateProperties struct {
 	ApiRevision *string `pulumi:"apiRevision"`
 	// Description of the Api Revision.
 	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
-	// Type of Api to create.
-	//  * `http` creates a SOAP to REST API
-	//  * `soap` creates a SOAP pass-through API .
+	// Type of API.
 	ApiType *string `pulumi:"apiType"`
 	// Indicates the Version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
@@ -843,14 +841,16 @@ type ApiCreateOrUpdateProperties struct {
 	Protocols []string `pulumi:"protocols"`
 	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
 	ServiceUrl *string `pulumi:"serviceUrl"`
+	// Type of Api to create.
+	//  * `http` creates a SOAP to REST API
+	//  * `soap` creates a SOAP pass-through API .
+	SoapApiType *string `pulumi:"soapApiType"`
 	// API identifier of the source API.
 	SourceApiId *string `pulumi:"sourceApiId"`
 	// Protocols over which API is made available.
 	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContract `pulumi:"subscriptionKeyParameterNames"`
 	// Specifies whether an API or Product subscription is required for accessing the API.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
-	// Type of API.
-	Type *string `pulumi:"type"`
 	// Content value when Importing an API.
 	Value *string `pulumi:"value"`
 	// Criteria to limit import of WSDL to a subset of the document.
@@ -874,9 +874,7 @@ type ApiCreateOrUpdatePropertiesArgs struct {
 	ApiRevision pulumi.StringPtrInput `pulumi:"apiRevision"`
 	// Description of the Api Revision.
 	ApiRevisionDescription pulumi.StringPtrInput `pulumi:"apiRevisionDescription"`
-	// Type of Api to create.
-	//  * `http` creates a SOAP to REST API
-	//  * `soap` creates a SOAP pass-through API .
+	// Type of API.
 	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
 	// Indicates the Version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
@@ -902,14 +900,16 @@ type ApiCreateOrUpdatePropertiesArgs struct {
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
 	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
+	// Type of Api to create.
+	//  * `http` creates a SOAP to REST API
+	//  * `soap` creates a SOAP pass-through API .
+	SoapApiType pulumi.StringPtrInput `pulumi:"soapApiType"`
 	// API identifier of the source API.
 	SourceApiId pulumi.StringPtrInput `pulumi:"sourceApiId"`
 	// Protocols over which API is made available.
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractPtrInput `pulumi:"subscriptionKeyParameterNames"`
 	// Specifies whether an API or Product subscription is required for accessing the API.
 	SubscriptionRequired pulumi.BoolPtrInput `pulumi:"subscriptionRequired"`
-	// Type of API.
-	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Content value when Importing an API.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 	// Criteria to limit import of WSDL to a subset of the document.
@@ -1004,9 +1004,7 @@ func (o ApiCreateOrUpdatePropertiesOutput) ApiRevisionDescription() pulumi.Strin
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ApiRevisionDescription }).(pulumi.StringPtrOutput)
 }
 
-// Type of Api to create.
-//  * `http` creates a SOAP to REST API
-//  * `soap` creates a SOAP pass-through API .
+// Type of API.
 func (o ApiCreateOrUpdatePropertiesOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ApiType }).(pulumi.StringPtrOutput)
 }
@@ -1071,6 +1069,13 @@ func (o ApiCreateOrUpdatePropertiesOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
+// Type of Api to create.
+//  * `http` creates a SOAP to REST API
+//  * `soap` creates a SOAP pass-through API .
+func (o ApiCreateOrUpdatePropertiesOutput) SoapApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.SoapApiType }).(pulumi.StringPtrOutput)
+}
+
 // API identifier of the source API.
 func (o ApiCreateOrUpdatePropertiesOutput) SourceApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.SourceApiId }).(pulumi.StringPtrOutput)
@@ -1086,11 +1091,6 @@ func (o ApiCreateOrUpdatePropertiesOutput) SubscriptionKeyParameterNames() Subsc
 // Specifies whether an API or Product subscription is required for accessing the API.
 func (o ApiCreateOrUpdatePropertiesOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *bool { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
-}
-
-// Type of API.
-func (o ApiCreateOrUpdatePropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Content value when Importing an API.
@@ -1141,9 +1141,7 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) ApiRevisionDescription() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of Api to create.
-//  * `http` creates a SOAP to REST API
-//  * `soap` creates a SOAP pass-through API .
+// Type of API.
 func (o ApiCreateOrUpdatePropertiesPtrOutput) ApiType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
 		if v == nil {
@@ -1273,6 +1271,18 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) ServiceUrl() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Type of Api to create.
+//  * `http` creates a SOAP to REST API
+//  * `soap` creates a SOAP pass-through API .
+func (o ApiCreateOrUpdatePropertiesPtrOutput) SoapApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SoapApiType
+	}).(pulumi.StringPtrOutput)
+}
+
 // API identifier of the source API.
 func (o ApiCreateOrUpdatePropertiesPtrOutput) SourceApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
@@ -1301,16 +1311,6 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) SubscriptionRequired() pulumi.Bool
 		}
 		return v.SubscriptionRequired
 	}).(pulumi.BoolPtrOutput)
-}
-
-// Type of API.
-func (o ApiCreateOrUpdatePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Content value when Importing an API.

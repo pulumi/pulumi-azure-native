@@ -15,18 +15,6 @@ namespace Pulumi.AzureRM.Network.V20180501.Inputs
     /// </summary>
     public sealed class RecordSetPropertiesArgs : Pulumi.ResourceArgs
     {
-        [Input("AAAARecords")]
-        private InputList<Inputs.AaaaRecordArgs>? _AAAARecords;
-
-        /// <summary>
-        /// The list of AAAA records in the record set.
-        /// </summary>
-        public InputList<Inputs.AaaaRecordArgs> AAAARecords
-        {
-            get => _AAAARecords ?? (_AAAARecords = new InputList<Inputs.AaaaRecordArgs>());
-            set => _AAAARecords = value;
-        }
-
         [Input("ARecords")]
         private InputList<Inputs.ARecordArgs>? _ARecords;
 
@@ -40,81 +28,21 @@ namespace Pulumi.AzureRM.Network.V20180501.Inputs
         }
 
         /// <summary>
-        /// The CNAME record in the  record set.
-        /// </summary>
-        [Input("CNAMERecord")]
-        public Input<Inputs.CnameRecordArgs>? CNAMERecord { get; set; }
-
-        [Input("MXRecords")]
-        private InputList<Inputs.MxRecordArgs>? _MXRecords;
-
-        /// <summary>
-        /// The list of MX records in the record set.
-        /// </summary>
-        public InputList<Inputs.MxRecordArgs> MXRecords
-        {
-            get => _MXRecords ?? (_MXRecords = new InputList<Inputs.MxRecordArgs>());
-            set => _MXRecords = value;
-        }
-
-        [Input("NSRecords")]
-        private InputList<Inputs.NsRecordArgs>? _NSRecords;
-
-        /// <summary>
-        /// The list of NS records in the record set.
-        /// </summary>
-        public InputList<Inputs.NsRecordArgs> NSRecords
-        {
-            get => _NSRecords ?? (_NSRecords = new InputList<Inputs.NsRecordArgs>());
-            set => _NSRecords = value;
-        }
-
-        [Input("PTRRecords")]
-        private InputList<Inputs.PtrRecordArgs>? _PTRRecords;
-
-        /// <summary>
-        /// The list of PTR records in the record set.
-        /// </summary>
-        public InputList<Inputs.PtrRecordArgs> PTRRecords
-        {
-            get => _PTRRecords ?? (_PTRRecords = new InputList<Inputs.PtrRecordArgs>());
-            set => _PTRRecords = value;
-        }
-
-        /// <summary>
-        /// The SOA record in the record set.
-        /// </summary>
-        [Input("SOARecord")]
-        public Input<Inputs.SoaRecordArgs>? SOARecord { get; set; }
-
-        [Input("SRVRecords")]
-        private InputList<Inputs.SrvRecordArgs>? _SRVRecords;
-
-        /// <summary>
-        /// The list of SRV records in the record set.
-        /// </summary>
-        public InputList<Inputs.SrvRecordArgs> SRVRecords
-        {
-            get => _SRVRecords ?? (_SRVRecords = new InputList<Inputs.SrvRecordArgs>());
-            set => _SRVRecords = value;
-        }
-
-        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         [Input("TTL")]
         public Input<int>? TTL { get; set; }
 
-        [Input("TXTRecords")]
-        private InputList<Inputs.TxtRecordArgs>? _TXTRecords;
+        [Input("aaaaRecords")]
+        private InputList<Inputs.AaaaRecordArgs>? _aaaaRecords;
 
         /// <summary>
-        /// The list of TXT records in the record set.
+        /// The list of AAAA records in the record set.
         /// </summary>
-        public InputList<Inputs.TxtRecordArgs> TXTRecords
+        public InputList<Inputs.AaaaRecordArgs> AaaaRecords
         {
-            get => _TXTRecords ?? (_TXTRecords = new InputList<Inputs.TxtRecordArgs>());
-            set => _TXTRecords = value;
+            get => _aaaaRecords ?? (_aaaaRecords = new InputList<Inputs.AaaaRecordArgs>());
+            set => _aaaaRecords = value;
         }
 
         [Input("caaRecords")]
@@ -129,6 +57,12 @@ namespace Pulumi.AzureRM.Network.V20180501.Inputs
             set => _caaRecords = value;
         }
 
+        /// <summary>
+        /// The CNAME record in the  record set.
+        /// </summary>
+        [Input("cnameRecord")]
+        public Input<Inputs.CnameRecordArgs>? CnameRecord { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 
@@ -141,11 +75,77 @@ namespace Pulumi.AzureRM.Network.V20180501.Inputs
             set => _metadata = value;
         }
 
+        [Input("mxRecords")]
+        private InputList<Inputs.MxRecordArgs>? _mxRecords;
+
+        /// <summary>
+        /// The list of MX records in the record set.
+        /// </summary>
+        public InputList<Inputs.MxRecordArgs> MxRecords
+        {
+            get => _mxRecords ?? (_mxRecords = new InputList<Inputs.MxRecordArgs>());
+            set => _mxRecords = value;
+        }
+
+        [Input("nsRecords")]
+        private InputList<Inputs.NsRecordArgs>? _nsRecords;
+
+        /// <summary>
+        /// The list of NS records in the record set.
+        /// </summary>
+        public InputList<Inputs.NsRecordArgs> NsRecords
+        {
+            get => _nsRecords ?? (_nsRecords = new InputList<Inputs.NsRecordArgs>());
+            set => _nsRecords = value;
+        }
+
+        [Input("ptrRecords")]
+        private InputList<Inputs.PtrRecordArgs>? _ptrRecords;
+
+        /// <summary>
+        /// The list of PTR records in the record set.
+        /// </summary>
+        public InputList<Inputs.PtrRecordArgs> PtrRecords
+        {
+            get => _ptrRecords ?? (_ptrRecords = new InputList<Inputs.PtrRecordArgs>());
+            set => _ptrRecords = value;
+        }
+
+        /// <summary>
+        /// The SOA record in the record set.
+        /// </summary>
+        [Input("soaRecord")]
+        public Input<Inputs.SoaRecordArgs>? SoaRecord { get; set; }
+
+        [Input("srvRecords")]
+        private InputList<Inputs.SrvRecordArgs>? _srvRecords;
+
+        /// <summary>
+        /// The list of SRV records in the record set.
+        /// </summary>
+        public InputList<Inputs.SrvRecordArgs> SrvRecords
+        {
+            get => _srvRecords ?? (_srvRecords = new InputList<Inputs.SrvRecordArgs>());
+            set => _srvRecords = value;
+        }
+
         /// <summary>
         /// A reference to an azure resource from where the dns resource value is taken.
         /// </summary>
         [Input("targetResource")]
         public Input<Inputs.SubResourceArgs>? TargetResource { get; set; }
+
+        [Input("txtRecords")]
+        private InputList<Inputs.TxtRecordArgs>? _txtRecords;
+
+        /// <summary>
+        /// The list of TXT records in the record set.
+        /// </summary>
+        public InputList<Inputs.TxtRecordArgs> TxtRecords
+        {
+            get => _txtRecords ?? (_txtRecords = new InputList<Inputs.TxtRecordArgs>());
+            set => _txtRecords = value;
+        }
 
         public RecordSetPropertiesArgs()
         {

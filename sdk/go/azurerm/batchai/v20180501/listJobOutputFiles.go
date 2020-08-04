@@ -26,7 +26,7 @@ type ListJobOutputFilesArgs struct {
 	// The number of minutes after which the download link will expire.
 	Linkexpiryinminutes *int `pulumi:"linkexpiryinminutes"`
 	// The maximum number of items to return in the response. A maximum of 1000 files can be returned.
-	Maxresults *int `pulumi:"maxresults"`
+	MaxResults *int `pulumi:"maxResults"`
 	// Id of the job output directory. This is the OutputDirectory-->id parameter that is given by the user during Create Job.
 	Outputdirectoryid string `pulumi:"outputdirectoryid"`
 	// Name of the resource group to which the resource belongs.

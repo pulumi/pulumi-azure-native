@@ -24,8 +24,8 @@ namespace Pulumi.AzureRM.Storage.V20170601.Inputs
         /// <summary>
         /// Properties provided by key vault.
         /// </summary>
-        [Input("keyvaultproperties")]
-        public Input<Inputs.KeyVaultPropertiesArgs>? Keyvaultproperties { get; set; }
+        [Input("keyVaultProperties")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
         /// <summary>
         /// List of services which support encryption.

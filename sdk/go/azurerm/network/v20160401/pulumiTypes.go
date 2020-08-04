@@ -1380,28 +1380,28 @@ func (o RecordSetTypeOutput) Type() pulumi.StringPtrOutput {
 
 // Represents the properties of the records in the record set.
 type RecordSetProperties struct {
-	// The list of AAAA records in the record set.
-	AAAARecords []AaaaRecord `pulumi:"AAAARecords"`
 	// The list of A records in the record set.
 	ARecords []ARecord `pulumi:"ARecords"`
-	// The CNAME record in the  record set.
-	CNAMERecord *CnameRecord `pulumi:"CNAMERecord"`
-	// The list of MX records in the record set.
-	MXRecords []MxRecord `pulumi:"MXRecords"`
-	// The list of NS records in the record set.
-	NSRecords []NsRecord `pulumi:"NSRecords"`
-	// The list of PTR records in the record set.
-	PTRRecords []PtrRecord `pulumi:"PTRRecords"`
-	// The SOA record in the record set.
-	SOARecord *SoaRecord `pulumi:"SOARecord"`
-	// The list of SRV records in the record set.
-	SRVRecords []SrvRecord `pulumi:"SRVRecords"`
 	// The TTL (time-to-live) of the records in the record set.
 	TTL *int `pulumi:"TTL"`
-	// The list of TXT records in the record set.
-	TXTRecords []TxtRecord `pulumi:"TXTRecords"`
+	// The list of AAAA records in the record set.
+	AaaaRecords []AaaaRecord `pulumi:"aaaaRecords"`
+	// The CNAME record in the  record set.
+	CnameRecord *CnameRecord `pulumi:"cnameRecord"`
 	// The metadata attached to the record set.
 	Metadata map[string]string `pulumi:"metadata"`
+	// The list of MX records in the record set.
+	MxRecords []MxRecord `pulumi:"mxRecords"`
+	// The list of NS records in the record set.
+	NsRecords []NsRecord `pulumi:"nsRecords"`
+	// The list of PTR records in the record set.
+	PtrRecords []PtrRecord `pulumi:"ptrRecords"`
+	// The SOA record in the record set.
+	SoaRecord *SoaRecord `pulumi:"soaRecord"`
+	// The list of SRV records in the record set.
+	SrvRecords []SrvRecord `pulumi:"srvRecords"`
+	// The list of TXT records in the record set.
+	TxtRecords []TxtRecord `pulumi:"txtRecords"`
 }
 
 // RecordSetPropertiesInput is an input type that accepts RecordSetPropertiesArgs and RecordSetPropertiesOutput values.
@@ -1417,28 +1417,28 @@ type RecordSetPropertiesInput interface {
 
 // Represents the properties of the records in the record set.
 type RecordSetPropertiesArgs struct {
-	// The list of AAAA records in the record set.
-	AAAARecords AaaaRecordArrayInput `pulumi:"AAAARecords"`
 	// The list of A records in the record set.
 	ARecords ARecordArrayInput `pulumi:"ARecords"`
-	// The CNAME record in the  record set.
-	CNAMERecord CnameRecordPtrInput `pulumi:"CNAMERecord"`
-	// The list of MX records in the record set.
-	MXRecords MxRecordArrayInput `pulumi:"MXRecords"`
-	// The list of NS records in the record set.
-	NSRecords NsRecordArrayInput `pulumi:"NSRecords"`
-	// The list of PTR records in the record set.
-	PTRRecords PtrRecordArrayInput `pulumi:"PTRRecords"`
-	// The SOA record in the record set.
-	SOARecord SoaRecordPtrInput `pulumi:"SOARecord"`
-	// The list of SRV records in the record set.
-	SRVRecords SrvRecordArrayInput `pulumi:"SRVRecords"`
 	// The TTL (time-to-live) of the records in the record set.
 	TTL pulumi.IntPtrInput `pulumi:"TTL"`
-	// The list of TXT records in the record set.
-	TXTRecords TxtRecordArrayInput `pulumi:"TXTRecords"`
+	// The list of AAAA records in the record set.
+	AaaaRecords AaaaRecordArrayInput `pulumi:"aaaaRecords"`
+	// The CNAME record in the  record set.
+	CnameRecord CnameRecordPtrInput `pulumi:"cnameRecord"`
 	// The metadata attached to the record set.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The list of MX records in the record set.
+	MxRecords MxRecordArrayInput `pulumi:"mxRecords"`
+	// The list of NS records in the record set.
+	NsRecords NsRecordArrayInput `pulumi:"nsRecords"`
+	// The list of PTR records in the record set.
+	PtrRecords PtrRecordArrayInput `pulumi:"ptrRecords"`
+	// The SOA record in the record set.
+	SoaRecord SoaRecordPtrInput `pulumi:"soaRecord"`
+	// The list of SRV records in the record set.
+	SrvRecords SrvRecordArrayInput `pulumi:"srvRecords"`
+	// The list of TXT records in the record set.
+	TxtRecords TxtRecordArrayInput `pulumi:"txtRecords"`
 }
 
 func (RecordSetPropertiesArgs) ElementType() reflect.Type {
@@ -1519,44 +1519,9 @@ func (o RecordSetPropertiesOutput) ToRecordSetPropertiesPtrOutputWithContext(ctx
 	}).(RecordSetPropertiesPtrOutput)
 }
 
-// The list of AAAA records in the record set.
-func (o RecordSetPropertiesOutput) AAAARecords() AaaaRecordArrayOutput {
-	return o.ApplyT(func(v RecordSetProperties) []AaaaRecord { return v.AAAARecords }).(AaaaRecordArrayOutput)
-}
-
 // The list of A records in the record set.
 func (o RecordSetPropertiesOutput) ARecords() ARecordArrayOutput {
 	return o.ApplyT(func(v RecordSetProperties) []ARecord { return v.ARecords }).(ARecordArrayOutput)
-}
-
-// The CNAME record in the  record set.
-func (o RecordSetPropertiesOutput) CNAMERecord() CnameRecordPtrOutput {
-	return o.ApplyT(func(v RecordSetProperties) *CnameRecord { return v.CNAMERecord }).(CnameRecordPtrOutput)
-}
-
-// The list of MX records in the record set.
-func (o RecordSetPropertiesOutput) MXRecords() MxRecordArrayOutput {
-	return o.ApplyT(func(v RecordSetProperties) []MxRecord { return v.MXRecords }).(MxRecordArrayOutput)
-}
-
-// The list of NS records in the record set.
-func (o RecordSetPropertiesOutput) NSRecords() NsRecordArrayOutput {
-	return o.ApplyT(func(v RecordSetProperties) []NsRecord { return v.NSRecords }).(NsRecordArrayOutput)
-}
-
-// The list of PTR records in the record set.
-func (o RecordSetPropertiesOutput) PTRRecords() PtrRecordArrayOutput {
-	return o.ApplyT(func(v RecordSetProperties) []PtrRecord { return v.PTRRecords }).(PtrRecordArrayOutput)
-}
-
-// The SOA record in the record set.
-func (o RecordSetPropertiesOutput) SOARecord() SoaRecordPtrOutput {
-	return o.ApplyT(func(v RecordSetProperties) *SoaRecord { return v.SOARecord }).(SoaRecordPtrOutput)
-}
-
-// The list of SRV records in the record set.
-func (o RecordSetPropertiesOutput) SRVRecords() SrvRecordArrayOutput {
-	return o.ApplyT(func(v RecordSetProperties) []SrvRecord { return v.SRVRecords }).(SrvRecordArrayOutput)
 }
 
 // The TTL (time-to-live) of the records in the record set.
@@ -1564,14 +1529,49 @@ func (o RecordSetPropertiesOutput) TTL() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecordSetProperties) *int { return v.TTL }).(pulumi.IntPtrOutput)
 }
 
-// The list of TXT records in the record set.
-func (o RecordSetPropertiesOutput) TXTRecords() TxtRecordArrayOutput {
-	return o.ApplyT(func(v RecordSetProperties) []TxtRecord { return v.TXTRecords }).(TxtRecordArrayOutput)
+// The list of AAAA records in the record set.
+func (o RecordSetPropertiesOutput) AaaaRecords() AaaaRecordArrayOutput {
+	return o.ApplyT(func(v RecordSetProperties) []AaaaRecord { return v.AaaaRecords }).(AaaaRecordArrayOutput)
+}
+
+// The CNAME record in the  record set.
+func (o RecordSetPropertiesOutput) CnameRecord() CnameRecordPtrOutput {
+	return o.ApplyT(func(v RecordSetProperties) *CnameRecord { return v.CnameRecord }).(CnameRecordPtrOutput)
 }
 
 // The metadata attached to the record set.
 func (o RecordSetPropertiesOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RecordSetProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The list of MX records in the record set.
+func (o RecordSetPropertiesOutput) MxRecords() MxRecordArrayOutput {
+	return o.ApplyT(func(v RecordSetProperties) []MxRecord { return v.MxRecords }).(MxRecordArrayOutput)
+}
+
+// The list of NS records in the record set.
+func (o RecordSetPropertiesOutput) NsRecords() NsRecordArrayOutput {
+	return o.ApplyT(func(v RecordSetProperties) []NsRecord { return v.NsRecords }).(NsRecordArrayOutput)
+}
+
+// The list of PTR records in the record set.
+func (o RecordSetPropertiesOutput) PtrRecords() PtrRecordArrayOutput {
+	return o.ApplyT(func(v RecordSetProperties) []PtrRecord { return v.PtrRecords }).(PtrRecordArrayOutput)
+}
+
+// The SOA record in the record set.
+func (o RecordSetPropertiesOutput) SoaRecord() SoaRecordPtrOutput {
+	return o.ApplyT(func(v RecordSetProperties) *SoaRecord { return v.SoaRecord }).(SoaRecordPtrOutput)
+}
+
+// The list of SRV records in the record set.
+func (o RecordSetPropertiesOutput) SrvRecords() SrvRecordArrayOutput {
+	return o.ApplyT(func(v RecordSetProperties) []SrvRecord { return v.SrvRecords }).(SrvRecordArrayOutput)
+}
+
+// The list of TXT records in the record set.
+func (o RecordSetPropertiesOutput) TxtRecords() TxtRecordArrayOutput {
+	return o.ApplyT(func(v RecordSetProperties) []TxtRecord { return v.TxtRecords }).(TxtRecordArrayOutput)
 }
 
 type RecordSetPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1592,16 +1592,6 @@ func (o RecordSetPropertiesPtrOutput) Elem() RecordSetPropertiesOutput {
 	return o.ApplyT(func(v *RecordSetProperties) RecordSetProperties { return *v }).(RecordSetPropertiesOutput)
 }
 
-// The list of AAAA records in the record set.
-func (o RecordSetPropertiesPtrOutput) AAAARecords() AaaaRecordArrayOutput {
-	return o.ApplyT(func(v *RecordSetProperties) []AaaaRecord {
-		if v == nil {
-			return nil
-		}
-		return v.AAAARecords
-	}).(AaaaRecordArrayOutput)
-}
-
 // The list of A records in the record set.
 func (o RecordSetPropertiesPtrOutput) ARecords() ARecordArrayOutput {
 	return o.ApplyT(func(v *RecordSetProperties) []ARecord {
@@ -1610,66 +1600,6 @@ func (o RecordSetPropertiesPtrOutput) ARecords() ARecordArrayOutput {
 		}
 		return v.ARecords
 	}).(ARecordArrayOutput)
-}
-
-// The CNAME record in the  record set.
-func (o RecordSetPropertiesPtrOutput) CNAMERecord() CnameRecordPtrOutput {
-	return o.ApplyT(func(v *RecordSetProperties) *CnameRecord {
-		if v == nil {
-			return nil
-		}
-		return v.CNAMERecord
-	}).(CnameRecordPtrOutput)
-}
-
-// The list of MX records in the record set.
-func (o RecordSetPropertiesPtrOutput) MXRecords() MxRecordArrayOutput {
-	return o.ApplyT(func(v *RecordSetProperties) []MxRecord {
-		if v == nil {
-			return nil
-		}
-		return v.MXRecords
-	}).(MxRecordArrayOutput)
-}
-
-// The list of NS records in the record set.
-func (o RecordSetPropertiesPtrOutput) NSRecords() NsRecordArrayOutput {
-	return o.ApplyT(func(v *RecordSetProperties) []NsRecord {
-		if v == nil {
-			return nil
-		}
-		return v.NSRecords
-	}).(NsRecordArrayOutput)
-}
-
-// The list of PTR records in the record set.
-func (o RecordSetPropertiesPtrOutput) PTRRecords() PtrRecordArrayOutput {
-	return o.ApplyT(func(v *RecordSetProperties) []PtrRecord {
-		if v == nil {
-			return nil
-		}
-		return v.PTRRecords
-	}).(PtrRecordArrayOutput)
-}
-
-// The SOA record in the record set.
-func (o RecordSetPropertiesPtrOutput) SOARecord() SoaRecordPtrOutput {
-	return o.ApplyT(func(v *RecordSetProperties) *SoaRecord {
-		if v == nil {
-			return nil
-		}
-		return v.SOARecord
-	}).(SoaRecordPtrOutput)
-}
-
-// The list of SRV records in the record set.
-func (o RecordSetPropertiesPtrOutput) SRVRecords() SrvRecordArrayOutput {
-	return o.ApplyT(func(v *RecordSetProperties) []SrvRecord {
-		if v == nil {
-			return nil
-		}
-		return v.SRVRecords
-	}).(SrvRecordArrayOutput)
 }
 
 // The TTL (time-to-live) of the records in the record set.
@@ -1682,14 +1612,24 @@ func (o RecordSetPropertiesPtrOutput) TTL() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The list of TXT records in the record set.
-func (o RecordSetPropertiesPtrOutput) TXTRecords() TxtRecordArrayOutput {
-	return o.ApplyT(func(v *RecordSetProperties) []TxtRecord {
+// The list of AAAA records in the record set.
+func (o RecordSetPropertiesPtrOutput) AaaaRecords() AaaaRecordArrayOutput {
+	return o.ApplyT(func(v *RecordSetProperties) []AaaaRecord {
 		if v == nil {
 			return nil
 		}
-		return v.TXTRecords
-	}).(TxtRecordArrayOutput)
+		return v.AaaaRecords
+	}).(AaaaRecordArrayOutput)
+}
+
+// The CNAME record in the  record set.
+func (o RecordSetPropertiesPtrOutput) CnameRecord() CnameRecordPtrOutput {
+	return o.ApplyT(func(v *RecordSetProperties) *CnameRecord {
+		if v == nil {
+			return nil
+		}
+		return v.CnameRecord
+	}).(CnameRecordPtrOutput)
 }
 
 // The metadata attached to the record set.
@@ -1700,6 +1640,66 @@ func (o RecordSetPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
 		}
 		return v.Metadata
 	}).(pulumi.StringMapOutput)
+}
+
+// The list of MX records in the record set.
+func (o RecordSetPropertiesPtrOutput) MxRecords() MxRecordArrayOutput {
+	return o.ApplyT(func(v *RecordSetProperties) []MxRecord {
+		if v == nil {
+			return nil
+		}
+		return v.MxRecords
+	}).(MxRecordArrayOutput)
+}
+
+// The list of NS records in the record set.
+func (o RecordSetPropertiesPtrOutput) NsRecords() NsRecordArrayOutput {
+	return o.ApplyT(func(v *RecordSetProperties) []NsRecord {
+		if v == nil {
+			return nil
+		}
+		return v.NsRecords
+	}).(NsRecordArrayOutput)
+}
+
+// The list of PTR records in the record set.
+func (o RecordSetPropertiesPtrOutput) PtrRecords() PtrRecordArrayOutput {
+	return o.ApplyT(func(v *RecordSetProperties) []PtrRecord {
+		if v == nil {
+			return nil
+		}
+		return v.PtrRecords
+	}).(PtrRecordArrayOutput)
+}
+
+// The SOA record in the record set.
+func (o RecordSetPropertiesPtrOutput) SoaRecord() SoaRecordPtrOutput {
+	return o.ApplyT(func(v *RecordSetProperties) *SoaRecord {
+		if v == nil {
+			return nil
+		}
+		return v.SoaRecord
+	}).(SoaRecordPtrOutput)
+}
+
+// The list of SRV records in the record set.
+func (o RecordSetPropertiesPtrOutput) SrvRecords() SrvRecordArrayOutput {
+	return o.ApplyT(func(v *RecordSetProperties) []SrvRecord {
+		if v == nil {
+			return nil
+		}
+		return v.SrvRecords
+	}).(SrvRecordArrayOutput)
+}
+
+// The list of TXT records in the record set.
+func (o RecordSetPropertiesPtrOutput) TxtRecords() TxtRecordArrayOutput {
+	return o.ApplyT(func(v *RecordSetProperties) []TxtRecord {
+		if v == nil {
+			return nil
+		}
+		return v.TxtRecords
+	}).(TxtRecordArrayOutput)
 }
 
 // Represents the properties of the records in the record set.
@@ -2035,7 +2035,7 @@ type SoaRecord struct {
 	// The domain name of the authoritative name server for this SOA record.
 	Host *string `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTTL *int `pulumi:"minimumTTL"`
+	MinimumTtl *int `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
 	RefreshTime *int `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
@@ -2064,7 +2064,7 @@ type SoaRecordArgs struct {
 	// The domain name of the authoritative name server for this SOA record.
 	Host pulumi.StringPtrInput `pulumi:"host"`
 	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTTL pulumi.IntPtrInput `pulumi:"minimumTTL"`
+	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
 	// The refresh value for this SOA record.
 	RefreshTime pulumi.IntPtrInput `pulumi:"refreshTime"`
 	// The retry time for this SOA record.
@@ -2167,8 +2167,8 @@ func (o SoaRecordOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordOutput) MinimumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *int { return v.MinimumTTL }).(pulumi.IntPtrOutput)
+func (o SoaRecordOutput) MinimumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SoaRecord) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
 }
 
 // The refresh value for this SOA record.
@@ -2235,12 +2235,12 @@ func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-func (o SoaRecordPtrOutput) MinimumTTL() pulumi.IntPtrOutput {
+func (o SoaRecordPtrOutput) MinimumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MinimumTTL
+		return v.MinimumTtl
 	}).(pulumi.IntPtrOutput)
 }
 

@@ -5239,8 +5239,6 @@ func (o VirtualNetworkProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 type VnetRouteProperties struct {
 	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
 	EndAddress *string `pulumi:"endAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	Name *string `pulumi:"name"`
 	// The type of route this is:
 	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 	// INHERITED - Routes inherited from the real Virtual Network routes
@@ -5250,6 +5248,8 @@ type VnetRouteProperties struct {
 	RouteType *string `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress *string `pulumi:"startAddress"`
+	// The name of this route. This is only returned by the server and does not need to be set by the client.
+	VnetRouteName *string `pulumi:"vnetRouteName"`
 }
 
 // VnetRoutePropertiesInput is an input type that accepts VnetRoutePropertiesArgs and VnetRoutePropertiesOutput values.
@@ -5267,8 +5267,6 @@ type VnetRoutePropertiesInput interface {
 type VnetRoutePropertiesArgs struct {
 	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
 	EndAddress pulumi.StringPtrInput `pulumi:"endAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of route this is:
 	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 	// INHERITED - Routes inherited from the real Virtual Network routes
@@ -5278,6 +5276,8 @@ type VnetRoutePropertiesArgs struct {
 	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
+	// The name of this route. This is only returned by the server and does not need to be set by the client.
+	VnetRouteName pulumi.StringPtrInput `pulumi:"vnetRouteName"`
 }
 
 func (VnetRoutePropertiesArgs) ElementType() reflect.Type {
@@ -5363,11 +5363,6 @@ func (o VnetRoutePropertiesOutput) EndAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteProperties) *string { return v.EndAddress }).(pulumi.StringPtrOutput)
 }
 
-// The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
 // The type of route this is:
 // DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 // INHERITED - Routes inherited from the real Virtual Network routes
@@ -5381,6 +5376,11 @@ func (o VnetRoutePropertiesOutput) RouteType() pulumi.StringPtrOutput {
 // The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 func (o VnetRoutePropertiesOutput) StartAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteProperties) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name of this route. This is only returned by the server and does not need to be set by the client.
+func (o VnetRoutePropertiesOutput) VnetRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRouteProperties) *string { return v.VnetRouteName }).(pulumi.StringPtrOutput)
 }
 
 type VnetRoutePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -5411,16 +5411,6 @@ func (o VnetRoutePropertiesPtrOutput) EndAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The type of route this is:
 // DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 // INHERITED - Routes inherited from the real Virtual Network routes
@@ -5443,6 +5433,16 @@ func (o VnetRoutePropertiesPtrOutput) StartAddress() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.StartAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of this route. This is only returned by the server and does not need to be set by the client.
+func (o VnetRoutePropertiesPtrOutput) VnetRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VnetRouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteName
 	}).(pulumi.StringPtrOutput)
 }
 

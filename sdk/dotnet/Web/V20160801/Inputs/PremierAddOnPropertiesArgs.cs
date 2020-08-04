@@ -36,8 +36,8 @@ namespace Pulumi.AzureRM.Web.V20160801.Inputs
         /// <summary>
         /// Premier add on Name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("premierAddOnName")]
+        public Input<string>? PremierAddOnName { get; set; }
 
         /// <summary>
         /// Premier add on Product.

@@ -40,7 +40,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Queue resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storage.v20190601.QueuePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.QueuePropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -70,8 +70,9 @@ export class Queue extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,7 +101,7 @@ export interface QueueArgs {
     /**
      * Queue resource properties.
      */
-    readonly properties?: pulumi.Input<inputs.storage.v20190601.QueueProperties>;
+    readonly queueProperties?: pulumi.Input<inputs.storage.v20190601.QueueProperties>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

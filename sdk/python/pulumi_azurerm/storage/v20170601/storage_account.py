@@ -133,12 +133,13 @@ class StorageAccount(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
             * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 
+          * `enable_https_traffic_only` (`pulumi.Input[bool]`) - Allows https traffic only to storage service if sets to true.
           * `encryption` (`pulumi.Input[dict]`) - Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
             * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-            * `keyvaultproperties` (`pulumi.Input[dict]`) - Properties provided by key vault.
-              * `keyname` (`pulumi.Input[str]`) - The name of KeyVault key.
-              * `keyvaulturi` (`pulumi.Input[str]`) - The Uri of KeyVault.
-              * `keyversion` (`pulumi.Input[str]`) - The version of KeyVault key.
+            * `key_vault_properties` (`pulumi.Input[dict]`) - Properties provided by key vault.
+              * `key_name` (`pulumi.Input[str]`) - The name of KeyVault key.
+              * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of KeyVault.
+              * `key_version` (`pulumi.Input[str]`) - The version of KeyVault key.
 
             * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
               * `blob` (`pulumi.Input[dict]`) - The encryption function of the blob storage service.
@@ -146,19 +147,17 @@ class StorageAccount(pulumi.CustomResource):
 
               * `file` (`pulumi.Input[dict]`) - The encryption function of the file storage service.
 
-          * `network_acls` (`pulumi.Input[dict]`) - Network rule set
+          * `network_rule_set` (`pulumi.Input[dict]`) - Network rule set
             * `bypass` (`pulumi.Input[str]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
             * `default_action` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match.
             * `ip_rules` (`pulumi.Input[list]`) - Sets the IP ACL rules
               * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
-              * `value` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+              * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 
             * `virtual_network_rules` (`pulumi.Input[list]`) - Sets the virtual network rules
               * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
-              * `id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
               * `state` (`pulumi.Input[str]`) - Gets the state of virtual network rule.
-
-          * `supports_https_traffic_only` (`pulumi.Input[bool]`) - Allows https traffic only to storage service if sets to true.
+              * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 
         The **sku** object supports the following:
 

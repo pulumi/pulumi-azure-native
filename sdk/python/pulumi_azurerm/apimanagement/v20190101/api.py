@@ -73,9 +73,7 @@ class Api(pulumi.CustomResource):
 
           * `api_revision` (`pulumi.Input[str]`) - Describes the Revision of the Api. If no value is provided, default revision 1 is created
           * `api_revision_description` (`pulumi.Input[str]`) - Description of the Api Revision.
-          * `api_type` (`pulumi.Input[str]`) - Type of Api to create. 
-             * `http` creates a SOAP to REST API 
-             * `soap` creates a SOAP pass-through API .
+          * `api_type` (`pulumi.Input[str]`) - Type of API.
           * `api_version` (`pulumi.Input[str]`) - Indicates the Version identifier of the API if the API is versioned
           * `api_version_description` (`pulumi.Input[str]`) - Description of the Api Version.
           * `api_version_set` (`pulumi.Input[dict]`) - Version set details
@@ -103,13 +101,15 @@ class Api(pulumi.CustomResource):
           * `path` (`pulumi.Input[str]`) - Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
           * `protocols` (`pulumi.Input[list]`) - Describes on which protocols the operations in this API can be invoked.
           * `service_url` (`pulumi.Input[str]`) - Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+          * `soap_api_type` (`pulumi.Input[str]`) - Type of Api to create. 
+             * `http` creates a SOAP to REST API 
+             * `soap` creates a SOAP pass-through API .
           * `source_api_id` (`pulumi.Input[str]`) - API identifier of the source API.
           * `subscription_key_parameter_names` (`pulumi.Input[dict]`) - Protocols over which API is made available.
             * `header` (`pulumi.Input[str]`) - Subscription key header name.
             * `query` (`pulumi.Input[str]`) - Subscription key query string parameter name.
 
           * `subscription_required` (`pulumi.Input[bool]`) - Specifies whether an API or Product subscription is required for accessing the API.
-          * `type` (`pulumi.Input[str]`) - Type of API.
           * `value` (`pulumi.Input[str]`) - Content value when Importing an API.
           * `wsdl_selector` (`pulumi.Input[dict]`) - Criteria to limit import of WSDL to a subset of the document.
             * `wsdl_endpoint_name` (`pulumi.Input[str]`) - Name of endpoint(port) to import from WSDL

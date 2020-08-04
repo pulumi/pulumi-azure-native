@@ -24,8 +24,8 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001.Inputs
         /// <summary>
         /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("virtualNetworkResourceId", required: true)]
+        public Input<string> VirtualNetworkResourceId { get; set; } = null!;
 
         public VirtualNetworkRuleArgs()
         {

@@ -89,10 +89,10 @@ func (FileShareState) ElementType() reflect.Type {
 type fileShareArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
+	// Properties of the file share.
+	FileShareProperties *FileShareProperties `pulumi:"fileShareProperties"`
 	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	Name string `pulumi:"name"`
-	// Properties of the file share.
-	Properties *FileShareProperties `pulumi:"properties"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -101,10 +101,10 @@ type fileShareArgs struct {
 type FileShareArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
+	// Properties of the file share.
+	FileShareProperties FileSharePropertiesPtrInput
 	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	Name pulumi.StringInput
-	// Properties of the file share.
-	Properties FileSharePropertiesPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

@@ -1804,14 +1804,14 @@ func (o BackupItemResponsePropertiesOutput) WebsiteSizeInBytes() pulumi.IntOutpu
 
 // BackupRequest resource specific properties
 type BackupRequestProperties struct {
+	// Name of the backup.
+	BackupRequestName string `pulumi:"backupRequestName"`
 	// Schedule for the backup if it is executed periodically.
 	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
 	// Databases included in the backup.
 	Databases []DatabaseBackupSetting `pulumi:"databases"`
 	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Name of the backup.
-	Name string `pulumi:"name"`
 	// SAS URL to the container.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
 	// Type of the backup.
@@ -1831,14 +1831,14 @@ type BackupRequestPropertiesInput interface {
 
 // BackupRequest resource specific properties
 type BackupRequestPropertiesArgs struct {
+	// Name of the backup.
+	BackupRequestName pulumi.StringInput `pulumi:"backupRequestName"`
 	// Schedule for the backup if it is executed periodically.
 	BackupSchedule BackupSchedulePtrInput `pulumi:"backupSchedule"`
 	// Databases included in the backup.
 	Databases DatabaseBackupSettingArrayInput `pulumi:"databases"`
 	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Name of the backup.
-	Name pulumi.StringInput `pulumi:"name"`
 	// SAS URL to the container.
 	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
 	// Type of the backup.
@@ -1872,6 +1872,11 @@ func (o BackupRequestPropertiesOutput) ToBackupRequestPropertiesOutputWithContex
 	return o
 }
 
+// Name of the backup.
+func (o BackupRequestPropertiesOutput) BackupRequestName() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupRequestProperties) string { return v.BackupRequestName }).(pulumi.StringOutput)
+}
+
 // Schedule for the backup if it is executed periodically.
 func (o BackupRequestPropertiesOutput) BackupSchedule() BackupSchedulePtrOutput {
 	return o.ApplyT(func(v BackupRequestProperties) *BackupSchedule { return v.BackupSchedule }).(BackupSchedulePtrOutput)
@@ -1885,11 +1890,6 @@ func (o BackupRequestPropertiesOutput) Databases() DatabaseBackupSettingArrayOut
 // True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
 func (o BackupRequestPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackupRequestProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Name of the backup.
-func (o BackupRequestPropertiesOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupRequestProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // SAS URL to the container.
@@ -8534,7 +8534,7 @@ type PremierAddOnProperties struct {
 	// Premier add on Marketplace publisher.
 	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
 	// Premier add on Name.
-	Name *string `pulumi:"name"`
+	PremierAddOnName *string `pulumi:"premierAddOnName"`
 	// Premier add on Product.
 	Product *string `pulumi:"product"`
 	// Premier add on SKU.
@@ -8565,7 +8565,7 @@ type PremierAddOnPropertiesArgs struct {
 	// Premier add on Marketplace publisher.
 	MarketplacePublisher pulumi.StringPtrInput `pulumi:"marketplacePublisher"`
 	// Premier add on Name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	PremierAddOnName pulumi.StringPtrInput `pulumi:"premierAddOnName"`
 	// Premier add on Product.
 	Product pulumi.StringPtrInput `pulumi:"product"`
 	// Premier add on SKU.
@@ -8670,8 +8670,8 @@ func (o PremierAddOnPropertiesOutput) MarketplacePublisher() pulumi.StringPtrOut
 }
 
 // Premier add on Name.
-func (o PremierAddOnPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o PremierAddOnPropertiesOutput) PremierAddOnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.PremierAddOnName }).(pulumi.StringPtrOutput)
 }
 
 // Premier add on Product.
@@ -8743,12 +8743,12 @@ func (o PremierAddOnPropertiesPtrOutput) MarketplacePublisher() pulumi.StringPtr
 }
 
 // Premier add on Name.
-func (o PremierAddOnPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+func (o PremierAddOnPropertiesPtrOutput) PremierAddOnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PremierAddOnProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return v.PremierAddOnName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -19212,8 +19212,6 @@ func (o VnetRouteOutput) Properties() VnetRoutePropertiesPtrOutput {
 type VnetRouteProperties struct {
 	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
 	EndAddress *string `pulumi:"endAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	Name *string `pulumi:"name"`
 	// The type of route this is:
 	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 	// INHERITED - Routes inherited from the real Virtual Network routes
@@ -19223,6 +19221,8 @@ type VnetRouteProperties struct {
 	RouteType *string `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress *string `pulumi:"startAddress"`
+	// The name of this route. This is only returned by the server and does not need to be set by the client.
+	VnetRouteName *string `pulumi:"vnetRouteName"`
 }
 
 // VnetRoutePropertiesInput is an input type that accepts VnetRoutePropertiesArgs and VnetRoutePropertiesOutput values.
@@ -19240,8 +19240,6 @@ type VnetRoutePropertiesInput interface {
 type VnetRoutePropertiesArgs struct {
 	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
 	EndAddress pulumi.StringPtrInput `pulumi:"endAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of route this is:
 	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 	// INHERITED - Routes inherited from the real Virtual Network routes
@@ -19251,6 +19249,8 @@ type VnetRoutePropertiesArgs struct {
 	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
 	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
+	// The name of this route. This is only returned by the server and does not need to be set by the client.
+	VnetRouteName pulumi.StringPtrInput `pulumi:"vnetRouteName"`
 }
 
 func (VnetRoutePropertiesArgs) ElementType() reflect.Type {
@@ -19336,11 +19336,6 @@ func (o VnetRoutePropertiesOutput) EndAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteProperties) *string { return v.EndAddress }).(pulumi.StringPtrOutput)
 }
 
-// The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
 // The type of route this is:
 // DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 // INHERITED - Routes inherited from the real Virtual Network routes
@@ -19354,6 +19349,11 @@ func (o VnetRoutePropertiesOutput) RouteType() pulumi.StringPtrOutput {
 // The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 func (o VnetRoutePropertiesOutput) StartAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteProperties) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name of this route. This is only returned by the server and does not need to be set by the client.
+func (o VnetRoutePropertiesOutput) VnetRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRouteProperties) *string { return v.VnetRouteName }).(pulumi.StringPtrOutput)
 }
 
 type VnetRoutePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -19384,16 +19384,6 @@ func (o VnetRoutePropertiesPtrOutput) EndAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The type of route this is:
 // DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 // INHERITED - Routes inherited from the real Virtual Network routes
@@ -19416,6 +19406,16 @@ func (o VnetRoutePropertiesPtrOutput) StartAddress() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.StartAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of this route. This is only returned by the server and does not need to be set by the client.
+func (o VnetRoutePropertiesPtrOutput) VnetRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VnetRouteProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VnetRouteName
 	}).(pulumi.StringPtrOutput)
 }
 

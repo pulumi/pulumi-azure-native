@@ -90,11 +90,11 @@ class Registry(pulumi.CustomResource):
             * `default_action` (`pulumi.Input[str]`) - The default action of allow or deny when no other rules match.
             * `ip_rules` (`pulumi.Input[list]`) - The IP ACL rules.
               * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
-              * `value` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+              * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 
             * `virtual_network_rules` (`pulumi.Input[list]`) - The virtual network rules.
               * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
-              * `id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+              * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 
           * `policies` (`pulumi.Input[dict]`) - The policies for a container registry.
             * `quarantine_policy` (`pulumi.Input[dict]`) - The quarantine policy for a container registry.

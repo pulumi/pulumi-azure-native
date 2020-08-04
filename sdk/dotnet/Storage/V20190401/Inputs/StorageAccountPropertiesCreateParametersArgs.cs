@@ -40,6 +40,12 @@ namespace Pulumi.AzureRM.Storage.V20190401.Inputs
         public Input<Inputs.CustomDomainArgs>? CustomDomain { get; set; }
 
         /// <summary>
+        /// Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+        /// </summary>
+        [Input("enableHttpsTrafficOnly")]
+        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
+
+        /// <summary>
         /// Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
         /// </summary>
         [Input("encryption")]
@@ -66,14 +72,8 @@ namespace Pulumi.AzureRM.Storage.V20190401.Inputs
         /// <summary>
         /// Network rule set
         /// </summary>
-        [Input("networkAcls")]
-        public Input<Inputs.NetworkRuleSetArgs>? NetworkAcls { get; set; }
-
-        /// <summary>
-        /// Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
-        /// </summary>
-        [Input("supportsHttpsTrafficOnly")]
-        public Input<bool>? SupportsHttpsTrafficOnly { get; set; }
+        [Input("networkRuleSet")]
+        public Input<Inputs.NetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         public StorageAccountPropertiesCreateParametersArgs()
         {

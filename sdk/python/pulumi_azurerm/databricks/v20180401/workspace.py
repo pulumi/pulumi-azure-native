@@ -116,8 +116,8 @@ class Workspace(pulumi.CustomResource):
               * `value` (`pulumi.Input[dict]`) - The value which should be used for this field.
                 * `key_name` (`pulumi.Input[str]`) - The name of KeyVault key.
                 * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
-                * `keyvaulturi` (`pulumi.Input[str]`) - The Uri of KeyVault.
-                * `keyversion` (`pulumi.Input[str]`) - The version of KeyVault key.
+                * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of KeyVault.
+                * `key_version` (`pulumi.Input[str]`) - The version of KeyVault key.
 
             * `prepare_encryption` (`pulumi.Input[dict]`) - Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
 

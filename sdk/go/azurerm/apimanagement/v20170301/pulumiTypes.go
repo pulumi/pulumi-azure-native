@@ -728,6 +728,8 @@ func (o ApiContractPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 type ApiCreateOrUpdateProperties struct {
 	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
 	ApiRevision *string `pulumi:"apiRevision"`
+	// Type of API.
+	ApiType *string `pulumi:"apiType"`
 	// Indicates the Version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
 	// Api Version Set Contract details.
@@ -752,8 +754,6 @@ type ApiCreateOrUpdateProperties struct {
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Protocols over which API is made available.
 	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContract `pulumi:"subscriptionKeyParameterNames"`
-	// Type of API.
-	Type *string `pulumi:"type"`
 	// Criteria to limit import of WSDL to a subset of the document.
 	WsdlSelector *ApiCreateOrUpdatePropertiesProperties `pulumi:"wsdlSelector"`
 }
@@ -773,6 +773,8 @@ type ApiCreateOrUpdatePropertiesInput interface {
 type ApiCreateOrUpdatePropertiesArgs struct {
 	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
 	ApiRevision pulumi.StringPtrInput `pulumi:"apiRevision"`
+	// Type of API.
+	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
 	// Indicates the Version identifier of the API if the API is versioned
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
 	// Api Version Set Contract details.
@@ -797,8 +799,6 @@ type ApiCreateOrUpdatePropertiesArgs struct {
 	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
 	// Protocols over which API is made available.
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractPtrInput `pulumi:"subscriptionKeyParameterNames"`
-	// Type of API.
-	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Criteria to limit import of WSDL to a subset of the document.
 	WsdlSelector ApiCreateOrUpdatePropertiesPropertiesPtrInput `pulumi:"wsdlSelector"`
 }
@@ -886,6 +886,11 @@ func (o ApiCreateOrUpdatePropertiesOutput) ApiRevision() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ApiRevision }).(pulumi.StringPtrOutput)
 }
 
+// Type of API.
+func (o ApiCreateOrUpdatePropertiesOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ApiType }).(pulumi.StringPtrOutput)
+}
+
 // Indicates the Version identifier of the API if the API is versioned
 func (o ApiCreateOrUpdatePropertiesOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
@@ -948,11 +953,6 @@ func (o ApiCreateOrUpdatePropertiesOutput) SubscriptionKeyParameterNames() Subsc
 	}).(SubscriptionKeyParameterNamesContractPtrOutput)
 }
 
-// Type of API.
-func (o ApiCreateOrUpdatePropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
 // Criteria to limit import of WSDL to a subset of the document.
 func (o ApiCreateOrUpdatePropertiesOutput) WsdlSelector() ApiCreateOrUpdatePropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdateProperties) *ApiCreateOrUpdatePropertiesProperties { return v.WsdlSelector }).(ApiCreateOrUpdatePropertiesPropertiesPtrOutput)
@@ -983,6 +983,16 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) ApiRevision() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.ApiRevision
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of API.
+func (o ApiCreateOrUpdatePropertiesPtrOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1104,16 +1114,6 @@ func (o ApiCreateOrUpdatePropertiesPtrOutput) SubscriptionKeyParameterNames() Su
 		}
 		return v.SubscriptionKeyParameterNames
 	}).(SubscriptionKeyParameterNamesContractPtrOutput)
-}
-
-// Type of API.
-func (o ApiCreateOrUpdatePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiCreateOrUpdateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // Criteria to limit import of WSDL to a subset of the document.

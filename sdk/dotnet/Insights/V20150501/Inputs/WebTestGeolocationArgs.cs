@@ -18,8 +18,8 @@ namespace Pulumi.AzureRM.Insights.V20150501.Inputs
         /// <summary>
         /// Location ID for the webtest to run from.
         /// </summary>
-        [Input("Id")]
-        public Input<string>? Id { get; set; }
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         public WebTestGeolocationArgs()
         {

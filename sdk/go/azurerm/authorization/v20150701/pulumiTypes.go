@@ -712,7 +712,7 @@ type RoleDefinitionProperties struct {
 	// The role name.
 	RoleName *string `pulumi:"roleName"`
 	// The role type.
-	Type *string `pulumi:"type"`
+	RoleType *string `pulumi:"roleType"`
 }
 
 // RoleDefinitionPropertiesInput is an input type that accepts RoleDefinitionPropertiesArgs and RoleDefinitionPropertiesOutput values.
@@ -737,7 +737,7 @@ type RoleDefinitionPropertiesArgs struct {
 	// The role name.
 	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
 	// The role type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
 }
 
 func (RoleDefinitionPropertiesArgs) ElementType() reflect.Type {
@@ -839,8 +839,8 @@ func (o RoleDefinitionPropertiesOutput) RoleName() pulumi.StringPtrOutput {
 }
 
 // The role type.
-func (o RoleDefinitionPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoleDefinitionProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o RoleDefinitionPropertiesOutput) RoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleDefinitionProperties) *string { return v.RoleType }).(pulumi.StringPtrOutput)
 }
 
 type RoleDefinitionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -902,12 +902,12 @@ func (o RoleDefinitionPropertiesPtrOutput) RoleName() pulumi.StringPtrOutput {
 }
 
 // The role type.
-func (o RoleDefinitionPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+func (o RoleDefinitionPropertiesPtrOutput) RoleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleDefinitionProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return v.RoleType
 	}).(pulumi.StringPtrOutput)
 }
 

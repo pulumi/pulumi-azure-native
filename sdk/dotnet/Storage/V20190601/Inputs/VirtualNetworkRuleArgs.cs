@@ -22,16 +22,16 @@ namespace Pulumi.AzureRM.Storage.V20190601.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
         /// Gets the state of virtual network rule.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        /// </summary>
+        [Input("virtualNetworkResourceId", required: true)]
+        public Input<string> VirtualNetworkResourceId { get; set; } = null!;
 
         public VirtualNetworkRuleArgs()
         {
